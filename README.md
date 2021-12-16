@@ -1,4 +1,4 @@
-# Heroes of Argentum Server (English)
+# Heroes of Argentum Server
 
 This is the Heroes of Argentum server. The source code is a migration from the original Visual Basic 6 by using a source code translator.
 
