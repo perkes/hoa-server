@@ -16,6 +16,12 @@ After all the required libraries are installed, you compile the source:
     cmake ..
     make
 
+## Running
+
+You need websockify to convert the ws traffic from the client into TCP traffic. If you use the default settings you can do that by running this command after installing websockify:
+
+    sudo ./run 8000 :7666
+
 ## Libevent
 
 Libevent for Windows can be found with Nuget: https://www.nuget.org/packages/libevent_vc120/
