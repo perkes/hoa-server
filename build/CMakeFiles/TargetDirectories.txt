@@ -1,0 +1,3 @@
+/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles/rebuild_cache.dir
+/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles/dakaraserver.dir
+/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles/edit_cache.dir
