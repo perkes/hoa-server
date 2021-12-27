@@ -61,7 +61,6 @@ namespace client {
 enum ClientPacketID { 
     ClientPacketID_LoginExistingChar = 0,
     ClientPacketID_ThrowDices = 1,
-    ClientPacketID_LoginNewChar = 2,
     ClientPacketID_Talk = 3,
     ClientPacketID_Yell = 4,
     ClientPacketID_Whisper = 5,
@@ -166,7 +165,7 @@ enum ClientPacketID {
     ClientPacketID_ChangeDescription = 104,
     ClientPacketID_GuildVote = 105,
     ClientPacketID_Punishments = 106,
-    ClientPacketID_ChangePassword = 107,
+    //ClientPacketID_ChangePassword = 107,
     ClientPacketID_Gamble = 108,
     ClientPacketID_InquiryVote = 109,
     ClientPacketID_LeaveFaction = 110,
@@ -206,20 +205,17 @@ class LoginExistingChar : public ClientPacket {
 public:
     LoginExistingChar();
     LoginExistingChar(clsByteQueue* buffer);
-    LoginExistingChar(const std::string& UserName, const std::string& Password, std::uint8_t VerA, std::uint8_t VerB, std::uint8_t VerC);
+    LoginExistingChar(const std::string& wallet_address, const std::string& token_address);
 
     virtual void serialize(clsByteQueue* buffer) const;
     virtual void dispatch(PacketHandler* d);
 
-    std::string UserName; 
-    std::string Password; 
-    std::uint8_t VerA; 
-    std::uint8_t VerB; 
-    std::uint8_t VerC; 
+    std::string wallet_address; 
+    std::string token_address; 
 };
 
-inline LoginExistingChar BuildLoginExistingChar(const std::string& UserName, const std::string& Password, std::uint8_t VerA, std::uint8_t VerB, std::uint8_t VerC) {
-    return LoginExistingChar(UserName, Password, VerA, VerB, VerC);
+inline LoginExistingChar BuildLoginExistingChar(const std::string& wallet_address, const std::string& token_address) {
+    return LoginExistingChar(wallet_address, token_address);
 }
 
 class ThrowDices : public ClientPacket {
@@ -235,32 +231,6 @@ public:
 
 inline ThrowDices BuildThrowDices() {
     return ThrowDices();
-}
-
-class LoginNewChar : public ClientPacket {
-public:
-    LoginNewChar();
-    LoginNewChar(clsByteQueue* buffer);
-    LoginNewChar(const std::string& UserName, const std::string& Password, std::uint8_t VerA, std::uint8_t VerB, std::uint8_t VerC, std::uint8_t Race, std::uint8_t Gender, std::uint8_t Class, std::int16_t Head, const std::string& Mail, std::uint8_t Homeland);
-
-    virtual void serialize(clsByteQueue* buffer) const;
-    virtual void dispatch(PacketHandler* d);
-
-    std::string UserName; 
-    std::string Password; 
-    std::uint8_t VerA; 
-    std::uint8_t VerB; 
-    std::uint8_t VerC; 
-    std::uint8_t Race; 
-    std::uint8_t Gender; 
-    std::uint8_t Class; 
-    std::int16_t Head; 
-    std::string Mail; 
-    std::uint8_t Homeland; 
-};
-
-inline LoginNewChar BuildLoginNewChar(const std::string& UserName, const std::string& Password, std::uint8_t VerA, std::uint8_t VerB, std::uint8_t VerC, std::uint8_t Race, std::uint8_t Gender, std::uint8_t Class, std::int16_t Head, const std::string& Mail, std::uint8_t Homeland) {
-    return LoginNewChar(UserName, Password, VerA, VerB, VerC, Race, Gender, Class, Head, Mail, Homeland);
 }
 
 class Talk : public ClientPacket {
@@ -1903,23 +1873,6 @@ inline Punishments BuildPunishments(const std::string& Name) {
     return Punishments(Name);
 }
 
-class ChangePassword : public ClientPacket {
-public:
-    ChangePassword();
-    ChangePassword(clsByteQueue* buffer);
-    ChangePassword(const std::string& OldPass, const std::string& NewPass);
-
-    virtual void serialize(clsByteQueue* buffer) const;
-    virtual void dispatch(PacketHandler* d);
-
-    std::string OldPass; 
-    std::string NewPass; 
-};
-
-inline ChangePassword BuildChangePassword(const std::string& OldPass, const std::string& NewPass) {
-    return ChangePassword(OldPass, NewPass);
-}
-
 class Gamble : public ClientPacket {
 public:
     Gamble();
@@ -2268,7 +2221,6 @@ public:
 
     virtual void handleLoginExistingChar(LoginExistingChar* p);
     virtual void handleThrowDices(ThrowDices* p);
-    virtual void handleLoginNewChar(LoginNewChar* p);
     virtual void handleTalk(Talk* p);
     virtual void handleYell(Yell* p);
     virtual void handleWhisper(Whisper* p);
@@ -2373,7 +2325,6 @@ public:
     virtual void handleChangeDescription(ChangeDescription* p);
     virtual void handleGuildVote(GuildVote* p);
     virtual void handlePunishments(Punishments* p);
-    virtual void handleChangePassword(ChangePassword* p);
     virtual void handleGamble(Gamble* p);
     virtual void handleInquiryVote(InquiryVote* p);
     virtual void handleLeaveFaction(LeaveFaction* p);
@@ -2503,7 +2454,7 @@ enum ClientGMPacketID {
     ClientGMPacketID_ResetFactions = 98,
     ClientGMPacketID_RemoveCharFromGuild = 99,
     ClientGMPacketID_RequestCharMail = 100,
-    ClientGMPacketID_AlterPassword = 101,
+    //ClientGMPacketID_AlterPassword = 101,
     ClientGMPacketID_AlterMail = 102,
     ClientGMPacketID_AlterName = 103,
     ClientGMPacketID_ToggleCentinelActivated = 104,
@@ -4158,23 +4109,6 @@ inline RequestCharMail BuildRequestCharMail(const std::string& UserName) {
     return RequestCharMail(UserName);
 }
 
-class AlterPassword : public ClientGMPacket {
-public:
-    AlterPassword();
-    AlterPassword(clsByteQueue* buffer);
-    AlterPassword(const std::string& UserName, const std::string& CopyFrom);
-
-    virtual void serialize(clsByteQueue* buffer) const;
-    virtual void dispatch(PacketHandler* d);
-
-    std::string UserName; 
-    std::string CopyFrom; 
-};
-
-inline AlterPassword BuildAlterPassword(const std::string& UserName, const std::string& CopyFrom) {
-    return AlterPassword(UserName, CopyFrom);
-}
-
 class AlterMail : public ClientGMPacket {
 public:
     AlterMail();
@@ -5023,7 +4957,7 @@ public:
     virtual void handleResetFactions(ResetFactions* p);
     virtual void handleRemoveCharFromGuild(RemoveCharFromGuild* p);
     virtual void handleRequestCharMail(RequestCharMail* p);
-    virtual void handleAlterPassword(AlterPassword* p);
+    //virtual void handleAlterPassword(AlterPassword* p);
     virtual void handleAlterMail(AlterMail* p);
     virtual void handleAlterName(AlterName* p);
     virtual void handleToggleCentinelActivated(ToggleCentinelActivated* p);

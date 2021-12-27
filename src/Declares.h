@@ -1117,6 +1117,8 @@ struct User {
 		MascotasType.redim(1, MAXMASCOTAS);
 	}
 	std::string Name;
+	std::string CommonName;
+	std::string TokenAddress;
 	int ID = 0;
 
 	/* 'Permite que los GMs oculten su nick con el comando /SHOWNAME */

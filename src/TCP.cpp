@@ -205,7 +205,7 @@ bool ValidateSkills(int UserIndex) {
 	return retval;
 }
 
-void ConnectNewUser(int UserIndex, const std::string& Name, const std::string& Password, eRaza UserRaza,
+void ConnectNewUser(int UserIndex, const std::string& name, const std::string& token_address, eRaza UserRaza,
 		eGenero UserSexo, eClass UserClase, const std::string& UserEmail, eCiudad Hogar, int Head) {
 	/* '************************************************* */
 	/* 'Author: Unknown */
@@ -222,11 +222,6 @@ void ConnectNewUser(int UserIndex, const std::string& Name, const std::string& P
 	/* '************************************************* */
 	int i;
 
-	if (!AsciiValidos(Name) || vb6::LenB(Name) == 0) {
-		WriteErrorMsg(UserIndex, "Nombre inválido.");
-		return;
-	}
-
 	if (RegistroListaBlancaEmails) {
 		std::string cad = vb6::LCase(vb6::Trim(UserEmail));
 		if (RegistroEmailsHabilitados.find(cad) == RegistroEmailsHabilitados.end()) {
@@ -238,7 +233,7 @@ void ConnectNewUser(int UserIndex, const std::string& Name, const std::string& P
 
 	if (UserList[UserIndex].flags.UserLogged) {
 		LogCheating(
-				"El usuario " + UserList[UserIndex].Name + " ha intentado crear a " + Name + " desde la IP "
+				"El usuario " + UserList[UserIndex].Name + " ha intentado crear a " + token_address + " desde la IP "
 						+ UserList[UserIndex].ip);
 
 		/* 'Kick player ( and leave character inside :D )! */
@@ -249,7 +244,7 @@ void ConnectNewUser(int UserIndex, const std::string& Name, const std::string& P
 	}
 
 	/* '¿Existe el personaje? */
-	if (FileExist(GetCharPath(Name), 0) == true) {
+	if (FileExist(GetCharPath(token_address), 0) == true) {
 		WriteErrorMsg(UserIndex, "Ya existe el personaje.");
 		return;
 	}
@@ -262,7 +257,7 @@ void ConnectNewUser(int UserIndex, const std::string& Name, const std::string& P
 
 	if (!ValidarCabeza(UserRaza, UserSexo, Head)) {
 		LogCheating(
-				"El usuario " + Name + " ha seleccionado la cabeza " + vb6::CStr(Head) + " desde la IP "
+				"El usuario " + token_address + " ha seleccionado la cabeza " + vb6::CStr(Head) + " desde la IP "
 						+ UserList[UserIndex].ip);
 
 		WriteErrorMsg(UserIndex, "Cabeza inválida, elija una cabeza seleccionable.");
@@ -281,7 +276,8 @@ void ConnectNewUser(int UserIndex, const std::string& Name, const std::string& P
 
 	UserList[UserIndex].Reputacion.Promedio = 30 / 6;
 
-	UserList[UserIndex].Name = Name;
+	UserList[UserIndex].Name = token_address;
+	UserList[UserIndex].CommonName = name;
 	UserList[UserIndex].clase = UserClase;
 	UserList[UserIndex].raza = UserRaza;
 	UserList[UserIndex].Genero = UserSexo;
@@ -502,15 +498,12 @@ void ConnectNewUser(int UserIndex, const std::string& Name, const std::string& P
 	/* 'Valores Default de facciones al Activar nuevo usuario */
 	ResetFacciones(UserIndex);
 
-	WriteSaltedPasswordUser(Name, Password);
+	SaveUser(UserIndex, GetCharPath(token_address));
 
-	SaveUser(UserIndex, GetCharPath(Name));
-
-	LogMain("Se ha creado el personaje " + Name + " desde IP=" + UserList[UserIndex].ip);
+	LogMain("Se ha creado el personaje " + token_address + " desde IP=" + UserList[UserIndex].ip);
 
 	/* 'Open User */
-	ConnectUser(UserIndex, Name, Password);
-
+	ConnectUser(UserIndex, name, token_address);
 }
 
 /* # IF UsarQueSocket = 1 OR UsarQueSocket = 2 THEN */
@@ -711,7 +704,7 @@ bool ValidateChr(int UserIndex) {
 	return retval;
 }
 
-bool ConnectUser(int UserIndex, const std::string & Name, const std::string & Password) {
+bool ConnectUser(int UserIndex, const std::string & name, const std::string & token_address) {
 	bool retval = false;
 	/* '*************************************************** */
 	/* 'Autor: Unknown (orginal version) */
@@ -727,7 +720,7 @@ bool ConnectUser(int UserIndex, const std::string & Name, const std::string & Pa
 
 	if (UserList[UserIndex].flags.UserLogged) {
 		LogCheating(
-				"El usuario " + UserList[UserIndex].Name + " ha intentado loguear a " + Name + " desde la IP "
+				"El usuario " + UserList[UserIndex].CommonName + " ha intentado loguear a " + token_address + " desde la IP "
 						+ UserList[UserIndex].ip);
 		/* 'Kick player ( and leave character inside :D )! */
 		CloseSocketSL(UserIndex);
@@ -763,22 +756,8 @@ bool ConnectUser(int UserIndex, const std::string & Name, const std::string & Pa
 	}
 
 	/* '¿Existe el personaje? */
-	if (!FileExist(GetCharPath(Name), 0)) {
+	if (!FileExist(GetCharPath(token_address), 0)) {
 		WriteErrorMsg(UserIndex, "El personaje no existe.");
-		FlushBuffer(UserIndex);
-		CloseSocket(UserIndex);
-		return retval;
-	}
-
-	/* La primera vez que el pj se logea le salteamos la password */
-	std::string FilePasswordPlain = GetVar(GetCharPath(Name), "INIT", "Password");
-
-	if (FilePasswordPlain.size() > 0) {
-		WriteSaltedPasswordUser(Name, FilePasswordPlain);
-	}
-
-	if (!CheckPasswordUser(Name, Password)) {
-		WriteErrorMsg(UserIndex, "Password incorrecto.");
 		FlushBuffer(UserIndex);
 		CloseSocket(UserIndex);
 		return retval;
@@ -799,7 +778,7 @@ bool ConnectUser(int UserIndex, const std::string & Name, const std::string & Pa
 #else
 	/* '¿Ya esta conectado el personaje? */
 	int OtherUserIndex;
-	if (CheckForSameName(Name, OtherUserIndex)) {
+	if (CheckForSameName(token_address, OtherUserIndex)) {
 		WriteErrorMsg(UserIndex, "Tu personaje ya estaba logeado desde otra ubicacion, fue echado.");
 		FlushBuffer(UserIndex);
 
@@ -812,19 +791,19 @@ bool ConnectUser(int UserIndex, const std::string & Name, const std::string & Pa
 	UserResetPrivilegios(UserIndex);
 
 	/* 'Vemos que clase de user es (se lo usa para setear los privilegios al loguear el PJ) */
-	if (EsAdmin(Name)) {
+	if (EsAdmin(token_address)) {
 		UserAsignarPrivilegios(UserIndex, PlayerType_Admin);
-		LogGM(Name, "Se conecto con ip:" + UserList[UserIndex].ip);
-	} else if (EsDios(Name)) {
+		LogGM(token_address, "Se conecto con ip:" + UserList[UserIndex].ip);
+	} else if (EsDios(token_address)) {
 		UserAsignarPrivilegios(UserIndex, PlayerType_Dios);
-		LogGM(Name, "Se conecto con ip:" + UserList[UserIndex].ip);
-	} else if (EsSemiDios(Name)) {
+		LogGM(token_address, "Se conecto con ip:" + UserList[UserIndex].ip);
+	} else if (EsSemiDios(token_address)) {
 		UserAsignarPrivilegios(UserIndex, PlayerType_SemiDios);
-		UserList[UserIndex].flags.PrivEspecial = EsGmEspecial(Name);
-		LogGM(Name, "Se conecto con ip:" + UserList[UserIndex].ip);
-	} else if (EsConsejero(Name)) {
+		UserList[UserIndex].flags.PrivEspecial = EsGmEspecial(token_address);
+		LogGM(token_address, "Se conecto con ip:" + UserList[UserIndex].ip);
+	} else if (EsConsejero(token_address)) {
 		UserAsignarPrivilegios(UserIndex, PlayerType_Consejero);
-		LogGM(Name, "Se conecto con ip:" + UserList[UserIndex].ip);
+		LogGM(token_address, "Se conecto con ip:" + UserList[UserIndex].ip);
 	} else {
 		UserAsignarPrivilegios(UserIndex, PlayerType_User);
 
@@ -832,7 +811,7 @@ bool ConnectUser(int UserIndex, const std::string & Name, const std::string & Pa
 	}
 
 	/* 'Add RM flag if needed */
-	if (EsRolesMaster(Name)) {
+	if (EsRolesMaster(token_address)) {
 		UserAsignarPrivilegios(UserIndex, PlayerType_RoleMaster);
 	}
 
@@ -850,7 +829,7 @@ bool ConnectUser(int UserIndex, const std::string & Name, const std::string & Pa
 	std::shared_ptr<clsIniManager> Leer;
 	Leer.reset(new clsIniManager());
 
-	Leer->Initialize(GetCharPath(Name));
+	Leer->Initialize(GetCharPath(token_address));
 
 	/* 'Cargamos los datos del personaje */
 	LoadUserInit(UserIndex, Leer);
@@ -1000,7 +979,7 @@ bool ConnectUser(int UserIndex, const std::string & Name, const std::string & Pa
 	}
 
 	/* 'Nombre de sistema */
-	UserList[UserIndex].Name = Name;
+	UserList[UserIndex].Name = token_address;
 
 	/* 'Por default los nombres son visibles */
 	UserList[UserIndex].showName = true;

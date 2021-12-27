@@ -33,8 +33,7 @@ public:
     virtual ~DakaraClientPacketHandler() {}
 
     virtual void handleLoginExistingChar(dakara::protocol::client::LoginExistingChar* p);
-    virtual void handleThrowDices(dakara::protocol::client::ThrowDices* p);
-    virtual void handleLoginNewChar(dakara::protocol::client::LoginNewChar* p);
+    virtual void handleThrowDices();
     virtual void handleTalk(dakara::protocol::client::Talk* p);
     virtual void handleYell(dakara::protocol::client::Yell* p);
     virtual void handleWhisper(dakara::protocol::client::Whisper* p);
@@ -139,7 +138,6 @@ public:
     virtual void handleChangeDescription(dakara::protocol::client::ChangeDescription* p);
     virtual void handleGuildVote(dakara::protocol::client::GuildVote* p);
     virtual void handlePunishments(dakara::protocol::client::Punishments* p);
-    virtual void handleChangePassword(dakara::protocol::client::ChangePassword* p);
     virtual void handleGamble(dakara::protocol::client::Gamble* p);
     virtual void handleInquiryVote(dakara::protocol::client::InquiryVote* p);
     virtual void handleLeaveFaction(dakara::protocol::client::LeaveFaction* p);
@@ -265,7 +263,6 @@ public:
     virtual void handleResetFactions(dakara::protocol::clientgm::ResetFactions* p);
     virtual void handleRemoveCharFromGuild(dakara::protocol::clientgm::RemoveCharFromGuild* p);
     virtual void handleRequestCharMail(dakara::protocol::clientgm::RequestCharMail* p);
-    virtual void handleAlterPassword(dakara::protocol::clientgm::AlterPassword* p);
     virtual void handleAlterMail(dakara::protocol::clientgm::AlterMail* p);
     virtual void handleAlterName(dakara::protocol::clientgm::AlterName* p);
     virtual void handleToggleCentinelActivated(dakara::protocol::clientgm::ToggleCentinelActivated* p);

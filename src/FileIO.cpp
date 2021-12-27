@@ -1391,7 +1391,7 @@ void LoadUserInit(int UserIndex, std::shared_ptr<clsIniManager> & UserFile) {
 			vb6::val(UserFile->GetValue("COUNTERS", "SkillsAsignados")));
 
 	UserList[UserIndex].email = UserFile->GetValue("CONTACTO", "Email");
-
+	UserList[UserIndex].CommonName = UserFile->GetValue("INIT", "Nombre");
 	UserList[UserIndex].Genero = static_cast<eGenero>(vb6::CInt(UserFile->GetValue("INIT", "Genero")));
 	UserList[UserIndex].clase = static_cast<eClass>(vb6::CInt(UserFile->GetValue("INIT", "Clase")));
 	UserList[UserIndex].raza = static_cast<eRaza>(vb6::CInt(UserFile->GetValue("INIT", "Raza")));
@@ -2219,7 +2219,8 @@ void SaveUser(int UserIndex, std::string UserFile, bool SaveTimeOnline) {
 	}
 
 	Manager->ChangeValue("CONTACTO", "Email", UserList[UserIndex].email);
-
+	
+	Manager->ChangeValue("INIT", "Nombre", UserList[UserIndex].CommonName);
 	Manager->ChangeValue("INIT", "Genero", std::to_string(UserList[UserIndex].Genero));
 	Manager->ChangeValue("INIT", "Raza", std::to_string(UserList[UserIndex].raza));
 	Manager->ChangeValue("INIT", "Hogar", std::to_string(UserList[UserIndex].Hogar));

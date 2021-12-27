@@ -584,8 +584,7 @@ const int GM_MAP = 49;
 const int TELEP_OBJ_INDEX = 1012;
 
 const int HUMANO_H_PRIMER_CABEZA = 1;
-/* 'En verdad es hasta la 51, pero como son muchas estas las dejamos no seleccionables */
-const int HUMANO_H_ULTIMA_CABEZA = 40;
+const int HUMANO_H_ULTIMA_CABEZA = 51;
 
 const int ELFO_H_PRIMER_CABEZA = 101;
 const int ELFO_H_ULTIMA_CABEZA = 122;
@@ -597,7 +596,7 @@ const int ENANO_H_PRIMER_CABEZA = 301;
 const int ENANO_H_ULTIMA_CABEZA = 319;
 
 const int GNOMO_H_PRIMER_CABEZA = 401;
-const int GNOMO_H_ULTIMA_CABEZA = 416;
+const int GNOMO_H_ULTIMA_CABEZA = 418;
 /* '************************************************** */
 const int HUMANO_M_PRIMER_CABEZA = 70;
 const int HUMANO_M_ULTIMA_CABEZA = 89;
@@ -609,10 +608,10 @@ const int DROW_M_PRIMER_CABEZA = 270;
 const int DROW_M_ULTIMA_CABEZA = 288;
 
 const int ENANO_M_PRIMER_CABEZA = 370;
-const int ENANO_M_ULTIMA_CABEZA = 384;
+const int ENANO_M_ULTIMA_CABEZA = 385;
 
 const int GNOMO_M_PRIMER_CABEZA = 470;
-const int GNOMO_M_ULTIMA_CABEZA = 484;
+const int GNOMO_M_ULTIMA_CABEZA = 486;
 
 /* ' Por ahora la dejo constante.. SI se quisiera extender la propiedad de paralziar, se podria hacer */
 /* ' una nueva variable en el dat. */

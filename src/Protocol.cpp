@@ -1492,28 +1492,6 @@ void WriteSetInvisible(int UserIndex, int CharIndex, bool invisible) {
 }
 
 /* '' */
-/* ' Writes the "DiceRoll" message to the given user's outgoing data buffer. */
-/* ' */
-/* ' @param    UserIndex User to which the message is intended. */
-/* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
-
-void WriteDiceRoll(int UserIndex) {
-	/* '*************************************************** */
-	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
-	/* 'Last Modification: 05/17/06 */
-	/* 'Writes the "DiceRoll" message to the given user's outgoing data buffer */
-	/* '*************************************************** */
-
-	dakara::protocol::server::DiceRoll p;
-	p.Fuerza = UserList[UserIndex].Stats.UserAtributos[eAtributos_Fuerza];
-	p.Agilidad = UserList[UserIndex].Stats.UserAtributos[eAtributos_Agilidad];
-	p.Inteligencia = UserList[UserIndex].Stats.UserAtributos[eAtributos_Inteligencia];
-	p.Carisma = UserList[UserIndex].Stats.UserAtributos[eAtributos_Carisma];
-	p.Constitucion = UserList[UserIndex].Stats.UserAtributos[eAtributos_Constitucion];
-	p.serialize(UserList[UserIndex].outgoingData.get());
-}
-
-/* '' */
 /* ' Writes the "MeditateToggle" message to the given user's outgoing data buffer. */
 /* ' */
 /* ' @param    UserIndex User to which the message is intended. */

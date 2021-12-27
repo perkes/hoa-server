@@ -74,8 +74,7 @@ void HandleIncomingDataOnePacket(int UserIndex) {
 	packetID = UserList[UserIndex].incomingData->PeekByte();
 
 	/* 'Does the packet requires a logged user?? */
-	if (!(packetID == dakara::protocol::client::ClientPacketID_ThrowDices || packetID == dakara::protocol::client::ClientPacketID_LoginExistingChar
-			|| packetID == dakara::protocol::client::ClientPacketID_LoginNewChar)) {
+	if (!(packetID == dakara::protocol::client::ClientPacketID_ThrowDices || packetID == dakara::protocol::client::ClientPacketID_LoginExistingChar)) {
 
 		/* 'Is the user actually logged? */
 		if (!UserList[UserIndex].flags.UserLogged) {
@@ -172,8 +171,28 @@ void DakaraClientPacketHandler::handleHome(Home* p) { (void)p;
 }
 
 /* '' */
-/* ' Handles the "LoginExistingChar" message. */
+/* ' Handles the "ThrowDices" message. */
 /* ' */
+
+
+void DakaraClientPacketHandler::handleThrowDices() {
+	/* '*************************************************** */
+	/* 'Last Modification: 05/17/06 */
+	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
+	/* ' */
+	/* '*************************************************** */
+
+	UserList[UserIndex].Stats.UserAtributos[eAtributos_Fuerza] = MaximoInt(15,
+			12 + RandomNumber(0, 3) + RandomNumber(0, 3));
+	UserList[UserIndex].Stats.UserAtributos[eAtributos_Agilidad] = MaximoInt(15,
+			12 + RandomNumber(0, 3) + RandomNumber(0, 3));
+	UserList[UserIndex].Stats.UserAtributos[eAtributos_Inteligencia] = MaximoInt(15,
+			12 + RandomNumber(0, 3) + RandomNumber(0, 3));
+	UserList[UserIndex].Stats.UserAtributos[eAtributos_Carisma] = MaximoInt(15,
+			12 + RandomNumber(0, 3) + RandomNumber(0, 3));
+	UserList[UserIndex].Stats.UserAtributos[eAtributos_Constitucion] = MaximoInt(15,
+			12 + RandomNumber(0, 3) + RandomNumber(0, 3));
+}
 
 
 void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { (void)p;
@@ -183,148 +202,53 @@ void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { 
 	/* ' */
 	/* '*************************************************** */
 
-	std::string& UserName = p->UserName;
-	std::string& Password = p->Password;
-	std::string version;
+	std::string& wallet_address = p->wallet_address;
+	std::string& token_address = p->token_address;
 
-	{
-		int vera = p->VerA;
-		int verb = p->VerB;
-		int verc = p->VerC;
+	if (!PersonajeExiste(token_address)) {
+		if (PuedeCrearPersonajes == 0) {
+			WriteErrorMsg(UserIndex, "La creación de personajes en este servidor se ha deshabilitado.");
+			FlushBuffer(UserIndex);
+			CloseSocket(UserIndex);
 
-		/* 'Convert version number to string */
-		version = vb6::CStr(vera) + "." + vb6::CStr(verb) + "." + vb6::CStr(verc);
-	}
+			return;
+		}
 
-	if (!AsciiValidos(UserName)) {
-		WriteErrorMsg(UserIndex, "Nombre inválido.");
-		FlushBuffer(UserIndex);
-		CloseSocket(UserIndex);
+		if (ServerSoloGMs != 0) {
+			WriteErrorMsg(UserIndex, "Servidor restringido a administradores. Consulte la página oficial o el foro oficial para más información.");
+			FlushBuffer(UserIndex);
+			CloseSocket(UserIndex);
 
-		return;
-	}
+			return;
+		}
 
-	if (!PersonajeExiste(UserName)) {
-		WriteErrorMsg(UserIndex, "El personaje no existe.");
-		FlushBuffer(UserIndex);
-		CloseSocket(UserIndex);
+		eRaza race;
+		eGenero gender;
+		eCiudad homeland;
+		eClass Class;
+		int Head;
+		std::string name;
+		std::string mail;
 
-		return;
-	}
+		race = static_cast<eRaza>(1);
+		gender = static_cast<eGenero>(1);
+		Class = static_cast<eClass>(1);
+		Head = 25;
+		name = "Pepa";
+		mail = "a@a.com";
+		homeland = static_cast<eCiudad>(1);
 
-	if (BANCheck(UserName)) {
-		WriteErrorMsg(UserIndex,
-				"Se te ha prohibido la entrada a Argentum Online debido a tu mal comportamiento. Puedes consultar el reglamento y el sistema de soporte desde www.argentumonline.com.ar");
-	} else if (!VersionOK(version)) {
-		WriteErrorMsg(UserIndex,
-				"Esta versión del juego es obsoleta, la versión correcta es la " + ULTIMAVERSION
-						+ ". La misma se encuentra disponible en www.argentumonline.com.ar");
+		handleThrowDices();
+		
+		ConnectNewUser(UserIndex, name, token_address, race, gender, Class, mail, homeland, Head);
 	} else {
-		ConnectUser(UserIndex, UserName, Password);
+		if (BANCheck(token_address)) {
+			WriteErrorMsg(UserIndex,
+					"Se te ha prohibido la entrada a Argentum Online debido a tu mal comportamiento. Puedes consultar el reglamento y el sistema de soporte desde www.argentumonline.com.ar");
+		} else {
+			ConnectUser(UserIndex, wallet_address, token_address);
+		}
 	}
-}
-
-/* '' */
-/* ' Handles the "ThrowDices" message. */
-/* ' */
-
-
-void DakaraClientPacketHandler::handleThrowDices(ThrowDices* p) { (void)p;
-	/* '*************************************************** */
-	/* 'Last Modification: 05/17/06 */
-	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
-	/* ' */
-	/* '*************************************************** */
-
-	UserList[UserIndex].Stats.UserAtributos[eAtributos_Fuerza] = MaximoInt(15,
-			13 + RandomNumber(0, 3) + RandomNumber(0, 2));
-	UserList[UserIndex].Stats.UserAtributos[eAtributos_Agilidad] = MaximoInt(15,
-			12 + RandomNumber(0, 3) + RandomNumber(0, 3));
-	UserList[UserIndex].Stats.UserAtributos[eAtributos_Inteligencia] = MaximoInt(16,
-			13 + RandomNumber(0, 3) + RandomNumber(0, 2));
-	UserList[UserIndex].Stats.UserAtributos[eAtributos_Carisma] = MaximoInt(15,
-			12 + RandomNumber(0, 3) + RandomNumber(0, 3));
-	/* ' [TEMPORAL] 16 + RandomNumber(0, 1) + RandomNumber(0, 1) */
-	UserList[UserIndex].Stats.UserAtributos[eAtributos_Constitucion] = 18;
-
-	WriteDiceRoll(UserIndex);
-}
-
-/* '' */
-/* ' Handles the "LoginNewChar" message. */
-/* ' */
-
-
-void DakaraClientPacketHandler::handleLoginNewChar(LoginNewChar* p) { (void)p;
-	/* '*************************************************** */
-	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
-	/* 'Last Modification: 05/17/06 */
-	/* ' */
-	/* '*************************************************** */
-
-	std::string& UserName = p->UserName;
-	std::string& Password = p->Password;
-	std::string version;
-	eRaza race;
-	eGenero gender;
-	eCiudad homeland;
-	eClass Class;
-	int Head;
-	std::string mail;
-
-	if (PuedeCrearPersonajes == 0) {
-		WriteErrorMsg(UserIndex, "La creación de personajes en este servidor se ha deshabilitado.");
-		FlushBuffer(UserIndex);
-		CloseSocket(UserIndex);
-
-		return;
-	}
-
-	if (ServerSoloGMs != 0) {
-		WriteErrorMsg(UserIndex,
-				"Servidor restringido a administradores. Consulte la página oficial o el foro oficial para más información.");
-		FlushBuffer(UserIndex);
-		CloseSocket(UserIndex);
-
-		return;
-	}
-
-	if (aClon->MaxPersonajes(UserList[UserIndex].ip)) {
-		WriteErrorMsg(UserIndex, "Has creado demasiados personajes.");
-		FlushBuffer(UserIndex);
-		CloseSocket(UserIndex);
-
-		return;
-	}
-
-	{
-		int vera = p->VerA;
-		int verb = p->VerB;
-		int verc = p->VerC;
-
-		/* 'Convert version number to string */ /* FIXME: Undefined order! */
-		version = vb6::CStr(vera) + "." + vb6::CStr(verb) + "." + vb6::CStr(verc);
-	}
-
-	race = static_cast<eRaza>(p->Race);
-	gender = static_cast<eGenero>(p->Gender);
-	Class = static_cast<eClass>(p->Class);
-	Head = p->Head;
-	mail = p->Mail;
-	homeland = static_cast<eCiudad>(p->Homeland);
-
-	if (!VersionOK(version)) {
-		WriteErrorMsg(UserIndex,
-				"Esta versión del juego es obsoleta, la versión correcta es la " + ULTIMAVERSION
-						+ ". La misma se encuentra disponible en www.dakara.com.ar");
-	} else {
-		ConnectNewUser(UserIndex, UserName, Password, race, gender, Class, mail, homeland, Head);
-	}
-	/* # IF SeguridadAlkon THEN */
-	/* # END IF */
-
-
-
 }
 
 /* '' */
@@ -4720,42 +4644,6 @@ void DakaraClientPacketHandler::handlePunishments(Punishments* p) { (void)p;
 			}
 		}
 	}
-}
-
-/* '' */
-/* ' Handles the "ChangePassword" message. */
-/* ' */
-
-
-void DakaraClientPacketHandler::handleChangePassword(ChangePassword* p) { (void)p;
-	/* '*************************************************** */
-	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
-	/* 'Creation Date: 10/10/07 */
-	/* 'Last Modified By: Rapsodius */
-	/* '*************************************************** */
-
-	std::string oldPass;
-	std::string newPass;
-	std::string oldPass2;
-
-	oldPass = p->OldPass;
-	newPass = p->NewPass;
-
-	if (vb6::LenB(newPass) == 0) {
-		WriteConsoleMsg(UserIndex, "Debes especificar una contrasena nueva, inténtalo de nuevo.",
-				FontTypeNames_FONTTYPE_INFO);
-	} else {
-		if (!CheckPasswordUser(UserList[UserIndex].Name, oldPass)) {
-			WriteConsoleMsg(UserIndex,
-					"La contrasena actual proporcionada no es correcta. La contrasena no ha sido cambiada, inténtalo de nuevo.",
-					FontTypeNames_FONTTYPE_INFO);
-		} else {
-			// WriteVar(GetCharPath(UserList[UserIndex].Name), "INIT", "Password", newPass);
-			WriteSaltedPasswordUser(UserList[UserIndex].Name, newPass);
-			WriteConsoleMsg(UserIndex, "La contrasena fue cambiada con éxito.", FontTypeNames_FONTTYPE_INFO);
-		}
-	}
-
 }
 
 /* '' */
@@ -10554,7 +10442,6 @@ void DakaraClientPacketHandler::handleAlterMail(AlterMail* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 12/26/06 */
-	/* 'Change user password */
 	/* '*************************************************** */
 
 	std::string UserName;
@@ -10580,55 +10467,6 @@ void DakaraClientPacketHandler::handleAlterMail(AlterMail* p) { (void)p;
 			LogGM(UserList[UserIndex].Name, "Le ha cambiado el mail a " + UserName);
 		}
 	}
-}
-
-/* '' */
-/* ' Handle the "AlterPassword" message */
-/* ' */
-/* ' @param userIndex The index of the user sending the message */
-
-void DakaraClientPacketHandler::handleAlterPassword(AlterPassword* p) { (void)p;
-	/* '*************************************************** */
-	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
-	/* 'Last Modification: 12/26/06 */
-	/* 'Change user password */
-	/* '*************************************************** */
-
-	std::string UserName;
-	std::string copyFrom;
-	std::string Password;
-	int dummy = 0;
-
-	UserName = vb6::Replace(p->UserName, "+", " ");
-	copyFrom = vb6::Replace(p->CopyFrom, "+", " ");
-
-	if (!UserTienePrivilegio(UserIndex, PlayerType_RoleMaster) &&
-			UserTieneAlgunPrivilegios(UserIndex, PlayerType_Admin, PlayerType_Dios)) {
-		LogGM(UserList[UserIndex].Name, "Ha alterado la contrasena de " + UserName);
-
-		if (vb6::LenB(UserName) == 0 || vb6::LenB(copyFrom) == 0) {
-			WriteConsoleMsg(UserIndex, "usar /APASS <pjsinpass>@<pjconpass>", FontTypeNames_FONTTYPE_INFO);
-		} else {
-			if (!FileExist(GetCharPath(UserName)) || !FileExist(GetCharPath(copyFrom))) {
-				WriteConsoleMsg(UserIndex, "Alguno de los PJs no existe " + UserName + "@" + copyFrom,
-						FontTypeNames_FONTTYPE_INFO);
-			} else {
-				if (CheckForSameName(UserName, dummy)) {
-					WriteConsoleMsg(UserIndex, "ATENCION: el usuario " + UserName + " se encuentra ONLINE.",
-											FontTypeNames_FONTTYPE_INFO);
-				}
-
-				WriteSaltedPasswordUserCopyFrom(UserName, copyFrom);
-
-				WriteConsoleMsg(UserIndex, "Password de " + UserName + " ha cambiado por la de " + copyFrom,
-						FontTypeNames_FONTTYPE_INFO);
-			}
-		}
-	}
-
-
-
-
 }
 
 /* '' */

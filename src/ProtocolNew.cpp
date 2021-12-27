@@ -28,10 +28,6 @@ ClientPacket* ClientPacketFactory(clsByteQueue* buffer) {
             p = new ThrowDices(buffer);
             break;
 
-        case 2:
-            p = new LoginNewChar(buffer);
-            break;
-
         case 3:
             p = new Talk(buffer);
             break;
@@ -448,10 +444,6 @@ ClientPacket* ClientPacketFactory(clsByteQueue* buffer) {
             p = new Punishments(buffer);
             break;
 
-        case 107:
-            p = new ChangePassword(buffer);
-            break;
-
         case 108:
             p = new Gamble(buffer);
             break;
@@ -560,13 +552,6 @@ void ClientPacketDecodeAndDispatch(clsByteQueue* buffer, PacketHandler* handler)
         case 1:
         {
             ThrowDices p(buffer);
-            p.dispatch(handler);
-            break;
-        }
-
-        case 2:
-        {
-            LoginNewChar p(buffer);
             p.dispatch(handler);
             break;
         }
@@ -1299,13 +1284,6 @@ void ClientPacketDecodeAndDispatch(clsByteQueue* buffer, PacketHandler* handler)
             break;
         }
 
-        case 107:
-        {
-            ChangePassword p(buffer);
-            p.dispatch(handler);
-            break;
-        }
-
         case 108:
         {
             Gamble p(buffer);
@@ -1469,30 +1447,22 @@ void ClientPacketDecodeAndDispatch(clsByteQueue* buffer, PacketHandler* handler)
     }
 }
 
-LoginExistingChar::LoginExistingChar() : ClientPacket(ClientPacketID_LoginExistingChar /* 0 */), UserName(), Password(), VerA(), VerB(), VerC() {
+LoginExistingChar::LoginExistingChar() : ClientPacket(ClientPacketID_LoginExistingChar /* 0 */), wallet_address(), token_address() {
 }
 
 LoginExistingChar::LoginExistingChar(clsByteQueue* buffer) : ClientPacket(ClientPacketID_LoginExistingChar /* 0 */) {
     buffer->ReadByte(); /* PacketID */
-    UserName = buffer->ReadUnicodeString();
-    Password = buffer->ReadUnicodeString();
-    VerA = buffer->ReadByte();
-    VerB = buffer->ReadByte();
-    VerC = buffer->ReadByte();
-
+    wallet_address = buffer->ReadUnicodeString();
+    token_address = buffer->ReadUnicodeString();
 }
 
-LoginExistingChar::LoginExistingChar(const std::string& UserName_, const std::string& Password_, std::uint8_t VerA_, std::uint8_t VerB_, std::uint8_t VerC_) : ClientPacket(ClientPacketID_LoginExistingChar /* 0 */), UserName(UserName_), Password(Password_), VerA(VerA_), VerB(VerB_), VerC(VerC_) {
+LoginExistingChar::LoginExistingChar(const std::string& wallet_address_, const std::string& token_address_) : ClientPacket(ClientPacketID_LoginExistingChar /* 0 */), wallet_address(wallet_address_), token_address(token_address_) {
 }
 
 void LoginExistingChar::serialize(clsByteQueue* buffer) const {
     buffer->WriteByte(ClientPacketID_LoginExistingChar); /* PacketID: 0 */
-    buffer->WriteUnicodeString(UserName);
-    buffer->WriteUnicodeString(Password);
-    buffer->WriteByte(VerA);
-    buffer->WriteByte(VerB);
-    buffer->WriteByte(VerC);
-
+    buffer->WriteUnicodeString(wallet_address);
+    buffer->WriteUnicodeString(token_address);
 }
 
 void LoginExistingChar::dispatch(PacketHandler* d) {
@@ -1514,48 +1484,6 @@ void ThrowDices::serialize(clsByteQueue* buffer) const {
 
 void ThrowDices::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleThrowDices(this);
-}
-
-LoginNewChar::LoginNewChar() : ClientPacket(ClientPacketID_LoginNewChar /* 2 */), UserName(), Password(), VerA(), VerB(), VerC(), Race(), Gender(), Class(), Head(), Mail(), Homeland() {
-}
-
-LoginNewChar::LoginNewChar(clsByteQueue* buffer) : ClientPacket(ClientPacketID_LoginNewChar /* 2 */) {
-    buffer->ReadByte(); /* PacketID */
-    UserName = buffer->ReadUnicodeString();
-    Password = buffer->ReadUnicodeString();
-    VerA = buffer->ReadByte();
-    VerB = buffer->ReadByte();
-    VerC = buffer->ReadByte();
-    Race = buffer->ReadByte();
-    Gender = buffer->ReadByte();
-    Class = buffer->ReadByte();
-    Head = buffer->ReadInteger();
-    Mail = buffer->ReadUnicodeString();
-    Homeland = buffer->ReadByte();
-
-}
-
-LoginNewChar::LoginNewChar(const std::string& UserName_, const std::string& Password_, std::uint8_t VerA_, std::uint8_t VerB_, std::uint8_t VerC_, std::uint8_t Race_, std::uint8_t Gender_, std::uint8_t Class_, std::int16_t Head_, const std::string& Mail_, std::uint8_t Homeland_) : ClientPacket(ClientPacketID_LoginNewChar /* 2 */), UserName(UserName_), Password(Password_), VerA(VerA_), VerB(VerB_), VerC(VerC_), Race(Race_), Gender(Gender_), Class(Class_), Head(Head_), Mail(Mail_), Homeland(Homeland_) {
-}
-
-void LoginNewChar::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(ClientPacketID_LoginNewChar); /* PacketID: 2 */
-    buffer->WriteUnicodeString(UserName);
-    buffer->WriteUnicodeString(Password);
-    buffer->WriteByte(VerA);
-    buffer->WriteByte(VerB);
-    buffer->WriteByte(VerC);
-    buffer->WriteByte(Race);
-    buffer->WriteByte(Gender);
-    buffer->WriteByte(Class);
-    buffer->WriteInteger(Head);
-    buffer->WriteUnicodeString(Mail);
-    buffer->WriteByte(Homeland);
-
-}
-
-void LoginNewChar::dispatch(PacketHandler* d) {
-    d->getPacketHandlerClientPacket()->handleLoginNewChar(this);
 }
 
 Talk::Talk() : ClientPacket(ClientPacketID_Talk /* 3 */), Chat() {
@@ -3654,30 +3582,6 @@ void Punishments::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handlePunishments(this);
 }
 
-ChangePassword::ChangePassword() : ClientPacket(ClientPacketID_ChangePassword /* 107 */), OldPass(), NewPass() {
-}
-
-ChangePassword::ChangePassword(clsByteQueue* buffer) : ClientPacket(ClientPacketID_ChangePassword /* 107 */) {
-    buffer->ReadByte(); /* PacketID */
-    OldPass = buffer->ReadUnicodeString();
-    NewPass = buffer->ReadUnicodeString();
-
-}
-
-ChangePassword::ChangePassword(const std::string& OldPass_, const std::string& NewPass_) : ClientPacket(ClientPacketID_ChangePassword /* 107 */), OldPass(OldPass_), NewPass(NewPass_) {
-}
-
-void ChangePassword::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(ClientPacketID_ChangePassword); /* PacketID: 107 */
-    buffer->WriteUnicodeString(OldPass);
-    buffer->WriteUnicodeString(NewPass);
-
-}
-
-void ChangePassword::dispatch(PacketHandler* d) {
-    d->getPacketHandlerClientPacket()->handleChangePassword(this);
-}
-
 Gamble::Gamble() : ClientPacket(ClientPacketID_Gamble /* 108 */), Amount() {
 }
 
@@ -4123,7 +4027,6 @@ ClientPacketHandler::~ClientPacketHandler() {}
 
 void ClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p){ (void)p; }
 void ClientPacketHandler::handleThrowDices(ThrowDices* p){ (void)p; }
-void ClientPacketHandler::handleLoginNewChar(LoginNewChar* p){ (void)p; }
 void ClientPacketHandler::handleTalk(Talk* p){ (void)p; }
 void ClientPacketHandler::handleYell(Yell* p){ (void)p; }
 void ClientPacketHandler::handleWhisper(Whisper* p){ (void)p; }
@@ -4228,7 +4131,6 @@ void ClientPacketHandler::handleBugReport(BugReport* p){ (void)p; }
 void ClientPacketHandler::handleChangeDescription(ChangeDescription* p){ (void)p; }
 void ClientPacketHandler::handleGuildVote(GuildVote* p){ (void)p; }
 void ClientPacketHandler::handlePunishments(Punishments* p){ (void)p; }
-void ClientPacketHandler::handleChangePassword(ChangePassword* p){ (void)p; }
 void ClientPacketHandler::handleGamble(Gamble* p){ (void)p; }
 void ClientPacketHandler::handleInquiryVote(InquiryVote* p){ (void)p; }
 void ClientPacketHandler::handleLeaveFaction(LeaveFaction* p){ (void)p; }
@@ -4661,10 +4563,6 @@ ClientGMPacket* ClientGMPacketFactory(clsByteQueue* buffer) {
 
         case 100:
             p = new RequestCharMail(buffer);
-            break;
-
-        case 101:
-            p = new AlterPassword(buffer);
             break;
 
         case 102:
@@ -5561,13 +5459,6 @@ void ClientGMPacketDecodeAndDispatch(clsByteQueue* buffer, PacketHandler* handle
         case 100:
         {
             RequestCharMail p(buffer);
-            p.dispatch(handler);
-            break;
-        }
-
-        case 101:
-        {
-            AlterPassword p(buffer);
             p.dispatch(handler);
             break;
         }
@@ -8099,31 +7990,6 @@ void RequestCharMail::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientGMPacket()->handleRequestCharMail(this);
 }
 
-AlterPassword::AlterPassword() : ClientGMPacket(ClientGMPacketID_AlterPassword /* 101 */), UserName(), CopyFrom() {
-}
-
-AlterPassword::AlterPassword(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_AlterPassword /* 101 */) {
-    buffer->ReadByte(); /* PacketID */
-    UserName = buffer->ReadUnicodeString();
-    CopyFrom = buffer->ReadUnicodeString();
-
-}
-
-AlterPassword::AlterPassword(const std::string& UserName_, const std::string& CopyFrom_) : ClientGMPacket(ClientGMPacketID_AlterPassword /* 101 */), UserName(UserName_), CopyFrom(CopyFrom_) {
-}
-
-void AlterPassword::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
-    buffer->WriteByte(ClientGMPacketID_AlterPassword); /* PacketID: 101 */
-    buffer->WriteUnicodeString(UserName);
-    buffer->WriteUnicodeString(CopyFrom);
-
-}
-
-void AlterPassword::dispatch(PacketHandler* d) {
-    d->getPacketHandlerClientGMPacket()->handleAlterPassword(this);
-}
-
 AlterMail::AlterMail() : ClientGMPacket(ClientGMPacketID_AlterMail /* 102 */), UserName(), NewMail() {
 }
 
@@ -9231,7 +9097,6 @@ void ClientGMPacketHandler::handleTurnCriminal(TurnCriminal* p){ (void)p; }
 void ClientGMPacketHandler::handleResetFactions(ResetFactions* p){ (void)p; }
 void ClientGMPacketHandler::handleRemoveCharFromGuild(RemoveCharFromGuild* p){ (void)p; }
 void ClientGMPacketHandler::handleRequestCharMail(RequestCharMail* p){ (void)p; }
-void ClientGMPacketHandler::handleAlterPassword(AlterPassword* p){ (void)p; }
 void ClientGMPacketHandler::handleAlterMail(AlterMail* p){ (void)p; }
 void ClientGMPacketHandler::handleAlterName(AlterName* p){ (void)p; }
 void ClientGMPacketHandler::handleToggleCentinelActivated(ToggleCentinelActivated* p){ (void)p; }

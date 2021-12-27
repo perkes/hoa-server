@@ -645,14 +645,6 @@ void WriteShowForumForm(int UserIndex);
 void WriteSetInvisible(int UserIndex, int CharIndex, bool invisible);
 
 /* '' */
-/* ' Writes the "DiceRoll" message to the given user's outgoing data buffer. */
-/* ' */
-/* ' @param    UserIndex User to which the message is intended. */
-/* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
-
-void WriteDiceRoll(int UserIndex);
-
-/* '' */
 /* ' Writes the "MeditateToggle" message to the given user's outgoing data buffer. */
 /* ' */
 /* ' @param    UserIndex User to which the message is intended. */
