@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jonathan/crypto/solana/dakara-server
+CMAKE_SOURCE_DIR = /home/jonathan/crypto/solana/HoA/server
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jonathan/crypto/solana/dakara-server/build
+CMAKE_BINARY_DIR = /home/jonathan/crypto/solana/HoA/server/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/dakaraserver.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/dakaraserver.dir/flags.make
 
 CMakeFiles/dakaraserver.dir/src/Acciones.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Acciones.cpp.o: ../src/Acciones.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/dakaraserver.dir/src/Acciones.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Acciones.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Acciones.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/dakaraserver.dir/src/Acciones.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Acciones.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Acciones.cpp
 
 CMakeFiles/dakaraserver.dir/src/Acciones.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Acciones.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Acciones.cpp > CMakeFiles/dakaraserver.dir/src/Acciones.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Acciones.cpp > CMakeFiles/dakaraserver.dir/src/Acciones.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Acciones.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Acciones.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Acciones.cpp -o CMakeFiles/dakaraserver.dir/src/Acciones.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Acciones.cpp -o CMakeFiles/dakaraserver.dir/src/Acciones.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Acciones.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/dakaraserver.dir/src/Acciones.cpp.o.provides.build: CMakeFiles/dakara
 
 CMakeFiles/dakaraserver.dir/src/Admin.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Admin.cpp.o: ../src/Admin.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/dakaraserver.dir/src/Admin.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Admin.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Admin.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/dakaraserver.dir/src/Admin.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Admin.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Admin.cpp
 
 CMakeFiles/dakaraserver.dir/src/Admin.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Admin.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Admin.cpp > CMakeFiles/dakaraserver.dir/src/Admin.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Admin.cpp > CMakeFiles/dakaraserver.dir/src/Admin.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Admin.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Admin.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Admin.cpp -o CMakeFiles/dakaraserver.dir/src/Admin.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Admin.cpp -o CMakeFiles/dakaraserver.dir/src/Admin.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Admin.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/dakaraserver.dir/src/Admin.cpp.o.provides.build: CMakeFiles/dakaraser
 
 CMakeFiles/dakaraserver.dir/src/AntiMassClon.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/AntiMassClon.cpp.o: ../src/AntiMassClon.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/dakaraserver.dir/src/AntiMassClon.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/AntiMassClon.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/AntiMassClon.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/dakaraserver.dir/src/AntiMassClon.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/AntiMassClon.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/AntiMassClon.cpp
 
 CMakeFiles/dakaraserver.dir/src/AntiMassClon.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/AntiMassClon.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/AntiMassClon.cpp > CMakeFiles/dakaraserver.dir/src/AntiMassClon.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/AntiMassClon.cpp > CMakeFiles/dakaraserver.dir/src/AntiMassClon.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/AntiMassClon.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/AntiMassClon.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/AntiMassClon.cpp -o CMakeFiles/dakaraserver.dir/src/AntiMassClon.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/AntiMassClon.cpp -o CMakeFiles/dakaraserver.dir/src/AntiMassClon.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/AntiMassClon.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/dakaraserver.dir/src/AntiMassClon.cpp.o.provides.build: CMakeFiles/da
 
 CMakeFiles/dakaraserver.dir/src/Areas.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Areas.cpp.o: ../src/Areas.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/dakaraserver.dir/src/Areas.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Areas.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Areas.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/dakaraserver.dir/src/Areas.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Areas.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Areas.cpp
 
 CMakeFiles/dakaraserver.dir/src/Areas.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Areas.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Areas.cpp > CMakeFiles/dakaraserver.dir/src/Areas.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Areas.cpp > CMakeFiles/dakaraserver.dir/src/Areas.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Areas.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Areas.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Areas.cpp -o CMakeFiles/dakaraserver.dir/src/Areas.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Areas.cpp -o CMakeFiles/dakaraserver.dir/src/Areas.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Areas.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/dakaraserver.dir/src/Areas.cpp.o.provides.build: CMakeFiles/dakaraser
 
 CMakeFiles/dakaraserver.dir/src/Banco.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Banco.cpp.o: ../src/Banco.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/dakaraserver.dir/src/Banco.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Banco.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Banco.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/dakaraserver.dir/src/Banco.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Banco.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Banco.cpp
 
 CMakeFiles/dakaraserver.dir/src/Banco.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Banco.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Banco.cpp > CMakeFiles/dakaraserver.dir/src/Banco.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Banco.cpp > CMakeFiles/dakaraserver.dir/src/Banco.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Banco.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Banco.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Banco.cpp -o CMakeFiles/dakaraserver.dir/src/Banco.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Banco.cpp -o CMakeFiles/dakaraserver.dir/src/Banco.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Banco.cpp.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/dakaraserver.dir/src/Banco.cpp.o.provides.build: CMakeFiles/dakaraser
 
 CMakeFiles/dakaraserver.dir/src/ByteBuffer.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/ByteBuffer.cpp.o: ../src/ByteBuffer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/dakaraserver.dir/src/ByteBuffer.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/ByteBuffer.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/ByteBuffer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/dakaraserver.dir/src/ByteBuffer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/ByteBuffer.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/ByteBuffer.cpp
 
 CMakeFiles/dakaraserver.dir/src/ByteBuffer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/ByteBuffer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/ByteBuffer.cpp > CMakeFiles/dakaraserver.dir/src/ByteBuffer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/ByteBuffer.cpp > CMakeFiles/dakaraserver.dir/src/ByteBuffer.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/ByteBuffer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/ByteBuffer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/ByteBuffer.cpp -o CMakeFiles/dakaraserver.dir/src/ByteBuffer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/ByteBuffer.cpp -o CMakeFiles/dakaraserver.dir/src/ByteBuffer.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/ByteBuffer.cpp.o.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/dakaraserver.dir/src/ByteBuffer.cpp.o.provides.build: CMakeFiles/daka
 
 CMakeFiles/dakaraserver.dir/src/ByteQueue.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/ByteQueue.cpp.o: ../src/ByteQueue.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/dakaraserver.dir/src/ByteQueue.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/ByteQueue.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/ByteQueue.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/dakaraserver.dir/src/ByteQueue.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/ByteQueue.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/ByteQueue.cpp
 
 CMakeFiles/dakaraserver.dir/src/ByteQueue.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/ByteQueue.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/ByteQueue.cpp > CMakeFiles/dakaraserver.dir/src/ByteQueue.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/ByteQueue.cpp > CMakeFiles/dakaraserver.dir/src/ByteQueue.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/ByteQueue.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/ByteQueue.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/ByteQueue.cpp -o CMakeFiles/dakaraserver.dir/src/ByteQueue.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/ByteQueue.cpp -o CMakeFiles/dakaraserver.dir/src/ByteQueue.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/ByteQueue.cpp.o.requires:
 
@@ -227,16 +227,16 @@ CMakeFiles/dakaraserver.dir/src/ByteQueue.cpp.o.provides.build: CMakeFiles/dakar
 
 CMakeFiles/dakaraserver.dir/src/Centinela.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Centinela.cpp.o: ../src/Centinela.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/dakaraserver.dir/src/Centinela.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Centinela.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Centinela.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/dakaraserver.dir/src/Centinela.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Centinela.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Centinela.cpp
 
 CMakeFiles/dakaraserver.dir/src/Centinela.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Centinela.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Centinela.cpp > CMakeFiles/dakaraserver.dir/src/Centinela.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Centinela.cpp > CMakeFiles/dakaraserver.dir/src/Centinela.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Centinela.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Centinela.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Centinela.cpp -o CMakeFiles/dakaraserver.dir/src/Centinela.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Centinela.cpp -o CMakeFiles/dakaraserver.dir/src/Centinela.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Centinela.cpp.o.requires:
 
@@ -251,16 +251,16 @@ CMakeFiles/dakaraserver.dir/src/Centinela.cpp.o.provides.build: CMakeFiles/dakar
 
 CMakeFiles/dakaraserver.dir/src/Characters.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Characters.cpp.o: ../src/Characters.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/dakaraserver.dir/src/Characters.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Characters.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Characters.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/dakaraserver.dir/src/Characters.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Characters.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Characters.cpp
 
 CMakeFiles/dakaraserver.dir/src/Characters.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Characters.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Characters.cpp > CMakeFiles/dakaraserver.dir/src/Characters.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Characters.cpp > CMakeFiles/dakaraserver.dir/src/Characters.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Characters.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Characters.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Characters.cpp -o CMakeFiles/dakaraserver.dir/src/Characters.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Characters.cpp -o CMakeFiles/dakaraserver.dir/src/Characters.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Characters.cpp.o.requires:
 
@@ -275,16 +275,16 @@ CMakeFiles/dakaraserver.dir/src/Characters.cpp.o.provides.build: CMakeFiles/daka
 
 CMakeFiles/dakaraserver.dir/src/Clan.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Clan.cpp.o: ../src/Clan.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/dakaraserver.dir/src/Clan.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Clan.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Clan.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/dakaraserver.dir/src/Clan.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Clan.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Clan.cpp
 
 CMakeFiles/dakaraserver.dir/src/Clan.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Clan.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Clan.cpp > CMakeFiles/dakaraserver.dir/src/Clan.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Clan.cpp > CMakeFiles/dakaraserver.dir/src/Clan.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Clan.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Clan.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Clan.cpp -o CMakeFiles/dakaraserver.dir/src/Clan.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Clan.cpp -o CMakeFiles/dakaraserver.dir/src/Clan.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Clan.cpp.o.requires:
 
@@ -299,16 +299,16 @@ CMakeFiles/dakaraserver.dir/src/Clan.cpp.o.provides.build: CMakeFiles/dakaraserv
 
 CMakeFiles/dakaraserver.dir/src/ClanPretoriano.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/ClanPretoriano.cpp.o: ../src/ClanPretoriano.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/dakaraserver.dir/src/ClanPretoriano.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/ClanPretoriano.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/ClanPretoriano.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/dakaraserver.dir/src/ClanPretoriano.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/ClanPretoriano.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/ClanPretoriano.cpp
 
 CMakeFiles/dakaraserver.dir/src/ClanPretoriano.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/ClanPretoriano.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/ClanPretoriano.cpp > CMakeFiles/dakaraserver.dir/src/ClanPretoriano.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/ClanPretoriano.cpp > CMakeFiles/dakaraserver.dir/src/ClanPretoriano.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/ClanPretoriano.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/ClanPretoriano.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/ClanPretoriano.cpp -o CMakeFiles/dakaraserver.dir/src/ClanPretoriano.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/ClanPretoriano.cpp -o CMakeFiles/dakaraserver.dir/src/ClanPretoriano.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/ClanPretoriano.cpp.o.requires:
 
@@ -323,16 +323,16 @@ CMakeFiles/dakaraserver.dir/src/ClanPretoriano.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/dakaraserver.dir/src/Clanes.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Clanes.cpp.o: ../src/Clanes.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/dakaraserver.dir/src/Clanes.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Clanes.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Clanes.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/dakaraserver.dir/src/Clanes.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Clanes.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Clanes.cpp
 
 CMakeFiles/dakaraserver.dir/src/Clanes.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Clanes.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Clanes.cpp > CMakeFiles/dakaraserver.dir/src/Clanes.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Clanes.cpp > CMakeFiles/dakaraserver.dir/src/Clanes.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Clanes.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Clanes.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Clanes.cpp -o CMakeFiles/dakaraserver.dir/src/Clanes.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Clanes.cpp -o CMakeFiles/dakaraserver.dir/src/Clanes.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Clanes.cpp.o.requires:
 
@@ -347,16 +347,16 @@ CMakeFiles/dakaraserver.dir/src/Clanes.cpp.o.provides.build: CMakeFiles/dakarase
 
 CMakeFiles/dakaraserver.dir/src/Comercio.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Comercio.cpp.o: ../src/Comercio.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/dakaraserver.dir/src/Comercio.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Comercio.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Comercio.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/dakaraserver.dir/src/Comercio.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Comercio.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Comercio.cpp
 
 CMakeFiles/dakaraserver.dir/src/Comercio.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Comercio.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Comercio.cpp > CMakeFiles/dakaraserver.dir/src/Comercio.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Comercio.cpp > CMakeFiles/dakaraserver.dir/src/Comercio.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Comercio.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Comercio.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Comercio.cpp -o CMakeFiles/dakaraserver.dir/src/Comercio.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Comercio.cpp -o CMakeFiles/dakaraserver.dir/src/Comercio.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Comercio.cpp.o.requires:
 
@@ -371,16 +371,16 @@ CMakeFiles/dakaraserver.dir/src/Comercio.cpp.o.provides.build: CMakeFiles/dakara
 
 CMakeFiles/dakaraserver.dir/src/ComercioUsuario.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/ComercioUsuario.cpp.o: ../src/ComercioUsuario.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/dakaraserver.dir/src/ComercioUsuario.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/ComercioUsuario.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/ComercioUsuario.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/dakaraserver.dir/src/ComercioUsuario.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/ComercioUsuario.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/ComercioUsuario.cpp
 
 CMakeFiles/dakaraserver.dir/src/ComercioUsuario.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/ComercioUsuario.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/ComercioUsuario.cpp > CMakeFiles/dakaraserver.dir/src/ComercioUsuario.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/ComercioUsuario.cpp > CMakeFiles/dakaraserver.dir/src/ComercioUsuario.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/ComercioUsuario.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/ComercioUsuario.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/ComercioUsuario.cpp -o CMakeFiles/dakaraserver.dir/src/ComercioUsuario.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/ComercioUsuario.cpp -o CMakeFiles/dakaraserver.dir/src/ComercioUsuario.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/ComercioUsuario.cpp.o.requires:
 
@@ -395,16 +395,16 @@ CMakeFiles/dakaraserver.dir/src/ComercioUsuario.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/dakaraserver.dir/src/ConsultasPopulares.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/ConsultasPopulares.cpp.o: ../src/ConsultasPopulares.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/dakaraserver.dir/src/ConsultasPopulares.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/ConsultasPopulares.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/ConsultasPopulares.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/dakaraserver.dir/src/ConsultasPopulares.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/ConsultasPopulares.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/ConsultasPopulares.cpp
 
 CMakeFiles/dakaraserver.dir/src/ConsultasPopulares.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/ConsultasPopulares.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/ConsultasPopulares.cpp > CMakeFiles/dakaraserver.dir/src/ConsultasPopulares.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/ConsultasPopulares.cpp > CMakeFiles/dakaraserver.dir/src/ConsultasPopulares.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/ConsultasPopulares.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/ConsultasPopulares.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/ConsultasPopulares.cpp -o CMakeFiles/dakaraserver.dir/src/ConsultasPopulares.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/ConsultasPopulares.cpp -o CMakeFiles/dakaraserver.dir/src/ConsultasPopulares.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/ConsultasPopulares.cpp.o.requires:
 
@@ -419,16 +419,16 @@ CMakeFiles/dakaraserver.dir/src/ConsultasPopulares.cpp.o.provides.build: CMakeFi
 
 CMakeFiles/dakaraserver.dir/src/Crypto.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Crypto.cpp.o: ../src/Crypto.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/dakaraserver.dir/src/Crypto.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Crypto.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Crypto.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/dakaraserver.dir/src/Crypto.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Crypto.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Crypto.cpp
 
 CMakeFiles/dakaraserver.dir/src/Crypto.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Crypto.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Crypto.cpp > CMakeFiles/dakaraserver.dir/src/Crypto.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Crypto.cpp > CMakeFiles/dakaraserver.dir/src/Crypto.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Crypto.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Crypto.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Crypto.cpp -o CMakeFiles/dakaraserver.dir/src/Crypto.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Crypto.cpp -o CMakeFiles/dakaraserver.dir/src/Crypto.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Crypto.cpp.o.requires:
 
@@ -443,16 +443,16 @@ CMakeFiles/dakaraserver.dir/src/Crypto.cpp.o.provides.build: CMakeFiles/dakarase
 
 CMakeFiles/dakaraserver.dir/src/Declares.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Declares.cpp.o: ../src/Declares.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/dakaraserver.dir/src/Declares.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Declares.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Declares.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/dakaraserver.dir/src/Declares.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Declares.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Declares.cpp
 
 CMakeFiles/dakaraserver.dir/src/Declares.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Declares.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Declares.cpp > CMakeFiles/dakaraserver.dir/src/Declares.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Declares.cpp > CMakeFiles/dakaraserver.dir/src/Declares.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Declares.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Declares.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Declares.cpp -o CMakeFiles/dakaraserver.dir/src/Declares.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Declares.cpp -o CMakeFiles/dakaraserver.dir/src/Declares.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Declares.cpp.o.requires:
 
@@ -467,16 +467,16 @@ CMakeFiles/dakaraserver.dir/src/Declares.cpp.o.provides.build: CMakeFiles/dakara
 
 CMakeFiles/dakaraserver.dir/src/Facciones.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Facciones.cpp.o: ../src/Facciones.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/dakaraserver.dir/src/Facciones.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Facciones.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Facciones.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/dakaraserver.dir/src/Facciones.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Facciones.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Facciones.cpp
 
 CMakeFiles/dakaraserver.dir/src/Facciones.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Facciones.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Facciones.cpp > CMakeFiles/dakaraserver.dir/src/Facciones.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Facciones.cpp > CMakeFiles/dakaraserver.dir/src/Facciones.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Facciones.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Facciones.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Facciones.cpp -o CMakeFiles/dakaraserver.dir/src/Facciones.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Facciones.cpp -o CMakeFiles/dakaraserver.dir/src/Facciones.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Facciones.cpp.o.requires:
 
@@ -491,16 +491,16 @@ CMakeFiles/dakaraserver.dir/src/Facciones.cpp.o.provides.build: CMakeFiles/dakar
 
 CMakeFiles/dakaraserver.dir/src/FileIO.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/FileIO.cpp.o: ../src/FileIO.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/dakaraserver.dir/src/FileIO.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/FileIO.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/FileIO.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/dakaraserver.dir/src/FileIO.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/FileIO.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/FileIO.cpp
 
 CMakeFiles/dakaraserver.dir/src/FileIO.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/FileIO.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/FileIO.cpp > CMakeFiles/dakaraserver.dir/src/FileIO.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/FileIO.cpp > CMakeFiles/dakaraserver.dir/src/FileIO.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/FileIO.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/FileIO.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/FileIO.cpp -o CMakeFiles/dakaraserver.dir/src/FileIO.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/FileIO.cpp -o CMakeFiles/dakaraserver.dir/src/FileIO.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/FileIO.cpp.o.requires:
 
@@ -515,16 +515,16 @@ CMakeFiles/dakaraserver.dir/src/FileIO.cpp.o.provides.build: CMakeFiles/dakarase
 
 CMakeFiles/dakaraserver.dir/src/Forum.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Forum.cpp.o: ../src/Forum.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/dakaraserver.dir/src/Forum.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Forum.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Forum.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/dakaraserver.dir/src/Forum.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Forum.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Forum.cpp
 
 CMakeFiles/dakaraserver.dir/src/Forum.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Forum.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Forum.cpp > CMakeFiles/dakaraserver.dir/src/Forum.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Forum.cpp > CMakeFiles/dakaraserver.dir/src/Forum.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Forum.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Forum.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Forum.cpp -o CMakeFiles/dakaraserver.dir/src/Forum.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Forum.cpp -o CMakeFiles/dakaraserver.dir/src/Forum.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Forum.cpp.o.requires:
 
@@ -539,16 +539,16 @@ CMakeFiles/dakaraserver.dir/src/Forum.cpp.o.provides.build: CMakeFiles/dakaraser
 
 CMakeFiles/dakaraserver.dir/src/GameLogic.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/GameLogic.cpp.o: ../src/GameLogic.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/dakaraserver.dir/src/GameLogic.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/GameLogic.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/GameLogic.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/dakaraserver.dir/src/GameLogic.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/GameLogic.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/GameLogic.cpp
 
 CMakeFiles/dakaraserver.dir/src/GameLogic.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/GameLogic.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/GameLogic.cpp > CMakeFiles/dakaraserver.dir/src/GameLogic.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/GameLogic.cpp > CMakeFiles/dakaraserver.dir/src/GameLogic.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/GameLogic.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/GameLogic.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/GameLogic.cpp -o CMakeFiles/dakaraserver.dir/src/GameLogic.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/GameLogic.cpp -o CMakeFiles/dakaraserver.dir/src/GameLogic.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/GameLogic.cpp.o.requires:
 
@@ -563,16 +563,16 @@ CMakeFiles/dakaraserver.dir/src/GameLogic.cpp.o.provides.build: CMakeFiles/dakar
 
 CMakeFiles/dakaraserver.dir/src/General.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/General.cpp.o: ../src/General.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/dakaraserver.dir/src/General.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/General.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/General.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/dakaraserver.dir/src/General.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/General.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/General.cpp
 
 CMakeFiles/dakaraserver.dir/src/General.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/General.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/General.cpp > CMakeFiles/dakaraserver.dir/src/General.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/General.cpp > CMakeFiles/dakaraserver.dir/src/General.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/General.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/General.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/General.cpp -o CMakeFiles/dakaraserver.dir/src/General.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/General.cpp -o CMakeFiles/dakaraserver.dir/src/General.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/General.cpp.o.requires:
 
@@ -587,16 +587,16 @@ CMakeFiles/dakaraserver.dir/src/General.cpp.o.provides.build: CMakeFiles/dakaras
 
 CMakeFiles/dakaraserver.dir/src/Hechizos.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Hechizos.cpp.o: ../src/Hechizos.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/dakaraserver.dir/src/Hechizos.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Hechizos.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Hechizos.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/dakaraserver.dir/src/Hechizos.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Hechizos.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Hechizos.cpp
 
 CMakeFiles/dakaraserver.dir/src/Hechizos.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Hechizos.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Hechizos.cpp > CMakeFiles/dakaraserver.dir/src/Hechizos.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Hechizos.cpp > CMakeFiles/dakaraserver.dir/src/Hechizos.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Hechizos.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Hechizos.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Hechizos.cpp -o CMakeFiles/dakaraserver.dir/src/Hechizos.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Hechizos.cpp -o CMakeFiles/dakaraserver.dir/src/Hechizos.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Hechizos.cpp.o.requires:
 
@@ -611,16 +611,16 @@ CMakeFiles/dakaraserver.dir/src/Hechizos.cpp.o.provides.build: CMakeFiles/dakara
 
 CMakeFiles/dakaraserver.dir/src/HexaStrings.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/HexaStrings.cpp.o: ../src/HexaStrings.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/dakaraserver.dir/src/HexaStrings.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/HexaStrings.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/HexaStrings.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/dakaraserver.dir/src/HexaStrings.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/HexaStrings.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/HexaStrings.cpp
 
 CMakeFiles/dakaraserver.dir/src/HexaStrings.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/HexaStrings.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/HexaStrings.cpp > CMakeFiles/dakaraserver.dir/src/HexaStrings.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/HexaStrings.cpp > CMakeFiles/dakaraserver.dir/src/HexaStrings.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/HexaStrings.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/HexaStrings.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/HexaStrings.cpp -o CMakeFiles/dakaraserver.dir/src/HexaStrings.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/HexaStrings.cpp -o CMakeFiles/dakaraserver.dir/src/HexaStrings.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/HexaStrings.cpp.o.requires:
 
@@ -635,16 +635,16 @@ CMakeFiles/dakaraserver.dir/src/HexaStrings.cpp.o.provides.build: CMakeFiles/dak
 
 CMakeFiles/dakaraserver.dir/src/IniManager.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/IniManager.cpp.o: ../src/IniManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/dakaraserver.dir/src/IniManager.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/IniManager.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/IniManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/dakaraserver.dir/src/IniManager.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/IniManager.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/IniManager.cpp
 
 CMakeFiles/dakaraserver.dir/src/IniManager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/IniManager.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/IniManager.cpp > CMakeFiles/dakaraserver.dir/src/IniManager.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/IniManager.cpp > CMakeFiles/dakaraserver.dir/src/IniManager.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/IniManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/IniManager.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/IniManager.cpp -o CMakeFiles/dakaraserver.dir/src/IniManager.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/IniManager.cpp -o CMakeFiles/dakaraserver.dir/src/IniManager.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/IniManager.cpp.o.requires:
 
@@ -659,16 +659,16 @@ CMakeFiles/dakaraserver.dir/src/IniManager.cpp.o.provides.build: CMakeFiles/daka
 
 CMakeFiles/dakaraserver.dir/src/InvNpcs.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/InvNpcs.cpp.o: ../src/InvNpcs.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/dakaraserver.dir/src/InvNpcs.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/InvNpcs.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/InvNpcs.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/dakaraserver.dir/src/InvNpcs.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/InvNpcs.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/InvNpcs.cpp
 
 CMakeFiles/dakaraserver.dir/src/InvNpcs.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/InvNpcs.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/InvNpcs.cpp > CMakeFiles/dakaraserver.dir/src/InvNpcs.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/InvNpcs.cpp > CMakeFiles/dakaraserver.dir/src/InvNpcs.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/InvNpcs.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/InvNpcs.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/InvNpcs.cpp -o CMakeFiles/dakaraserver.dir/src/InvNpcs.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/InvNpcs.cpp -o CMakeFiles/dakaraserver.dir/src/InvNpcs.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/InvNpcs.cpp.o.requires:
 
@@ -683,16 +683,16 @@ CMakeFiles/dakaraserver.dir/src/InvNpcs.cpp.o.provides.build: CMakeFiles/dakaras
 
 CMakeFiles/dakaraserver.dir/src/InvUsuario.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/InvUsuario.cpp.o: ../src/InvUsuario.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/dakaraserver.dir/src/InvUsuario.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/InvUsuario.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/InvUsuario.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/dakaraserver.dir/src/InvUsuario.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/InvUsuario.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/InvUsuario.cpp
 
 CMakeFiles/dakaraserver.dir/src/InvUsuario.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/InvUsuario.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/InvUsuario.cpp > CMakeFiles/dakaraserver.dir/src/InvUsuario.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/InvUsuario.cpp > CMakeFiles/dakaraserver.dir/src/InvUsuario.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/InvUsuario.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/InvUsuario.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/InvUsuario.cpp -o CMakeFiles/dakaraserver.dir/src/InvUsuario.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/InvUsuario.cpp -o CMakeFiles/dakaraserver.dir/src/InvUsuario.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/InvUsuario.cpp.o.requires:
 
@@ -707,16 +707,16 @@ CMakeFiles/dakaraserver.dir/src/InvUsuario.cpp.o.provides.build: CMakeFiles/daka
 
 CMakeFiles/dakaraserver.dir/src/Invisibles.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Invisibles.cpp.o: ../src/Invisibles.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/dakaraserver.dir/src/Invisibles.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Invisibles.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Invisibles.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/dakaraserver.dir/src/Invisibles.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Invisibles.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Invisibles.cpp
 
 CMakeFiles/dakaraserver.dir/src/Invisibles.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Invisibles.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Invisibles.cpp > CMakeFiles/dakaraserver.dir/src/Invisibles.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Invisibles.cpp > CMakeFiles/dakaraserver.dir/src/Invisibles.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Invisibles.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Invisibles.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Invisibles.cpp -o CMakeFiles/dakaraserver.dir/src/Invisibles.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Invisibles.cpp -o CMakeFiles/dakaraserver.dir/src/Invisibles.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Invisibles.cpp.o.requires:
 
@@ -731,16 +731,16 @@ CMakeFiles/dakaraserver.dir/src/Invisibles.cpp.o.provides.build: CMakeFiles/daka
 
 CMakeFiles/dakaraserver.dir/src/Logs.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Logs.cpp.o: ../src/Logs.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/dakaraserver.dir/src/Logs.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Logs.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Logs.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/dakaraserver.dir/src/Logs.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Logs.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Logs.cpp
 
 CMakeFiles/dakaraserver.dir/src/Logs.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Logs.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Logs.cpp > CMakeFiles/dakaraserver.dir/src/Logs.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Logs.cpp > CMakeFiles/dakaraserver.dir/src/Logs.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Logs.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Logs.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Logs.cpp -o CMakeFiles/dakaraserver.dir/src/Logs.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Logs.cpp -o CMakeFiles/dakaraserver.dir/src/Logs.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Logs.cpp.o.requires:
 
@@ -755,16 +755,16 @@ CMakeFiles/dakaraserver.dir/src/Logs.cpp.o.provides.build: CMakeFiles/dakaraserv
 
 CMakeFiles/dakaraserver.dir/src/MapSoundManager.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/MapSoundManager.cpp.o: ../src/MapSoundManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/dakaraserver.dir/src/MapSoundManager.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/MapSoundManager.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/MapSoundManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/dakaraserver.dir/src/MapSoundManager.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/MapSoundManager.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/MapSoundManager.cpp
 
 CMakeFiles/dakaraserver.dir/src/MapSoundManager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/MapSoundManager.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/MapSoundManager.cpp > CMakeFiles/dakaraserver.dir/src/MapSoundManager.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/MapSoundManager.cpp > CMakeFiles/dakaraserver.dir/src/MapSoundManager.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/MapSoundManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/MapSoundManager.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/MapSoundManager.cpp -o CMakeFiles/dakaraserver.dir/src/MapSoundManager.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/MapSoundManager.cpp -o CMakeFiles/dakaraserver.dir/src/MapSoundManager.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/MapSoundManager.cpp.o.requires:
 
@@ -779,16 +779,16 @@ CMakeFiles/dakaraserver.dir/src/MapSoundManager.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/dakaraserver.dir/src/Matematicas.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Matematicas.cpp.o: ../src/Matematicas.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/dakaraserver.dir/src/Matematicas.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Matematicas.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Matematicas.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/dakaraserver.dir/src/Matematicas.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Matematicas.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Matematicas.cpp
 
 CMakeFiles/dakaraserver.dir/src/Matematicas.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Matematicas.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Matematicas.cpp > CMakeFiles/dakaraserver.dir/src/Matematicas.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Matematicas.cpp > CMakeFiles/dakaraserver.dir/src/Matematicas.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Matematicas.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Matematicas.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Matematicas.cpp -o CMakeFiles/dakaraserver.dir/src/Matematicas.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Matematicas.cpp -o CMakeFiles/dakaraserver.dir/src/Matematicas.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Matematicas.cpp.o.requires:
 
@@ -803,16 +803,16 @@ CMakeFiles/dakaraserver.dir/src/Matematicas.cpp.o.provides.build: CMakeFiles/dak
 
 CMakeFiles/dakaraserver.dir/src/Npcs.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Npcs.cpp.o: ../src/Npcs.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/dakaraserver.dir/src/Npcs.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Npcs.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Npcs.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/dakaraserver.dir/src/Npcs.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Npcs.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Npcs.cpp
 
 CMakeFiles/dakaraserver.dir/src/Npcs.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Npcs.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Npcs.cpp > CMakeFiles/dakaraserver.dir/src/Npcs.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Npcs.cpp > CMakeFiles/dakaraserver.dir/src/Npcs.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Npcs.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Npcs.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Npcs.cpp -o CMakeFiles/dakaraserver.dir/src/Npcs.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Npcs.cpp -o CMakeFiles/dakaraserver.dir/src/Npcs.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Npcs.cpp.o.requires:
 
@@ -827,16 +827,16 @@ CMakeFiles/dakaraserver.dir/src/Npcs.cpp.o.provides.build: CMakeFiles/dakaraserv
 
 CMakeFiles/dakaraserver.dir/src/NpcsAI.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/NpcsAI.cpp.o: ../src/NpcsAI.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/dakaraserver.dir/src/NpcsAI.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/NpcsAI.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/NpcsAI.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/dakaraserver.dir/src/NpcsAI.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/NpcsAI.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/NpcsAI.cpp
 
 CMakeFiles/dakaraserver.dir/src/NpcsAI.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/NpcsAI.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/NpcsAI.cpp > CMakeFiles/dakaraserver.dir/src/NpcsAI.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/NpcsAI.cpp > CMakeFiles/dakaraserver.dir/src/NpcsAI.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/NpcsAI.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/NpcsAI.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/NpcsAI.cpp -o CMakeFiles/dakaraserver.dir/src/NpcsAI.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/NpcsAI.cpp -o CMakeFiles/dakaraserver.dir/src/NpcsAI.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/NpcsAI.cpp.o.requires:
 
@@ -851,16 +851,16 @@ CMakeFiles/dakaraserver.dir/src/NpcsAI.cpp.o.provides.build: CMakeFiles/dakarase
 
 CMakeFiles/dakaraserver.dir/src/NuevoTimer.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/NuevoTimer.cpp.o: ../src/NuevoTimer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/dakaraserver.dir/src/NuevoTimer.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/NuevoTimer.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/NuevoTimer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/dakaraserver.dir/src/NuevoTimer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/NuevoTimer.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/NuevoTimer.cpp
 
 CMakeFiles/dakaraserver.dir/src/NuevoTimer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/NuevoTimer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/NuevoTimer.cpp > CMakeFiles/dakaraserver.dir/src/NuevoTimer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/NuevoTimer.cpp > CMakeFiles/dakaraserver.dir/src/NuevoTimer.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/NuevoTimer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/NuevoTimer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/NuevoTimer.cpp -o CMakeFiles/dakaraserver.dir/src/NuevoTimer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/NuevoTimer.cpp -o CMakeFiles/dakaraserver.dir/src/NuevoTimer.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/NuevoTimer.cpp.o.requires:
 
@@ -875,16 +875,16 @@ CMakeFiles/dakaraserver.dir/src/NuevoTimer.cpp.o.provides.build: CMakeFiles/daka
 
 CMakeFiles/dakaraserver.dir/src/Parties.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Parties.cpp.o: ../src/Parties.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/dakaraserver.dir/src/Parties.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Parties.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Parties.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/dakaraserver.dir/src/Parties.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Parties.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Parties.cpp
 
 CMakeFiles/dakaraserver.dir/src/Parties.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Parties.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Parties.cpp > CMakeFiles/dakaraserver.dir/src/Parties.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Parties.cpp > CMakeFiles/dakaraserver.dir/src/Parties.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Parties.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Parties.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Parties.cpp -o CMakeFiles/dakaraserver.dir/src/Parties.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Parties.cpp -o CMakeFiles/dakaraserver.dir/src/Parties.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Parties.cpp.o.requires:
 
@@ -899,16 +899,16 @@ CMakeFiles/dakaraserver.dir/src/Parties.cpp.o.provides.build: CMakeFiles/dakaras
 
 CMakeFiles/dakaraserver.dir/src/Party.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Party.cpp.o: ../src/Party.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/dakaraserver.dir/src/Party.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Party.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Party.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/dakaraserver.dir/src/Party.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Party.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Party.cpp
 
 CMakeFiles/dakaraserver.dir/src/Party.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Party.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Party.cpp > CMakeFiles/dakaraserver.dir/src/Party.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Party.cpp > CMakeFiles/dakaraserver.dir/src/Party.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Party.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Party.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Party.cpp -o CMakeFiles/dakaraserver.dir/src/Party.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Party.cpp -o CMakeFiles/dakaraserver.dir/src/Party.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Party.cpp.o.requires:
 
@@ -923,16 +923,16 @@ CMakeFiles/dakaraserver.dir/src/Party.cpp.o.provides.build: CMakeFiles/dakaraser
 
 CMakeFiles/dakaraserver.dir/src/PathFinding.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/PathFinding.cpp.o: ../src/PathFinding.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/dakaraserver.dir/src/PathFinding.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/PathFinding.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/PathFinding.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/dakaraserver.dir/src/PathFinding.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/PathFinding.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/PathFinding.cpp
 
 CMakeFiles/dakaraserver.dir/src/PathFinding.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/PathFinding.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/PathFinding.cpp > CMakeFiles/dakaraserver.dir/src/PathFinding.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/PathFinding.cpp > CMakeFiles/dakaraserver.dir/src/PathFinding.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/PathFinding.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/PathFinding.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/PathFinding.cpp -o CMakeFiles/dakaraserver.dir/src/PathFinding.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/PathFinding.cpp -o CMakeFiles/dakaraserver.dir/src/PathFinding.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/PathFinding.cpp.o.requires:
 
@@ -947,16 +947,16 @@ CMakeFiles/dakaraserver.dir/src/PathFinding.cpp.o.provides.build: CMakeFiles/dak
 
 CMakeFiles/dakaraserver.dir/src/Protocol.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Protocol.cpp.o: ../src/Protocol.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/dakaraserver.dir/src/Protocol.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Protocol.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Protocol.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/dakaraserver.dir/src/Protocol.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Protocol.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Protocol.cpp
 
 CMakeFiles/dakaraserver.dir/src/Protocol.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Protocol.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Protocol.cpp > CMakeFiles/dakaraserver.dir/src/Protocol.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Protocol.cpp > CMakeFiles/dakaraserver.dir/src/Protocol.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Protocol.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Protocol.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Protocol.cpp -o CMakeFiles/dakaraserver.dir/src/Protocol.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Protocol.cpp -o CMakeFiles/dakaraserver.dir/src/Protocol.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Protocol.cpp.o.requires:
 
@@ -971,16 +971,16 @@ CMakeFiles/dakaraserver.dir/src/Protocol.cpp.o.provides.build: CMakeFiles/dakara
 
 CMakeFiles/dakaraserver.dir/src/ProtocolHandler.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/ProtocolHandler.cpp.o: ../src/ProtocolHandler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/dakaraserver.dir/src/ProtocolHandler.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/ProtocolHandler.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/ProtocolHandler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/dakaraserver.dir/src/ProtocolHandler.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/ProtocolHandler.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/ProtocolHandler.cpp
 
 CMakeFiles/dakaraserver.dir/src/ProtocolHandler.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/ProtocolHandler.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/ProtocolHandler.cpp > CMakeFiles/dakaraserver.dir/src/ProtocolHandler.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/ProtocolHandler.cpp > CMakeFiles/dakaraserver.dir/src/ProtocolHandler.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/ProtocolHandler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/ProtocolHandler.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/ProtocolHandler.cpp -o CMakeFiles/dakaraserver.dir/src/ProtocolHandler.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/ProtocolHandler.cpp -o CMakeFiles/dakaraserver.dir/src/ProtocolHandler.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/ProtocolHandler.cpp.o.requires:
 
@@ -995,16 +995,16 @@ CMakeFiles/dakaraserver.dir/src/ProtocolHandler.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/dakaraserver.dir/src/ProtocolNew.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/ProtocolNew.cpp.o: ../src/ProtocolNew.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/dakaraserver.dir/src/ProtocolNew.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/ProtocolNew.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/ProtocolNew.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/dakaraserver.dir/src/ProtocolNew.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/ProtocolNew.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/ProtocolNew.cpp
 
 CMakeFiles/dakaraserver.dir/src/ProtocolNew.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/ProtocolNew.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/ProtocolNew.cpp > CMakeFiles/dakaraserver.dir/src/ProtocolNew.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/ProtocolNew.cpp > CMakeFiles/dakaraserver.dir/src/ProtocolNew.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/ProtocolNew.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/ProtocolNew.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/ProtocolNew.cpp -o CMakeFiles/dakaraserver.dir/src/ProtocolNew.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/ProtocolNew.cpp -o CMakeFiles/dakaraserver.dir/src/ProtocolNew.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/ProtocolNew.cpp.o.requires:
 
@@ -1019,16 +1019,16 @@ CMakeFiles/dakaraserver.dir/src/ProtocolNew.cpp.o.provides.build: CMakeFiles/dak
 
 CMakeFiles/dakaraserver.dir/src/SecurityIp.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/SecurityIp.cpp.o: ../src/SecurityIp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/dakaraserver.dir/src/SecurityIp.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/SecurityIp.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/SecurityIp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/dakaraserver.dir/src/SecurityIp.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/SecurityIp.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/SecurityIp.cpp
 
 CMakeFiles/dakaraserver.dir/src/SecurityIp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/SecurityIp.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/SecurityIp.cpp > CMakeFiles/dakaraserver.dir/src/SecurityIp.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/SecurityIp.cpp > CMakeFiles/dakaraserver.dir/src/SecurityIp.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/SecurityIp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/SecurityIp.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/SecurityIp.cpp -o CMakeFiles/dakaraserver.dir/src/SecurityIp.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/SecurityIp.cpp -o CMakeFiles/dakaraserver.dir/src/SecurityIp.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/SecurityIp.cpp.o.requires:
 
@@ -1043,16 +1043,16 @@ CMakeFiles/dakaraserver.dir/src/SecurityIp.cpp.o.provides.build: CMakeFiles/daka
 
 CMakeFiles/dakaraserver.dir/src/SendData.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/SendData.cpp.o: ../src/SendData.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/dakaraserver.dir/src/SendData.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/SendData.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/SendData.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/dakaraserver.dir/src/SendData.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/SendData.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/SendData.cpp
 
 CMakeFiles/dakaraserver.dir/src/SendData.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/SendData.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/SendData.cpp > CMakeFiles/dakaraserver.dir/src/SendData.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/SendData.cpp > CMakeFiles/dakaraserver.dir/src/SendData.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/SendData.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/SendData.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/SendData.cpp -o CMakeFiles/dakaraserver.dir/src/SendData.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/SendData.cpp -o CMakeFiles/dakaraserver.dir/src/SendData.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/SendData.cpp.o.requires:
 
@@ -1067,16 +1067,16 @@ CMakeFiles/dakaraserver.dir/src/SendData.cpp.o.provides.build: CMakeFiles/dakara
 
 CMakeFiles/dakaraserver.dir/src/SistemaCombate.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/SistemaCombate.cpp.o: ../src/SistemaCombate.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/dakaraserver.dir/src/SistemaCombate.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/SistemaCombate.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/SistemaCombate.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/dakaraserver.dir/src/SistemaCombate.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/SistemaCombate.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/SistemaCombate.cpp
 
 CMakeFiles/dakaraserver.dir/src/SistemaCombate.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/SistemaCombate.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/SistemaCombate.cpp > CMakeFiles/dakaraserver.dir/src/SistemaCombate.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/SistemaCombate.cpp > CMakeFiles/dakaraserver.dir/src/SistemaCombate.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/SistemaCombate.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/SistemaCombate.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/SistemaCombate.cpp -o CMakeFiles/dakaraserver.dir/src/SistemaCombate.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/SistemaCombate.cpp -o CMakeFiles/dakaraserver.dir/src/SistemaCombate.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/SistemaCombate.cpp.o.requires:
 
@@ -1091,16 +1091,16 @@ CMakeFiles/dakaraserver.dir/src/SistemaCombate.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/dakaraserver.dir/src/Sockets.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Sockets.cpp.o: ../src/Sockets.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/dakaraserver.dir/src/Sockets.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Sockets.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Sockets.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/dakaraserver.dir/src/Sockets.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Sockets.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Sockets.cpp
 
 CMakeFiles/dakaraserver.dir/src/Sockets.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Sockets.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Sockets.cpp > CMakeFiles/dakaraserver.dir/src/Sockets.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Sockets.cpp > CMakeFiles/dakaraserver.dir/src/Sockets.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Sockets.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Sockets.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Sockets.cpp -o CMakeFiles/dakaraserver.dir/src/Sockets.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Sockets.cpp -o CMakeFiles/dakaraserver.dir/src/Sockets.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Sockets.cpp.o.requires:
 
@@ -1115,16 +1115,16 @@ CMakeFiles/dakaraserver.dir/src/Sockets.cpp.o.provides.build: CMakeFiles/dakaras
 
 CMakeFiles/dakaraserver.dir/src/SocketsLib.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/SocketsLib.cpp.o: ../src/SocketsLib.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/dakaraserver.dir/src/SocketsLib.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/SocketsLib.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/SocketsLib.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/dakaraserver.dir/src/SocketsLib.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/SocketsLib.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/SocketsLib.cpp
 
 CMakeFiles/dakaraserver.dir/src/SocketsLib.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/SocketsLib.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/SocketsLib.cpp > CMakeFiles/dakaraserver.dir/src/SocketsLib.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/SocketsLib.cpp > CMakeFiles/dakaraserver.dir/src/SocketsLib.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/SocketsLib.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/SocketsLib.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/SocketsLib.cpp -o CMakeFiles/dakaraserver.dir/src/SocketsLib.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/SocketsLib.cpp -o CMakeFiles/dakaraserver.dir/src/SocketsLib.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/SocketsLib.cpp.o.requires:
 
@@ -1139,16 +1139,16 @@ CMakeFiles/dakaraserver.dir/src/SocketsLib.cpp.o.provides.build: CMakeFiles/daka
 
 CMakeFiles/dakaraserver.dir/src/Solicitud.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Solicitud.cpp.o: ../src/Solicitud.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/dakaraserver.dir/src/Solicitud.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Solicitud.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Solicitud.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/dakaraserver.dir/src/Solicitud.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Solicitud.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Solicitud.cpp
 
 CMakeFiles/dakaraserver.dir/src/Solicitud.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Solicitud.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Solicitud.cpp > CMakeFiles/dakaraserver.dir/src/Solicitud.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Solicitud.cpp > CMakeFiles/dakaraserver.dir/src/Solicitud.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Solicitud.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Solicitud.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Solicitud.cpp -o CMakeFiles/dakaraserver.dir/src/Solicitud.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Solicitud.cpp -o CMakeFiles/dakaraserver.dir/src/Solicitud.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Solicitud.cpp.o.requires:
 
@@ -1163,16 +1163,16 @@ CMakeFiles/dakaraserver.dir/src/Solicitud.cpp.o.provides.build: CMakeFiles/dakar
 
 CMakeFiles/dakaraserver.dir/src/Statistics.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Statistics.cpp.o: ../src/Statistics.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/dakaraserver.dir/src/Statistics.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Statistics.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Statistics.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/dakaraserver.dir/src/Statistics.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Statistics.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Statistics.cpp
 
 CMakeFiles/dakaraserver.dir/src/Statistics.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Statistics.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Statistics.cpp > CMakeFiles/dakaraserver.dir/src/Statistics.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Statistics.cpp > CMakeFiles/dakaraserver.dir/src/Statistics.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Statistics.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Statistics.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Statistics.cpp -o CMakeFiles/dakaraserver.dir/src/Statistics.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Statistics.cpp -o CMakeFiles/dakaraserver.dir/src/Statistics.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Statistics.cpp.o.requires:
 
@@ -1187,16 +1187,16 @@ CMakeFiles/dakaraserver.dir/src/Statistics.cpp.o.provides.build: CMakeFiles/daka
 
 CMakeFiles/dakaraserver.dir/src/TCP.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/TCP.cpp.o: ../src/TCP.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/dakaraserver.dir/src/TCP.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/TCP.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/TCP.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/dakaraserver.dir/src/TCP.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/TCP.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/TCP.cpp
 
 CMakeFiles/dakaraserver.dir/src/TCP.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/TCP.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/TCP.cpp > CMakeFiles/dakaraserver.dir/src/TCP.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/TCP.cpp > CMakeFiles/dakaraserver.dir/src/TCP.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/TCP.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/TCP.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/TCP.cpp -o CMakeFiles/dakaraserver.dir/src/TCP.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/TCP.cpp -o CMakeFiles/dakaraserver.dir/src/TCP.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/TCP.cpp.o.requires:
 
@@ -1211,16 +1211,16 @@ CMakeFiles/dakaraserver.dir/src/TCP.cpp.o.provides.build: CMakeFiles/dakaraserve
 
 CMakeFiles/dakaraserver.dir/src/Timers.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Timers.cpp.o: ../src/Timers.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/dakaraserver.dir/src/Timers.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Timers.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Timers.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/dakaraserver.dir/src/Timers.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Timers.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Timers.cpp
 
 CMakeFiles/dakaraserver.dir/src/Timers.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Timers.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Timers.cpp > CMakeFiles/dakaraserver.dir/src/Timers.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Timers.cpp > CMakeFiles/dakaraserver.dir/src/Timers.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Timers.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Timers.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Timers.cpp -o CMakeFiles/dakaraserver.dir/src/Timers.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Timers.cpp -o CMakeFiles/dakaraserver.dir/src/Timers.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Timers.cpp.o.requires:
 
@@ -1235,16 +1235,16 @@ CMakeFiles/dakaraserver.dir/src/Timers.cpp.o.provides.build: CMakeFiles/dakarase
 
 CMakeFiles/dakaraserver.dir/src/Trabajo.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Trabajo.cpp.o: ../src/Trabajo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/dakaraserver.dir/src/Trabajo.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Trabajo.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Trabajo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/dakaraserver.dir/src/Trabajo.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Trabajo.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Trabajo.cpp
 
 CMakeFiles/dakaraserver.dir/src/Trabajo.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Trabajo.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Trabajo.cpp > CMakeFiles/dakaraserver.dir/src/Trabajo.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Trabajo.cpp > CMakeFiles/dakaraserver.dir/src/Trabajo.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Trabajo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Trabajo.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Trabajo.cpp -o CMakeFiles/dakaraserver.dir/src/Trabajo.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Trabajo.cpp -o CMakeFiles/dakaraserver.dir/src/Trabajo.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Trabajo.cpp.o.requires:
 
@@ -1259,16 +1259,16 @@ CMakeFiles/dakaraserver.dir/src/Trabajo.cpp.o.provides.build: CMakeFiles/dakaras
 
 CMakeFiles/dakaraserver.dir/src/UserRecords.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/UserRecords.cpp.o: ../src/UserRecords.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/dakaraserver.dir/src/UserRecords.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/UserRecords.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/UserRecords.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/dakaraserver.dir/src/UserRecords.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/UserRecords.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/UserRecords.cpp
 
 CMakeFiles/dakaraserver.dir/src/UserRecords.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/UserRecords.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/UserRecords.cpp > CMakeFiles/dakaraserver.dir/src/UserRecords.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/UserRecords.cpp > CMakeFiles/dakaraserver.dir/src/UserRecords.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/UserRecords.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/UserRecords.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/UserRecords.cpp -o CMakeFiles/dakaraserver.dir/src/UserRecords.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/UserRecords.cpp -o CMakeFiles/dakaraserver.dir/src/UserRecords.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/UserRecords.cpp.o.requires:
 
@@ -1283,16 +1283,16 @@ CMakeFiles/dakaraserver.dir/src/UserRecords.cpp.o.provides.build: CMakeFiles/dak
 
 CMakeFiles/dakaraserver.dir/src/Usuarios.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/Usuarios.cpp.o: ../src/Usuarios.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/dakaraserver.dir/src/Usuarios.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Usuarios.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/Usuarios.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/dakaraserver.dir/src/Usuarios.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/Usuarios.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/Usuarios.cpp
 
 CMakeFiles/dakaraserver.dir/src/Usuarios.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/Usuarios.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/Usuarios.cpp > CMakeFiles/dakaraserver.dir/src/Usuarios.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/Usuarios.cpp > CMakeFiles/dakaraserver.dir/src/Usuarios.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/Usuarios.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/Usuarios.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/Usuarios.cpp -o CMakeFiles/dakaraserver.dir/src/Usuarios.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/Usuarios.cpp -o CMakeFiles/dakaraserver.dir/src/Usuarios.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/Usuarios.cpp.o.requires:
 
@@ -1307,16 +1307,16 @@ CMakeFiles/dakaraserver.dir/src/Usuarios.cpp.o.provides.build: CMakeFiles/dakara
 
 CMakeFiles/dakaraserver.dir/src/dakara-server.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/dakara-server.cpp.o: ../src/dakara-server.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object CMakeFiles/dakaraserver.dir/src/dakara-server.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/dakara-server.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/dakara-server.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object CMakeFiles/dakaraserver.dir/src/dakara-server.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/dakara-server.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/dakara-server.cpp
 
 CMakeFiles/dakaraserver.dir/src/dakara-server.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/dakara-server.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/dakara-server.cpp > CMakeFiles/dakaraserver.dir/src/dakara-server.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/dakara-server.cpp > CMakeFiles/dakaraserver.dir/src/dakara-server.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/dakara-server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/dakara-server.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/dakara-server.cpp -o CMakeFiles/dakaraserver.dir/src/dakara-server.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/dakara-server.cpp -o CMakeFiles/dakaraserver.dir/src/dakara-server.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/dakara-server.cpp.o.requires:
 
@@ -1331,16 +1331,16 @@ CMakeFiles/dakaraserver.dir/src/dakara-server.cpp.o.provides.build: CMakeFiles/d
 
 CMakeFiles/dakaraserver.dir/src/praetorians.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/praetorians.cpp.o: ../src/praetorians.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object CMakeFiles/dakaraserver.dir/src/praetorians.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/praetorians.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/praetorians.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object CMakeFiles/dakaraserver.dir/src/praetorians.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/praetorians.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/praetorians.cpp
 
 CMakeFiles/dakaraserver.dir/src/praetorians.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/praetorians.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/praetorians.cpp > CMakeFiles/dakaraserver.dir/src/praetorians.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/praetorians.cpp > CMakeFiles/dakaraserver.dir/src/praetorians.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/praetorians.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/praetorians.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/praetorians.cpp -o CMakeFiles/dakaraserver.dir/src/praetorians.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/praetorians.cpp -o CMakeFiles/dakaraserver.dir/src/praetorians.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/praetorians.cpp.o.requires:
 
@@ -1355,16 +1355,16 @@ CMakeFiles/dakaraserver.dir/src/praetorians.cpp.o.provides.build: CMakeFiles/dak
 
 CMakeFiles/dakaraserver.dir/src/sha1.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/sha1.cpp.o: ../src/sha1.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object CMakeFiles/dakaraserver.dir/src/sha1.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/sha1.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/sha1.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object CMakeFiles/dakaraserver.dir/src/sha1.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/sha1.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/sha1.cpp
 
 CMakeFiles/dakaraserver.dir/src/sha1.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/sha1.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/sha1.cpp > CMakeFiles/dakaraserver.dir/src/sha1.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/sha1.cpp > CMakeFiles/dakaraserver.dir/src/sha1.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/sha1.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/sha1.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/sha1.cpp -o CMakeFiles/dakaraserver.dir/src/sha1.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/sha1.cpp -o CMakeFiles/dakaraserver.dir/src/sha1.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/sha1.cpp.o.requires:
 
@@ -1379,16 +1379,16 @@ CMakeFiles/dakaraserver.dir/src/sha1.cpp.o.provides.build: CMakeFiles/dakaraserv
 
 CMakeFiles/dakaraserver.dir/src/stdafx.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/stdafx.cpp.o: ../src/stdafx.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object CMakeFiles/dakaraserver.dir/src/stdafx.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/stdafx.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/stdafx.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object CMakeFiles/dakaraserver.dir/src/stdafx.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/stdafx.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/stdafx.cpp
 
 CMakeFiles/dakaraserver.dir/src/stdafx.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/stdafx.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/stdafx.cpp > CMakeFiles/dakaraserver.dir/src/stdafx.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/stdafx.cpp > CMakeFiles/dakaraserver.dir/src/stdafx.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/stdafx.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/stdafx.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/stdafx.cpp -o CMakeFiles/dakaraserver.dir/src/stdafx.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/stdafx.cpp -o CMakeFiles/dakaraserver.dir/src/stdafx.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/stdafx.cpp.o.requires:
 
@@ -1403,16 +1403,16 @@ CMakeFiles/dakaraserver.dir/src/stdafx.cpp.o.provides.build: CMakeFiles/dakarase
 
 CMakeFiles/dakaraserver.dir/src/vb6compat.cpp.o: CMakeFiles/dakaraserver.dir/flags.make
 CMakeFiles/dakaraserver.dir/src/vb6compat.cpp.o: ../src/vb6compat.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object CMakeFiles/dakaraserver.dir/src/vb6compat.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/vb6compat.cpp.o -c /home/jonathan/crypto/solana/dakara-server/src/vb6compat.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object CMakeFiles/dakaraserver.dir/src/vb6compat.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dakaraserver.dir/src/vb6compat.cpp.o -c /home/jonathan/crypto/solana/HoA/server/src/vb6compat.cpp
 
 CMakeFiles/dakaraserver.dir/src/vb6compat.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dakaraserver.dir/src/vb6compat.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/dakara-server/src/vb6compat.cpp > CMakeFiles/dakaraserver.dir/src/vb6compat.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jonathan/crypto/solana/HoA/server/src/vb6compat.cpp > CMakeFiles/dakaraserver.dir/src/vb6compat.cpp.i
 
 CMakeFiles/dakaraserver.dir/src/vb6compat.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dakaraserver.dir/src/vb6compat.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/dakara-server/src/vb6compat.cpp -o CMakeFiles/dakaraserver.dir/src/vb6compat.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jonathan/crypto/solana/HoA/server/src/vb6compat.cpp -o CMakeFiles/dakaraserver.dir/src/vb6compat.cpp.s
 
 CMakeFiles/dakaraserver.dir/src/vb6compat.cpp.o.requires:
 
@@ -1554,7 +1554,7 @@ dakaraserver: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
 dakaraserver: /usr/lib/x86_64-linux-gnu/libboost_system.so
 dakaraserver: /usr/lib/x86_64-linux-gnu/libboost_locale.so
 dakaraserver: CMakeFiles/dakaraserver.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jonathan/crypto/solana/dakara-server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Linking CXX executable dakaraserver"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jonathan/crypto/solana/HoA/server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Linking CXX executable dakaraserver"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dakaraserver.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -1627,6 +1627,6 @@ CMakeFiles/dakaraserver.dir/clean:
 .PHONY : CMakeFiles/dakaraserver.dir/clean
 
 CMakeFiles/dakaraserver.dir/depend:
-	cd /home/jonathan/crypto/solana/dakara-server/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jonathan/crypto/solana/dakara-server /home/jonathan/crypto/solana/dakara-server /home/jonathan/crypto/solana/dakara-server/build /home/jonathan/crypto/solana/dakara-server/build /home/jonathan/crypto/solana/dakara-server/build/CMakeFiles/dakaraserver.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jonathan/crypto/solana/HoA/server/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jonathan/crypto/solana/HoA/server /home/jonathan/crypto/solana/HoA/server /home/jonathan/crypto/solana/HoA/server/build /home/jonathan/crypto/solana/HoA/server/build /home/jonathan/crypto/solana/HoA/server/build/CMakeFiles/dakaraserver.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/dakaraserver.dir/depend
 

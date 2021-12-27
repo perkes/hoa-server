@@ -213,3 +213,29 @@
 2021-Dec-14 19:04:59 IniciaWsApi
 2021-Dec-14 19:09:53 Control-C, terminando.
 2021-Dec-14 19:17:33 IniciaWsApi
+2021-Dec-16 17:35:11 IniciaWsApi
+2021-Dec-23 15:51:35 Control-C, terminando.
+2021-Dec-23 15:59:34 IniciaWsApi
+2021-Dec-23 16:06:10 Control-C, terminando.
+2021-Dec-23 16:10:06 IniciaWsApi
+2021-Dec-23 16:18:54 Control-C, terminando.
+2021-Dec-23 16:19:47 IniciaWsApi
+2021-Dec-23 16:22:25 Control-C, terminando.
+2021-Dec-23 16:22:48 IniciaWsApi
+2021-Dec-24 13:58:33 Control-C, terminando.
+2021-Dec-24 14:05:06 IniciaWsApi
+2021-Dec-24 14:06:02 Unhandled error on HandleIncomingData, File does not exist: /home/jonathan/crypto/solana/HoA/server/build/Charfile/I.chr
+2021-Dec-24 14:11:34 Unhandled error on HandleIncomingData, basic_string::_M_construct null not valid
+2021-Dec-24 14:24:59 Control-C, terminando.
+2021-Dec-24 14:29:15 IniciaWsApi
+2021-Dec-24 14:56:38 Control-C, terminando.
+2021-Dec-24 15:00:28 IniciaWsApi
+2021-Dec-24 15:02:51 Control-C, terminando.
+2021-Dec-24 15:03:12 IniciaWsApi
+2021-Dec-24 15:06:54 Control-C, terminando.
+2021-Dec-24 15:07:16 IniciaWsApi
+2021-Dec-24 15:14:31 Control-C, terminando.
+2021-Dec-24 15:14:49 IniciaWsApi
+2021-Dec-27 20:13:07 Control-C, terminando.
+2021-Dec-27 20:17:52 IniciaWsApi
+2021-Dec-27 20:19:02 Control-C, terminando.
