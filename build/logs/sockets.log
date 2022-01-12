@@ -239,3 +239,62 @@
 2021-Dec-27 20:13:07 Control-C, terminando.
 2021-Dec-27 20:17:52 IniciaWsApi
 2021-Dec-27 20:19:02 Control-C, terminando.
+2021-Dec-29 13:45:22 IniciaWsApi
+2022-Jan-10 21:07:08 Control-C, terminando.
+2022-Jan-10 21:14:19 IniciaWsApi
+2022-Jan-10 21:15:45 Control-C, terminando.
+2022-Jan-11 11:13:05 IniciaWsApi
+2022-Jan-11 11:38:48 Control-C, terminando.
+2022-Jan-11 11:39:00 IniciaWsApi
+2022-Jan-11 11:42:57 Unhandled error on HandleIncomingData, No such device
+2022-Jan-11 11:45:03 Unhandled error on HandleIncomingData, No such device
+2022-Jan-11 11:46:13 Control-C, terminando.
+2022-Jan-11 11:54:55 IniciaWsApi
+2022-Jan-11 11:55:17 Unhandled error on HandleIncomingData, No such device
+2022-Jan-11 11:56:13 Control-C, terminando.
+2022-Jan-11 11:56:40 IniciaWsApi
+2022-Jan-11 11:57:04 Unhandled error on HandleIncomingData, No such device
+2022-Jan-11 11:58:07 Control-C, terminando.
+2022-Jan-11 19:24:42 IniciaWsApi
+2022-Jan-11 19:25:18 Unhandled error on HandleIncomingData, No such device
+2022-Jan-11 19:26:31 Control-C, terminando.
+2022-Jan-11 19:26:45 IniciaWsApi
+2022-Jan-11 19:27:00 Unhandled error on HandleIncomingData, No such device
+2022-Jan-11 19:28:31 Control-C, terminando.
+2022-Jan-11 19:29:28 IniciaWsApi
+2022-Jan-11 19:29:43 Unhandled error on HandleIncomingData, No such device
+2022-Jan-11 19:30:48 Control-C, terminando.
+2022-Jan-11 19:32:40 IniciaWsApi
+2022-Jan-11 19:32:53 Unhandled error on HandleIncomingData, No such device
+2022-Jan-11 19:37:05 Control-C, terminando.
+2022-Jan-11 19:37:29 IniciaWsApi
+2022-Jan-11 19:37:48 Unhandled error on HandleIncomingData, No such device
+2022-Jan-11 19:39:40 Control-C, terminando.
+2022-Jan-11 19:40:01 IniciaWsApi
+2022-Jan-11 19:40:16 Unhandled error on HandleIncomingData, Address already in use
+2022-Jan-11 19:53:03 Control-C, terminando.
+2022-Jan-11 19:53:27 IniciaWsApi
+2022-Jan-11 19:53:43 Unhandled error on HandleIncomingData, Address already in use
+2022-Jan-11 19:54:31 Control-C, terminando.
+2022-Jan-11 19:59:54 IniciaWsApi
+2022-Jan-11 20:00:08 Unhandled error on HandleIncomingData, Operation not supported
+2022-Jan-11 20:01:43 Control-C, terminando.
+2022-Jan-11 20:02:04 IniciaWsApi
+2022-Jan-11 20:02:21 Unhandled error on HandleIncomingData, Operation cannot be accomplished in current state
+2022-Jan-11 20:05:03 Control-C, terminando.
+2022-Jan-11 20:05:23 IniciaWsApi
+2022-Jan-11 20:08:21 Control-C, terminando.
+2022-Jan-11 20:08:42 IniciaWsApi
+2022-Jan-11 20:10:18 Unhandled error on HandleIncomingData, Interrupted system call
+2022-Jan-11 20:10:18 Control-C, terminando.
+2022-Jan-11 20:11:03 IniciaWsApi
+2022-Jan-11 20:15:20 Control-C, terminando.
+2022-Jan-11 20:15:43 IniciaWsApi
+2022-Jan-11 20:43:01 Control-C, terminando.
+2022-Jan-11 20:44:13 IniciaWsApi
+2022-Jan-11 20:44:42 Unhandled error on HandleIncomingData, [json.exception.parse_error.101] parse error at line 1, column 2: syntax error while parsing object key - invalid literal; last read: '{''; expected string literal
+2022-Jan-11 20:50:58 Control-C, terminando.
+2022-Jan-11 20:51:24 IniciaWsApi
+2022-Jan-11 21:02:11 Control-C, terminando.
+2022-Jan-11 21:02:39 IniciaWsApi
+2022-Jan-11 21:03:05 Control-C, terminando.

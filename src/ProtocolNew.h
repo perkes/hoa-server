@@ -205,17 +205,17 @@ class LoginExistingChar : public ClientPacket {
 public:
     LoginExistingChar();
     LoginExistingChar(clsByteQueue* buffer);
-    LoginExistingChar(const std::string& wallet_address, const std::string& token_address);
+    LoginExistingChar(const std::string& token, const std::string& nft_address);
 
     virtual void serialize(clsByteQueue* buffer) const;
     virtual void dispatch(PacketHandler* d);
 
-    std::string wallet_address; 
-    std::string token_address; 
+    std::string token; 
+    std::string nft_address; 
 };
 
-inline LoginExistingChar BuildLoginExistingChar(const std::string& wallet_address, const std::string& token_address) {
-    return LoginExistingChar(wallet_address, token_address);
+inline LoginExistingChar BuildLoginExistingChar(const std::string& token, const std::string& nft_address) {
+    return LoginExistingChar(token, nft_address);
 }
 
 class ThrowDices : public ClientPacket {

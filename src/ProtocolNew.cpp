@@ -1447,22 +1447,22 @@ void ClientPacketDecodeAndDispatch(clsByteQueue* buffer, PacketHandler* handler)
     }
 }
 
-LoginExistingChar::LoginExistingChar() : ClientPacket(ClientPacketID_LoginExistingChar /* 0 */), wallet_address(), token_address() {
+LoginExistingChar::LoginExistingChar() : ClientPacket(ClientPacketID_LoginExistingChar /* 0 */), token(), nft_address() {
 }
 
 LoginExistingChar::LoginExistingChar(clsByteQueue* buffer) : ClientPacket(ClientPacketID_LoginExistingChar /* 0 */) {
     buffer->ReadByte(); /* PacketID */
-    wallet_address = buffer->ReadUnicodeString();
-    token_address = buffer->ReadUnicodeString();
+    token = buffer->ReadUnicodeString();
+    nft_address = buffer->ReadUnicodeString();
 }
 
-LoginExistingChar::LoginExistingChar(const std::string& wallet_address_, const std::string& token_address_) : ClientPacket(ClientPacketID_LoginExistingChar /* 0 */), wallet_address(wallet_address_), token_address(token_address_) {
+LoginExistingChar::LoginExistingChar(const std::string& token, const std::string& nft_address_) : ClientPacket(ClientPacketID_LoginExistingChar /* 0 */), token(token), nft_address(nft_address_) {
 }
 
 void LoginExistingChar::serialize(clsByteQueue* buffer) const {
     buffer->WriteByte(ClientPacketID_LoginExistingChar); /* PacketID: 0 */
-    buffer->WriteUnicodeString(wallet_address);
-    buffer->WriteUnicodeString(token_address);
+    buffer->WriteUnicodeString(token);
+    buffer->WriteUnicodeString(nft_address);
 }
 
 void LoginExistingChar::dispatch(PacketHandler* d) {

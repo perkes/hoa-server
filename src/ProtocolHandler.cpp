@@ -14,6 +14,11 @@
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ******************************************************************************/
+#include <iostream>
+
+#include "zmq.hpp"
+#include "zmq_addon.hpp"
+#include "json.hpp"
 
 #include "stdafx.h"
 
@@ -45,7 +50,7 @@ void HandleIncomingData(int UserIndex) {
 			CloseSocket(UserIndex);
 			break;
 		} catch (insufficient_data_error& ex) {
-			// Ignored.
+			std::cerr << "error: " << ex.what() << std::endl;
 			UserList[UserIndex].incomingData->commitRead(lastvalidpos);
 			lastvalidpos = 0;
 			break;
@@ -201,11 +206,35 @@ void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { 
 	/* 'Last Modification: 05/17/06 */
 	/* ' */
 	/* '*************************************************** */
+	std::string& token = p->token;
+	std::string& nft_address = p->nft_address;
+	zmq::context_t context (2);
+    zmq::socket_t sock (context, zmq::socket_type::req);
+	nlohmann::json msg;
 
-	std::string& wallet_address = p->wallet_address;
-	std::string& token_address = p->token_address;
+	msg["id"] = "is_token_active";
+	msg["token"] = token;
+    msg["nft_address"] = nft_address;
 
-	if (!PersonajeExiste(token_address)) {
+	std::string msg_str = msg.dump();
+	zmq::message_t message(msg_str.size());
+	std::memcpy (message.data(), msg_str.data(), msg_str.size());
+
+	sock.connect("tcp://127.0.0.1:5555");
+	sock.send(message, zmq::send_flags::dontwait);
+	zmq::message_t reply{};
+    sock.recv(reply, zmq::recv_flags::none);
+	auto status = nlohmann::json::parse(reply.to_string());
+
+	if (status["status"] != "OK") {
+		WriteErrorMsg(UserIndex, "La firma es inválida.");
+		FlushBuffer(UserIndex);
+		CloseSocket(UserIndex);
+
+		return;
+	}
+
+	if (!PersonajeExiste(nft_address)) {
 		if (PuedeCrearPersonajes == 0) {
 			WriteErrorMsg(UserIndex, "La creación de personajes en este servidor se ha deshabilitado.");
 			FlushBuffer(UserIndex);
@@ -223,30 +252,46 @@ void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { 
 		}
 
 		eRaza race;
-		eGenero gender;
+		eGenero sex;
 		eCiudad homeland;
-		eClass Class;
-		int Head;
+		eClass character_class;
+		int head;
 		std::string name;
 		std::string mail;
 
-		race = static_cast<eRaza>(1);
-		gender = static_cast<eGenero>(1);
-		Class = static_cast<eClass>(1);
-		Head = 25;
-		name = "Pepa";
-		mail = "a@a.com";
-		homeland = static_cast<eCiudad>(1);
+		nlohmann::json msg_char_metadata;
 
-		handleThrowDices();
-		
-		ConnectNewUser(UserIndex, name, token_address, race, gender, Class, mail, homeland, Head);
+		msg_char_metadata["id"] = "get_nft_metadata";
+		msg_char_metadata["nft_address"] = nft_address;
+
+		std::string msg_char_metadata_str = msg_char_metadata.dump();
+		zmq::message_t message_metadata(msg_char_metadata_str.size());
+		std::memcpy (message_metadata.data(), msg_char_metadata_str.data(), msg_char_metadata_str.size());
+
+		sock.send(message_metadata, zmq::send_flags::dontwait);
+		zmq::message_t reply_metadata{};
+		sock.recv(reply_metadata, zmq::recv_flags::none);
+		auto status_metadata = nlohmann::json::parse(reply_metadata.to_string());
+
+		if (status_metadata["status"] == "OK" && status_metadata["ret"]["is_hoa"] == true) {
+			race = static_cast<eRaza>(status_metadata["ret"]["race"]);
+			sex = static_cast<eGenero>(status_metadata["ret"]["sex"]);
+			character_class = static_cast<eClass>(status_metadata["ret"]["class"]);
+			head = status_metadata["ret"]["head"];
+			name = status_metadata["ret"]["name"];
+			mail = "a@a.com";
+			homeland = static_cast<eCiudad>(1);
+
+			handleThrowDices();
+			
+			ConnectNewUser(UserIndex, name, nft_address, race, sex, character_class, mail, homeland, head);
+		}
 	} else {
-		if (BANCheck(token_address)) {
+		if (BANCheck(nft_address)) {
 			WriteErrorMsg(UserIndex,
 					"Se te ha prohibido la entrada a Argentum Online debido a tu mal comportamiento. Puedes consultar el reglamento y el sistema de soporte desde www.argentumonline.com.ar");
 		} else {
-			ConnectUser(UserIndex, wallet_address, token_address);
+			ConnectUser(UserIndex, token, nft_address);
 		}
 	}
 }

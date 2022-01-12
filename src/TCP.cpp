@@ -205,7 +205,7 @@ bool ValidateSkills(int UserIndex) {
 	return retval;
 }
 
-void ConnectNewUser(int UserIndex, const std::string& name, const std::string& token_address, eRaza UserRaza,
+void ConnectNewUser(int UserIndex, const std::string& name, const std::string& nft_address, eRaza UserRaza,
 		eGenero UserSexo, eClass UserClase, const std::string& UserEmail, eCiudad Hogar, int Head) {
 	/* '************************************************* */
 	/* 'Author: Unknown */
@@ -233,7 +233,7 @@ void ConnectNewUser(int UserIndex, const std::string& name, const std::string& t
 
 	if (UserList[UserIndex].flags.UserLogged) {
 		LogCheating(
-				"El usuario " + UserList[UserIndex].Name + " ha intentado crear a " + token_address + " desde la IP "
+				"El usuario " + UserList[UserIndex].Name + " ha intentado crear a " + nft_address + " desde la IP "
 						+ UserList[UserIndex].ip);
 
 		/* 'Kick player ( and leave character inside :D )! */
@@ -244,7 +244,7 @@ void ConnectNewUser(int UserIndex, const std::string& name, const std::string& t
 	}
 
 	/* '¿Existe el personaje? */
-	if (FileExist(GetCharPath(token_address), 0) == true) {
+	if (FileExist(GetCharPath(nft_address), 0) == true) {
 		WriteErrorMsg(UserIndex, "Ya existe el personaje.");
 		return;
 	}
@@ -257,7 +257,7 @@ void ConnectNewUser(int UserIndex, const std::string& name, const std::string& t
 
 	if (!ValidarCabeza(UserRaza, UserSexo, Head)) {
 		LogCheating(
-				"El usuario " + token_address + " ha seleccionado la cabeza " + vb6::CStr(Head) + " desde la IP "
+				"El usuario " + nft_address + " ha seleccionado la cabeza " + vb6::CStr(Head) + " desde la IP "
 						+ UserList[UserIndex].ip);
 
 		WriteErrorMsg(UserIndex, "Cabeza inválida, elija una cabeza seleccionable.");
@@ -276,7 +276,7 @@ void ConnectNewUser(int UserIndex, const std::string& name, const std::string& t
 
 	UserList[UserIndex].Reputacion.Promedio = 30 / 6;
 
-	UserList[UserIndex].Name = token_address;
+	UserList[UserIndex].Name = nft_address;
 	UserList[UserIndex].CommonName = name;
 	UserList[UserIndex].clase = UserClase;
 	UserList[UserIndex].raza = UserRaza;
@@ -498,12 +498,12 @@ void ConnectNewUser(int UserIndex, const std::string& name, const std::string& t
 	/* 'Valores Default de facciones al Activar nuevo usuario */
 	ResetFacciones(UserIndex);
 
-	SaveUser(UserIndex, GetCharPath(token_address));
+	SaveUser(UserIndex, GetCharPath(nft_address));
 
-	LogMain("Se ha creado el personaje " + token_address + " desde IP=" + UserList[UserIndex].ip);
+	LogMain("Se ha creado el personaje " + nft_address + " desde IP=" + UserList[UserIndex].ip);
 
 	/* 'Open User */
-	ConnectUser(UserIndex, name, token_address);
+	ConnectUser(UserIndex, name, nft_address);
 }
 
 /* # IF UsarQueSocket = 1 OR UsarQueSocket = 2 THEN */
@@ -704,7 +704,7 @@ bool ValidateChr(int UserIndex) {
 	return retval;
 }
 
-bool ConnectUser(int UserIndex, const std::string & name, const std::string & token_address) {
+bool ConnectUser(int UserIndex, const std::string & name, const std::string & nft_address) {
 	bool retval = false;
 	/* '*************************************************** */
 	/* 'Autor: Unknown (orginal version) */
@@ -720,7 +720,7 @@ bool ConnectUser(int UserIndex, const std::string & name, const std::string & to
 
 	if (UserList[UserIndex].flags.UserLogged) {
 		LogCheating(
-				"El usuario " + UserList[UserIndex].CommonName + " ha intentado loguear a " + token_address + " desde la IP "
+				"El usuario " + UserList[UserIndex].CommonName + " ha intentado loguear a " + nft_address + " desde la IP "
 						+ UserList[UserIndex].ip);
 		/* 'Kick player ( and leave character inside :D )! */
 		CloseSocketSL(UserIndex);
@@ -756,7 +756,7 @@ bool ConnectUser(int UserIndex, const std::string & name, const std::string & to
 	}
 
 	/* '¿Existe el personaje? */
-	if (!FileExist(GetCharPath(token_address), 0)) {
+	if (!FileExist(GetCharPath(nft_address), 0)) {
 		WriteErrorMsg(UserIndex, "El personaje no existe.");
 		FlushBuffer(UserIndex);
 		CloseSocket(UserIndex);
@@ -778,7 +778,7 @@ bool ConnectUser(int UserIndex, const std::string & name, const std::string & to
 #else
 	/* '¿Ya esta conectado el personaje? */
 	int OtherUserIndex;
-	if (CheckForSameName(token_address, OtherUserIndex)) {
+	if (CheckForSameName(nft_address, OtherUserIndex)) {
 		WriteErrorMsg(UserIndex, "Tu personaje ya estaba logeado desde otra ubicacion, fue echado.");
 		FlushBuffer(UserIndex);
 
@@ -791,19 +791,19 @@ bool ConnectUser(int UserIndex, const std::string & name, const std::string & to
 	UserResetPrivilegios(UserIndex);
 
 	/* 'Vemos que clase de user es (se lo usa para setear los privilegios al loguear el PJ) */
-	if (EsAdmin(token_address)) {
+	if (EsAdmin(nft_address)) {
 		UserAsignarPrivilegios(UserIndex, PlayerType_Admin);
-		LogGM(token_address, "Se conecto con ip:" + UserList[UserIndex].ip);
-	} else if (EsDios(token_address)) {
+		LogGM(nft_address, "Se conecto con ip:" + UserList[UserIndex].ip);
+	} else if (EsDios(nft_address)) {
 		UserAsignarPrivilegios(UserIndex, PlayerType_Dios);
-		LogGM(token_address, "Se conecto con ip:" + UserList[UserIndex].ip);
-	} else if (EsSemiDios(token_address)) {
+		LogGM(nft_address, "Se conecto con ip:" + UserList[UserIndex].ip);
+	} else if (EsSemiDios(nft_address)) {
 		UserAsignarPrivilegios(UserIndex, PlayerType_SemiDios);
-		UserList[UserIndex].flags.PrivEspecial = EsGmEspecial(token_address);
-		LogGM(token_address, "Se conecto con ip:" + UserList[UserIndex].ip);
-	} else if (EsConsejero(token_address)) {
+		UserList[UserIndex].flags.PrivEspecial = EsGmEspecial(nft_address);
+		LogGM(nft_address, "Se conecto con ip:" + UserList[UserIndex].ip);
+	} else if (EsConsejero(nft_address)) {
 		UserAsignarPrivilegios(UserIndex, PlayerType_Consejero);
-		LogGM(token_address, "Se conecto con ip:" + UserList[UserIndex].ip);
+		LogGM(nft_address, "Se conecto con ip:" + UserList[UserIndex].ip);
 	} else {
 		UserAsignarPrivilegios(UserIndex, PlayerType_User);
 
@@ -811,7 +811,7 @@ bool ConnectUser(int UserIndex, const std::string & name, const std::string & to
 	}
 
 	/* 'Add RM flag if needed */
-	if (EsRolesMaster(token_address)) {
+	if (EsRolesMaster(nft_address)) {
 		UserAsignarPrivilegios(UserIndex, PlayerType_RoleMaster);
 	}
 
@@ -829,7 +829,7 @@ bool ConnectUser(int UserIndex, const std::string & name, const std::string & to
 	std::shared_ptr<clsIniManager> Leer;
 	Leer.reset(new clsIniManager());
 
-	Leer->Initialize(GetCharPath(token_address));
+	Leer->Initialize(GetCharPath(nft_address));
 
 	/* 'Cargamos los datos del personaje */
 	LoadUserInit(UserIndex, Leer);
@@ -979,7 +979,7 @@ bool ConnectUser(int UserIndex, const std::string & name, const std::string & to
 	}
 
 	/* 'Nombre de sistema */
-	UserList[UserIndex].Name = token_address;
+	UserList[UserIndex].Name = nft_address;
 
 	/* 'Por default los nombres son visibles */
 	UserList[UserIndex].showName = true;
