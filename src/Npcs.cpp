@@ -104,14 +104,14 @@ void MuereNpc(int NpcIndex, int UserIndex) {
 				if (UserList[UserIndex].Stats.Exp > MAXEXP) {
 					UserList[UserIndex].Stats.Exp = MAXEXP;
 				}
-				WriteConsoleMsg(UserIndex, "Has ganado " + vb6::CStr(MiNPC.flags.ExpCount) + " puntos de experiencia.",
+				WriteConsoleMsg(UserIndex, "You've gained " + vb6::CStr(MiNPC.flags.ExpCount) + " XP.",
 						FontTypeNames_FONTTYPE_FIGHT);
 			}
 			MiNPC.flags.ExpCount = 0;
 		}
 
 		/* '[/KEVIN] */
-		WriteConsoleMsg(UserIndex, "¡Has matado a la criatura!", FontTypeNames_FONTTYPE_FIGHT);
+		WriteConsoleMsg(UserIndex, "You've killed the creature!", FontTypeNames_FONTTYPE_FIGHT);
 		if (UserList[UserIndex].Stats.NPCsMuertos < 32000) {
 			UserList[UserIndex].Stats.NPCsMuertos = UserList[UserIndex].Stats.NPCsMuertos + 1;
 		}
@@ -780,7 +780,7 @@ void NpcEnvenenarUser(int UserIndex) {
 	N = RandomNumber(1, 100);
 	if (N < 30) {
 		UserList[UserIndex].flags.Envenenado = 1;
-		WriteConsoleMsg(UserIndex, "¡¡La criatura te ha envenenado!!", FontTypeNames_FONTTYPE_FIGHT);
+		WriteConsoleMsg(UserIndex, "The creature has poisoned you!!", FontTypeNames_FONTTYPE_FIGHT);
 	}
 
 }

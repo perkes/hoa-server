@@ -921,7 +921,7 @@ void AlertarFaccionarios(int UserIndex) {
 				/* ' Solo se envia a los de la misma faccion */
 				if (SameFaccion(UserIndex, tempIndex)) {
 					WriteConsoleMsg(tempIndex,
-							"Escuchas el llamado de un companero que proviene del "
+							"You hear the call of one of your mates coming from "
 									+ GetDireccion(UserIndex, tempIndex), Font);
 				}
 			}

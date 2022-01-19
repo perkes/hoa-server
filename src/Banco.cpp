@@ -158,7 +158,7 @@ void UserReciveObj(int UserIndex, int ObjIndex, int Cantidad) {
 			Slot = Slot + 1;
 
 			if (Slot > UserList[UserIndex].CurrentInventorySlots) {
-				WriteConsoleMsg(UserIndex, "No podés tener mas objetos.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You can't carry any more objects.", FontTypeNames_FONTTYPE_INFO);
 				return;
 			}
 		}
@@ -174,7 +174,7 @@ void UserReciveObj(int UserIndex, int ObjIndex, int Cantidad) {
 
 		QuitarBancoInvItem(UserIndex, vb6::CByte(ObjIndex), Cantidad);
 	} else {
-		WriteConsoleMsg(UserIndex, "No podés tener mas objetos.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You can't carry any more objects.", FontTypeNames_FONTTYPE_INFO);
 	}
 
 }
@@ -284,7 +284,7 @@ void UserDejaObj(int UserIndex, int ObjIndex, int Cantidad) {
 			Slot = Slot + 1;
 
 			if (Slot > MAX_BANCOINVENTORY_SLOTS) {
-				WriteConsoleMsg(UserIndex, "No tienes mas espacio en el banco!!",
+				WriteConsoleMsg(UserIndex, "You don't have any more space in your safe deposit box.",
 						FontTypeNames_FONTTYPE_INFO);
 				return;
 			}
@@ -305,7 +305,7 @@ void UserDejaObj(int UserIndex, int ObjIndex, int Cantidad) {
 
 			QuitarUserInvItem(UserIndex, vb6::CByte(ObjIndex), Cantidad);
 		} else {
-			WriteConsoleMsg(UserIndex, "El banco no puede cargar tantos objetos.",
+			WriteConsoleMsg(UserIndex, "You don't have any more space in your safe deposit box.",
 					FontTypeNames_FONTTYPE_INFO);
 		}
 	}
@@ -321,14 +321,14 @@ void SendUserBovedaTxt(int sendIndex, int UserIndex) {
 	int j;
 
 	WriteConsoleMsg(sendIndex, UserList[UserIndex].Name, FontTypeNames_FONTTYPE_INFO);
-	WriteConsoleMsg(sendIndex, "Tiene " + vb6::CStr(UserList[UserIndex].BancoInvent.NroItems) + " objetos.",
+	WriteConsoleMsg(sendIndex, "You have " + vb6::CStr(UserList[UserIndex].BancoInvent.NroItems) + " objects.",
 			FontTypeNames_FONTTYPE_INFO);
 
 	for (j = (1); j <= (MAX_BANCOINVENTORY_SLOTS); j++) {
 		if (UserList[UserIndex].BancoInvent.Object[j].ObjIndex > 0) {
 			WriteConsoleMsg(sendIndex,
-					"Objeto " + vb6::CStr(j) + " " + ObjData[UserList[UserIndex].BancoInvent.Object[j].ObjIndex].Name
-							+ " Cantidad:" + vb6::CStr(UserList[UserIndex].BancoInvent.Object[j].Amount),
+					"Object " + vb6::CStr(j) + " " + ObjData[UserList[UserIndex].BancoInvent.Object[j].ObjIndex].Name
+							+ " Amount:" + vb6::CStr(UserList[UserIndex].BancoInvent.Object[j].Amount),
 					FontTypeNames_FONTTYPE_INFO);
 		}
 	}
@@ -352,7 +352,7 @@ void SendUserBovedaTxtFromChar(int sendIndex, std::string charName) {
 	if (FileExist(CharFile, 0)) {
 		WriteConsoleMsg(sendIndex, charName, FontTypeNames_FONTTYPE_INFO);
 		WriteConsoleMsg(sendIndex,
-				"Tiene " + GetVar(CharFile, "BancoInventory", "CantidadItems") + " objetos.",
+				"You have " + GetVar(CharFile, "BancoInventory", "CantidadItems") + " objects.",
 				FontTypeNames_FONTTYPE_INFO);
 		for (j = (1); j <= (MAX_BANCOINVENTORY_SLOTS); j++) {
 			Tmp = GetVar(CharFile, "BancoInventory", "Obj" + vb6::CStr(j));
@@ -360,11 +360,11 @@ void SendUserBovedaTxtFromChar(int sendIndex, std::string charName) {
 			ObjCant = vb6::CInt(ReadField(2, Tmp, vb6::Asc("-")));
 			if (ObjInd > 0) {
 				WriteConsoleMsg(sendIndex,
-						"Objeto " + vb6::CStr(j) + " " + ObjData[ObjInd].Name + " Cantidad:" + vb6::CStr(ObjCant),
+						"Object " + vb6::CStr(j) + " " + ObjData[ObjInd].Name + " Amount:" + vb6::CStr(ObjCant),
 						FontTypeNames_FONTTYPE_INFO);
 			}
 		}
 	} else {
-		WriteConsoleMsg(sendIndex, "Usuario inexistente: " + charName, FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(sendIndex, "Unknown User: " + charName, FontTypeNames_FONTTYPE_INFO);
 	}
 }

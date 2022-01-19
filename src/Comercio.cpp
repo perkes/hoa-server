@@ -50,12 +50,12 @@ void Comercio(eModoComercio Modo, int UserIndex, int NpcIndex, int Slot, int Can
 		} else if (Cantidad > MAX_INVENTORY_OBJS) {
 			SendData(SendTarget_ToAll, 0,
 					dakara::protocol::server::BuildConsoleMsg(
-							UserList[UserIndex].Name + " ha sido baneado por el sistema anti-cheats.",
+							UserList[UserIndex].Name + " has been banned by the anti-cheat system.",
 							FontTypeNames_FONTTYPE_FIGHT));
-			Ban(UserList[UserIndex].Name, "Sistema Anti Cheats",
-					"Intentar hackear el sistema de comercio. Quiso comprar demasiados ítems:" + vb6::CStr(Cantidad));
+			Ban(UserList[UserIndex].Name, "Anti Cheat System",
+					"Attempted hacking the trade system by purchasing to many items:" + vb6::CStr(Cantidad));
 			UserList[UserIndex].flags.Ban = 1;
-			WriteErrorMsg(UserIndex, "Has sido baneado por el Sistema AntiCheat.");
+			WriteErrorMsg(UserIndex, "You've been banned by the anti-cheat system.");
 			FlushBuffer(UserIndex);
 			CloseSocket(UserIndex);
 			return;
@@ -78,7 +78,7 @@ void Comercio(eModoComercio Modo, int UserIndex, int NpcIndex, int Slot, int Can
 						* Cantidad) + 0.5);
 
 		if (UserList[UserIndex].Stats.GLD < Precio) {
-			WriteConsoleMsg(UserIndex, "No tienes suficiente dinero.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You don't have enough money.", FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 
@@ -132,11 +132,11 @@ void Comercio(eModoComercio Modo, int UserIndex, int NpcIndex, int Slot, int Can
 
 		} else if (ObjData[Objeto.ObjIndex].Intransferible == 1
 				|| ObjData[Objeto.ObjIndex].NoComerciable == 1) {
-			WriteConsoleMsg(UserIndex, "No puedes vender este tipo de objeto.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You cannot sell that type of object.", FontTypeNames_FONTTYPE_INFO);
 			return;
 		} else if ((Npclist[NpcIndex].TipoItems != ObjData[Objeto.ObjIndex].OBJType
 				&& Npclist[NpcIndex].TipoItems != eOBJType_otCualquiera) || Objeto.ObjIndex == iORO) {
-			WriteConsoleMsg(UserIndex, "Lo siento, no estoy interesado en este tipo de objetos.",
+			WriteConsoleMsg(UserIndex, "I'm sorry, I'm not interested in that type of object.",
 					FontTypeNames_FONTTYPE_INFO);
 			EnviarNpcInv(UserIndex, UserList[UserIndex].flags.TargetNPC);
 			WriteTradeOK(UserIndex);
@@ -144,7 +144,7 @@ void Comercio(eModoComercio Modo, int UserIndex, int NpcIndex, int Slot, int Can
 		} else if (ObjData[Objeto.ObjIndex].Real == 1) {
 			if (Npclist[NpcIndex].Name != "SR") {
 				WriteConsoleMsg(UserIndex,
-						"Las armaduras del ejército real sólo pueden ser vendidas a los sastres reales.",
+						"The armors of the Royal Army can only be sold to royal tailors.",
 						FontTypeNames_FONTTYPE_INFO);
 				EnviarNpcInv(UserIndex, UserList[UserIndex].flags.TargetNPC);
 				WriteTradeOK(UserIndex);
@@ -153,7 +153,7 @@ void Comercio(eModoComercio Modo, int UserIndex, int NpcIndex, int Slot, int Can
 		} else if (ObjData[Objeto.ObjIndex].Caos == 1) {
 			if (Npclist[NpcIndex].Name != "SC") {
 				WriteConsoleMsg(UserIndex,
-						"Las armaduras de la legión oscura sólo pueden ser vendidas a los sastres del demonio.",
+						"The armors of the Dark Legion can only be sold to demonic tailors.",
 						FontTypeNames_FONTTYPE_INFO);
 				EnviarNpcInv(UserIndex, UserList[UserIndex].flags.TargetNPC);
 				WriteTradeOK(UserIndex);
@@ -165,7 +165,7 @@ void Comercio(eModoComercio Modo, int UserIndex, int NpcIndex, int Slot, int Can
 			EnviarNpcInv(UserIndex, UserList[UserIndex].flags.TargetNPC);
 			return;
 		} else if (UserTienePrivilegio(UserIndex, PlayerType_Consejero)) {
-			WriteConsoleMsg(UserIndex, "No puedes vender ítems.", FontTypeNames_FONTTYPE_WARNING);
+			WriteConsoleMsg(UserIndex, "You cannot sell items.", FontTypeNames_FONTTYPE_WARNING);
 			EnviarNpcInv(UserIndex, UserList[UserIndex].flags.TargetNPC);
 			WriteTradeOK(UserIndex);
 			return;

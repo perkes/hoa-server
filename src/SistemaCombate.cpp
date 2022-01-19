@@ -460,13 +460,13 @@ void UserDanoNpc(int UserIndex, int NpcIndex) {
 				QuitarObjetos(EspadaMataDragonesIndex, 1, UserIndex);
 			}
 			if (Npclist[NpcIndex].Stats.MaxHp > 100000) {
-				Text = UserList[UserIndex].Name + " mató un dragón";
+				Text = UserList[UserIndex].Name + " killed a dragon";
 				PI = UserList[UserIndex].PartyIndex;
 
 				if (PI > 0) {
 					std::vector<int> MembersOnline;
 					Parties[PI]->ObtenerMiembrosOnline(MembersOnline);
-					Text = Text + " estando en party ";
+					Text = Text + " as part of a party with ";
 
 					for (int m : MembersOnline) {
 						if (m > 0) {
@@ -590,7 +590,7 @@ void NpcDano(int NpcIndex, int UserIndex) {
 								/ (RandomNumber(0, 5) + 7))) {
 			UserList[UserIndex].flags.Meditando = false;
 			WriteMeditateToggle(UserIndex);
-			WriteConsoleMsg(UserIndex, "Dejas de meditar.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You stop meditating.", FontTypeNames_FONTTYPE_INFO);
 			UserList[UserIndex].Char.FX = 0;
 			UserList[UserIndex].Char.loops = 0;
 			SendData(SendTarget_ToPCArea, UserIndex,
@@ -984,9 +984,9 @@ void UsuarioAtaca(int UserIndex) {
 	/* 'Chequeamos que tenga por lo menos 10 de stamina. */
 	if (UserList[UserIndex].Stats.MinSta < 10) {
 		if (UserList[UserIndex].Genero == eGenero_Hombre) {
-			WriteConsoleMsg(UserIndex, "Estás muy cansado para luchar.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You're too tired to fight.", FontTypeNames_FONTTYPE_INFO);
 		} else {
-			WriteConsoleMsg(UserIndex, "Estás muy cansada para luchar.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You're too tired to fight.", FontTypeNames_FONTTYPE_INFO);
 		}
 		return;
 	}
@@ -1018,14 +1018,14 @@ void UsuarioAtaca(int UserIndex) {
 	if (index > 0) {
 		if (Npclist[index].Attackable) {
 			if (Npclist[index].MaestroUser > 0 && MapInfo[Npclist[index].Pos.Map].Pk == false) {
-				WriteConsoleMsg(UserIndex, "No puedes atacar mascotas en zona segura.",
+				WriteConsoleMsg(UserIndex, "You can't attack pets in safe zones.",
 						FontTypeNames_FONTTYPE_FIGHT);
 				return;
 			}
 
 			UsuarioAtacaNpc(UserIndex, index);
 		} else {
-			WriteConsoleMsg(UserIndex, "No puedes atacar a este NPC.", FontTypeNames_FONTTYPE_FIGHT);
+			WriteConsoleMsg(UserIndex, "You can't attack this NPC.", FontTypeNames_FONTTYPE_FIGHT);
 		}
 
 		WriteUpdateUserStats(UserIndex);
@@ -1158,7 +1158,7 @@ bool UsuarioAtacaUsuario(int AtacanteIndex, int VictimaIndex) {
 	}
 
 	if (Distancia(UserList[AtacanteIndex].Pos, UserList[VictimaIndex].Pos) > MAXDISTANCIAARCO) {
-		WriteConsoleMsg(AtacanteIndex, "Estás muy lejos para disparar.", FontTypeNames_FONTTYPE_FIGHT);
+		WriteConsoleMsg(AtacanteIndex, "You're too far away too shoot.", FontTypeNames_FONTTYPE_FIGHT);
 		return retval;
 	}
 
@@ -1419,7 +1419,7 @@ void UsuarioAtacadoPorUsuario(int AttackerIndex, int VictimIndex) {
 	if (UserList[VictimIndex].flags.Meditando) {
 		UserList[VictimIndex].flags.Meditando = false;
 		WriteMeditateToggle(VictimIndex);
-		WriteConsoleMsg(VictimIndex, "Dejas de meditar.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(VictimIndex, "You stop meditating.", FontTypeNames_FONTTYPE_INFO);
 		UserList[VictimIndex].Char.FX = 0;
 		UserList[VictimIndex].Char.loops = 0;
 		SendData(SendTarget_ToPCArea, VictimIndex,
@@ -1503,28 +1503,28 @@ bool PuedeAtacar(int AttackerIndex, int VictimIndex) {
 
 	/* 'Estas muerto no podes atacar */
 	if (UserList[AttackerIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(AttackerIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(AttackerIndex, "You're dead!!", FontTypeNames_FONTTYPE_INFO);
 		retval = false;
 		return retval;
 	}
 
 	/* 'No podes atacar a alguien muerto */
 	if (UserList[VictimIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(AttackerIndex, "No puedes atacar a un espíritu.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(AttackerIndex, "You can't attack a spirit.", FontTypeNames_FONTTYPE_INFO);
 		retval = false;
 		return retval;
 	}
 
 	/* ' No podes atacar si estas en consulta */
 	if (UserList[AttackerIndex].flags.EnConsulta) {
-		WriteConsoleMsg(AttackerIndex, "No puedes atacar usuarios mientras estas en consulta.",
+		WriteConsoleMsg(AttackerIndex, "You can't attack other users while you're on support.",
 				FontTypeNames_FONTTYPE_INFO);
 		return retval;
 	}
 
 	/* ' No podes atacar si esta en consulta */
 	if (UserList[VictimIndex].flags.EnConsulta) {
-		WriteConsoleMsg(AttackerIndex, "No puedes atacar usuarios mientras estan en consulta.",
+		WriteConsoleMsg(AttackerIndex, "You can't attack other users while they're on support.",
 				FontTypeNames_FONTTYPE_INFO);
 		return retval;
 	}
@@ -1547,7 +1547,7 @@ bool PuedeAtacar(int AttackerIndex, int VictimIndex) {
 		/* 'Si no estamos en el Trigger 6 entonces es imposible atacar un gm */
 		if (!UserTienePrivilegio(VictimIndex, PlayerType_User)) {
 			if (UserList[VictimIndex].flags.AdminInvisible == 0) {
-				WriteConsoleMsg(AttackerIndex, "El ser es demasiado poderoso.",
+				WriteConsoleMsg(AttackerIndex, "That being is too powerful.",
 						FontTypeNames_FONTTYPE_WARNING);
 			}
 			retval = false;
@@ -1566,7 +1566,7 @@ bool PuedeAtacar(int AttackerIndex, int VictimIndex) {
 				if (esArmada(VictimIndex)) {
 					/* ' No puede */
 					WriteConsoleMsg(AttackerIndex,
-							"Los soldados del ejército real tienen prohibido atacar ciudadanos.",
+							"Members of the royal army can't attack citizens.",
 							FontTypeNames_FONTTYPE_WARNING);
 					return retval;
 				}
@@ -1587,7 +1587,7 @@ bool PuedeAtacar(int AttackerIndex, int VictimIndex) {
 		if (esCaos(VictimIndex)) {
 			if (esCaos(AttackerIndex)) {
 				WriteConsoleMsg(AttackerIndex,
-						"Los miembros de la legión oscura tienen prohibido atacarse entre sí.",
+						"Members of the Dark Legion can't attack fellow members.",
 						FontTypeNames_FONTTYPE_WARNING);
 				return retval;
 			}
@@ -1598,7 +1598,7 @@ bool PuedeAtacar(int AttackerIndex, int VictimIndex) {
 	if (UserList[AttackerIndex].flags.Seguro) {
 		if (!criminal(VictimIndex)) {
 			WriteConsoleMsg(AttackerIndex,
-					"No puedes atacar ciudadanos, para hacerlo debes desactivar el seguro.",
+					"You can't attack citizens, to do so, you must first switch your safety off.",
 					FontTypeNames_FONTTYPE_WARNING);
 			retval = false;
 			return retval;
@@ -1610,7 +1610,7 @@ bool PuedeAtacar(int AttackerIndex, int VictimIndex) {
 			if (esArmada(AttackerIndex)) {
 				/* ' No puede */
 				WriteConsoleMsg(AttackerIndex,
-						"Los soldados del ejército real tienen prohibido atacar ciudadanos.",
+						"Members of the royal army can't attack citizens.",
 						FontTypeNames_FONTTYPE_WARNING);
 				retval = false;
 				return retval;
@@ -1625,7 +1625,7 @@ bool PuedeAtacar(int AttackerIndex, int VictimIndex) {
 				if (UserList[VictimIndex].Pos.Map == 58 || UserList[VictimIndex].Pos.Map == 59
 						|| UserList[VictimIndex].Pos.Map == 60) {
 					WriteConsoleMsg(VictimIndex,
-							"¡Huye de la ciudad! Estás siendo atacado y no podrás defenderte.",
+							"Flee the city! You're being attacked and won't be able to defend yourself.",
 							FontTypeNames_FONTTYPE_WARNING);
 					/* 'Beneficio de Armadas que atacan en su ciudad. */
 					retval = true;
@@ -1637,7 +1637,7 @@ bool PuedeAtacar(int AttackerIndex, int VictimIndex) {
 			if (UserList[AttackerIndex].Faccion.RecompensasCaos > 11) {
 				if (UserList[VictimIndex].Pos.Map == 151 || UserList[VictimIndex].Pos.Map == 156) {
 					WriteConsoleMsg(VictimIndex,
-							"¡Huye de la ciudad! Estás siendo atacado y no podrás defenderte.",
+							"Flee the city! You're being attacked and won't be able to defend yourself.",
 							FontTypeNames_FONTTYPE_WARNING);
 					/* 'Beneficio de Caos que atacan en su ciudad. */
 					retval = true;
@@ -1645,7 +1645,7 @@ bool PuedeAtacar(int AttackerIndex, int VictimIndex) {
 				}
 			}
 		}
-		WriteConsoleMsg(AttackerIndex, "Esta es una zona segura, aquí no puedes atacar a otros usuarios.",
+		WriteConsoleMsg(AttackerIndex, "This is a safe zone, you won't be able to attack other users here.",
 				FontTypeNames_FONTTYPE_WARNING);
 		retval = false;
 		return retval;
@@ -1656,7 +1656,7 @@ bool PuedeAtacar(int AttackerIndex, int VictimIndex) {
 			== eTrigger_ZONASEGURA
 			|| MapData[UserList[AttackerIndex].Pos.Map][UserList[AttackerIndex].Pos.X][UserList[AttackerIndex].Pos.Y].trigger
 					== eTrigger_ZONASEGURA) {
-		WriteConsoleMsg(AttackerIndex, "No puedes pelear aquí.", FontTypeNames_FONTTYPE_WARNING);
+		WriteConsoleMsg(AttackerIndex, "You can't fight here.", FontTypeNames_FONTTYPE_WARNING);
 		retval = false;
 		return retval;
 	}
@@ -1682,7 +1682,7 @@ bool PuedeAtacarNPC(int AttackerIndex, int NpcIndex, bool Paraliza, bool IsPet) 
 
 	/* 'Estas muerto? */
 	if (UserList[AttackerIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(AttackerIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(AttackerIndex, "You're dead!!", FontTypeNames_FONTTYPE_INFO);
 		return retval;
 	}
 
@@ -1694,20 +1694,20 @@ bool PuedeAtacarNPC(int AttackerIndex, int NpcIndex, bool Paraliza, bool IsPet) 
 
 	/* ' No podes atacar si estas en consulta */
 	if (UserList[AttackerIndex].flags.EnConsulta) {
-		WriteConsoleMsg(AttackerIndex, "No puedes atacar npcs mientras estas en consulta.",
+		WriteConsoleMsg(AttackerIndex, "You can't attack NPCs while you're on support.",
 				FontTypeNames_FONTTYPE_INFO);
 		return retval;
 	}
 
 	/* 'Es una criatura atacable? */
 	if (Npclist[NpcIndex].Attackable == 0) {
-		WriteConsoleMsg(AttackerIndex, "No puedes atacar esta criatura.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(AttackerIndex, "You can't attack that creature.", FontTypeNames_FONTTYPE_INFO);
 		return retval;
 	}
 
 	/* 'Es valida la distancia a la cual estamos atacando? */
 	if (Distancia(UserList[AttackerIndex].Pos, Npclist[NpcIndex].Pos) >= MAXDISTANCIAARCO) {
-		WriteConsoleMsg(AttackerIndex, "Estás muy lejos para disparar.", FontTypeNames_FONTTYPE_FIGHT);
+		WriteConsoleMsg(AttackerIndex, "You're too far away to shoot.", FontTypeNames_FONTTYPE_FIGHT);
 		return retval;
 	}
 
@@ -1718,7 +1718,7 @@ bool PuedeAtacarNPC(int AttackerIndex, int NpcIndex, bool Paraliza, bool IsPet) 
 			/* 'Lo quiere atacar un caos? */
 			if (esCaos(AttackerIndex)) {
 				WriteConsoleMsg(AttackerIndex,
-						"No puedes atacar Guardias del Caos siendo de la legión oscura.",
+						"You can't attack legion guards while being a member of the Dark Legion",
 						FontTypeNames_FONTTYPE_INFO);
 				return retval;
 			}
@@ -1726,17 +1726,17 @@ bool PuedeAtacarNPC(int AttackerIndex, int NpcIndex, bool Paraliza, bool IsPet) 
 		} else if (Npclist[NpcIndex].NPCtype == eNPCType_GuardiaReal) {
 			/* 'Lo quiere atacar un Armada? */
 			if (esArmada(AttackerIndex)) {
-				WriteConsoleMsg(AttackerIndex, "No puedes atacar Guardias Reales siendo del ejército real.",
+				WriteConsoleMsg(AttackerIndex, "You can't attack royal guards while being a member of the royal army",
 						FontTypeNames_FONTTYPE_INFO);
 				return retval;
 			}
 			/* 'Tienes el seguro puesto? */
 			if (UserList[AttackerIndex].flags.Seguro) {
-				WriteConsoleMsg(AttackerIndex, "Para poder atacar Guardias Reales debes quitarte el seguro.",
+				WriteConsoleMsg(AttackerIndex, "In order to attack royal gaurds, you must first switch your safety off.",
 						FontTypeNames_FONTTYPE_INFO);
 				return retval;
 			} else {
-				WriteConsoleMsg(AttackerIndex, "¡Atacaste un Guardia Real! Eres un criminal.",
+				WriteConsoleMsg(AttackerIndex, "You attacked a royal guard! You're a criminal.",
 						FontTypeNames_FONTTYPE_INFO);
 				VolverCriminal(AttackerIndex);
 				retval = true;
@@ -1752,20 +1752,20 @@ bool PuedeAtacarNPC(int AttackerIndex, int NpcIndex, bool Paraliza, bool IsPet) 
 				/* ' Si sos armada no podes atacarlo directamente */
 				if (esArmada(AttackerIndex)) {
 					WriteConsoleMsg(AttackerIndex,
-							"Los miembros del ejército real no pueden atacar npcs no hostiles.",
+							"Members of the royal guard can't attack non-hostile NPCs.",
 							FontTypeNames_FONTTYPE_INFO);
 					return retval;
 				}
 
 				/* 'Sos ciudadano, tenes el seguro puesto? */
 				if (UserList[AttackerIndex].flags.Seguro) {
-					WriteConsoleMsg(AttackerIndex, "Para atacar a este NPC debes quitarte el seguro.",
+					WriteConsoleMsg(AttackerIndex, "To attack this NPC you must first switch your safety off.",
 							FontTypeNames_FONTTYPE_INFO);
 					return retval;
 				} else {
 					/* 'No tiene seguro puesto. Puede atacar pero es penalizado. */
 					WriteConsoleMsg(AttackerIndex,
-							"Atacaste un NPC no-hostil. Continúa haciéndolo y te podrás convertir en criminal.",
+							"You attacked a non-hostile NPCs. You can become a criminal if you keep doing that.",
 							FontTypeNames_FONTTYPE_INFO);
 					/* 'NicoNZ: Cambio para que al atacar npcs no hostiles no bajen puntos de nobleza */
 					DisNobAuBan(AttackerIndex, 0, 1000);
@@ -1800,7 +1800,7 @@ bool PuedeAtacarNPC(int AttackerIndex, int NpcIndex, bool Paraliza, bool IsPet) 
 				if (esArmada(AttackerIndex)) {
 					/* 'El atacante es Armada y esta intentando atacar mascota de un Ciudadano */
 					WriteConsoleMsg(AttackerIndex,
-							"Los miembros del ejército real no pueden atacar mascotas de ciudadanos.",
+							"Members of the royal army can't attack citizens' pets.",
 							FontTypeNames_FONTTYPE_INFO);
 					return retval;
 				}
@@ -1809,13 +1809,13 @@ bool PuedeAtacarNPC(int AttackerIndex, int NpcIndex, bool Paraliza, bool IsPet) 
 				if (UserList[AttackerIndex].flags.Seguro) {
 					/* 'El atacante tiene el seguro puesto. No puede atacar. */
 					WriteConsoleMsg(AttackerIndex,
-							"Para atacar mascotas de ciudadanos debes quitarte el seguro.",
+							"In order to attack citizens' pets, you must first switch your safety off.",
 							FontTypeNames_FONTTYPE_INFO);
 					return retval;
 				} else {
 					/* 'El atacante no tiene el seguro puesto. Recibe penalización. */
 					WriteConsoleMsg(AttackerIndex,
-							"Has atacado la Mascota de un ciudadano. Eres un criminal.",
+							"You've attacked a citizen's pet. You are a criminal.",
 							FontTypeNames_FONTTYPE_INFO);
 					VolverCriminal(AttackerIndex);
 					retval = true;
@@ -1825,7 +1825,7 @@ bool PuedeAtacarNPC(int AttackerIndex, int NpcIndex, bool Paraliza, bool IsPet) 
 				/* 'El atacante es criminal y quiere atacar un elemental ciuda, pero tiene el seguro puesto (NicoNZ) */
 				if (UserList[AttackerIndex].flags.Seguro) {
 					WriteConsoleMsg(AttackerIndex,
-							"Para atacar mascotas de ciudadanos debes quitarte el seguro.",
+							"In order to attack citizens' pets, you must first switch your safety off.",
 							FontTypeNames_FONTTYPE_INFO);
 					return retval;
 				}
@@ -1837,7 +1837,7 @@ bool PuedeAtacarNPC(int AttackerIndex, int NpcIndex, bool Paraliza, bool IsPet) 
 			if (esCaos(AttackerIndex)) {
 				/* 'Un Caos intenta atacar una criatura de un Caos. No puede atacar. */
 				WriteConsoleMsg(AttackerIndex,
-						"Los miembros de la legión oscura no pueden atacar mascotas de otros legionarios. ",
+						"Members of the Dark Legion can't attack fellow members' pets. ",
 						FontTypeNames_FONTTYPE_INFO);
 				return retval;
 			}
@@ -1891,7 +1891,7 @@ bool PuedeAtacarNPC(int AttackerIndex, int NpcIndex, bool Paraliza, bool IsPet) 
 							if (esArmada(OwnerUserIndex)) {
 								/* 'El atacante es Armada y esta intentando paralizar un npc de un armada: No puede */
 								WriteConsoleMsg(AttackerIndex,
-										"Los miembros del Ejército Real no pueden paralizar criaturas ya paralizadas pertenecientes a otros miembros del Ejército Real",
+										"Members of the royal army can't paralize creatures belonging to fellow members.",
 										FontTypeNames_FONTTYPE_INFO);
 								return retval;
 
@@ -1900,14 +1900,14 @@ bool PuedeAtacarNPC(int AttackerIndex, int NpcIndex, bool Paraliza, bool IsPet) 
 								/* ' Si tiene seguro no puede */
 								if (UserList[AttackerIndex].flags.Seguro) {
 									WriteConsoleMsg(AttackerIndex,
-											"Para paralizar criaturas ya paralizadas pertenecientes a ciudadanos debes quitarte el seguro.",
+											"In order to paralize creatures belonging to citizens, you must first switch your safety off.",
 											FontTypeNames_FONTTYPE_INFO);
 									return retval;
 								} else {
 									/* ' Si ya estaba atacable, no podrá atacar a un npc perteneciente a otro ciuda */
 									if (ToogleToAtackable(AttackerIndex, OwnerUserIndex)) {
 										WriteConsoleMsg(AttackerIndex,
-												"Has paralizado la criatura de un ciudadano, ahora eres atacable por él.",
+												"You've paralized a citizen's creature, they can now rightfully attack you.",
 												FontTypeNames_FONTTYPE_INFO);
 										retval = true;
 									}
@@ -1922,7 +1922,7 @@ bool PuedeAtacarNPC(int AttackerIndex, int NpcIndex, bool Paraliza, bool IsPet) 
 							/* 'El atacante tiene el seguro puesto, no puede paralizar */
 							if (UserList[AttackerIndex].flags.Seguro) {
 								WriteConsoleMsg(AttackerIndex,
-										"Para paralizar criaturas ya paralizadas pertenecientes a ciudadanos debes quitarte el seguro.",
+										"In order to paralize creatures belonging to citizens, you must first switch your safety off.",
 										FontTypeNames_FONTTYPE_INFO);
 								return retval;
 
@@ -1931,7 +1931,7 @@ bool PuedeAtacarNPC(int AttackerIndex, int NpcIndex, bool Paraliza, bool IsPet) 
 								/* ' Si ya estaba atacable, no podrá atacar a un npc perteneciente a otro ciuda */
 								if (ToogleToAtackable(AttackerIndex, OwnerUserIndex)) {
 									WriteConsoleMsg(AttackerIndex,
-											"Has paralizado la criatura de un ciudadano, ahora eres atacable por él.",
+											"You've paralized a citizen's creature, they can now rightfully attack you.",
 											FontTypeNames_FONTTYPE_INFO);
 									retval = true;
 								}
@@ -1946,7 +1946,7 @@ bool PuedeAtacarNPC(int AttackerIndex, int NpcIndex, bool Paraliza, bool IsPet) 
 						if (esCaos(AttackerIndex) && esCaos(OwnerUserIndex)) {
 							/* 'El atacante es Caos y esta intentando paralizar un npc de un Caos */
 							WriteConsoleMsg(AttackerIndex,
-									"Los miembros de la legión oscura no pueden paralizar criaturas ya paralizadas por otros legionarios.",
+									"Members of the dark legion can't paralize creatures belonging to fellow members.",
 									FontTypeNames_FONTTYPE_INFO);
 							return retval;
 						}
@@ -1988,7 +1988,7 @@ bool PuedeAtacarNPC(int AttackerIndex, int NpcIndex, bool Paraliza, bool IsPet) 
 						if (esArmada(OwnerUserIndex)) {
 							/* 'El atacante es Armada y esta intentando atacar el npc de un armada: No puede */
 							WriteConsoleMsg(AttackerIndex,
-									"Los miembros del Ejército Real no pueden atacar criaturas pertenecientes a otros miembros del Ejército Real",
+									"Members of the royal army can't attack creatures belonging to fellow members.",
 									FontTypeNames_FONTTYPE_INFO);
 							return retval;
 
@@ -1998,14 +1998,14 @@ bool PuedeAtacarNPC(int AttackerIndex, int NpcIndex, bool Paraliza, bool IsPet) 
 							/* ' Si tiene seguro no puede */
 							if (UserList[AttackerIndex].flags.Seguro) {
 								WriteConsoleMsg(AttackerIndex,
-										"Para atacar criaturas ya pertenecientes a ciudadanos debes quitarte el seguro.",
+										"In order to attack creatures belonging to citizens, you must first switch your safety off.",
 										FontTypeNames_FONTTYPE_INFO);
 								return retval;
 							} else {
 								/* ' Si ya estaba atacable, no podrá atacar a un npc perteneciente a otro ciuda */
 								if (ToogleToAtackable(AttackerIndex, OwnerUserIndex)) {
 									WriteConsoleMsg(AttackerIndex,
-											"Has atacado a la criatura de un ciudadano, ahora eres atacable por él.",
+											"You've attacked a citizen's creature, they can now rightfully attack you.",
 											FontTypeNames_FONTTYPE_INFO);
 									retval = true;
 								}
@@ -2023,7 +2023,7 @@ bool PuedeAtacarNPC(int AttackerIndex, int NpcIndex, bool Paraliza, bool IsPet) 
 							if (UserList[AttackerIndex].flags.Seguro) {
 								/* 'El atacante tiene el seguro puesto. No puede atacar. */
 								WriteConsoleMsg(AttackerIndex,
-										"Para atacar criaturas pertenecientes a ciudadanos debes quitarte el seguro.",
+										"In order to attack creatures belonging to citizens, you must first switch your safety off.",
 										FontTypeNames_FONTTYPE_INFO);
 								return retval;
 
@@ -2031,7 +2031,7 @@ bool PuedeAtacarNPC(int AttackerIndex, int NpcIndex, bool Paraliza, bool IsPet) 
 							} else {
 								if (ToogleToAtackable(AttackerIndex, OwnerUserIndex)) {
 									WriteConsoleMsg(AttackerIndex,
-											"Has atacado a la criatura de un ciudadano, ahora eres atacable por él.",
+											"You've attacked a citizen's creature, they can now rightfully attack you.",
 											FontTypeNames_FONTTYPE_INFO);
 									retval = true;
 								}
@@ -2044,7 +2044,7 @@ bool PuedeAtacarNPC(int AttackerIndex, int NpcIndex, bool Paraliza, bool IsPet) 
 							/* ' Es criminal atacando un npc de un ciuda, con seguro puesto. */
 							if (UserList[AttackerIndex].flags.Seguro) {
 								WriteConsoleMsg(AttackerIndex,
-										"Para atacar criaturas pertenecientes a ciudadanos debes quitarte el seguro.",
+										"In order to attack creatures belonging to citizens, you must first switch your safety off.",
 										FontTypeNames_FONTTYPE_INFO);
 								return retval;
 							}
@@ -2060,7 +2060,7 @@ bool PuedeAtacarNPC(int AttackerIndex, int NpcIndex, bool Paraliza, bool IsPet) 
 						if (esCaos(AttackerIndex)) {
 							/* 'Un Caos intenta atacar una npc de un Caos. No puede atacar. */
 							WriteConsoleMsg(AttackerIndex,
-									"Los miembros de la Legión Oscura no pueden atacar criaturas de otros legionarios. ",
+									"Members of the dark legion can't attack creatures belonging to fellow members. ",
 									FontTypeNames_FONTTYPE_INFO);
 							return retval;
 						}
@@ -2182,7 +2182,7 @@ void CalcularDarExp(int UserIndex, int NpcIndex, int ElDano) {
 			if (UserList[UserIndex].Stats.Exp > MAXEXP) {
 				UserList[UserIndex].Stats.Exp = MAXEXP;
 			}
-			WriteConsoleMsg(UserIndex, "Has ganado " + vb6::CStr(ExpaDar) + " puntos de experiencia.",
+			WriteConsoleMsg(UserIndex, "You've gained " + vb6::CStr(ExpaDar) + " XP.",
 					FontTypeNames_FONTTYPE_FIGHT);
 		}
 
@@ -2241,9 +2241,9 @@ void UserEnvenena(int AtacanteIndex, int VictimaIndex) {
 
 				if (RandomNumber(1, 100) < 60) {
 					UserList[VictimaIndex].flags.Envenenado = 1;
-					WriteConsoleMsg(VictimaIndex, "¡¡" + UserList[AtacanteIndex].Name + " te ha envenenado!!",
+					WriteConsoleMsg(VictimaIndex, UserList[AtacanteIndex].Name + " has poisoned you!!",
 							FontTypeNames_FONTTYPE_FIGHT);
-					WriteConsoleMsg(AtacanteIndex, "¡¡Has envenenado a " + UserList[VictimaIndex].Name + "!!",
+					WriteConsoleMsg(AtacanteIndex, "You've poisoned " + UserList[VictimaIndex].Name + "!!",
 							FontTypeNames_FONTTYPE_FIGHT);
 				}
 			}
@@ -2283,12 +2283,12 @@ void LanzarProyectil(int UserIndex, int X, int Y) {
 	/* ' Tiene arma equipada? */
 	if (WeaponIndex == 0) {
 		DummyInt = 1;
-		WriteConsoleMsg(UserIndex, "No tienes un arco o cuchilla equipada.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You don't have a bow or any throwable weapon equipped.", FontTypeNames_FONTTYPE_INFO);
 
 		/* ' En un slot válido? */
 	} else if (WeaponSlot < 1 || WeaponSlot > UserList[UserIndex].CurrentInventorySlots) {
 		DummyInt = 1;
-		WriteConsoleMsg(UserIndex, "No tienes un arco o cuchilla equipada.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You don't have a bow or any throwable weapon equipped.", FontTypeNames_FONTTYPE_INFO);
 
 		/* ' Usa munición? (Si no la usa, puede ser un arma arrojadiza) */
 	} else if (ObjData[WeaponIndex].Municion == 1) {
@@ -2296,22 +2296,22 @@ void LanzarProyectil(int UserIndex, int X, int Y) {
 		/* ' La municion esta equipada en un slot valido? */
 		if (MunicionSlot < 1 || MunicionSlot > UserList[UserIndex].CurrentInventorySlots) {
 			DummyInt = 1;
-			WriteConsoleMsg(UserIndex, "No tienes municiones equipadas.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You have no ammo equipped.", FontTypeNames_FONTTYPE_INFO);
 
 			/* ' Tiene munición? */
 		} else if (MunicionIndex == 0) {
 			DummyInt = 1;
-			WriteConsoleMsg(UserIndex, "No tienes municiones equipadas.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You have no ammo equipped.", FontTypeNames_FONTTYPE_INFO);
 
 			/* ' Son flechas? */
 		} else if (ObjData[MunicionIndex].OBJType != eOBJType_otFlechas) {
 			DummyInt = 1;
-			WriteConsoleMsg(UserIndex, "No tienes municiones.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You have no ammo.", FontTypeNames_FONTTYPE_INFO);
 
 			/* ' Tiene suficientes? */
 		} else if (UserList[UserIndex].Invent.Object[MunicionSlot].Amount < 1) {
 			DummyInt = 1;
-			WriteConsoleMsg(UserIndex, "No tienes municiones.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You have no ammo.", FontTypeNames_FONTTYPE_INFO);
 		}
 
 		/* ' Es un arma de proyectiles? */
@@ -2333,9 +2333,9 @@ void LanzarProyectil(int UserIndex, int X, int Y) {
 		QuitarSta(UserIndex, RandomNumber(1, 10));
 	} else {
 		if (UserList[UserIndex].Genero == eGenero_Hombre) {
-			WriteConsoleMsg(UserIndex, "Estás muy cansado para luchar.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You're too tired to fight.", FontTypeNames_FONTTYPE_INFO);
 		} else {
-			WriteConsoleMsg(UserIndex, "Estás muy cansada para luchar.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You're too tired to fight.", FontTypeNames_FONTTYPE_INFO);
 		}
 		return;
 	}
@@ -2349,13 +2349,13 @@ void LanzarProyectil(int UserIndex, int X, int Y) {
 	if (TargetUserIndex > 0) {
 		/* 'Only allow to atack if the other one can retaliate (can see us) */
 		if (vb6::Abs(UserList[TargetUserIndex].Pos.Y - UserList[UserIndex].Pos.Y) > RANGO_VISION_Y) {
-			WriteConsoleMsg(UserIndex, "Estás demasiado lejos para atacar.", FontTypeNames_FONTTYPE_WARNING);
+			WriteConsoleMsg(UserIndex, "You're too far away to attack.", FontTypeNames_FONTTYPE_WARNING);
 			return;
 		}
 
 		/* 'Prevent from hitting self */
 		if (TargetUserIndex == UserIndex) {
-			WriteConsoleMsg(UserIndex, "¡No puedes atacarte a vos mismo!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You can't attack yourself!", FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 
@@ -2366,7 +2366,7 @@ void LanzarProyectil(int UserIndex, int X, int Y) {
 		/* 'Only allow to atack if the other one can retaliate (can see us) */
 		if (vb6::Abs(Npclist[TargetNpcIndex].Pos.Y - UserList[UserIndex].Pos.Y) > RANGO_VISION_Y
 				&& vb6::Abs(Npclist[TargetNpcIndex].Pos.X - UserList[UserIndex].Pos.X) > RANGO_VISION_X) {
-			WriteConsoleMsg(UserIndex, "Estás demasiado lejos para atacar.", FontTypeNames_FONTTYPE_WARNING);
+			WriteConsoleMsg(UserIndex, "You're too far away to attack.", FontTypeNames_FONTTYPE_WARNING);
 			return;
 		}
 

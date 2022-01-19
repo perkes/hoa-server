@@ -59,7 +59,7 @@ void Accion(int UserIndex, int Map, int X, int Y) {
 			if (Npclist[tempIndex].Comercia == 1) {
 				/* '¿Esta el user muerto? Si es asi no puede comerciar */
 				if (UserList[UserIndex].flags.Muerto == 1) {
-					WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!",
+					WriteConsoleMsg(UserIndex, "You're dead!!",
 							FontTypeNames_FONTTYPE_INFO);
 					return;
 				}
@@ -72,7 +72,7 @@ void Accion(int UserIndex, int Map, int X, int Y) {
 				if (Distancia(Npclist[tempIndex].Pos, UserList[UserIndex].Pos)
 						> 3) {
 					WriteConsoleMsg(UserIndex,
-							"Estás demasiado lejos del vendedor.",
+							"You're too far away from the seller.",
 							FontTypeNames_FONTTYPE_INFO);
 					return;
 				}
@@ -83,7 +83,7 @@ void Accion(int UserIndex, int Map, int X, int Y) {
 			} else if (Npclist[tempIndex].NPCtype == eNPCType_Banquero) {
 				/* '¿Esta el user muerto? Si es asi no puede comerciar */
 				if (UserList[UserIndex].flags.Muerto == 1) {
-					WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!",
+					WriteConsoleMsg(UserIndex, "You're dead!!",
 							FontTypeNames_FONTTYPE_INFO);
 					return;
 				}
@@ -96,7 +96,7 @@ void Accion(int UserIndex, int Map, int X, int Y) {
 				if (Distancia(Npclist[tempIndex].Pos, UserList[UserIndex].Pos)
 						> 3) {
 					WriteConsoleMsg(UserIndex,
-							"Estás demasiado lejos del vendedor.",
+							"You're too far away from the seller.",
 							FontTypeNames_FONTTYPE_INFO);
 					return;
 				}
@@ -110,7 +110,7 @@ void Accion(int UserIndex, int Map, int X, int Y) {
 				if (Distancia(UserList[UserIndex].Pos, Npclist[tempIndex].Pos)
 						> 10) {
 					WriteConsoleMsg(UserIndex,
-							"El sacerdote no puede curarte debido a que estás demasiado lejos.",
+							"The priest can't heal you because you're too far away.",
 							FontTypeNames_FONTTYPE_INFO);
 					return;
 				}
@@ -226,7 +226,7 @@ void AccionParaForo(int Map, int X, int Y, int UserIndex) {
 	Pos.Y = Y;
 
 	if (Distancia(Pos, UserList[UserIndex].Pos) > 2) {
-		WriteConsoleMsg(UserIndex, "Estas demasiado lejos.",
+		WriteConsoleMsg(UserIndex, "You're too far away.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -276,7 +276,7 @@ void AccionParaPuerta(int Map, int X, int Y, int UserIndex) {
 
 				} else {
 					WriteConsoleMsg(UserIndex,
-							"La puerta esta cerrada con llave.",
+							"The door is locked.",
 							FontTypeNames_FONTTYPE_INFO);
 				}
 			} else {
@@ -302,11 +302,11 @@ void AccionParaPuerta(int Map, int X, int Y, int UserIndex) {
 			UserList[UserIndex].flags.TargetObj =
 					MapData[Map][X][Y].ObjInfo.ObjIndex;
 		} else {
-			WriteConsoleMsg(UserIndex, "La puerta está cerrada con llave.",
+			WriteConsoleMsg(UserIndex, "The door is locked.",
 					FontTypeNames_FONTTYPE_INFO);
 		}
 	} else {
-		WriteConsoleMsg(UserIndex, "Estás demasiado lejos.",
+		WriteConsoleMsg(UserIndex, "You're too far away.",
 				FontTypeNames_FONTTYPE_INFO);
 	}
 
@@ -352,14 +352,14 @@ void AccionParaRamita(int Map, int X, int Y, int UserIndex) {
 	Pos.Y = Y;
 
 	if (Distancia(Pos, UserList[UserIndex].Pos) > 2) {
-		WriteConsoleMsg(UserIndex, "Estás demasiado lejos.",
+		WriteConsoleMsg(UserIndex, "You're too far away.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	if (MapData[Map][X][Y].trigger == eTrigger_ZONASEGURA
 			|| MapInfo[Map].Pk == false) {
-		WriteConsoleMsg(UserIndex, "No puedes hacer fogatas en zona segura.",
+		WriteConsoleMsg(UserIndex, "You can't make fires within safe zones.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -384,7 +384,7 @@ void AccionParaRamita(int Map, int X, int Y, int UserIndex) {
 			Obj.ObjIndex = FOGATA;
 			Obj.Amount = 1;
 
-			WriteConsoleMsg(UserIndex, "Has prendido la fogata.",
+			WriteConsoleMsg(UserIndex, "You've lit the fire.",
 					FontTypeNames_FONTTYPE_INFO);
 
 			MakeObj(Obj, Map, X, Y);
@@ -399,12 +399,12 @@ void AccionParaRamita(int Map, int X, int Y, int UserIndex) {
 			SubirSkill(UserIndex, eSkill_Supervivencia, true);
 		} else {
 			WriteConsoleMsg(UserIndex,
-					"La ley impide realizar fogatas en las ciudades.",
+					"Making fires within the city walls is against the law.",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 	} else {
-		WriteConsoleMsg(UserIndex, "No has podido hacer fuego.",
+		WriteConsoleMsg(UserIndex, "You were unable to light the fire.",
 				FontTypeNames_FONTTYPE_INFO);
 		SubirSkill(UserIndex, eSkill_Supervivencia, false);
 	}

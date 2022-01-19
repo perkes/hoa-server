@@ -161,7 +161,7 @@ void GiveExpReward(int UserIndex, int Rango) {
 		UserList[UserIndex].Stats.Exp = MAXEXP;
 	}
 
-	WriteConsoleMsg(UserIndex, "Has sido recompensado con " + vb6::CStr(GivenExp) + " puntos de experiencia.",
+	WriteConsoleMsg(UserIndex, "You've been rewarded with " + vb6::CStr(GivenExp) + " XP.",
 			FontTypeNames_FONTTYPE_FIGHT);
 
 	CheckUserLevel(UserIndex);
@@ -179,54 +179,54 @@ void EnlistarArmadaReal(int UserIndex) {
 	/* '*************************************************** */
 
 	if (UserList[UserIndex].Faccion.ArmadaReal == 1) {
-		WriteChatOverHead(UserIndex, "¡¡¡Ya perteneces a las tropas reales!!! Ve a combatir criminales.",
+		WriteChatOverHead(UserIndex, "You are already part of the Royal Army!!! Go fight criminals!",
 				(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 		return;
 	}
 
 	if (UserList[UserIndex].Faccion.FuerzasCaos == 1) {
-		WriteChatOverHead(UserIndex, "¡¡¡Maldito insolente!!! Vete de aquí seguidor de las sombras.",
+		WriteChatOverHead(UserIndex, "Insolent bastard!!! Begone from my sight, acolyte of the dark lord!",
 				(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 		return;
 	}
 
 	if (criminal(UserIndex)) {
-		WriteChatOverHead(UserIndex, "¡¡¡No se permiten criminales en el ejército real!!!",
+		WriteChatOverHead(UserIndex, "No criminals may enlist in the Royal Army!!!",
 				(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 		return;
 	}
 
 	if (UserList[UserIndex].Faccion.CriminalesMatados < 30) {
 		WriteChatOverHead(UserIndex,
-				"Para unirte a nuestras fuerzas debes matar al menos 30 criminales, sólo has matado "
+				"To join our forces you must execute at least 30 criminals, you've only executed "
 						+ vb6::CStr(UserList[UserIndex].Faccion.CriminalesMatados) + ".",
 				(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 		return;
 	}
 
 	if (UserList[UserIndex].Stats.ELV < 25) {
-		WriteChatOverHead(UserIndex, "¡¡¡Para unirte a nuestras fuerzas debes ser al menos de nivel 25!!!",
+		WriteChatOverHead(UserIndex, "To join our forces you must have reached at least the 25th level!!!",
 				(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 		return;
 	}
 
 	if (UserList[UserIndex].Faccion.CiudadanosMatados > 0) {
 		WriteChatOverHead(UserIndex,
-				"¡Has asesinado gente inocente, no aceptamos asesinos en las tropas reales!",
+				"You've killed innocent people, we don't accept criminals in the Royal Army!",
 				(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 		return;
 	}
 
 	if (UserList[UserIndex].Faccion.Reenlistadas > 4) {
-		WriteChatOverHead(UserIndex, "¡Has sido expulsado de las fuerzas reales demasiadas veces!",
+		WriteChatOverHead(UserIndex, "You've been expeled from the Royal Army far too many times!",
 				(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 		return;
 	}
 
 	if (UserList[UserIndex].Reputacion.NobleRep < 1000000) {
 		WriteChatOverHead(UserIndex,
-				"Necesitas ser aún más noble para integrar el ejército real, sólo tienes "
-						+ vb6::CStr(UserList[UserIndex].Reputacion.NobleRep) + "/1.000.000 puntos de nobleza",
+				"You need to be more noble to join the Royal Army, you only have "
+						+ vb6::CStr(UserList[UserIndex].Reputacion.NobleRep) + "/1.000.000 nobility points.",
 				(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 		return;
 	}
@@ -234,7 +234,7 @@ void EnlistarArmadaReal(int UserIndex) {
 	if (UserList[UserIndex].GuildIndex > 0) {
 		if (GuildAlignment(UserList[UserIndex].GuildIndex) == "Neutral") {
 			WriteChatOverHead(UserIndex,
-					"¡¡¡Perteneces a un clan neutro, sal de él si quieres unirte a nuestras fuerzas!!!",
+					"You belong to a neutral clan, leave it if you wish to join our forces!!!",
 					(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 			return;
 		}
@@ -244,7 +244,7 @@ void EnlistarArmadaReal(int UserIndex) {
 	UserList[UserIndex].Faccion.Reenlistadas = UserList[UserIndex].Faccion.Reenlistadas + 1;
 
 	WriteChatOverHead(UserIndex,
-			"¡¡¡Bienvenido al ejército real!!! Aquí tienes tus vestimentas. Cumple bien tu labor exterminando criminales y me encargaré de recompensarte.",
+			"Welcome to the Royal Army!!! Here's your uniform. Do your duty by punishing the guilty and protecting the innocent and I will reward you.",
 			(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 
 	/* ' TODO: Dejo esta variable por ahora, pero con chequear las reenlistadas deberia ser suficiente :S */
@@ -271,7 +271,7 @@ void EnlistarArmadaReal(int UserIndex) {
 	}
 
 	LogEjercitoReal(
-			UserList[UserIndex].Name + " ingresó el " + UserList[UserIndex].Faccion.FechaIngreso + " cuando era nivel "
+			UserList[UserIndex].Name + " joined on " + UserList[UserIndex].Faccion.FechaIngreso + " at the time being level "
 					+ vb6::CStr(UserList[UserIndex].Stats.ELV));
 }
 
@@ -294,8 +294,8 @@ void RecompensaArmadaReal(int UserIndex) {
 
 	if (Crimis < NextRecom) {
 		WriteChatOverHead(UserIndex,
-				"Mata " + vb6::CStr(NextRecom - Crimis)
-						+ " criminales más para recibir la próxima recompensa.",
+				"Kill " + vb6::CStr(NextRecom - Crimis)
+						+ " more criminals to receive your next reward.",
 				(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 		return;
 	}
@@ -334,8 +334,8 @@ void RecompensaArmadaReal(int UserIndex) {
 	case 640:
 		if (Lvl < 27) {
 			WriteChatOverHead(UserIndex,
-					"Mataste suficientes criminales, pero te faltan " + vb6::CStr(27 - Lvl)
-							+ " niveles para poder recibir la próxima recompensa.",
+					"You've killed enough criminals, but you have " + vb6::CStr(27 - Lvl)
+							+ " levels to go to receive the next reward.",
 					(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 			return;
 		}
@@ -359,8 +359,8 @@ void RecompensaArmadaReal(int UserIndex) {
 	case 2000:
 		if (Lvl < 30) {
 			WriteChatOverHead(UserIndex,
-					"Mataste suficientes criminales, pero te faltan " + vb6::CStr(30 - Lvl)
-							+ " niveles para poder recibir la próxima recompensa.",
+					"You've killed enough criminals, but you have " + vb6::CStr(30 - Lvl)
+							+ " levels to go to receive the next reward.",
 					(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 			return;
 		}
@@ -372,8 +372,8 @@ void RecompensaArmadaReal(int UserIndex) {
 	case 2500:
 		if (Nobleza < 2000000) {
 			WriteChatOverHead(UserIndex,
-					"Mataste suficientes criminales, pero te faltan " + vb6::CStr(2000000 - Nobleza)
-							+ " puntos de nobleza para poder recibir la próxima recompensa.",
+					"You've killed enough criminals, but you have " + vb6::CStr(2000000 - Nobleza)
+							+ " nobility points to go to receive the next reward.",
 					(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 			return;
 		}
@@ -385,8 +385,8 @@ void RecompensaArmadaReal(int UserIndex) {
 	case 3000:
 		if (Nobleza < 3000000) {
 			WriteChatOverHead(UserIndex,
-					"Mataste suficientes criminales, pero te faltan " + vb6::CStr(3000000 - Nobleza)
-							+ " puntos de nobleza para poder recibir la próxima recompensa.",
+					"You've killed enough criminals, but you have " + vb6::CStr(3000000 - Nobleza)
+							+ " nobility points to go to receive the next reward.",
 					(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 			return;
 		}
@@ -398,15 +398,15 @@ void RecompensaArmadaReal(int UserIndex) {
 	case 3500:
 		if (Lvl < 35) {
 			WriteChatOverHead(UserIndex,
-					"Mataste suficientes criminales, pero te faltan " + vb6::CStr(35 - Lvl)
-							+ " niveles para poder recibir la próxima recompensa.",
+					"You've killed enough criminals, but you have " + vb6::CStr(35 - Lvl)
+							+ " levels to go to receive the next reward.",
 					(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 			return;
 		}
 		if (Nobleza < 4000000) {
 			WriteChatOverHead(UserIndex,
-					"Mataste suficientes criminales, pero te faltan " + vb6::CStr(4000000 - Nobleza)
-							+ " puntos de nobleza para poder recibir la próxima recompensa.",
+					"You've killed enough criminals, but you have " + vb6::CStr(4000000 - Nobleza)
+							+ " nobility points to go to receive the next reward.",
 					(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 			return;
 		}
@@ -418,15 +418,15 @@ void RecompensaArmadaReal(int UserIndex) {
 	case 4000:
 		if (Lvl < 36) {
 			WriteChatOverHead(UserIndex,
-					"Mataste suficientes criminales, pero te faltan " + vb6::CStr(36 - Lvl)
-							+ " niveles para poder recibir la próxima recompensa.",
+					"You've killed enough criminals, but you have " + vb6::CStr(36 - Lvl)
+							+ " levels to go to receive the next reward.",
 					(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 			return;
 		}
 		if (Nobleza < 5000000) {
 			WriteChatOverHead(UserIndex,
-					"Mataste suficientes criminales, pero te faltan " + vb6::CStr(000000 - Nobleza)
-							+ " puntos de nobleza para poder recibir la próxima recompensa.",
+					"You've killed enough criminals, but you have " + vb6::CStr(000000 - Nobleza)
+							+ " nobility points to go to receive the next reward.",
 					(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 			return;
 		}
@@ -438,15 +438,15 @@ void RecompensaArmadaReal(int UserIndex) {
 	case 5000:
 		if (Lvl < 37) {
 			WriteChatOverHead(UserIndex,
-					"Mataste suficientes criminales, pero te faltan " + vb6::CStr(37 - Lvl)
-							+ " niveles para poder recibir la próxima recompensa.",
+					"You've killed enough criminals, but you have " + vb6::CStr(37 - Lvl)
+							+ " levels to go to receive the next reward.",
 					(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 			return;
 		}
 		if (Nobleza < 6000000) {
 			WriteChatOverHead(UserIndex,
-					"Mataste suficientes criminales, pero te faltan " + vb6::CStr(6000000 - Nobleza)
-							+ " puntos de nobleza para poder recibir la próxima recompensa.",
+					"You've killed enough criminals, but you have " + vb6::CStr(6000000 - Nobleza)
+							+ " nobility points to go to receive the next reward.",
 					(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 			return;
 		}
@@ -457,8 +457,8 @@ void RecompensaArmadaReal(int UserIndex) {
 
 	case 10000:
 		WriteChatOverHead(UserIndex,
-				"Eres uno de mis mejores soldados. Mataste " + vb6::CStr(Crimis)
-						+ " criminales, sigue así. Ya no tengo más recompensa para darte que mi agradecimiento. ¡Felicidades!",
+				"You are one of my best soldiers. You've killed " + vb6::CStr(Crimis)
+						+ " criminals, keep it going. I have no other reward to give you other than my undying gratitude. Congratulations!",
 				(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 		return;
 
@@ -469,7 +469,7 @@ void RecompensaArmadaReal(int UserIndex) {
 		break;
 	}
 
-	WriteChatOverHead(UserIndex, "¡¡¡Aquí tienes tu recompensa " + TituloReal(UserIndex) + "!!!",
+	WriteChatOverHead(UserIndex, "Here's your reward " + TituloReal(UserIndex) + "!!!",
 			(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 
 	/* ' Recompensas de armaduras y exp */
@@ -488,10 +488,10 @@ void ExpulsarFaccionReal(int UserIndex, bool Expulsado) {
 	UserList[UserIndex].Faccion.ArmadaReal = 0;
 	/* 'Call PerderItemsFaccionarios(UserIndex) */
 	if (Expulsado) {
-		WriteConsoleMsg(UserIndex, "¡¡¡Has sido expulsado del ejército real!!!",
+		WriteConsoleMsg(UserIndex, "You've been expeled from the Royal Army!!!",
 				FontTypeNames_FONTTYPE_FIGHT);
 	} else {
-		WriteConsoleMsg(UserIndex, "¡¡¡Te has retirado del ejército real!!!", FontTypeNames_FONTTYPE_FIGHT);
+		WriteConsoleMsg(UserIndex, "You've been honorably discharged from the Royal Army.", FontTypeNames_FONTTYPE_FIGHT);
 	}
 
 	bool bRefresh = false;
@@ -536,10 +536,10 @@ void ExpulsarFaccionCaos(int UserIndex, bool Expulsado) {
 	UserList[UserIndex].Faccion.FuerzasCaos = 0;
 	/* 'Call PerderItemsFaccionarios(UserIndex) */
 	if (Expulsado) {
-		WriteConsoleMsg(UserIndex, "¡¡¡Has sido expulsado de la Legión Oscura!!!",
+		WriteConsoleMsg(UserIndex, "You've been expeled from the Dark Legion!!!",
 				FontTypeNames_FONTTYPE_FIGHT);
 	} else {
-		WriteConsoleMsg(UserIndex, "¡¡¡Te has retirado de la Legión Oscura!!!", FontTypeNames_FONTTYPE_FIGHT);
+		WriteConsoleMsg(UserIndex, "You've been honorably discharged from the Dark Legion.", FontTypeNames_FONTTYPE_FIGHT);
 	}
 
 	bool bRefresh = false;
@@ -601,63 +601,63 @@ std::string TituloReal(int UserIndex) {
 	/* 'Rango 15: Campeón de la Luz (5000 Criminales + 6.000.000 Nobleza + > lvl 37) */
 
 	case 0:
-		retval = "Aprendiz";
+		retval = "Apprentice";
 		break;
 
 	case 1:
-		retval = "Escudero";
+		retval = "Squire";
 		break;
 
 	case 2:
-		retval = "Soldado";
+		retval = "Soldier";
 		break;
 
 	case 3:
-		retval = "Sargento";
+		retval = "Sargeant";
 		break;
 
 	case 4:
-		retval = "Teniente";
+		retval = "Lieutenant";
 		break;
 
 	case 5:
-		retval = "Comandante";
+		retval = "Commander";
 		break;
 
 	case 6:
-		retval = "Capitán";
+		retval = "Captain";
 		break;
 
 	case 7:
-		retval = "Senescal";
+		retval = "Seneschal";
 		break;
 
 	case 8:
-		retval = "Mariscal";
+		retval = "Marshal";
 		break;
 
 	case 9:
-		retval = "Condestable";
+		retval = "Constable";
 		break;
 
 	case 10:
-		retval = "Ejecutor Imperial";
+		retval = "Imperial Executor";
 		break;
 
 	case 11:
-		retval = "Protector del Reino";
+		retval = "Protector of the Realm";
 		break;
 
 	case 12:
-		retval = "Avatar de la Justicia";
+		retval = "Avatar of Justice";
 		break;
 
 	case 13:
-		retval = "Guardián del Bien";
+		retval = "Guardian of the Good";
 		break;
 
 	default:
-		retval = "Campeón de la Luz";
+		retval = "Champion of the Light";
 		break;
 	}
 
@@ -674,19 +674,19 @@ void EnlistarCaos(int UserIndex) {
 	/* '*************************************************** */
 
 	if (!criminal(UserIndex)) {
-		WriteChatOverHead(UserIndex, "¡¡¡Lárgate de aquí, bufón!!!",
+		WriteChatOverHead(UserIndex, "Get out of here, fool!!!",
 				(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 		return;
 	}
 
 	if (UserList[UserIndex].Faccion.FuerzasCaos == 1) {
-		WriteChatOverHead(UserIndex, "¡¡¡Ya perteneces a la legión oscura!!!",
+		WriteChatOverHead(UserIndex, "You are already part of the Dark Legion!!!",
 				(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 		return;
 	}
 
 	if (UserList[UserIndex].Faccion.ArmadaReal == 1) {
-		WriteChatOverHead(UserIndex, "Las sombras reinarán en Argentum. ¡¡¡Fuera de aquí insecto real!!!",
+		WriteChatOverHead(UserIndex, "Shadows will reign over Argentum. Get out of here royal insect!!!",
 				(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 		return;
 	}
@@ -694,28 +694,28 @@ void EnlistarCaos(int UserIndex) {
 	/* '[Barrin 17-12-03] Si era miembro de la Armada Real no se puede enlistar */
 	/* 'Tomamos el valor de ahí: ¿Recibio la experiencia para entrar? */
 	if (UserList[UserIndex].Faccion.RecibioExpInicialReal == 1) {
-		WriteChatOverHead(UserIndex, "No permitiré que ningún insecto real ingrese a mis tropas.",
+		WriteChatOverHead(UserIndex, "I will not alow any royal insects to join my ranks.",
 				(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 		return;
 	}
 	/* '[/Barrin] */
 
 	if (!criminal(UserIndex)) {
-		WriteChatOverHead(UserIndex, "¡¡Ja ja ja!! Tú no eres bienvenido aquí asqueroso ciudadano.",
+		WriteChatOverHead(UserIndex, "Ha ha ha!! You are not welcome here disgusting citizen.",
 				(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 		return;
 	}
 
 	if (UserList[UserIndex].Faccion.CiudadanosMatados < 70) {
 		WriteChatOverHead(UserIndex,
-				"Para unirte a nuestras fuerzas debes matar al menos 70 ciudadanos, sólo has matado "
+				"To join our forces you must kill at least 70 citizens, you've only killed "
 						+ vb6::CStr(UserList[UserIndex].Faccion.CiudadanosMatados) + ".",
 				(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 		return;
 	}
 
 	if (UserList[UserIndex].Stats.ELV < 25) {
-		WriteChatOverHead(UserIndex, "¡¡¡Para unirte a nuestras fuerzas debes ser al menos nivel 25!!!",
+		WriteChatOverHead(UserIndex, "To join our forces you must be at least level 25!!!",
 				(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 		return;
 	}
@@ -723,7 +723,7 @@ void EnlistarCaos(int UserIndex) {
 	if (UserList[UserIndex].GuildIndex > 0) {
 		if (GuildAlignment(UserList[UserIndex].GuildIndex) == "Neutral") {
 			WriteChatOverHead(UserIndex,
-					"¡¡¡Perteneces a un clan neutro, sal de él si quieres unirte a nuestras fuerzas!!!",
+					"You are part of a neutral clan, leave it if you wish to join our ranks!!!",
 					(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 			return;
 		}
@@ -732,10 +732,10 @@ void EnlistarCaos(int UserIndex) {
 	if (UserList[UserIndex].Faccion.Reenlistadas > 4) {
 		if (UserList[UserIndex].Faccion.Reenlistadas == 200) {
 			WriteChatOverHead(UserIndex,
-					"Has sido expulsado de las fuerzas oscuras y durante tu rebeldía has atacado a mi ejército. ¡Vete de aquí!",
+					"You've been expelled from the Dark Legion and during your rebellion you've attacked my army. Begone!",
 					(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 		} else {
-			WriteChatOverHead(UserIndex, "¡Has sido expulsado de las fuerzas oscuras demasiadas veces!",
+			WriteChatOverHead(UserIndex, "You've been expelled from the Dark Legion far too many times!",
 					(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 		}
 		return;
@@ -745,7 +745,7 @@ void EnlistarCaos(int UserIndex) {
 	UserList[UserIndex].Faccion.FuerzasCaos = 1;
 
 	WriteChatOverHead(UserIndex,
-			"¡¡¡Bienvenido al lado oscuro!!! Aquí tienes tus armaduras. Derrama sangre ciudadana y real, y serás recompensado, lo prometo.",
+			"Welcome to the Dark Side!!! Here's your uniform. Shed blue blood and you'll be rewarded, I promise you that.",
 			(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 
 	if (UserList[UserIndex].Faccion.RecibioArmaduraCaos == 0) {
@@ -768,8 +768,8 @@ void EnlistarCaos(int UserIndex) {
 	}
 
 	LogEjercitoCaos(
-			UserList[UserIndex].Name + " ingresó el " + UserList[UserIndex].Faccion.FechaIngreso
-					+ " cuando era nivel " + vb6::CStr(UserList[UserIndex].Stats.ELV));
+			UserList[UserIndex].Name + " joined on " + UserList[UserIndex].Faccion.FechaIngreso
+					+ " at the time being level " + vb6::CStr(UserList[UserIndex].Stats.ELV));
 }
 
 void RecompensaCaos(int UserIndex) {
@@ -789,8 +789,8 @@ void RecompensaCaos(int UserIndex) {
 
 	if (Ciudas < NextRecom) {
 		WriteChatOverHead(UserIndex,
-				"Mata " + vb6::CStr(NextRecom - Ciudas)
-						+ " cuidadanos más para recibir la próxima recompensa.",
+				"Kill " + vb6::CStr(NextRecom - Ciudas)
+						+ " more citizens to receive the next reward.",
 				(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 		return;
 	}
@@ -829,8 +829,8 @@ void RecompensaCaos(int UserIndex) {
 	case 1500:
 		if (Lvl < 27) {
 			WriteChatOverHead(UserIndex,
-					"Mataste suficientes ciudadanos, pero te faltan " + vb6::CStr(27 - Lvl)
-							+ " niveles para poder recibir la próxima recompensa.",
+					"You've killed enough citizens, but you have" + vb6::CStr(27 - Lvl)
+							+ " levels to go to receive the next reward.",
 					(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 			return;
 		}
@@ -854,8 +854,8 @@ void RecompensaCaos(int UserIndex) {
 	case 4600:
 		if (Lvl < 30) {
 			WriteChatOverHead(UserIndex,
-					"Mataste suficientes ciudadanos, pero te faltan " + vb6::CStr(30 - Lvl)
-							+ " niveles para poder recibir la próxima recompensa.",
+					"You've killed enough citizens, but you have" + vb6::CStr(30 - Lvl)
+							+ " levels to go to receive the next reward.",
 					(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 			return;
 		}
@@ -867,8 +867,8 @@ void RecompensaCaos(int UserIndex) {
 	case 5800:
 		if (Lvl < 31) {
 			WriteChatOverHead(UserIndex,
-					"Mataste suficientes ciudadanos, pero te faltan " + vb6::CStr(31 - Lvl)
-							+ " niveles para poder recibir la próxima recompensa.",
+					"You've killed enough citizens, but you have" + vb6::CStr(31 - Lvl)
+							+ " levels to go to receive the next reward.",
 					(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 			return;
 		}
@@ -880,8 +880,8 @@ void RecompensaCaos(int UserIndex) {
 	case 6990:
 		if (Lvl < 33) {
 			WriteChatOverHead(UserIndex,
-					"Mataste suficientes ciudadanos, pero te faltan " + vb6::CStr(33 - Lvl)
-							+ " niveles para poder recibir la próxima recompensa.",
+					"You've killed enough citizens, but you have" + vb6::CStr(33 - Lvl)
+							+ " levels to go to receive the next reward.",
 					(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 			return;
 		}
@@ -893,8 +893,8 @@ void RecompensaCaos(int UserIndex) {
 	case 8100:
 		if (Lvl < 35) {
 			WriteChatOverHead(UserIndex,
-					"Mataste suficientes ciudadanos, pero te faltan " + vb6::CStr(35 - Lvl)
-							+ " niveles para poder recibir la próxima recompensa.",
+					"You've killed enough citizens, but you have" + vb6::CStr(35 - Lvl)
+							+ " levels to go to receive the next reward.",
 					(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 			return;
 		}
@@ -906,8 +906,8 @@ void RecompensaCaos(int UserIndex) {
 	case 9300:
 		if (Lvl < 36) {
 			WriteChatOverHead(UserIndex,
-					"Mataste suficientes ciudadanos, pero te faltan " + vb6::CStr(36 - Lvl)
-							+ " niveles para poder recibir la próxima recompensa.",
+					"You've killed enough citizens, but you have" + vb6::CStr(36 - Lvl)
+							+ " levels to go to receive the next reward.",
 					(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 			return;
 		}
@@ -919,8 +919,8 @@ void RecompensaCaos(int UserIndex) {
 	case 11500:
 		if (Lvl < 37) {
 			WriteChatOverHead(UserIndex,
-					"Mataste suficientes ciudadanos, pero te faltan " + vb6::CStr(37 - Lvl)
-							+ " niveles para poder recibir la próxima recompensa.",
+					"You've killed enough citizens, but you have" + vb6::CStr(37 - Lvl)
+							+ " levels to go to receive the next reward.",
 					(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 			return;
 		}
@@ -931,8 +931,8 @@ void RecompensaCaos(int UserIndex) {
 
 	case 23000:
 		WriteChatOverHead(UserIndex,
-				"Eres uno de mis mejores soldados. Mataste " + vb6::CStr(Ciudas)
-						+ " ciudadanos . Tu única recompensa será la sangre derramada. ¡¡Continúa así!!",
+				"You are one of my best soldiers. You've killed " + vb6::CStr(Ciudas)
+						+ " citizens. Your only reward from now on will be the shedded blood. Keep it up!!",
 				(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 		return;
 
@@ -944,7 +944,7 @@ void RecompensaCaos(int UserIndex) {
 		break;
 	}
 
-	WriteChatOverHead(UserIndex, "¡¡¡Bien hecho " + TituloCaos(UserIndex) + ", aquí tienes tu recompensa!!!",
+	WriteChatOverHead(UserIndex, "Well done " + TituloCaos(UserIndex) + ", here's your reward!!!",
 			(Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex), 0x00ffffff);
 
 	/* ' Recompensas de armaduras y exp */
@@ -978,27 +978,27 @@ std::string TituloCaos(int UserIndex) {
 
 	switch (UserList[UserIndex].Faccion.RecompensasCaos) {
 	case 0:
-		retval = "Acólito";
+		retval = "Acolyte";
 		break;
 
 	case 1:
-		retval = "Alma Corrupta";
+		retval = "Corrupt Soul";
 		break;
 
 	case 2:
-		retval = "Paria";
+		retval = "Pariah";
 		break;
 
 	case 3:
-		retval = "Condenado";
+		retval = "Damned";
 		break;
 
 	case 4:
-		retval = "Esbirro";
+		retval = "Henchman";
 		break;
 
 	case 5:
-		retval = "Sanguinario";
+		retval = "Sanguinarium";
 		break;
 
 	case 6:
@@ -1006,35 +1006,35 @@ std::string TituloCaos(int UserIndex) {
 		break;
 
 	case 7:
-		retval = "Heraldo Impío";
+		retval = "Impious Herald";
 		break;
 
 	case 8:
-		retval = "Caballero de la Oscuridad";
+		retval = "Dark Knight";
 		break;
 
 	case 9:
-		retval = "Senor del Miedo";
+		retval = "Lord of Fear";
 		break;
 
 	case 10:
-		retval = "Ejecutor Infernal";
+		retval = "Infernal Executor";
 		break;
 
 	case 11:
-		retval = "Protector del Averno";
+		retval = "Protector of Hell";
 		break;
 
 	case 12:
-		retval = "Avatar de la Destrucción";
+		retval = "Avatar of Destruction";
 		break;
 
 	case 13:
-		retval = "Guardián del Mal";
+		retval = "Guardian of Evil";
 		break;
 
 	default:
-		retval = "Campeón de la Oscuridad";
+		retval = "Champion of the Darkness";
 		break;
 	}
 

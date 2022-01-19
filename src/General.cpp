@@ -792,13 +792,13 @@ void EfectoFrio(int UserIndex) {
 		UserList[UserIndex].Counters.Frio = UserList[UserIndex].Counters.Frio + 1;
 	} else {
 		if (MapInfo[UserList[UserIndex].Pos.Map].Terreno == eTerrain_terrain_nieve) {
-			WriteConsoleMsg(UserIndex, "¡¡Estás muriendo de frío, abrigate o morirás!!",
+			WriteConsoleMsg(UserIndex, "You are dying because of the cold, put on some clothes or you'll die!!",
 					FontTypeNames_FONTTYPE_INFO);
 			modifi = MinimoInt(Porcentaje(UserList[UserIndex].Stats.MaxHp, 5), 15);
 			UserList[UserIndex].Stats.MinHp = UserList[UserIndex].Stats.MinHp - modifi;
 
 			if (UserList[UserIndex].Stats.MinHp < 1) {
-				WriteConsoleMsg(UserIndex, "¡¡Has muerto de frío!!", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You've died of exposure!!", FontTypeNames_FONTTYPE_INFO);
 				UserList[UserIndex].Stats.MinHp = 0;
 				UserDie(UserIndex);
 			}
@@ -826,13 +826,13 @@ void EfectoLava(int UserIndex) {
 		UserList[UserIndex].Counters.Lava = UserList[UserIndex].Counters.Lava + 1;
 	} else {
 		if (HayLava(UserList[UserIndex].Pos.Map, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y)) {
-			WriteConsoleMsg(UserIndex, "¡¡Quitate de la lava, te estás quemando!!",
+			WriteConsoleMsg(UserIndex, "Step out of the lava, you're burning!!",
 					FontTypeNames_FONTTYPE_INFO);
 			UserList[UserIndex].Stats.MinHp = UserList[UserIndex].Stats.MinHp
 					- Porcentaje(UserList[UserIndex].Stats.MaxHp, 5);
 
 			if (UserList[UserIndex].Stats.MinHp < 1) {
-				WriteConsoleMsg(UserIndex, "¡¡Has muerto quemado!!", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You're dead! You were burnt alive!!", FontTypeNames_FONTTYPE_INFO);
 				UserList[UserIndex].Stats.MinHp = 0;
 				UserDie(UserIndex);
 			}
@@ -912,7 +912,7 @@ void EfectoMimetismo(int UserIndex) {
 		UserList[UserIndex].Counters.Mimetismo = UserList[UserIndex].Counters.Mimetismo + 1;
 	} else {
 		/* 'restore old char */
-		WriteConsoleMsg(UserIndex, "Recuperas tu apariencia normal.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "Your appearance is back to normal.", FontTypeNames_FONTTYPE_INFO);
 
 		if (UserList[UserIndex].flags.Navegando) {
 			if (UserList[UserIndex].flags.Muerto == 0) {
@@ -956,7 +956,7 @@ void EfectoInvisibilidad(int UserIndex) {
 		UserList[UserIndex].Counters.Invisibilidad = RandomNumber(-100, 100);
 		UserList[UserIndex].flags.invisible = 0;
 		if (UserList[UserIndex].flags.Oculto == 0) {
-			WriteConsoleMsg(UserIndex, "Has vuelto a ser visible.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You are visible again.", FontTypeNames_FONTTYPE_INFO);
 
 			/* ' Si navega ya esta visible.. */
 			if (UserList[UserIndex].flags.Navegando != 1) {
@@ -1136,7 +1136,7 @@ void EfectoVeneno(int UserIndex) {
 	if (UserList[UserIndex].Counters.Veneno < IntervaloVeneno) {
 		UserList[UserIndex].Counters.Veneno = UserList[UserIndex].Counters.Veneno + 1;
 	} else {
-		WriteConsoleMsg(UserIndex, "Estás envenenado, si no te curas morirás.",
+		WriteConsoleMsg(UserIndex, "You're poisoned, if you are not cured, you will die.",
 				FontTypeNames_FONTTYPE_VENENO);
 		UserList[UserIndex].Counters.Veneno = 0;
 		N = RandomNumber(1, 5);
@@ -1249,7 +1249,7 @@ void Sanar(int UserIndex, bool & EnviarStats, int Intervalo) {
 			if (UserList[UserIndex].Stats.MinHp > UserList[UserIndex].Stats.MaxHp) {
 				UserList[UserIndex].Stats.MinHp = UserList[UserIndex].Stats.MaxHp;
 			}
-			WriteConsoleMsg(UserIndex, "Has sanado.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You've healed.", FontTypeNames_FONTTYPE_INFO);
 			EnviarStats = true;
 		}
 	}
@@ -1286,7 +1286,7 @@ void PasarSegundo() {
 				UserList[i].Counters.Salir = UserList[i].Counters.Salir - 1;
 				if (UserList[i].Counters.Salir <= 0) {
 					if (UserIndexSocketValido(i)) {
-						WriteConsoleMsg(i, "Gracias por jugar Argentum Online", FontTypeNames_FONTTYPE_INFO);
+						WriteConsoleMsg(i, "Thanks for playing Heroes of Argentum!", FontTypeNames_FONTTYPE_INFO);
 						WriteDisconnect(i);
 						FlushBuffer(i);
 					}
@@ -1340,7 +1340,7 @@ void GuardarUsuarios() {
 	SendData(SendTarget_ToAll, 0,
 			dakara::protocol::server::BuildPauseToggle());
 	SendData(SendTarget_ToAll, 0,
-			dakara::protocol::server::BuildConsoleMsg("Servidor> Grabando Personajes", FontTypeNames_FONTTYPE_SERVER));
+			dakara::protocol::server::BuildConsoleMsg("Server> Saving characters", FontTypeNames_FONTTYPE_SERVER));
 
 	int i;
 	for (i = (1); i <= (LastUser); i++) {
@@ -1353,7 +1353,7 @@ void GuardarUsuarios() {
 	SaveRecords();
 
 	SendData(SendTarget_ToAll, 0,
-			dakara::protocol::server::BuildConsoleMsg("Servidor> Personajes Grabados", FontTypeNames_FONTTYPE_SERVER));
+			dakara::protocol::server::BuildConsoleMsg("Server> Characters saved", FontTypeNames_FONTTYPE_SERVER));
 	SendData(SendTarget_ToAll, 0,
 			dakara::protocol::server::BuildPauseToggle());
 

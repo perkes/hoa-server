@@ -71,7 +71,7 @@ void NpcLanzaSpellSobreUser(int NpcIndex, int UserIndex, int Spell, bool DecirPa
 			UserList[UserIndex].Stats.MinHp = UserList[UserIndex].Stats.MaxHp;
 		}
 
-		WriteConsoleMsg(UserIndex, Npclist[NpcIndex].Name + " te ha quitado " + vb6::CStr(dano) + " puntos de vida.",
+		WriteConsoleMsg(UserIndex, Npclist[NpcIndex].Name + " has taken " + vb6::CStr(dano) + " puntos de vida.",
 				FontTypeNames_FONTTYPE_FIGHT);
 		WriteUpdateUserStats(UserIndex);
 
@@ -102,7 +102,7 @@ void NpcLanzaSpellSobreUser(int NpcIndex, int UserIndex, int Spell, bool DecirPa
 
 			UserList[UserIndex].Stats.MinHp = UserList[UserIndex].Stats.MinHp - dano;
 
-			WriteConsoleMsg(UserIndex, Npclist[NpcIndex].Name + " te ha quitado " + vb6::CStr(dano) + " puntos de vida.",
+			WriteConsoleMsg(UserIndex, Npclist[NpcIndex].Name + " has taken " + vb6::CStr(dano) + " puntos de vida.",
 					FontTypeNames_FONTTYPE_FIGHT);
 			WriteUpdateUserStats(UserIndex);
 
@@ -148,7 +148,7 @@ void NpcLanzaSpellSobreUser(int NpcIndex, int UserIndex, int Spell, bool DecirPa
 
 			if (AnilloObjIndex > 0) {
 				if (ObjData[AnilloObjIndex].ImpideParalizar != 0) {
-					WriteConsoleMsg(UserIndex, "Tu anillo rechaza los efectos de la paralisis.",
+					WriteConsoleMsg(UserIndex, "Your ring counters the paralysis effect.",
 							FontTypeNames_FONTTYPE_FIGHT);
 					return;
 				}
@@ -161,7 +161,7 @@ void NpcLanzaSpellSobreUser(int NpcIndex, int UserIndex, int Spell, bool DecirPa
 				if (AnilloObjIndex > 0) {
 					if (ObjData[AnilloObjIndex].ImpideInmobilizar != 0) {
 						UserList[UserIndex].flags.Inmovilizado = 0;
-						WriteConsoleMsg(UserIndex, "Tu anillo rechaza los efectos del hechizo inmobilizar.",
+						WriteConsoleMsg(UserIndex, "Your ring counters the effects of the hold spell.",
 								FontTypeNames_FONTTYPE_FIGHT);
 					}
 				}
@@ -185,7 +185,7 @@ void NpcLanzaSpellSobreUser(int NpcIndex, int UserIndex, int Spell, bool DecirPa
 
 			if (AnilloObjIndex > 0) {
 				if (ObjData[AnilloObjIndex].ImpideAturdir != 0) {
-					WriteConsoleMsg(UserIndex, "Tu anillo rechaza los efectos de la turbación.",
+					WriteConsoleMsg(UserIndex, "Your ring counters the effect of the stun spell.",
 							FontTypeNames_FONTTYPE_FIGHT);
 					return;
 				}
@@ -208,7 +208,7 @@ void NpcLanzaSpellSobreUser(int NpcIndex, int UserIndex, int Spell, bool DecirPa
 
 			if (AnilloObjIndex > 0) {
 				if (ObjData[AnilloObjIndex].ImpideCegar != 0) {
-					WriteConsoleMsg(UserIndex, "Tu anillo rechaza los efectos de la ceguera.",
+					WriteConsoleMsg(UserIndex, "Your ring counters the effects of the blindness spell.",
 							FontTypeNames_FONTTYPE_FIGHT);
 					return;
 				}
@@ -232,10 +232,10 @@ void NpcLanzaSpellSobreUser(int NpcIndex, int UserIndex, int Spell, bool DecirPa
 			UserList[UserIndex].Counters.TiempoOculto = 0;
 			UserList[UserIndex].flags.Oculto = 0;
 			SetInvisible(UserIndex, UserList[UserIndex].Char.CharIndex, false);
-			WriteConsoleMsg(UserIndex, "¡Has sido detectado!", FontTypeNames_FONTTYPE_VENENO);
+			WriteConsoleMsg(UserIndex, "You've been detected!", FontTypeNames_FONTTYPE_VENENO);
 		} else {
 			/* 'sino, solo lo "iniciamos" en la sacada de invisibilidad. */
-			WriteConsoleMsg(UserIndex, "Comienzas a hacerte visible.", FontTypeNames_FONTTYPE_VENENO);
+			WriteConsoleMsg(UserIndex, "You start being visible again.", FontTypeNames_FONTTYPE_VENENO);
 			UserList[UserIndex].Counters.Invisibilidad = IntervaloInvisible - 1;
 		}
 
@@ -397,7 +397,7 @@ void AgregarHechizo(int UserIndex, int Slot) {
 		}
 
 		if (j > MAXUSERHECHIZOS || UserList[UserIndex].Stats.UserHechizos[j] != 0) {
-			WriteConsoleMsg(UserIndex, "No tienes espacio para más hechizos.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You don't have any more space in your spellbook.", FontTypeNames_FONTTYPE_INFO);
 		} else {
 			UserList[UserIndex].Stats.UserHechizos[j] = hIndex;
 			UpdateUserHechizos(false, UserIndex, vb6::CByte(j));
@@ -405,7 +405,7 @@ void AgregarHechizo(int UserIndex, int Slot) {
 			QuitarUserInvItem(UserIndex, vb6::CByte(Slot), 1);
 		}
 	} else {
-		WriteConsoleMsg(UserIndex, "Ya tienes ese hechizo.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You already have that spell.", FontTypeNames_FONTTYPE_INFO);
 	}
 
 }
@@ -428,7 +428,7 @@ void DecirPalabrasMagicas(std::string SpellWords, int UserIndex) {
 			UserList[UserIndex].Counters.TiempoOculto = 0;
 
 			if (UserList[UserIndex].flags.invisible == 0) {
-				WriteConsoleMsg(UserIndex, "Has vuelto a ser visible.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You are visible again.", FontTypeNames_FONTTYPE_INFO);
 				SetInvisible(UserIndex, UserList[UserIndex].Char.CharIndex, false);
 			}
 		}
@@ -456,7 +456,7 @@ bool PuedeLanzar(int UserIndex, int HechizoIndex) {
 	float DruidManaBonus;
 
 	if (UserList[UserIndex].flags.Muerto) {
-		WriteConsoleMsg(UserIndex, "No puedes lanzar hechizos estando muerto.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You can't cast spells while you are dead.", FontTypeNames_FONTTYPE_INFO);
 		return retval;
 	}
 
@@ -466,12 +466,12 @@ bool PuedeLanzar(int UserIndex, int HechizoIndex) {
 				if (ObjData[UserList[UserIndex].Invent.WeaponEqpObjIndex].StaffPower
 						< Hechizos[HechizoIndex].NeedStaff) {
 					WriteConsoleMsg(UserIndex,
-							"No posees un báculo lo suficientemente poderoso para poder lanzar el conjuro.",
+							"You don't have a staff powerful enough to cast this spell.",
 							FontTypeNames_FONTTYPE_INFO);
 					return retval;
 				}
 			} else {
-				WriteConsoleMsg(UserIndex, "No puedes lanzar este conjuro sin la ayuda de un báculo.",
+				WriteConsoleMsg(UserIndex, "You can't cast this spell without a staff.",
 						FontTypeNames_FONTTYPE_INFO);
 				return retval;
 			}
@@ -479,17 +479,17 @@ bool PuedeLanzar(int UserIndex, int HechizoIndex) {
 	}
 
 	if (UserList[UserIndex].Stats.UserSkills[eSkill_Magia] < Hechizos[HechizoIndex].MinSkill) {
-		WriteConsoleMsg(UserIndex, "No tienes suficientes puntos de magia para lanzar este hechizo.",
+		WriteConsoleMsg(UserIndex, "You don't have enough magic skill points to cast sthis spell.",
 				FontTypeNames_FONTTYPE_INFO);
 		return retval;
 	}
 
 	if (UserList[UserIndex].Stats.MinSta < Hechizos[HechizoIndex].StaRequerido) {
 		if (UserList[UserIndex].Genero == eGenero_Hombre) {
-			WriteConsoleMsg(UserIndex, "Estás muy cansado para lanzar este hechizo.",
+			WriteConsoleMsg(UserIndex, "You're too tired to cast this spell.",
 					FontTypeNames_FONTTYPE_INFO);
 		} else {
-			WriteConsoleMsg(UserIndex, "Estás muy cansada para lanzar este hechizo.",
+			WriteConsoleMsg(UserIndex, "You're too tired to cast this spell.",
 					FontTypeNames_FONTTYPE_INFO);
 		}
 		return retval;
@@ -515,12 +515,12 @@ bool PuedeLanzar(int UserIndex, int HechizoIndex) {
 		/* ' Necesita tener la barra de mana completa para invocar una mascota */
 		if (Hechizos[HechizoIndex].Warp == 1) {
 			if (UserList[UserIndex].Stats.MinMAN != UserList[UserIndex].Stats.MaxMAN) {
-				WriteConsoleMsg(UserIndex, "Debes poseer toda tu maná para poder lanzar este hechizo.",
+				WriteConsoleMsg(UserIndex, "You need all your mana points to cast this spell.",
 						FontTypeNames_FONTTYPE_INFO);
 				return retval;
 				/* ' Si no tiene mascotas, no tiene sentido que lo use */
 			} else if (UserList[UserIndex].NroMascotas == 0) {
-				WriteConsoleMsg(UserIndex, "Debes poseer alguna mascota para poder lanzar este hechizo.",
+				WriteConsoleMsg(UserIndex, "You need a familiar to cast this spell.",
 						FontTypeNames_FONTTYPE_INFO);
 				return retval;
 			}
@@ -528,7 +528,7 @@ bool PuedeLanzar(int UserIndex, int HechizoIndex) {
 	}
 
 	if (UserList[UserIndex].Stats.MinMAN < Hechizos[HechizoIndex].ManaRequerido * DruidManaBonus) {
-		WriteConsoleMsg(UserIndex, "No tienes suficiente maná.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You don't have enough mana points.", FontTypeNames_FONTTYPE_INFO);
 		return retval;
 	}
 
@@ -602,7 +602,7 @@ void HechizoInvocacion(int UserIndex, bool & HechizoCasteado) {
 	if (MapInfo[mapa].Pk == false
 			|| MapData[mapa][UserList[UserIndex].Pos.X][UserList[UserIndex].Pos.Y].trigger
 					== eTrigger_ZONASEGURA) {
-		WriteConsoleMsg(UserIndex, "No puedes invocar criaturas en zona segura.",
+		WriteConsoleMsg(UserIndex, "You can't summon creatures in a safe zone.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -610,7 +610,7 @@ void HechizoInvocacion(int UserIndex, bool & HechizoCasteado) {
 	/* 'No permitimos se invoquen criaturas en mapas donde esta prohibido hacerlo */
 	if (MapInfo[mapa].InvocarSinEfecto == 1) {
 		WriteConsoleMsg(UserIndex,
-				"Invocar no está permitido aquí! Retirate de la Zona si deseas utilizar el Hechizo.",
+				"You can't summon creatures here! Leave this are if you wish to cast this spell.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -883,7 +883,7 @@ void LanzarHechizo(int SpellIndex, int UserIndex) {
 	/* '*************************************************** */
 
 	if (UserList[UserIndex].flags.EnConsulta) {
-		WriteConsoleMsg(UserIndex, "No puedes lanzar hechizos si estás en consulta.",
+		WriteConsoleMsg(UserIndex, "You can't cast spells while on support.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -896,11 +896,11 @@ void LanzarHechizo(int SpellIndex, int UserIndex) {
 						<= RANGO_VISION_Y) {
 					HandleHechizoUsuario(UserIndex, SpellIndex);
 				} else {
-					WriteConsoleMsg(UserIndex, "Estás demasiado lejos para lanzar este hechizo.",
+					WriteConsoleMsg(UserIndex, "You're too far away to cast that spell.",
 							FontTypeNames_FONTTYPE_WARNING);
 				}
 			} else {
-				WriteConsoleMsg(UserIndex, "Este hechizo actúa sólo sobre usuarios.",
+				WriteConsoleMsg(UserIndex, "This spell only works against other users.",
 						FontTypeNames_FONTTYPE_INFO);
 			}
 
@@ -912,11 +912,11 @@ void LanzarHechizo(int SpellIndex, int UserIndex) {
 						<= RANGO_VISION_Y) {
 					HandleHechizoNPC(UserIndex, SpellIndex);
 				} else {
-					WriteConsoleMsg(UserIndex, "Estás demasiado lejos para lanzar este hechizo.",
+					WriteConsoleMsg(UserIndex, "You're too far away to cast that spell.",
 							FontTypeNames_FONTTYPE_WARNING);
 				}
 			} else {
-				WriteConsoleMsg(UserIndex, "Este hechizo sólo afecta a los npcs.",
+				WriteConsoleMsg(UserIndex, "This spell only works against NPCs.",
 						FontTypeNames_FONTTYPE_INFO);
 			}
 
@@ -928,7 +928,7 @@ void LanzarHechizo(int SpellIndex, int UserIndex) {
 						<= RANGO_VISION_Y) {
 					HandleHechizoUsuario(UserIndex, SpellIndex);
 				} else {
-					WriteConsoleMsg(UserIndex, "Estás demasiado lejos para lanzar este hechizo.",
+					WriteConsoleMsg(UserIndex, "You're too far away to cast that spell.",
 							FontTypeNames_FONTTYPE_WARNING);
 				}
 			} else if (UserList[UserIndex].flags.TargetNPC > 0) {
@@ -936,11 +936,11 @@ void LanzarHechizo(int SpellIndex, int UserIndex) {
 						<= RANGO_VISION_Y) {
 					HandleHechizoNPC(UserIndex, SpellIndex);
 				} else {
-					WriteConsoleMsg(UserIndex, "Estás demasiado lejos para lanzar este hechizo.",
+					WriteConsoleMsg(UserIndex, "You're too far away to cast that spell.",
 							FontTypeNames_FONTTYPE_WARNING);
 				}
 			} else {
-				WriteConsoleMsg(UserIndex, "Target inválido.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "Invalid target.", FontTypeNames_FONTTYPE_INFO);
 			}
 
 			break;
@@ -990,18 +990,18 @@ void HechizoEstadoUsuario(int UserIndex, bool & HechizoCasteado) {
 	/* ' <-------- Agrega Invisibilidad ----------> */
 	if (Hechizos[HechizoIndex].Invisibilidad == 1) {
 		if (UserList[TargetIndex].flags.Muerto == 1) {
-			WriteConsoleMsg(UserIndex, "¡El usuario está muerto!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "The user is dead!", FontTypeNames_FONTTYPE_INFO);
 			HechizoCasteado = false;
 			return;
 		}
 
 		if (UserList[TargetIndex].Counters.Saliendo) {
 			if (UserIndex != TargetIndex) {
-				WriteConsoleMsg(UserIndex, "¡El hechizo no tiene efecto!", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "The spell has no effect!", FontTypeNames_FONTTYPE_INFO);
 				HechizoCasteado = false;
 				return;
 			} else {
-				WriteConsoleMsg(UserIndex, "¡No puedes hacerte invisible mientras te encuentras saliendo!",
+				WriteConsoleMsg(UserIndex, "You can't make yourself invisible while leaving the game!",
 						FontTypeNames_FONTTYPE_WARNING);
 				HechizoCasteado = false;
 				return;
@@ -1010,7 +1010,7 @@ void HechizoEstadoUsuario(int UserIndex, bool & HechizoCasteado) {
 
 		/* 'No usar invi mapas InviSinEfecto */
 		if (MapInfo[UserList[TargetIndex].Pos.Map].InviSinEfecto > 0) {
-			WriteConsoleMsg(UserIndex, "¡La invisibilidad no funciona aquí!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "Invisibility doesn't work here!", FontTypeNames_FONTTYPE_INFO);
 			HechizoCasteado = false;
 			return;
 		}
@@ -1062,7 +1062,7 @@ void HechizoEstadoUsuario(int UserIndex, bool & HechizoCasteado) {
 		}
 
 		if (UserList[UserIndex].flags.Mimetizado == 1) {
-			WriteConsoleMsg(UserIndex, "Ya te encuentras mimetizado. El hechizo no ha tenido efecto.",
+			WriteConsoleMsg(UserIndex, "You're already shapeshifted. The spell has no effect.",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
@@ -1099,7 +1099,7 @@ void HechizoEstadoUsuario(int UserIndex, bool & HechizoCasteado) {
 	/* ' <-------- Agrega Envenenamiento ----------> */
 	if (Hechizos[HechizoIndex].Envenena == 1) {
 		if (UserIndex == TargetIndex) {
-			WriteConsoleMsg(UserIndex, "No puedes atacarte a vos mismo.", FontTypeNames_FONTTYPE_FIGHT);
+			WriteConsoleMsg(UserIndex, "You can't attack yourself.", FontTypeNames_FONTTYPE_FIGHT);
 			return;
 		}
 
@@ -1119,7 +1119,7 @@ void HechizoEstadoUsuario(int UserIndex, bool & HechizoCasteado) {
 
 		/* 'Verificamos que el usuario no este muerto */
 		if (UserList[TargetIndex].flags.Muerto == 1) {
-			WriteConsoleMsg(UserIndex, "¡El usuario está muerto!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "The user is dead!", FontTypeNames_FONTTYPE_INFO);
 			HechizoCasteado = false;
 			return;
 		}
@@ -1146,7 +1146,7 @@ void HechizoEstadoUsuario(int UserIndex, bool & HechizoCasteado) {
 	/* ' <-------- Agrega Maldicion ----------> */
 	if (Hechizos[HechizoIndex].Maldicion == 1) {
 		if (UserIndex == TargetIndex) {
-			WriteConsoleMsg(UserIndex, "No puedes atacarte a vos mismo.", FontTypeNames_FONTTYPE_FIGHT);
+			WriteConsoleMsg(UserIndex, "You can't attack yourself.", FontTypeNames_FONTTYPE_FIGHT);
 			return;
 		}
 
@@ -1178,7 +1178,7 @@ void HechizoEstadoUsuario(int UserIndex, bool & HechizoCasteado) {
 	/* ' <-------- Agrega Paralisis/Inmobilidad ----------> */
 	if (Hechizos[HechizoIndex].Paraliza == 1 || Hechizos[HechizoIndex].Inmoviliza == 1) {
 		if (UserIndex == TargetIndex) {
-			WriteConsoleMsg(UserIndex, "No puedes atacarte a vos mismo.", FontTypeNames_FONTTYPE_FIGHT);
+			WriteConsoleMsg(UserIndex, "You can't attack yourself.", FontTypeNames_FONTTYPE_FIGHT);
 			return;
 		}
 
@@ -1196,9 +1196,9 @@ void HechizoEstadoUsuario(int UserIndex, bool & HechizoCasteado) {
 
 			if (AnilloObjIndex > 0) {
 				if (ObjData[AnilloObjIndex].ImpideParalizar != 0) {
-					WriteConsoleMsg(UserIndex, "Tu anillo rechaza los efectos de la paralisis.",
+					WriteConsoleMsg(UserIndex, "Your ring neutralizes the paralysis effect.",
 							FontTypeNames_FONTTYPE_FIGHT);
-					WriteConsoleMsg(UserIndex, " ¡El hechizo no tiene efecto!", FontTypeNames_FONTTYPE_FIGHT);
+					WriteConsoleMsg(UserIndex, " The spell has no effect!", FontTypeNames_FONTTYPE_FIGHT);
 					FlushBuffer(TargetIndex);
 					return;
 				}
@@ -1210,9 +1210,9 @@ void HechizoEstadoUsuario(int UserIndex, bool & HechizoCasteado) {
 				if (AnilloObjIndex > 0) {
 					if (ObjData[AnilloObjIndex].ImpideInmobilizar != 0) {
 						UserList[TargetIndex].flags.Inmovilizado = 0;
-						WriteConsoleMsg(UserIndex, "Tu anillo rechaza los efectos del hechizo inmobilizar.",
+						WriteConsoleMsg(UserIndex, "Your ring neutralizes the effect of the Hold spell.",
 								FontTypeNames_FONTTYPE_FIGHT);
-						WriteConsoleMsg(UserIndex, " ¡El hechizo no tiene efecto!",
+						WriteConsoleMsg(UserIndex, " The spell has no effect!",
 								FontTypeNames_FONTTYPE_FIGHT);
 					}
 				}
@@ -1276,7 +1276,7 @@ void HechizoEstadoUsuario(int UserIndex, bool & HechizoCasteado) {
 			/* 'Seguro de resurreccion (solo afecta a los hechizos, no al sacerdote ni al comando de GM) */
 			if (UserList[TargetIndex].flags.SeguroResu) {
 				WriteConsoleMsg(UserIndex,
-						"¡El espíritu no tiene intenciones de regresar al mundo de los vivos!",
+						"The spirit has no intention to return to the world of the living!",
 						FontTypeNames_FONTTYPE_INFO);
 				HechizoCasteado = false;
 				return;
@@ -1285,7 +1285,7 @@ void HechizoEstadoUsuario(int UserIndex, bool & HechizoCasteado) {
 			/* 'No usar resu en mapas con ResuSinEfecto */
 			if (MapInfo[UserList[TargetIndex].Pos.Map].ResuSinEfecto > 0) {
 				WriteConsoleMsg(UserIndex,
-						"¡Revivir no está permitido aquí! Retirate de la Zona si deseas utilizar el Hechizo.",
+						"Raising the dead is not allowed here! Leave the area if you wish to use the spell.",
 						FontTypeNames_FONTTYPE_INFO);
 				HechizoCasteado = false;
 				return;
@@ -1293,7 +1293,7 @@ void HechizoEstadoUsuario(int UserIndex, bool & HechizoCasteado) {
 
 			/* 'No podemos resucitar si nuestra barra de energía no está llena. (GD: 29/04/07) */
 			if (UserList[UserIndex].Stats.MaxSta != UserList[UserIndex].Stats.MinSta) {
-				WriteConsoleMsg(UserIndex, "No puedes resucitar si no tienes tu barra de energía llena.",
+				WriteConsoleMsg(UserIndex, "You can't cast raise dead unless your energy bar is full.",
 						FontTypeNames_FONTTYPE_INFO);
 				HechizoCasteado = false;
 				return;
@@ -1304,7 +1304,7 @@ void HechizoEstadoUsuario(int UserIndex, bool & HechizoCasteado) {
 				if (UserList[UserIndex].Invent.WeaponEqpObjIndex > 0) {
 					if (ObjData[UserList[UserIndex].Invent.WeaponEqpObjIndex].StaffPower
 							< Hechizos[HechizoIndex].NeedStaff) {
-						WriteConsoleMsg(UserIndex, "Necesitas un báculo mejor para lanzar este hechizo.",
+						WriteConsoleMsg(UserIndex, "You need a more powerful staff to cast this spell.",
 								FontTypeNames_FONTTYPE_INFO);
 						HechizoCasteado = false;
 						return;
@@ -1313,7 +1313,7 @@ void HechizoEstadoUsuario(int UserIndex, bool & HechizoCasteado) {
 			} else if (UserList[UserIndex].clase == eClass_Bard) {
 				if (UserList[UserIndex].Invent.AnilloEqpObjIndex != LAUDELFICO
 						&& UserList[UserIndex].Invent.AnilloEqpObjIndex != LAUDMAGICO) {
-					WriteConsoleMsg(UserIndex, "Necesitas un instrumento mágico para devolver la vida.",
+					WriteConsoleMsg(UserIndex, "You need a magical object to raise the dead.",
 							FontTypeNames_FONTTYPE_INFO);
 					HechizoCasteado = false;
 					return;
@@ -1321,7 +1321,7 @@ void HechizoEstadoUsuario(int UserIndex, bool & HechizoCasteado) {
 			} else if (UserList[UserIndex].clase == eClass_Druid) {
 				if (UserList[UserIndex].Invent.AnilloEqpObjIndex != FLAUTAELFICA
 						&& UserList[UserIndex].Invent.AnilloEqpObjIndex != FLAUTAMAGICA) {
-					WriteConsoleMsg(UserIndex, "Necesitas un instrumento mágico para devolver la vida.",
+					WriteConsoleMsg(UserIndex, "You need a magical object to raise the dead.",
 							FontTypeNames_FONTTYPE_INFO);
 					HechizoCasteado = false;
 					return;
@@ -1343,7 +1343,7 @@ void HechizoEstadoUsuario(int UserIndex, bool & HechizoCasteado) {
 					if (UserList[UserIndex].Reputacion.NobleRep > MAXREP) {
 						UserList[UserIndex].Reputacion.NobleRep = MAXREP;
 					}
-					WriteConsoleMsg(UserIndex, "¡Los Dioses te sonríen, has ganado 500 puntos de nobleza!",
+					WriteConsoleMsg(UserIndex, "The Lord smiles upon you! You've gained 500 nobility points!",
 							FontTypeNames_FONTTYPE_INFO);
 				}
 			}
@@ -1373,11 +1373,11 @@ void HechizoEstadoUsuario(int UserIndex, bool & HechizoCasteado) {
 
 			if ((UserList[UserIndex].Stats.MinHp <= 0)) {
 				UserDie(UserIndex);
-				WriteConsoleMsg(UserIndex, "El esfuerzo de resucitar fue demasiado grande.",
+				WriteConsoleMsg(UserIndex, "The effort of casting raise dead has been too much for you.",
 						FontTypeNames_FONTTYPE_INFO);
 				HechizoCasteado = false;
 			} else {
-				WriteConsoleMsg(UserIndex, "El esfuerzo de resucitar te ha debilitado.",
+				WriteConsoleMsg(UserIndex, "The effort of casting raise dead has weakened you.",
 						FontTypeNames_FONTTYPE_INFO);
 				HechizoCasteado = true;
 			}
@@ -1399,7 +1399,7 @@ void HechizoEstadoUsuario(int UserIndex, bool & HechizoCasteado) {
 	/* ' <-------- Agrega Ceguera ----------> */
 	if (Hechizos[HechizoIndex].Ceguera == 1) {
 		if (UserIndex == TargetIndex) {
-			WriteConsoleMsg(UserIndex, "No puedes atacarte a vos mismo.", FontTypeNames_FONTTYPE_FIGHT);
+			WriteConsoleMsg(UserIndex, "You can't attack yourself.", FontTypeNames_FONTTYPE_FIGHT);
 			return;
 		}
 
@@ -1415,9 +1415,9 @@ void HechizoEstadoUsuario(int UserIndex, bool & HechizoCasteado) {
 
 		if (AnilloObjIndex > 0) {
 			if (ObjData[AnilloObjIndex].ImpideCegar != 0) {
-				WriteConsoleMsg(UserIndex, "Tu anillo rechaza los efectos de la ceguera.",
+				WriteConsoleMsg(UserIndex, "Your ring counters the effect of the blindness spell.",
 						FontTypeNames_FONTTYPE_FIGHT);
-				WriteConsoleMsg(UserIndex, " ¡El hechizo no tiene efecto!", FontTypeNames_FONTTYPE_FIGHT);
+				WriteConsoleMsg(UserIndex, " The spell has no effect!", FontTypeNames_FONTTYPE_FIGHT);
 				FlushBuffer(TargetIndex);
 				return;
 			}
@@ -1434,7 +1434,7 @@ void HechizoEstadoUsuario(int UserIndex, bool & HechizoCasteado) {
 	/* ' <-------- Agrega Estupidez (Aturdimiento) ----------> */
 	if (Hechizos[HechizoIndex].Estupidez == 1) {
 		if (UserIndex == TargetIndex) {
-			WriteConsoleMsg(UserIndex, "No puedes atacarte a vos mismo.", FontTypeNames_FONTTYPE_FIGHT);
+			WriteConsoleMsg(UserIndex, "You can't attack yourself.", FontTypeNames_FONTTYPE_FIGHT);
 			return;
 		}
 
@@ -1451,9 +1451,9 @@ void HechizoEstadoUsuario(int UserIndex, bool & HechizoCasteado) {
 
 		if (AnilloObjIndex > 0) {
 			if (ObjData[AnilloObjIndex].ImpideAturdir != 0) {
-				WriteConsoleMsg(UserIndex, "Tu anillo rechaza los efectos de la turbación.",
+				WriteConsoleMsg(UserIndex, "Your ring counters the effect of the stunning spell.",
 						FontTypeNames_FONTTYPE_FIGHT);
-				WriteConsoleMsg(UserIndex, " ¡El hechizo no tiene efecto!", FontTypeNames_FONTTYPE_FIGHT);
+				WriteConsoleMsg(UserIndex, " The spell has no effect!", FontTypeNames_FONTTYPE_FIGHT);
 				FlushBuffer(TargetIndex);
 				return;
 			}
@@ -1540,7 +1540,7 @@ void HechizoEstadoNPC(int NpcIndex, int SpellIndex, bool & HechizoCasteado, int 
 			Npclist[NpcIndex].Contadores.Paralisis = IntervaloParalizado;
 			HechizoCasteado = true;
 		} else {
-			WriteConsoleMsg(UserIndex, "El NPC es inmune a este hechizo.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "The NPC is immune to that spell.", FontTypeNames_FONTTYPE_INFO);
 			HechizoCasteado = false;
 			return;
 		}
@@ -1562,9 +1562,9 @@ void HechizoEstadoNPC(int NpcIndex, int SpellIndex, bool & HechizoCasteado, int 
 						HechizoCasteado = true;
 						return;
 					} else {
-						WriteConsoleMsg(UserIndex,
-								"Sólo puedes remover la parálisis de los Guardias si perteneces a su facción.",
-								FontTypeNames_FONTTYPE_INFO);
+						UserIndex,
+								"You can only remove the guards' paralysis if you belong to their faction.",
+								FontTypeNames_FONTTYPE_INFO;
 						HechizoCasteado = false;
 						return;
 					}
@@ -1578,7 +1578,7 @@ void HechizoEstadoNPC(int NpcIndex, int SpellIndex, bool & HechizoCasteado, int 
 							return;
 						} else {
 							WriteConsoleMsg(UserIndex,
-									"Solo puedes remover la parálisis de los Guardias si perteneces a su facción.",
+									"You can only remove the guards' paralysis if you belong to their faction.",
 									FontTypeNames_FONTTYPE_INFO);
 							HechizoCasteado = false;
 							return;
@@ -1587,7 +1587,7 @@ void HechizoEstadoNPC(int NpcIndex, int SpellIndex, bool & HechizoCasteado, int 
 				}
 			}
 		} else {
-			WriteConsoleMsg(UserIndex, "Este NPC no está paralizado", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "This NPC is not paralyzed", FontTypeNames_FONTTYPE_INFO);
 			HechizoCasteado = false;
 			return;
 		}
@@ -1606,13 +1606,13 @@ void HechizoEstadoNPC(int NpcIndex, int SpellIndex, bool & HechizoCasteado, int 
 			InfoHechizo(UserIndex);
 			HechizoCasteado = true;
 		} else {
-			WriteConsoleMsg(UserIndex, "El NPC es inmune al hechizo.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "The NPC is immune to that spell.", FontTypeNames_FONTTYPE_INFO);
 		}
 	}
 
 	if (Hechizos[SpellIndex].Mimetiza == 1) {
 		if (UserList[UserIndex].flags.Mimetizado == 1) {
-			WriteConsoleMsg(UserIndex, "Ya te encuentras mimetizado. El hechizo no ha tenido efecto.",
+			WriteConsoleMsg(UserIndex, "You're already shapeshifted. The spell has no effect.",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
@@ -1644,7 +1644,7 @@ void HechizoEstadoNPC(int NpcIndex, int SpellIndex, bool & HechizoCasteado, int 
 					UserList[UserIndex].Char.ShieldAnim, UserList[UserIndex].Char.CascoAnim);
 
 		} else {
-			WriteConsoleMsg(UserIndex, "Sólo los druidas pueden mimetizarse con criaturas.",
+			WriteConsoleMsg(UserIndex, "Only druids can shapeshift in the form of creatures.",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
@@ -1680,7 +1680,7 @@ void HechizoPropNPC(int SpellIndex, int NpcIndex, int UserIndex, bool & HechizoC
 			if (Npclist[NpcIndex].Stats.MinHp > Npclist[NpcIndex].Stats.MaxHp) {
 				Npclist[NpcIndex].Stats.MinHp = Npclist[NpcIndex].Stats.MaxHp;
 			}
-			WriteConsoleMsg(UserIndex, "Has curado " + vb6::CStr(dano) + " puntos de vida a la criatura.",
+			WriteConsoleMsg(UserIndex, "You've restored " + vb6::CStr(dano) + " hit points to the creature.",
 					FontTypeNames_FONTTYPE_FIGHT);
 		}
 
@@ -1729,7 +1729,7 @@ void HechizoPropNPC(int SpellIndex, int NpcIndex, int UserIndex, bool & HechizoC
 		}
 
 		Npclist[NpcIndex].Stats.MinHp = Npclist[NpcIndex].Stats.MinHp - dano;
-		WriteConsoleMsg(UserIndex, "¡Le has quitado " + vb6::CStr(dano) + " puntos de vida a la criatura!",
+		WriteConsoleMsg(UserIndex, "You've taken " + vb6::CStr(dano) + " hit points from the creature!",
 				FontTypeNames_FONTTYPE_FIGHT);
 		CalcularDarExp(UserIndex, NpcIndex, dano);
 
@@ -1790,7 +1790,7 @@ void InfoHechizo(int UserIndex) {
 				WriteConsoleMsg(UserIndex, Hechizos[SpellIndex].HechizeroMsg + " " + UserList[tUser].Name,
 						FontTypeNames_FONTTYPE_FIGHT);
 			} else {
-				WriteConsoleMsg(UserIndex, Hechizos[SpellIndex].HechizeroMsg + " alguien.",
+				WriteConsoleMsg(UserIndex, Hechizos[SpellIndex].HechizeroMsg + " someone.",
 						FontTypeNames_FONTTYPE_FIGHT);
 			}
 			WriteConsoleMsg(tUser, UserList[UserIndex].Name + " " + Hechizos[SpellIndex].TargetMsg,
@@ -1799,7 +1799,7 @@ void InfoHechizo(int UserIndex) {
 			WriteConsoleMsg(UserIndex, Hechizos[SpellIndex].PropioMsg, FontTypeNames_FONTTYPE_FIGHT);
 		}
 	} else if (tNPC > 0) {
-		WriteConsoleMsg(UserIndex, Hechizos[SpellIndex].HechizeroMsg + " " + "la criatura.",
+		WriteConsoleMsg(UserIndex, Hechizos[SpellIndex].HechizeroMsg + " " + "the creature.",
 				FontTypeNames_FONTTYPE_FIGHT);
 	}
 
@@ -1822,7 +1822,7 @@ bool HechizoPropUsuario(int UserIndex) {
 	TargetIndex = UserList[UserIndex].flags.TargetUser;
 
 	if (UserList[TargetIndex].flags.Muerto) {
-		WriteConsoleMsg(UserIndex, "No puedes lanzar este hechizo a un muerto.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You can't cast that spell on the dead.", FontTypeNames_FONTTYPE_INFO);
 		return retval;
 	}
 
@@ -1840,13 +1840,13 @@ bool HechizoPropUsuario(int UserIndex) {
 
 		if (UserIndex != TargetIndex) {
 			WriteConsoleMsg(UserIndex,
-					"Le has restaurado " + vb6::CStr(dano) + " puntos de hambre a " + UserList[TargetIndex].Name + ".",
+					"You've restored " + vb6::CStr(dano) + " hunger points to " + UserList[TargetIndex].Name + ".",
 					FontTypeNames_FONTTYPE_FIGHT);
 			WriteConsoleMsg(TargetIndex,
-					UserList[UserIndex].Name + " te ha restaurado " + vb6::CStr(dano) + " puntos de hambre.",
+					UserList[UserIndex].Name + " has restored " + vb6::CStr(dano) + " hunger points to you.",
 					FontTypeNames_FONTTYPE_FIGHT);
 		} else {
-			WriteConsoleMsg(UserIndex, "Te has restaurado " + vb6::CStr(dano) + " puntos de hambre.",
+			WriteConsoleMsg(UserIndex, "You've restored " + vb6::CStr(dano) + " hunger points to yourself.",
 					FontTypeNames_FONTTYPE_FIGHT);
 		}
 
@@ -1872,13 +1872,13 @@ bool HechizoPropUsuario(int UserIndex) {
 
 		if (UserIndex != TargetIndex) {
 			WriteConsoleMsg(UserIndex,
-					"Le has quitado " + vb6::CStr(dano) + " puntos de hambre a " + UserList[TargetIndex].Name + ".",
+					"You've taken " + vb6::CStr(dano) + " hunger points to " + UserList[TargetIndex].Name + ".",
 					FontTypeNames_FONTTYPE_FIGHT);
 			WriteConsoleMsg(TargetIndex,
-					UserList[UserIndex].Name + " te ha quitado " + vb6::CStr(dano) + " puntos de hambre.",
+					UserList[UserIndex].Name + " has taken " + vb6::CStr(dano) + " hunger points from you.",
 					FontTypeNames_FONTTYPE_FIGHT);
 		} else {
-			WriteConsoleMsg(UserIndex, "Te has quitado " + vb6::CStr(dano) + " puntos de hambre.",
+			WriteConsoleMsg(UserIndex, "You've taken " + vb6::CStr(dano) + " hunger points from yourself.",
 					FontTypeNames_FONTTYPE_FIGHT);
 		}
 
@@ -1906,13 +1906,13 @@ bool HechizoPropUsuario(int UserIndex) {
 
 		if (UserIndex != TargetIndex) {
 			WriteConsoleMsg(UserIndex,
-					"Le has restaurado " + vb6::CStr(dano) + " puntos de sed a " + UserList[TargetIndex].Name + ".",
+					"You've restored " + vb6::CStr(dano) + " thirst points to " + UserList[TargetIndex].Name + ".",
 					FontTypeNames_FONTTYPE_FIGHT);
 			WriteConsoleMsg(TargetIndex,
-					UserList[UserIndex].Name + " te ha restaurado " + vb6::CStr(dano) + " puntos de sed.",
+					UserList[UserIndex].Name + " has restored " + vb6::CStr(dano) + " thirst points to you.",
 					FontTypeNames_FONTTYPE_FIGHT);
 		} else {
-			WriteConsoleMsg(UserIndex, "Te has restaurado " + vb6::CStr(dano) + " puntos de sed.",
+			WriteConsoleMsg(UserIndex, "You've restored " + vb6::CStr(dano) + " thirst points to yourself.",
 					FontTypeNames_FONTTYPE_FIGHT);
 		}
 
@@ -1935,13 +1935,13 @@ bool HechizoPropUsuario(int UserIndex) {
 
 		if (UserIndex != TargetIndex) {
 			WriteConsoleMsg(UserIndex,
-					"Le has quitado " + vb6::CStr(dano) + " puntos de sed a " + UserList[TargetIndex].Name + ".",
+					"You've taken " + vb6::CStr(dano) + " thirst points from " + UserList[TargetIndex].Name + ".",
 					FontTypeNames_FONTTYPE_FIGHT);
 			WriteConsoleMsg(TargetIndex,
-					UserList[UserIndex].Name + " te ha quitado " + vb6::CStr(dano) + " puntos de sed.",
+					UserList[UserIndex].Name + " has taken " + vb6::CStr(dano) + " thirst points from you.",
 					FontTypeNames_FONTTYPE_FIGHT);
 		} else {
-			WriteConsoleMsg(UserIndex, "Te has quitado " + vb6::CStr(dano) + " puntos de sed.",
+			WriteConsoleMsg(UserIndex, "You've taken " + vb6::CStr(dano) + " thirst points from yourself.",
 					FontTypeNames_FONTTYPE_FIGHT);
 		}
 
@@ -2059,7 +2059,7 @@ bool HechizoPropUsuario(int UserIndex) {
 
 		/* 'Verifica que el usuario no este muerto */
 		if (UserList[TargetIndex].flags.Muerto == 1) {
-			WriteConsoleMsg(UserIndex, "¡El usuario está muerto!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "The user is dead!", FontTypeNames_FONTTYPE_INFO);
 			return retval;
 		}
 
@@ -2082,13 +2082,13 @@ bool HechizoPropUsuario(int UserIndex) {
 
 		if (UserIndex != TargetIndex) {
 			WriteConsoleMsg(UserIndex,
-					"Le has restaurado " + vb6::CStr(dano) + " puntos de vida a " + UserList[TargetIndex].Name + ".",
+					"You've restored " + vb6::CStr(dano) + " hit points to " + UserList[TargetIndex].Name + ".",
 					FontTypeNames_FONTTYPE_FIGHT);
 			WriteConsoleMsg(TargetIndex,
-					UserList[UserIndex].Name + " te ha restaurado " + vb6::CStr(dano) + " puntos de vida.",
+					UserList[UserIndex].Name + " has restored " + vb6::CStr(dano) + " hit points to you.",
 					FontTypeNames_FONTTYPE_FIGHT);
 		} else {
-			WriteConsoleMsg(UserIndex, "Te has restaurado " + vb6::CStr(dano) + " puntos de vida.",
+			WriteConsoleMsg(UserIndex, "You've restored " + vb6::CStr(dano) + " hit points to yourself.",
 					FontTypeNames_FONTTYPE_FIGHT);
 		}
 
@@ -2096,7 +2096,7 @@ bool HechizoPropUsuario(int UserIndex) {
 	} else if (Hechizos[SpellIndex].SubeHP == 2) {
 
 		if (UserIndex == TargetIndex) {
-			WriteConsoleMsg(UserIndex, "No puedes atacarte a vos mismo.", FontTypeNames_FONTTYPE_FIGHT);
+			WriteConsoleMsg(UserIndex, "You can't attack yourself.", FontTypeNames_FONTTYPE_FIGHT);
 			return retval;
 		}
 
@@ -2156,9 +2156,9 @@ bool HechizoPropUsuario(int UserIndex) {
 		WriteUpdateHP(TargetIndex);
 
 		WriteConsoleMsg(UserIndex,
-				"Le has quitado " + vb6::CStr(dano) + " puntos de vida a " + UserList[TargetIndex].Name + ".",
+				"You've taken " + vb6::CStr(dano) + " hit points from " + UserList[TargetIndex].Name + ".",
 				FontTypeNames_FONTTYPE_FIGHT);
-		WriteConsoleMsg(TargetIndex, UserList[UserIndex].Name + " te ha quitado " + vb6::CStr(dano) + " puntos de vida.",
+		WriteConsoleMsg(TargetIndex, UserList[UserIndex].Name + " has taken " + vb6::CStr(dano) + " hit points from you.",
 				FontTypeNames_FONTTYPE_FIGHT);
 
 		/* 'Muere */
@@ -2190,13 +2190,13 @@ bool HechizoPropUsuario(int UserIndex) {
 
 		if (UserIndex != TargetIndex) {
 			WriteConsoleMsg(UserIndex,
-					"Le has restaurado " + vb6::CStr(dano) + " puntos de maná a " + UserList[TargetIndex].Name + ".",
+					"You've restored " + vb6::CStr(dano) + " mana points from " + UserList[TargetIndex].Name + ".",
 					FontTypeNames_FONTTYPE_FIGHT);
 			WriteConsoleMsg(TargetIndex,
-					UserList[UserIndex].Name + " te ha restaurado " + vb6::CStr(dano) + " puntos de maná.",
+					UserList[UserIndex].Name + " has restored " + vb6::CStr(dano) + " mana points to you.",
 					FontTypeNames_FONTTYPE_FIGHT);
 		} else {
-			WriteConsoleMsg(UserIndex, "Te has restaurado " + vb6::CStr(dano) + " puntos de maná.",
+			WriteConsoleMsg(UserIndex, "You've restored " + vb6::CStr(dano) + " mana points to yourself.",
 					FontTypeNames_FONTTYPE_FIGHT);
 		}
 
@@ -2214,13 +2214,13 @@ bool HechizoPropUsuario(int UserIndex) {
 
 		if (UserIndex != TargetIndex) {
 			WriteConsoleMsg(UserIndex,
-					"Le has quitado " + vb6::CStr(dano) + " puntos de maná a " + UserList[TargetIndex].Name + ".",
+					"You've taken " + vb6::CStr(dano) + " mana points from " + UserList[TargetIndex].Name + ".",
 					FontTypeNames_FONTTYPE_FIGHT);
 			WriteConsoleMsg(TargetIndex,
-					UserList[UserIndex].Name + " te ha quitado " + vb6::CStr(dano) + " puntos de maná.",
+					UserList[UserIndex].Name + " has taken " + vb6::CStr(dano) + " mana points from you.",
 					FontTypeNames_FONTTYPE_FIGHT);
 		} else {
-			WriteConsoleMsg(UserIndex, "Te has quitado " + vb6::CStr(dano) + " puntos de maná.",
+			WriteConsoleMsg(UserIndex, "You've taken " + vb6::CStr(dano) + " mana points from yourself.",
 					FontTypeNames_FONTTYPE_FIGHT);
 		}
 
@@ -2245,13 +2245,13 @@ bool HechizoPropUsuario(int UserIndex) {
 
 		if (UserIndex != TargetIndex) {
 			WriteConsoleMsg(UserIndex,
-					"Le has restaurado " + vb6::CStr(dano) + " puntos de energía a " + UserList[TargetIndex].Name + ".",
+					"You've restored " + vb6::CStr(dano) + " energy points to " + UserList[TargetIndex].Name + ".",
 					FontTypeNames_FONTTYPE_FIGHT);
 			WriteConsoleMsg(TargetIndex,
-					UserList[UserIndex].Name + " te ha restaurado " + vb6::CStr(dano) + " puntos de energía.",
+					UserList[UserIndex].Name + " has restored " + vb6::CStr(dano) + " energy points to you.",
 					FontTypeNames_FONTTYPE_FIGHT);
 		} else {
-			WriteConsoleMsg(UserIndex, "Te has restaurado " + vb6::CStr(dano) + " puntos de energía.",
+			WriteConsoleMsg(UserIndex, "You've restored " + vb6::CStr(dano) + " energy points to yourself.",
 					FontTypeNames_FONTTYPE_FIGHT);
 		}
 
@@ -2269,13 +2269,13 @@ bool HechizoPropUsuario(int UserIndex) {
 
 		if (UserIndex != TargetIndex) {
 			WriteConsoleMsg(UserIndex,
-					"Le has quitado " + vb6::CStr(dano) + " puntos de energía a " + UserList[TargetIndex].Name + ".",
+					"You've taken " + vb6::CStr(dano) + " energy points from " + UserList[TargetIndex].Name + ".",
 					FontTypeNames_FONTTYPE_FIGHT);
 			WriteConsoleMsg(TargetIndex,
-					UserList[UserIndex].Name + " te ha quitado " + vb6::CStr(dano) + " puntos de energía.",
+					UserList[UserIndex].Name + " has taken " + vb6::CStr(dano) + " energy points from you.",
 					FontTypeNames_FONTTYPE_FIGHT);
 		} else {
-			WriteConsoleMsg(UserIndex, "Te has quitado " + vb6::CStr(dano) + " puntos de energía.",
+			WriteConsoleMsg(UserIndex, "You've taken " + vb6::CStr(dano) + " energy points from yourself.",
 					FontTypeNames_FONTTYPE_FIGHT);
 		}
 
@@ -2312,7 +2312,7 @@ bool CanSupportUser(int CasterIndex, int TargetIndex, bool DoCriminal) {
 
 	/* ' No podes ayudar si estas en consulta */
 	if (UserList[CasterIndex].flags.EnConsulta) {
-		WriteConsoleMsg(CasterIndex, "No puedes ayudar usuarios mientras estas en consulta.",
+		WriteConsoleMsg(CasterIndex, "You can't help other users while you're on support.",
 				FontTypeNames_FONTTYPE_INFO);
 		return retval;
 	}
@@ -2332,7 +2332,7 @@ bool CanSupportUser(int CasterIndex, int TargetIndex, bool DoCriminal) {
 			/* ' Armadas no pueden ayudar */
 			if (esArmada(CasterIndex)) {
 				WriteConsoleMsg(CasterIndex,
-						"Los miembros del ejército real no pueden ayudar a los criminales.",
+						"Members of the royal army can't help criminals.",
 						FontTypeNames_FONTTYPE_INFO);
 				return retval;
 			}
@@ -2340,7 +2340,7 @@ bool CanSupportUser(int CasterIndex, int TargetIndex, bool DoCriminal) {
 			/* ' Si el ciuda tiene el seguro puesto no puede ayudar */
 			if (UserList[CasterIndex].flags.Seguro) {
 				WriteConsoleMsg(CasterIndex,
-						"Para ayudar criminales debes sacarte el seguro ya que te volverás criminal como ellos.",
+						"In order to help criminals you must first switch your safety off, since that action will make you a criminal.",
 						FontTypeNames_FONTTYPE_INFO);
 				return retval;
 			} else {
@@ -2358,7 +2358,7 @@ bool CanSupportUser(int CasterIndex, int TargetIndex, bool DoCriminal) {
 		/* ' Casteador es caos? => No Pueden ayudar ciudas */
 		if (esCaos(CasterIndex)) {
 			WriteConsoleMsg(CasterIndex,
-					"Los miembros de la legión oscura no pueden ayudar a los ciudadanos.",
+					"Members of the Dark Legion can't help citizens.",
 					FontTypeNames_FONTTYPE_INFO);
 			return retval;
 
@@ -2374,7 +2374,7 @@ bool CanSupportUser(int CasterIndex, int TargetIndex, bool DoCriminal) {
 					/* ' Si es armada no puede ayudar */
 					if (esArmada(CasterIndex)) {
 						WriteConsoleMsg(CasterIndex,
-								"Los miembros del ejército real no pueden ayudar a ciudadanos en estado atacable.",
+								"Members of the royal army can't help attackable citizens.",
 								FontTypeNames_FONTTYPE_INFO);
 						return retval;
 					}
@@ -2382,7 +2382,7 @@ bool CanSupportUser(int CasterIndex, int TargetIndex, bool DoCriminal) {
 					/* ' Seguro puesto? */
 					if (UserList[CasterIndex].flags.Seguro) {
 						WriteConsoleMsg(CasterIndex,
-								"Para ayudar ciudadanos en estado atacable debes sacarte el seguro, pero te puedes volver criminal.",
+								"To help attackable citizens you must first switch your safety off, since such an action can result in you becoming a criminal.",
 								FontTypeNames_FONTTYPE_INFO);
 						return retval;
 					} else {
@@ -2456,7 +2456,7 @@ bool CanSupportNpc(int CasterIndex, int TargetIndex) {
 
 	/* ' No podes ayudar si estas en consulta */
 	if (UserList[CasterIndex].flags.EnConsulta) {
-		WriteConsoleMsg(CasterIndex, "No puedes ayudar npcs mientras estas en consulta.",
+		WriteConsoleMsg(CasterIndex, "You can't help NPCs while you are on support.",
 				FontTypeNames_FONTTYPE_INFO);
 		return retval;
 	}
@@ -2475,7 +2475,7 @@ bool CanSupportNpc(int CasterIndex, int TargetIndex) {
 			if (esCaos(CasterIndex)) {
 				/* ' No podes ayudar a un npc de un caos si sos caos */
 				WriteConsoleMsg(CasterIndex,
-						"No puedes ayudar npcs que están luchando contra un miembro de tu facción.",
+						"You can't help NPCs that are fighting against a member of your own faction.",
 						FontTypeNames_FONTTYPE_INFO);
 				return retval;
 			}
@@ -2495,7 +2495,7 @@ bool CanSupportNpc(int CasterIndex, int TargetIndex) {
 				if (esArmada(OwnerIndex)) {
 					/* ' No podes ayudar a un npc de un armada si sos armada */
 					WriteConsoleMsg(CasterIndex,
-							"No puedes ayudar npcs que están luchando contra un miembro de tu facción.",
+							"You can't help NPCs that are fighting against a member of your own faction.",
 							FontTypeNames_FONTTYPE_INFO);
 					return retval;
 				}
@@ -2504,7 +2504,7 @@ bool CanSupportNpc(int CasterIndex, int TargetIndex) {
 			/* ' Uno es armada y el otro ciuda, o los dos ciudas, puede atacar si no tiene seguro */
 			if (UserList[CasterIndex].flags.Seguro) {
 				WriteConsoleMsg(CasterIndex,
-						"Para ayudar a criaturas que luchan contra ciudadanos debes sacarte el seguro.",
+						"To help NPCs fighting citizens, you must first switch your safety off.",
 						FontTypeNames_FONTTYPE_INFO);
 				return retval;
 
@@ -2554,7 +2554,7 @@ void DesplazarHechizo(int UserIndex, int Dire, int HechizoDesplazado) {
 	/* 'Mover arriba */
 	if (Dire == 1) {
 		if (HechizoDesplazado == 1) {
-			WriteConsoleMsg(UserIndex, "No puedes mover el hechizo en esa dirección.",
+			WriteConsoleMsg(UserIndex, "You can't move the spell in that direction.",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		} else {
@@ -2566,7 +2566,7 @@ void DesplazarHechizo(int UserIndex, int Dire, int HechizoDesplazado) {
 		/* 'mover abajo */
 	} else {
 		if (HechizoDesplazado == MAXUSERHECHIZOS) {
-			WriteConsoleMsg(UserIndex, "No puedes mover el hechizo en esa dirección.",
+			WriteConsoleMsg(UserIndex, "You can't move the spell in that direction.",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		} else {

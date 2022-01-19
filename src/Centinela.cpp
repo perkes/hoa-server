@@ -149,12 +149,12 @@ void GoToNextWorkingChar() {
 				if (Centinela[CentinelaIndex].NpcIndex != 0) {
 					/* 'Mandamos el mensaje (el centinela habla y aparece en consola para que no haya dudas) */
 					WriteChatOverHead(LoopC,
-							"Saludos " + UserList[LoopC].Name
-									+ ", soy el Centinela de estas tierras. Me gustaría que escribas /CENTINELA "
+							"Greetings " + UserList[LoopC].Name
+									+ ", I'm the centinel of these lands. I would like you to type /CENTINEL "
 									+ vb6::CStr(Centinela[CentinelaIndex].clave)
-									+ " en no más de dos minutos.",
+									+ " in no more than two minutes.",
 							(Npclist[Centinela[CentinelaIndex].NpcIndex].Char.CharIndex), vbGreen);
-					WriteConsoleMsg(LoopC, "El centinela intenta llamar tu atención. ¡Respóndele rápido!",
+					WriteConsoleMsg(LoopC, "The centinel is trying to get your attention. Answer him fast!",
 							FontTypeNames_FONTTYPE_CENTINELA);
 					FlushBuffer(LoopC);
 
@@ -220,18 +220,18 @@ void CentinelaFinalCheck(int CentiIndex) {
 		UserName = UserList[UserIndex].Name;
 
 		/* 'Logueamos el evento */
-		LogCentinela("Centinela ejecuto y echó a " + UserName + " por uso de macro inasistido.");
+		LogCentinela("The centinel executed and kicked " + UserName + " for the use of an unassisted macro.");
 
 		/* 'Avisamos a los admins */
 		SendData(SendTarget_ToAdmins, 0,
 				dakara::protocol::server::BuildConsoleMsg(
-						"Servidor> El centinela ha ejecutado a " + UserName + " y lo echó del juego.",
+						"Server> The centinel has executed " + UserName + " and kicked them out of the game.",
 						FontTypeNames_FONTTYPE_SERVER));
 
 		/* ' Evitamos loguear el logout */
 		Centinela[CentiIndex].RevisandoUserIndex = 0;
 
-		WriteShowMessageBox(UserIndex, "Has sido ejecutado por macro inasistido y echado del juego.");
+		WriteShowMessageBox(UserIndex, "You've been executed and kicked out of the game for using an unassisted macro.");
 		UserDie(UserIndex);
 		FlushBuffer(UserIndex);
 		CloseSocket(UserIndex);
@@ -281,7 +281,7 @@ void CentinelaCheckClave(int UserIndex, int clave) {
 
 			UserList[UserIndex].flags.CentinelaOK = true;
 			WriteChatOverHead(UserIndex,
-					"¡Muchas gracias " + UserList[UserIndex].Name + "! Espero no haber sido una molestia.",
+					"Thanks " + UserList[UserIndex].Name + "! I hope that wasn't too much of a drag.",
 					Npclist[Centinela[CentinelaIndex].NpcIndex].Char.CharIndex, 0x00ffffff);
 
 			Centinela[CentinelaIndex].Activo = false;
@@ -298,7 +298,7 @@ void CentinelaCheckClave(int UserIndex, int clave) {
 
 		/* 'Logueamos el evento */
 		if (UserIndex != Centinela[CentinelaIndex].RevisandoUserIndex) {
-			WriteChatOverHead(UserIndex, "No es a ti a quien estoy hablando, ¿No ves?",
+			WriteChatOverHead(UserIndex, "I'm not talking to you, can't you see?",
 					Npclist[Centinela[CentinelaIndex].NpcIndex].Char.CharIndex, 0x00ffffff);
 			LogCentinela(
 					"El usuario " + UserList[UserIndex].Name + " respondió aunque no se le hablaba a él.");
@@ -355,18 +355,18 @@ void CentinelaSendClave(int UserIndex, int CentinelaIndex) {
 
 		if (!UserList[UserIndex].flags.CentinelaOK) {
 			WriteChatOverHead(UserIndex,
-					"¡La clave que te he dicho es /CENTINELA " + vb6::CStr(Centinela[CentinelaIndex].clave)
-							+ ", escríbelo rápido!",
+					"The key I've given you is /CENTINEL " + vb6::CStr(Centinela[CentinelaIndex].clave)
+							+ ", write it fast!",
 					Npclist[Centinela[CentinelaIndex].NpcIndex].Char.CharIndex, vbGreen);
-			WriteConsoleMsg(UserIndex, "El centinela intenta llamar tu atención. ¡Respondele rápido!",
+			WriteConsoleMsg(UserIndex, "The centinel is talking to you, reply fast!",
 					FontTypeNames_FONTTYPE_CENTINELA);
 		} else {
-			WriteChatOverHead(UserIndex, "Te agradezco, pero ya me has respondido. Me retiraré pronto.",
+			WriteChatOverHead(UserIndex, "Thanks, but you've already replied. I'll be gone soon.",
 					(Npclist[Centinela[CentinelaIndex].NpcIndex].Char.CharIndex), vbGreen);
 		}
 
 	} else {
-		WriteChatOverHead(UserIndex, "No es a ti a quien estoy hablando, ¿No ves?",
+		WriteChatOverHead(UserIndex, "I'm not talking to you, can't you see?",
 				Npclist[Centinela[CentinelaIndex].NpcIndex].Char.CharIndex, vbWhite);
 	}
 
@@ -409,12 +409,12 @@ void PasarMinutoCentinela() {
 
 				/* 'El centinela habla y se manda a consola para que no quepan dudas */
 				WriteChatOverHead(UserIndex,
-						"¡" + UserList[UserIndex].Name
-								+ ", tienes un minuto más para responder! Debes escribir /CENTINELA "
+						UserList[UserIndex].Name
+								+ ", you have one more minute to reply! You must write /CENTINEL "
 								+ vb6::CStr(Centinela[index].clave) + ".",
 						(Npclist[Centinela[index].NpcIndex].Char.CharIndex), vbRed);
 				WriteConsoleMsg(UserIndex,
-						"¡" + UserList[UserIndex].Name + ", tienes un minuto más para responder!",
+						"¡" + UserList[UserIndex].Name + ", you have one more minute to reply!",
 						FontTypeNames_FONTTYPE_CENTINELA);
 				FlushBuffer(UserIndex);
 			}
@@ -508,8 +508,8 @@ void CentinelaUserLogout(int CentinelaIndex) {
 		/* 'Logueamos el evento */
 		if (!UserList[Centinela[CentinelaIndex].RevisandoUserIndex].flags.CentinelaOK) {
 			LogCentinela(
-					"El usuario " + UserList[Centinela[CentinelaIndex].RevisandoUserIndex].Name
-							+ " se desolgueó al pedirsele la contrasena.");
+					"User " + UserList[Centinela[CentinelaIndex].RevisandoUserIndex].Name
+							+ " logged out when requested code.");
 		}
 
 		/* 'Reseteamos y esperamos a otro PasarMinuto para ir al siguiente user */

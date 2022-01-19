@@ -48,14 +48,14 @@ void DoPermanecerOculto(int UserIndex) {
 			if (UserList[UserIndex].clase == eClass_Pirat) {
 				/* ' Pierde la apariencia de fragata fantasmal */
 				ToggleBoatBody(UserIndex);
-				WriteConsoleMsg(UserIndex, "¡Has recuperado tu apariencia normal!",
+				WriteConsoleMsg(UserIndex, "Your appearance is back to normal!",
 						FontTypeNames_FONTTYPE_INFO);
 				ChangeUserChar(UserIndex, UserList[UserIndex].Char.body, UserList[UserIndex].Char.Head,
 						UserList[UserIndex].Char.heading, NingunArma, NingunEscudo, NingunCasco);
 			}
 		} else {
 			if (UserList[UserIndex].flags.invisible == 0) {
-				WriteConsoleMsg(UserIndex, "Has vuelto a ser visible.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You are now visible again.", FontTypeNames_FONTTYPE_INFO);
 				SetInvisible(UserIndex, UserList[UserIndex].Char.CharIndex, false);
 			}
 		}
@@ -100,7 +100,7 @@ void DoOcultarse(int UserIndex) {
 		if (UserList[UserIndex].flags.Navegando == 0) {
 			SetInvisible(UserIndex, UserList[UserIndex].Char.CharIndex, true);
 
-			WriteConsoleMsg(UserIndex, "¡Te has escondido entre las sombras!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You've hidden among the shadows!", FontTypeNames_FONTTYPE_INFO);
 			/* ' Es un pirata navegando */
 		} else {
 			/* ' Le cambiamos el body a galeon fantasmal */
@@ -114,7 +114,7 @@ void DoOcultarse(int UserIndex) {
 	} else {
 		/* '[CDT 17-02-2004] */
 		if (UserList[UserIndex].flags.UltimoMensaje != 4) {
-			WriteConsoleMsg(UserIndex, "¡No has logrado esconderte!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You weren't able to hide!", FontTypeNames_FONTTYPE_INFO);
 			UserList[UserIndex].flags.UltimoMensaje = 4;
 		}
 		/* '[/CDT] */
@@ -141,10 +141,10 @@ void DoNavega(int UserIndex, struct ObjData & Barco, int Slot) {
 	minSkillBarco = ModNave * Barco.MinSkill;
 
 	if (UserList[UserIndex].Stats.UserSkills[eSkill_Navegacion] < minSkillBarco) {
-		WriteConsoleMsg(UserIndex, "No tienes suficientes conocimientos para usar este barco.",
+		WriteConsoleMsg(UserIndex, "You don't have enough seafaring skill points to use that boat.",
 				FontTypeNames_FONTTYPE_INFO);
 		WriteConsoleMsg(UserIndex,
-				"Para usar este barco necesitas " + vb6::CStr(minSkillBarco) + " puntos en navegacion.",
+				"To use this boat you need " + vb6::CStr(minSkillBarco) + " seafaring skill points.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -165,7 +165,7 @@ void DoNavega(int UserIndex, struct ObjData & Barco, int Slot) {
 			if (UserList[UserIndex].flags.Oculto == 1) {
 				UserList[UserIndex].flags.Oculto = 0;
 				SetInvisible(UserIndex, UserList[UserIndex].Char.CharIndex, false);
-				WriteConsoleMsg(UserIndex, "¡Has vuelto a ser visible!", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You are now visible again!", FontTypeNames_FONTTYPE_INFO);
 			}
 
 			/* ' Siempre se ve la barca (Nunca esta invisible), pero solo para el cliente. */
@@ -198,7 +198,7 @@ void DoNavega(int UserIndex, struct ObjData & Barco, int Slot) {
 					/* ' Al desequipar barca, perdió el ocultar */
 					UserList[UserIndex].flags.Oculto = 0;
 					UserList[UserIndex].Counters.Ocultando = 0;
-					WriteConsoleMsg(UserIndex, "¡Has recuperado tu apariencia normal!",
+					WriteConsoleMsg(UserIndex, "Your appearance is back to normal!",
 							FontTypeNames_FONTTYPE_INFO);
 				}
 			}
@@ -265,7 +265,7 @@ void FundirMineral(int UserIndex) {
 			DoLingotes(UserIndex);
 		} else {
 			WriteConsoleMsg(UserIndex,
-					"No tienes conocimientos de minería suficientes para trabajar este mineral.",
+					"You don't have enough skill to work that mineral.",
 					FontTypeNames_FONTTYPE_INFO);
 		}
 
@@ -281,7 +281,7 @@ void FundirArmas(int UserIndex) {
 				DoFundir(UserIndex);
 			} else {
 				WriteConsoleMsg(UserIndex,
-						"No tienes los conocimientos suficientes en herrería para fundir este objeto.",
+						"You don't have enough blacksmithery knowledge to melt that object.",
 						FontTypeNames_FONTTYPE_INFO);
 			}
 		}
@@ -390,7 +390,7 @@ bool CarpinteroTieneMateriales(int UserIndex, int ItemIndex, int Cantidad, bool 
 	if (ObjData[ItemIndex].Madera > 0) {
 		if (!TieneObjetos(Lena, ObjData[ItemIndex].Madera * Cantidad, UserIndex)) {
 			if (ShowMsg) {
-				WriteConsoleMsg(UserIndex, "No tienes suficiente madera.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You don't have enough wood.", FontTypeNames_FONTTYPE_INFO);
 			}
 			retval = false;
 			return retval;
@@ -400,7 +400,7 @@ bool CarpinteroTieneMateriales(int UserIndex, int ItemIndex, int Cantidad, bool 
 	if (ObjData[ItemIndex].MaderaElfica > 0) {
 		if (!TieneObjetos(LenaElfica, ObjData[ItemIndex].MaderaElfica * Cantidad, UserIndex)) {
 			if (ShowMsg) {
-				WriteConsoleMsg(UserIndex, "No tienes suficiente madera élfica.",
+				WriteConsoleMsg(UserIndex, "You don't have enough elven wood.",
 						FontTypeNames_FONTTYPE_INFO);
 			}
 			retval = false;
@@ -422,7 +422,7 @@ bool HerreroTieneMateriales(int UserIndex, int ItemIndex, int CantidadItems) {
 	/* '*************************************************** */
 	if (ObjData[ItemIndex].LingH > 0) {
 		if (!TieneObjetos(LingoteHierro, ObjData[ItemIndex].LingH * CantidadItems, UserIndex)) {
-			WriteConsoleMsg(UserIndex, "No tienes suficientes lingotes de hierro.",
+			WriteConsoleMsg(UserIndex, "You don't have enough iron ingots.",
 					FontTypeNames_FONTTYPE_INFO);
 			retval = false;
 			return retval;
@@ -430,7 +430,7 @@ bool HerreroTieneMateriales(int UserIndex, int ItemIndex, int CantidadItems) {
 	}
 	if (ObjData[ItemIndex].LingP > 0) {
 		if (!TieneObjetos(LingotePlata, ObjData[ItemIndex].LingP * CantidadItems, UserIndex)) {
-			WriteConsoleMsg(UserIndex, "No tienes suficientes lingotes de plata.",
+			WriteConsoleMsg(UserIndex, "You don't have enough silver ingots.",
 					FontTypeNames_FONTTYPE_INFO);
 			retval = false;
 			return retval;
@@ -438,7 +438,7 @@ bool HerreroTieneMateriales(int UserIndex, int ItemIndex, int CantidadItems) {
 	}
 	if (ObjData[ItemIndex].LingO > 0) {
 		if (!TieneObjetos(LingoteOro, ObjData[ItemIndex].LingO * CantidadItems, UserIndex)) {
-			WriteConsoleMsg(UserIndex, "No tienes suficientes lingotes de oro.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You don't have enough gold ingots.", FontTypeNames_FONTTYPE_INFO);
 			retval = false;
 			return retval;
 		}
@@ -463,7 +463,7 @@ bool TieneMaterialesUpgrade(int UserIndex, int ItemIndex) {
 				vb6::CInt(
 						ObjData[ItemUpgrade].LingH
 								- ObjData[ItemIndex].LingH * PORCENTAJE_MATERIALES_UPGRADE), UserIndex)) {
-			WriteConsoleMsg(UserIndex, "No tienes suficientes lingotes de hierro.",
+			WriteConsoleMsg(UserIndex, "You don't have enough iron ingots.",
 					FontTypeNames_FONTTYPE_INFO);
 			retval = false;
 			return retval;
@@ -475,7 +475,7 @@ bool TieneMaterialesUpgrade(int UserIndex, int ItemIndex) {
 				vb6::CInt(
 						ObjData[ItemUpgrade].LingP
 								- ObjData[ItemIndex].LingP * PORCENTAJE_MATERIALES_UPGRADE), UserIndex)) {
-			WriteConsoleMsg(UserIndex, "No tienes suficientes lingotes de plata.",
+			WriteConsoleMsg(UserIndex, "You don't have enough silver ingots.",
 					FontTypeNames_FONTTYPE_INFO);
 			retval = false;
 			return retval;
@@ -487,7 +487,7 @@ bool TieneMaterialesUpgrade(int UserIndex, int ItemIndex) {
 				vb6::CInt(
 						ObjData[ItemUpgrade].LingO
 								- ObjData[ItemIndex].LingO * PORCENTAJE_MATERIALES_UPGRADE), UserIndex)) {
-			WriteConsoleMsg(UserIndex, "No tienes suficientes lingotes de oro.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You don't have enough gold ingots.", FontTypeNames_FONTTYPE_INFO);
 			retval = false;
 			return retval;
 		}
@@ -498,7 +498,7 @@ bool TieneMaterialesUpgrade(int UserIndex, int ItemIndex) {
 				vb6::CInt(
 						ObjData[ItemUpgrade].Madera
 								- ObjData[ItemIndex].Madera * PORCENTAJE_MATERIALES_UPGRADE), UserIndex)) {
-			WriteConsoleMsg(UserIndex, "No tienes suficiente madera.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You don't have enough wood.", FontTypeNames_FONTTYPE_INFO);
 			retval = false;
 			return retval;
 		}
@@ -510,7 +510,7 @@ bool TieneMaterialesUpgrade(int UserIndex, int ItemIndex) {
 						ObjData[ItemUpgrade].MaderaElfica
 								- ObjData[ItemIndex].MaderaElfica * PORCENTAJE_MATERIALES_UPGRADE),
 				UserIndex)) {
-			WriteConsoleMsg(UserIndex, "No tienes suficiente madera élfica.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You don't have enough elven wood.", FontTypeNames_FONTTYPE_INFO);
 			retval = false;
 			return retval;
 		}
@@ -621,9 +621,9 @@ void HerreroConstruirItem(int UserIndex, int ItemIndex) {
 		OtroUserIndex = UserList[UserIndex].ComUsu.DestUsu;
 
 		if (OtroUserIndex > 0 && OtroUserIndex <= MaxUsers) {
-			WriteConsoleMsg(UserIndex, "¡¡Comercio cancelado, no puedes comerciar mientras trabajas!!",
+			WriteConsoleMsg(UserIndex, "Trade canceled, you can't trade while you work!!",
 					FontTypeNames_FONTTYPE_TALK);
-			WriteConsoleMsg(OtroUserIndex, "¡¡Comercio cancelado por el otro usuario!!",
+			WriteConsoleMsg(OtroUserIndex, "Trade canceled by the other party!!",
 					FontTypeNames_FONTTYPE_TALK);
 
 			LimpiarComercioSeguro(UserIndex);
@@ -658,7 +658,7 @@ void HerreroConstruirItem(int UserIndex, int ItemIndex) {
 
 		/* ' Chequeo si puede hacer al menos 1 item */
 		if (!TieneMateriales) {
-			WriteConsoleMsg(UserIndex, "No tienes suficientes materiales.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You don't have the required materials.", FontTypeNames_FONTTYPE_INFO);
 			WriteStopWorking(UserIndex);
 			return;
 		}
@@ -671,7 +671,7 @@ void HerreroConstruirItem(int UserIndex, int ItemIndex) {
 						- GASTO_ENERGIA_TRABAJADOR;
 				WriteUpdateSta(UserIndex);
 			} else {
-				WriteConsoleMsg(UserIndex, "No tienes suficiente energía.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You don't have enough energy.", FontTypeNames_FONTTYPE_INFO);
 				return;
 			}
 		} else {
@@ -681,7 +681,7 @@ void HerreroConstruirItem(int UserIndex, int ItemIndex) {
 						- GASTO_ENERGIA_NO_TRABAJADOR;
 				WriteUpdateSta(UserIndex);
 			} else {
-				WriteConsoleMsg(UserIndex, "No tienes suficiente energía.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You don't have enough energy.", FontTypeNames_FONTTYPE_INFO);
 				return;
 			}
 		}
@@ -693,26 +693,26 @@ void HerreroConstruirItem(int UserIndex, int ItemIndex) {
 
 		case eOBJType_otWeapon:
 			WriteConsoleMsg(UserIndex,
-					vb6::CStr("Has construido ") + vb6::IIf(CantidadItems > 1, vb6::CStr(CantidadItems) + " armas!", vb6::CStr("el arma!")),
+					vb6::CStr("You've built ") + vb6::IIf(CantidadItems > 1, vb6::CStr(CantidadItems) + " armas!", vb6::CStr("el arma!")),
 					FontTypeNames_FONTTYPE_INFO);
 			break;
 
 		case eOBJType_otESCUDO:
 			WriteConsoleMsg(UserIndex,
-					vb6::CStr("Has construido ")
+					vb6::CStr("You've built ")
 							+ vb6::IIf(CantidadItems > 1, vb6::CStr(CantidadItems) + " escudos!", vb6::CStr("el escudo!")),
 					FontTypeNames_FONTTYPE_INFO);
 			break;
 
 		case eOBJType_otCASCO:
 			WriteConsoleMsg(UserIndex,
-					vb6::CStr("Has construido ") + vb6::IIf(CantidadItems > 1, vb6::CStr(CantidadItems) + " cascos!", vb6::CStr("el casco!")),
+					vb6::CStr("You've built ") + vb6::IIf(CantidadItems > 1, vb6::CStr(CantidadItems) + " cascos!", vb6::CStr("el casco!")),
 					FontTypeNames_FONTTYPE_INFO);
 			break;
 
 		case eOBJType_otArmadura:
 			WriteConsoleMsg(UserIndex,
-					vb6::CStr("Has construido ")
+					vb6::CStr("You've built ")
 							+ vb6::IIf(CantidadItems > 1, vb6::CStr(CantidadItems) + " armaduras", vb6::CStr("la armadura!")),
 					FontTypeNames_FONTTYPE_INFO);
 
@@ -797,9 +797,9 @@ void CarpinteroConstruirItem(int UserIndex, int ItemIndex) {
 		OtroUserIndex = UserList[UserIndex].ComUsu.DestUsu;
 
 		if (OtroUserIndex > 0 && OtroUserIndex <= MaxUsers) {
-			WriteConsoleMsg(UserIndex, "¡¡Comercio cancelado, no puedes comerciar mientras trabajas!!",
+			WriteConsoleMsg(UserIndex, "Trade canceled,  you cannot trade while you work!!",
 					FontTypeNames_FONTTYPE_TALK);
-			WriteConsoleMsg(OtroUserIndex, "¡¡Comercio cancelado por el otro usuario!!",
+			WriteConsoleMsg(OtroUserIndex, "Trade canceled by the other party!!",
 					FontTypeNames_FONTTYPE_TALK);
 
 			LimpiarComercioSeguro(UserIndex);
@@ -810,7 +810,7 @@ void CarpinteroConstruirItem(int UserIndex, int ItemIndex) {
 	WeaponIndex = UserList[UserIndex].Invent.WeaponEqpObjIndex;
 
 	if (WeaponIndex != SERRUCHO_CARPINTERO && WeaponIndex != SERRUCHO_CARPINTERO_NEWBIE) {
-		WriteConsoleMsg(UserIndex, "Debes tener equipado el serrucho para trabajar.",
+		WriteConsoleMsg(UserIndex, "You must first equip your saw in order to work.",
 				FontTypeNames_FONTTYPE_INFO);
 		WriteStopWorking(UserIndex);
 		return;
@@ -861,7 +861,7 @@ void CarpinteroConstruirItem(int UserIndex, int ItemIndex) {
 						- GASTO_ENERGIA_TRABAJADOR;
 				WriteUpdateSta(UserIndex);
 			} else {
-				WriteConsoleMsg(UserIndex, "No tienes suficiente energía.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You don't have enough energy.", FontTypeNames_FONTTYPE_INFO);
 				return;
 			}
 		} else {
@@ -871,14 +871,14 @@ void CarpinteroConstruirItem(int UserIndex, int ItemIndex) {
 						- GASTO_ENERGIA_NO_TRABAJADOR;
 				WriteUpdateSta(UserIndex);
 			} else {
-				WriteConsoleMsg(UserIndex, "No tienes suficiente energía.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You don't have enough energy.", FontTypeNames_FONTTYPE_INFO);
 				return;
 			}
 		}
 
 		CarpinteroQuitarMateriales(UserIndex, ItemIndex, CantidadItems);
 		WriteConsoleMsg(UserIndex,
-				vb6::CStr("Has construido ") + vb6::CStr(CantidadItems) + vb6::IIf(CantidadItems == 1, " objeto!", " objetos!"),
+				vb6::CStr("You've built ") + vb6::CStr(CantidadItems) + vb6::IIf(CantidadItems == 1, " objeto!", " objetos!"),
 				FontTypeNames_FONTTYPE_INFO);
 
 		struct Obj MiObj;
@@ -961,9 +961,9 @@ void DoLingotes(int UserIndex) {
 		OtroUserIndex = UserList[UserIndex].ComUsu.DestUsu;
 
 		if (OtroUserIndex > 0 && OtroUserIndex <= MaxUsers) {
-			WriteConsoleMsg(UserIndex, "¡¡Comercio cancelado, no puedes comerciar mientras trabajas!!",
+			WriteConsoleMsg(UserIndex, "Trade canceled,  you cannot trade while you work!!",
 					FontTypeNames_FONTTYPE_TALK);
-			WriteConsoleMsg(OtroUserIndex, "¡¡Comercio cancelado por el otro usuario!!",
+			WriteConsoleMsg(OtroUserIndex, "Trade canceled by the other party!!",
 					FontTypeNames_FONTTYPE_TALK);
 
 			LimpiarComercioSeguro(UserIndex);
@@ -986,7 +986,7 @@ void DoLingotes(int UserIndex) {
 	}
 
 	if (!TieneMinerales || ObjData[obji].OBJType != eOBJType_otMinerales) {
-		WriteConsoleMsg(UserIndex, "No tienes suficientes minerales para hacer un lingote.",
+		WriteConsoleMsg(UserIndex, "You don't have enough minerals to make an ingot.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -1033,9 +1033,9 @@ void DoFundir(int UserIndex) {
 		OtroUserIndex = UserList[UserIndex].ComUsu.DestUsu;
 
 		if (OtroUserIndex > 0 && OtroUserIndex <= MaxUsers) {
-			WriteConsoleMsg(UserIndex, "¡¡Comercio cancelado, no puedes comerciar mientras trabajas!!",
+			WriteConsoleMsg(UserIndex, "Trade canceled,  you cannot trade while you work!!",
 					FontTypeNames_FONTTYPE_TALK);
-			WriteConsoleMsg(OtroUserIndex, "¡¡Comercio cancelado por el otro usuario!!",
+			WriteConsoleMsg(OtroUserIndex, "Trade canceled by the other party!!",
 					FontTypeNames_FONTTYPE_TALK);
 
 			LimpiarComercioSeguro(UserIndex);
@@ -1107,9 +1107,9 @@ void DoUpgrade(int UserIndex, int ItemIndex) {
 		OtroUserIndex = UserList[UserIndex].ComUsu.DestUsu;
 
 		if (OtroUserIndex > 0 && OtroUserIndex <= MaxUsers) {
-			WriteConsoleMsg(UserIndex, "¡¡Comercio cancelado, no puedes comerciar mientras trabajas!!",
+			WriteConsoleMsg(UserIndex, "Trade canceled,  you cannot trade while you work!!",
 					FontTypeNames_FONTTYPE_TALK);
-			WriteConsoleMsg(OtroUserIndex, "¡¡Comercio cancelado por el otro usuario!!",
+			WriteConsoleMsg(OtroUserIndex, "Trade canceled by the other party!!",
 					FontTypeNames_FONTTYPE_TALK);
 
 			LimpiarComercioSeguro(UserIndex);
@@ -1124,7 +1124,7 @@ void DoUpgrade(int UserIndex, int ItemIndex) {
 			UserList[UserIndex].Stats.MinSta = UserList[UserIndex].Stats.MinSta - GASTO_ENERGIA_TRABAJADOR;
 			WriteUpdateSta(UserIndex);
 		} else {
-			WriteConsoleMsg(UserIndex, "No tienes suficiente energía.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You don't have enough energy.", FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 	} else {
@@ -1133,7 +1133,7 @@ void DoUpgrade(int UserIndex, int ItemIndex) {
 			UserList[UserIndex].Stats.MinSta = UserList[UserIndex].Stats.MinSta - GASTO_ENERGIA_NO_TRABAJADOR;
 			WriteUpdateSta(UserIndex);
 		} else {
-			WriteConsoleMsg(UserIndex, "No tienes suficiente energía.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You don't have enough energy.", FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 	}
@@ -1150,7 +1150,7 @@ void DoUpgrade(int UserIndex, int ItemIndex) {
 		WeaponIndex = UserList[UserIndex].Invent.WeaponEqpObjIndex;
 
 		if (WeaponIndex != MARTILLO_HERRERO && WeaponIndex != MARTILLO_HERRERO_NEWBIE) {
-			WriteConsoleMsg(UserIndex, "Debes equiparte el martillo de herrero.",
+			WriteConsoleMsg(UserIndex, "You must equip your blacksmith hammer.",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
@@ -1158,29 +1158,29 @@ void DoUpgrade(int UserIndex, int ItemIndex) {
 		if (vb6::Round(
 				UserList[UserIndex].Stats.UserSkills[eSkill_Herreria]
 						/ ModHerreriA(UserList[UserIndex].clase), 0) < ObjData[ItemUpgrade].SkHerreria) {
-			WriteConsoleMsg(UserIndex, "No tienes suficientes skills.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You don't have enough skill points.", FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 
 		switch (ObjData[ItemIndex].OBJType) {
 		case eOBJType_otWeapon:
-			WriteConsoleMsg(UserIndex, "Has mejorado el arma!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You've improved the weapon!", FontTypeNames_FONTTYPE_INFO);
 
 			/* 'Todavía no hay, pero just in case */
 			break;
 
 		case eOBJType_otESCUDO:
-			WriteConsoleMsg(UserIndex, "Has mejorado el escudo!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You have improved the shield!", FontTypeNames_FONTTYPE_INFO);
 
 			break;
 
 		case eOBJType_otCASCO:
-			WriteConsoleMsg(UserIndex, "Has mejorado el casco!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You've improved the helmet!", FontTypeNames_FONTTYPE_INFO);
 
 			break;
 
 		case eOBJType_otArmadura:
-			WriteConsoleMsg(UserIndex, "Has mejorado la armadura!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You've improved the armor!", FontTypeNames_FONTTYPE_INFO);
 			break;
 
 		default:
@@ -1202,7 +1202,7 @@ void DoUpgrade(int UserIndex, int ItemIndex) {
 
 		WeaponIndex = UserList[UserIndex].Invent.WeaponEqpObjIndex;
 		if (WeaponIndex != SERRUCHO_CARPINTERO && WeaponIndex != SERRUCHO_CARPINTERO_NEWBIE) {
-			WriteConsoleMsg(UserIndex, "Debes equiparte un serrucho.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You must equip a saw.", FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 
@@ -1210,23 +1210,23 @@ void DoUpgrade(int UserIndex, int ItemIndex) {
 				UserList[UserIndex].Stats.UserSkills[eSkill_Carpinteria]
 						/ ModCarpinteria(UserList[UserIndex].clase), 0)
 				< ObjData[ItemUpgrade].SkCarpinteria) {
-			WriteConsoleMsg(UserIndex, "No tienes suficientes skills.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You don't have enough skill points.", FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 
 		switch (ObjData[ItemIndex].OBJType) {
 		case eOBJType_otFlechas:
-			WriteConsoleMsg(UserIndex, "Has mejorado la flecha!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You've improved the arrow!", FontTypeNames_FONTTYPE_INFO);
 
 			break;
 
 		case eOBJType_otWeapon:
-			WriteConsoleMsg(UserIndex, "Has mejorado el arma!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You've improved the weapon!", FontTypeNames_FONTTYPE_INFO);
 
 			break;
 
 		case eOBJType_otBarcos:
-			WriteConsoleMsg(UserIndex, "Has mejorado el barco!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You have improved the boat!", FontTypeNames_FONTTYPE_INFO);
 			break;
 
 		default:
@@ -1422,19 +1422,19 @@ void DoDomar(int UserIndex, int NpcIndex) {
 	int NroPets;
 
 	if (Npclist[NpcIndex].MaestroUser == UserIndex) {
-		WriteConsoleMsg(UserIndex, "Ya domaste a esa criatura.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You've already tamed that creature.", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	if (UserList[UserIndex].NroMascotas < MAXMASCOTAS) {
 
 		if (Npclist[NpcIndex].MaestroNpc > 0 || Npclist[NpcIndex].MaestroUser > 0) {
-			WriteConsoleMsg(UserIndex, "La criatura ya tiene amo.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "The creature has a master already.", FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 
 		if (!PuedeDomarMascota(UserIndex, NpcIndex)) {
-			WriteConsoleMsg(UserIndex, "No puedes domar más de dos criaturas del mismo tipo.",
+			WriteConsoleMsg(UserIndex, "You can't tame more than two creatures at the same time",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
@@ -1466,7 +1466,7 @@ void DoDomar(int UserIndex, int NpcIndex) {
 			FollowAmo(NpcIndex);
 			ReSpawnNpc(Npclist[NpcIndex]);
 
-			WriteConsoleMsg(UserIndex, "La criatura te ha aceptado como su amo.",
+			WriteConsoleMsg(UserIndex, "The creature has accepted you as its master.",
 					FontTypeNames_FONTTYPE_INFO);
 
 			/* ' Es zona segura? */
@@ -1482,7 +1482,7 @@ void DoDomar(int UserIndex, int NpcIndex) {
 				UserList[UserIndex].NroMascotas = NroPets;
 
 				WriteConsoleMsg(UserIndex,
-						"No se permiten mascotas en zona segura. Éstas te esperarán afuera.",
+						"Pets are not allowed within safe zones. They will wait for you outside.",
 						FontTypeNames_FONTTYPE_INFO);
 			}
 
@@ -1490,14 +1490,14 @@ void DoDomar(int UserIndex, int NpcIndex) {
 
 		} else {
 			if (UserList[UserIndex].flags.UltimoMensaje != 5) {
-				WriteConsoleMsg(UserIndex, "No has logrado domar la criatura.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You could not tame the creature.", FontTypeNames_FONTTYPE_INFO);
 				UserList[UserIndex].flags.UltimoMensaje = 5;
 			}
 
 			SubirSkill(UserIndex, eSkill_Domar, false);
 		}
 	} else {
-		WriteConsoleMsg(UserIndex, "No puedes controlar más criaturas.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You can't contorl any more creatures.", FontTypeNames_FONTTYPE_INFO);
 	}
 }
 
@@ -1637,24 +1637,24 @@ void TratarDeHacerFogata(int Map, int X, int Y, int UserIndex) {
 	posMadera.Y = Y;
 
 	if (MapData[Map][X][Y].ObjInfo.ObjIndex != 58) {
-		WriteConsoleMsg(UserIndex, "Necesitas clickear sobre lena para hacer ramitas.",
+		WriteConsoleMsg(UserIndex, "You need to click the wood to make twigs.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	if (Distancia(posMadera, UserList[UserIndex].Pos) > 2) {
-		WriteConsoleMsg(UserIndex, "Estás demasiado lejos para prender la fogata.",
+		WriteConsoleMsg(UserIndex, "You're too far away to light the fire.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "No puedes hacer fogatas estando muerto.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You can't light fires while you're dead.", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	if (MapData[Map][X][Y].ObjInfo.Amount < 3) {
-		WriteConsoleMsg(UserIndex, "Necesitas por lo menos tres troncos para hacer una fogata.",
+		WriteConsoleMsg(UserIndex, "You need at least three logs to make a fire.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -1677,7 +1677,7 @@ void TratarDeHacerFogata(int Map, int X, int Y, int UserIndex) {
 		Obj.ObjIndex = FOGATA_APAG;
 		Obj.Amount = MapData[Map][X][Y].ObjInfo.Amount / 3;
 
-		WriteConsoleMsg(UserIndex, "Has hecho " + vb6::CStr(Obj.Amount) + " fogatas.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You've made " + vb6::CStr(Obj.Amount) + " fires.", FontTypeNames_FONTTYPE_INFO);
 
 		MakeObj(Obj, Map, X, Y);
 
@@ -1688,7 +1688,7 @@ void TratarDeHacerFogata(int Map, int X, int Y, int UserIndex) {
 	} else {
 		/* '[CDT 17-02-2004] */
 		if (UserList[UserIndex].flags.UltimoMensaje != 10) {
-			WriteConsoleMsg(UserIndex, "No has podido hacer la fogata.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You couldn't light the fire.", FontTypeNames_FONTTYPE_INFO);
 			UserList[UserIndex].flags.UltimoMensaje = 10;
 		}
 		/* '[/CDT] */
@@ -1742,13 +1742,13 @@ void DoPescar(int UserIndex) {
 			TirarItemAlPiso(UserList[UserIndex].Pos, MiObj);
 		}
 
-		WriteConsoleMsg(UserIndex, "¡Has pescado un lindo pez!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You've caught a nice fish!", FontTypeNames_FONTTYPE_INFO);
 
 		SubirSkill(UserIndex, eSkill_Pesca, true);
 	} else {
 		/* '[CDT 17-02-2004] */
 		if (UserList[UserIndex].flags.UltimoMensaje != 6) {
-			WriteConsoleMsg(UserIndex, "¡No has pescado nada!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You haven't fished anything!", FontTypeNames_FONTTYPE_INFO);
 			UserList[UserIndex].flags.UltimoMensaje = 6;
 		}
 		/* '[/CDT] */
@@ -1814,12 +1814,12 @@ void DoPescarRed(int UserIndex) {
 				TirarItemAlPiso(UserList[UserIndex].Pos, MiObj);
 			}
 
-			WriteConsoleMsg(UserIndex, "¡Has pescado algunos peces!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You've caught some fish!", FontTypeNames_FONTTYPE_INFO);
 
 			SubirSkill(UserIndex, eSkill_Pesca, true);
 		} else {
 			if (UserList[UserIndex].flags.UltimoMensaje != 6) {
-				WriteConsoleMsg(UserIndex, "¡No has pescado nada!", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You haven't fished anything!", FontTypeNames_FONTTYPE_INFO);
 				UserList[UserIndex].flags.UltimoMensaje = 6;
 			}
 
@@ -1860,14 +1860,14 @@ void DoRobar(int LadrOnIndex, int VictimaIndex) {
 	}
 
 	if (UserList[VictimaIndex].flags.EnConsulta) {
-		WriteConsoleMsg(LadrOnIndex, "¡¡¡No puedes robar a usuarios en consulta!!!",
+		WriteConsoleMsg(LadrOnIndex, "You can't steal while on support!!!",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	if (UserList[LadrOnIndex].flags.Seguro) {
 		if (!criminal(VictimaIndex)) {
-			WriteConsoleMsg(LadrOnIndex, "Debes quitarte el seguro para robarle a un ciudadano.",
+			WriteConsoleMsg(LadrOnIndex, "You must switch your safety off to steal from a ctiizen.",
 					FontTypeNames_FONTTYPE_FIGHT);
 			return;
 		}
@@ -1875,7 +1875,7 @@ void DoRobar(int LadrOnIndex, int VictimaIndex) {
 		if (UserList[LadrOnIndex].Faccion.ArmadaReal == 1) {
 			if (!criminal(VictimaIndex)) {
 				WriteConsoleMsg(LadrOnIndex,
-						"Los miembros del ejército real no tienen permitido robarle a ciudadanos.",
+						"Members of the royal army are not allowed to steal from citizens.",
 						FontTypeNames_FONTTYPE_FIGHT);
 				return;
 			}
@@ -1884,7 +1884,7 @@ void DoRobar(int LadrOnIndex, int VictimaIndex) {
 
 	/* ' Caos robando a caos? */
 	if (UserList[VictimaIndex].Faccion.FuerzasCaos == 1 && UserList[LadrOnIndex].Faccion.FuerzasCaos == 1) {
-		WriteConsoleMsg(LadrOnIndex, "No puedes robar a otros miembros de la legión oscura.",
+		WriteConsoleMsg(LadrOnIndex, "You can't steal from fellow members of the dark legion.",
 				FontTypeNames_FONTTYPE_FIGHT);
 		return;
 	}
@@ -1896,9 +1896,9 @@ void DoRobar(int LadrOnIndex, int VictimaIndex) {
 	/* ' Tiene energia? */
 	if (UserList[LadrOnIndex].Stats.MinSta < 15) {
 		if (UserList[LadrOnIndex].Genero == eGenero_Hombre) {
-			WriteConsoleMsg(LadrOnIndex, "Estás muy cansado para robar.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(LadrOnIndex, "You're too tired to steal.", FontTypeNames_FONTTYPE_INFO);
 		} else {
-			WriteConsoleMsg(LadrOnIndex, "Estás muy cansada para robar.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(LadrOnIndex, "You're too tired to steal.", FontTypeNames_FONTTYPE_INFO);
 		}
 
 		return;
@@ -1952,9 +1952,9 @@ void DoRobar(int LadrOnIndex, int VictimaIndex) {
 				OtroUserIndex = UserList[VictimaIndex].ComUsu.DestUsu;
 
 				if (OtroUserIndex > 0 && OtroUserIndex <= MaxUsers) {
-					WriteConsoleMsg(VictimaIndex, "¡¡Comercio cancelado, te están robando!!",
+					WriteConsoleMsg(VictimaIndex, "Trade canceled, you're being robbed!!",
 							FontTypeNames_FONTTYPE_TALK);
-					WriteConsoleMsg(OtroUserIndex, "¡¡Comercio cancelado por el otro usuario!!",
+					WriteConsoleMsg(OtroUserIndex, "Trade canceled by the other party!!",
 							FontTypeNames_FONTTYPE_TALK);
 
 					LimpiarComercioSeguro(VictimaIndex);
@@ -1966,7 +1966,7 @@ void DoRobar(int LadrOnIndex, int VictimaIndex) {
 				if (TieneObjetosRobables(VictimaIndex)) {
 					RobarObjeto(LadrOnIndex, VictimaIndex);
 				} else {
-					WriteConsoleMsg(LadrOnIndex, UserList[VictimaIndex].Name + " no tiene objetos.",
+					WriteConsoleMsg(LadrOnIndex, UserList[VictimaIndex].Name + " doesn't have any objects.",
 							FontTypeNames_FONTTYPE_INFO);
 				}
 				/* 'Roba oro */
@@ -1997,7 +1997,7 @@ void DoRobar(int LadrOnIndex, int VictimaIndex) {
 					}
 
 					WriteConsoleMsg(LadrOnIndex,
-							vb6::CStr("Le has robado ") + vb6::CStr(N) + " monedas de oro a " + UserList[VictimaIndex].Name,
+							vb6::CStr("You've stolen ") + vb6::CStr(N) + " gp from " + UserList[VictimaIndex].Name,
 							FontTypeNames_FONTTYPE_INFO);
 					/* 'Le actualizamos la billetera al ladron */
 					WriteUpdateGold(LadrOnIndex);
@@ -2006,15 +2006,15 @@ void DoRobar(int LadrOnIndex, int VictimaIndex) {
 					WriteUpdateGold(VictimaIndex);
 					FlushBuffer(VictimaIndex);
 				} else {
-					WriteConsoleMsg(LadrOnIndex, UserList[VictimaIndex].Name + " no tiene oro.",
+					WriteConsoleMsg(LadrOnIndex, UserList[VictimaIndex].Name + " doesn't have any gold.",
 							FontTypeNames_FONTTYPE_INFO);
 				}
 			}
 
 			SubirSkill(LadrOnIndex, eSkill_Robar, true);
 		} else {
-			WriteConsoleMsg(LadrOnIndex, "¡No has logrado robar nada!", FontTypeNames_FONTTYPE_INFO);
-			WriteConsoleMsg(VictimaIndex, "¡" + UserList[LadrOnIndex].Name + " ha intentado robarte!",
+			WriteConsoleMsg(LadrOnIndex, "You couldn't steal anything!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(VictimaIndex, UserList[LadrOnIndex].Name + " has tried to steal from you!",
 					FontTypeNames_FONTTYPE_INFO);
 			FlushBuffer(VictimaIndex);
 
@@ -2141,14 +2141,14 @@ void RobarObjeto(int LadrOnIndex, int VictimaIndex) {
 		}
 
 		if (UserList[LadrOnIndex].clase == eClass_Thief) {
-			WriteConsoleMsg(LadrOnIndex, vb6::CStr("Has robado ") + vb6::CStr(MiObj.Amount) + " " + ObjData[MiObj.ObjIndex].Name,
+			WriteConsoleMsg(LadrOnIndex, vb6::CStr("You've stolen ") + vb6::CStr(MiObj.Amount) + " " + ObjData[MiObj.ObjIndex].Name,
 					FontTypeNames_FONTTYPE_INFO);
 		} else {
-			WriteConsoleMsg(LadrOnIndex, vb6::CStr("Has hurtado ") + vb6::CStr(MiObj.Amount) + " " + ObjData[MiObj.ObjIndex].Name,
+			WriteConsoleMsg(LadrOnIndex, vb6::CStr("You've stolen ") + vb6::CStr(MiObj.Amount) + " " + ObjData[MiObj.ObjIndex].Name,
 					FontTypeNames_FONTTYPE_INFO);
 		}
 	} else {
-		WriteConsoleMsg(LadrOnIndex, "No has logrado robar ningún objeto.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(LadrOnIndex, "You couldn't steal any objects.", FontTypeNames_FONTTYPE_INFO);
 	}
 
 	/* 'If exiting, cancel de quien es robado */
@@ -2200,15 +2200,15 @@ void DoApunalar(int UserIndex, int VictimNpcIndex, int VictimUserIndex, int dano
 			}
 
 			UserList[VictimUserIndex].Stats.MinHp = UserList[VictimUserIndex].Stats.MinHp - dano;
-			WriteConsoleMsg(UserIndex, "Has apunalado a " + UserList[VictimUserIndex].Name + " por " + vb6::CStr(dano),
+			WriteConsoleMsg(UserIndex, "You've stabbed " + UserList[VictimUserIndex].Name + " and dealt " + vb6::CStr(dano) + " damage points.",
 					FontTypeNames_FONTTYPE_FIGHT);
-			WriteConsoleMsg(VictimUserIndex, "Te ha apunalado " + UserList[UserIndex].Name + " por " + vb6::CStr(dano),
+			WriteConsoleMsg(VictimUserIndex, UserList[UserIndex].Name + "has stabbed you and caused you " + vb6::CStr(dano) + " damage points.",
 					FontTypeNames_FONTTYPE_FIGHT);
 
 			FlushBuffer(VictimUserIndex);
 		} else {
 			Npclist[VictimNpcIndex].Stats.MinHp = Npclist[VictimNpcIndex].Stats.MinHp - vb6::Int(dano * 2);
-			WriteConsoleMsg(UserIndex, "Has apunalado la criatura por " + vb6::CStr(dano * 2),
+			WriteConsoleMsg(UserIndex, "You've stabbed the creature and dealt it " + vb6::CStr(dano * 2) + " damage points.",
 					FontTypeNames_FONTTYPE_FIGHT);
 			/* '[Alejo] */
 			CalcularDarExp(UserIndex, VictimNpcIndex, dano * 2);
@@ -2216,7 +2216,7 @@ void DoApunalar(int UserIndex, int VictimNpcIndex, int VictimUserIndex, int dano
 
 		SubirSkill(UserIndex, eSkill_Apunalar, true);
 	} else {
-		WriteConsoleMsg(UserIndex, "¡No has logrado apunalar a tu enemigo!", FontTypeNames_FONTTYPE_FIGHT);
+		WriteConsoleMsg(UserIndex, "You couldn't stab your enemy!", FontTypeNames_FONTTYPE_FIGHT);
 		SubirSkill(UserIndex, eSkill_Apunalar, false);
 	}
 
@@ -2234,15 +2234,15 @@ void DoAcuchillar(int UserIndex, int VictimNpcIndex, int VictimUserIndex, int da
 		if (VictimUserIndex != 0) {
 
 			UserList[VictimUserIndex].Stats.MinHp = UserList[VictimUserIndex].Stats.MinHp - dano;
-			WriteConsoleMsg(UserIndex, "Has acuchillado a " + UserList[VictimUserIndex].Name + " por " + vb6::CStr(dano),
+			WriteConsoleMsg(UserIndex, "You've stabbed " + UserList[VictimUserIndex].Name + " and dealt " + vb6::CStr(dano) + " damage points.",
 					FontTypeNames_FONTTYPE_FIGHT);
-			WriteConsoleMsg(VictimUserIndex, UserList[UserIndex].Name + " te ha acuchillado por " + vb6::CStr(dano),
+			WriteConsoleMsg(VictimUserIndex, UserList[UserIndex].Name + " has stabbed you and caused you " + vb6::CStr(dano) + " damage points.",
 					FontTypeNames_FONTTYPE_FIGHT);
 
 		} else {
 
 			Npclist[VictimNpcIndex].Stats.MinHp = Npclist[VictimNpcIndex].Stats.MinHp - dano;
-			WriteConsoleMsg(UserIndex, "Has acuchillado a la criatura por " + vb6::CStr(dano),
+			WriteConsoleMsg(UserIndex, "You've stabbed the creature and dealt it " + vb6::CStr(dano) + " damage points.",
 					FontTypeNames_FONTTYPE_FIGHT);
 			CalcularDarExp(UserIndex, VictimNpcIndex, dano);
 
@@ -2285,16 +2285,16 @@ void DoGolpeCritico(int UserIndex, int VictimNpcIndex, int VictimUserIndex, int 
 
 			UserList[VictimUserIndex].Stats.MinHp = UserList[VictimUserIndex].Stats.MinHp - dano;
 			WriteConsoleMsg(UserIndex,
-					"Has golpeado críticamente a " + UserList[VictimUserIndex].Name + " por " + vb6::CStr(dano) + ".",
+					"You've critically hit " + UserList[VictimUserIndex].Name + " and dealt them " + vb6::CStr(dano) + " damage points.",
 					FontTypeNames_FONTTYPE_FIGHT);
 			WriteConsoleMsg(VictimUserIndex,
-					UserList[UserIndex].Name + " te ha golpeado críticamente por " + vb6::CStr(dano) + ".",
+					UserList[UserIndex].Name + " has critically hit you and caused you " + vb6::CStr(dano) + " damage points.",
 					FontTypeNames_FONTTYPE_FIGHT);
 
 		} else {
 
 			Npclist[VictimNpcIndex].Stats.MinHp = Npclist[VictimNpcIndex].Stats.MinHp - dano;
-			WriteConsoleMsg(UserIndex, "Has golpeado críticamente a la criatura por " + vb6::CStr(dano) + ".",
+			WriteConsoleMsg(UserIndex, "You've critically hit the creature and caused it " + vb6::CStr(dano) + " damage points.",
 					FontTypeNames_FONTTYPE_FIGHT);
 			CalcularDarExp(UserIndex, VictimNpcIndex, dano);
 
@@ -2363,13 +2363,13 @@ void DoTalar(int UserIndex, bool DarMaderaElfica) {
 			TirarItemAlPiso(UserList[UserIndex].Pos, MiObj);
 		}
 
-		WriteConsoleMsg(UserIndex, "¡Has conseguido algo de lena!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You've chopped some wood!", FontTypeNames_FONTTYPE_INFO);
 
 		SubirSkill(UserIndex, eSkill_Talar, true);
 	} else {
 		/* '[CDT 17-02-2004] */
 		if (UserList[UserIndex].flags.UltimoMensaje != 8) {
-			WriteConsoleMsg(UserIndex, "¡No has obtenido lena!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You didn't obtain any wood!", FontTypeNames_FONTTYPE_INFO);
 			UserList[UserIndex].flags.UltimoMensaje = 8;
 		}
 		/* '[/CDT] */
@@ -2434,13 +2434,13 @@ void DoMineria(int UserIndex) {
 			TirarItemAlPiso(UserList[UserIndex].Pos, MiObj);
 		}
 
-		WriteConsoleMsg(UserIndex, "¡Has extraido algunos minerales!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You have extracted some minerals!", FontTypeNames_FONTTYPE_INFO);
 
 		SubirSkill(UserIndex, eSkill_Mineria, true);
 	} else {
 		/* '[CDT 17-02-2004] */
 		if (UserList[UserIndex].flags.UltimoMensaje != 9) {
-			WriteConsoleMsg(UserIndex, "¡No has conseguido nada!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You haven't extracted anything!", FontTypeNames_FONTTYPE_INFO);
 			UserList[UserIndex].flags.UltimoMensaje = 9;
 		}
 		/* '[/CDT] */
@@ -2488,7 +2488,7 @@ void DoMeditar(int UserIndex) {
 	}
 
 	if (UserList[UserIndex].Stats.MinMAN >= UserList[UserIndex].Stats.MaxMAN) {
-		WriteConsoleMsg(UserIndex, "Has terminado de meditar.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You've finished meditating.", FontTypeNames_FONTTYPE_INFO);
 		WriteMeditateToggle(UserIndex);
 		UserList[UserIndex].flags.Meditando = false;
 		UserList[UserIndex].Char.FX = 0;
@@ -2543,7 +2543,7 @@ void DoMeditar(int UserIndex) {
 		}
 
 		if (UserList[UserIndex].flags.UltimoMensaje != 22) {
-			WriteConsoleMsg(UserIndex, "¡Has recuperado " + vb6::CStr(cant) + " puntos de maná!",
+			WriteConsoleMsg(UserIndex, "You have recovered " + vb6::CStr(cant) + " mana points!",
 					FontTypeNames_FONTTYPE_INFO);
 			UserList[UserIndex].flags.UltimoMensaje = 22;
 		}
@@ -2590,11 +2590,11 @@ void DoDesequipar(int UserIndex, int VictimIndex) {
 			/* ' Se lo desequipo */
 			Desequipar(VictimIndex, UserList[VictimIndex].Invent.EscudoEqpSlot, true);
 
-			WriteConsoleMsg(UserIndex, "Has logrado desequipar el escudo de tu oponente!",
+			WriteConsoleMsg(UserIndex, "You were able to unequip your opponent's shield!",
 					FontTypeNames_FONTTYPE_FIGHT);
 
 			if (UserList[VictimIndex].Stats.ELV < 20) {
-				WriteConsoleMsg(VictimIndex, "¡Tu oponente te ha desequipado el escudo!",
+				WriteConsoleMsg(VictimIndex, "You opponent has unequipped your shield!",
 						FontTypeNames_FONTTYPE_FIGHT);
 			}
 
@@ -2615,10 +2615,10 @@ void DoDesequipar(int UserIndex, int VictimIndex) {
 			/* ' Se lo desequipo */
 			Desequipar(VictimIndex, UserList[VictimIndex].Invent.WeaponEqpSlot, true);
 
-			WriteConsoleMsg(UserIndex, "Has logrado desarmar a tu oponente!", FontTypeNames_FONTTYPE_FIGHT);
+			WriteConsoleMsg(UserIndex, "You have disarmed your opponent!", FontTypeNames_FONTTYPE_FIGHT);
 
 			if (UserList[VictimIndex].Stats.ELV < 20) {
-				WriteConsoleMsg(VictimIndex, "¡Tu oponente te ha desarmado!", FontTypeNames_FONTTYPE_FIGHT);
+				WriteConsoleMsg(VictimIndex, "Your opponent has disarmed you!", FontTypeNames_FONTTYPE_FIGHT);
 			}
 
 			FlushBuffer(VictimIndex);
@@ -2638,11 +2638,11 @@ void DoDesequipar(int UserIndex, int VictimIndex) {
 			/* ' Se lo desequipo */
 			Desequipar(VictimIndex, UserList[VictimIndex].Invent.CascoEqpSlot, true);
 
-			WriteConsoleMsg(UserIndex, "Has logrado desequipar el casco de tu oponente!",
+			WriteConsoleMsg(UserIndex, "You have unequiped your opponent's helmet!",
 					FontTypeNames_FONTTYPE_FIGHT);
 
 			if (UserList[VictimIndex].Stats.ELV < 20) {
-				WriteConsoleMsg(VictimIndex, "¡Tu oponente te ha desequipado el casco!",
+				WriteConsoleMsg(VictimIndex, "Your opponent has unequiped your helmet!",
 						FontTypeNames_FONTTYPE_FIGHT);
 			}
 
@@ -2655,9 +2655,9 @@ void DoDesequipar(int UserIndex, int VictimIndex) {
 	}
 
 	if (AlgoEquipado) {
-		WriteConsoleMsg(UserIndex, "Tu oponente no tiene equipado items!", FontTypeNames_FONTTYPE_FIGHT);
+		WriteConsoleMsg(UserIndex, "Your opponent has no items equipped!", FontTypeNames_FONTTYPE_FIGHT);
 	} else {
-		WriteConsoleMsg(UserIndex, "No has logrado desequipar ningún item a tu oponente!",
+		WriteConsoleMsg(UserIndex, "You weren't able to unequip any items of your opponent!",
 				FontTypeNames_FONTTYPE_FIGHT);
 	}
 
@@ -2695,9 +2695,9 @@ void DoHurtar(int UserIndex, int VictimaIndex) {
 				OtroUserIndex = UserList[VictimaIndex].ComUsu.DestUsu;
 
 				if (OtroUserIndex > 0 && OtroUserIndex <= MaxUsers) {
-					WriteConsoleMsg(VictimaIndex, "¡¡Comercio cancelado, te están robando!!",
+					WriteConsoleMsg(VictimaIndex, "Trade canceled, you're being robbed!!",
 							FontTypeNames_FONTTYPE_TALK);
-					WriteConsoleMsg(OtroUserIndex, "¡¡Comercio cancelado por el otro usuario!!",
+					WriteConsoleMsg(OtroUserIndex, "Trade canceled by the other party!!",
 							FontTypeNames_FONTTYPE_TALK);
 
 					LimpiarComercioSeguro(VictimaIndex);
@@ -2706,10 +2706,10 @@ void DoHurtar(int UserIndex, int VictimaIndex) {
 			}
 
 			RobarObjeto(UserIndex, VictimaIndex);
-			WriteConsoleMsg(VictimaIndex, "¡" + UserList[UserIndex].Name + " es un Bandido!",
+			WriteConsoleMsg(VictimaIndex, "¡" + UserList[UserIndex].Name + " is a thief!",
 					FontTypeNames_FONTTYPE_INFO);
 		} else {
-			WriteConsoleMsg(UserIndex, UserList[VictimaIndex].Name + " no tiene objetos.",
+			WriteConsoleMsg(UserIndex, UserList[VictimaIndex].Name + " has no objects.",
 					FontTypeNames_FONTTYPE_INFO);
 		}
 	}
@@ -2743,8 +2743,8 @@ void DoHandInmo(int UserIndex, int VictimaIndex) {
 		UserList[VictimaIndex].flags.ParalizedBy = UserList[UserIndex].Name;
 
 		WriteParalizeOK(VictimaIndex);
-		WriteConsoleMsg(UserIndex, "Tu golpe ha dejado inmóvil a tu oponente", FontTypeNames_FONTTYPE_INFO);
-		WriteConsoleMsg(VictimaIndex, "¡El golpe te ha dejado inmóvil!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "Your strike has stunned your opponent!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(VictimaIndex, "Your opponent has stunned you!", FontTypeNames_FONTTYPE_INFO);
 	}
 
 }
@@ -2768,9 +2768,9 @@ void Desarmar(int UserIndex, int VictimIndex) {
 
 	if (Resultado <= Probabilidad) {
 		Desequipar(VictimIndex, UserList[VictimIndex].Invent.WeaponEqpSlot, true);
-		WriteConsoleMsg(UserIndex, "Has logrado desarmar a tu oponente!", FontTypeNames_FONTTYPE_FIGHT);
+		WriteConsoleMsg(UserIndex, "You've disarmed your opponent!", FontTypeNames_FONTTYPE_FIGHT);
 		if (UserList[VictimIndex].Stats.ELV < 20) {
-			WriteConsoleMsg(VictimIndex, "¡Tu oponente te ha desarmado!", FontTypeNames_FONTTYPE_FIGHT);
+			WriteConsoleMsg(VictimIndex, "Your opponent has disarmed you!", FontTypeNames_FONTTYPE_FIGHT);
 		}
 		FlushBuffer(VictimIndex);
 	}

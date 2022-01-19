@@ -196,7 +196,7 @@ bool clsParty::SaleMiembro(int UserIndex) {
 	if (i == 1) {
 		/* 'sale el founder, la party se disuelve */
 		retval = true;
-		MandarMensajeAConsola("El líder disuelve la party.", "Servidor");
+		MandarMensajeAConsola("The leader disbands the party.", "Server");
 
 		for (j = (PARTY_MAXMEMBERS); ((-1) > 0) ? (j <= (1)) : (j >= (1)); j = j + (-1)) {
 
@@ -205,13 +205,13 @@ bool clsParty::SaleMiembro(int UserIndex) {
 				/* ' No envia el mensaje al lider */
 				if (j != 1) {
 					WriteConsoleMsg(p_members[j].UserIndex,
-							"Abandonas la party liderada por " + UserList[p_members[1].UserIndex].Name + ".",
+							"You abandon " + UserList[p_members[1].UserIndex].Name + "'s party.",
 							FontTypeNames_FONTTYPE_PARTY);
 				}
 
 				WriteConsoleMsg(p_members[j].UserIndex,
-						"Durante la misma has conseguido " + vb6::CStr(vb6::Fix(p_members[j].Experiencia))
-								+ " puntos de experiencia.", FontTypeNames_FONTTYPE_PARTY);
+						"During your time with the party you've gained " + vb6::CStr(vb6::Fix(p_members[j].Experiencia))
+								+ " XP.", FontTypeNames_FONTTYPE_PARTY);
 
 				if (!PARTY_EXPERIENCIAPORGOLPE) {
 					UserList[p_members[j].UserIndex].Stats.Exp = UserList[p_members[j].UserIndex].Stats.Exp
@@ -223,8 +223,8 @@ bool clsParty::SaleMiembro(int UserIndex) {
 					WriteUpdateUserStats(p_members[j].UserIndex);
 				}
 
-				MandarMensajeAConsola(UserList[p_members[j].UserIndex].Name + " abandona la party.",
-						"Servidor");
+				MandarMensajeAConsola(UserList[p_members[j].UserIndex].Name + " abandons the party.",
+						"Server");
 
 				UserList[p_members[j].UserIndex].PartyIndex = 0;
 				p_CantMiembros = p_CantMiembros - 1;
@@ -252,11 +252,11 @@ bool clsParty::SaleMiembro(int UserIndex) {
 				WriteUpdateUserStats(MemberIndex);
 			}
 
-			MandarMensajeAConsola(UserList[MemberIndex].Name + " abandona la party.", "Servidor");
+			MandarMensajeAConsola(UserList[MemberIndex].Name + " abandons the party.", "Server");
 			/* 'TODO: Revisar que esto este bien, y no este faltando/sobrando un mensaje, ahora solo los estoy corrigiendo */
 			WriteConsoleMsg(MemberIndex,
-					"Durante la misma has conseguido " + vb6::CStr(vb6::Fix(p_members[i].Experiencia))
-							+ " puntos de experiencia.", FontTypeNames_FONTTYPE_PARTY);
+					"During your time with the party you've gained " + vb6::CStr(vb6::Fix(p_members[i].Experiencia))
+							+ " XP.", FontTypeNames_FONTTYPE_PARTY);
 
 			p_CantMiembros = p_CantMiembros - 1;
 			p_SumaNivelesElevados = p_SumaNivelesElevados

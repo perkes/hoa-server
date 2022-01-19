@@ -101,17 +101,17 @@ bool PuedeCrearParty(int UserIndex) {
 	retval = true;
 
 	if (!UserTienePrivilegio(UserIndex, PlayerType_User)) {
-		/* 'staff members aren't allowed to party anyone. */
-		WriteConsoleMsg(UserIndex, "¡Los miembros del staff no pueden crear partys!",
+		/* 'staff members aren't allowed to create parties. */
+		WriteConsoleMsg(UserIndex, "Staff members can't create parties!",
 				FontTypeNames_FONTTYPE_PARTY);
 		retval = false;
 	} else if (vb6::CInt(UserList[UserIndex].Stats.UserAtributos[eAtributos_Carisma])
 			* UserList[UserIndex].Stats.UserSkills[eSkill_Liderazgo] < 100) {
-		WriteConsoleMsg(UserIndex, "Tu carisma y liderazgo no son suficientes para liderar una party.",
+		WriteConsoleMsg(UserIndex, "Your charisma and leadership skills are not high enough to create a party.",
 				FontTypeNames_FONTTYPE_PARTY);
 		retval = false;
 	} else if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_PARTY);
+		WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_PARTY);
 		retval = false;
 	}
 	return retval;
@@ -131,39 +131,39 @@ void CrearParty(int UserIndex) {
 			if (UserList[UserIndex].Stats.UserSkills[eSkill_Liderazgo] >= 5) {
 				tInt = NextParty();
 				if (tInt == -1) {
-					WriteConsoleMsg(UserIndex, "Por el momento no se pueden crear más parties.",
+					WriteConsoleMsg(UserIndex, "No more parties can be created at the time.",
 							FontTypeNames_FONTTYPE_PARTY);
 					return;
 				} else {
 					Parties[tInt].reset(new clsParty());
 					if (!Parties[tInt]->NuevoMiembro(UserIndex)) {
-						WriteConsoleMsg(UserIndex, "La party está llena, no puedes entrar.",
+						WriteConsoleMsg(UserIndex, "The party is full, you cannot join it.",
 								FontTypeNames_FONTTYPE_PARTY);
 						Parties[tInt].reset();
 						return;
 					} else {
-						WriteConsoleMsg(UserIndex, "¡Has formado una party!", FontTypeNames_FONTTYPE_PARTY);
+						WriteConsoleMsg(UserIndex, "You've created a party!", FontTypeNames_FONTTYPE_PARTY);
 						UserList[UserIndex].PartyIndex = tInt;
 						UserList[UserIndex].PartySolicitud = 0;
 						if (!Parties[tInt]->HacerLeader(UserIndex)) {
-							WriteConsoleMsg(UserIndex, "No puedes hacerte líder.",
+							WriteConsoleMsg(UserIndex, "You can't make yourself leader.",
 									FontTypeNames_FONTTYPE_PARTY);
 						} else {
-							WriteConsoleMsg(UserIndex, "¡Te has convertido en líder de la party!",
+							WriteConsoleMsg(UserIndex, "You've become the leader of your party!",
 									FontTypeNames_FONTTYPE_PARTY);
 						}
 					}
 				}
 			} else {
 				WriteConsoleMsg(UserIndex,
-						"No tienes suficientes puntos de liderazgo para liderar una party.",
+						"Your leadership skills are not high enough to be the leader of a party.",
 						FontTypeNames_FONTTYPE_PARTY);
 			}
 		} else {
-			WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_PARTY);
+			WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_PARTY);
 		}
 	} else {
-		WriteConsoleMsg(UserIndex, "Ya perteneces a una party.", FontTypeNames_FONTTYPE_PARTY);
+		WriteConsoleMsg(UserIndex, "You already belong to a party.", FontTypeNames_FONTTYPE_PARTY);
 	}
 }
 
@@ -182,14 +182,14 @@ void SolicitarIngresoAParty(int UserIndex) {
 
 	/* 'staff members aren't allowed to party anyone */
 	if (!UserTienePrivilegio(UserIndex, PlayerType_User)) {
-		WriteConsoleMsg(UserIndex, "¡Los miembros del staff no pueden unirse a partys!",
+		WriteConsoleMsg(UserIndex, "Staff members can't join parties!",
 				FontTypeNames_FONTTYPE_PARTY);
 		return;
 	}
 
 	if (UserList[UserIndex].PartyIndex > 0) {
 		/* 'si ya esta en una party */
-		WriteConsoleMsg(UserIndex, "Ya perteneces a una party, escribe /SALIRPARTY para abandonarla",
+		WriteConsoleMsg(UserIndex, "You already belong to a party, type /LEAVEPARTY to leave it.",
 				FontTypeNames_FONTTYPE_PARTY);
 		UserList[UserIndex].PartySolicitud = 0;
 		return;
@@ -197,7 +197,7 @@ void SolicitarIngresoAParty(int UserIndex) {
 
 	/* ' Muerto? */
 	if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_INFO);
 		UserList[UserIndex].PartySolicitud = 0;
 		return;
 	}
@@ -213,20 +213,20 @@ void SolicitarIngresoAParty(int UserIndex) {
 			/* ' Es el lider? */
 			if (Parties[PartyIndex]->EsPartyLeader(TargetUserIndex)) {
 				UserList[UserIndex].PartySolicitud = PartyIndex;
-				WriteConsoleMsg(UserIndex, "El lider decidirá si te acepta en la party.",
+				WriteConsoleMsg(UserIndex, "The leader will decide if you are accepted in the party.",
 						FontTypeNames_FONTTYPE_PARTY);
-				WriteConsoleMsg(TargetUserIndex, UserList[UserIndex].Name + " solicita ingresar a tu party.",
+				WriteConsoleMsg(TargetUserIndex, UserList[UserIndex].Name + " is requesting admission to your party.",
 						FontTypeNames_FONTTYPE_PARTY);
 
 				/* ' No es lider */
 			} else {
-				WriteConsoleMsg(UserIndex, UserList[TargetUserIndex].Name + " no es lider de la party.",
+				WriteConsoleMsg(UserIndex, UserList[TargetUserIndex].Name + " is not the party's leader.",
 						FontTypeNames_FONTTYPE_PARTY);
 			}
 
 			/* ' No tiene party */
 		} else {
-			WriteConsoleMsg(UserIndex, UserList[TargetUserIndex].Name + " no pertenece a ninguna party.",
+			WriteConsoleMsg(UserIndex, UserList[TargetUserIndex].Name + " doesn't belong to any party.",
 					FontTypeNames_FONTTYPE_PARTY);
 			UserList[UserIndex].PartySolicitud = 0;
 			return;
@@ -235,7 +235,7 @@ void SolicitarIngresoAParty(int UserIndex) {
 		/* ' Target inválido */
 	} else {
 		WriteConsoleMsg(UserIndex,
-				"Para ingresar a una party debes hacer click sobre el fundador y luego escribir /PARTY",
+				"To join a party you must first click the founder and then type /PARTY",
 				FontTypeNames_FONTTYPE_PARTY);
 		UserList[UserIndex].PartySolicitud = 0;
 	}
@@ -259,7 +259,7 @@ void SalirDeParty(int UserIndex) {
 			UserList[UserIndex].PartyIndex = 0;
 		}
 	} else {
-		WriteConsoleMsg(UserIndex, "No eres miembro de ninguna party.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You are not a member of any party.", FontTypeNames_FONTTYPE_INFO);
 	}
 
 }
@@ -283,7 +283,7 @@ void ExpulsarDeParty(int leader, int OldMember) {
 			UserList[OldMember].PartyIndex = 0;
 		}
 	} else {
-		WriteConsoleMsg(leader, vb6::LCase(UserList[OldMember].Name) + " no pertenece a tu party.",
+		WriteConsoleMsg(leader, vb6::LCase(UserList[OldMember].Name) + " does not belong to your party",
 				FontTypeNames_FONTTYPE_INFO);
 	}
 
@@ -309,11 +309,11 @@ bool UserPuedeEjecutarComandos(int User) {
 		if (Parties[PI]->EsPartyLeader(User)) {
 			retval = true;
 		} else {
-			WriteConsoleMsg(User, "¡No eres el líder de tu party!", FontTypeNames_FONTTYPE_PARTY);
+			WriteConsoleMsg(User, "You are not the leader of your party!", FontTypeNames_FONTTYPE_PARTY);
 			return retval;
 		}
 	} else {
-		WriteConsoleMsg(User, "No eres miembro de ninguna party.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(User, "You're not a member of any party.", FontTypeNames_FONTTYPE_INFO);
 		return retval;
 	}
 	return retval;
@@ -338,8 +338,8 @@ void AprobarIngresoAParty(int leader, int NewMember) {
 				if (Parties[PI]->PuedeEntrar(NewMember, razon)) {
 					if (Parties[PI]->NuevoMiembro(NewMember)) {
 						Parties[PI]->MandarMensajeAConsola(
-								UserList[leader].Name + " ha aceptado a " + UserList[NewMember].Name
-										+ " en la party.", "Servidor");
+								UserList[leader].Name + " has accepted " + UserList[NewMember].Name
+										+ " as a party member.", "Servidor");
 						UserList[NewMember].PartyIndex = PI;
 						UserList[NewMember].PartySolicitud = 0;
 					} else {
@@ -347,7 +347,7 @@ void AprobarIngresoAParty(int leader, int NewMember) {
 						/* 'ACA UNO PUEDE CODIFICAR OTRO TIPO DE ERRORES... */
 						SendData(SendTarget_ToAdmins, leader,
 								dakara::protocol::server::BuildConsoleMsg(
-										" Servidor> CATÁSTROFE EN PARTIES, NUEVOMIEMBRO DIO FALSE! :S ",
+										" Server> CATÁSTROFE EN PARTIES, NUEVOMIEMBRO DIO FALSE! :S ",
 										FontTypeNames_FONTTYPE_PARTY));
 					}
 				} else {
@@ -357,27 +357,27 @@ void AprobarIngresoAParty(int leader, int NewMember) {
 			} else {
 				if (UserList[NewMember].PartyIndex == PI) {
 					WriteConsoleMsg(leader,
-							vb6::LCase(UserList[NewMember].Name) + " ya es miembro de la party.",
+							vb6::LCase(UserList[NewMember].Name) + " is already a party member.",
 							FontTypeNames_FONTTYPE_PARTY);
 				} else {
-					WriteConsoleMsg(leader, UserList[NewMember].Name + " ya es miembro de otra party.",
+					WriteConsoleMsg(leader, UserList[NewMember].Name + " is already a member of another party.",
 							FontTypeNames_FONTTYPE_PARTY);
 				}
 
 				return;
 			}
 		} else {
-			WriteConsoleMsg(leader, "¡Está muerto, no puedes aceptar miembros en ese estado!",
+			WriteConsoleMsg(leader, "You are dead!, you can't accept members in this state!",
 					FontTypeNames_FONTTYPE_PARTY);
 			return;
 		}
 	} else {
 		if (UserList[NewMember].PartyIndex == PI) {
-			WriteConsoleMsg(leader, vb6::LCase(UserList[NewMember].Name) + " ya es miembro de la party.",
+			WriteConsoleMsg(leader, vb6::LCase(UserList[NewMember].Name) + " is already a party member.",
 					FontTypeNames_FONTTYPE_PARTY);
 		} else {
 			WriteConsoleMsg(leader,
-					vb6::LCase(UserList[NewMember].Name) + " no ha solicitado ingresar a tu party.",
+					vb6::LCase(UserList[NewMember].Name) + " has not requested being part of your party.",
 					FontTypeNames_FONTTYPE_PARTY);
 		}
 
@@ -428,14 +428,14 @@ void OnlineParty(int UserIndex) {
 
 	if (PI > 0) {
 		Parties[PI]->ObtenerMiembrosOnline(MembersOnline);
-		Text = "Nombre(Exp): ";
+		Text = "Name(Exp): ";
 		for (i = (0); i < (int) MembersOnline.size(); i++) {
 			if (MembersOnline[i] > 0) {
 				Text = Text + " - " + UserList[MembersOnline[i]].Name + " ("
 						+ vb6::CStr(vb6::Fix(Parties[PI]->MiExperiencia(MembersOnline[i]))) + ")";
 			}
 		}
-		Text = Text + ". Experiencia total: " + vb6::CStr(Parties[PI]->ObtenerExperienciaTotal());
+		Text = Text + ". Total XP: " + vb6::CStr(Parties[PI]->ObtenerExperienciaTotal());
 		WriteConsoleMsg(UserIndex, Text, FontTypeNames_FONTTYPE_PARTY);
 	}
 
@@ -460,17 +460,17 @@ void TransformarEnLider(int OldLeader, int NewLeader) {
 		if (UserList[NewLeader].flags.Muerto == 0) {
 			if (Parties[PI]->HacerLeader(NewLeader)) {
 				Parties[PI]->MandarMensajeAConsola(
-						"El nuevo líder de la party es " + UserList[NewLeader].Name,
+						"The new leader of the party is " + UserList[NewLeader].Name,
 						UserList[OldLeader].Name);
 			} else {
-				WriteConsoleMsg(OldLeader, "¡No se ha hecho el cambio de mando!",
+				WriteConsoleMsg(OldLeader, "The command switch has not been made!",
 						FontTypeNames_FONTTYPE_PARTY);
 			}
 		} else {
-			WriteConsoleMsg(OldLeader, "¡Está muerto!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(OldLeader, "is dead!", FontTypeNames_FONTTYPE_INFO);
 		}
 	} else {
-		WriteConsoleMsg(OldLeader, vb6::LCase(UserList[NewLeader].Name) + " no pertenece a tu party.",
+		WriteConsoleMsg(OldLeader, vb6::LCase(UserList[NewLeader].Name) + " does not belong to your party",
 				FontTypeNames_FONTTYPE_INFO);
 	}
 
@@ -495,7 +495,7 @@ void ActualizaExperiencias() {
 				dakara::protocol::server::BuildPauseToggle());
 
 		SendData(SendTarget_ToAll, 0,
-				dakara::protocol::server::BuildConsoleMsg("Servidor> Distribuyendo experiencia en parties.",
+				dakara::protocol::server::BuildConsoleMsg("Server> Distributing XP among parties.",
 						FontTypeNames_FONTTYPE_SERVER));
 		for (i = (1); i <= (MAX_PARTIES); i++) {
 			if (Parties[i] != nullptr) {
@@ -503,7 +503,7 @@ void ActualizaExperiencias() {
 			}
 		}
 		SendData(SendTarget_ToAll, 0,
-				dakara::protocol::server::BuildConsoleMsg("Servidor> Experiencia distribuida.",
+				dakara::protocol::server::BuildConsoleMsg("Server> XP distributed.",
 						FontTypeNames_FONTTYPE_SERVER));
 		SendData(SendTarget_ToAll, 0,
 				dakara::protocol::server::BuildPauseToggle());

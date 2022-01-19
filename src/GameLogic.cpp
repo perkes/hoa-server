@@ -116,7 +116,7 @@ void DoTileEvents(int UserIndex, int Map, int X, int Y) {
 
 			if (EsGm(UserIndex)) {
 				LogGM(UserList[UserIndex].Name,
-						"Utilizó un teleport hacia el mapa " + vb6::CStr(DestPos.Map) + " ("
+						"Used a teleport towards map " + vb6::CStr(DestPos.Map) + " ("
 								+ vb6::CStr(DestPos.X) + "," + vb6::CStr(DestPos.Y) + ")");
 			}
 
@@ -124,7 +124,7 @@ void DoTileEvents(int UserIndex, int Map, int X, int Y) {
 			if (MapInfo[DestPos.Map].OnDeathGoTo.Map != 0) {
 				/* ' Si esta muerto no puede entrar */
 				if (UserList[UserIndex].flags.Muerto == 1) {
-					WriteConsoleMsg(UserIndex, "Sólo se permite entrar al mapa a los personajes vivos.",
+					WriteConsoleMsg(UserIndex, "Only those who are alive are allowed to enter this map.",
 							FontTypeNames_FONTTYPE_INFO);
 					ClosestStablePos(UserList[UserIndex].Pos, nPos);
 
@@ -150,7 +150,7 @@ void DoTileEvents(int UserIndex, int Map, int X, int Y) {
 					}
 					/* 'No es newbie */
 				} else {
-					WriteConsoleMsg(UserIndex, "Mapa exclusivo para newbies.", FontTypeNames_FONTTYPE_INFO);
+					WriteConsoleMsg(UserIndex, "This map is only for newbies.", FontTypeNames_FONTTYPE_INFO);
 					ClosestStablePos(UserList[UserIndex].Pos, nPos);
 
 					if (nPos.X != 0 && nPos.Y != 0) {
@@ -171,7 +171,7 @@ void DoTileEvents(int UserIndex, int Map, int X, int Y) {
 					}
 					/* 'No es armada */
 				} else {
-					WriteConsoleMsg(UserIndex, "Mapa exclusivo para miembros del ejército real.",
+					WriteConsoleMsg(UserIndex, "Ths map is only for members of the royal army.",
 							FontTypeNames_FONTTYPE_INFO);
 					ClosestStablePos(UserList[UserIndex].Pos, nPos);
 
@@ -193,7 +193,7 @@ void DoTileEvents(int UserIndex, int Map, int X, int Y) {
 					}
 					/* 'No es caos */
 				} else {
-					WriteConsoleMsg(UserIndex, "Mapa exclusivo para miembros de la legión oscura.",
+					WriteConsoleMsg(UserIndex, "This map is only for members of the dark legion.",
 							FontTypeNames_FONTTYPE_INFO);
 					ClosestStablePos(UserList[UserIndex].Pos, nPos);
 
@@ -216,7 +216,7 @@ void DoTileEvents(int UserIndex, int Map, int X, int Y) {
 					/* 'No es Faccionario */
 				} else {
 					WriteConsoleMsg(UserIndex,
-							"Solo se permite entrar al mapa si eres miembro de alguna facción.",
+							"You're only allowed to enter this map if you're part of a faction.",
 							FontTypeNames_FONTTYPE_INFO);
 					ClosestStablePos(UserList[UserIndex].Pos, nPos);
 
@@ -867,7 +867,7 @@ void FindLegalPos(int UserIndex, int Map, int & X, int & Y) {
 					if (UserList[UserList[OtherUserIndex].ComUsu.DestUsu].flags.UserLogged) {
 						FinComerciarUsu(UserList[OtherUserIndex].ComUsu.DestUsu);
 						WriteConsoleMsg(UserList[OtherUserIndex].ComUsu.DestUsu,
-								"Comercio cancelado. El otro usuario se ha desconectado.",
+								"Trading canceled. The other used has disconnected from the game.",
 								FontTypeNames_FONTTYPE_TALK);
 						FlushBuffer(UserList[OtherUserIndex].ComUsu.DestUsu);
 					}
@@ -875,7 +875,7 @@ void FindLegalPos(int UserIndex, int Map, int & X, int & Y) {
 					if (UserList[OtherUserIndex].flags.UserLogged) {
 						FinComerciarUsu(OtherUserIndex);
 						WriteErrorMsg(OtherUserIndex,
-								"Alguien se ha conectado donde te encontrabas, por favor reconéctate...");
+								"Someone connected in your exact same space, please reconnect...");
 						FlushBuffer(OtherUserIndex);
 					}
 				}
@@ -1071,9 +1071,9 @@ void LookatTile(int UserIndex, int Map, int X, int Y) {
 					}
 
 					if (UserList[TempCharIndex].Faccion.ArmadaReal == 1) {
-						Stat = Stat + " <Ejército Real> " + "<" + TituloReal(TempCharIndex) + ">";
+						Stat = Stat + " <Royal Army> " + "<" + TituloReal(TempCharIndex) + ">";
 					} else if (UserList[TempCharIndex].Faccion.FuerzasCaos == 1) {
-						Stat = Stat + " <Legión Oscura> " + "<" + TituloCaos(TempCharIndex) + ">";
+						Stat = Stat + " <Dark Legion> " + "<" + TituloCaos(TempCharIndex) + ">";
 					}
 
 					if (UserList[TempCharIndex].GuildIndex > 0) {
@@ -1081,17 +1081,17 @@ void LookatTile(int UserIndex, int Map, int X, int Y) {
 					}
 
 					if (vb6::Len(UserList[TempCharIndex].desc) > 0) {
-						Stat = "Ves a " + UserList[TempCharIndex].CommonName + Stat + " - "
+						Stat = "You see " + UserList[TempCharIndex].CommonName + Stat + " - "
 								+ UserList[TempCharIndex].desc;
 					} else {
-						Stat = "Ves a " + UserList[TempCharIndex].CommonName + Stat;
+						Stat = "You see " + UserList[TempCharIndex].CommonName + Stat;
 					}
 
 					if (UserTienePrivilegio(TempCharIndex, PlayerType_RoyalCouncil)) {
-						Stat = Stat + " [CONSEJO DE BANDERBILL]";
+						Stat = Stat + " [COUNCIL OF BANDERBILL]";
 						ft = FontTypeNames_FONTTYPE_CONSEJOVesA;
 					} else if (UserTienePrivilegio(TempCharIndex, PlayerType_ChaosCouncil)) {
-						Stat = Stat + " [CONCILIO DE LAS SOMBRAS]";
+						Stat = Stat + " [COUNCIL OF SHADOWS]";
 						ft = FontTypeNames_FONTTYPE_CONSEJOCAOSVesA;
 					} else {
 						if (!UserTienePrivilegio(TempCharIndex, PlayerType_User)) {
@@ -1116,7 +1116,7 @@ void LookatTile(int UserIndex, int Map, int X, int Y) {
 							Stat = Stat + " <CRIMINAL>";
 							ft = FontTypeNames_FONTTYPE_FIGHT;
 						} else {
-							Stat = Stat + " <CIUDADANO>";
+							Stat = Stat + " <CITIZEN>";
 							ft = FontTypeNames_FONTTYPE_CITIZEN;
 						}
 					}
@@ -1157,50 +1157,50 @@ void LookatTile(int UserIndex, int Map, int X, int Y) {
 				if (UserList[UserIndex].flags.Muerto == 0) {
 
 					if (SupervivenciaSkill <= 10) {
-						estatus = "(Dudoso) ";
+						estatus = "(Doubtful) ";
 
 					} else if (SupervivenciaSkill <= 20) {
 						if (MinHp < (MaxHp / 2)) {
-							estatus = "(Herido) ";
+							estatus = "(Wounded) ";
 						} else {
-							estatus = "(Sano) ";
+							estatus = "(Healthy) ";
 						}
 
 					} else if (SupervivenciaSkill <= 30) {
 						if (MinHp < (MaxHp * 0.5)) {
-							estatus = "(Malherido) ";
+							estatus = "(Badly wounded) ";
 						} else if (MinHp < (MaxHp * 0.75)) {
-							estatus = "(Herido) ";
+							estatus = "(Wounded) ";
 						} else {
-							estatus = "(Sano) ";
+							estatus = "(Healthy) ";
 						}
 
 					} else if (SupervivenciaSkill <= 40) {
 						if (MinHp < (MaxHp * 0.25)) {
-							estatus = "(Muy malherido) ";
+							estatus = "(Very badly wounded) ";
 						} else if (MinHp < (MaxHp * 0.5)) {
-							estatus = "(Herido) ";
+							estatus = "(Wounded) ";
 						} else if (MinHp < (MaxHp * 0.75)) {
-							estatus = "(Levemente herido) ";
+							estatus = "(Lightly wounded) ";
 						} else {
-							estatus = "(Sano) ";
+							estatus = "(Healthy) ";
 						}
 
 					} else if (SupervivenciaSkill < 60) {
 						if (MinHp < (MaxHp * 0.05)) {
-							estatus = "(Agonizando) ";
+							estatus = "(Agonizing) ";
 						} else if (MinHp < (MaxHp * 0.1)) {
-							estatus = "(Casi muerto) ";
+							estatus = "(Almost dead) ";
 						} else if (MinHp < (MaxHp * 0.25)) {
-							estatus = "(Muy Malherido) ";
+							estatus = "(Very badly wounded) ";
 						} else if (MinHp < (MaxHp * 0.5)) {
-							estatus = "(Herido) ";
+							estatus = "(Wounded) ";
 						} else if (MinHp < (MaxHp * 0.75)) {
-							estatus = "(Levemente herido) ";
+							estatus = "(Lightly wounded) ";
 						} else if (MinHp < (MaxHp)) {
-							estatus = "(Sano) ";
+							estatus = "(Healthy) ";
 						} else {
-							estatus = "(Intacto) ";
+							estatus = "(Intact) ";
 						}
 					} else {
 						estatus = "(" + vb6::CStr(MinHp) + "/" + vb6::CStr(MaxHp) + ") ";
@@ -1272,13 +1272,13 @@ void LookatTile(int UserIndex, int Map, int X, int Y) {
 				} else {
 					if (Npclist[TempCharIndex].MaestroUser > 0) {
 						WriteConsoleMsg(UserIndex,
-								estatus + Npclist[TempCharIndex].Name + " es mascota de "
-										+ UserList[Npclist[TempCharIndex].MaestroUser].Name + ".",
+								estatus + Npclist[TempCharIndex].Name + " is "
+										+ UserList[Npclist[TempCharIndex].MaestroUser].Name + "'s pet.",
 								FontTypeNames_FONTTYPE_INFO);
 					} else {
 						sDesc = estatus + Npclist[TempCharIndex].Name;
 						if (Npclist[TempCharIndex].Owner > 0) {
-							sDesc = sDesc + " le pertenece a " + UserList[Npclist[TempCharIndex].Owner].Name;
+							sDesc = sDesc + " belongs to " + UserList[Npclist[TempCharIndex].Owner].Name;
 						}
 						sDesc = sDesc + ".";
 
@@ -1286,7 +1286,7 @@ void LookatTile(int UserIndex, int Map, int X, int Y) {
 
 						if (UserTienePrivilegio(UserIndex, PlayerType_Dios) || UserTienePrivilegio(UserIndex, PlayerType_Admin)) {
 							WriteConsoleMsg(UserIndex,
-									"Le pegó primero: " + Npclist[TempCharIndex].flags.AttackedFirstBy + ".",
+									"Was first hit by: " + Npclist[TempCharIndex].flags.AttackedFirstBy + ".",
 									FontTypeNames_FONTTYPE_INFO);
 						}
 					}

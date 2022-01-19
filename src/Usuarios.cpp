@@ -514,7 +514,7 @@ void CheckUserLevel(int UserIndex) {
 
 		SendData(SendTarget_ToPCArea, UserIndex,
 				dakara::protocol::server::BuildPlayWave(SND_NIVEL, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
-		WriteConsoleMsg(UserIndex, "¡Has subido de nivel!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You've leveled up!", FontTypeNames_FONTTYPE_INFO);
 
 		if (UserList[UserIndex].Stats.ELV == 1) {
 			Pts = 10;
@@ -715,26 +715,26 @@ void CheckUserLevel(int UserIndex) {
 
 		/* 'Notificamos al user */
 		if (AumentoHP > 0) {
-			WriteConsoleMsg(UserIndex, "Has ganado " + vb6::CStr(AumentoHP) + " puntos de vida.",
+			WriteConsoleMsg(UserIndex, "You've gained  " + vb6::CStr(AumentoHP) + " hit points.",
 					FontTypeNames_FONTTYPE_INFO);
 		}
 		if (AumentoSTA > 0) {
-			WriteConsoleMsg(UserIndex, "Has ganado " + vb6::CStr(AumentoSTA) + " puntos de energía.",
+			WriteConsoleMsg(UserIndex, "You've gained  " + vb6::CStr(AumentoSTA) + " energy points.",
 					FontTypeNames_FONTTYPE_INFO);
 		}
 		if (AumentoMANA > 0) {
-			WriteConsoleMsg(UserIndex, "Has ganado " + vb6::CStr(AumentoMANA) + " puntos de maná.",
+			WriteConsoleMsg(UserIndex, "You've gained  " + vb6::CStr(AumentoMANA) + " mana points.",
 					FontTypeNames_FONTTYPE_INFO);
 		}
 		if (AumentoHIT > 0) {
-			WriteConsoleMsg(UserIndex, "Tu golpe máximo aumentó en " + vb6::CStr(AumentoHIT) + " puntos.",
+			WriteConsoleMsg(UserIndex, "Your max hit has increased by " + vb6::CStr(AumentoHIT) + " points.",
 					FontTypeNames_FONTTYPE_INFO);
-			WriteConsoleMsg(UserIndex, "Tu golpe mínimo aumentó en " + vb6::CStr(AumentoHIT) + " puntos.",
+			WriteConsoleMsg(UserIndex, "Your min hit has increased by " + vb6::CStr(AumentoHIT) + " points.",
 					FontTypeNames_FONTTYPE_INFO);
 		}
 
 		LogDesarrollo(
-				UserList[UserIndex].CommonName + " paso a nivel " + vb6::CStr(UserList[UserIndex].Stats.ELV) + " gano HP: "
+				UserList[UserIndex].CommonName + " is now level " + vb6::CStr(UserList[UserIndex].Stats.ELV) + " gained HP: "
 						+ vb6::CStr(AumentoHP));
 
 		UserList[UserIndex].Stats.MinHp = UserList[UserIndex].Stats.MaxHp;
@@ -750,10 +750,10 @@ void CheckUserLevel(int UserIndex) {
 					/* 'We get here, so guild has factionary alignment, we have to expulse the user */
 					m_EcharMiembroDeClan(-1, UserList[UserIndex].Name);
 					SendData(SendTarget_ToGuildMembers, GI,
-							dakara::protocol::server::BuildConsoleMsg(UserList[UserIndex].CommonName + " deja el clan.",
+							dakara::protocol::server::BuildConsoleMsg(UserList[UserIndex].CommonName + " leaves the clan.",
 									FontTypeNames_FONTTYPE_GUILD));
 					WriteConsoleMsg(UserIndex,
-							"¡Ya tienes la madurez suficiente como para decidir bajo que estandarte pelearás! Por esta razón, hasta tanto no te enlistes en la facción bajo la cual tu clan está alineado, estarás excluído del mismo.",
+							"You are mature enough to know under which banner you'll fight! For that reason, until you join the faction that's your clan is aligned to you'll be excluded from it.",
 							FontTypeNames_FONTTYPE_GUILD);
 				}
 			}
@@ -766,7 +766,7 @@ void CheckUserLevel(int UserIndex) {
 		QuitarNewbieObj(UserIndex);
 		if (MapInfo[UserList[UserIndex].Pos.Map].Restringir == eRestrict_restrict_newbie) {
 			WarpUserChar(UserIndex, 1, 50, 50, true);
-			WriteConsoleMsg(UserIndex, "Debes abandonar el Dungeon Newbie.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You must leave the newbie dungeon.", FontTypeNames_FONTTYPE_INFO);
 		}
 	}
 
@@ -776,7 +776,7 @@ void CheckUserLevel(int UserIndex) {
 
 		UserList[UserIndex].Stats.SkillPts = UserList[UserIndex].Stats.SkillPts + Pts;
 
-		WriteConsoleMsg(UserIndex, "Has ganado un total de " + vb6::CStr(Pts) + " skillpoints.",
+		WriteConsoleMsg(UserIndex, "You've gained " + vb6::CStr(Pts) + " skillpoints.",
 				FontTypeNames_FONTTYPE_INFO);
 	}
 
@@ -1004,33 +1004,33 @@ void SendUserStatsTxt(int sendIndex, int UserIndex) {
 
 	int GuildI;
 
-	WriteConsoleMsg(sendIndex, "Estadísticas de: " + UserList[UserIndex].CommonName, FontTypeNames_FONTTYPE_INFO);
+	WriteConsoleMsg(sendIndex, "Stats of: " + UserList[UserIndex].CommonName, FontTypeNames_FONTTYPE_INFO);
 	WriteConsoleMsg(sendIndex,
-			"Nivel: " + vb6::CStr(UserList[UserIndex].Stats.ELV) + "  EXP: " + vb6::CStr(UserList[UserIndex].Stats.Exp) + "/"
+			"Level: " + vb6::CStr(UserList[UserIndex].Stats.ELV) + "  XP: " + vb6::CStr(UserList[UserIndex].Stats.Exp) + "/"
 					+ vb6::CStr(UserList[UserIndex].Stats.ELU), FontTypeNames_FONTTYPE_INFO);
 	WriteConsoleMsg(sendIndex,
-			"Salud: " + vb6::CStr(UserList[UserIndex].Stats.MinHp) + "/" + vb6::CStr(UserList[UserIndex].Stats.MaxHp) + "  Maná: "
+			"Health: " + vb6::CStr(UserList[UserIndex].Stats.MinHp) + "/" + vb6::CStr(UserList[UserIndex].Stats.MaxHp) + "  Maná: "
 					+ vb6::CStr(UserList[UserIndex].Stats.MinMAN) + "/" + vb6::CStr(UserList[UserIndex].Stats.MaxMAN)
-					+ "  Energía: " + vb6::CStr(UserList[UserIndex].Stats.MinSta) + "/"
+					+ "  Energy: " + vb6::CStr(UserList[UserIndex].Stats.MinSta) + "/"
 					+ vb6::CStr(UserList[UserIndex].Stats.MaxSta), FontTypeNames_FONTTYPE_INFO);
 
 	if (UserList[UserIndex].Invent.WeaponEqpObjIndex > 0) {
 		WriteConsoleMsg(sendIndex,
-				"Menor Golpe/Mayor Golpe: " + vb6::CStr(UserList[UserIndex].Stats.MinHIT) + "/"
+				"Min Hit/Max Hit: " + vb6::CStr(UserList[UserIndex].Stats.MinHIT) + "/"
 						+ vb6::CStr(UserList[UserIndex].Stats.MaxHIT) + " ("
 						+ vb6::CStr(ObjData[UserList[UserIndex].Invent.WeaponEqpObjIndex].MinHIT) + "/"
 						+ vb6::CStr(ObjData[UserList[UserIndex].Invent.WeaponEqpObjIndex].MaxHIT) + ")",
 				FontTypeNames_FONTTYPE_INFO);
 	} else {
 		WriteConsoleMsg(sendIndex,
-				"Menor Golpe/Mayor Golpe: " + vb6::CStr(UserList[UserIndex].Stats.MinHIT) + "/"
+				"Min Hit/Max Hit: " + vb6::CStr(UserList[UserIndex].Stats.MinHIT) + "/"
 						+ vb6::CStr(UserList[UserIndex].Stats.MaxHIT), FontTypeNames_FONTTYPE_INFO);
 	}
 
 	if (UserList[UserIndex].Invent.ArmourEqpObjIndex > 0) {
 		if (UserList[UserIndex].Invent.EscudoEqpObjIndex > 0) {
 			WriteConsoleMsg(sendIndex,
-					"(CUERPO) Mín Def/Máx Def: "
+					"(BODY) Min Def/Max Def: "
 							+ vb6::CStr(ObjData[UserList[UserIndex].Invent.ArmourEqpObjIndex].MinDef)
 							+ vb6::CStr(ObjData[UserList[UserIndex].Invent.EscudoEqpObjIndex].MinDef) + "/"
 							+ vb6::CStr(ObjData[UserList[UserIndex].Invent.ArmourEqpObjIndex].MaxDef)
@@ -1038,29 +1038,29 @@ void SendUserStatsTxt(int sendIndex, int UserIndex) {
 					FontTypeNames_FONTTYPE_INFO);
 		} else {
 			WriteConsoleMsg(sendIndex,
-					"(CUERPO) Mín Def/Máx Def: "
+					"(BODY) Min Def/Max Def: "
 							+ vb6::CStr(ObjData[UserList[UserIndex].Invent.ArmourEqpObjIndex].MinDef) + "/"
 							+ vb6::CStr(ObjData[UserList[UserIndex].Invent.ArmourEqpObjIndex].MaxDef),
 					FontTypeNames_FONTTYPE_INFO);
 		}
 	} else {
-		WriteConsoleMsg(sendIndex, "(CUERPO) Mín Def/Máx Def: 0", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(sendIndex, "(BODY) Min Def/Max Def: 0", FontTypeNames_FONTTYPE_INFO);
 	}
 
 	if (UserList[UserIndex].Invent.CascoEqpObjIndex > 0) {
 		WriteConsoleMsg(sendIndex,
-				"(CABEZA) Mín Def/Máx Def: " + vb6::CStr(ObjData[UserList[UserIndex].Invent.CascoEqpObjIndex].MinDef)
+				"(HEAD) Min Def/Max Def: " + vb6::CStr(ObjData[UserList[UserIndex].Invent.CascoEqpObjIndex].MinDef)
 						+ "/" + vb6::CStr(ObjData[UserList[UserIndex].Invent.CascoEqpObjIndex].MaxDef),
 				FontTypeNames_FONTTYPE_INFO);
 	} else {
-		WriteConsoleMsg(sendIndex, "(CABEZA) Mín Def/Máx Def: 0", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(sendIndex, "(HEAD) Min Def/Max Def: 0", FontTypeNames_FONTTYPE_INFO);
 	}
 
 	GuildI = UserList[UserIndex].GuildIndex;
 	if (GuildI > 0) {
 		WriteConsoleMsg(sendIndex, "Clan: " + GuildName(GuildI), FontTypeNames_FONTTYPE_INFO);
 		if (vb6::UCase(GuildLeader(GuildI)) == vb6::UCase(UserList[UserIndex].Name)) {
-			WriteConsoleMsg(sendIndex, "Status: Líder", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(sendIndex, "Status: Leader", FontTypeNames_FONTTYPE_INFO);
 		}
 		/* 'guildpts no tienen objeto */
 	}
@@ -1070,24 +1070,24 @@ void SendUserStatsTxt(int sendIndex, int UserIndex) {
 	// std::string TempStr;
 	TempDate = vb6::Now() - UserList[UserIndex].LogOnTime;
 	int minutosTotales = UserList[UserIndex].UpTime;
-	WriteConsoleMsg(sendIndex, "Logeado hace: " + boost::posix_time::to_simple_string(TempDate), FontTypeNames_FONTTYPE_INFO);
+	WriteConsoleMsg(sendIndex, "Logged for: " + boost::posix_time::to_simple_string(TempDate), FontTypeNames_FONTTYPE_INFO);
 	std::stringstream s;
-	s << "Total: " << ((minutosTotales/24)/60) <<" Dias, " << ((minutosTotales/60)%24) <<" Horas, "<< (minutosTotales%60) << " minutos";
+	s << "Total: " << ((minutosTotales/24)/60) <<" Days, " << ((minutosTotales/60)%24) <<" Hours, "<< (minutosTotales%60) << " minutes";
 	WriteConsoleMsg(sendIndex, s.str() , FontTypeNames_FONTTYPE_INFO);
 
 	/* # END IF */
 	if (UserList[UserIndex].flags.Traveling == 1) {
 		WriteConsoleMsg(sendIndex,
-				"Tiempo restante para llegar a tu hogar: " + vb6::CStr(GetHomeArrivalTime(UserIndex)) + " segundos.",
+				"Time remaining to reach home: " + vb6::CStr(GetHomeArrivalTime(UserIndex)) + " seconds.",
 				FontTypeNames_FONTTYPE_INFO);
 	}
 
 	WriteConsoleMsg(sendIndex,
-			"Oro: " + vb6::CStr(UserList[UserIndex].Stats.GLD) + "  Posición: " + vb6::CStr(UserList[UserIndex].Pos.X) + ","
-					+ vb6::CStr(UserList[UserIndex].Pos.Y) + " en mapa " + vb6::CStr(UserList[UserIndex].Pos.Map),
+			"Gold: " + vb6::CStr(UserList[UserIndex].Stats.GLD) + "  Position: " + vb6::CStr(UserList[UserIndex].Pos.X) + ","
+					+ vb6::CStr(UserList[UserIndex].Pos.Y) + " in map " + vb6::CStr(UserList[UserIndex].Pos.Map),
 			FontTypeNames_FONTTYPE_INFO);
 	WriteConsoleMsg(sendIndex,
-			"Dados: " + vb6::CStr(UserList[UserIndex].Stats.UserAtributos[eAtributos_Fuerza]) + ", "
+			"Dice: " + vb6::CStr(UserList[UserIndex].Stats.UserAtributos[eAtributos_Fuerza]) + ", "
 					+ vb6::CStr(UserList[UserIndex].Stats.UserAtributos[eAtributos_Agilidad]) + ", "
 					+ vb6::CStr(UserList[UserIndex].Stats.UserAtributos[eAtributos_Inteligencia]) + ", "
 					+ vb6::CStr(UserList[UserIndex].Stats.UserAtributos[eAtributos_Carisma]) + ", "
@@ -1102,51 +1102,51 @@ void SendUserMiniStatsTxt(int sendIndex, int UserIndex) {
 	/* 'Shows the users Stats when the user is online. */
 	/* '23/01/2007 Pablo (ToxicWaste) - Agrego de funciones y mejora de distribución de parámetros. */
 	/* '************************************************* */
-	WriteConsoleMsg(sendIndex, "Pj: " + UserList[UserIndex].CommonName, FontTypeNames_FONTTYPE_INFO);
+	WriteConsoleMsg(sendIndex, "PC: " + UserList[UserIndex].CommonName, FontTypeNames_FONTTYPE_INFO);
 	WriteConsoleMsg(sendIndex,
-			"Ciudadanos matados: " + vb6::CStr(UserList[UserIndex].Faccion.CiudadanosMatados) + " Criminales matados: "
-					+ vb6::CStr(UserList[UserIndex].Faccion.CriminalesMatados) + " usuarios matados: "
+			"Citizens killed: " + vb6::CStr(UserList[UserIndex].Faccion.CiudadanosMatados) + " Criminals killed: "
+					+ vb6::CStr(UserList[UserIndex].Faccion.CriminalesMatados) + " users killed: "
 					+ vb6::CStr(UserList[UserIndex].Stats.UsuariosMatados), FontTypeNames_FONTTYPE_INFO);
-	WriteConsoleMsg(sendIndex, "NPCs muertos: " + vb6::CStr(UserList[UserIndex].Stats.NPCsMuertos),
+	WriteConsoleMsg(sendIndex, "NPCs killed: " + vb6::CStr(UserList[UserIndex].Stats.NPCsMuertos),
 			FontTypeNames_FONTTYPE_INFO);
-	WriteConsoleMsg(sendIndex, "Clase: " + vb6::CStr(ListaClases[UserList[UserIndex].clase]),
+	WriteConsoleMsg(sendIndex, "Class: " + vb6::CStr(ListaClases[UserList[UserIndex].clase]),
 			FontTypeNames_FONTTYPE_INFO);
-	WriteConsoleMsg(sendIndex, "Pena: " + vb6::CStr(UserList[UserIndex].Counters.Pena), FontTypeNames_FONTTYPE_INFO);
+	WriteConsoleMsg(sendIndex, "Punishment: " + vb6::CStr(UserList[UserIndex].Counters.Pena), FontTypeNames_FONTTYPE_INFO);
 
 	if (UserList[UserIndex].Faccion.ArmadaReal == 1) {
-		WriteConsoleMsg(sendIndex, "Ejército real desde: " + UserList[UserIndex].Faccion.FechaIngreso,
+		WriteConsoleMsg(sendIndex, "Royal Army Since: " + UserList[UserIndex].Faccion.FechaIngreso,
 				FontTypeNames_FONTTYPE_INFO);
 		WriteConsoleMsg(sendIndex,
-				"Ingresó en nivel: " + vb6::CStr(UserList[UserIndex].Faccion.NivelIngreso) + " con "
-						+ vb6::CStr(UserList[UserIndex].Faccion.MatadosIngreso) + " ciudadanos matados.",
+				"Joined being level: " + vb6::CStr(UserList[UserIndex].Faccion.NivelIngreso) + " with "
+						+ vb6::CStr(UserList[UserIndex].Faccion.MatadosIngreso) + " citizens killed.",
 				FontTypeNames_FONTTYPE_INFO);
-		WriteConsoleMsg(sendIndex, "Veces que ingresó: " + vb6::CStr(UserList[UserIndex].Faccion.Reenlistadas),
+		WriteConsoleMsg(sendIndex, "Joined " + vb6::CStr(UserList[UserIndex].Faccion.Reenlistadas + " times."),
 				FontTypeNames_FONTTYPE_INFO);
 
 	} else if (UserList[UserIndex].Faccion.FuerzasCaos == 1) {
-		WriteConsoleMsg(sendIndex, "Legión oscura desde: " + vb6::CStr(UserList[UserIndex].Faccion.FechaIngreso),
+		WriteConsoleMsg(sendIndex, "Dark Legion since: " + vb6::CStr(UserList[UserIndex].Faccion.FechaIngreso),
 				FontTypeNames_FONTTYPE_INFO);
-		WriteConsoleMsg(sendIndex, "Ingresó en nivel: " + vb6::CStr(UserList[UserIndex].Faccion.NivelIngreso),
+		WriteConsoleMsg(sendIndex, "Joined being level: " + vb6::CStr(UserList[UserIndex].Faccion.NivelIngreso),
 				FontTypeNames_FONTTYPE_INFO);
-		WriteConsoleMsg(sendIndex, "Veces que ingresó: " + vb6::CStr(UserList[UserIndex].Faccion.Reenlistadas),
+		WriteConsoleMsg(sendIndex, "Joined " + vb6::CStr(UserList[UserIndex].Faccion.Reenlistadas + " times."),
 				FontTypeNames_FONTTYPE_INFO);
 
 	} else if (UserList[UserIndex].Faccion.RecibioExpInicialReal == 1) {
-		WriteConsoleMsg(sendIndex, "Fue ejército real", FontTypeNames_FONTTYPE_INFO);
-		WriteConsoleMsg(sendIndex, "Veces que ingresó: " + vb6::CStr(UserList[UserIndex].Faccion.Reenlistadas),
+		WriteConsoleMsg(sendIndex, "Was Royal Army", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(sendIndex, "Joined " + vb6::CStr(UserList[UserIndex].Faccion.Reenlistadas + " times."),
 				FontTypeNames_FONTTYPE_INFO);
 
 	} else if (UserList[UserIndex].Faccion.RecibioExpInicialCaos == 1) {
-		WriteConsoleMsg(sendIndex, "Fue legión oscura", FontTypeNames_FONTTYPE_INFO);
-		WriteConsoleMsg(sendIndex, "Veces que ingresó: " + vb6::CStr(UserList[UserIndex].Faccion.Reenlistadas),
+		WriteConsoleMsg(sendIndex, "Was Dark Legion", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(sendIndex, "Joined " + vb6::CStr(UserList[UserIndex].Faccion.Reenlistadas + " times."),
 				FontTypeNames_FONTTYPE_INFO);
 	}
 
-	WriteConsoleMsg(sendIndex, "Asesino: " + vb6::CStr(UserList[UserIndex].Reputacion.AsesinoRep),
+	WriteConsoleMsg(sendIndex, "Assassin: " + vb6::CStr(UserList[UserIndex].Reputacion.AsesinoRep),
 			FontTypeNames_FONTTYPE_INFO);
 	WriteConsoleMsg(sendIndex, "Noble: " + vb6::CStr(UserList[UserIndex].Reputacion.NobleRep),
 			FontTypeNames_FONTTYPE_INFO);
-	WriteConsoleMsg(sendIndex, "Bandido: " + vb6::CStr(UserList[UserIndex].Reputacion.BandidoRep),
+	WriteConsoleMsg(sendIndex, "Brigand: " + vb6::CStr(UserList[UserIndex].Reputacion.BandidoRep),
 			FontTypeNames_FONTTYPE_INFO);
 
 	if (UserList[UserIndex].GuildIndex > 0) {
@@ -1172,57 +1172,57 @@ void SendUserMiniStatsTxtFromChar(int sendIndex, std::string charName) {
 	if (FileExist(CharFile)) {
 		WriteConsoleMsg(sendIndex, "Pj: " + charName, FontTypeNames_FONTTYPE_INFO);
 		WriteConsoleMsg(sendIndex,
-				"Ciudadanos matados: " + GetVar(CharFile, "FACCIONES", "CiudMatados") + " CriminalesMatados: "
+				"Citizens killed: " + GetVar(CharFile, "FACCIONES", "CiudMatados") + " Criminals killed: "
 						+ GetVar(CharFile, "FACCIONES", "CrimMatados") + " usuarios matados: "
 						+ GetVar(CharFile, "MUERTES", "UserMuertes"), FontTypeNames_FONTTYPE_INFO);
-		WriteConsoleMsg(sendIndex, "NPCs muertos: " + GetVar(CharFile, "MUERTES", "NpcsMuertes"),
+		WriteConsoleMsg(sendIndex, "NPCs killed: " + GetVar(CharFile, "MUERTES", "NpcsMuertes"),
 				FontTypeNames_FONTTYPE_INFO);
-		WriteConsoleMsg(sendIndex, "Clase: " + ListaClases[vb6::CInt(GetVar(CharFile, "INIT", "Clase"))],
+		WriteConsoleMsg(sendIndex, "Class: " + ListaClases[vb6::CInt(GetVar(CharFile, "INIT", "Clase"))],
 				FontTypeNames_FONTTYPE_INFO);
-		WriteConsoleMsg(sendIndex, "Pena: " + GetVar(CharFile, "COUNTERS", "PENA"),
+		WriteConsoleMsg(sendIndex, "Punishment: " + GetVar(CharFile, "COUNTERS", "PENA"),
 				FontTypeNames_FONTTYPE_INFO);
 
 		if (vb6::CByte(GetVar(CharFile, "FACCIONES", "EjercitoReal")) == 1) {
 			WriteConsoleMsg(sendIndex,
-					"Ejército real desde: " + GetVar(CharFile, "FACCIONES", "FechaIngreso"),
+					"Royal Army since: " + GetVar(CharFile, "FACCIONES", "FechaIngreso"),
 					FontTypeNames_FONTTYPE_INFO);
 			WriteConsoleMsg(sendIndex,
-					"Ingresó en nivel: " + (GetVar(CharFile, "FACCIONES", "NivelIngreso")) + " con "
+					"Joined being level: " + (GetVar(CharFile, "FACCIONES", "NivelIngreso")) + " con "
 							+ (GetVar(CharFile, "FACCIONES", "MatadosIngreso"))
-							+ " ciudadanos matados.", FontTypeNames_FONTTYPE_INFO);
+							+ " citizens killed.", FontTypeNames_FONTTYPE_INFO);
 			WriteConsoleMsg(sendIndex,
-					"Veces que ingresó: " + vb6::CStr(vb6::CByte(GetVar(CharFile, "FACCIONES", "Reenlistadas"))),
+					"Times joined: " + vb6::CStr(vb6::CByte(GetVar(CharFile, "FACCIONES", "Reenlistadas"))),
 					FontTypeNames_FONTTYPE_INFO);
 
 		} else if (vb6::CByte(GetVar(CharFile, "FACCIONES", "EjercitoCaos")) == 1) {
 			WriteConsoleMsg(sendIndex,
-					"Legión oscura desde: " + GetVar(CharFile, "FACCIONES", "FechaIngreso"),
+					"Dark Legion since: " + GetVar(CharFile, "FACCIONES", "FechaIngreso"),
 					FontTypeNames_FONTTYPE_INFO);
 			WriteConsoleMsg(sendIndex,
-					"Ingresó en nivel: " + vb6::CStr(vb6::CInt(GetVar(CharFile, "FACCIONES", "NivelIngreso"))),
+					"Joined being level: " + vb6::CStr(vb6::CInt(GetVar(CharFile, "FACCIONES", "NivelIngreso"))),
 					FontTypeNames_FONTTYPE_INFO);
 			WriteConsoleMsg(sendIndex,
-					"Veces que ingresó: " + vb6::CStr(vb6::CByte(GetVar(CharFile, "FACCIONES", "Reenlistadas"))),
+					"Times joined: " + vb6::CStr(vb6::CByte(GetVar(CharFile, "FACCIONES", "Reenlistadas"))),
 					FontTypeNames_FONTTYPE_INFO);
 
 		} else if (vb6::CByte(GetVar(CharFile, "FACCIONES", "rExReal")) == 1) {
-			WriteConsoleMsg(sendIndex, "Fue ejército real", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(sendIndex, "Was Royal Army", FontTypeNames_FONTTYPE_INFO);
 			WriteConsoleMsg(sendIndex,
-					"Veces que ingresó: " + vb6::CStr(vb6::CByte(GetVar(CharFile, "FACCIONES", "Reenlistadas"))),
+					"Times joined: " + vb6::CStr(vb6::CByte(GetVar(CharFile, "FACCIONES", "Reenlistadas"))),
 					FontTypeNames_FONTTYPE_INFO);
 
 		} else if (vb6::CByte(GetVar(CharFile, "FACCIONES", "rExCaos")) == 1) {
-			WriteConsoleMsg(sendIndex, "Fue legión oscura", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(sendIndex, "Was Dark Legion", FontTypeNames_FONTTYPE_INFO);
 			WriteConsoleMsg(sendIndex,
-					"Veces que ingresó: " + vb6::CStr(vb6::CByte(GetVar(CharFile, "FACCIONES", "Reenlistadas"))),
+					"Times joined: " + vb6::CStr(vb6::CByte(GetVar(CharFile, "FACCIONES", "Reenlistadas"))),
 					FontTypeNames_FONTTYPE_INFO);
 		}
 
-		WriteConsoleMsg(sendIndex, "Asesino: " + vb6::CStr(vb6::CLng(GetVar(CharFile, "REP", "Asesino"))),
+		WriteConsoleMsg(sendIndex, "Assassin: " + vb6::CStr(vb6::CLng(GetVar(CharFile, "REP", "Asesino"))),
 				FontTypeNames_FONTTYPE_INFO);
 		WriteConsoleMsg(sendIndex, "Noble: " + vb6::CStr(vb6::CLng(GetVar(CharFile, "REP", "Nobles"))),
 				FontTypeNames_FONTTYPE_INFO);
-		WriteConsoleMsg(sendIndex, "Bandido: " + vb6::CStr(vb6::CLng(GetVar(CharFile, "REP", "BANDIDO"))),
+		WriteConsoleMsg(sendIndex, "Brigand: " + vb6::CStr(vb6::CLng(GetVar(CharFile, "REP", "BANDIDO"))),
 				FontTypeNames_FONTTYPE_INFO);
 
 		if (vb6::IsNumeric(GetVar(CharFile, "Guild", "GUILDINDEX"))) {
@@ -1240,7 +1240,7 @@ void SendUserMiniStatsTxtFromChar(int sendIndex, std::string charName) {
 							+ GetVar(BanDetailPath, charName, "Reason"), FontTypeNames_FONTTYPE_INFO);
 		}
 	} else {
-		WriteConsoleMsg(sendIndex, "El pj no existe: " + charName, FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(sendIndex, "The PC doesn't exist: " + charName, FontTypeNames_FONTTYPE_INFO);
 	}
 }
 
@@ -1254,14 +1254,14 @@ void SendUserInvTxt(int sendIndex, int UserIndex) {
 	int j;
 
 	WriteConsoleMsg(sendIndex, UserList[UserIndex].CommonName, FontTypeNames_FONTTYPE_INFO);
-	WriteConsoleMsg(sendIndex, "Tiene " + vb6::CStr(UserList[UserIndex].Invent.NroItems) + " objetos.",
+	WriteConsoleMsg(sendIndex, "Has " + vb6::CStr(UserList[UserIndex].Invent.NroItems) + " objects.",
 			FontTypeNames_FONTTYPE_INFO);
 
 	for (j = (1); j <= (UserList[UserIndex].CurrentInventorySlots); j++) {
 		if (UserList[UserIndex].Invent.Object[j].ObjIndex > 0) {
 			WriteConsoleMsg(sendIndex,
-					"Objeto " + vb6::CStr(j) + " " + ObjData[UserList[UserIndex].Invent.Object[j].ObjIndex].Name
-							+ " Cantidad:" + vb6::CStr(UserList[UserIndex].Invent.Object[j].Amount),
+					"Object " + vb6::CStr(j) + " " + ObjData[UserList[UserIndex].Invent.Object[j].ObjIndex].Name
+							+ " Amount:" + vb6::CStr(UserList[UserIndex].Invent.Object[j].Amount),
 					FontTypeNames_FONTTYPE_INFO);
 		}
 	}
@@ -1284,7 +1284,7 @@ void SendUserInvTxtFromChar(int sendIndex, std::string charName) {
 
 	if (FileExist(CharFile, 0)) {
 		WriteConsoleMsg(sendIndex, charName, FontTypeNames_FONTTYPE_INFO);
-		WriteConsoleMsg(sendIndex, "Tiene " + GetVar(CharFile, "Inventory", "CantidadItems") + " objetos.",
+		WriteConsoleMsg(sendIndex, "Has " + GetVar(CharFile, "Inventory", "CantidadItems") + " objects.",
 				FontTypeNames_FONTTYPE_INFO);
 
 		for (j = (1); j <= (MAX_INVENTORY_SLOTS); j++) {
@@ -1293,12 +1293,12 @@ void SendUserInvTxtFromChar(int sendIndex, std::string charName) {
 			ObjCant = vb6::CInt(ReadField(2, Tmp, vb6::Asc("-")));
 			if (ObjInd > 0) {
 				WriteConsoleMsg(sendIndex,
-						"Objeto " + vb6::CStr(j) + " " + ObjData[ObjInd].Name + " Cantidad:" + vb6::CStr(ObjCant),
+						"Object " + vb6::CStr(j) + " " + ObjData[ObjInd].Name + " Amount:" + vb6::CStr(ObjCant),
 						FontTypeNames_FONTTYPE_INFO);
 			}
 		}
 	} else {
-		WriteConsoleMsg(sendIndex, "Usuario inexistente: " + charName, FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(sendIndex, "Unknown user: " + charName, FontTypeNames_FONTTYPE_INFO);
 	}
 }
 
@@ -1317,7 +1317,7 @@ void SendUserSkillsTxt(int sendIndex, int UserIndex) {
 				FontTypeNames_FONTTYPE_INFO);
 	}
 
-	WriteConsoleMsg(sendIndex, "SkillLibres:" + vb6::CStr(UserList[UserIndex].Stats.SkillPts),
+	WriteConsoleMsg(sendIndex, "Free Skill Points:" + vb6::CStr(UserList[UserIndex].Stats.SkillPts),
 			FontTypeNames_FONTTYPE_INFO);
 }
 
@@ -1333,7 +1333,7 @@ bool EsMascotaCiudadano(int NpcIndex, int UserIndex) {
 		retval = !criminal(Npclist[NpcIndex].MaestroUser);
 		if (retval) {
 			WriteConsoleMsg(Npclist[NpcIndex].MaestroUser,
-					"¡¡" + UserList[UserIndex].CommonName + " esta atacando tu mascota!!",
+					UserList[UserIndex].CommonName + " is attacking your pet!!",
 					FontTypeNames_FONTTYPE_INFO);
 		}
 	}
@@ -1470,7 +1470,7 @@ void SubirSkill(int UserIndex, int Skill, bool Acerto) {
 		if (UserList[UserIndex].Counters.AsignedSkills < 10) {
 			if (UserList[UserIndex].flags.UltimoMensaje != 7) {
 				WriteConsoleMsg(UserIndex,
-						"Para poder entrenar un skill debes asignar los 10 skills iniciales.",
+						"To train a skill you need a minimum of 10 skill points in that skill.",
 						FontTypeNames_FONTTYPE_INFO);
 				UserList[UserIndex].flags.UltimoMensaje = 7;
 			}
@@ -1504,8 +1504,8 @@ void SubirSkill(int UserIndex, int Skill, bool Acerto) {
 		if (UserList[UserIndex].Stats.ExpSkills[Skill] >= UserList[UserIndex].Stats.EluSkills[Skill]) {
 			UserList[UserIndex].Stats.UserSkills[Skill] = UserList[UserIndex].Stats.UserSkills[Skill] + 1;
 			WriteConsoleMsg(UserIndex,
-					"¡Has mejorado tu skill " + SkillsNames[Skill] + " en un punto! Ahora tienes "
-							+ vb6::CStr(UserList[UserIndex].Stats.UserSkills[Skill]) + " pts.",
+					"You've improved your skill " + SkillsNames[Skill] + " by 1 point! You now have "
+							+ vb6::CStr(UserList[UserIndex].Stats.UserSkills[Skill]) + " points.",
 					FontTypeNames_FONTTYPE_INFO);
 
 			UserList[UserIndex].Stats.Exp = UserList[UserIndex].Stats.Exp + 50;
@@ -1513,7 +1513,7 @@ void SubirSkill(int UserIndex, int Skill, bool Acerto) {
 				UserList[UserIndex].Stats.Exp = MAXEXP;
 			}
 
-			WriteConsoleMsg(UserIndex, "¡Has ganado 50 puntos de experiencia!", FontTypeNames_FONTTYPE_FIGHT);
+			WriteConsoleMsg(UserIndex, "You've gained 50XP!", FontTypeNames_FONTTYPE_FIGHT);
 
 			WriteUpdateExp(UserIndex);
 			CheckUserLevel(UserIndex);
@@ -1754,7 +1754,7 @@ void UserDie(int UserIndex) {
 	MapaTelep = MapInfo[mapa].OnDeathGoTo.Map;
 
 	if (MapaTelep != 0) {
-		WriteConsoleMsg(UserIndex, "¡¡¡Tu estado no te permite permanecer en el mapa!!!",
+		WriteConsoleMsg(UserIndex, "Your state doesn't allow you to remain in the map!!!",
 				FontTypeNames_FONTTYPE_INFOBOLD);
 		WarpUserChar(UserIndex, MapaTelep, MapInfo[mapa].OnDeathGoTo.X, MapInfo[mapa].OnDeathGoTo.Y, true,
 				true);
@@ -1904,12 +1904,12 @@ void WarpUserChar(int UserIndex, int Map, int X, int Y, bool FX, bool Teletransp
 				/* 'era invi */
 				if (WasInvi) {
 					WriteConsoleMsg(UserIndex,
-							"Has vuelto a ser visible ya que no esta permitida la invisibilidad en este mapa.",
+							"You are visible again, since invisibility doesn't work in this map.",
 							FontTypeNames_FONTTYPE_INFO);
 					/* 'estaba oculto */
 				} else {
 					WriteConsoleMsg(UserIndex,
-							"Has vuelto a ser visible ya que no esta permitido ocultarse en este mapa.",
+							"You are visible again, since hiding is not possible in this map.",
 							FontTypeNames_FONTTYPE_INFO);
 				}
 			}
@@ -2095,7 +2095,7 @@ void WarpMascotas(int UserIndex) {
 			/* 'Controlamos que se sumoneo OK - should never happen. Continue to allow removal of other pets if not alone */
 			/* ' Exception: Pets don't spawn in water if they can't swim */
 			if (index == 0) {
-				WriteConsoleMsg(UserIndex, "Tus mascotas no pueden transitar este mapa.",
+				WriteConsoleMsg(UserIndex, "Pets are not allowed in this map.",
 						FontTypeNames_FONTTYPE_INFO);
 			} else {
 				UserList[UserIndex].MascotasIndex[i] = index;
@@ -2111,12 +2111,12 @@ void WarpMascotas(int UserIndex) {
 	}
 
 	if (InvocadosMatados > 0) {
-		WriteConsoleMsg(UserIndex, "Pierdes el control de tus mascotas invocadas.",
+		WriteConsoleMsg(UserIndex, "You've lost control of your invoked creatures.",
 				FontTypeNames_FONTTYPE_INFO);
 	}
 
 	if (!canWarp) {
-		WriteConsoleMsg(UserIndex, "No se permiten mascotas en zona segura. Éstas te esperarán afuera.",
+		WriteConsoleMsg(UserIndex, "Pets are not allowed within safe zones. They'll wait for you outside.",
 				FontTypeNames_FONTTYPE_INFO);
 	}
 
@@ -2157,7 +2157,7 @@ void WarpMascota(int UserIndex, int PetIndex) {
 	/* ' Exception: Pets don't spawn in water if they can't swim */
 	if (NpcIndex == 0) {
 		WriteConsoleMsg(UserIndex,
-				"Tu mascota no pueden transitar este sector del mapa, intenta invocarla en otra parte.",
+				"Your pet cannot go throught his part of the map, try invoking it elsewhere.",
 				FontTypeNames_FONTTYPE_INFO);
 	} else {
 		UserList[UserIndex].MascotasIndex[PetIndex] = NpcIndex;
@@ -2199,7 +2199,7 @@ void CerrarUserIndexIniciar(int UserIndex) {
 			if (UserList[tUser].flags.UserLogged) {
 				if (UserList[tUser].ComUsu.DestUsu == UserIndex) {
 					if (UserIndexSocketValido(tUser)) {
-						WriteConsoleMsg(tUser, "Comercio cancelado por el otro usuario.",
+						WriteConsoleMsg(tUser, "Trade canceled by the other party.",
 								FontTypeNames_FONTTYPE_TALK);
 					}
 					FinComerciarUsu(tUser);
@@ -2207,7 +2207,7 @@ void CerrarUserIndexIniciar(int UserIndex) {
 			}
 
 			if (UserIndexSocketValido(UserIndex)) {
-				WriteConsoleMsg(UserIndex, "Comercio cancelado.", FontTypeNames_FONTTYPE_TALK);
+				WriteConsoleMsg(UserIndex, "Trade canceled.", FontTypeNames_FONTTYPE_TALK);
 			}
 			FinComerciarUsu(UserIndex);
 		}
@@ -2228,7 +2228,7 @@ void CerrarUserIndexIniciar(int UserIndex) {
 							/* ' Pierde la apariencia de fragata fantasmal */
 							ToggleBoatBody(UserIndex);
 							if (UserIndexSocketValido(UserIndex)) {
-								WriteConsoleMsg(UserIndex, "¡Has recuperado tu apariencia normal!",
+								WriteConsoleMsg(UserIndex, "Your appearance has returned to normal!",
 										FontTypeNames_FONTTYPE_INFO);
 							}
 							ChangeUserChar(UserIndex, UserList[UserIndex].Char.body,
@@ -2244,7 +2244,7 @@ void CerrarUserIndexIniciar(int UserIndex) {
 				/* ' Para no repetir mensajes */
 				if (!HiddenPirat) {
 					if (UserIndexSocketValido(UserIndex)) {
-						WriteConsoleMsg(UserIndex, "Has vuelto a ser visible.", FontTypeNames_FONTTYPE_INFO);
+						WriteConsoleMsg(UserIndex, "You are visible again.", FontTypeNames_FONTTYPE_INFO);
 					}
 				}
 
@@ -2263,8 +2263,8 @@ void CerrarUserIndexIniciar(int UserIndex) {
 			}
 
 			WriteConsoleMsg(UserIndex,
-					"Cerrando...Se cerrará el juego en " + vb6::CStr(UserList[UserIndex].Counters.Salir)
-							+ " segundos...", FontTypeNames_FONTTYPE_INFO);
+					"Closing... your character will be logged out in " + vb6::CStr(UserList[UserIndex].Counters.Salir)
+							+ " seconds...", FontTypeNames_FONTTYPE_INFO);
 		}
 	}
 }
@@ -2285,7 +2285,7 @@ void CancelExit(int UserIndex) {
 		if (UserIndexSocketValido(UserIndex)) {
 			UserList[UserIndex].Counters.Saliendo = false;
 			UserList[UserIndex].Counters.Salir = 0;
-			WriteConsoleMsg(UserIndex, "/salir cancelado.", FontTypeNames_FONTTYPE_WARNING);
+			WriteConsoleMsg(UserIndex, "/exit canceled.", FontTypeNames_FONTTYPE_WARNING);
 		} else {
 			/* 'Simply reset */
 			UserList[UserIndex].Counters.Salir = vb6::IIf(
@@ -2335,27 +2335,27 @@ void SendUserStatsTxtOFF(int sendIndex, std::string Nombre) {
 	/* '*************************************************** */
 
 	if (FileExist(GetCharPath(Nombre), 0) == false) {
-		WriteConsoleMsg(sendIndex, "Pj Inexistente", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(sendIndex, "PC doesn't exist", FontTypeNames_FONTTYPE_INFO);
 	} else {
-		WriteConsoleMsg(sendIndex, "Estadísticas de: " + Nombre, FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(sendIndex, "Stats of: " + Nombre, FontTypeNames_FONTTYPE_INFO);
 		WriteConsoleMsg(sendIndex,
-				"Nivel: " + GetVar(GetCharPath(Nombre), "stats", "elv") + "  EXP: "
+				"Level: " + GetVar(GetCharPath(Nombre), "stats", "elv") + "  XP: "
 						+ GetVar(GetCharPath(Nombre), "stats", "Exp") + "/"
 						+ GetVar(GetCharPath(Nombre), "stats", "elu"), FontTypeNames_FONTTYPE_INFO);
 		WriteConsoleMsg(sendIndex,
-				"Energía: " + GetVar(GetCharPath(Nombre), "stats", "minsta") + "/"
+				"Energy: " + GetVar(GetCharPath(Nombre), "stats", "minsta") + "/"
 						+ GetVar(GetCharPath(Nombre), "stats", "maxSta"), FontTypeNames_FONTTYPE_INFO);
 		WriteConsoleMsg(sendIndex,
-				"Salud: " + GetVar(GetCharPath(Nombre), "stats", "MinHP") + "/"
-						+ GetVar(GetCharPath(Nombre), "Stats", "MaxHP") + "  Maná: "
+				"healt: " + GetVar(GetCharPath(Nombre), "stats", "MinHP") + "/"
+						+ GetVar(GetCharPath(Nombre), "Stats", "MaxHP") + "  Mana: "
 						+ GetVar(GetCharPath(Nombre), "Stats", "MinMAN") + "/"
 						+ GetVar(GetCharPath(Nombre), "Stats", "MaxMAN"), FontTypeNames_FONTTYPE_INFO);
 
 		WriteConsoleMsg(sendIndex,
-				"Menor Golpe/Mayor Golpe: " + GetVar(GetCharPath(Nombre), "stats", "MaxHIT"),
+				"Min Hit/Max Hit: " + GetVar(GetCharPath(Nombre), "stats", "MaxHIT"),
 				FontTypeNames_FONTTYPE_INFO);
 
-		WriteConsoleMsg(sendIndex, "Oro: " + GetVar(GetCharPath(Nombre), "stats", "GLD"),
+		WriteConsoleMsg(sendIndex, "Gold: " + GetVar(GetCharPath(Nombre), "stats", "GLD"),
 				FontTypeNames_FONTTYPE_INFO);
 
 		/* # IF ConUpTime THEN */
@@ -2363,11 +2363,11 @@ void SendUserStatsTxtOFF(int sendIndex, std::string Nombre) {
 		// std::string TempStr;
 		TempSecs = vb6::CInt(GetVar(GetCharPath(Nombre), "INIT", "UpTime"));
 		// TempStr = (TempSecs/86400) + " Días, " + ((TempSecsMod86400)/3600) + " Horas, " + ((TempSecsMod86400)Mod3600)/60 + " Minutos, " + (((TempSecsMod86400)Mod3600)Mod60) + " Segundos.";
-		WriteConsoleMsg(sendIndex, "Tiempo Logeado: " + vb6::CStr(TempSecs), FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(sendIndex, "Logged time: " + vb6::CStr(TempSecs), FontTypeNames_FONTTYPE_INFO);
 		/* # END IF */
 
 		WriteConsoleMsg(sendIndex,
-				"Dados: " + GetVar(GetCharPath(Nombre), "ATRIBUTOS", "AT1") + ", "
+				"Dice: " + GetVar(GetCharPath(Nombre), "ATRIBUTOS", "AT1") + ", "
 						+ GetVar(GetCharPath(Nombre), "ATRIBUTOS", "AT2") + ", "
 						+ GetVar(GetCharPath(Nombre), "ATRIBUTOS", "AT3") + ", "
 						+ GetVar(GetCharPath(Nombre), "ATRIBUTOS", "AT4") + ", "
@@ -2389,10 +2389,10 @@ void SendUserOROTxtFromChar(int sendIndex, std::string charName) {
 
 	if (FileExist(CharFile, 0)) {
 		WriteConsoleMsg(sendIndex, charName, FontTypeNames_FONTTYPE_INFO);
-		WriteConsoleMsg(sendIndex, "Tiene " + GetVar(CharFile, "STATS", "BANCO") + " en el banco.",
+		WriteConsoleMsg(sendIndex, "Has " + GetVar(CharFile, "STATS", "BANCO") + " in the bank.",
 				FontTypeNames_FONTTYPE_INFO);
 	} else {
-		WriteConsoleMsg(sendIndex, "Usuario inexistente: " + charName, FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(sendIndex, "Unknown user: " + charName, FontTypeNames_FONTTYPE_INFO);
 	}
 }
 
@@ -2838,7 +2838,7 @@ void goHome(int UserIndex) {
 		WriteMultiMessage(UserIndex, eMessages_Home, Distance, Tiempo, 0,
 				MapInfo[Ciudades[UserList[UserIndex].Hogar].Map].Name);
 	} else {
-		WriteConsoleMsg(UserIndex, "Debes estar muerto para poder utilizar este comando.",
+		WriteConsoleMsg(UserIndex, "You must be dead to use that command.",
 				FontTypeNames_FONTTYPE_FIGHT);
 	}
 
@@ -2855,7 +2855,7 @@ bool ToogleToAtackable(int UserIndex, int OwnerIndex, bool StealingNpc) {
 	int AtacablePor;
 
 	if (MapInfo[UserList[UserIndex].Pos.Map].Pk == false) {
-		WriteConsoleMsg(UserIndex, "No puedes robar npcs en zonas seguras.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You can't steal NPCs within safe zones.", FontTypeNames_FONTTYPE_INFO);
 		return retval;
 	}
 
@@ -2867,7 +2867,7 @@ bool ToogleToAtackable(int UserIndex, int OwnerIndex, bool StealingNpc) {
 			/* ' Puede atacar el mismo npc que ya estaba robando, pero no una nuevo. */
 			if (AtacablePor != OwnerIndex) {
 				WriteConsoleMsg(UserIndex,
-						"No puedes atacar otra criatura con dueno hasta que haya terminado tu castigo.",
+						"You can't attack an already owned creature until your punishment is over.",
 						FontTypeNames_FONTTYPE_INFO);
 				return retval;
 			}
@@ -2908,10 +2908,10 @@ void setHome(int UserIndex, eCiudad newHome, int NpcIndex) {
 		UserList[UserIndex].Hogar = newHome;
 
 		WriteChatOverHead(UserIndex,
-				"¡¡¡Bienvenido a nuestra humilde comunidad, este es ahora tu nuevo hogar!!!",
+				"Welcome to our humble village, this is now your new home!!!",
 				Npclist[NpcIndex].Char.CharIndex, 0x00ffffff);
 	} else {
-		WriteChatOverHead(UserIndex, "¡¡¡Ya eres miembro de nuestra humilde comunidad!!!",
+		WriteChatOverHead(UserIndex, "You're already a member of our humble village!!!",
 				Npclist[NpcIndex].Char.CharIndex, 0x00ffffff);
 	}
 

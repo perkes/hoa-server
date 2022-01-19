@@ -99,13 +99,13 @@ void CheckIdleUser() {
 			}
 
 			if (UserList[iUserIndex].Counters.IdleCount >= IdleLimit) {
-				WriteShowMessageBox(iUserIndex, "Demasiado tiempo inactivo. Has sido desconectado.");
+				WriteShowMessageBox(iUserIndex, "You've spent to much time inactive. You've been disconnected.");
 				/* 'mato los comercios seguros */
 				if (UserList[iUserIndex].ComUsu.DestUsu > 0) {
 					if (UserList[UserList[iUserIndex].ComUsu.DestUsu].flags.UserLogged) {
 						if (UserList[UserList[iUserIndex].ComUsu.DestUsu].ComUsu.DestUsu == iUserIndex) {
 							WriteConsoleMsg(UserList[iUserIndex].ComUsu.DestUsu,
-									"Comercio cancelado por el otro usuario.", FontTypeNames_FONTTYPE_TALK);
+									"Trade canceled by the other party.", FontTypeNames_FONTTYPE_TALK);
 							FinComerciarUsu(UserList[iUserIndex].ComUsu.DestUsu);
 							/* 'flush the buffer to send the message right away */
 							FlushBuffer(UserList[iUserIndex].ComUsu.DestUsu);
@@ -190,7 +190,7 @@ void AutoSave_Timer() {
 		/* ' Desactiva */
 		if (tmpHappyHour == 1) {
 			SendData(SendTarget_ToAll, 0,
-					dakara::protocol::server::BuildConsoleMsg("¡Ha concluido la Happy Hour!", FontTypeNames_FONTTYPE_DIOS));
+					dakara::protocol::server::BuildConsoleMsg("The Happy Hour has ended!", FontTypeNames_FONTTYPE_DIOS));
 
 			HappyHourActivated = false;
 
@@ -201,13 +201,13 @@ void AutoSave_Timer() {
 			if (HappyHour != 1) {
 				SendData(SendTarget_ToAll, 0,
 						dakara::protocol::server::BuildConsoleMsg(
-								"Se ha modificado la Happy Hour, a partir de ahora las criaturas aumentan su experiencia en un "
+								"The Happy Hour has been modified, from now on the XP given by creatures is increased by "
 										+ vb6::CStr(vb6::Round((tmpHappyHour - 1) * 100, 2)) + "%",
 								FontTypeNames_FONTTYPE_DIOS));
 			} else {
 				SendData(SendTarget_ToAll, 0,
 						dakara::protocol::server::BuildConsoleMsg(
-								"¡Ha comenzado la Happy Hour! ¡Las criaturas aumentan su experiencia en un "
+								"The Happy Hour has started! The XP given by creatures is increased by "
 										+ vb6::CStr(vb6::Round((tmpHappyHour - 1) * 100, 2)) + "%!",
 								FontTypeNames_FONTTYPE_DIOS));
 			}
@@ -225,7 +225,7 @@ void AutoSave_Timer() {
 
 	if (Minutos == MinutosWs - 1) {
 		SendData(SendTarget_ToAll, 0,
-				dakara::protocol::server::BuildConsoleMsg("Worldsave en 1 minuto ...", FontTypeNames_FONTTYPE_VENENO));
+				dakara::protocol::server::BuildConsoleMsg("Worldsave in 1 minute ...", FontTypeNames_FONTTYPE_VENENO));
 	}
 
 	if (Minutos >= MinutosWs) {
@@ -236,7 +236,7 @@ void AutoSave_Timer() {
 
 	if (MinsPjesSave == MinutosGuardarUsuarios - 1) {
 		SendData(SendTarget_ToAll, 0,
-				dakara::protocol::server::BuildConsoleMsg("CharSave en 1 minuto ...", FontTypeNames_FONTTYPE_VENENO));
+				dakara::protocol::server::BuildConsoleMsg("CharSave in 1 minute ...", FontTypeNames_FONTTYPE_VENENO));
 	} else if (MinsPjesSave >= MinutosGuardarUsuarios) {
 		ActualizaExperiencias();
 		GuardarUsuarios();
@@ -371,7 +371,7 @@ void GameTimer_Timer() {
 											&& UserList[iUserIndex].Stats.MaxSta
 													== UserList[iUserIndex].Stats.MinSta) {
 										WriteRestOK(iUserIndex);
-										WriteConsoleMsg(iUserIndex, "Has terminado de descansar.",
+										WriteConsoleMsg(iUserIndex, "You've finished resting.",
 												FontTypeNames_FONTTYPE_INFO);
 										UserList[iUserIndex].flags.Descansar = false;
 									}
@@ -411,7 +411,7 @@ void GameTimer_Timer() {
 										&& UserList[iUserIndex].Stats.MaxSta
 												== UserList[iUserIndex].Stats.MinSta) {
 									WriteRestOK(iUserIndex);
-									WriteConsoleMsg(iUserIndex, "Has terminado de descansar.",
+									WriteConsoleMsg(iUserIndex, "You've finished resting.",
 											FontTypeNames_FONTTYPE_INFO);
 									UserList[iUserIndex].flags.Descansar = false;
 								}
@@ -603,7 +603,7 @@ void tPiqueteC_Timer() {
 					== eTrigger_ANTIPIQUETE) {
 				if (UserList[i].flags.Muerto == 0) {
 					UserList[i].Counters.PiqueteC = UserList[i].Counters.PiqueteC + 1;
-					WriteConsoleMsg(i, "¡¡¡Estás obstruyendo la vía pública, muévete o serás encarcelado!!!",
+					WriteConsoleMsg(i, "You're obstructing a public road, move or you'll be jailed!!!",
 							FontTypeNames_FONTTYPE_INFO);
 
 					if (UserList[i].Counters.PiqueteC > 23) {
@@ -628,15 +628,15 @@ void tPiqueteC_Timer() {
 				/* ' NuevoL = False */
 				if (!m_ValidarPermanencia(i, true, NuevaA)) {
 					WriteConsoleMsg(i,
-							"Has sido expulsado del clan. ¡El clan ha sumado un punto de antifacción!",
+							"You've been expeled from the clan. The clan has gained an antifaction point!",
 							FontTypeNames_FONTTYPE_GUILD);
 				}
 				if (NuevaA) {
 					SendData(SendTarget_ToGuildMembers, GI,
 							dakara::protocol::server::BuildConsoleMsg(
-									"¡El clan ha pasado a tener alineación " + GuildAlignment(GI) + "!",
+									"The clan has changed its alignment to " + GuildAlignment(GI) + "!",
 									FontTypeNames_FONTTYPE_GUILD));
-					LogClanes("¡El clan cambio de alineación!");
+					LogClanes("The clan has changed its alignment!");
 				}
 				/* '                    If NuevoL Then */
 				/* '                        Call SendData(SendTarget.ToGuildMembers, GI, PrepareMessageConsoleMsg("¡El clan tiene un nuevo líder!", FontTypeNames.FONTTYPE_GUILD)) */

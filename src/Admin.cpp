@@ -127,7 +127,7 @@ void WorldSave() {
 	int loopX;
 
 	SendData(SendTarget_ToAll, 0,
-			dakara::protocol::server::BuildConsoleMsg("Servidor> Iniciando WorldSave",
+			dakara::protocol::server::BuildConsoleMsg("Server> Starting WorldSave",
 					FontTypeNames_FONTTYPE_SERVER));
 
 	/* 'respawn de los guardias en las pos originales */
@@ -164,7 +164,7 @@ void WorldSave() {
 	SaveForums();
 
 	SendData(SendTarget_ToAll, 0,
-			dakara::protocol::server::BuildConsoleMsg("Servidor> WorldSave ha concluído.",
+			dakara::protocol::server::BuildConsoleMsg("Server> WorldSave done.",
 					FontTypeNames_FONTTYPE_SERVER));
 
 	Logger::getInstance().flushAll();
@@ -214,7 +214,7 @@ void PurgarPenas() {
 				if (UserList[i].Counters.Pena < 1) {
 					UserList[i].Counters.Pena = 0;
 					WarpUserChar(i, Libertad.Map, Libertad.X, Libertad.Y, true);
-					WriteConsoleMsg(i, "¡Has sido liberado!",
+					WriteConsoleMsg(i, "You've been released!",
 							FontTypeNames_FONTTYPE_INFO);
 
 					FlushBuffer(i);
@@ -237,13 +237,13 @@ void Encarcelar(int UserIndex, int Minutos, std::string GmName) {
 
 	if (vb6::LenB(GmName) == 0) {
 		WriteConsoleMsg(UserIndex,
-				"Has sido encarcelado, deberás permanecer en la cárcel "
-						+ std::to_string(Minutos) + " minutos.",
+				"You've been jailed, you will have to remain in jail for "
+						+ std::to_string(Minutos) + " minutes.",
 				FontTypeNames_FONTTYPE_INFO);
 	} else {
 		WriteConsoleMsg(UserIndex,
-				GmName + " te ha encarcelado, deberás permanecer en la cárcel "
-						+ std::to_string(Minutos) + " minutos.",
+				GmName + " has jailed you, you must remain in jail for "
+						+ std::to_string(Minutos) + " minutes.",
 				FontTypeNames_FONTTYPE_INFO);
 	}
 	if (UserList[UserIndex].flags.Traveling == 1) {
@@ -486,27 +486,27 @@ void BanCharacter(int bannerUserIndex, std::string UserName,
 	tUser = NameIndex(UserName);
 
 	if (tUser <= 0) {
-		WriteConsoleMsg(bannerUserIndex, "El usuario no está online.",
+		WriteConsoleMsg(bannerUserIndex, "User is offline.",
 				FontTypeNames_FONTTYPE_TALK);
 
 		if (FileExist(GetCharPath(UserName), 0)) {
 			if (UserTieneMasPrivilegiosQue(UserName, bannerUserIndex)) {
 				WriteConsoleMsg(bannerUserIndex,
-						"No puedes banear a al alguien de mayor jerarquía.",
+						"You can't ban someone who exceeds your hierarchy.",
 						FontTypeNames_FONTTYPE_INFO);
 			} else {
 				if (GetVar(GetCharPath(UserName), "FLAGS", "Ban")
 						!= "0") {
 					WriteConsoleMsg(bannerUserIndex,
-							"El personaje ya se encuentra baneado.",
+							"The PC was already banned.",
 							FontTypeNames_FONTTYPE_INFO);
 				} else {
 					LogBanFromName(UserName, bannerUserIndex, Reason);
 					SendData(SendTarget_ToAdminsButCounselorsAndRms, 0,
 							dakara::protocol::server::BuildConsoleMsg(
-									"Servidor> "
+									"Server> "
 											+ UserList[bannerUserIndex].Name
-											+ " ha baneado a " + UserName + ".",
+											+ " has banned " + UserName + ".",
 									FontTypeNames_FONTTYPE_SERVER));
 
 					/* 'ponemos el flag de ban a 1 */
@@ -539,21 +539,21 @@ void BanCharacter(int bannerUserIndex, std::string UserName,
 			}
 		} else {
 			WriteConsoleMsg(bannerUserIndex,
-					"El pj " + UserName + " no existe.",
+					"PC " + UserName + " does not exist.",
 					FontTypeNames_FONTTYPE_INFO);
 		}
 	} else {
 		if (UserTieneMasPrivilegiosQue(tUser, bannerUserIndex)) {
 			WriteConsoleMsg(bannerUserIndex,
-					"No puedes banear a al alguien de mayor jerarquía.",
+					"You can't ban someone who exceeds your hierarchy.",
 					FontTypeNames_FONTTYPE_INFO);
 		} else {
 
 			LogBan(tUser, bannerUserIndex, Reason);
 			SendData(SendTarget_ToAdminsButCounselorsAndRms, 0,
 					dakara::protocol::server::BuildConsoleMsg(
-							"Servidor> " + UserList[bannerUserIndex].Name
-									+ " ha baneado a " + UserList[tUser].Name
+							"Server> " + UserList[bannerUserIndex].Name
+									+ " has banned " + UserList[tUser].Name
 									+ ".", FontTypeNames_FONTTYPE_SERVER));
 
 			/* 'Ponemos el flag de ban a 1 */
@@ -564,7 +564,7 @@ void BanCharacter(int bannerUserIndex, std::string UserName,
 				SendData(SendTarget_ToAdminsButCounselorsAndRms, 0,
 						dakara::protocol::server::BuildConsoleMsg(
 								UserList[bannerUserIndex].Name
-										+ " banned by the server por bannear un Administrador.",
+										+ " banned by the server for banning an admin.",
 								FontTypeNames_FONTTYPE_FIGHT));
 				CloseSocket(bannerUserIndex);
 			}

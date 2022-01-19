@@ -349,14 +349,14 @@ void DropObj(int UserIndex, int Slot, int num, int Map, int X, int Y, bool isDro
 		DropObj.ObjIndex = UserList[UserIndex].Invent.Object[Slot].ObjIndex;
 
 		if ((ItemNewbie(DropObj.ObjIndex) && (UserTienePrivilegio(UserIndex, PlayerType_User)))) {
-			WriteConsoleMsg(UserIndex, "No puedes tirar objetos newbie.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You can't drop newbie objects.", FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 
 		/* ' Users can't drop non-transferible items */
 		if (ObjData[DropObj.ObjIndex].Intransferible == 1 || ObjData[DropObj.ObjIndex].NoSeTira == 1) {
 			if (UserTienePrivilegio(UserIndex, PlayerType_User)) {
-				WriteConsoleMsg(UserIndex, "¡¡¡No puedes tirar este tipo de objeto!!!",
+				WriteConsoleMsg(UserIndex, "You can't drop that type of object!!!",
 						FontTypeNames_FONTTYPE_FIGHT);
 				return;
 			}
@@ -371,7 +371,7 @@ void DropObj(int UserIndex, int Slot, int num, int Map, int X, int Y, bool isDro
 		if (MapObj.ObjIndex == 0 || MapObj.ObjIndex == DropObj.ObjIndex) {
 
 			if (MapObj.Amount == MAX_INVENTORY_OBJS) {
-				WriteConsoleMsg(UserIndex, "No hay espacio en el piso.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "There's no space in the floor.", FontTypeNames_FONTTYPE_INFO);
 				return;
 			}
 
@@ -384,7 +384,7 @@ void DropObj(int UserIndex, int Slot, int num, int Map, int X, int Y, bool isDro
 			UpdateUserInv(false, UserIndex, Slot);
 
 			if (ObjData[DropObj.ObjIndex].OBJType == eOBJType_otBarcos) {
-				WriteConsoleMsg(UserIndex, "¡¡ATENCIÓN!! ¡ACABAS DE TIRAR TU BARCA!",
+				WriteConsoleMsg(UserIndex, "BEWARE!! YOU JUST DROPPED YOUR BOAT!",
 						FontTypeNames_FONTTYPE_TALK);
 			}
 
@@ -422,7 +422,7 @@ void DropObj(int UserIndex, int Slot, int num, int Map, int X, int Y, bool isDro
 				}
 			}
 		} else {
-			WriteConsoleMsg(UserIndex, "No hay espacio en el piso.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "There's no space in the floor.", FontTypeNames_FONTTYPE_INFO);
 		}
 	}
 }
@@ -492,7 +492,7 @@ bool MeterItemEnInventario(int UserIndex, struct Obj & MiObj) {
 		while (!(UserList[UserIndex].Invent.Object[Slot].ObjIndex == 0)) {
 			Slot = Slot + 1;
 			if (Slot > UserList[UserIndex].CurrentInventorySlots) {
-				WriteConsoleMsg(UserIndex, "No puedes cargar más objetos.", FontTypeNames_FONTTYPE_FIGHT);
+				WriteConsoleMsg(UserIndex, "You can't carry any more objects.", FontTypeNames_FONTTYPE_FIGHT);
 				retval = false;
 				return retval;
 			}
@@ -503,7 +503,7 @@ bool MeterItemEnInventario(int UserIndex, struct Obj & MiObj) {
 	if (Slot > MAX_NORMAL_INVENTORY_SLOTS && Slot <= MAX_INVENTORY_SLOTS) {
 		if (!ItemSeCae(MiObj.ObjIndex)) {
 			WriteConsoleMsg(UserIndex,
-					"No puedes contener objetos especiales en tu "
+					"You can't keep special objects in your "
 							+ ObjData[UserList[UserIndex].Invent.MochilaEqpObjIndex].Name + ".",
 					FontTypeNames_FONTTYPE_FIGHT);
 			retval = false;
@@ -623,7 +623,7 @@ void GetObj(int UserIndex) {
 			}
 		}
 	} else {
-		WriteConsoleMsg(UserIndex, "No hay nada aquí.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "There's nothing here.", FontTypeNames_FONTTYPE_INFO);
 	}
 
 }
@@ -824,7 +824,7 @@ void EquiparInvItem(int UserIndex, int Slot) {
 	Obj = ObjData[ObjIndex];
 
 	if (Obj.Newbie == 1 && !EsNewbie(UserIndex)) {
-		WriteConsoleMsg(UserIndex, "Sólo los newbies pueden usar este objeto.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "Only newbies can use this object.", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
@@ -1077,7 +1077,7 @@ void EquiparInvItem(int UserIndex, int Slot) {
 
 	case eOBJType_otMochilas:
 		if (UserList[UserIndex].flags.Muerto == 1) {
-			WriteConsoleMsg(UserIndex, "¡¡Estas muerto!! Solo podes usar items cuando estas vivo. ",
+			WriteConsoleMsg(UserIndex, "You're dead!! You can only use objects while you're alive. ",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
@@ -1159,7 +1159,7 @@ void UseInvItem(int UserIndex, int Slot) {
 	Obj = ObjData[UserList[UserIndex].Invent.Object[Slot].ObjIndex];
 
 	if (Obj.Newbie == 1 && !EsNewbie(UserIndex)) {
-		WriteConsoleMsg(UserIndex, "Sólo los newbies pueden usar estos objetos.",
+		WriteConsoleMsg(UserIndex, "Only newbies can use these objects.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -1190,7 +1190,7 @@ void UseInvItem(int UserIndex, int Slot) {
 	switch (Obj.OBJType) {
 	case eOBJType_otUseOnce:
 		if (UserList[UserIndex].flags.Muerto == 1) {
-			WriteConsoleMsg(UserIndex, "¡¡Estás muerto!! Sólo puedes usar ítems cuando estás vivo.",
+			WriteConsoleMsg(UserIndex, "You're dead!! You can only use items while you're alive",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
@@ -1220,7 +1220,7 @@ void UseInvItem(int UserIndex, int Slot) {
 
 	case eOBJType_otGuita:
 		if (UserList[UserIndex].flags.Muerto == 1) {
-			WriteConsoleMsg(UserIndex, "¡¡Estás muerto!! Sólo puedes usar ítems cuando estás vivo.",
+			WriteConsoleMsg(UserIndex, "You're dead!! You can only use items while you're alive",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
@@ -1238,14 +1238,14 @@ void UseInvItem(int UserIndex, int Slot) {
 
 	case eOBJType_otWeapon:
 		if (UserList[UserIndex].flags.Muerto == 1) {
-			WriteConsoleMsg(UserIndex, "¡¡Estás muerto!! Sólo puedes usar ítems cuando estás vivo.",
+			WriteConsoleMsg(UserIndex, "You're dead!! You can only use items while you're alive",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 
 		if (!(UserList[UserIndex].Stats.MinSta > 0)) {
 			WriteConsoleMsg(UserIndex,
-					vb6::CStr("Estás muy cansad")
+					vb6::CStr("You're too tired.")
 							+ vb6::IIf(UserList[UserIndex].Genero == eGenero_Hombre, "o", "a") + ".",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
@@ -1253,7 +1253,7 @@ void UseInvItem(int UserIndex, int Slot) {
 
 		if (ObjData[ObjIndex].proyectil == 1) {
 			if (UserList[UserIndex].Invent.Object[Slot].Equipped == 0) {
-				WriteConsoleMsg(UserIndex, "Antes de usar la herramienta deberías equipartela.",
+				WriteConsoleMsg(UserIndex, "You need to equip that tool before you can use it.",
 						FontTypeNames_FONTTYPE_INFO);
 				return;
 			}
@@ -1262,7 +1262,7 @@ void UseInvItem(int UserIndex, int Slot) {
 		} else if (UserList[UserIndex].flags.TargetObj == Lena) {
 			if (UserList[UserIndex].Invent.Object[Slot].ObjIndex == DAGA) {
 				if (UserList[UserIndex].Invent.Object[Slot].Equipped == 0) {
-					WriteConsoleMsg(UserIndex, "Antes de usar la herramienta deberías equipartela.",
+					WriteConsoleMsg(UserIndex, "You need to equip that tool before you can use it.",
 							FontTypeNames_FONTTYPE_INFO);
 					return;
 				}
@@ -1280,7 +1280,7 @@ void UseInvItem(int UserIndex, int Slot) {
 					/* 'Call WriteWorkRequestTarget(UserIndex, eSkill.Pesca) */
 					WriteMultiMessage(UserIndex, eMessages_WorkRequestTarget, eSkill_Pesca);
 				} else {
-					WriteConsoleMsg(UserIndex, "Debes tener equipada la herramienta para trabajar.",
+					WriteConsoleMsg(UserIndex, "You need to equip your tool in order to work.",
 							FontTypeNames_FONTTYPE_INFO);
 				}
 
@@ -1291,7 +1291,7 @@ void UseInvItem(int UserIndex, int Slot) {
 				if (UserList[UserIndex].Invent.WeaponEqpObjIndex == ObjIndex) {
 					WriteMultiMessage(UserIndex, eMessages_WorkRequestTarget, eSkill_Talar);
 				} else {
-					WriteConsoleMsg(UserIndex, "Debes tener equipada la herramienta para trabajar.",
+					WriteConsoleMsg(UserIndex, "You need to equip your tool in order to work.",
 							FontTypeNames_FONTTYPE_INFO);
 				}
 
@@ -1301,7 +1301,7 @@ void UseInvItem(int UserIndex, int Slot) {
 				if (UserList[UserIndex].Invent.WeaponEqpObjIndex == ObjIndex) {
 					WriteMultiMessage(UserIndex, eMessages_WorkRequestTarget, eSkill_Mineria);
 				} else {
-					WriteConsoleMsg(UserIndex, "Debes tener equipada la herramienta para trabajar.",
+					WriteConsoleMsg(UserIndex, "You need to equip your tool in order to work.",
 							FontTypeNames_FONTTYPE_INFO);
 				}
 
@@ -1311,7 +1311,7 @@ void UseInvItem(int UserIndex, int Slot) {
 				if (UserList[UserIndex].Invent.WeaponEqpObjIndex == ObjIndex) {
 					WriteMultiMessage(UserIndex, eMessages_WorkRequestTarget, eSkill_Herreria);
 				} else {
-					WriteConsoleMsg(UserIndex, "Debes tener equipada la herramienta para trabajar.",
+					WriteConsoleMsg(UserIndex, "You need to equip your tool in order to work.",
 							FontTypeNames_FONTTYPE_INFO);
 				}
 
@@ -1322,7 +1322,7 @@ void UseInvItem(int UserIndex, int Slot) {
 					EnivarObjConstruibles(UserIndex);
 					WriteShowCarpenterForm(UserIndex);
 				} else {
-					WriteConsoleMsg(UserIndex, "Debes tener equipada la herramienta para trabajar.",
+					WriteConsoleMsg(UserIndex, "You need to equip your tool in order to work.",
 							FontTypeNames_FONTTYPE_INFO);
 				}
 
@@ -1340,13 +1340,13 @@ void UseInvItem(int UserIndex, int Slot) {
 
 	case eOBJType_otPociones:
 		if (UserList[UserIndex].flags.Muerto == 1) {
-			WriteConsoleMsg(UserIndex, "¡¡Estás muerto!! Sólo puedes usar ítems cuando estás vivo. ",
+			WriteConsoleMsg(UserIndex, "You're dead!! You can only use items while you're alive ",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 
 		if (!IntervaloPermiteGolpeUsar(UserIndex, false)) {
-			WriteConsoleMsg(UserIndex, "¡¡Debes esperar unos momentos para tomar otra poción!!",
+			WriteConsoleMsg(UserIndex, "You need to wait a bit before you can drink another potion!!",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
@@ -1488,7 +1488,7 @@ void UseInvItem(int UserIndex, int Slot) {
 		case 5:
 			if (UserList[UserIndex].flags.Envenenado == 1) {
 				UserList[UserIndex].flags.Envenenado = 0;
-				WriteConsoleMsg(UserIndex, "Te has curado del envenenamiento.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You've cured your poisoning.", FontTypeNames_FONTTYPE_INFO);
 			}
 			/* 'Quitamos del inv el item */
 			QuitarUserInvItem(UserIndex, Slot, 1);
@@ -1511,7 +1511,7 @@ void UseInvItem(int UserIndex, int Slot) {
 			if (UserTienePrivilegio(UserIndex, PlayerType_User)) {
 				QuitarUserInvItem(UserIndex, Slot, 1);
 				UserDie(UserIndex);
-				WriteConsoleMsg(UserIndex, "Sientes un gran mareo y pierdes el conocimiento.",
+				WriteConsoleMsg(UserIndex, "You feel dizzy and lose consciousness.",
 						FontTypeNames_FONTTYPE_FIGHT);
 			}
 			break;
@@ -1522,7 +1522,7 @@ void UseInvItem(int UserIndex, int Slot) {
 
 	case eOBJType_otBebidas:
 		if (UserList[UserIndex].flags.Muerto == 1) {
-			WriteConsoleMsg(UserIndex, "¡¡Estás muerto!! Sólo puedes usar ítems cuando estás vivo.",
+			WriteConsoleMsg(UserIndex, "You're dead!! You can only use items while you're alive",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
@@ -1551,7 +1551,7 @@ void UseInvItem(int UserIndex, int Slot) {
 
 	case eOBJType_otLlaves:
 		if (UserList[UserIndex].flags.Muerto == 1) {
-			WriteConsoleMsg(UserIndex, "¡¡Estás muerto!! Sólo puedes usar ítems cuando estás vivo.",
+			WriteConsoleMsg(UserIndex, "You're dead!! You can only use items while you're alive",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
@@ -1572,28 +1572,28 @@ void UseInvItem(int UserIndex, int Slot) {
 								ObjData[MapData[UserList[UserIndex].flags.TargetObjMap][UserList[UserIndex].flags.TargetObjX][UserList[UserIndex].flags.TargetObjY].ObjInfo.ObjIndex].IndexCerrada;
 						UserList[UserIndex].flags.TargetObj =
 								MapData[UserList[UserIndex].flags.TargetObjMap][UserList[UserIndex].flags.TargetObjX][UserList[UserIndex].flags.TargetObjY].ObjInfo.ObjIndex;
-						WriteConsoleMsg(UserIndex, "Has abierto la puerta.", FontTypeNames_FONTTYPE_INFO);
+						WriteConsoleMsg(UserIndex, "You've opened the door.", FontTypeNames_FONTTYPE_INFO);
 						return;
 					} else {
-						WriteConsoleMsg(UserIndex, "La llave no sirve.", FontTypeNames_FONTTYPE_INFO);
+						WriteConsoleMsg(UserIndex, "This key doesn't seem to work.", FontTypeNames_FONTTYPE_INFO);
 						return;
 					}
 				} else {
 					if (TargObj.clave == Obj.clave) {
 						MapData[UserList[UserIndex].flags.TargetObjMap][UserList[UserIndex].flags.TargetObjX][UserList[UserIndex].flags.TargetObjY].ObjInfo.ObjIndex =
 								ObjData[MapData[UserList[UserIndex].flags.TargetObjMap][UserList[UserIndex].flags.TargetObjX][UserList[UserIndex].flags.TargetObjY].ObjInfo.ObjIndex].IndexCerradaLlave;
-						WriteConsoleMsg(UserIndex, "Has cerrado con llave la puerta.",
+						WriteConsoleMsg(UserIndex, "You've locked the door.",
 								FontTypeNames_FONTTYPE_INFO);
 						UserList[UserIndex].flags.TargetObj =
 								MapData[UserList[UserIndex].flags.TargetObjMap][UserList[UserIndex].flags.TargetObjX][UserList[UserIndex].flags.TargetObjY].ObjInfo.ObjIndex;
 						return;
 					} else {
-						WriteConsoleMsg(UserIndex, "La llave no sirve.", FontTypeNames_FONTTYPE_INFO);
+						WriteConsoleMsg(UserIndex, "This key doesn't seem to work.", FontTypeNames_FONTTYPE_INFO);
 						return;
 					}
 				}
 			} else {
-				WriteConsoleMsg(UserIndex, "No está cerrada.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "This door ain't locked.", FontTypeNames_FONTTYPE_INFO);
 				return;
 			}
 		}
@@ -1602,13 +1602,13 @@ void UseInvItem(int UserIndex, int Slot) {
 
 	case eOBJType_otBotellaVacia:
 		if (UserList[UserIndex].flags.Muerto == 1) {
-			WriteConsoleMsg(UserIndex, "¡¡Estás muerto!! Sólo puedes usar ítems cuando estás vivo.",
+			WriteConsoleMsg(UserIndex, "You're dead!! You can only use items while you're alive",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 		if (!HayAgua(UserList[UserIndex].Pos.Map, UserList[UserIndex].flags.TargetX,
 				UserList[UserIndex].flags.TargetY)) {
-			WriteConsoleMsg(UserIndex, "No hay agua allí.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "There's no water there.", FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 		MiObj.Amount = 1;
@@ -1624,7 +1624,7 @@ void UseInvItem(int UserIndex, int Slot) {
 
 	case eOBJType_otBotellaLlena:
 		if (UserList[UserIndex].flags.Muerto == 1) {
-			WriteConsoleMsg(UserIndex, "¡¡Estás muerto!! Sólo puedes usar ítems cuando estás vivo.",
+			WriteConsoleMsg(UserIndex, "You're dead!! You can only use items while you're alive",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
@@ -1647,7 +1647,7 @@ void UseInvItem(int UserIndex, int Slot) {
 
 	case eOBJType_otPergaminos:
 		if (UserList[UserIndex].flags.Muerto == 1) {
-			WriteConsoleMsg(UserIndex, "¡¡Estás muerto!! Sólo puedes usar ítems cuando estás vivo.",
+			WriteConsoleMsg(UserIndex, "You're dead!! You can only use items while you're alive",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
@@ -1657,18 +1657,18 @@ void UseInvItem(int UserIndex, int Slot) {
 				AgregarHechizo(UserIndex, Slot);
 				UpdateUserInv(false, UserIndex, Slot);
 			} else {
-				WriteConsoleMsg(UserIndex, "Estás demasiado hambriento y sediento.",
+				WriteConsoleMsg(UserIndex, "You're too hungry and thirsty.",
 						FontTypeNames_FONTTYPE_INFO);
 			}
 		} else {
-			WriteConsoleMsg(UserIndex, "No tienes conocimientos de las Artes Arcanas.",
+			WriteConsoleMsg(UserIndex, "You have no knowledge of the arcane arts.",
 					FontTypeNames_FONTTYPE_INFO);
 		}
 		break;
 
 	case eOBJType_otMinerales:
 		if (UserList[UserIndex].flags.Muerto == 1) {
-			WriteConsoleMsg(UserIndex, "¡¡Estás muerto!! Sólo puedes usar ítems cuando estás vivo.",
+			WriteConsoleMsg(UserIndex, "You're dead!! You can only use items while you're alive",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
@@ -1679,7 +1679,7 @@ void UseInvItem(int UserIndex, int Slot) {
 
 	case eOBJType_otInstrumentos:
 		if (UserList[UserIndex].flags.Muerto == 1) {
-			WriteConsoleMsg(UserIndex, "¡¡Estás muerto!! Sólo puedes usar ítems cuando estás vivo.",
+			WriteConsoleMsg(UserIndex, "You're dead!! You can only use items while you're alive",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
@@ -1688,7 +1688,7 @@ void UseInvItem(int UserIndex, int Slot) {
 		if (Obj.Real) {
 			if (FaccionPuedeUsarItem(UserIndex, ObjIndex, sMensaje)) {
 				if (MapInfo[UserList[UserIndex].Pos.Map].Pk == false) {
-					WriteConsoleMsg(UserIndex, "No hay peligro aquí. Es zona segura.",
+					WriteConsoleMsg(UserIndex, "There's no danger here. This is a safe zone.",
 							FontTypeNames_FONTTYPE_INFO);
 					return;
 				}
@@ -1707,7 +1707,7 @@ void UseInvItem(int UserIndex, int Slot) {
 
 				return;
 			} else {
-				WriteConsoleMsg(UserIndex, "Sólo miembros del ejército real pueden usar este cuerno.",
+				WriteConsoleMsg(UserIndex, "Only members of the Royal Army can use this horn.",
 						FontTypeNames_FONTTYPE_INFO);
 				return;
 			}
@@ -1715,7 +1715,7 @@ void UseInvItem(int UserIndex, int Slot) {
 		} else if (Obj.Caos) {
 			if (FaccionPuedeUsarItem(UserIndex, ObjIndex, sMensaje)) {
 				if (MapInfo[UserList[UserIndex].Pos.Map].Pk == false) {
-					WriteConsoleMsg(UserIndex, "No hay peligro aquí. Es zona segura.",
+					WriteConsoleMsg(UserIndex, "There's no danger here. This is a safe zone.",
 							FontTypeNames_FONTTYPE_INFO);
 					return;
 				}
@@ -1734,7 +1734,7 @@ void UseInvItem(int UserIndex, int Slot) {
 
 				return;
 			} else {
-				WriteConsoleMsg(UserIndex, "Sólo miembros de la legión oscura pueden usar este cuerno.",
+				WriteConsoleMsg(UserIndex, "Only members of the Dark Legion can use this horn.",
 						FontTypeNames_FONTTYPE_INFO);
 				return;
 			}
@@ -1756,7 +1756,7 @@ void UseInvItem(int UserIndex, int Slot) {
 		if (UserList[UserIndex].Stats.ELV < 25) {
 			/* ' Solo pirata y trabajador pueden navegar antes */
 			if (UserList[UserIndex].clase != eClass_Worker && UserList[UserIndex].clase != eClass_Pirat) {
-				WriteConsoleMsg(UserIndex, "Para recorrer los mares debes ser nivel 25 o superior.",
+				WriteConsoleMsg(UserIndex, "To sail through the seas you must be at least level 25.",
 						FontTypeNames_FONTTYPE_INFO);
 				return;
 			} else {
@@ -1766,10 +1766,10 @@ void UseInvItem(int UserIndex, int Slot) {
 					if (UserList[UserIndex].clase == eClass_Worker
 							&& UserList[UserIndex].Stats.UserSkills[eSkill_Pesca] != 100) {
 						WriteConsoleMsg(UserIndex,
-								"Para recorrer los mares debes ser nivel 20 y además tu skill en pesca debe ser 100.",
+								"To sail through the seas you must be at least level 20 and your fishing skill must be 100.",
 								FontTypeNames_FONTTYPE_INFO);
 					} else {
-						WriteConsoleMsg(UserIndex, "Para recorrer los mares debes ser nivel 20 o superior.",
+						WriteConsoleMsg(UserIndex, "To sail through the seas you must be at least level 20.",
 								FontTypeNames_FONTTYPE_INFO);
 					}
 
@@ -1779,7 +1779,7 @@ void UseInvItem(int UserIndex, int Slot) {
 					if (UserList[UserIndex].clase == eClass_Worker) {
 						if (UserList[UserIndex].Stats.UserSkills[eSkill_Pesca] != 100) {
 							WriteConsoleMsg(UserIndex,
-									"Para recorrer los mares debes ser nivel 20 o superior y además tu skill en pesca debe ser 100.",
+									"To sail through the seas you must be at least level 20 and your fishing skill must be 100.",
 									FontTypeNames_FONTTYPE_INFO);
 							return;
 						}
@@ -1800,7 +1800,7 @@ void UseInvItem(int UserIndex, int Slot) {
 				&& UserList[UserIndex].flags.Navegando == 0) || UserList[UserIndex].flags.Navegando == 1) {
 			DoNavega(UserIndex, Obj, Slot);
 		} else {
-			WriteConsoleMsg(UserIndex, "¡Debes aproximarte al agua para usar el barco!",
+			WriteConsoleMsg(UserIndex, "You must get closer to the water to use your boat!",
 					FontTypeNames_FONTTYPE_INFO);
 		}
 		break;

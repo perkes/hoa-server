@@ -511,7 +511,7 @@ void SeguirAgresor(int NpcIndex) {
 											|| UserList[Npclist[NpcIndex].MaestroUser].Faccion.ArmadaReal
 													== 1)) {
 								WriteConsoleMsg(Npclist[NpcIndex].MaestroUser,
-										"La mascota no atacará a ciudadanos si eres miembro del ejército real o tienes el seguro activado.",
+										"Your pet won't attack citizens if you are a member of the royal army or have the safety on.",
 										FontTypeNames_FONTTYPE_INFO);
 								FlushBuffer(Npclist[NpcIndex].MaestroUser);
 								Npclist[NpcIndex].flags.AttackedBy = "";
@@ -561,7 +561,7 @@ void SeguirAgresor(int NpcIndex) {
 											|| UserList[Npclist[NpcIndex].MaestroUser].Faccion.ArmadaReal
 													== 1)) {
 								WriteConsoleMsg(Npclist[NpcIndex].MaestroUser,
-										"La mascota no atacará a ciudadanos si eres miembro del ejército real o tienes el seguro activado.",
+										"Your pet won't attack citizens if you are a member of the royal army or have the safety on.",
 										FontTypeNames_FONTTYPE_INFO);
 								FlushBuffer(Npclist[NpcIndex].MaestroUser);
 								Npclist[NpcIndex].flags.AttackedBy = "";

@@ -157,7 +157,7 @@ void DakaraClientPacketHandler::handleHome(Home* p) { (void)p;
 					if (Ciudades[UserList[UserIndex].Hogar].Map != UserList[UserIndex].Pos.Map) {
 						goHome(UserIndex);
 					} else {
-						WriteConsoleMsg(UserIndex, "Ya te encuentras en tu hogar.",
+						WriteConsoleMsg(UserIndex, "You are already home.",
 								FontTypeNames_FONTTYPE_INFO);
 					}
 				} else {
@@ -166,10 +166,10 @@ void DakaraClientPacketHandler::handleHome(Home* p) { (void)p;
 					UserList[UserIndex].Counters.goHome = 0;
 				}
 			} else {
-				WriteConsoleMsg(UserIndex, "No puedes usar este comando aquí.", FontTypeNames_FONTTYPE_FIGHT);
+				WriteConsoleMsg(UserIndex, "You cannot use that command here.", FontTypeNames_FONTTYPE_FIGHT);
 			}
 		} else {
-			WriteConsoleMsg(UserIndex, "Debes estar muerto para utilizar este comando.",
+			WriteConsoleMsg(UserIndex, "You must be dead to use that command.",
 					FontTypeNames_FONTTYPE_INFO);
 		}
 	}
@@ -289,7 +289,7 @@ void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { 
 	} else {
 		if (BANCheck(nft_address)) {
 			WriteErrorMsg(UserIndex,
-					"Se te ha prohibido la entrada a Argentum Online debido a tu mal comportamiento. Puedes consultar el reglamento y el sistema de soporte desde www.argentumonline.com.ar");
+					"You've been banned from Heroes of Argentum");
 		} else {
 			ConnectUser(UserIndex, token, nft_address);
 		}
@@ -313,7 +313,7 @@ void DakaraClientPacketHandler::handleTalk(Talk* p) { (void)p;
 
 	/* '[Consejeros & GMs] */
 	if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_Consejero, PlayerType_SemiDios)) {
-		LogGM(UserList[UserIndex].Name, "Dijo: " + Chat);
+		LogGM(UserList[UserIndex].Name, "Said: " + Chat);
 	}
 
 	/* 'I see you.... */
@@ -325,7 +325,7 @@ void DakaraClientPacketHandler::handleTalk(Talk* p) { (void)p;
 			if (UserList[UserIndex].clase == eClass_Pirat) {
 				/* ' Pierde la apariencia de fragata fantasmal */
 				ToggleBoatBody(UserIndex);
-				WriteConsoleMsg(UserIndex, "¡Has recuperado tu apariencia normal!",
+				WriteConsoleMsg(UserIndex, "Your appearance is back to normal!",
 						FontTypeNames_FONTTYPE_INFO);
 				ChangeUserChar(UserIndex, UserList[UserIndex].Char.body, UserList[UserIndex].Char.Head,
 						UserList[UserIndex].Char.heading, NingunArma, NingunEscudo, NingunCasco);
@@ -333,7 +333,7 @@ void DakaraClientPacketHandler::handleTalk(Talk* p) { (void)p;
 		} else {
 			if (UserList[UserIndex].flags.invisible == 0) {
 				SetInvisible(UserIndex, UserList[UserIndex].Char.CharIndex, false);
-				WriteConsoleMsg(UserIndex, "¡Has vuelto a ser visible!", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You are now visible again!", FontTypeNames_FONTTYPE_INFO);
 			}
 		}
 	}
@@ -392,7 +392,7 @@ void DakaraClientPacketHandler::handleYell(Yell* p) { (void)p;
 			if (UserList[UserIndex].clase == eClass_Pirat) {
 				/* ' Pierde la apariencia de fragata fantasmal */
 				ToggleBoatBody(UserIndex);
-				WriteConsoleMsg(UserIndex, "¡Has recuperado tu apariencia normal!",
+				WriteConsoleMsg(UserIndex, "Your appearance is back to normal!",
 						FontTypeNames_FONTTYPE_INFO);
 				ChangeUserChar(UserIndex, UserList[UserIndex].Char.body, UserList[UserIndex].Char.Head,
 						UserList[UserIndex].Char.heading, NingunArma, NingunEscudo, NingunCasco);
@@ -400,7 +400,7 @@ void DakaraClientPacketHandler::handleYell(Yell* p) { (void)p;
 		} else {
 			if (UserList[UserIndex].flags.invisible == 0) {
 				SetInvisible(UserIndex, UserList[UserIndex].Char.CharIndex, false);
-				WriteConsoleMsg(UserIndex, "¡Has vuelto a ser visible!", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You are now visible again!", FontTypeNames_FONTTYPE_INFO);
 			}
 		}
 	}
@@ -454,7 +454,7 @@ void DakaraClientPacketHandler::handleWhisper(Whisper* p) { (void)p;
 
 	if (UserList[UserIndex].flags.Muerto) {
 		WriteConsoleMsg(UserIndex,
-				"¡¡Estás muerto!! Los muertos no pueden comunicarse con el mundo de los vivos. ",
+				"You're dead!! The dead cannot communicate with the world of the living. ",
 				FontTypeNames_FONTTYPE_INFO);
 	} else {
 		/* ' Offline? */
@@ -462,11 +462,11 @@ void DakaraClientPacketHandler::handleWhisper(Whisper* p) { (void)p;
 		if (TargetUserIndex == INVALID_INDEX) {
 			/* ' Admin? */
 			if (EsGmChar(TargetName)) {
-				WriteConsoleMsg(UserIndex, "No puedes susurrarle a los Administradores.",
+				WriteConsoleMsg(UserIndex, "You cannot whisper to admins",
 						FontTypeNames_FONTTYPE_INFO);
 				/* ' Whisperer admin? (Else say nothing) */
 			} else if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_Dios, PlayerType_Admin)) {
-				WriteConsoleMsg(UserIndex, "Usuario inexistente.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "Unknown user.", FontTypeNames_FONTTYPE_INFO);
 			}
 
 			/* ' Online */
@@ -477,7 +477,7 @@ void DakaraClientPacketHandler::handleWhisper(Whisper* p) { (void)p;
 					&& !UserList[UserIndex].flags.EnConsulta) {
 
 				/* ' No puede */
-				WriteConsoleMsg(UserIndex, "No puedes susurrarle a los Administradores.",
+				WriteConsoleMsg(UserIndex, "You cannot whisper to admins",
 						FontTypeNames_FONTTYPE_INFO);
 
 				/* ' Usuarios no pueden susurrar a semis o conses (Salvo en consulta) */
@@ -485,7 +485,7 @@ void DakaraClientPacketHandler::handleWhisper(Whisper* p) { (void)p;
 					&& !UserList[UserIndex].flags.EnConsulta) {
 
 				/* ' No puede */
-				WriteConsoleMsg(UserIndex, "No puedes susurrarle a los Administradores.",
+				WriteConsoleMsg(UserIndex, "You cannot whisper to admins",
 						FontTypeNames_FONTTYPE_INFO);
 
 				/* ' En rango? (Los dioses pueden susurrar a distancia) */
@@ -495,23 +495,23 @@ void DakaraClientPacketHandler::handleWhisper(Whisper* p) { (void)p;
 				/* ' No se puede susurrar a admins fuera de su rango */
 				if (!UserTieneAlgunPrivilegios(TargetUserIndex, PlayerType_User)
 						&& !UserTieneAlgunPrivilegios(UserIndex, PlayerType_Dios, PlayerType_Admin)) {
-					WriteConsoleMsg(UserIndex, "No puedes susurrarle a los Administradores.",
+					WriteConsoleMsg(UserIndex, "You cannot whisper to admins",
 							FontTypeNames_FONTTYPE_INFO);
 
 					/* ' Whisperer admin? (Else say nothing) */
 				} else if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_Dios, PlayerType_Admin)) {
-					WriteConsoleMsg(UserIndex, "Estás muy lejos del usuario.", FontTypeNames_FONTTYPE_INFO);
+					WriteConsoleMsg(UserIndex, "You are too far away from that user.", FontTypeNames_FONTTYPE_INFO);
 				}
 			} else {
 				/* '[Consejeros & GMs] */
 				if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_Consejero, PlayerType_SemiDios)) {
 					LogGM(UserList[UserIndex].Name,
-							"Le susurro a '" + UserList[TargetUserIndex].Name + "' " + Chat);
+							"Whispered '" + UserList[TargetUserIndex].Name + "' " + Chat);
 
 					/* ' Usuarios a administradores */
 				} else if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_User) && UserTieneAlgunPrivilegios(TargetUserIndex,  PlayerType_User)) {
 					LogGM(UserList[TargetUserIndex].Name,
-							UserList[UserIndex].Name + " le susurro en consulta: " + Chat);
+							UserList[UserIndex].Name + " whispered in support: " + Chat);
 				}
 
 				if (vb6::LenB(Chat) != 0) {
@@ -522,8 +522,8 @@ void DakaraClientPacketHandler::handleWhisper(Whisper* p) { (void)p;
 					if (!EstaPCarea(UserIndex, TargetUserIndex)
 							&& UserTieneAlgunPrivilegios(UserIndex, PlayerType_Dios, PlayerType_Admin)) {
 
-						WriteConsoleMsg(UserIndex, "Susurraste> " + Chat, FontTypeNames_FONTTYPE_GM);
-						WriteConsoleMsg(TargetUserIndex, "Gm susurra> " + Chat, FontTypeNames_FONTTYPE_GM);
+						WriteConsoleMsg(UserIndex, "Whispered> " + Chat, FontTypeNames_FONTTYPE_GM);
+						WriteConsoleMsg(TargetUserIndex, "GM whispers> " + Chat, FontTypeNames_FONTTYPE_GM);
 
 					} else if (!(UserList[UserIndex].flags.AdminInvisible == 1)) {
 						WriteChatOverHead(UserIndex, Chat, UserList[UserIndex].Char.CharIndex, vbBlue);
@@ -538,16 +538,16 @@ void DakaraClientPacketHandler::handleWhisper(Whisper* p) { (void)p;
 											UserList[UserIndex].Char.CharIndex, vbYellow));
 						}
 					} else {
-						WriteConsoleMsg(UserIndex, "Susurraste> " + Chat, FontTypeNames_FONTTYPE_GM);
+						WriteConsoleMsg(UserIndex, "Whispered> " + Chat, FontTypeNames_FONTTYPE_GM);
 						if (UserIndex != TargetUserIndex) {
-							WriteConsoleMsg(TargetUserIndex, "Gm susurra> " + Chat,
+							WriteConsoleMsg(TargetUserIndex, "GM whispers> " + Chat,
 									FontTypeNames_FONTTYPE_GM);
 						}
 
 						if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_User, PlayerType_Consejero)) {
 							SendData(SendTarget_ToAdminsAreaButConsejeros, UserIndex,
 									dakara::protocol::server::BuildConsoleMsg(
-											"Gm dijo a " + UserList[TargetUserIndex].Name + "> " + Chat,
+											"GM said to " + UserList[TargetUserIndex].Name + "> " + Chat,
 											FontTypeNames_FONTTYPE_GM));
 						}
 					}
@@ -599,8 +599,8 @@ void DakaraClientPacketHandler::handleWalk(Walk* p) { (void)p;
 				LogHackAttemp("Tramposo SH: " + UserList[UserIndex].Name + " , " + vb6::CStr(dummy));
 				SendData(SendTarget_ToAdmins, 0,
 						dakara::protocol::server::BuildConsoleMsg(
-								"Servidor> " + UserList[UserIndex].Name
-										+ " ha sido echado por el servidor por posible uso de SH.",
+								"Server> " + UserList[UserIndex].Name
+										+ " you've been kicked out of the server for the possible use of SH.",
 								FontTypeNames_FONTTYPE_SERVER));
 				CloseSocket(UserIndex);
 
@@ -632,7 +632,7 @@ void DakaraClientPacketHandler::handleWalk(Walk* p) { (void)p;
 			UserList[UserIndex].Char.loops = 0;
 
 			WriteMeditateToggle(UserIndex);
-			WriteConsoleMsg(UserIndex, "Dejas de meditar.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You stopped meditating.", FontTypeNames_FONTTYPE_INFO);
 
 			SendData(SendTarget_ToPCArea, UserIndex,
 					dakara::protocol::server::BuildCreateFX(UserList[UserIndex].Char.CharIndex, 0, 0));
@@ -645,7 +645,7 @@ void DakaraClientPacketHandler::handleWalk(Walk* p) { (void)p;
 				UserList[UserIndex].flags.Descansar = false;
 
 				WriteRestOK(UserIndex);
-				WriteConsoleMsg(UserIndex, "Has dejado de descansar.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You stopped resting.", FontTypeNames_FONTTYPE_INFO);
 			}
 		}
 		/* 'paralized */
@@ -653,7 +653,7 @@ void DakaraClientPacketHandler::handleWalk(Walk* p) { (void)p;
 		if (UserList[UserIndex].flags.UltimoMensaje != 1) {
 			UserList[UserIndex].flags.UltimoMensaje = 1;
 
-			WriteConsoleMsg(UserIndex, "No puedes moverte porque estás paralizado.",
+			WriteConsoleMsg(UserIndex, "You cannot move because you're paralyzed.",
 					FontTypeNames_FONTTYPE_INFO);
 		}
 
@@ -670,7 +670,7 @@ void DakaraClientPacketHandler::handleWalk(Walk* p) { (void)p;
 				if (UserList[UserIndex].clase == eClass_Pirat) {
 					/* ' Pierde la apariencia de fragata fantasmal */
 					ToggleBoatBody(UserIndex);
-					WriteConsoleMsg(UserIndex, "¡Has recuperado tu apariencia normal!",
+					WriteConsoleMsg(UserIndex, "Your appearance is back to normal!",
 							FontTypeNames_FONTTYPE_INFO);
 					ChangeUserChar(UserIndex, UserList[UserIndex].Char.body, UserList[UserIndex].Char.Head,
 							UserList[UserIndex].Char.heading, NingunArma, NingunEscudo, NingunCasco);
@@ -678,7 +678,7 @@ void DakaraClientPacketHandler::handleWalk(Walk* p) { (void)p;
 			} else {
 				/* 'If not under a spell effect, show char */
 				if (UserList[UserIndex].flags.invisible == 0) {
-					WriteConsoleMsg(UserIndex, "Has vuelto a ser visible.", FontTypeNames_FONTTYPE_INFO);
+					WriteConsoleMsg(UserIndex, "You are now visible again.", FontTypeNames_FONTTYPE_INFO);
 					SetInvisible(UserIndex, UserList[UserIndex].Char.CharIndex, false);
 				}
 			}
@@ -716,7 +716,7 @@ void DakaraClientPacketHandler::handleAttack(Attack* p) { (void)p;
 	/* '*************************************************** */
 	/* 'If dead, can't attack */
 	if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
@@ -756,7 +756,7 @@ void DakaraClientPacketHandler::handleAttack(Attack* p) { (void)p;
 			if (UserList[UserIndex].clase == eClass_Pirat) {
 				/* ' Pierde la apariencia de fragata fantasmal */
 				ToggleBoatBody(UserIndex);
-				WriteConsoleMsg(UserIndex, "¡Has recuperado tu apariencia normal!",
+				WriteConsoleMsg(UserIndex, "Your appearance is back to normal!",
 						FontTypeNames_FONTTYPE_INFO);
 				ChangeUserChar(UserIndex, UserList[UserIndex].Char.body, UserList[UserIndex].Char.Head,
 						UserList[UserIndex].Char.heading, NingunArma, NingunEscudo, NingunCasco);
@@ -764,7 +764,7 @@ void DakaraClientPacketHandler::handleAttack(Attack* p) { (void)p;
 		} else {
 			if (UserList[UserIndex].flags.invisible == 0) {
 				SetInvisible(UserIndex, UserList[UserIndex].Char.CharIndex, false);
-				WriteConsoleMsg(UserIndex, "¡Has vuelto a ser visible!", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You are now visible again!", FontTypeNames_FONTTYPE_INFO);
 			}
 		}
 	}
@@ -795,7 +795,7 @@ void DakaraClientPacketHandler::handlePickUp(PickUp* p) { (void)p;
 	/* 'Lower rank administrators can't pick up items */
 	if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_Consejero)) {
 		if (!UserTieneAlgunPrivilegios(UserIndex, PlayerType_RoleMaster)) {
-			WriteConsoleMsg(UserIndex, "No puedes tomar ningún objeto.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You cannot pick up any objects.", FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 	}
@@ -956,7 +956,7 @@ void DakaraClientPacketHandler::handleUserCommerceEnd(UserCommerceEnd* p) { (voi
 	if (UserList[UserIndex].ComUsu.DestUsu > 0) {
 		if (UserList[UserList[UserIndex].ComUsu.DestUsu].ComUsu.DestUsu == UserIndex) {
 			WriteConsoleMsg(UserList[UserIndex].ComUsu.DestUsu,
-					UserList[UserIndex].Name + " ha dejado de comerciar con vos.",
+					UserList[UserIndex].Name + " has stopped trading with you.",
 					FontTypeNames_FONTTYPE_TALK);
 			FinComerciarUsu(UserList[UserIndex].ComUsu.DestUsu);
 
@@ -966,7 +966,7 @@ void DakaraClientPacketHandler::handleUserCommerceEnd(UserCommerceEnd* p) { (voi
 	}
 
 	FinComerciarUsu(UserIndex);
-	WriteConsoleMsg(UserIndex, "Has dejado de comerciar.", FontTypeNames_FONTTYPE_TALK);
+	WriteConsoleMsg(UserIndex, "You've stoped trading.", FontTypeNames_FONTTYPE_TALK);
 }
 
 /* '' */
@@ -1068,7 +1068,7 @@ void DakaraClientPacketHandler::handleUserCommerceReject(UserCommerceReject* p) 
 	/* 'Offer rejected */
 	if (otherUser > 0) {
 		if (UserList[otherUser].flags.UserLogged) {
-			WriteConsoleMsg(otherUser, UserList[UserIndex].Name + " ha rechazado tu oferta.",
+			WriteConsoleMsg(otherUser, UserList[UserIndex].Name + " has rejected your offer.",
 					FontTypeNames_FONTTYPE_TALK);
 			FinComerciarUsu(otherUser);
 
@@ -1077,7 +1077,7 @@ void DakaraClientPacketHandler::handleUserCommerceReject(UserCommerceReject* p) 
 		}
 	}
 
-	WriteConsoleMsg(UserIndex, "Has rechazado la oferta del otro usuario.", FontTypeNames_FONTTYPE_TALK);
+	WriteConsoleMsg(UserIndex, "You've rejected the user's offer.", FontTypeNames_FONTTYPE_TALK);
 	FinComerciarUsu(UserIndex);
 }
 
@@ -1151,7 +1151,7 @@ void DakaraClientPacketHandler::handleCastSpell(CastSpell* p) { (void)p;
 	Spell = p->Spell;
 
 	if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
@@ -1231,12 +1231,12 @@ void DakaraClientPacketHandler::handleWork(Work* p) { (void)p;
 
 		/* ' Verifico si se peude ocultar en este mapa */
 		if (MapInfo[UserList[UserIndex].Pos.Map].OcultarSinEfecto == 1) {
-			WriteConsoleMsg(UserIndex, "¡Ocultarse no funciona aquí!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You cannot hide here!", FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 
 		if (UserList[UserIndex].flags.EnConsulta) {
-			WriteConsoleMsg(UserIndex, "No puedes ocultarte si estás en consulta.",
+			WriteConsoleMsg(UserIndex, "You cannot hide while you're on support.",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
@@ -1245,7 +1245,7 @@ void DakaraClientPacketHandler::handleWork(Work* p) { (void)p;
 			if (UserList[UserIndex].clase != eClass_Pirat) {
 				/* '[CDT 17-02-2004] */
 				if (UserList[UserIndex].flags.UltimoMensaje != 3) {
-					WriteConsoleMsg(UserIndex, "No puedes ocultarte si estás navegando.",
+					WriteConsoleMsg(UserIndex, "You cannot hide while you're sailing.",
 							FontTypeNames_FONTTYPE_INFO);
 					UserList[UserIndex].flags.UltimoMensaje = 3;
 				}
@@ -1257,7 +1257,7 @@ void DakaraClientPacketHandler::handleWork(Work* p) { (void)p;
 		if (UserList[UserIndex].flags.Oculto == 1) {
 			/* '[CDT 17-02-2004] */
 			if (UserList[UserIndex].flags.UltimoMensaje != 2) {
-				WriteConsoleMsg(UserIndex, "Ya estás oculto.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You're already hiding.", FontTypeNames_FONTTYPE_INFO);
 				UserList[UserIndex].flags.UltimoMensaje = 2;
 			}
 			/* '[/CDT] */
@@ -1309,10 +1309,10 @@ void DakaraClientPacketHandler::handleUseSpellMacro(UseSpellMacro* p) { (void)p;
 	/* '*************************************************** */
 
 	SendData(SendTarget_ToAdmins, UserIndex,
-			dakara::protocol::server::BuildConsoleMsg(UserList[UserIndex].Name + " fue expulsado por Anti-macro de hechizos.",
+			dakara::protocol::server::BuildConsoleMsg(UserList[UserIndex].Name + " was expelled by the anti-macro spell system.",
 					FontTypeNames_FONTTYPE_VENENO));
 	WriteErrorMsg(UserIndex,
-			"Has sido expulsado por usar macro de hechizos. Recomendamos leer el reglamento sobre el tema macros.");
+			"You've been expelled for using a spells macro.");
 	FlushBuffer(UserIndex);
 	CloseSocket(UserIndex);
 }
@@ -1470,7 +1470,7 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 	case eSkill_Magia:
 		/* 'Check the map allows spells to be casted. */
 		if (MapInfo[UserList[UserIndex].Pos.Map].MagiaSinEfecto > 0) {
-			WriteConsoleMsg(UserIndex, "Una fuerza oscura te impide canalizar tu energía.",
+			WriteConsoleMsg(UserIndex, "A dark force prevents you from channeling your energy.",
 					FontTypeNames_FONTTYPE_FIGHT);
 			return;
 		}
@@ -1507,7 +1507,7 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 			LanzarHechizo(UserList[UserIndex].flags.Hechizo, UserIndex);
 			UserList[UserIndex].flags.Hechizo = 0;
 		} else {
-			WriteConsoleMsg(UserIndex, "¡Primero selecciona el hechizo que quieres lanzar!",
+			WriteConsoleMsg(UserIndex, "Pick the spell you want to cast first!",
 					FontTypeNames_FONTTYPE_INFO);
 		}
 
@@ -1528,7 +1528,7 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 		/* 'Comentario por Barrin: jah, "basado", caradura ! ^^ */
 		if (MapData[UserList[UserIndex].Pos.Map][UserList[UserIndex].Pos.X][UserList[UserIndex].Pos.Y].trigger
 				== 1) {
-			WriteConsoleMsg(UserIndex, "No puedes pescar desde donde te encuentras.",
+			WriteConsoleMsg(UserIndex, "You cannot fish where you are.",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
@@ -1541,19 +1541,19 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 				DummyInt = MapData[UserList[UserIndex].Pos.Map][X][Y].ObjInfo.ObjIndex;
 
 				if (DummyInt == 0) {
-					WriteConsoleMsg(UserIndex, "No hay un yacimiento de peces donde pescar.",
+					WriteConsoleMsg(UserIndex, "There's no fish there.",
 							FontTypeNames_FONTTYPE_INFO);
 					return;
 				}
 
 				if (vb6::Abs(UserList[UserIndex].Pos.X - X) + vb6::Abs(UserList[UserIndex].Pos.Y - Y) > 2) {
-					WriteConsoleMsg(UserIndex, "Estás demasiado lejos para pescar.",
+					WriteConsoleMsg(UserIndex, "You're too far away to fish.",
 							FontTypeNames_FONTTYPE_INFO);
 					return;
 				}
 
 				if (UserList[UserIndex].Pos.X == X && UserList[UserIndex].Pos.Y == Y) {
-					WriteConsoleMsg(UserIndex, "No puedes pescar desde allí.", FontTypeNames_FONTTYPE_INFO);
+					WriteConsoleMsg(UserIndex, "You can't fish from there.", FontTypeNames_FONTTYPE_INFO);
 					return;
 				}
 
@@ -1561,7 +1561,7 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 				if (ObjData[DummyInt].OBJType == eOBJType_otYacimientoPez) {
 					DoPescarRed(UserIndex);
 				} else {
-					WriteConsoleMsg(UserIndex, "No hay un yacimiento de peces donde pescar.",
+					WriteConsoleMsg(UserIndex, "There's no fish there.",
 							FontTypeNames_FONTTYPE_INFO);
 					return;
 				}
@@ -1575,7 +1575,7 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 			SendData(SendTarget_ToPCArea, UserIndex,
 					dakara::protocol::server::BuildPlayWave(SND_PESCAR, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
 		} else {
-			WriteConsoleMsg(UserIndex, "No hay agua donde pescar. Busca un lago, río o mar.",
+			WriteConsoleMsg(UserIndex, "There's no water where to fish. Look for a body of water.",
 					FontTypeNames_FONTTYPE_INFO);
 		}
 		break;
@@ -1600,21 +1600,21 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 					if (UserList[tU].flags.Muerto == 0) {
 						if (vb6::Abs(UserList[UserIndex].Pos.X - X) + vb6::Abs(UserList[UserIndex].Pos.Y - Y)
 								> 2) {
-							WriteConsoleMsg(UserIndex, "Estás demasiado lejos.", FontTypeNames_FONTTYPE_INFO);
+							WriteConsoleMsg(UserIndex, "You're too far away.", FontTypeNames_FONTTYPE_INFO);
 							return;
 						}
 
 						/* '17/09/02 */
 						/* 'Check the trigger */
 						if (MapData[UserList[tU].Pos.Map][X][Y].trigger == eTrigger_ZONASEGURA) {
-							WriteConsoleMsg(UserIndex, "No puedes robar aquí.",
+							WriteConsoleMsg(UserIndex, "You can't steal here.",
 									FontTypeNames_FONTTYPE_WARNING);
 							return;
 						}
 
 						if (MapData[UserList[UserIndex].Pos.Map][UserList[UserIndex].Pos.X][UserList[UserIndex].Pos.Y].trigger
 								== eTrigger_ZONASEGURA) {
-							WriteConsoleMsg(UserIndex, "No puedes robar aquí.",
+							WriteConsoleMsg(UserIndex, "You can't steal here.",
 									FontTypeNames_FONTTYPE_WARNING);
 							return;
 						}
@@ -1623,10 +1623,10 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 					}
 				}
 			} else {
-				WriteConsoleMsg(UserIndex, "¡No hay a quien robarle!", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "There's no one to steal from!", FontTypeNames_FONTTYPE_INFO);
 			}
 		} else {
-			WriteConsoleMsg(UserIndex, "¡No puedes robar en zonas seguras!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You can't steal within safe zones!", FontTypeNames_FONTTYPE_INFO);
 		}
 
 		break;
@@ -1640,7 +1640,7 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 		WeaponIndex = UserList[UserIndex].Invent.WeaponEqpObjIndex;
 
 		if (WeaponIndex == 0) {
-			WriteConsoleMsg(UserIndex, "Deberías equiparte el hacha.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You should equip your axe.", FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 
@@ -1654,13 +1654,13 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 
 		if (DummyInt > 0) {
 			if (vb6::Abs(UserList[UserIndex].Pos.X - X) + vb6::Abs(UserList[UserIndex].Pos.Y - Y) > 2) {
-				WriteConsoleMsg(UserIndex, "Estás demasiado lejos.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You're too far away.", FontTypeNames_FONTTYPE_INFO);
 				return;
 			}
 
 			/* 'Barrin 29/9/03 */
 			if (UserList[UserIndex].Pos.X == X && UserList[UserIndex].Pos.Y == Y) {
-				WriteConsoleMsg(UserIndex, "No puedes talar desde allí.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You can't chop wood from there.", FontTypeNames_FONTTYPE_INFO);
 				return;
 			}
 
@@ -1672,7 +1672,7 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 									UserList[UserIndex].Pos.Y));
 					DoTalar(UserIndex);
 				} else {
-					WriteConsoleMsg(UserIndex, "No puedes extraer lena de éste árbol con éste hacha.",
+					WriteConsoleMsg(UserIndex, "You can't chop wood from that tree with that axe.",
 							FontTypeNames_FONTTYPE_INFO);
 				}
 
@@ -1685,12 +1685,12 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 									UserList[UserIndex].Pos.Y));
 					DoTalar(UserIndex, true);
 				} else {
-					WriteConsoleMsg(UserIndex, "El hacha utilizado no es suficientemente poderosa.",
+					WriteConsoleMsg(UserIndex, "Your axe isn't powerful enough.",
 							FontTypeNames_FONTTYPE_INFO);
 				}
 			}
 		} else {
-			WriteConsoleMsg(UserIndex, "No hay ningún árbol ahí.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "There's no tree there.", FontTypeNames_FONTTYPE_INFO);
 		}
 
 		break;
@@ -1719,7 +1719,7 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 		if (DummyInt > 0) {
 			/* 'Check distance */
 			if (vb6::Abs(UserList[UserIndex].Pos.X - X) + vb6::Abs(UserList[UserIndex].Pos.Y - Y) > 2) {
-				WriteConsoleMsg(UserIndex, "Estás demasiado lejos.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You're too far away.", FontTypeNames_FONTTYPE_INFO);
 				return;
 			}
 
@@ -1727,10 +1727,10 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 			if (ObjData[DummyInt].OBJType == eOBJType_otYacimiento) {
 				DoMineria(UserIndex);
 			} else {
-				WriteConsoleMsg(UserIndex, "Ahí no hay ningún yacimiento.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "There's no lode there.", FontTypeNames_FONTTYPE_INFO);
 			}
 		} else {
-			WriteConsoleMsg(UserIndex, "Ahí no hay ningún yacimiento.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "There's no lode there.", FontTypeNames_FONTTYPE_INFO);
 		}
 
 		break;
@@ -1747,23 +1747,23 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 		if (tN > 0) {
 			if (Npclist[tN].flags.Domable > 0) {
 				if (vb6::Abs(UserList[UserIndex].Pos.X - X) + vb6::Abs(UserList[UserIndex].Pos.Y - Y) > 2) {
-					WriteConsoleMsg(UserIndex, "Estás demasiado lejos.", FontTypeNames_FONTTYPE_INFO);
+					WriteConsoleMsg(UserIndex, "You're too far away.", FontTypeNames_FONTTYPE_INFO);
 					return;
 				}
 
 				if (vb6::LenB(Npclist[tN].flags.AttackedBy) != 0) {
 					WriteConsoleMsg(UserIndex,
-							"No puedes domar una criatura que está luchando con un jugador.",
+							"You can't tame a creature that's fighting a PC.",
 							FontTypeNames_FONTTYPE_INFO);
 					return;
 				}
 
 				DoDomar(UserIndex, tN);
 			} else {
-				WriteConsoleMsg(UserIndex, "No puedes domar a esa criatura.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "You can't tame that creature.", FontTypeNames_FONTTYPE_INFO);
 			}
 		} else {
-			WriteConsoleMsg(UserIndex, "¡No hay ninguna criatura allí!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "There's no creature there!", FontTypeNames_FONTTYPE_INFO);
 		}
 
 		/* 'UGLY!!! This is a constant, not a skill!! */
@@ -1792,12 +1792,12 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 							== 0
 							|| UserList[UserIndex].Invent.Object[UserList[UserIndex].flags.TargetObjInvSlot].Amount
 									== 0) {
-						WriteConsoleMsg(UserIndex, "No tienes más minerales.", FontTypeNames_FONTTYPE_INFO);
+						WriteConsoleMsg(UserIndex, "You have no more minerals.", FontTypeNames_FONTTYPE_INFO);
 						return;
 					}
 
 					/* ''FUISTE */
-					WriteErrorMsg(UserIndex, "Has sido expulsado por el sistema anti cheats.");
+					WriteErrorMsg(UserIndex, "HYou've been expelled by the anti-cheat system.");
 					FlushBuffer(UserIndex);
 					CloseSocket(UserIndex);
 					return;
@@ -1809,10 +1809,10 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 					FundirArmas(UserIndex);
 				}
 			} else {
-				WriteConsoleMsg(UserIndex, "Ahí no hay ninguna fragua.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "There's no forge there.", FontTypeNames_FONTTYPE_INFO);
 			}
 		} else {
-			WriteConsoleMsg(UserIndex, "Ahí no hay ninguna fragua.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "There's no forge there.", FontTypeNames_FONTTYPE_INFO);
 		}
 
 		break;
@@ -1827,10 +1827,10 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 				EnivarArmadurasConstruibles(UserIndex);
 				WriteShowBlacksmithForm(UserIndex);
 			} else {
-				WriteConsoleMsg(UserIndex, "Ahí no hay ningún yunque.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "There's no anvil there.", FontTypeNames_FONTTYPE_INFO);
 			}
 		} else {
-			WriteConsoleMsg(UserIndex, "Ahí no hay ningún yunque.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "There's no anvil there.", FontTypeNames_FONTTYPE_INFO);
 		}
 		break;
 
@@ -1864,7 +1864,7 @@ void DakaraClientPacketHandler::handleCreateNewGuild(CreateNewGuild* p) { (void)
 			errorStr)) {
 		SendData(SendTarget_ToAll, UserIndex,
 				dakara::protocol::server::BuildConsoleMsg(
-						UserList[UserIndex].Name + " fundó el clan " + GuildName + " de alineación "
+						UserList[UserIndex].Name + " founded clan " + GuildName + " with alignment "
 								+ GuildAlignment(UserList[UserIndex].GuildIndex) + ".",
 						FontTypeNames_FONTTYPE_GUILD));
 		SendData(SendTarget_ToAll, 0, dakara::protocol::server::BuildPlayWave(44, NO_3D_SOUND, NO_3D_SOUND));
@@ -1895,7 +1895,7 @@ void DakaraClientPacketHandler::handleSpellInfo(SpellInfo* p) { (void)p;
 
 	/* 'Validate slot */
 	if (spellSlot < 1 || spellSlot > MAXUSERHECHIZOS) {
-		WriteConsoleMsg(UserIndex, "¡Primero selecciona el hechizo!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "Pick a spell first!", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
@@ -1904,10 +1904,10 @@ void DakaraClientPacketHandler::handleSpellInfo(SpellInfo* p) { (void)p;
 	if (Spell > 0 && Spell < NumeroHechizos + 1) {
 		/* 'Send information */
 		WriteConsoleMsg(UserIndex,
-				vb6::CStr("%%%%%%%%%%%% INFO DEL HECHIZO %%%%%%%%%%%%") + vbCrLf + "Nombre:" + Hechizos[Spell].Nombre
-						+ vbCrLf + "Descripción:" + Hechizos[Spell].desc + vbCrLf + "Skill requerido: "
-						+ vb6::CStr(Hechizos[Spell].MinSkill) + " de magia." + vbCrLf + "Maná necesario: "
-						+ vb6::CStr(Hechizos[Spell].ManaRequerido) + vbCrLf + "Energía necesaria: "
+				vb6::CStr("%%%%%%%%%%%% SPELL INFO %%%%%%%%%%%%") + vbCrLf + "Name:" + Hechizos[Spell].Nombre
+						+ vbCrLf + "Description:" + Hechizos[Spell].desc + vbCrLf + "Required skill: "
+						+ vb6::CStr(Hechizos[Spell].MinSkill) + " magic skill points." + vbCrLf + "Required mana: "
+						+ vb6::CStr(Hechizos[Spell].ManaRequerido) + vbCrLf + "Required energy: "
 						+ vb6::CStr(Hechizos[Spell].StaRequerido) + vbCrLf + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",
 				FontTypeNames_FONTTYPE_INFO);
 	}
@@ -2030,7 +2030,7 @@ void DakaraClientPacketHandler::handleModifySkills(ModifySkills* p) { (void)p;
 		if (points[i] < 0) {
 			LogHackAttemp(
 					UserList[UserIndex].Name + " IP:" + UserList[UserIndex].ip
-							+ " trató de hackear los skills.");
+							+ " Tried to hack the skill system.");
 			UserList[UserIndex].Stats.SkillPts = 0;
 			/* FIXME: Ban IP */
 			CloseSocket(UserIndex);
@@ -2042,7 +2042,7 @@ void DakaraClientPacketHandler::handleModifySkills(ModifySkills* p) { (void)p;
 
 	if (Count > UserList[UserIndex].Stats.SkillPts) {
 		LogHackAttemp(
-				UserList[UserIndex].Name + " IP:" + UserList[UserIndex].ip + " trató de hackear los skills.");
+				UserList[UserIndex].Name + " IP:" + UserList[UserIndex].ip + " Tried to hack the skill system.");
 		/* FIXME: Ban IP */
 		CloseSocket(UserIndex);
 		return;
@@ -2065,7 +2065,7 @@ void DakaraClientPacketHandler::handleModifySkills(ModifySkills* p) { (void)p;
 				UserList[UserIndex].Stats.UserSkills[i] = 0;
 				LogHackAttemp(
 						UserList[UserIndex].Name + " IP:" + UserList[UserIndex].ip
-								+ " trató de hackear los skills.");
+								+ " Tried to hack the skill system.");
 				UserList[UserIndex].Stats.SkillPts = 0;
 				/* FIXME: Ban IP */
 				CloseSocket(UserIndex);
@@ -2141,7 +2141,7 @@ void DakaraClientPacketHandler::handleCommerceBuy(CommerceBuy* p) { (void)p;
 
 	/* 'Dead people can't commerce... */
 	if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
@@ -2153,14 +2153,14 @@ void DakaraClientPacketHandler::handleCommerceBuy(CommerceBuy* p) { (void)p;
 	/* '¿El NPC puede comerciar? */
 	if (Npclist[UserList[UserIndex].flags.TargetNPC].Comercia == 0) {
 		SendData(SendTarget_ToPCArea, UserIndex,
-				BuildChatOverHead("No tengo ningún interés en comerciar.",
+				BuildChatOverHead("I've no interest in trading.",
 						Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff));
 		return;
 	}
 
 	/* 'Only if in commerce mode.... */
 	if (!UserList[UserIndex].flags.Comerciando) {
-		WriteConsoleMsg(UserIndex, "No estás comerciando.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You are not trading.", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
@@ -2188,7 +2188,7 @@ void DakaraClientPacketHandler::handleBankExtractItem(BankExtractItem* p) { (voi
 
 	/* 'Dead people can't commerce */
 	if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
@@ -2226,7 +2226,7 @@ void DakaraClientPacketHandler::handleCommerceSell(CommerceSell* p) { (void)p;
 
 	/* 'Dead people can't commerce... */
 	if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
@@ -2238,7 +2238,7 @@ void DakaraClientPacketHandler::handleCommerceSell(CommerceSell* p) { (void)p;
 	/* '¿El NPC puede comerciar? */
 	if (Npclist[UserList[UserIndex].flags.TargetNPC].Comercia == 0) {
 		SendData(SendTarget_ToPCArea, UserIndex,
-				BuildChatOverHead("No tengo ningún interés en comerciar.",
+				BuildChatOverHead("I've no interest in trading",
 						Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff));
 		return;
 	}
@@ -2267,7 +2267,7 @@ void DakaraClientPacketHandler::handleBankDeposit(BankDeposit* p) { (void)p;
 
 	/* 'Dead people can't commerce... */
 	if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
@@ -2510,7 +2510,7 @@ void DakaraClientPacketHandler::handleUserCommerceOffer(UserCommerceOffer* p) { 
 		/* ' Can't offer more than he has */
 		if (!HasEnoughItems(UserIndex, ObjIndex, TotalOfferItems(ObjIndex, UserIndex) + Amount)) {
 
-			WriteCommerceChat(UserIndex, "No tienes esa cantidad.", FontTypeNames_FONTTYPE_TALK);
+			WriteCommerceChat(UserIndex, "You don't have that amount.", FontTypeNames_FONTTYPE_TALK);
 			return;
 		}
 
@@ -2572,11 +2572,11 @@ void DakaraClientPacketHandler::handleGuildAcceptPeace(GuildAcceptPeace* p) { (v
 		WriteConsoleMsg(UserIndex, errorStr, FontTypeNames_FONTTYPE_GUILD);
 	} else {
 		SendData(SendTarget_ToGuildMembers, UserList[UserIndex].GuildIndex,
-				dakara::protocol::server::BuildConsoleMsg("Tu clan ha firmado la paz con " + guild + ".",
+				dakara::protocol::server::BuildConsoleMsg("Your clan has made peace with " + guild + ".",
 						FontTypeNames_FONTTYPE_GUILD));
 		SendData(SendTarget_ToGuildMembers, otherClanIndex,
 				dakara::protocol::server::BuildConsoleMsg(
-						"Tu clan ha firmado la paz con " + GuildName(UserList[UserIndex].GuildIndex) + ".",
+						"Your clan has made peace with " + GuildName(UserList[UserIndex].GuildIndex) + ".",
 						FontTypeNames_FONTTYPE_GUILD));
 	}
 
@@ -2608,12 +2608,12 @@ void DakaraClientPacketHandler::handleGuildRejectAlliance(GuildRejectAlliance* p
 		WriteConsoleMsg(UserIndex, errorStr, FontTypeNames_FONTTYPE_GUILD);
 	} else {
 		SendData(SendTarget_ToGuildMembers, UserList[UserIndex].GuildIndex,
-				dakara::protocol::server::BuildConsoleMsg("Tu clan rechazado la propuesta de alianza de " + guild,
+				dakara::protocol::server::BuildConsoleMsg("Your clan has rejected an alliance with " + guild,
 						FontTypeNames_FONTTYPE_GUILD));
 		SendData(SendTarget_ToGuildMembers, otherClanIndex,
 				dakara::protocol::server::BuildConsoleMsg(
 						GuildName(UserList[UserIndex].GuildIndex)
-								+ " ha rechazado nuestra propuesta de alianza con su clan.",
+								+ " has rejected our alliance proposal.",
 						FontTypeNames_FONTTYPE_GUILD));
 	}
 
@@ -2646,12 +2646,12 @@ void DakaraClientPacketHandler::handleGuildRejectPeace(GuildRejectPeace* p) { (v
 		WriteConsoleMsg(UserIndex, errorStr, FontTypeNames_FONTTYPE_GUILD);
 	} else {
 		SendData(SendTarget_ToGuildMembers, UserList[UserIndex].GuildIndex,
-				dakara::protocol::server::BuildConsoleMsg("Tu clan rechazado la propuesta de paz de " + guild + ".",
+				dakara::protocol::server::BuildConsoleMsg("Your clan has rejected the peace proposal sent by " + guild + ".",
 						FontTypeNames_FONTTYPE_GUILD));
 		SendData(SendTarget_ToGuildMembers, otherClanIndex,
 				dakara::protocol::server::BuildConsoleMsg(
 						GuildName(UserList[UserIndex].GuildIndex)
-								+ " ha rechazado nuestra propuesta de paz con su clan.",
+								+ " has rejected our peace proposal.",
 						FontTypeNames_FONTTYPE_GUILD));
 	}
 
@@ -2684,11 +2684,11 @@ void DakaraClientPacketHandler::handleGuildAcceptAlliance(GuildAcceptAlliance* p
 		WriteConsoleMsg(UserIndex, errorStr, FontTypeNames_FONTTYPE_GUILD);
 	} else {
 		SendData(SendTarget_ToGuildMembers, UserList[UserIndex].GuildIndex,
-				dakara::protocol::server::BuildConsoleMsg("Tu clan ha firmado la alianza con " + guild + ".",
+				dakara::protocol::server::BuildConsoleMsg("Your clan has entered into an alliance with " + guild + ".",
 						FontTypeNames_FONTTYPE_GUILD));
 		SendData(SendTarget_ToGuildMembers, otherClanIndex,
 				dakara::protocol::server::BuildConsoleMsg(
-						"Tu clan ha firmado la paz con " + GuildName(UserList[UserIndex].GuildIndex) + ".",
+						"Your clan has signed a peace agreement with " + GuildName(UserList[UserIndex].GuildIndex) + ".",
 						FontTypeNames_FONTTYPE_GUILD));
 	}
 }
@@ -2713,7 +2713,7 @@ void DakaraClientPacketHandler::handleGuildOfferPeace(GuildOfferPeace* p) { (voi
 	proposal = p->Proposal;
 
 	if (r_ClanGeneraPropuesta(UserIndex, guild, RELACIONES_GUILD_PAZ, proposal, errorStr)) {
-		WriteConsoleMsg(UserIndex, "Propuesta de paz enviada.", FontTypeNames_FONTTYPE_GUILD);
+		WriteConsoleMsg(UserIndex, "Peace proposal sent.", FontTypeNames_FONTTYPE_GUILD);
 	} else {
 		WriteConsoleMsg(UserIndex, errorStr, FontTypeNames_FONTTYPE_GUILD);
 	}
@@ -2739,7 +2739,7 @@ void DakaraClientPacketHandler::handleGuildOfferAlliance(GuildOfferAlliance* p) 
 	proposal = p->Proposal;
 
 	if (r_ClanGeneraPropuesta(UserIndex, guild, RELACIONES_GUILD_ALIADOS, proposal, errorStr)) {
-		WriteConsoleMsg(UserIndex, "Propuesta de alianza enviada.", FontTypeNames_FONTTYPE_GUILD);
+		WriteConsoleMsg(UserIndex, "Alliance proposal sent.", FontTypeNames_FONTTYPE_GUILD);
 	} else {
 		WriteConsoleMsg(UserIndex, errorStr, FontTypeNames_FONTTYPE_GUILD);
 	}
@@ -2819,7 +2819,7 @@ void DakaraClientPacketHandler::handleGuildRequestJoinerInfo(GuildRequestJoinerI
 	details = a_DetallesAspirante(UserIndex, User);
 
 	if (vb6::LenB(details) == 0) {
-		WriteConsoleMsg(UserIndex, "El personaje no ha mandado solicitud, o no estás habilitado para verla.",
+		WriteConsoleMsg(UserIndex, "The PC hasn't send an application, or you don't have permission to see it.",
 				FontTypeNames_FONTTYPE_GUILD);
 	} else {
 		WriteShowUserRequest(UserIndex, details);
@@ -2881,11 +2881,11 @@ void DakaraClientPacketHandler::handleGuildDeclareWar(GuildDeclareWar* p) { (voi
 	} else {
 		/* 'WAR shall be! */
 		SendData(SendTarget_ToGuildMembers, UserList[UserIndex].GuildIndex,
-				dakara::protocol::server::BuildConsoleMsg("TU CLAN HA ENTRADO EN GUERRA CON " + guild + ".",
+				dakara::protocol::server::BuildConsoleMsg("YOUR CLAN IS NOW IN WAR WITH " + guild + ".",
 						FontTypeNames_FONTTYPE_GUILD));
 		SendData(SendTarget_ToGuildMembers, otherGuildIndex,
 				dakara::protocol::server::BuildConsoleMsg(
-						GuildName(UserList[UserIndex].GuildIndex) + " LE DECLARA LA GUERRA A TU CLAN.",
+						GuildName(UserList[UserIndex].GuildIndex) + " DECLARES WAR TO YOUR CLAN.",
 						FontTypeNames_FONTTYPE_GUILD));
 		SendData(SendTarget_ToGuildMembers, UserList[UserIndex].GuildIndex,
 				dakara::protocol::server::BuildPlayWave(45, NO_3D_SOUND, NO_3D_SOUND));
@@ -2941,7 +2941,7 @@ void DakaraClientPacketHandler::handleGuildAcceptNewMember(GuildAcceptNewMember*
 		}
 
 		SendData(SendTarget_ToGuildMembers, UserList[UserIndex].GuildIndex,
-				dakara::protocol::server::BuildConsoleMsg(UserName + " ha sido aceptado como miembro del clan.",
+				dakara::protocol::server::BuildConsoleMsg(UserName + " has been accepted as a member of your clan.",
 						FontTypeNames_FONTTYPE_GUILD));
 		SendData(SendTarget_ToGuildMembers, UserList[UserIndex].GuildIndex,
 				dakara::protocol::server::BuildPlayWave(43, NO_3D_SOUND, NO_3D_SOUND));
@@ -3012,11 +3012,11 @@ void DakaraClientPacketHandler::handleGuildKickMember(GuildKickMember* p) { (voi
 
 	if (GuildIndex > 0) {
 		SendData(SendTarget_ToGuildMembers, GuildIndex,
-				dakara::protocol::server::BuildConsoleMsg(UserName + " fue expulsado del clan.",
+				dakara::protocol::server::BuildConsoleMsg(UserName + " was expelled from the clan.",
 						FontTypeNames_FONTTYPE_GUILD));
 		SendData(SendTarget_ToGuildMembers, GuildIndex, dakara::protocol::server::BuildPlayWave(45, NO_3D_SOUND, NO_3D_SOUND));
 	} else {
-		WriteConsoleMsg(UserIndex, "No puedes expulsar ese personaje del clan.",
+		WriteConsoleMsg(UserIndex, "You cannot expel this PC from the clan.",
 				FontTypeNames_FONTTYPE_GUILD);
 	}
 
@@ -3071,7 +3071,7 @@ void DakaraClientPacketHandler::handleGuildOpenElections(GuildOpenElections* p) 
 	} else {
 		SendData(SendTarget_ToGuildMembers, UserList[UserIndex].GuildIndex,
 				dakara::protocol::server::BuildConsoleMsg(
-						"¡Han comenzado las elecciones del clan! Puedes votar escribiendo /VOTO seguido del nombre del personaje, por ejemplo: /VOTO "
+						"Clan elections have started! You can vote by typing /VOTE followed by the candidate you wish to vote for "
 								+ UserList[UserIndex].Name, FontTypeNames_FONTTYPE_GUILD));
 	}
 }
@@ -3099,7 +3099,7 @@ void DakaraClientPacketHandler::handleGuildRequestMembership(GuildRequestMembers
 		WriteConsoleMsg(UserIndex, errorStr, FontTypeNames_FONTTYPE_GUILD);
 	} else {
 		WriteConsoleMsg(UserIndex,
-				"Tu solicitud ha sido enviada. Espera prontas noticias del líder de " + guild + ".",
+				"Your request has been sent. Wait for news from the leader of " + guild + ".",
 				FontTypeNames_FONTTYPE_GUILD);
 	}
 }
@@ -3142,7 +3142,7 @@ void DakaraClientPacketHandler::handleOnline(Online* p) { (void)p;
 		}
 	}
 
-	WriteConsoleMsg(UserIndex, "Número de usuarios: " + vb6::CStr(Count), FontTypeNames_FONTTYPE_INFO);
+	WriteConsoleMsg(UserIndex, "Number of users: " + vb6::CStr(Count), FontTypeNames_FONTTYPE_INFO);
 }
 
 /* '' */
@@ -3160,7 +3160,7 @@ void DakaraClientPacketHandler::handleQuit(Quit* p) { (void)p;
 	/* '*************************************************** */
 
 	if (UserList[UserIndex].flags.Paralizado == 1) {
-		WriteConsoleMsg(UserIndex, "No puedes salir estando paralizado.", FontTypeNames_FONTTYPE_WARNING);
+		WriteConsoleMsg(UserIndex, "You can't leave the game while you're paralyzed.", FontTypeNames_FONTTYPE_WARNING);
 		return;
 	}
 
@@ -3184,12 +3184,12 @@ void DakaraClientPacketHandler::handleGuildLeave(GuildLeave* p) { (void)p;
 	GuildIndex = m_EcharMiembroDeClan(UserIndex, UserList[UserIndex].Name);
 
 	if (GuildIndex > 0) {
-		WriteConsoleMsg(UserIndex, "Dejas el clan.", FontTypeNames_FONTTYPE_GUILD);
+		WriteConsoleMsg(UserIndex, "You leave the clan.", FontTypeNames_FONTTYPE_GUILD);
 		SendData(SendTarget_ToGuildMembers, GuildIndex,
 				dakara::protocol::server::BuildConsoleMsg(UserList[UserIndex].Name + " deja el clan.",
 						FontTypeNames_FONTTYPE_GUILD));
 	} else {
-		WriteConsoleMsg(UserIndex, "Tú no puedes salir de este clan.", FontTypeNames_FONTTYPE_GUILD);
+		WriteConsoleMsg(UserIndex, "You cannot leave this clan.", FontTypeNames_FONTTYPE_GUILD);
 	}
 }
 
@@ -3212,27 +3212,27 @@ void DakaraClientPacketHandler::handleRequestAccountState(RequestAccountState* p
 
 	/* 'Dead people can't check their accounts */
 	if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	/* 'Validate target NPC */
 	if (UserList[UserIndex].flags.TargetNPC == 0) {
 		WriteConsoleMsg(UserIndex,
-				"Primero tienes que seleccionar un personaje, haz click izquierdo sobre él.",
+				"First left-click a PC",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	if (Distancia(Npclist[UserList[UserIndex].flags.TargetNPC].Pos, UserList[UserIndex].Pos) > 3) {
-		WriteConsoleMsg(UserIndex, "Estás demasiado lejos del vendedor.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're too far away from the seller.", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	switch (Npclist[UserList[UserIndex].flags.TargetNPC].NPCtype) {
 	case eNPCType_Banquero:
 		WriteChatOverHead(UserIndex,
-				"Tienes " + vb6::CStr(UserList[UserIndex].Stats.Banco) + " monedas de oro en tu cuenta.",
+				"You have " + vb6::CStr(UserList[UserIndex].Stats.Banco) + " gp in your account.",
 				Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff);
 
 		break;
@@ -3250,8 +3250,8 @@ void DakaraClientPacketHandler::handleRequestAccountState(RequestAccountState* p
 			}
 
 			WriteConsoleMsg(UserIndex,
-					"Entradas: " + vb6::CStr(Apuestas.Ganancias) + " Salida: " + vb6::CStr(Apuestas.Perdidas) + " Ganancia Neta: "
-							+ vb6::CStr(earnings) + " (" + vb6::CStr(Percentage) + "%) Jugadas: " + vb6::CStr(Apuestas.Jugadas),
+					"Winnings: " + vb6::CStr(Apuestas.Ganancias) + " Losses: " + vb6::CStr(Apuestas.Perdidas) + " Net Winnings: "
+							+ vb6::CStr(earnings) + " (" + vb6::CStr(Percentage) + "%) Bets: " + vb6::CStr(Apuestas.Jugadas),
 					FontTypeNames_FONTTYPE_INFO);
 		}
 		break;
@@ -3277,21 +3277,21 @@ void DakaraClientPacketHandler::handlePetStand(PetStand* p) { (void)p;
 
 	/* 'Dead people can't use pets */
 	if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	/* 'Validate target NPC */
 	if (UserList[UserIndex].flags.TargetNPC == 0) {
 		WriteConsoleMsg(UserIndex,
-				"Primero tienes que seleccionar un personaje, haz click izquierdo sobre él.",
+				"First left-click a PC",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	/* 'Make sure it's close enough */
 	if (Distancia(Npclist[UserList[UserIndex].flags.TargetNPC].Pos, UserList[UserIndex].Pos) > 10) {
-		WriteConsoleMsg(UserIndex, "Estás demasiado lejos.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're too far away.", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
@@ -3322,21 +3322,21 @@ void DakaraClientPacketHandler::handlePetFollow(PetFollow* p) { (void)p;
 
 	/* 'Dead users can't use pets */
 	if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	/* 'Validate target NPC */
 	if (UserList[UserIndex].flags.TargetNPC == 0) {
 		WriteConsoleMsg(UserIndex,
-				"Primero tienes que seleccionar un personaje, haz click izquierdo sobre él.",
+				"First left-click a PC",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	/* 'Make sure it's close enough */
 	if (Distancia(Npclist[UserList[UserIndex].flags.TargetNPC].Pos, UserList[UserIndex].Pos) > 10) {
-		WriteConsoleMsg(UserIndex, "Estás demasiado lejos.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're too far away.", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
@@ -3367,14 +3367,14 @@ void DakaraClientPacketHandler::handleReleasePet(ReleasePet* p) { (void)p;
 
 	/* 'Dead users can't use pets */
 	if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	/* 'Validate target NPC */
 	if (UserList[UserIndex].flags.TargetNPC == 0) {
 		WriteConsoleMsg(UserIndex,
-				"Primero tienes que seleccionar una mascota, haz click izquierdo sobre ella.",
+				"You must first left-click a pet.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -3386,7 +3386,7 @@ void DakaraClientPacketHandler::handleReleasePet(ReleasePet* p) { (void)p;
 
 	/* 'Make sure it's close enough */
 	if (Distancia(Npclist[UserList[UserIndex].flags.TargetNPC].Pos, UserList[UserIndex].Pos) > 10) {
-		WriteConsoleMsg(UserIndex, "Estás demasiado lejos.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're too far away.", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
@@ -3411,21 +3411,21 @@ void DakaraClientPacketHandler::handleTrainList(TrainList* p) { (void)p;
 
 	/* 'Dead users can't use pets */
 	if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	/* 'Validate target NPC */
 	if (UserList[UserIndex].flags.TargetNPC == 0) {
 		WriteConsoleMsg(UserIndex,
-				"Primero tienes que seleccionar un personaje, haz click izquierdo sobre él.",
+				"First left-click a PC",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	/* 'Make sure it's close enough */
 	if (Distancia(Npclist[UserList[UserIndex].flags.TargetNPC].Pos, UserList[UserIndex].Pos) > 10) {
-		WriteConsoleMsg(UserIndex, "Estás demasiado lejos.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're too far away.", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
@@ -3453,7 +3453,7 @@ void DakaraClientPacketHandler::handleRest(Rest* p) { (void)p;
 
 	/* 'Dead users can't use pets */
 	if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "¡¡Estás muerto!! Solo puedes usar ítems cuando estás vivo.",
+		WriteConsoleMsg(UserIndex, "You're dead!! Solo puedes usar ítems cuando estás vivo.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -3462,23 +3462,23 @@ void DakaraClientPacketHandler::handleRest(Rest* p) { (void)p;
 		WriteRestOK(UserIndex);
 
 		if (!UserList[UserIndex].flags.Descansar) {
-			WriteConsoleMsg(UserIndex, "Te acomodás junto a la fogata y comienzas a descansar.",
+			WriteConsoleMsg(UserIndex, "You sit next to the fire and start resting.",
 					FontTypeNames_FONTTYPE_INFO);
 		} else {
-			WriteConsoleMsg(UserIndex, "Te levantas.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You stand up.", FontTypeNames_FONTTYPE_INFO);
 		}
 
 		UserList[UserIndex].flags.Descansar = !UserList[UserIndex].flags.Descansar;
 	} else {
 		if (UserList[UserIndex].flags.Descansar) {
 			WriteRestOK(UserIndex);
-			WriteConsoleMsg(UserIndex, "Te levantas.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You stand up.", FontTypeNames_FONTTYPE_INFO);
 
 			UserList[UserIndex].flags.Descansar = false;
 			return;
 		}
 
-		WriteConsoleMsg(UserIndex, "No hay ninguna fogata junto a la cual descansar.",
+		WriteConsoleMsg(UserIndex, "There's no fire to rest by.",
 				FontTypeNames_FONTTYPE_INFO);
 	}
 }
@@ -3500,14 +3500,14 @@ void DakaraClientPacketHandler::handleMeditate(Meditate* p) { (void)p;
 
 	/* 'Dead users can't use pets */
 	if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "¡¡Estás muerto!! Sólo puedes meditar cuando estás vivo.",
+		WriteConsoleMsg(UserIndex, "You're dead!! You can only meditate while you're alive.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	/* 'Can he meditate? */
 	if (UserList[UserIndex].Stats.MaxMAN == 0) {
-		WriteConsoleMsg(UserIndex, "Sólo las clases mágicas conocen el arte de la meditación.",
+		WriteConsoleMsg(UserIndex, "Only the magical classes know the art of meditation.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -3515,7 +3515,7 @@ void DakaraClientPacketHandler::handleMeditate(Meditate* p) { (void)p;
 	/* 'Admins don't have to wait :D */
 	if (!UserTieneAlgunPrivilegios(UserIndex, PlayerType_User)) {
 		UserList[UserIndex].Stats.MinMAN = UserList[UserIndex].Stats.MaxMAN;
-		WriteConsoleMsg(UserIndex, "Maná restaurado.", FontTypeNames_FONTTYPE_VENENO);
+		WriteConsoleMsg(UserIndex, "Mana restored.", FontTypeNames_FONTTYPE_VENENO);
 		WriteUpdateMana(UserIndex);
 		return;
 	}
@@ -3523,7 +3523,7 @@ void DakaraClientPacketHandler::handleMeditate(Meditate* p) { (void)p;
 	WriteMeditateToggle(UserIndex);
 
 	if (UserList[UserIndex].flags.Meditando) {
-		WriteConsoleMsg(UserIndex, "Dejas de meditar.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You stop meditating.", FontTypeNames_FONTTYPE_INFO);
 	}
 
 	UserList[UserIndex].flags.Meditando = !UserList[UserIndex].flags.Meditando;
@@ -3535,8 +3535,8 @@ void DakaraClientPacketHandler::handleMeditate(Meditate* p) { (void)p;
 		/* 'Call WriteConsoleMsg(UserIndex, "Te estás concentrando. En " & Fix(TIEMPO_INICIOMEDITAR / 1000) & " segundos comenzarás a meditar.", FontTypeNames.FONTTYPE_INFO) */
 		/* ' [TEMPORAL] */
 		WriteConsoleMsg(UserIndex,
-				"Te estás concentrando. En " + vb6::CStr(UserList[UserIndex].Stats.ELV / 17)
-						+ " segundos comenzarás a meditar.", FontTypeNames_FONTTYPE_INFO);
+				"You're concentrating. In " + vb6::CStr(UserList[UserIndex].Stats.ELV / 17)
+						+ " seconds, you'll start meditating.", FontTypeNames_FONTTYPE_INFO);
 
 		UserList[UserIndex].Char.loops = INFINITE_LOOPS;
 
@@ -3587,7 +3587,7 @@ void DakaraClientPacketHandler::handleResucitate(Resucitate* p) { (void)p;
 	/* 'Se asegura que el target es un npc */
 	if (UserList[UserIndex].flags.TargetNPC == 0) {
 		WriteConsoleMsg(UserIndex,
-				"Primero tienes que seleccionar un personaje, haz click izquierdo sobre él.",
+				"First left-click a PC",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -3601,13 +3601,13 @@ void DakaraClientPacketHandler::handleResucitate(Resucitate* p) { (void)p;
 
 	/* 'Make sure it's close enough */
 	if (Distancia(UserList[UserIndex].Pos, Npclist[UserList[UserIndex].flags.TargetNPC].Pos) > 10) {
-		WriteConsoleMsg(UserIndex, "El sacerdote no puede resucitarte debido a que estás demasiado lejos.",
+		WriteConsoleMsg(UserIndex, "The priest cannot resucitate you because your too far away.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	RevivirUsuario(UserIndex);
-	WriteConsoleMsg(UserIndex, "¡¡Has sido resucitado!!", FontTypeNames_FONTTYPE_INFO);
+	WriteConsoleMsg(UserIndex, "You've been raised from the dead!!", FontTypeNames_FONTTYPE_INFO);
 
 }
 
@@ -3639,7 +3639,7 @@ void DakaraClientPacketHandler::handleConsultation(Consultation* p) { (void)p;
 
 	/* 'Se asegura que el target es un usuario */
 	if (UserConsulta == 0) {
-		WriteConsoleMsg(UserIndex, "Primero tienes que seleccionar un usuario, haz click izquierdo sobre él.",
+		WriteConsoleMsg(UserIndex, "First, left-click a user.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -3651,7 +3651,7 @@ void DakaraClientPacketHandler::handleConsultation(Consultation* p) { (void)p;
 
 	/* ' No podes estra en consulta con otro gm */
 	if (EsGm(UserConsulta)) {
-		WriteConsoleMsg(UserIndex, "No puedes iniciar el modo consulta con otro administrador.",
+		WriteConsoleMsg(UserIndex, "You cannot enter support mode with a second admin.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -3661,19 +3661,19 @@ void DakaraClientPacketHandler::handleConsultation(Consultation* p) { (void)p;
 
 	/* ' Si ya estaba en consulta, termina la consulta */
 	if (UserList[UserConsulta].flags.EnConsulta) {
-		WriteConsoleMsg(UserIndex, "Has terminado el modo consulta con " + UserName + ".",
+		WriteConsoleMsg(UserIndex, "You've ended your support session with " + UserName + ".",
 				FontTypeNames_FONTTYPE_INFOBOLD);
-		WriteConsoleMsg(UserConsulta, "Has terminado el modo consulta.", FontTypeNames_FONTTYPE_INFOBOLD);
-		LogGM(UserList[UserIndex].Name, "Termino consulta con " + UserName);
+		WriteConsoleMsg(UserConsulta, "You've ended your support session.", FontTypeNames_FONTTYPE_INFOBOLD);
+		LogGM(UserList[UserIndex].Name, "Ended their support session with " + UserName);
 
 		UserList[UserConsulta].flags.EnConsulta = false;
 
 		/* ' Sino la inicia */
 	} else {
-		WriteConsoleMsg(UserIndex, "Has iniciado el modo consulta con " + UserName + ".",
+		WriteConsoleMsg(UserIndex, "You've started a support session with " + UserName + ".",
 				FontTypeNames_FONTTYPE_INFOBOLD);
-		WriteConsoleMsg(UserConsulta, "Has iniciado el modo consulta.", FontTypeNames_FONTTYPE_INFOBOLD);
-		LogGM(UserList[UserIndex].Name, "Inicio consulta con " + UserName);
+		WriteConsoleMsg(UserConsulta, "You've started a support session.", FontTypeNames_FONTTYPE_INFOBOLD);
+		LogGM(UserList[UserIndex].Name, "Started a support session with " + UserName);
 
 		UserList[UserConsulta].flags.EnConsulta = true;
 
@@ -3711,7 +3711,7 @@ void DakaraClientPacketHandler::handleHeal(Heal* p) { (void)p;
 	/* 'Se asegura que el target es un npc */
 	if (UserList[UserIndex].flags.TargetNPC == 0) {
 		WriteConsoleMsg(UserIndex,
-				"Primero tienes que seleccionar un personaje, haz click izquierdo sobre él.",
+				"First left-click a PC",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -3723,7 +3723,7 @@ void DakaraClientPacketHandler::handleHeal(Heal* p) { (void)p;
 	}
 
 	if (Distancia(UserList[UserIndex].Pos, Npclist[UserList[UserIndex].flags.TargetNPC].Pos) > 10) {
-		WriteConsoleMsg(UserIndex, "El sacerdote no puede curarte debido a que estás demasiado lejos.",
+		WriteConsoleMsg(UserIndex, "The priest cannot cure you because you are too far away.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -3732,7 +3732,7 @@ void DakaraClientPacketHandler::handleHeal(Heal* p) { (void)p;
 
 	WriteUpdateHP(UserIndex);
 
-	WriteConsoleMsg(UserIndex, "¡¡Has sido curado!!", FontTypeNames_FONTTYPE_INFO);
+	WriteConsoleMsg(UserIndex, "You've been cured!!", FontTypeNames_FONTTYPE_INFO);
 }
 
 /* '' */
@@ -3786,13 +3786,13 @@ void DakaraClientPacketHandler::handleCommerceStart(CommerceStart* p) { (void)p;
 
 	/* 'Dead people can't commerce */
 	if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	/* 'Is it already in commerce mode?? */
 	if (UserList[UserIndex].flags.Comerciando) {
-		WriteConsoleMsg(UserIndex, "Ya estás comerciando.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're already trading.", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
@@ -3801,7 +3801,7 @@ void DakaraClientPacketHandler::handleCommerceStart(CommerceStart* p) { (void)p;
 		/* 'Does the NPC want to trade?? */
 		if (Npclist[UserList[UserIndex].flags.TargetNPC].Comercia == 0) {
 			if (vb6::LenB(Npclist[UserList[UserIndex].flags.TargetNPC].desc) != 0) {
-				WriteChatOverHead(UserIndex, "No tengo ningún interés en comerciar.",
+				WriteChatOverHead(UserIndex, "I've no interest in trading",
 						Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff);
 			}
 
@@ -3809,7 +3809,7 @@ void DakaraClientPacketHandler::handleCommerceStart(CommerceStart* p) { (void)p;
 		}
 
 		if (Distancia(Npclist[UserList[UserIndex].flags.TargetNPC].Pos, UserList[UserIndex].Pos) > 3) {
-			WriteConsoleMsg(UserIndex, "Estás demasiado lejos del vendedor.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You're too far away from the seller.", FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 
@@ -3820,33 +3820,33 @@ void DakaraClientPacketHandler::handleCommerceStart(CommerceStart* p) { (void)p;
 		/* 'User commerce... */
 		/* 'Can he commerce?? */
 		if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_Consejero)) {
-			WriteConsoleMsg(UserIndex, "No puedes vender ítems.", FontTypeNames_FONTTYPE_WARNING);
+			WriteConsoleMsg(UserIndex, "You can't sell items.", FontTypeNames_FONTTYPE_WARNING);
 			return;
 		}
 
 		/* 'Is the other one dead?? */
 		if (UserList[UserList[UserIndex].flags.TargetUser].flags.Muerto == 1) {
-			WriteConsoleMsg(UserIndex, "¡¡No puedes comerciar con los muertos!!",
+			WriteConsoleMsg(UserIndex, "You can't trade with the dead!!",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 
 		/* 'Is it me?? */
 		if (UserList[UserIndex].flags.TargetUser == UserIndex) {
-			WriteConsoleMsg(UserIndex, "¡¡No puedes comerciar con vos mismo!!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You an't trade with yourself!!", FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 
 		/* 'Check distance */
 		if (Distancia(UserList[UserList[UserIndex].flags.TargetUser].Pos, UserList[UserIndex].Pos) > 3) {
-			WriteConsoleMsg(UserIndex, "Estás demasiado lejos del usuario.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You're too far away from the user.", FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 
 		/* 'Is he already trading?? is it with me or someone else?? */
 		if (UserList[UserList[UserIndex].flags.TargetUser].flags.Comerciando == true
 				&& UserList[UserList[UserIndex].flags.TargetUser].ComUsu.DestUsu != UserIndex) {
-			WriteConsoleMsg(UserIndex, "No puedes comerciar con el usuario en este momento.",
+			WriteConsoleMsg(UserIndex, "You can't trade with that user right now.",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
@@ -3866,7 +3866,7 @@ void DakaraClientPacketHandler::handleCommerceStart(CommerceStart* p) { (void)p;
 		/* 'Rutina para comerciar con otro usuario */
 		IniciarComercioConUsuario(UserIndex, UserList[UserIndex].flags.TargetUser);
 	} else {
-		WriteConsoleMsg(UserIndex, "Primero haz click izquierdo sobre el personaje.",
+		WriteConsoleMsg(UserIndex, "First, left-click the character.",
 				FontTypeNames_FONTTYPE_INFO);
 	}
 }
@@ -3887,19 +3887,19 @@ void DakaraClientPacketHandler::handleBankStart(BankStart* p) { (void)p;
 
 	/* 'Dead people can't commerce */
 	if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	if (UserList[UserIndex].flags.Comerciando) {
-		WriteConsoleMsg(UserIndex, "Ya estás comerciando.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're already trading.", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	/* 'Validate target NPC */
 	if (UserList[UserIndex].flags.TargetNPC > 0) {
 		if (Distancia(Npclist[UserList[UserIndex].flags.TargetNPC].Pos, UserList[UserIndex].Pos) > 3) {
-			WriteConsoleMsg(UserIndex, "Estás demasiado lejos del vendedor.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You're too far away from the seller.", FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 
@@ -3908,7 +3908,7 @@ void DakaraClientPacketHandler::handleBankStart(BankStart* p) { (void)p;
 			IniciarDeposito(UserIndex);
 		}
 	} else {
-		WriteConsoleMsg(UserIndex, "Primero haz click izquierdo sobre el personaje.",
+		WriteConsoleMsg(UserIndex, "First, left-click the PC.",
 				FontTypeNames_FONTTYPE_INFO);
 	}
 }
@@ -3930,7 +3930,7 @@ void DakaraClientPacketHandler::handleEnlist(Enlist* p) { (void)p;
 	/* 'Validate target NPC */
 	if (UserList[UserIndex].flags.TargetNPC == 0) {
 		WriteConsoleMsg(UserIndex,
-				"Primero tienes que seleccionar un personaje, haz click izquierdo sobre él.",
+				"First left-click a PC",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -3941,7 +3941,7 @@ void DakaraClientPacketHandler::handleEnlist(Enlist* p) { (void)p;
 	}
 
 	if (Distancia(UserList[UserIndex].Pos, Npclist[UserList[UserIndex].flags.TargetNPC].Pos) > 4) {
-		WriteConsoleMsg(UserIndex, "Debes acercarte más.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You must come closer.", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
@@ -3973,7 +3973,7 @@ void DakaraClientPacketHandler::handleInformation(Information* p) { (void)p;
 	/* 'Validate target NPC */
 	if (UserList[UserIndex].flags.TargetNPC == 0) {
 		WriteConsoleMsg(UserIndex,
-				"Primero tienes que seleccionar un personaje, haz click izquierdo sobre él.",
+				"First left-click a PC.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -3984,7 +3984,7 @@ void DakaraClientPacketHandler::handleInformation(Information* p) { (void)p;
 	}
 
 	if (Distancia(UserList[UserIndex].Pos, Npclist[UserList[UserIndex].flags.TargetNPC].Pos) > 4) {
-		WriteConsoleMsg(UserIndex, "Estás demasiado lejos.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're too far away.", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
@@ -3992,7 +3992,7 @@ void DakaraClientPacketHandler::handleInformation(Information* p) { (void)p;
 
 	if (Npclist[UserList[UserIndex].flags.TargetNPC].flags.Faccion == 0) {
 		if (UserList[UserIndex].Faccion.ArmadaReal == 0) {
-			WriteChatOverHead(UserIndex, "¡¡No perteneces a las tropas reales!!",
+			WriteChatOverHead(UserIndex, "You're not part of the Royal Army!!",
 					Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff);
 			return;
 		}
@@ -4002,17 +4002,17 @@ void DakaraClientPacketHandler::handleInformation(Information* p) { (void)p;
 
 		if (Diferencia > 0) {
 			WriteChatOverHead(UserIndex,
-					"Tu deber es combatir criminales, mata " + vb6::CStr(Diferencia)
-							+ " criminales más y te daré una recompensa.",
+					"Fighting criminals is your duty, kill " + vb6::CStr(Diferencia)
+							+ " more criminals and I shall reward you.",
 					Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff);
 		} else {
 			WriteChatOverHead(UserIndex,
-					"Tu deber es combatir criminales, y ya has matado los suficientes como para merecerte una recompensa.",
+					"Fighting criminals is your duty, and you've already killed enough to receive a reward.",
 					Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff);
 		}
 	} else {
 		if (UserList[UserIndex].Faccion.FuerzasCaos == 0) {
-			WriteChatOverHead(UserIndex, "¡¡No perteneces a la legión oscura!!",
+			WriteChatOverHead(UserIndex, "You're not part of the Dark Legion!!",
 					Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff);
 			return;
 		}
@@ -4022,12 +4022,12 @@ void DakaraClientPacketHandler::handleInformation(Information* p) { (void)p;
 
 		if (Diferencia > 0) {
 			WriteChatOverHead(UserIndex,
-					"Tu deber es sembrar el caos y la desesperanza, mata " + vb6::CStr(Diferencia)
-							+ " ciudadanos más y te daré una recompensa.",
+					"Sowing chaos and despair is your duty, kill " + vb6::CStr(Diferencia)
+							+ " more citizens and I shall reward you.",
 					Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff);
 		} else {
 			WriteChatOverHead(UserIndex,
-					"Tu deber es sembrar el caos y la desesperanza, y creo que estás en condiciones de merecer una recompensa.",
+					"Sowing chaos and despair is your duty, and I think a reward is due.",
 					Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff);
 		}
 	}
@@ -4050,7 +4050,7 @@ void DakaraClientPacketHandler::handleReward(Reward* p) { (void)p;
 	/* 'Validate target NPC */
 	if (UserList[UserIndex].flags.TargetNPC == 0) {
 		WriteConsoleMsg(UserIndex,
-				"Primero tienes que seleccionar un personaje, haz click izquierdo sobre él.",
+				"First left-click a PC",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -4061,20 +4061,20 @@ void DakaraClientPacketHandler::handleReward(Reward* p) { (void)p;
 	}
 
 	if (Distancia(UserList[UserIndex].Pos, Npclist[UserList[UserIndex].flags.TargetNPC].Pos) > 4) {
-		WriteConsoleMsg(UserIndex, "Estás demasiado lejos.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're too far away.", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	if (Npclist[UserList[UserIndex].flags.TargetNPC].flags.Faccion == 0) {
 		if (UserList[UserIndex].Faccion.ArmadaReal == 0) {
-			WriteChatOverHead(UserIndex, "¡¡No perteneces a las tropas reales!!",
+			WriteChatOverHead(UserIndex, "You're not part of the Royal Army!!",
 					Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff);
 			return;
 		}
 		RecompensaArmadaReal(UserIndex);
 	} else {
 		if (UserList[UserIndex].Faccion.FuerzasCaos == 0) {
-			WriteChatOverHead(UserIndex, "¡¡No perteneces a la legión oscura!!",
+			WriteChatOverHead(UserIndex, "You're not part of the Dark Legion!!",
 					Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff);
 			return;
 		}
@@ -4120,19 +4120,19 @@ void DakaraClientPacketHandler::handleUpTime(UpTime* p) { (void)p;
 	time = getInterval((vb6::GetTickCount()), tInicioServer) / 1000;
 
 	/* 'Get times in dd:hh:mm:ss format */
-	UpTimeStr = vb6::CStr(time % 60) + " segundos.";
+	UpTimeStr = vb6::CStr(time % 60) + " seconds.";
 	time = time / 60;
 
-	UpTimeStr = vb6::CStr(time % 60) + " minutos, " + UpTimeStr;
+	UpTimeStr = vb6::CStr(time % 60) + " minutes, " + UpTimeStr;
 	time = time / 60;
 
-	UpTimeStr = vb6::CStr(time % 24) + " horas, " + UpTimeStr;
+	UpTimeStr = vb6::CStr(time % 24) + " hours, " + UpTimeStr;
 	time = time / 24;
 
 	if (time == 1) {
-		UpTimeStr = vb6::CStr(time) + " día, " + UpTimeStr;
+		UpTimeStr = vb6::CStr(time) + " day, " + UpTimeStr;
 	} else {
-		UpTimeStr = vb6::CStr(time) + " días, " + UpTimeStr;
+		UpTimeStr = vb6::CStr(time) + " days, " + UpTimeStr;
 	}
 
 	WriteConsoleMsg(UserIndex, "Server Online: " + UpTimeStr, FontTypeNames_FONTTYPE_INFO);
@@ -4219,7 +4219,7 @@ void DakaraClientPacketHandler::handleShareNpc(ShareNpc* p) { (void)p;
 
 	/* ' Can't share with admins */
 	if (EsGm(TargetUserIndex)) {
-		WriteConsoleMsg(UserIndex, "No puedes compartir npcs con administradores!!",
+		WriteConsoleMsg(UserIndex, "You can't share NPCs with admins!!",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -4229,7 +4229,7 @@ void DakaraClientPacketHandler::handleShareNpc(ShareNpc* p) { (void)p;
 		/* ' Caos can only share with other caos */
 		if (esCaos(UserIndex)) {
 			if (!esCaos(TargetUserIndex)) {
-				WriteConsoleMsg(UserIndex, "Solo puedes compartir npcs con miembros de tu misma facción!!",
+				WriteConsoleMsg(UserIndex, "You can only share NPCs with members of your own faction!!",
 						FontTypeNames_FONTTYPE_INFO);
 				return;
 			}
@@ -4243,7 +4243,7 @@ void DakaraClientPacketHandler::handleShareNpc(ShareNpc* p) { (void)p;
 	} else {
 		/* ' Can't share */
 		if (criminal(TargetUserIndex)) {
-			WriteConsoleMsg(UserIndex, "No puedes compartir npcs con criminales!!",
+			WriteConsoleMsg(UserIndex, "You can't share NPCs with criminals!!",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
@@ -4258,18 +4258,18 @@ void DakaraClientPacketHandler::handleShareNpc(ShareNpc* p) { (void)p;
 	/* ' Aviso al usuario anterior que dejo de compartir */
 	if (SharingUserIndex != 0) {
 		WriteConsoleMsg(SharingUserIndex,
-				UserList[UserIndex].Name + " ha dejado de compartir sus npcs contigo.",
+				UserList[UserIndex].Name + " has stopped sharing NPCs with you.",
 				FontTypeNames_FONTTYPE_INFO);
 		WriteConsoleMsg(UserIndex,
-				"Has dejado de compartir tus npcs con " + UserList[SharingUserIndex].Name + ".",
+				"You've stopped sharing your NPCs with " + UserList[SharingUserIndex].Name + ".",
 				FontTypeNames_FONTTYPE_INFO);
 	}
 
 	UserList[UserIndex].flags.ShareNpcWith = TargetUserIndex;
 
-	WriteConsoleMsg(TargetUserIndex, UserList[UserIndex].Name + " ahora comparte sus npcs contigo.",
+	WriteConsoleMsg(TargetUserIndex, UserList[UserIndex].Name + " now shares NPCs with you.",
 			FontTypeNames_FONTTYPE_INFO);
-	WriteConsoleMsg(UserIndex, "Ahora compartes tus npcs con " + UserList[TargetUserIndex].Name + ".",
+	WriteConsoleMsg(UserIndex, "You are now sharing your NPCs with " + UserList[TargetUserIndex].Name + ".",
 			FontTypeNames_FONTTYPE_INFO);
 
 }
@@ -4297,10 +4297,10 @@ void DakaraClientPacketHandler::handleStopSharingNpc(StopSharingNpc* p) { (void)
 
 		/* ' Aviso al que compartia y al que le compartia. */
 		WriteConsoleMsg(SharingUserIndex,
-				UserList[UserIndex].Name + " ha dejado de compartir sus npcs contigo.",
+				UserList[UserIndex].Name + " has stopped sharing their NPCs with you.",
 				FontTypeNames_FONTTYPE_INFO);
 		WriteConsoleMsg(SharingUserIndex,
-				"Has dejado de compartir tus npcs con " + UserList[SharingUserIndex].Name + ".",
+				"You've stopped sahring your NPCs with " + UserList[SharingUserIndex].Name + ".",
 				FontTypeNames_FONTTYPE_INFO);
 
 		UserList[UserIndex].flags.ShareNpcWith = 0;
@@ -4423,10 +4423,10 @@ void DakaraClientPacketHandler::handleGuildOnline(GuildOnline* p) { (void)p;
 	onlineList = m_ListaDeMiembrosOnline(UserIndex, UserList[UserIndex].GuildIndex);
 
 	if (UserList[UserIndex].GuildIndex != 0) {
-		WriteConsoleMsg(UserIndex, "Companeros de tu clan conectados: " + onlineList,
+		WriteConsoleMsg(UserIndex, "Connected fellow clan members: " + onlineList,
 				FontTypeNames_FONTTYPE_GUILDMSG);
 	} else {
-		WriteConsoleMsg(UserIndex, "No pertences a ningún clan.", FontTypeNames_FONTTYPE_GUILDMSG);
+		WriteConsoleMsg(UserIndex, "You're not part of a clan.", FontTypeNames_FONTTYPE_GUILDMSG);
 	}
 }
 
@@ -4469,11 +4469,11 @@ void DakaraClientPacketHandler::handleCouncilMessage(CouncilMessage* p) { (void)
 
 		if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_RoyalCouncil)) {
 			SendData(SendTarget_ToConsejo, UserIndex,
-					dakara::protocol::server::BuildConsoleMsg("(Consejero) " + UserList[UserIndex].Name + "> " + Chat,
+					dakara::protocol::server::BuildConsoleMsg("(Councilman) " + UserList[UserIndex].Name + "> " + Chat,
 							FontTypeNames_FONTTYPE_CONSEJO));
 		} else if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_ChaosCouncil)) {
 			SendData(SendTarget_ToConsejoCaos, UserIndex,
-					dakara::protocol::server::BuildConsoleMsg("(Consejero) " + UserList[UserIndex].Name + "> " + Chat,
+					dakara::protocol::server::BuildConsoleMsg("(Councilman) " + UserList[UserIndex].Name + "> " + Chat,
 							FontTypeNames_FONTTYPE_CONSEJOCAOS));
 		}
 	}
@@ -4499,9 +4499,9 @@ void DakaraClientPacketHandler::handleRoleMasterRequest(RoleMasterRequest* p) { 
 	request = p->Request;
 
 	if (vb6::LenB(request) != 0) {
-		WriteConsoleMsg(UserIndex, "Su solicitud ha sido enviada.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "Your request has been sent.", FontTypeNames_FONTTYPE_INFO);
 		SendData(SendTarget_ToRMsAndHigherAdmins, 0,
-				dakara::protocol::server::BuildConsoleMsg(UserList[UserIndex].Name + " PREGUNTA ROL: " + request,
+				dakara::protocol::server::BuildConsoleMsg(UserList[UserIndex].Name + " ROLE PLAYING QUESTION: " + request,
 						FontTypeNames_FONTTYPE_GUILDMSG));
 	}
 }
@@ -4521,14 +4521,14 @@ void DakaraClientPacketHandler::handleGMRequest(GMRequest* p) { (void)p;
 	auto it = std::find(Ayuda.begin(), Ayuda.end(), UserList[UserIndex].Name);
 	if (it == Ayuda.end()) {
 		WriteConsoleMsg(UserIndex,
-				"El mensaje ha sido entregado, ahora sólo debes esperar que se desocupe algún GM.",
+				"The message has been delivered, you now need to wait until a GM is free to take your request.",
 				FontTypeNames_FONTTYPE_INFO);
 		Ayuda.push_back(UserList[UserIndex].Name);
 	} else {
 		Ayuda.erase(it);
 		Ayuda.push_back(UserList[UserIndex].Name);
 		WriteConsoleMsg(UserIndex,
-				"Ya habías mandado un mensaje, tu mensaje ha sido movido al final de la cola de mensajes.",
+				"You've already sent a message, your message has been moved to the end of the queue.",
 				FontTypeNames_FONTTYPE_INFO);
 	}
 }
@@ -4570,15 +4570,15 @@ void DakaraClientPacketHandler::handleChangeDescription(ChangeDescription* p) { 
 	description = p->Description;
 
 	if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "No puedes cambiar la descripción estando muerto.",
+		WriteConsoleMsg(UserIndex, "You can't change your description while you are dead.",
 				FontTypeNames_FONTTYPE_INFO);
 	} else {
 		if (!AsciiValidos(description)) {
-			WriteConsoleMsg(UserIndex, "La descripción tiene caracteres inválidos.",
+			WriteConsoleMsg(UserIndex, "Your description contains invalid characters.",
 					FontTypeNames_FONTTYPE_INFO);
 		} else {
 			UserList[UserIndex].desc = vb6::Trim(description);
-			WriteConsoleMsg(UserIndex, "La descripción ha cambiado.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "Your decsription has changed.", FontTypeNames_FONTTYPE_INFO);
 		}
 	}
 
@@ -4602,9 +4602,9 @@ void DakaraClientPacketHandler::handleGuildVote(GuildVote* p) { (void)p;
 	vote = p->Vote;
 
 	if (!v_UsuarioVota(UserIndex, vote, errorStr)) {
-		WriteConsoleMsg(UserIndex, "Voto NO contabilizado: " + errorStr, FontTypeNames_FONTTYPE_GUILD);
+		WriteConsoleMsg(UserIndex, "Vote NOT counted: " + errorStr, FontTypeNames_FONTTYPE_GUILD);
 	} else {
-		WriteConsoleMsg(UserIndex, "Voto contabilizado.", FontTypeNames_FONTTYPE_GUILD);
+		WriteConsoleMsg(UserIndex, "Vote counted.", FontTypeNames_FONTTYPE_GUILD);
 	}
 
 
@@ -4667,13 +4667,13 @@ void DakaraClientPacketHandler::handlePunishments(Punishments* p) { (void)p;
 
 		if ((EsAdmin(Name) || EsDios(Name) || EsSemiDios(Name) || EsConsejero(Name) || EsRolesMaster(Name))
 				&& (UserTieneAlgunPrivilegios(UserIndex, PlayerType_User))) {
-			WriteConsoleMsg(UserIndex, "No puedes ver las penas de los administradores.",
+			WriteConsoleMsg(UserIndex, "You can't see admin punishment records.",
 					FontTypeNames_FONTTYPE_INFO);
 		} else {
 			if (FileExist(GetCharPath(Name), 0)) {
 				Count = vb6::val(GetVar(GetCharPath(Name), "PENAS", "Cant"));
 				if (Count <= 0) {
-					WriteConsoleMsg(UserIndex, "Sin prontuario..", FontTypeNames_FONTTYPE_INFO);
+					WriteConsoleMsg(UserIndex, "No record..", FontTypeNames_FONTTYPE_INFO);
 				} else {
 					Count = vb6::Constrain(Count, 0, MAX_PENAS);
 					while (Count > 0) {
@@ -4684,7 +4684,7 @@ void DakaraClientPacketHandler::handlePunishments(Punishments* p) { (void)p;
 					}
 				}
 			} else {
-				WriteConsoleMsg(UserIndex, "Personaje \"" + Name + "\" inexistente.",
+				WriteConsoleMsg(UserIndex, "Unknown user \"" + Name + "\".",
 						FontTypeNames_FONTTYPE_INFO);
 			}
 		}
@@ -4709,17 +4709,17 @@ void DakaraClientPacketHandler::handleGamble(Gamble* p) { (void)p;
 
 	/* ' Dead? */
 	if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_INFO);
 
 		/* 'Validate target NPC */
 	} else if (UserList[UserIndex].flags.TargetNPC == 0) {
 		WriteConsoleMsg(UserIndex,
-				"Primero tienes que seleccionar un personaje, haz click izquierdo sobre él.",
+				"First left-click a PC",
 				FontTypeNames_FONTTYPE_INFO);
 
 		/* ' Validate Distance */
 	} else if (Distancia(Npclist[UserList[UserIndex].flags.TargetNPC].Pos, UserList[UserIndex].Pos) > 10) {
-		WriteConsoleMsg(UserIndex, "Estás demasiado lejos.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're too far away.", FontTypeNames_FONTTYPE_INFO);
 
 		/* ' Validate NpcType */
 	} else if (Npclist[UserList[UserIndex].flags.TargetNPC].NPCtype != eNPCType_Timbero) {
@@ -4730,45 +4730,45 @@ void DakaraClientPacketHandler::handleGamble(Gamble* p) { (void)p;
 		/* ' Normal npcs don't speak */
 		if (TargetNpcType != eNPCType_Comun && TargetNpcType != eNPCType_DRAGON
 				&& TargetNpcType != eNPCType_Pretoriano) {
-			WriteChatOverHead(UserIndex, "No tengo ningún interés en apostar.",
+			WriteChatOverHead(UserIndex, "I'm not interested in gambling.",
 					Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff);
 		}
 
 		/* ' Validate amount */
 	} else if (Amount < 1) {
-		WriteChatOverHead(UserIndex, "El mínimo de apuesta es 1 moneda.",
+		WriteChatOverHead(UserIndex, "The minimum bet is 1gp.",
 				Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff);
 
 		/* ' Validate amount */
 	} else if (Amount > 5000) {
-		WriteChatOverHead(UserIndex, "El máximo de apuesta es 5000 monedas.",
+		WriteChatOverHead(UserIndex, "The maximum bet is 5000 gp.",
 				Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff);
 
 		/* ' Validate user gold */
 	} else if (UserList[UserIndex].Stats.GLD < Amount) {
-		WriteChatOverHead(UserIndex, "No tienes esa cantidad.",
+		WriteChatOverHead(UserIndex, "You don't have that amount.",
 				Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff);
 
 	} else {
 		if (RandomNumber(1, 100) <= 47) {
 			UserList[UserIndex].Stats.GLD = UserList[UserIndex].Stats.GLD + Amount;
-			WriteChatOverHead(UserIndex, "¡Felicidades! Has ganado " + vb6::CStr(Amount) + " monedas de oro.",
+			WriteChatOverHead(UserIndex, "Congratulations! You've won " + vb6::CStr(Amount) + " gp.",
 					Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff);
 
 			Apuestas.Perdidas = Apuestas.Perdidas + Amount;
-			WriteVar(GetDatPath(DATPATH::apuestas), "Main", "Perdidas", vb6::CStr(Apuestas.Perdidas));
+			WriteVar(GetDatPath(DATPATH::apuestas), "Main", "Losses", vb6::CStr(Apuestas.Perdidas));
 		} else {
 			UserList[UserIndex].Stats.GLD = UserList[UserIndex].Stats.GLD - Amount;
-			WriteChatOverHead(UserIndex, "Lo siento, has perdido " + vb6::CStr(Amount) + " monedas de oro.",
+			WriteChatOverHead(UserIndex, "I'm sorry, you've lost " + vb6::CStr(Amount) + " gp.",
 					Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff);
 
 			Apuestas.Ganancias = Apuestas.Ganancias + Amount;
-			WriteVar(GetDatPath(DATPATH::apuestas), "Main", "Ganancias", vb6::CStr(Apuestas.Ganancias));
+			WriteVar(GetDatPath(DATPATH::apuestas), "Main", "Gains", vb6::CStr(Apuestas.Ganancias));
 		}
 
 		Apuestas.Jugadas = Apuestas.Jugadas + 1;
 
-		WriteVar(GetDatPath(DATPATH::apuestas), "Main", "Jugadas", vb6::CStr(Apuestas.Jugadas));
+		WriteVar(GetDatPath(DATPATH::apuestas), "Main", "Bets", vb6::CStr(Apuestas.Jugadas));
 
 		WriteUpdateGold(UserIndex);
 	}
@@ -4811,14 +4811,14 @@ void DakaraClientPacketHandler::handleBankExtractGold(BankExtractGold* p) { (voi
 
 	/* 'Dead people can't leave a faction.. they can't talk... */
 	if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	/* 'Validate target NPC */
 	if (UserList[UserIndex].flags.TargetNPC == 0) {
 		WriteConsoleMsg(UserIndex,
-				"Primero tienes que seleccionar un personaje, haz click izquierdo sobre él.",
+				"First left-click a PC",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -4828,7 +4828,7 @@ void DakaraClientPacketHandler::handleBankExtractGold(BankExtractGold* p) { (voi
 	}
 
 	if (Distancia(UserList[UserIndex].Pos, Npclist[UserList[UserIndex].flags.TargetNPC].Pos) > 10) {
-		WriteConsoleMsg(UserIndex, "Estás demasiado lejos.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're too far away.", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
@@ -4836,10 +4836,10 @@ void DakaraClientPacketHandler::handleBankExtractGold(BankExtractGold* p) { (voi
 		UserList[UserIndex].Stats.Banco = UserList[UserIndex].Stats.Banco - Amount;
 		UserList[UserIndex].Stats.GLD = UserList[UserIndex].Stats.GLD + Amount;
 		WriteChatOverHead(UserIndex,
-				"Tenés " + vb6::CStr(UserList[UserIndex].Stats.Banco) + " monedas de oro en tu cuenta.",
+				"You have " + vb6::CStr(UserList[UserIndex].Stats.Banco) + " gp in your account.",
 				Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff);
 	} else {
-		WriteChatOverHead(UserIndex, "No tienes esa cantidad.",
+		WriteChatOverHead(UserIndex, "You don't have that amount.",
 				Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff);
 	}
 
@@ -4869,7 +4869,7 @@ void DakaraClientPacketHandler::handleLeaveFaction(LeaveFaction* p) { (void)p;
 
 	/* 'Dead people can't leave a faction.. they can't talk... */
 	if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
@@ -4893,7 +4893,7 @@ void DakaraClientPacketHandler::handleLeaveFaction(LeaveFaction* p) { (void)p;
 		/* ' Si le pidio al demonio salir de la armada, este le responde. */
 		if (TalkToDemon) {
 			if (NpcIndex > 0) {
-				WriteChatOverHead(UserIndex, "¡¡¡Sal de aquí bufón!!!", Npclist[NpcIndex].Char.CharIndex,
+				WriteChatOverHead(UserIndex, "Leave you fool!!!", Npclist[NpcIndex].Char.CharIndex,
 					0x00ffffff);
 			}
 
@@ -4901,7 +4901,7 @@ void DakaraClientPacketHandler::handleLeaveFaction(LeaveFaction* p) { (void)p;
 			/* ' Si le pidio al rey salir de la armada, le responde. */
 			if (TalkToKing) {
 				if (NpcIndex > 0) {
-					WriteChatOverHead(UserIndex, "Serás bienvenido a las fuerzas imperiales si deseas regresar.",
+					WriteChatOverHead(UserIndex, "You'll be welcome to the Royal Army if you wish to return.",
 						Npclist[NpcIndex].Char.CharIndex, 0x00ffffff);
 				}
 			}
@@ -4915,14 +4915,14 @@ void DakaraClientPacketHandler::handleLeaveFaction(LeaveFaction* p) { (void)p;
 		/* ' Si le pidio al rey salir del caos, le responde. */
 		if (TalkToKing) {
 			if (NpcIndex > 0) {
-				WriteChatOverHead(UserIndex, "¡¡¡Sal de aquí maldito criminal!!!",
+				WriteChatOverHead(UserIndex, "Leave you damn criminal!!!",
 						Npclist[NpcIndex].Char.CharIndex, 0x00ffffff);
 			}
 		} else {
 			/* ' Si le pidio al demonio salir del caos, este le responde. */
 			if (TalkToDemon) {
 				if (NpcIndex > 0) {
-					WriteChatOverHead(UserIndex, "Ya volverás arrastrandote.", Npclist[NpcIndex].Char.CharIndex,
+					WriteChatOverHead(UserIndex, "You'll crawl back.", Npclist[NpcIndex].Char.CharIndex,
 							0x00ffffff);
 				}
 			}
@@ -4937,21 +4937,21 @@ void DakaraClientPacketHandler::handleLeaveFaction(LeaveFaction* p) { (void)p;
 		/* 'Si se pueden unir a la facción (status), son invitados */
 		if ((TalkToDemon && criminal(UserIndex)) || (TalkToKing && !criminal(UserIndex))) {
 			if (NpcIndex > 0) {
-				WriteChatOverHead(UserIndex, "No perteneces a nuestra facción. Si deseas unirte, di /ENLISTAR",
+				WriteChatOverHead(UserIndex, "You're not part of our faction. If you wish to join, say /ENLIST",
 						Npclist[NpcIndex].Char.CharIndex, 0x00ffffff);
 			}
 		} else if ((TalkToDemon && !criminal(UserIndex))) {
 			if (NpcIndex > 0) {
-				WriteChatOverHead(UserIndex, "¡¡¡Sal de aquí bufón!!!", Npclist[NpcIndex].Char.CharIndex,
+				WriteChatOverHead(UserIndex, "Leave you fool!!!", Npclist[NpcIndex].Char.CharIndex,
 						0x00ffffff);
 			}
 		} else if ((TalkToKing && criminal(UserIndex))) {
 			if (NpcIndex > 0) {
-				WriteChatOverHead(UserIndex, "¡¡¡Sal de aquí maldito criminal!!!",
+				WriteChatOverHead(UserIndex, "Leave you damn criminal!!!",
 						Npclist[NpcIndex].Char.CharIndex, 0x00ffffff);
 			}
 		} else {
-			WriteConsoleMsg(UserIndex, "¡No perteneces a ninguna facción!", FontTypeNames_FONTTYPE_FIGHT);
+			WriteConsoleMsg(UserIndex, "You're not part of any faction!", FontTypeNames_FONTTYPE_FIGHT);
 		}
 
 	}
@@ -4976,20 +4976,20 @@ void DakaraClientPacketHandler::handleBankDepositGold(BankDepositGold* p) { (voi
 
 	/* 'Dead people can't leave a faction.. they can't talk... */
 	if (UserList[UserIndex].flags.Muerto == 1) {
-		WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	/* 'Validate target NPC */
 	if (UserList[UserIndex].flags.TargetNPC == 0) {
 		WriteConsoleMsg(UserIndex,
-				"Primero tienes que seleccionar un personaje, haz click izquierdo sobre él.",
+				"First left-click a PC",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	if (Distancia(Npclist[UserList[UserIndex].flags.TargetNPC].Pos, UserList[UserIndex].Pos) > 10) {
-		WriteConsoleMsg(UserIndex, "Estás demasiado lejos.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You're too far away.", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
@@ -5001,13 +5001,13 @@ void DakaraClientPacketHandler::handleBankDepositGold(BankDepositGold* p) { (voi
 		UserList[UserIndex].Stats.Banco = UserList[UserIndex].Stats.Banco + Amount;
 		UserList[UserIndex].Stats.GLD = UserList[UserIndex].Stats.GLD - Amount;
 		WriteChatOverHead(UserIndex,
-				"Tenés " + vb6::CStr(UserList[UserIndex].Stats.Banco) + " monedas de oro en tu cuenta.",
+				"You have " + vb6::CStr(UserList[UserIndex].Stats.Banco) + " gp in your account.",
 				Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff);
 
 		WriteUpdateGold(UserIndex);
 		WriteUpdateBankGold(UserIndex);
 	} else {
-		WriteChatOverHead(UserIndex, "No tenés esa cantidad.",
+		WriteChatOverHead(UserIndex, "You don't have that amount.",
 				Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff);
 	}
 }
@@ -5033,15 +5033,15 @@ void DakaraClientPacketHandler::handleDenounce(Denounce* p) { (void)p;
 		/* 'Analize chat... */
 		ParseChat(Text);
 
-		msg = vb6::LCase(UserList[UserIndex].Name) + " DENUNCIA: " + Text;
+		msg = vb6::LCase(UserList[UserIndex].Name) + " COMPLAINT: " + Text;
 
 		SendData(SendTarget_ToAdmins, 0, dakara::protocol::server::BuildConsoleMsg(msg, FontTypeNames_FONTTYPE_GUILDMSG),
 				true);
 
 		Denuncias.push_back(msg);
-		LogDesarrollo("Denuncia de " + UserList[UserIndex].Name + ": " + msg);
+		LogDesarrollo("Complaint from " + UserList[UserIndex].Name + ": " + msg);
 
-		WriteConsoleMsg(UserIndex, "Denuncia enviada, espere..", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "Complaint sent, please wait..", FontTypeNames_FONTTYPE_INFO);
 	}
 
 
@@ -5062,7 +5062,7 @@ void DakaraClientPacketHandler::handleGuildFundate(GuildFundate* p) { (void)p;
 	/* '*************************************************** */
 
 	if (HasFound(UserList[UserIndex].Name)) {
-		WriteConsoleMsg(UserIndex, "¡Ya has fundado un clan, no puedes fundar otro!",
+		WriteConsoleMsg(UserIndex, "A clan you've already founded, impossible to found a second!",
 				FontTypeNames_FONTTYPE_INFOBOLD);
 		return;
 	}
@@ -5088,11 +5088,11 @@ void DakaraClientPacketHandler::handleGuildFundation(GuildFundation* p) { (void)
 	clanType = static_cast<eClanType>(p->ClanType);
 
 	if (HasFound(UserList[UserIndex].Name)) {
-		WriteConsoleMsg(UserIndex, "¡Ya has fundado un clan, no puedes fundar otro!",
+		WriteConsoleMsg(UserIndex, "A clan you've already founded, impossible to found a second!",
 				FontTypeNames_FONTTYPE_INFOBOLD);
 		LogCheating(
-				"El usuario " + UserList[UserIndex].Name
-						+ " ha intentado fundar un clan ya habiendo fundado otro desde la IP "
+				"User " + UserList[UserIndex].Name
+						+ " has tried to found a clan having already founded one from IP "
 						+ UserList[UserIndex].ip);
 		return;
 	}
@@ -5123,7 +5123,7 @@ void DakaraClientPacketHandler::handleGuildFundation(GuildFundation* p) { (void)
 		break;
 
 	default:
-		WriteConsoleMsg(UserIndex, "Alineación inválida.", FontTypeNames_FONTTYPE_GUILD);
+		WriteConsoleMsg(UserIndex, "Invalid Alignment.", FontTypeNames_FONTTYPE_GUILD);
 		return;
 		break;
 	}
@@ -5164,7 +5164,7 @@ void DakaraClientPacketHandler::handlePartyKick(PartyKick* p) { (void)p;
 				UserName = vb6::Replace(UserName, "+", " ");
 			}
 
-			WriteConsoleMsg(UserIndex, vb6::LCase(UserName) + " no pertenece a tu party.",
+			WriteConsoleMsg(UserIndex, vb6::LCase(UserName) + " does not belong to your party.",
 					FontTypeNames_FONTTYPE_INFO);
 		}
 	}
@@ -5201,7 +5201,7 @@ void DakaraClientPacketHandler::handlePartySetLeader(PartySetLeader* p) { (void)
 			if (!UserTieneMasPrivilegiosQue(UserName, UserIndex)) {
 				TransformarEnLider(UserIndex, tUser);
 			} else {
-				WriteConsoleMsg(UserIndex, vb6::LCase(UserList[tUser].Name) + " no pertenece a tu party.",
+				WriteConsoleMsg(UserIndex, vb6::LCase(UserList[tUser].Name) + " does not belong to your party",
 						FontTypeNames_FONTTYPE_INFO);
 			}
 
@@ -5209,7 +5209,7 @@ void DakaraClientPacketHandler::handlePartySetLeader(PartySetLeader* p) { (void)
 			if (vb6::InStr(UserName, "+")) {
 				UserName = vb6::Replace(UserName, "+", " ");
 			}
-			WriteConsoleMsg(UserIndex, vb6::LCase(UserName) + " no pertenece a tu party.",
+			WriteConsoleMsg(UserIndex, vb6::LCase(UserName) + " does not belong to your party",
 					FontTypeNames_FONTTYPE_INFO);
 		}
 	}
@@ -5239,7 +5239,7 @@ void DakaraClientPacketHandler::handlePartyAcceptMember(PartyAcceptMember* p) { 
 	UserName = p->UserName;
 
 	if (UserList[UserIndex].flags.Muerto) {
-		WriteConsoleMsg(UserIndex, "¡¡Estás muerto!!", FontTypeNames_FONTTYPE_PARTY);
+		WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_PARTY);
 	} else {
 		bUserVivo = true;
 	}
@@ -5251,7 +5251,7 @@ void DakaraClientPacketHandler::handlePartyAcceptMember(PartyAcceptMember* p) { 
 			if (!UserTieneMasPrivilegiosQue(tUser, UserIndex)) {
 				AprobarIngresoAParty(UserIndex, tUser);
 			} else {
-				WriteConsoleMsg(UserIndex, "No puedes incorporar a tu party a personajes de mayor jerarquía.",
+				WriteConsoleMsg(UserIndex, "You can't add PCs with a greater hierarchy to your party.",
 						FontTypeNames_FONTTYPE_INFO);
 			}
 		} else {
@@ -5261,10 +5261,10 @@ void DakaraClientPacketHandler::handlePartyAcceptMember(PartyAcceptMember* p) { 
 
 			/* 'Don't allow users to spoof online GMs */
 			if (!UserTieneMasPrivilegiosQue(UserName, UserIndex)) {
-				WriteConsoleMsg(UserIndex, vb6::LCase(UserName) + " no ha solicitado ingresar a tu party.",
+				WriteConsoleMsg(UserIndex, vb6::LCase(UserName) + " has not requested to enter your party.",
 						FontTypeNames_FONTTYPE_PARTY);
 			} else {
-				WriteConsoleMsg(UserIndex, "No puedes incorporar a tu party a personajes de mayor jerarquía.",
+				WriteConsoleMsg(UserIndex, "You can't add PCs with a greater hierarchy to your party.",
 						FontTypeNames_FONTTYPE_INFO);
 			}
 		}
@@ -5303,7 +5303,7 @@ void DakaraClientPacketHandler::handleGuildMemberList(GuildMemberList* p) { (voi
 		}
 
 		if (!FileExist(GetGuildsPath(guild, EGUILDPATH::Members))) {
-			WriteConsoleMsg(UserIndex, "No existe el clan: " + guild, FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "Clan does not exist: " + guild, FontTypeNames_FONTTYPE_INFO);
 		} else {
 			memberCount = vb6::val(
 					GetVar(GetGuildsPath(guild, EGUILDPATH::Members), "INIT",
@@ -5341,7 +5341,7 @@ void DakaraClientPacketHandler::handleGMMessage(GMMessage* p) { (void)p;
 	message = p->Chat;
 
 	if (!UserTieneAlgunPrivilegios(UserIndex, PlayerType_User)) {
-		LogGM(UserList[UserIndex].Name, "Mensaje a Gms:" + message);
+		LogGM(UserList[UserIndex].Name, "Message to GMs:" + message);
 
 		if (vb6::LenB(message) != 0) {
 			/* 'Analize chat... */
@@ -5418,10 +5418,10 @@ void DakaraClientPacketHandler::handleOnlineRoyalArmy(OnlineRoyalArmy* p) { (voi
 	}
 
 	if (vb6::Len(list) > 0) {
-		WriteConsoleMsg(UserIndex, "Reales conectados: " + vb6::Left(list, vb6::Len(list) - 2),
+		WriteConsoleMsg(UserIndex, "Royal Army members connected: " + vb6::Left(list, vb6::Len(list) - 2),
 				FontTypeNames_FONTTYPE_INFO);
 	} else {
-		WriteConsoleMsg(UserIndex, "No hay reales conectados.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "There are no members of the Royal Army connected.", FontTypeNames_FONTTYPE_INFO);
 	}
 }
 
@@ -5463,10 +5463,10 @@ void DakaraClientPacketHandler::handleOnlineChaosLegion(OnlineChaosLegion* p) { 
 	}
 
 	if (vb6::Len(list) > 0) {
-		WriteConsoleMsg(UserIndex, "Caos conectados: " + vb6::Left(list, vb6::Len(list) - 2),
+		WriteConsoleMsg(UserIndex, "Dark Legion members connected: " + vb6::Left(list, vb6::Len(list) - 2),
 				FontTypeNames_FONTTYPE_INFO);
 	} else {
-		WriteConsoleMsg(UserIndex, "No hay Caos conectados.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "There are no members of the Dark Legion connected.", FontTypeNames_FONTTYPE_INFO);
 	}
 }
 
@@ -5501,7 +5501,7 @@ void DakaraClientPacketHandler::handleGoNearby(GoNearby* p) { (void)p;
 				|| (UserTieneAlgunPrivilegios(UserIndex, PlayerType_Dios, PlayerType_Admin))) {
 			/* 'existe el usuario destino? */
 			if (tIndex <= 0) {
-				WriteConsoleMsg(UserIndex, "Usuario offline.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "User is offline.", FontTypeNames_FONTTYPE_INFO);
 			} else {
 				/* 'esto for sirve ir cambiando la distancia destino */
 				for (i = (2); i <= (5); i++) {
@@ -5511,7 +5511,7 @@ void DakaraClientPacketHandler::handleGoNearby(GoNearby* p) { (void)p;
 								if (LegalPos(UserList[tIndex].Pos.Map, X, Y, true, true)) {
 									WarpUserChar(UserIndex, UserList[tIndex].Pos.Map, X, Y, true);
 									LogGM(UserList[UserIndex].Name,
-											"/IRCERCA " + UserName + " Mapa:" + vb6::CStr(UserList[tIndex].Pos.Map)
+											"/IRCERCA " + UserName + " Map:" + vb6::CStr(UserList[tIndex].Pos.Map)
 													+ " X:" + vb6::CStr(UserList[tIndex].Pos.X) + " Y:"
 													+ vb6::CStr(UserList[tIndex].Pos.Y));
 									Found = true;
@@ -5534,7 +5534,7 @@ void DakaraClientPacketHandler::handleGoNearby(GoNearby* p) { (void)p;
 
 				/* 'No space found?? */
 				if (!Found) {
-					WriteConsoleMsg(UserIndex, "Todos los lugares están ocupados.",
+					WriteConsoleMsg(UserIndex, "All spaces are occupied.",
 							FontTypeNames_FONTTYPE_INFO);
 				}
 			}
@@ -5561,8 +5561,8 @@ void DakaraClientPacketHandler::handleComment(Comment* p) { (void)p;
 	std::string& comment = p->Data;
 
 	if (!UserTieneAlgunPrivilegios(UserIndex, PlayerType_User)) {
-		LogGM(UserList[UserIndex].Name, "Comentario: " + comment);
-		WriteConsoleMsg(UserIndex, "Comentario salvado...", FontTypeNames_FONTTYPE_INFO);
+		LogGM(UserList[UserIndex].Name, "Comment: " + comment);
+		WriteConsoleMsg(UserIndex, "Comment saved...", FontTypeNames_FONTTYPE_INFO);
 	}
 
 
@@ -5588,10 +5588,10 @@ void DakaraClientPacketHandler::handleServerTime(ServerTime* p) { (void)p;
 		return;
 	}
 
-	LogGM(UserList[UserIndex].Name, "Hora.");
+	LogGM(UserList[UserIndex].Name, "Time.");
 
 	SendData(SendTarget_ToAll, 0,
-			dakara::protocol::server::BuildConsoleMsg("Hora: " + vb6::dateToString(vb6::Now()), FontTypeNames_FONTTYPE_INFO));
+			dakara::protocol::server::BuildConsoleMsg("Time: " + vb6::dateToString(vb6::Now()), FontTypeNames_FONTTYPE_INFO));
 }
 
 /* '' */
@@ -5628,15 +5628,15 @@ void DakaraClientPacketHandler::handleWhere(Where* p) { (void)p;
 								&& (UserTieneAlgunPrivilegios(UserIndex, PlayerType_Dios, PlayerType_Admin)))) {
 					miPos = GetVar(GetCharPath(UserName), "INIT", "POSITION");
 					WriteConsoleMsg(UserIndex,
-							"Ubicación  " + UserName + " (Offline): " + ReadField(1, miPos, 45) + ", "
+							"Position  " + UserName + " (Offline): " + ReadField(1, miPos, 45) + ", "
 									+ ReadField(2, miPos, 45) + ", " + ReadField(3, miPos, 45) + ".",
 							FontTypeNames_FONTTYPE_INFO);
 				}
 			} else {
 				if (!(EsDios(UserName) || EsAdmin(UserName))) {
-					WriteConsoleMsg(UserIndex, "Usuario inexistente.", FontTypeNames_FONTTYPE_INFO);
+					WriteConsoleMsg(UserIndex, "Unknown user.", FontTypeNames_FONTTYPE_INFO);
 				} else if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_Dios, PlayerType_Admin)) {
-					WriteConsoleMsg(UserIndex, "Usuario inexistente.", FontTypeNames_FONTTYPE_INFO);
+					WriteConsoleMsg(UserIndex, "Unknown user.", FontTypeNames_FONTTYPE_INFO);
 				}
 			}
 		} else {
@@ -5644,7 +5644,7 @@ void DakaraClientPacketHandler::handleWhere(Where* p) { (void)p;
 					|| (((UserTieneAlgunPrivilegios(tUser, PlayerType_Dios, PlayerType_Admin)))
 							&& (UserTieneAlgunPrivilegios(UserIndex, PlayerType_Dios, PlayerType_Admin)))) {
 				WriteConsoleMsg(UserIndex,
-						"Ubicación  " + UserName + ": " + vb6::CStr(UserList[tUser].Pos.Map) + ", "
+						"Position  " + UserName + ": " + vb6::CStr(UserList[tUser].Pos.Map) + ", "
 								+ vb6::CStr(UserList[tUser].Pos.X) + ", " + vb6::CStr(UserList[tUser].Pos.Y) + ".",
 						FontTypeNames_FONTTYPE_INFO);
 			}
@@ -5748,23 +5748,23 @@ void DakaraClientPacketHandler::handleCreaturesInMap(CreaturesInMap* p) { (void)
 			}
 		}
 
-		WriteConsoleMsg(UserIndex, "Npcs Hostiles en mapa: ", FontTypeNames_FONTTYPE_WARNING);
+		WriteConsoleMsg(UserIndex, "Hostiles NPCs in map: ", FontTypeNames_FONTTYPE_WARNING);
 		if (NPCcount1 == 0) {
-			WriteConsoleMsg(UserIndex, "No hay NPCS Hostiles.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "There are no more hostile NPCs", FontTypeNames_FONTTYPE_INFO);
 		} else {
 			for (j = (0); j <= (NPCcount1 - 1); j++) {
 				WriteConsoleMsg(UserIndex, vb6::CStr(NPCcant1[j]) + " " + vb6::CStr(List1[j]), FontTypeNames_FONTTYPE_INFO);
 			}
 		}
-		WriteConsoleMsg(UserIndex, "Otros Npcs en mapa: ", FontTypeNames_FONTTYPE_WARNING);
+		WriteConsoleMsg(UserIndex, "Other NPCs in map: ", FontTypeNames_FONTTYPE_WARNING);
 		if (NPCcount2 == 0) {
-			WriteConsoleMsg(UserIndex, "No hay más NPCS.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "No more NPCs.", FontTypeNames_FONTTYPE_INFO);
 		} else {
 			for (j = (0); j <= (NPCcount2 - 1); j++) {
 				WriteConsoleMsg(UserIndex, vb6::CStr(NPCcant2[j]) + " " + vb6::CStr(List2[j]), FontTypeNames_FONTTYPE_INFO);
 			}
 		}
-		LogGM(UserList[UserIndex].Name, "Numero enemigos en mapa " + vb6::CStr(Map));
+		LogGM(UserList[UserIndex].Name, "Number of enemies in map " + vb6::CStr(Map));
 	}
 }
 
@@ -5836,9 +5836,9 @@ void DakaraClientPacketHandler::handleWarpChar(WarpChar* p) { (void)p;
 
 			if (tUser <= 0) {
 				if (!(EsDios(UserName) || EsAdmin(UserName))) {
-					WriteConsoleMsg(UserIndex, "Usuario offline.", FontTypeNames_FONTTYPE_INFO);
+					WriteConsoleMsg(UserIndex, "User is offline", FontTypeNames_FONTTYPE_INFO);
 				} else {
-					WriteConsoleMsg(UserIndex, "No puedes transportar dioses o admins.",
+					WriteConsoleMsg(UserIndex, "You can't teleport admins",
 							FontTypeNames_FONTTYPE_INFO);
 				}
 
@@ -5847,14 +5847,14 @@ void DakaraClientPacketHandler::handleWarpChar(WarpChar* p) { (void)p;
 				if (InMapBounds(Map, X, Y)) {
 					FindLegalPos(tUser, Map, X, Y);
 					WarpUserChar(tUser, Map, X, Y, true, true);
-					WriteConsoleMsg(UserIndex, UserList[tUser].Name + " transportado.",
+					WriteConsoleMsg(UserIndex, UserList[tUser].Name + " teleported.",
 							FontTypeNames_FONTTYPE_INFO);
 					LogGM(UserList[UserIndex].Name,
-							"Transportó a " + UserList[tUser].Name + " hacia " + "Mapa" + vb6::CStr(Map) + " X:" + vb6::CStr(X)
+							"Teleported " + UserList[tUser].Name + " towards " + "Map" + vb6::CStr(Map) + " X:" + vb6::CStr(X)
 									+ " Y:" + vb6::CStr(Y));
 				}
 			} else {
-				WriteConsoleMsg(UserIndex, "No puedes transportar dioses o admins.",
+				WriteConsoleMsg(UserIndex, "You can't teleport admins",
 						FontTypeNames_FONTTYPE_INFO);
 			}
 		}
@@ -5886,20 +5886,20 @@ void DakaraClientPacketHandler::handleSilence(Silence* p) { (void)p;
 		tUser = NameIndex(UserName);
 
 		if (tUser <= 0) {
-			WriteConsoleMsg(UserIndex, "Usuario offline.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "User is offline", FontTypeNames_FONTTYPE_INFO);
 		} else {
 			if (UserList[tUser].flags.Silenciado == 0) {
 				UserList[tUser].flags.Silenciado = 1;
-				WriteConsoleMsg(UserIndex, "Usuario silenciado.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "User muted.", FontTypeNames_FONTTYPE_INFO);
 				WriteShowMessageBox(tUser,
-						"Estimado usuario, ud. ha sido silenciado por los administradores. Sus denuncias serán ignoradas por el servidor de aquí en más. Utilice /GM para contactar un administrador.");
+						"Dear PC, you've been muted by the admins. Your complaints will be ignored from now on. Use /GM to contact an admin.");
 				LogGM(UserList[UserIndex].Name, "/silenciar " + UserList[tUser].Name);
 
 				/* 'Flush the other user's buffer */
 				FlushBuffer(tUser);
 			} else {
 				UserList[tUser].flags.Silenciado = 0;
-				WriteConsoleMsg(UserIndex, "Usuario des silenciado.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "User unmuted.", FontTypeNames_FONTTYPE_INFO);
 				LogGM(UserList[UserIndex].Name, "/DESsilenciar " + UserList[tUser].Name);
 			}
 		}
@@ -5946,7 +5946,7 @@ void DakaraClientPacketHandler::handleRequestPartyForm(RequestPartyForm* p) { (v
 		WriteShowPartyForm(UserIndex);
 
 	} else {
-		WriteConsoleMsg(UserIndex, "No perteneces a ningún grupo!", FontTypeNames_FONTTYPE_INFOBOLD);
+		WriteConsoleMsg(UserIndex, "You are not part of a party!", FontTypeNames_FONTTYPE_INFOBOLD);
 	}
 }
 
@@ -6031,7 +6031,7 @@ void DakaraClientPacketHandler::handleGoToChar(GoToChar* p) { (void)p;
 				|| (UserTieneAlgunPrivilegios(UserIndex, PlayerType_Dios, PlayerType_Admin)
 						&& !UserTieneAlgunPrivilegios(UserIndex, PlayerType_RoleMaster))) {
 			if (tUser <= 0) {
-				WriteConsoleMsg(UserIndex, "Usuario offline.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "User is offline", FontTypeNames_FONTTYPE_INFO);
 			} else {
 				X = UserList[tUser].Pos.X;
 				Y = UserList[tUser].Pos.Y + 1;
@@ -6041,13 +6041,13 @@ void DakaraClientPacketHandler::handleGoToChar(GoToChar* p) { (void)p;
 
 				if (UserList[UserIndex].flags.AdminInvisible == 0) {
 					WriteConsoleMsg(tUser,
-							UserList[UserIndex].Name + " se ha trasportado hacia donde te encuentras.",
+							UserList[UserIndex].Name + " has teleported to your position.",
 							FontTypeNames_FONTTYPE_INFO);
 					FlushBuffer(tUser);
 				}
 
 				LogGM(UserList[UserIndex].Name,
-						"/IRA " + UserName + " Mapa:" + vb6::CStr(UserList[tUser].Pos.Map) + " X:"
+						"/IRA " + UserName + " Map:" + vb6::CStr(UserList[tUser].Pos.Map) + " X:"
 								+ vb6::CStr(UserList[tUser].Pos.X) + " Y:" + vb6::CStr(UserList[tUser].Pos.Y));
 			}
 		}
@@ -6176,9 +6176,9 @@ void DakaraClientPacketHandler::handleWorking(Working* p) { (void)p;
 
 	if (vb6::LenB(users) != 0) {
 		users = vb6::Right(users, vb6::Len(users) - 2);
-		WriteConsoleMsg(UserIndex, "Usuarios trabajando: " + users, FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "Users working: " + users, FontTypeNames_FONTTYPE_INFO);
 	} else {
-		WriteConsoleMsg(UserIndex, "No hay usuarios trabajando.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "There are no users working.", FontTypeNames_FONTTYPE_INFO);
 	}
 }
 
@@ -6211,9 +6211,9 @@ void DakaraClientPacketHandler::handleHiding(Hiding* p) { (void)p;
 
 	if (vb6::LenB(users) != 0) {
 		users = vb6::Left(users, vb6::Len(users) - 2);
-		WriteConsoleMsg(UserIndex, "Usuarios ocultandose: " + users, FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "Users hiding: " + users, FontTypeNames_FONTTYPE_INFO);
 	} else {
-		WriteConsoleMsg(UserIndex, "No hay usuarios ocultandose.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "There are no user hiding.", FontTypeNames_FONTTYPE_INFO);
 	}
 }
 
@@ -6246,23 +6246,23 @@ void DakaraClientPacketHandler::handleJail(Jail* p) { (void)p;
 	/* '/carcel nick@motivo@<tiempo> */
 	if (!UserTieneAlgunPrivilegios(UserIndex, PlayerType_RoleMaster, PlayerType_User)) {
 		if (vb6::LenB(UserName) == 0 || vb6::LenB(Reason) == 0) {
-			WriteConsoleMsg(UserIndex, "Utilice /carcel nick@motivo@tiempo", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "Use /jail nick@reason@time", FontTypeNames_FONTTYPE_INFO);
 		} else {
 			tUser = NameIndex(UserName);
 
 			if (tUser <= 0) {
 				if ((EsDios(UserName) || EsAdmin(UserName))) {
-					WriteConsoleMsg(UserIndex, "No puedes encarcelar a administradores.",
+					WriteConsoleMsg(UserIndex, "You can't jail admins.",
 							FontTypeNames_FONTTYPE_INFO);
 				} else {
-					WriteConsoleMsg(UserIndex, "El usuario no está online.", FontTypeNames_FONTTYPE_INFO);
+					WriteConsoleMsg(UserIndex, "User is offline.", FontTypeNames_FONTTYPE_INFO);
 				}
 			} else {
 				if (!UserTieneAlgunPrivilegios(UserIndex, PlayerType_User)) {
-					WriteConsoleMsg(UserIndex, "No puedes encarcelar a administradores.",
+					WriteConsoleMsg(UserIndex, "You can't jail admins.",
 							FontTypeNames_FONTTYPE_INFO);
 				} else if (jailTime > 60) {
-					WriteConsoleMsg(UserIndex, "No puedés encarcelar por más de 60 minutos.",
+					WriteConsoleMsg(UserIndex, "You can't jail someone for more than 60'.",
 							FontTypeNames_FONTTYPE_INFO);
 				} else {
 					if ((vb6::InStrB(UserName, "/") != 0)) {
@@ -6325,7 +6325,7 @@ void DakaraClientPacketHandler::handleKillNPC(KillNPC* p) { (void)p;
 	tNPC = UserList[UserIndex].flags.TargetNPC;
 
 	if (tNPC > 0) {
-		WriteConsoleMsg(UserIndex, "RMatas (con posible respawn) a: " + Npclist[tNPC].Name,
+		WriteConsoleMsg(UserIndex, "RMatas (with possible respawn) to: " + Npclist[tNPC].Name,
 				FontTypeNames_FONTTYPE_INFO);
 
 		auxNPC = Npclist[tNPC];
@@ -6334,7 +6334,7 @@ void DakaraClientPacketHandler::handleKillNPC(KillNPC* p) { (void)p;
 
 		UserList[UserIndex].flags.TargetNPC = 0;
 	} else {
-		WriteConsoleMsg(UserIndex, "Antes debes hacer click sobre el NPC.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You must first click the NPC.", FontTypeNames_FONTTYPE_INFO);
 	}
 }
 
@@ -6360,12 +6360,12 @@ void DakaraClientPacketHandler::handleWarnUser(WarnUser* p) { (void)p;
 
 	if (!UserTieneAlgunPrivilegios(UserIndex, PlayerType_RoleMaster, PlayerType_User)) {
 		if (vb6::LenB(UserName) == 0 || vb6::LenB(Reason) == 0) {
-			WriteConsoleMsg(UserIndex, "Utilice /advertencia nick@motivo", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "Use /Warning nick@reason", FontTypeNames_FONTTYPE_INFO);
 		} else {
 			Privs = UserDarPrivilegioLevel(UserName);
 
 			if (!Privs && PlayerType_User) {
-				WriteConsoleMsg(UserIndex, "No puedes advertir a administradores.",
+				WriteConsoleMsg(UserIndex, "You can't warn admins.",
 						FontTypeNames_FONTTYPE_INFO);
 			} else {
 				if ((vb6::InStrB(UserName, "/") != 0)) {
@@ -6382,9 +6382,9 @@ void DakaraClientPacketHandler::handleWarnUser(WarnUser* p) { (void)p;
 							vb6::LCase(UserList[UserIndex].Name) + ": ADVERTENCIA por: " + vb6::LCase(Reason)
 									+ " " + vb6::dateToString(vb6::Now()));
 
-					WriteConsoleMsg(UserIndex, "Has advertido a " + vb6::UCase(UserName) + ".",
+					WriteConsoleMsg(UserIndex, "You've warned " + vb6::UCase(UserName) + ".",
 							FontTypeNames_FONTTYPE_INFO);
-					LogGM(UserList[UserIndex].Name, " advirtio a " + UserName);
+					LogGM(UserList[UserIndex].Name, " warned " + UserName);
 				}
 			}
 		}
@@ -6994,7 +6994,7 @@ void DakaraClientPacketHandler::handleRequestCharStats(RequestCharStats* p) { (v
 
 		if (tUser <= 0) {
 			if (UserIsAdmin || !OtherUserIsAdmin) {
-				WriteConsoleMsg(UserIndex, "Usuario offline. Leyendo charfile... ",
+				WriteConsoleMsg(UserIndex, "User is offline Leyendo charfile... ",
 						FontTypeNames_FONTTYPE_INFO);
 
 				SendUserMiniStatsTxtFromChar(UserIndex, UserName);
@@ -7051,7 +7051,7 @@ void DakaraClientPacketHandler::handleRequestCharGold(RequestCharGold* p) { (voi
 
 		if (tUser <= 0) {
 			if (UserIsAdmin || !OtherUserIsAdmin) {
-				WriteConsoleMsg(UserIndex, "Usuario offline. Leyendo charfile... ",
+				WriteConsoleMsg(UserIndex, "User is offline Leyendo charfile... ",
 						FontTypeNames_FONTTYPE_TALK);
 
 				SendUserOROTxtFromChar(UserIndex, UserName);
@@ -7109,7 +7109,7 @@ void DakaraClientPacketHandler::handleRequestCharInventory(RequestCharInventory*
 
 		if (tUser <= 0) {
 			if (UserIsAdmin || !OtherUserIsAdmin) {
-				WriteConsoleMsg(UserIndex, "Usuario offline. Leyendo del charfile...",
+				WriteConsoleMsg(UserIndex, "User is offline Leyendo del charfile...",
 						FontTypeNames_FONTTYPE_TALK);
 
 				SendUserInvTxtFromChar(UserIndex, UserName);
@@ -7165,7 +7165,7 @@ void DakaraClientPacketHandler::handleRequestCharBank(RequestCharBank* p) { (voi
 
 		if (tUser <= 0) {
 			if (UserIsAdmin || !OtherUserIsAdmin) {
-				WriteConsoleMsg(UserIndex, "Usuario offline. Leyendo charfile... ",
+				WriteConsoleMsg(UserIndex, "User is offline Leyendo charfile... ",
 						FontTypeNames_FONTTYPE_TALK);
 
 				SendUserBovedaTxtFromChar(UserIndex, UserName);
@@ -7263,7 +7263,7 @@ void DakaraClientPacketHandler::handleReviveChar(ReviveChar* p) { (void)p;
 		}
 
 		if (tUser <= 0) {
-			WriteConsoleMsg(UserIndex, "Usuario offline.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "User is offline", FontTypeNames_FONTTYPE_INFO);
 		} else {
 			/* 'If dead, show him alive (naked). */
 			if (UserList[tUser].flags.Muerto == 1) {
@@ -7353,7 +7353,7 @@ void DakaraClientPacketHandler::handleOnlineGM(OnlineGM* p) { (void)p;
 		list = vb6::Left(list, vb6::Len(list) - 2);
 		WriteConsoleMsg(UserIndex, list + ".", FontTypeNames_FONTTYPE_INFO);
 	} else {
-		WriteConsoleMsg(UserIndex, "No hay GMs Online.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "No online GMss.", FontTypeNames_FONTTYPE_INFO);
 	}
 }
 
@@ -7398,7 +7398,7 @@ void DakaraClientPacketHandler::handleOnlineMap(OnlineMap* p) { (void)p;
 		list = vb6::Left(list, vb6::Len(list) - 2);
 	}
 
-	WriteConsoleMsg(UserIndex, "Usuarios en el mapa: " + list, FontTypeNames_FONTTYPE_INFO);
+	WriteConsoleMsg(UserIndex, "Users in map: " + list, FontTypeNames_FONTTYPE_INFO);
 	LogGM(UserList[UserIndex].Name, "/ONLINEMAP " + vb6::CStr(Map));
 }
 
@@ -7462,7 +7462,7 @@ void DakaraClientPacketHandler::handleKick(Kick* p) { (void)p;
 
 		if (tUser <= 0) {
 			if (!(EsDios(UserName) || EsAdmin(UserName)) || IsAdmin) {
-				WriteConsoleMsg(UserIndex, "El usuario no está online.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "User is offline.", FontTypeNames_FONTTYPE_INFO);
 			} else {
 				WriteConsoleMsg(UserIndex, "No puedes echar a alguien con jerarquía mayor a la tuya.",
 						FontTypeNames_FONTTYPE_INFO);
@@ -8028,12 +8028,12 @@ void DakaraClientPacketHandler::handleTeleportCreate(TeleportCreate* p) { (void)
 	}
 
 	if (MapData[mapa][X][Y].ObjInfo.ObjIndex > 0) {
-		WriteConsoleMsg(UserIndex, "Hay un objeto en el piso en ese lugar.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "There's already an object there.", FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
 
 	if (MapData[mapa][X][Y].TileExit.Map > 0) {
-		WriteConsoleMsg(UserIndex, "No puedes crear un teleport que apunte a la entrada de otro.",
+		WriteConsoleMsg(UserIndex, "You can't create a teleport that points to another one.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -8157,7 +8157,7 @@ void DakaraClientPacketHandler::handleEnableDenounces(EnableDenounces* p) { (voi
 	Activado = !UserList[UserIndex].flags.SendDenounces;
 	UserList[UserIndex].flags.SendDenounces = Activado;
 
-	msg = std::string("Denuncias por consola ") + vb6::IIf(Activado, "ativadas", "desactivadas") + ".";
+	msg = std::string("Console complaints ") + vb6::IIf(Activado, "enabled", "disabled") + ".";
 
 	LogGM(UserList[UserIndex].Name, msg);
 
@@ -8205,7 +8205,7 @@ void DakaraClientPacketHandler::handleSetCharDescription(SetCharDescription* p) 
 		if (tUser > 0) {
 			UserList[tUser].DescRM = desc;
 		} else {
-			WriteConsoleMsg(UserIndex, "Haz click sobre un personaje antes.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You need to click a player character before.", FontTypeNames_FONTTYPE_INFO);
 		}
 	}
 }
@@ -8299,7 +8299,7 @@ void DakaraClientPacketHandler::handleRoyalArmyMessage(RoyalArmyMessage* p) { (v
 	/* 'Solo dioses, admins, semis y RMS */
 	if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_Dios, PlayerType_Admin, PlayerType_SemiDios, PlayerType_RoleMaster)) {
 		SendData(SendTarget_ToRealYRMs, 0,
-				dakara::protocol::server::BuildConsoleMsg("EJÉRCITO REAL> " + message, FontTypeNames_FONTTYPE_TALK));
+				dakara::protocol::server::BuildConsoleMsg("ROYAL ARMY> " + message, FontTypeNames_FONTTYPE_TALK));
 	}
 }
 
@@ -8320,7 +8320,7 @@ void DakaraClientPacketHandler::handleChaosLegionMessage(ChaosLegionMessage* p) 
 	/* 'Solo dioses, admins, semis y RMS */
 	if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_Dios, PlayerType_Admin, PlayerType_SemiDios, PlayerType_RoleMaster)) {
 		SendData(SendTarget_ToCaosYRMs, 0,
-				dakara::protocol::server::BuildConsoleMsg("FUERZAS DEL CAOS> " + message, FontTypeNames_FONTTYPE_TALK));
+				dakara::protocol::server::BuildConsoleMsg("DARK LEGION> " + message, FontTypeNames_FONTTYPE_TALK));
 	}
 }
 
@@ -8341,7 +8341,7 @@ void DakaraClientPacketHandler::handleCitizenMessage(CitizenMessage* p) { (void)
 	/* 'Solo dioses, admins, semis y RMS */
 	if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_Dios, PlayerType_Admin, PlayerType_SemiDios, PlayerType_RoleMaster)) {
 		SendData(SendTarget_ToCiudadanosYRMs, 0,
-				dakara::protocol::server::BuildConsoleMsg("CIUDADANOS> " + message, FontTypeNames_FONTTYPE_TALK));
+				dakara::protocol::server::BuildConsoleMsg("CITIZENS> " + message, FontTypeNames_FONTTYPE_TALK));
 	}
 
 
@@ -8367,7 +8367,7 @@ void DakaraClientPacketHandler::handleCriminalMessage(CriminalMessage* p) { (voi
 	/* 'Solo dioses, admins y RMS */
 	if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_Dios, PlayerType_Admin, PlayerType_RoleMaster)) {
 		SendData(SendTarget_ToCriminalesYRMs, 0,
-				dakara::protocol::server::BuildConsoleMsg("CRIMINALES> " + message, FontTypeNames_FONTTYPE_TALK));
+				dakara::protocol::server::BuildConsoleMsg("CRIMINALS> " + message, FontTypeNames_FONTTYPE_TALK));
 	}
 
 
@@ -8398,7 +8398,7 @@ void DakaraClientPacketHandler::handleTalkAsNPC(TalkAsNPC* p) { (void)p;
 							Npclist[UserList[UserIndex].flags.TargetNPC].Char.CharIndex, 0x00ffffff));
 		} else {
 			WriteConsoleMsg(UserIndex,
-					"Debes seleccionar el NPC por el que quieres hablar antes de usar este comando.",
+					"You must first select the NPC you would like to speak through first.",
 					FontTypeNames_FONTTYPE_INFO);
 		}
 	}
@@ -8470,11 +8470,11 @@ void DakaraClientPacketHandler::handleAcceptRoyalCouncilMember(AcceptRoyalCounci
 			&& UserTieneAlgunPrivilegios(UserIndex, PlayerType_Admin, PlayerType_Dios)) {
 		tUser = NameIndex(UserName);
 		if (tUser <= 0) {
-			WriteConsoleMsg(UserIndex, "Usuario offline", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "User offline", FontTypeNames_FONTTYPE_INFO);
 		} else {
 			SendData(SendTarget_ToAll, 0,
 					dakara::protocol::server::BuildConsoleMsg(
-							UserName + " fue aceptado en el honorable Consejo Real de Banderbill.",
+							UserName + " was accepted as a member of the Royal Council of Banderbill.",
 							FontTypeNames_FONTTYPE_CONSEJO));
 			if (UserTienePrivilegio(tUser, PlayerType_ChaosCouncil)) {
 				UserQuitarPrivilegios(tUser, PlayerType_ChaosCouncil);
@@ -8509,10 +8509,10 @@ void DakaraClientPacketHandler::handleAcceptChaosCouncilMember(AcceptChaosCounci
 			&& UserTieneAlgunPrivilegios(UserIndex, PlayerType_Admin, PlayerType_Dios)) {
 		tUser = NameIndex(UserName);
 		if (tUser <= 0) {
-			WriteConsoleMsg(UserIndex, "Usuario offline", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "User offline", FontTypeNames_FONTTYPE_INFO);
 		} else {
 			SendData(SendTarget_ToAll, 0,
-					dakara::protocol::server::BuildConsoleMsg(UserName + " fue aceptado en el Concilio de las Sombras.",
+					dakara::protocol::server::BuildConsoleMsg(UserName + " was accepted as a member of the Council of Shadows.",
 							FontTypeNames_FONTTYPE_CONSEJO));
 
 			if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_RoyalCouncil)) {
@@ -8592,7 +8592,7 @@ void DakaraClientPacketHandler::handleMakeDumb(MakeDumb* p) { (void)p;
 		tUser = NameIndex(UserName);
 		/* 'para deteccion de aoice */
 		if (tUser <= 0) {
-			WriteConsoleMsg(UserIndex, "Usuario offline.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "User offline.", FontTypeNames_FONTTYPE_INFO);
 		} else {
 			WriteDumb(tUser);
 		}
@@ -8626,7 +8626,7 @@ void DakaraClientPacketHandler::handleMakeDumbNoMore(MakeDumbNoMore* p) { (void)
 		tUser = NameIndex(UserName);
 		/* 'para deteccion de aoice */
 		if (tUser <= 0) {
-			WriteConsoleMsg(UserIndex, "Usuario offline.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "User offline.", FontTypeNames_FONTTYPE_INFO);
 		} else {
 			WriteDumbNoMore(tUser);
 			FlushBuffer(tUser);
@@ -8680,36 +8680,36 @@ void DakaraClientPacketHandler::handleCouncilKick(CouncilKick* p) { (void)p;
 		tUser = NameIndex(UserName);
 		if (tUser <= 0) {
 			if (FileExist(GetCharPath(UserName))) {
-				WriteConsoleMsg(UserIndex, "Usuario offline, echando de los consejos.",
+				WriteConsoleMsg(UserIndex, "User offline, removing from councils.",
 						FontTypeNames_FONTTYPE_INFO);
 				WriteVar(GetCharPath(UserName), "CONSEJO", "PERTENECE", 0);
 				WriteVar(GetCharPath(UserName), "CONSEJO", "PERTENECECAOS", 0);
 			} else {
-				WriteConsoleMsg(UserIndex, "No se encuentra el charfile " + GetCharPath(UserName),
+				WriteConsoleMsg(UserIndex, "Not found on charfile " + GetCharPath(UserName),
 						FontTypeNames_FONTTYPE_INFO);
 			}
 		} else {
 			if (UserTieneAlgunPrivilegios(tUser, PlayerType_RoyalCouncil)) {
-				WriteConsoleMsg(tUser, "Has sido echado del consejo de Banderbill.",
+				WriteConsoleMsg(tUser, "You've been expeled from the Royal Council of Banderbill.",
 						FontTypeNames_FONTTYPE_TALK);
 				UserQuitarPrivilegios(tUser, PlayerType_RoyalCouncil);
 
 				WarpUserChar(tUser, UserList[tUser].Pos.Map, UserList[tUser].Pos.X, UserList[tUser].Pos.Y,
 						false);
 				SendData(SendTarget_ToAll, 0,
-						dakara::protocol::server::BuildConsoleMsg(UserName + " fue expulsado del consejo de Banderbill.",
+						dakara::protocol::server::BuildConsoleMsg(UserName + " was expeled from the Royal Council of Banderbill.",
 								FontTypeNames_FONTTYPE_CONSEJO));
 			}
 
 			if (UserTieneAlgunPrivilegios(tUser, PlayerType_ChaosCouncil)) {
-				WriteConsoleMsg(tUser, "Has sido echado del Concilio de las Sombras.",
+				WriteConsoleMsg(tUser, "You've been expeled from the Council of Shadows.",
 						FontTypeNames_FONTTYPE_TALK);
 				UserQuitarPrivilegios(tUser, PlayerType_ChaosCouncil);
 
 				WarpUserChar(tUser, UserList[tUser].Pos.Map, UserList[tUser].Pos.X, UserList[tUser].Pos.Y,
 						false);
 				SendData(SendTarget_ToAll, 0,
-						dakara::protocol::server::BuildConsoleMsg(UserName + " fue expulsado del Concilio de las Sombras.",
+						dakara::protocol::server::BuildConsoleMsg(UserName + " was expeled from the Council of Shadows.",
 								FontTypeNames_FONTTYPE_CONSEJO));
 			}
 		}
@@ -8744,7 +8744,7 @@ void DakaraClientPacketHandler::handleSetTrigger(SetTrigger* p) { (void)p;
 	if (tTrigger >= 0) {
 		MapData[UserList[UserIndex].Pos.Map][UserList[UserIndex].Pos.X][UserList[UserIndex].Pos.Y].trigger =
 				static_cast<eTrigger>(tTrigger);
-		tLog = vb6::string_format("Trigger %d en mapa %d %d %d",
+		tLog = vb6::string_format("Trigger %d in map %d %d %d",
 				tTrigger,
 				UserList[UserIndex].Pos.Map,
 				UserList[UserIndex].Pos.X,
@@ -8775,14 +8775,14 @@ void DakaraClientPacketHandler::handleAskTrigger(AskTrigger* p) { (void)p;
 			MapData[UserList[UserIndex].Pos.Map][UserList[UserIndex].Pos.X][UserList[UserIndex].Pos.Y].trigger;
 
 	LogGM(UserList[UserIndex].Name,
-			vb6::string_format("Miro el trigger %d en mapa %d %d %d",
+			vb6::string_format("Looking trigger %d in map %d %d %d",
 							tTrigger,
 							UserList[UserIndex].Pos.Map,
 							UserList[UserIndex].Pos.X,
 							UserList[UserIndex].Pos.Y));
 
 	WriteConsoleMsg(UserIndex,
-			vb6::string_format("Trigger %d en mapa %d %d %d",
+			vb6::string_format("Looking %d in map %d %d %d",
 							tTrigger,
 							UserList[UserIndex].Pos.Map,
 							UserList[UserIndex].Pos.X,
@@ -8869,15 +8869,15 @@ void DakaraClientPacketHandler::handleGuildBan(GuildBan* p) { (void)p;
 		tFile = GetGuildsPath(GuildName, EGUILDPATH::Members);
 
 		if (!FileExist(tFile)) {
-			WriteConsoleMsg(UserIndex, "No existe el clan: " + GuildName, FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "Clan does not exist: " + GuildName, FontTypeNames_FONTTYPE_INFO);
 		} else {
 			SendData(SendTarget_ToAll, 0,
 					dakara::protocol::server::BuildConsoleMsg(
-							UserList[UserIndex].Name + " baneó al clan " + vb6::UCase(GuildName),
+							UserList[UserIndex].Name + " banned clan " + vb6::UCase(GuildName),
 							FontTypeNames_FONTTYPE_FIGHT));
 
 			/* 'baneamos a los miembros */
-			LogGM(UserList[UserIndex].Name, "BANCLAN a " + vb6::UCase(GuildName));
+			LogGM(UserList[UserIndex].Name, "BANCLAN to " + vb6::UCase(GuildName));
 
 			cantMembers = vb6::val(GetVar(tFile, "INIT", "NroMembers"));
 			cantMembers = vb6::Constrain(cantMembers, 0, MAXCLANMEMBERS);
@@ -8885,11 +8885,11 @@ void DakaraClientPacketHandler::handleGuildBan(GuildBan* p) { (void)p;
 			for (LoopC = (1); LoopC <= (cantMembers); LoopC++) {
 				member = GetVar(tFile, "Members", "Member" + vb6::CStr(LoopC));
 				/* 'member es la victima */
-				Ban(member, "Administracion del servidor", "Clan Banned");
+				Ban(member, "Server Administration", "Clan Banned");
 
 				SendData(SendTarget_ToAll, 0,
 						dakara::protocol::server::BuildConsoleMsg(
-								"   " + member + "<" + GuildName + "> ha sido expulsado del servidor.",
+								"   " + member + "<" + GuildName + "> has been expeled from the server.",
 								FontTypeNames_FONTTYPE_FIGHT));
 
 				tIndex = NameIndex(member);
@@ -8939,26 +8939,26 @@ void DakaraClientPacketHandler::handleBanIP(BanIP* p) { (void)p;
 			LogGM(UserList[UserIndex].Name, "/BanIP " + bannedIP + " por " + Reason);
 
 			if (BanIpBuscar(bannedIP) > 0) {
-				WriteConsoleMsg(UserIndex, "La IP " + bannedIP + " ya se encuentra en la lista de bans.",
+				WriteConsoleMsg(UserIndex, "IP " + bannedIP + " is already in the banned list.",
 						FontTypeNames_FONTTYPE_INFO);
 			} else {
 				BanIpAgrega(bannedIP);
 				SendData(SendTarget_ToAdmins, 0,
 						dakara::protocol::server::BuildConsoleMsg(
-								UserList[UserIndex].Name + " baneó la IP " + bannedIP + " por " + Reason,
+								UserList[UserIndex].Name + " banned IP " + bannedIP + " because of " + Reason,
 								FontTypeNames_FONTTYPE_FIGHT));
 
 				/* 'Find every player with that ip and ban him! */
 				for (i = (1); i <= (LastUser); i++) {
 					if (UserIndexSocketValido(i)) {
 						if (UserList[i].ip == bannedIP) {
-							BanCharacter(UserIndex, UserList[i].Name, "IP POR " + Reason);
+							BanCharacter(UserIndex, UserList[i].Name, "IP because of " + Reason);
 						}
 					}
 				}
 			}
 		} else if (tUser <= 0) {
-			WriteConsoleMsg(UserIndex, "El personaje no está online.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "PC is offline.", FontTypeNames_FONTTYPE_INFO);
 		}
 	}
 }
@@ -8982,10 +8982,10 @@ void DakaraClientPacketHandler::handleUnbanIP(UnbanIP* p) { (void)p;
 	}
 
 	if (BanIpQuita(bannedIP)) {
-		WriteConsoleMsg(UserIndex, "La IP " "" + bannedIP + "" " se ha quitado de la lista de bans.",
+		WriteConsoleMsg(UserIndex, "IP " "" + bannedIP + "" " has been removed from the banned list.",
 				FontTypeNames_FONTTYPE_INFO);
 	} else {
-		WriteConsoleMsg(UserIndex, "La IP " "" + bannedIP + "" " NO se encuentra en la lista de bans.",
+		WriteConsoleMsg(UserIndex, "IP " "" + bannedIP + "" " WAS NOT found in the banned list.",
 				FontTypeNames_FONTTYPE_INFO);
 	}
 }
@@ -9018,7 +9018,7 @@ void DakaraClientPacketHandler::handleCreateItem(CreateItem* p) { (void)p;
 	X = UserList[UserIndex].Pos.X;
 	Y = UserList[UserIndex].Pos.Y;
 
-	LogGM(UserList[UserIndex].Name, vb6::string_format("/CI: %d en mapa %d (%d, %d)", tObj, mapa, X, Y));
+	LogGM(UserList[UserIndex].Name, vb6::string_format("/CI: %d in map %d (%d, %d)", tObj, mapa, X, Y));
 
 	if (MapData[mapa][X][Y - 1].ObjInfo.ObjIndex > 0) {
 		return;
@@ -9049,7 +9049,7 @@ void DakaraClientPacketHandler::handleCreateItem(CreateItem* p) { (void)p;
 	if (ObjData[tObj].Log == 1) {
 		LogDesarrollo(
 				UserList[UserIndex].Name
-						+ vb6::string_format(" /CI: [%d] %s en mapa %d (%d, %d)",
+						+ vb6::string_format(" /CI: [%d] %s in map %d (%d, %d)",
 								tObj, ObjData[tObj].Name.c_str(), mapa, X, Y));
 	}
 }
@@ -9086,12 +9086,12 @@ void DakaraClientPacketHandler::handleDestroyItems(DestroyItems* p) { (void)p;
 	}
 
 	LogGM(UserList[UserIndex].Name,
-			vb6::string_format("/DEST %d en mapa %d (%d, %d). Cantidad: %d", ObjIndex, mapa, X, Y,
+			vb6::string_format("/DEST %d in map %d (%d, %d). Amount: %d", ObjIndex, mapa, X, Y,
 					MapData[mapa][X][Y].ObjInfo.Amount));
 
 	if (ObjData[ObjIndex].OBJType == eOBJType_otTeleport && MapData[mapa][X][Y].TileExit.Map > 0) {
 
-		WriteConsoleMsg(UserIndex, "No puede destruir teleports así. Utilice /DT.",
+		WriteConsoleMsg(UserIndex, "You can't destroy teleports like that. Use /DT.",
 				FontTypeNames_FONTTYPE_INFO);
 		return;
 	}
@@ -9130,24 +9130,24 @@ void DakaraClientPacketHandler::handleChaosLegionKick(ChaosLegionKick* p) { (voi
 		}
 		tUser = NameIndex(UserName);
 
-		LogGM(UserList[UserIndex].Name, "ECHO DEL CAOS A: " + UserName);
+		LogGM(UserList[UserIndex].Name, "KICKED FROM DARK LEGION: " + UserName);
 
 		if (tUser > 0) {
 			ExpulsarFaccionCaos(tUser, true);
 			UserList[tUser].Faccion.Reenlistadas = 200;
 			WriteConsoleMsg(UserIndex,
-					UserName + " expulsado de las fuerzas del caos y prohibida la reenlistada.",
+					UserName + " expeled from the dark legion, and prohibited re-entry.",
 					FontTypeNames_FONTTYPE_INFO);
 			WriteConsoleMsg(tUser,
 					UserList[UserIndex].Name
-							+ " te ha expulsado en forma definitiva de las fuerzas del caos.",
+							+ " has epeled you from the dark legion forever.",
 					FontTypeNames_FONTTYPE_FIGHT);
 			FlushBuffer(tUser);
 
 			cantPenas = vb6::val(GetVar(GetCharPath(UserName), "PENAS", "Cant"));
 			WriteVar(GetCharPath(UserName), "PENAS", "Cant", cantPenas + 1);
 			WriteVar(GetCharPath(UserName), "PENAS", "P" + vb6::CStr(cantPenas + 1),
-					vb6::LCase(UserList[UserIndex].Name) + ": EXPULSADO de la Legión Oscura por: "
+					vb6::LCase(UserList[UserIndex].Name) + ": EXPELED from the dark legion because: "
 							+ vb6::LCase(Reason) + " " + vb6::dateToString(vb6::Now()));
 		} else {
 			if (FileExist(GetCharPath(UserName))) {
@@ -9163,10 +9163,10 @@ void DakaraClientPacketHandler::handleChaosLegionKick(ChaosLegionKick* p) { (voi
 								+ vb6::LCase(Reason) + " " + vb6::dateToString(vb6::Now()));
 
 				WriteConsoleMsg(UserIndex,
-						UserName + " expulsado de las fuerzas del caos y prohibida la reenlistada.",
+						UserName + " expeled from the dark legion, and prohibited re-entry.",
 						FontTypeNames_FONTTYPE_INFO);
 			} else {
-				WriteConsoleMsg(UserIndex, UserName + ".chr inexistente.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, UserName + ".chr not found.", FontTypeNames_FONTTYPE_INFO);
 			}
 		}
 	}
@@ -9207,41 +9207,41 @@ void DakaraClientPacketHandler::handleRoyalArmyKick(RoyalArmyKick* p) { (void)p;
 		}
 		tUser = NameIndex(UserName);
 
-		LogGM(UserList[UserIndex].Name, "ECHÓ DE LA REAL A: " + UserName);
+		LogGM(UserList[UserIndex].Name, "KICKED FROM THE ROYAL ARMY: " + UserName);
 
 		if (tUser > 0) {
 			ExpulsarFaccionReal(tUser, true);
 			UserList[tUser].Faccion.Reenlistadas = 200;
 			WriteConsoleMsg(UserIndex,
-					UserName + " expulsado de las fuerzas reales y prohibida la reenlistada.",
+					UserName + " expeled from the royal army, and prohibited re-entry.",
 					FontTypeNames_FONTTYPE_INFO);
 			WriteConsoleMsg(tUser,
-					UserList[UserIndex].Name + " te ha expulsado en forma definitiva de las fuerzas reales.",
+					UserList[UserIndex].Name + " has expeled you from the royal army forever.",
 					FontTypeNames_FONTTYPE_FIGHT);
 			FlushBuffer(tUser);
 
 			cantPenas = vb6::val(GetVar(GetCharPath(UserName), "PENAS", "Cant"));
 			WriteVar(GetCharPath(UserName), "PENAS", "Cant", cantPenas + 1);
 			WriteVar(GetCharPath(UserName), "PENAS", "P" + vb6::CStr(cantPenas + 1),
-					vb6::LCase(UserList[UserIndex].Name) + ": EXPULSADO de la Legión Oscura por: "
+					vb6::LCase(UserList[UserIndex].Name) + ": EXPELED from the ROYAL ARMY because: "
 							+ vb6::LCase(Reason) + " " + vb6::dateToString(vb6::Now()));
 		} else {
 			if (FileExist(GetCharPath(UserName))) {
 				WriteVar(GetCharPath(UserName), "FACCIONES", "EjercitoReal", 0);
 				WriteVar(GetCharPath(UserName), "FACCIONES", "Reenlistadas", 200);
 				WriteVar(GetCharPath(UserName), "FACCIONES", "Extra",
-						"Expulsado por " + UserList[UserIndex].Name);
+						"Expeled by " + UserList[UserIndex].Name);
 				WriteConsoleMsg(UserIndex,
-						UserName + " expulsado de las fuerzas reales y prohibida la reenlistada.",
+						UserName + " expeled from the royal army, and prohibited re-entry.",
 						FontTypeNames_FONTTYPE_INFO);
 
 				cantPenas = vb6::val(GetVar(GetCharPath(UserName), "PENAS", "Cant"));
 				WriteVar(GetCharPath(UserName), "PENAS", "Cant", cantPenas + 1);
 				WriteVar(GetCharPath(UserName), "PENAS", "P" + vb6::CStr(cantPenas + 1),
-						vb6::LCase(UserList[UserIndex].Name) + ": EXPULSADO de la Legión Oscura por: "
+						vb6::LCase(UserList[UserIndex].Name) + ": EXPELED from the ROYAL ARMY because: "
 								+ vb6::LCase(Reason) + " " + vb6::dateToString(vb6::Now()));
 			} else {
-				WriteConsoleMsg(UserIndex, UserName + ".chr inexistente.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, UserName + ".chr not found.", FontTypeNames_FONTTYPE_INFO);
 			}
 		}
 	}
@@ -9271,7 +9271,7 @@ void DakaraClientPacketHandler::handleForceMIDIAll(ForceMIDIAll* p) { (void)p;
 	}
 
 	SendData(SendTarget_ToAll, 0,
-			dakara::protocol::server::BuildConsoleMsg(UserList[UserIndex].Name + " broadcast música: " + vb6::CStr(midiID),
+			dakara::protocol::server::BuildConsoleMsg(UserList[UserIndex].Name + " broadcasting music: " + vb6::CStr(midiID),
 					FontTypeNames_FONTTYPE_SERVER));
 
 	SendData(SendTarget_ToAll, 0, dakara::protocol::server::BuildPlayMidi(midiID, 0));
@@ -9323,7 +9323,7 @@ void DakaraClientPacketHandler::handleRemovePunishment(RemovePunishment* p) { (v
 			&& (!UserTienePrivilegio(UserIndex, PlayerType_RoleMaster))) {
 
 		if (vb6::LenB(UserName) == 0) {
-			WriteConsoleMsg(UserIndex, "Utilice /borrarpena Nick@NumeroDePena@NuevaPena",
+			WriteConsoleMsg(UserIndex, "Use /borrarpena Nick@NumeroDePena@NuevaPena",
 					FontTypeNames_FONTTYPE_INFO);
 		} else {
 			if ((vb6::InStrB(UserName, "/") != 0)) {
@@ -9496,18 +9496,18 @@ void DakaraClientPacketHandler::handleLastIP(LastIP* p) { (void)p;
 			LogGM(UserList[UserIndex].Name, "/LASTIP " + UserName);
 
 			if (FileExist(GetCharPath(UserName), 0)) {
-				lista = "Las ultimas IPs con las que " + UserName + " se conectó son:";
+				lista = "The last IPs with which " + UserName + " connected to the server are:";
 				for (LoopC = (1); LoopC <= (5); LoopC++) {
 					lista = lista + vbCrLf + vb6::CStr(LoopC) + " - "
 							+ GetVar(GetCharPath(UserName), "INIT", "LastIP" + vb6::CStr(LoopC));
 				}
 				WriteConsoleMsg(UserIndex, lista, FontTypeNames_FONTTYPE_INFO);
 			} else {
-				WriteConsoleMsg(UserIndex, "Charfile " "" + UserName + "" " inexistente.",
+				WriteConsoleMsg(UserIndex, "Charfile " "" + UserName + "" " not found.",
 						FontTypeNames_FONTTYPE_INFO);
 			}
 		} else {
-			WriteConsoleMsg(UserIndex, UserName + " es de mayor jerarquía que vos.",
+			WriteConsoleMsg(UserIndex, UserName + " belongs to a greater hierarchy than you.",
 					FontTypeNames_FONTTYPE_INFO);
 		}
 	}
@@ -9583,7 +9583,7 @@ void DakaraClientPacketHandler::handleCheckSlot(CheckSlot* p) { (void)p;
 	if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_SemiDios) || UserIsAdmin) {
 
 		LogGM(UserList[UserIndex].Name,
-				UserList[UserIndex].Name + " Checkeó el slot " + vb6::CStr(Slot) + " de " + UserName);
+				UserList[UserIndex].Name + " checked slot " + vb6::CStr(Slot) + " of " + UserName);
 
 		/* 'Que user index? */
 		tIndex = NameIndex(UserName);
@@ -9594,26 +9594,26 @@ void DakaraClientPacketHandler::handleCheckSlot(CheckSlot* p) { (void)p;
 				if (Slot > 0 && Slot <= UserList[tIndex].CurrentInventorySlots) {
 					if (UserList[tIndex].Invent.Object[Slot].ObjIndex > 0) {
 						WriteConsoleMsg(UserIndex,
-								" Objeto " + vb6::CStr(Slot) + ") "
+								" Object " + vb6::CStr(Slot) + ") "
 										+ ObjData[UserList[tIndex].Invent.Object[Slot].ObjIndex].Name
-										+ " Cantidad:" + vb6::CStr(UserList[tIndex].Invent.Object[Slot].Amount),
+										+ " Amount:" + vb6::CStr(UserList[tIndex].Invent.Object[Slot].Amount),
 								FontTypeNames_FONTTYPE_INFO);
 					} else {
-						WriteConsoleMsg(UserIndex, "No hay ningún objeto en slot seleccionado.",
+						WriteConsoleMsg(UserIndex, "There's no object in the selected slot.",
 								FontTypeNames_FONTTYPE_INFO);
 					}
 				} else {
-					WriteConsoleMsg(UserIndex, "Slot Inválido.", FontTypeNames_FONTTYPE_TALK);
+					WriteConsoleMsg(UserIndex, "Invalid slot.", FontTypeNames_FONTTYPE_TALK);
 				}
 			} else {
-				WriteConsoleMsg(UserIndex, "No puedes ver slots de un dios o admin.",
+				WriteConsoleMsg(UserIndex, "You can't see slots of a god or admin.",
 						FontTypeNames_FONTTYPE_INFO);
 			}
 		} else {
 			if (UserIsAdmin || !OtherUserIsAdmin) {
-				WriteConsoleMsg(UserIndex, "Usuario offline.", FontTypeNames_FONTTYPE_TALK);
+				WriteConsoleMsg(UserIndex, "User offline.", FontTypeNames_FONTTYPE_TALK);
 			} else {
-				WriteConsoleMsg(UserIndex, "No puedes ver slots de un dios o admin.",
+				WriteConsoleMsg(UserIndex, "You can't see slots of a god or admin.",
 						FontTypeNames_FONTTYPE_INFO);
 			}
 		}
@@ -9646,7 +9646,7 @@ void DakaraClientPacketHandler::handleResetAutoUpdate(ResetAutoUpdate* p) { (voi
 	}
 #endif
 
-	WriteConsoleMsg(UserIndex, "No, no no... comando deshabilitado.", FontTypeNames_FONTTYPE_INFO);
+	WriteConsoleMsg(UserIndex, "No,no no... command disabled.", FontTypeNames_FONTTYPE_INFO);
 
 	// WriteConsoleMsg(UserIndex, "TID: " + vb6::CStr(ReiniciarAutoUpdate()), FontTypeNames_FONTTYPE_INFO);
 }
@@ -9672,13 +9672,13 @@ void DakaraClientPacketHandler::handleRestart(dakara::protocol::clientgm::Restar
 //	}
 
 	/* 'time and Time BUG! */
-	LogGM(UserList[UserIndex].Name, UserList[UserIndex].Name + " reinició el mundo.");
+	LogGM(UserList[UserIndex].Name, UserList[UserIndex].Name + " resetted the world.");
 
 #if 0
 	ReiniciarServidor(true);
 #endif
 
-	WriteConsoleMsg(UserIndex, "No, no no... comando deshabilitado.", FontTypeNames_FONTTYPE_INFO);
+	WriteConsoleMsg(UserIndex, "No,no no... command disabled.", FontTypeNames_FONTTYPE_INFO);
 }
 
 /* '' */
@@ -9697,11 +9697,11 @@ void DakaraClientPacketHandler::handleReloadObjects(ReloadObjects* p) { (void)p;
 		return;
 	}
 
-	LogGM(UserList[UserIndex].Name, UserList[UserIndex].Name + " ha recargado los objetos.");
+	LogGM(UserList[UserIndex].Name, UserList[UserIndex].Name + " has reloaded the objects.");
 
 	LoadOBJData();
 
-	WriteConsoleMsg(UserIndex, "Se ha recargado OBJ.dat.", FontTypeNames_FONTTYPE_INFO);
+	WriteConsoleMsg(UserIndex, "OBJ.dat has been reloaded.", FontTypeNames_FONTTYPE_INFO);
 }
 
 /* '' */
@@ -9722,11 +9722,11 @@ void DakaraClientPacketHandler::handleReloadSpells(ReloadSpells* p) { (void)p;
 		return;
 	}
 
-	LogGM(UserList[UserIndex].Name, UserList[UserIndex].Name + " ha recargado los hechizos.");
+	LogGM(UserList[UserIndex].Name, UserList[UserIndex].Name + " has reloaded all spells.");
 
 	CargarHechizos();
 
-	WriteConsoleMsg(UserIndex, "Se ha recargado Hechizos.dat.", FontTypeNames_FONTTYPE_INFO);
+	WriteConsoleMsg(UserIndex, "Hechizos.dat has been reloaded.", FontTypeNames_FONTTYPE_INFO);
 }
 
 /* '' */
@@ -9745,13 +9745,13 @@ void DakaraClientPacketHandler::handleReloadServerIni(ReloadServerIni* p) { (voi
 		return;
 	}
 
-	LogGM(UserList[UserIndex].Name, UserList[UserIndex].Name + " ha recargado los INITs: Server.ini y MOTD");
+	LogGM(UserList[UserIndex].Name, UserList[UserIndex].Name + " has reloaded INITs: server.ini and MOTD");
 
 	LoadSini();
 	
 	LoadMotd();
 
-	WriteConsoleMsg(UserIndex, "Server.ini y MOTD actualizado correctamente", FontTypeNames_FONTTYPE_INFO);
+	WriteConsoleMsg(UserIndex, "Server.ini and MOTD updated correctly.", FontTypeNames_FONTTYPE_INFO);
 }
 
 /* '' */
@@ -9772,11 +9772,11 @@ void DakaraClientPacketHandler::handleReloadNPCs(ReloadNPCs* p) { (void)p;
 		return;
 	}
 
-	LogGM(UserList[UserIndex].Name, UserList[UserIndex].Name + " ha recargado los NPCs.");
+	LogGM(UserList[UserIndex].Name, UserList[UserIndex].Name + " has reloaded all NPCs.");
 
 	CargaNpcsDat();
 
-	WriteConsoleMsg(UserIndex, "Npcs.dat recargado.", FontTypeNames_FONTTYPE_INFO);
+	WriteConsoleMsg(UserIndex, "Npcs.dat reloaded.", FontTypeNames_FONTTYPE_INFO);
 }
 
 /* '' */
@@ -9797,7 +9797,7 @@ void DakaraClientPacketHandler::handleKickAllChars(KickAllChars* p) { (void)p;
 		return;
 	}
 
-	LogGM(UserList[UserIndex].Name, UserList[UserIndex].Name + " ha echado a todos los personajes.");
+	LogGM(UserList[UserIndex].Name, UserList[UserIndex].Name + " has kicked all PCs.");
 
 	EcharPjsNoPrivilegiados();
 }
@@ -9857,7 +9857,7 @@ void DakaraClientPacketHandler::handleShowServerForm(ShowServerForm* p) { (void)
 	}
 
 	LogGM(UserList[UserIndex].Name,
-			UserList[UserIndex].Name + " ha solicitado mostrar el formulario del servidor.");
+			UserList[UserIndex].Name + " has requested to show the server's form.");
 }
 
 /* '' */
@@ -9878,7 +9878,7 @@ void DakaraClientPacketHandler::handleCleanSOS(CleanSOS* p) { (void)p;
 		return;
 	}
 
-	LogGM(UserList[UserIndex].Name, UserList[UserIndex].Name + " ha borrado los SOS.");
+	LogGM(UserList[UserIndex].Name, UserList[UserIndex].Name + " has deleted all SOS.");
 
 	Ayuda.clear();
 }
@@ -9901,7 +9901,7 @@ void DakaraClientPacketHandler::handleSaveChars(SaveChars* p) { (void)p;
 		return;
 	}
 
-	LogGM(UserList[UserIndex].Name, UserList[UserIndex].Name + " ha guardado todos los chars.");
+	LogGM(UserList[UserIndex].Name, UserList[UserIndex].Name + " has saved all chars.");
 
 	ActualizaExperiencias();
 	GuardarUsuarios();
@@ -9929,7 +9929,7 @@ void DakaraClientPacketHandler::handleChangeMapInfoBackup(ChangeMapInfoBackup* p
 	}
 
 	LogGM(UserList[UserIndex].Name,
-			UserList[UserIndex].Name + " ha cambiado la información sobre el BackUp.");
+			UserList[UserIndex].Name + " has changed the information on the backup.");
 
 	/* 'Change the boolean to byte in a fast way */
 	if (doTheBackUp) {
@@ -9969,7 +9969,7 @@ void DakaraClientPacketHandler::handleChangeMapInfoPK(ChangeMapInfoPK* p) { (voi
 	}
 
 	LogGM(UserList[UserIndex].Name,
-			UserList[UserIndex].Name + " ha cambiado la información sobre si es PK el mapa.");
+			UserList[UserIndex].Name + " has changed the map information.");
 
 	MapInfo[UserList[UserIndex].Pos.Map].Pk = isMapPk;
 
@@ -10718,10 +10718,10 @@ void DakaraClientPacketHandler::handleServerOpenToUsersToggle(ServerOpenToUsersT
 	}
 
 	if (ServerSoloGMs > 0) {
-		WriteConsoleMsg(UserIndex, "Servidor habilitado para todos.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "Server online for everyone.", FontTypeNames_FONTTYPE_INFO);
 		ServerSoloGMs = 0;
 	} else {
-		WriteConsoleMsg(UserIndex, "Servidor restringido a administradores.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "Server restricted to admins.", FontTypeNames_FONTTYPE_INFO);
 		ServerSoloGMs = 1;
 	}
 }
@@ -10844,7 +10844,7 @@ void DakaraClientPacketHandler::handleResetFactions(ResetFactions* p) { (void)p;
 						vb6::LCase(UserList[UserIndex].Name) + ": Personaje reincorporado a la facción. "
 								+ vb6::dateToString(vb6::Now()));
 			} else {
-				WriteConsoleMsg(UserIndex, "El personaje " + UserName + " no existe.",
+				WriteConsoleMsg(UserIndex, "PC " + UserName + " does not exist.",
 						FontTypeNames_FONTTYPE_INFO);
 			}
 		}
@@ -10876,13 +10876,13 @@ void DakaraClientPacketHandler::handleRemoveCharFromGuild(RemoveCharFromGuild* p
 		GuildIndex = m_EcharMiembroDeClan(UserIndex, UserName);
 
 		if (GuildIndex == 0) {
-			WriteConsoleMsg(UserIndex, "No pertenece a ningún clan o es fundador.",
+			WriteConsoleMsg(UserIndex, "Does not belong to a clan or is a founder.",
 					FontTypeNames_FONTTYPE_INFO);
 		} else {
-			WriteConsoleMsg(UserIndex, "Expulsado.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "Expelled.", FontTypeNames_FONTTYPE_INFO);
 			SendData(SendTarget_ToGuildMembers, GuildIndex,
 					dakara::protocol::server::BuildConsoleMsg(
-							UserName + " ha sido expulsado del clan por los administradores del servidor.",
+							UserName + " has been expelled from the clan by the server's admins.",
 							FontTypeNames_FONTTYPE_GUILD));
 		}
 	}

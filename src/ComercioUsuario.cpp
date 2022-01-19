@@ -37,8 +37,8 @@ void IniciarComercioConUsuario(int Origen, int Destino) {
 	if (UserList[Origen].ComUsu.DestUsu == Destino && UserList[Destino].ComUsu.DestUsu == Origen) {
 
 		if (UserList[Origen].flags.Comerciando || UserList[Destino].flags.Comerciando) {
-			WriteConsoleMsg(Origen, "No puedes comerciar en este momento", FontTypeNames_FONTTYPE_TALK);
-			WriteConsoleMsg(Destino, "No puedes comerciar en este momento", FontTypeNames_FONTTYPE_TALK);
+			WriteConsoleMsg(Origen, "You cannot trade right now.", FontTypeNames_FONTTYPE_TALK);
+			WriteConsoleMsg(Destino, "You cannot trade right now.", FontTypeNames_FONTTYPE_TALK);
 			return;
 		}
 
@@ -58,7 +58,7 @@ void IniciarComercioConUsuario(int Origen, int Destino) {
 	} else {
 		/* 'Es el primero que comercia ? */
 		WriteConsoleMsg(Destino,
-				UserList[Origen].Name + " desea comerciar. Si deseas aceptar, escribe /COMERCIAR.",
+				UserList[Origen].Name + " wishes to trade. If you wish to trade, write /TRADE.",
 				FontTypeNames_FONTTYPE_TALK);
 		UserList[Destino].flags.TargetUser = Origen;
 
@@ -147,11 +147,11 @@ void AceptarComercioUsu(int UserIndex) {
 	/* ' Aceptaron ambos, chequeo que tengan los items que ofertaron */
 	if (!HasOfferedItems(UserIndex)) {
 
-		WriteConsoleMsg(UserIndex, "¡¡¡El comercio se canceló porque no posees los ítems que ofertaste!!!",
+		WriteConsoleMsg(UserIndex, "Trade was canceled because you don't have the items you offered!!!",
 				FontTypeNames_FONTTYPE_FIGHT);
 		WriteConsoleMsg(OtroUserIndex,
-				"¡¡¡El comercio se canceló porque " + UserList[UserIndex].Name
-						+ " no posee los ítems que ofertó!!!", FontTypeNames_FONTTYPE_FIGHT);
+				"Trade was canceled because " + UserList[UserIndex].Name
+						+ " doesn't have the items they offered!!!", FontTypeNames_FONTTYPE_FIGHT);
 
 		FinComerciarUsu(UserIndex);
 		FinComerciarUsu(OtroUserIndex);
@@ -162,10 +162,10 @@ void AceptarComercioUsu(int UserIndex) {
 	} else if (!HasOfferedItems(OtroUserIndex)) {
 
 		WriteConsoleMsg(UserIndex,
-				"¡¡¡El comercio se canceló porque " + UserList[OtroUserIndex].Name
-						+ " no posee los ítems que ofertó!!!", FontTypeNames_FONTTYPE_FIGHT);
+				"Trade was canceled because " + UserList[OtroUserIndex].Name
+						+ " doesn't have the items they offered!!!", FontTypeNames_FONTTYPE_FIGHT);
 		WriteConsoleMsg(OtroUserIndex,
-				"¡¡¡El comercio se canceló porque no posees los ítems que ofertaste!!!",
+				"Trade was canceled because you don't have the items you offered!!!",
 				FontTypeNames_FONTTYPE_FIGHT);
 
 		FinComerciarUsu(UserIndex);

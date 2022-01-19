@@ -535,7 +535,7 @@ void CloseSocket(int UserIndex) {
 	if (UserList[UserIndex].ComUsu.DestUsu > 0) {
 		if (UserList[UserList[UserIndex].ComUsu.DestUsu].flags.UserLogged) {
 			if (UserList[UserList[UserIndex].ComUsu.DestUsu].ComUsu.DestUsu == UserIndex) {
-				WriteConsoleMsg(UserList[UserIndex].ComUsu.DestUsu, "Comercio cancelado por el otro usuario",
+				WriteConsoleMsg(UserList[UserIndex].ComUsu.DestUsu, "Trade canceled by the other party.",
 						FontTypeNames_FONTTYPE_TALK);
 				FinComerciarUsu(UserList[UserIndex].ComUsu.DestUsu);
 				FlushBuffer(UserList[UserIndex].ComUsu.DestUsu);
@@ -956,7 +956,7 @@ bool ConnectUser(int UserIndex, const std::string & name, const std::string & nf
 								UserList[MapData[mapa][UserList[UserIndex].Pos.X][UserList[UserIndex].Pos.Y].UserIndex].ComUsu.DestUsu);
 						WriteConsoleMsg(
 								UserList[MapData[mapa][UserList[UserIndex].Pos.X][UserList[UserIndex].Pos.Y].UserIndex].ComUsu.DestUsu,
-								"Comercio cancelado. El otro usuario se ha desconectado.",
+								"Trade canceled. The other party is now offline.",
 								FontTypeNames_FONTTYPE_TALK);
 						FlushBuffer(
 								UserList[MapData[mapa][UserList[UserIndex].Pos.X][UserList[UserIndex].Pos.Y].UserIndex].ComUsu.DestUsu);
@@ -967,7 +967,7 @@ bool ConnectUser(int UserIndex, const std::string & name, const std::string & nf
 								MapData[mapa][UserList[UserIndex].Pos.X][UserList[UserIndex].Pos.Y].UserIndex);
 						WriteErrorMsg(
 								MapData[mapa][UserList[UserIndex].Pos.X][UserList[UserIndex].Pos.Y].UserIndex,
-								"Alguien se ha conectado donde te encontrabas, por favor reconéctate...");
+								"Someone has connected over you, please reconnect...");
 						FlushBuffer(
 								MapData[mapa][UserList[UserIndex].Pos.X][UserList[UserIndex].Pos.Y].UserIndex);
 					}
@@ -1058,20 +1058,20 @@ bool ConnectUser(int UserIndex, const std::string & name, const std::string & nf
 	if (haciendoBK) {
 		WritePauseToggle(UserIndex);
 		WriteConsoleMsg(UserIndex,
-				"Servidor> Por favor espera algunos segundos, el WorldSave está ejecutándose.",
+				"Server> Please wait a few seconds, a WorldSave is in progress.",
 				FontTypeNames_FONTTYPE_SERVER);
 	}
 
 	if (EnPausa) {
 		WritePauseToggle(UserIndex);
 		WriteConsoleMsg(UserIndex,
-				"Servidor> Lo sentimos mucho pero el servidor se encuentra actualmente detenido. Intenta ingresar más tarde.",
+				"Server> We're sorry, but the server is currently offline. Please try again later.",
 				FontTypeNames_FONTTYPE_SERVER);
 	}
 
 	if (EnTesting && UserList[UserIndex].Stats.ELV >= 18) {
 		WriteErrorMsg(UserIndex,
-				"Servidor en Testing por unos minutos, conectese con PJs de nivel menor a 18. No se conecte con Pjs que puedan resultar importantes por ahora pues pueden arruinarse.");
+				"Server in testing phase. Don't use your main characters, as they could be corrupted.");
 		FlushBuffer(UserIndex);
 		CloseSocket(UserIndex);
 		return retval;
@@ -1139,7 +1139,7 @@ bool ConnectUser(int UserIndex, const std::string & name, const std::string & nf
 	if (UserList[UserIndex].GuildIndex > 0) {
 		/* 'welcome to the show baby... */
 		if (!m_ConectarMiembroAClan(UserIndex, UserList[UserIndex].GuildIndex)) {
-			WriteConsoleMsg(UserIndex, "Tu estado no te permite entrar al clan.",
+			WriteConsoleMsg(UserIndex, "Your current state doesn't allow you to join the clan.",
 					FontTypeNames_FONTTYPE_GUILD);
 		}
 	}
@@ -1186,7 +1186,7 @@ void SendMOTD(int UserIndex) {
 
 	int j;
 
-	WriteGuildChat(UserIndex, "Mensajes de entrada:");
+	WriteGuildChat(UserIndex, "Welcome messages:");
 	for (j = (1); j <= (int)MOTD.ubound(); j++) {
 		WriteGuildChat(UserIndex, MOTD[j].texto);
 	}

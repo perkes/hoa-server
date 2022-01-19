@@ -546,13 +546,13 @@ void SendGuildNews(int UserIndex) {
 	WriteGuildNews(UserIndex, guilds[GuildIndex]->GetGuildNews(), enemies, allies);
 
 	if (guilds[GuildIndex]->EleccionesAbiertas()) {
-		WriteConsoleMsg(UserIndex, "Hoy es la votación para elegir un nuevo líder para el clan.",
+		WriteConsoleMsg(UserIndex, "Today is the vote to pick a new clan leader.",
 				FontTypeNames_FONTTYPE_GUILD);
 		WriteConsoleMsg(UserIndex,
-				"La elección durará 24 horas, se puede votar a cualquier miembro del clan.",
+				"The election will last 24 hours, any clan member can be voted for.",
 				FontTypeNames_FONTTYPE_GUILD);
-		WriteConsoleMsg(UserIndex, "Para votar escribe /VOTO NICKNAME.", FontTypeNames_FONTTYPE_GUILD);
-		WriteConsoleMsg(UserIndex, "Sólo se computará un voto por miembro. Tu voto no puede ser cambiado.",
+		WriteConsoleMsg(UserIndex, "To vote write /VOTE NICKNAME.", FontTypeNames_FONTTYPE_GUILD);
+		WriteConsoleMsg(UserIndex, "Only one vote per clan member will be computed. Your vote cannot be changed.",
 				FontTypeNames_FONTTYPE_GUILD);
 	}
 
@@ -1073,20 +1073,20 @@ void v_RutinaElecciones() {
 	int i;
 
 	SendData(SendTarget_ToAll, 0,
-			dakara::protocol::server::BuildConsoleMsg("Servidor> Revisando elecciones", FontTypeNames_FONTTYPE_SERVER));
+			dakara::protocol::server::BuildConsoleMsg("Server> Checking elections", FontTypeNames_FONTTYPE_SERVER));
 	for (i = (1); i <= (CANTIDADDECLANES); i++) {
 		if (guilds[i] == nullptr) {
 			if (guilds[i]->RevisarElecciones()) {
 				SendData(SendTarget_ToAll, 0,
 						dakara::protocol::server::BuildConsoleMsg(
-								"Servidor> " + guilds[i]->GetLeader() + " es el nuevo líder de "
+								"Server> " + guilds[i]->GetLeader() + " is the new leader of "
 										+ guilds[i]->GuildName() + ".", FontTypeNames_FONTTYPE_SERVER));
 			}
 		}
 		/* FIXME: proximo : */
 	}
 	SendData(SendTarget_ToAll, 0,
-			dakara::protocol::server::BuildConsoleMsg("Servidor> Elecciones revisadas.", FontTypeNames_FONTTYPE_SERVER));
+			dakara::protocol::server::BuildConsoleMsg("Server> elections checked.", FontTypeNames_FONTTYPE_SERVER));
 }
 
 int GetGuildIndexFromChar(std::string & PlayerName) {
@@ -1338,7 +1338,7 @@ int GMEscuchaClan(int UserIndex, std::string GuildName) {
 	if (vb6::LenB(GuildName) == 0 && UserList[UserIndex].EscucheClan != 0) {
 		/* 'Quit listening to previous guild!! */
 		WriteConsoleMsg(UserIndex,
-				"Dejas de escuchar a : " + guilds[UserList[UserIndex].EscucheClan]->GuildName(),
+				"You stop listening : " + guilds[UserList[UserIndex].EscucheClan]->GuildName(),
 				FontTypeNames_FONTTYPE_GUILD);
 		guilds[UserList[UserIndex].EscucheClan]->DesconectarGM(UserIndex);
 		return retval;
@@ -1350,24 +1350,24 @@ int GMEscuchaClan(int UserIndex, std::string GuildName) {
 		if (UserList[UserIndex].EscucheClan != 0) {
 			if (UserList[UserIndex].EscucheClan == GI) {
 				/* 'Already listening to them... */
-				WriteConsoleMsg(UserIndex, "Conectado a : " + GuildName, FontTypeNames_FONTTYPE_GUILD);
+				WriteConsoleMsg(UserIndex, "Connected to : " + GuildName, FontTypeNames_FONTTYPE_GUILD);
 				retval = GI;
 				return retval;
 			} else {
 				/* 'Quit listening to previous guild!! */
 				WriteConsoleMsg(UserIndex,
-						"Dejas de escuchar a : " + guilds[UserList[UserIndex].EscucheClan]->GuildName(),
+						"You stop listening : " + guilds[UserList[UserIndex].EscucheClan]->GuildName(),
 						FontTypeNames_FONTTYPE_GUILD);
 				guilds[UserList[UserIndex].EscucheClan]->DesconectarGM(UserIndex);
 			}
 		}
 
 		guilds[GI]->ConectarGM(UserIndex);
-		WriteConsoleMsg(UserIndex, "Conectado a : " + GuildName, FontTypeNames_FONTTYPE_GUILD);
+		WriteConsoleMsg(UserIndex, "Connected to : " + GuildName, FontTypeNames_FONTTYPE_GUILD);
 		retval = GI;
 		UserList[UserIndex].EscucheClan = GI;
 	} else {
-		WriteConsoleMsg(UserIndex, "Error, el clan no existe.", FontTypeNames_FONTTYPE_GUILD);
+		WriteConsoleMsg(UserIndex, "Error, the clan does not exist.", FontTypeNames_FONTTYPE_GUILD);
 		retval = 0;
 	}
 
@@ -1915,13 +1915,13 @@ void SendDetallesPersonaje(int UserIndex, std::string Personaje) {
 		Personaje = vb6::UCase(Personaje);
 
 		if (GI <= 0 || GI > CANTIDADDECLANES) {
-			WriteConsoleMsg(UserIndex, "No perteneces a ningún clan.",
+			WriteConsoleMsg(UserIndex, "You are not part of a clan.",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 
 		if (!m_EsGuildLeader(UserList[UserIndex].Name, GI)) {
-			WriteConsoleMsg(UserIndex, "No eres el líder de tu clan.",
+			WriteConsoleMsg(UserIndex, "You are not the leader of your clan.",
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
@@ -1943,7 +1943,7 @@ void SendDetallesPersonaje(int UserIndex, std::string Personaje) {
 
 			if (std::find(list.begin(), list.end(), Personaje) == list.end()) {
 				WriteConsoleMsg(UserIndex,
-						"El personaje no es ni aspirante ni miembro del clan.",
+						"The PC is neither a postulant nor a member of the clan.",
 						FontTypeNames_FONTTYPE_INFO);
 				return;
 			}
