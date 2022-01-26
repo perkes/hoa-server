@@ -423,7 +423,7 @@ bool MakeUserChar(bool toMap, int sndIndex, int UserIndex, int Map, int X, int Y
 
 			/* 'Preparo el nick */
 			if (UserList[UserIndex].showName) {
-				UserName = UserList[UserIndex].CommonName;
+				UserName = UserList[UserIndex].Name;
 
 				if (UserList[UserIndex].flags.EnConsulta) {
 					UserName = UserName + " " + TAG_CONSULT_MODE;
@@ -734,7 +734,7 @@ void CheckUserLevel(int UserIndex) {
 		}
 
 		LogDesarrollo(
-				UserList[UserIndex].CommonName + " is now level " + vb6::CStr(UserList[UserIndex].Stats.ELV) + " gained HP: "
+				UserList[UserIndex].Name + " is now level " + vb6::CStr(UserList[UserIndex].Stats.ELV) + " gained HP: "
 						+ vb6::CStr(AumentoHP));
 
 		UserList[UserIndex].Stats.MinHp = UserList[UserIndex].Stats.MaxHp;
@@ -750,7 +750,7 @@ void CheckUserLevel(int UserIndex) {
 					/* 'We get here, so guild has factionary alignment, we have to expulse the user */
 					m_EcharMiembroDeClan(-1, UserList[UserIndex].Name);
 					SendData(SendTarget_ToGuildMembers, GI,
-							dakara::protocol::server::BuildConsoleMsg(UserList[UserIndex].CommonName + " leaves the clan.",
+							dakara::protocol::server::BuildConsoleMsg(UserList[UserIndex].Name + " leaves the clan.",
 									FontTypeNames_FONTTYPE_GUILD));
 					WriteConsoleMsg(UserIndex,
 							"You are mature enough to know under which banner you'll fight! For that reason, until you join the faction that's your clan is aligned to you'll be excluded from it.",
@@ -1004,7 +1004,7 @@ void SendUserStatsTxt(int sendIndex, int UserIndex) {
 
 	int GuildI;
 
-	WriteConsoleMsg(sendIndex, "Stats of: " + UserList[UserIndex].CommonName, FontTypeNames_FONTTYPE_INFO);
+	WriteConsoleMsg(sendIndex, "Stats of: " + UserList[UserIndex].Name, FontTypeNames_FONTTYPE_INFO);
 	WriteConsoleMsg(sendIndex,
 			"Level: " + vb6::CStr(UserList[UserIndex].Stats.ELV) + "  XP: " + vb6::CStr(UserList[UserIndex].Stats.Exp) + "/"
 					+ vb6::CStr(UserList[UserIndex].Stats.ELU), FontTypeNames_FONTTYPE_INFO);
@@ -1102,7 +1102,7 @@ void SendUserMiniStatsTxt(int sendIndex, int UserIndex) {
 	/* 'Shows the users Stats when the user is online. */
 	/* '23/01/2007 Pablo (ToxicWaste) - Agrego de funciones y mejora de distribución de parámetros. */
 	/* '************************************************* */
-	WriteConsoleMsg(sendIndex, "PC: " + UserList[UserIndex].CommonName, FontTypeNames_FONTTYPE_INFO);
+	WriteConsoleMsg(sendIndex, "PC: " + UserList[UserIndex].Name, FontTypeNames_FONTTYPE_INFO);
 	WriteConsoleMsg(sendIndex,
 			"Citizens killed: " + vb6::CStr(UserList[UserIndex].Faccion.CiudadanosMatados) + " Criminals killed: "
 					+ vb6::CStr(UserList[UserIndex].Faccion.CriminalesMatados) + " users killed: "
@@ -1253,7 +1253,7 @@ void SendUserInvTxt(int sendIndex, int UserIndex) {
 
 	int j;
 
-	WriteConsoleMsg(sendIndex, UserList[UserIndex].CommonName, FontTypeNames_FONTTYPE_INFO);
+	WriteConsoleMsg(sendIndex, UserList[UserIndex].Name, FontTypeNames_FONTTYPE_INFO);
 	WriteConsoleMsg(sendIndex, "Has " + vb6::CStr(UserList[UserIndex].Invent.NroItems) + " objects.",
 			FontTypeNames_FONTTYPE_INFO);
 
@@ -1310,7 +1310,7 @@ void SendUserSkillsTxt(int sendIndex, int UserIndex) {
 	/* '*************************************************** */
 	int j;
 
-	WriteConsoleMsg(sendIndex, UserList[UserIndex].CommonName, FontTypeNames_FONTTYPE_INFO);
+	WriteConsoleMsg(sendIndex, UserList[UserIndex].Name, FontTypeNames_FONTTYPE_INFO);
 
 	for (j = (1); j <= (NUMSKILLS); j++) {
 		WriteConsoleMsg(sendIndex, SkillsNames[j] + " = " + vb6::CStr(UserList[UserIndex].Stats.UserSkills[j]),
@@ -1333,7 +1333,7 @@ bool EsMascotaCiudadano(int NpcIndex, int UserIndex) {
 		retval = !criminal(Npclist[NpcIndex].MaestroUser);
 		if (retval) {
 			WriteConsoleMsg(Npclist[NpcIndex].MaestroUser,
-					UserList[UserIndex].CommonName + " is attacking your pet!!",
+					UserList[UserIndex].Name + " is attacking your pet!!",
 					FontTypeNames_FONTTYPE_INFO);
 		}
 	}

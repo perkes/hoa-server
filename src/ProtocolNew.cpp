@@ -12800,7 +12800,6 @@ ShowGuildAlign::ShowGuildAlign(clsByteQueue* buffer) : ServerPacket(ServerPacket
 
 void ShowGuildAlign::serialize(clsByteQueue* buffer) const {
     buffer->WriteByte(ServerPacketID_ShowGuildAlign); /* PacketID: 98 */
-
 }
 
 void ShowGuildAlign::dispatch(PacketHandler* d) {

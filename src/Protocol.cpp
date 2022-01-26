@@ -1936,7 +1936,7 @@ void WriteGuildDetails(int UserIndex, std::string GuildName, std::string founder
 	p.AntifactionPoints = antifactionPoints;
 
 	for (auto& x : codex) {
-		temp = temp + x + SEPARATOR;
+		temp = temp + x + '\n';
 	}
 
 	if (vb6::Len(temp) > 1) {

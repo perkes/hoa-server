@@ -163,8 +163,9 @@ void clsClan::InicializarNuevoClan(std::string & Fundador) {
 	/* 'para que genere los archivos */
 	WriteVar(MEMBERSFILE, "INIT", "NroMembers", "0");
 	WriteVar(SOLICITUDESFILE, "INIT", "CantSolicitudes", "0");
-
+	
 	OldQ = GetVar(GUILDINFOFILE, "INIT", "nroguilds");
+
 	if (vb6::IsNumeric(OldQ)) {
 		NewQ = vb6::CInt(vb6::Trim(OldQ)) + 1;
 	} else {
@@ -172,13 +173,11 @@ void clsClan::InicializarNuevoClan(std::string & Fundador) {
 	}
 
 	WriteVar(GUILDINFOFILE, "INIT", "NroGuilds", std::to_string(NewQ));
-
 	WriteVar(GUILDINFOFILE, "GUILD" + vb6::CStr(NewQ), "Founder", Fundador);
 	WriteVar(GUILDINFOFILE, "GUILD" + vb6::CStr(NewQ), "GuildName", p_GuildName);
 	WriteVar(GUILDINFOFILE, "GUILD" + vb6::CStr(NewQ), "Date", vb6::dateToString(vb6::Now()));
 	WriteVar(GUILDINFOFILE, "GUILD" + vb6::CStr(NewQ), "Antifaccion", "0");
 	WriteVar(GUILDINFOFILE, "GUILD" + vb6::CStr(NewQ), "Alineacion", Alineacion2String(p_Alineacion));
-
 }
 
 void clsClan::ProcesarFundacionDeOtroClan() {

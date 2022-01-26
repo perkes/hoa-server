@@ -36,7 +36,7 @@ bool NombrePermitido(std::string Nombre);
 
 bool ValidateSkills(int UserIndex);
 
-void ConnectNewUser(int UserIndex, const std::string& Name, const std::string& Password, eRaza UserRaza,
+void ConnectNewUser(int UserIndex, const std::string& Name, eRaza UserRaza,
 		eGenero UserSexo, eClass UserClase, const std::string& UserEmail, eCiudad Hogar, int Head);
 
 void CloseSocket(int UserIndex);
@@ -67,7 +67,7 @@ bool HayOBJarea(struct WorldPos Pos, int ObjIndex);
 
 bool ValidateChr(int UserIndex);
 
-bool ConnectUser(int UserIndex, const std::string & Name, const std::string & Password);
+bool ConnectUser(int UserIndex, const std::string & Name);
 
 void SendMOTD(int UserIndex);
 

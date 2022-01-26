@@ -339,7 +339,7 @@ void AprobarIngresoAParty(int leader, int NewMember) {
 					if (Parties[PI]->NuevoMiembro(NewMember)) {
 						Parties[PI]->MandarMensajeAConsola(
 								UserList[leader].Name + " has accepted " + UserList[NewMember].Name
-										+ " as a party member.", "Servidor");
+										+ " as a party member.", "Server");
 						UserList[NewMember].PartyIndex = PI;
 						UserList[NewMember].PartySolicitud = 0;
 					} else {

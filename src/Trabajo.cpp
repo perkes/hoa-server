@@ -693,27 +693,27 @@ void HerreroConstruirItem(int UserIndex, int ItemIndex) {
 
 		case eOBJType_otWeapon:
 			WriteConsoleMsg(UserIndex,
-					vb6::CStr("You've built ") + vb6::IIf(CantidadItems > 1, vb6::CStr(CantidadItems) + " armas!", vb6::CStr("el arma!")),
+					vb6::CStr("You've built ") + vb6::IIf(CantidadItems > 1, vb6::CStr(CantidadItems) + " weapons!", vb6::CStr("the weapon!")),
 					FontTypeNames_FONTTYPE_INFO);
 			break;
 
 		case eOBJType_otESCUDO:
 			WriteConsoleMsg(UserIndex,
 					vb6::CStr("You've built ")
-							+ vb6::IIf(CantidadItems > 1, vb6::CStr(CantidadItems) + " escudos!", vb6::CStr("el escudo!")),
+							+ vb6::IIf(CantidadItems > 1, vb6::CStr(CantidadItems) + " shields!", vb6::CStr("the shield!")),
 					FontTypeNames_FONTTYPE_INFO);
 			break;
 
 		case eOBJType_otCASCO:
 			WriteConsoleMsg(UserIndex,
-					vb6::CStr("You've built ") + vb6::IIf(CantidadItems > 1, vb6::CStr(CantidadItems) + " cascos!", vb6::CStr("el casco!")),
+					vb6::CStr("You've built ") + vb6::IIf(CantidadItems > 1, vb6::CStr(CantidadItems) + " helmets!", vb6::CStr("the helmet!")),
 					FontTypeNames_FONTTYPE_INFO);
 			break;
 
 		case eOBJType_otArmadura:
 			WriteConsoleMsg(UserIndex,
 					vb6::CStr("You've built ")
-							+ vb6::IIf(CantidadItems > 1, vb6::CStr(CantidadItems) + " armaduras", vb6::CStr("la armadura!")),
+							+ vb6::IIf(CantidadItems > 1, vb6::CStr(CantidadItems) + " armors", vb6::CStr("the armor!")),
 					FontTypeNames_FONTTYPE_INFO);
 
 			break;
@@ -878,7 +878,7 @@ void CarpinteroConstruirItem(int UserIndex, int ItemIndex) {
 
 		CarpinteroQuitarMateriales(UserIndex, ItemIndex, CantidadItems);
 		WriteConsoleMsg(UserIndex,
-				vb6::CStr("You've built ") + vb6::CStr(CantidadItems) + vb6::IIf(CantidadItems == 1, " objeto!", " objetos!"),
+				vb6::CStr("You've built ") + vb6::CStr(CantidadItems) + vb6::IIf(CantidadItems == 1, " object!", " objects!"),
 				FontTypeNames_FONTTYPE_INFO);
 
 		struct Obj MiObj;
@@ -1080,11 +1080,11 @@ void DoFundir(int UserIndex) {
 
 	UpdateUserInv(false, UserIndex, Slot);
 	WriteConsoleMsg(UserIndex,
-			vb6::CStr("¡Has obtenido el ") + vb6::CStr(num) + "% de los lingotes utilizados para la construcción del objeto!",
+			vb6::CStr("¡You have obtained ") + vb6::CStr(num) + "% of the ingots required to build the object!",
 			FontTypeNames_FONTTYPE_INFO);
 
 	if (ObjData[ItemIndex].Log == 1) {
-		LogDesarrollo(UserList[UserIndex].Name + " ha fundido el ítem " + ObjData[ItemIndex].Name);
+		LogDesarrollo(UserList[UserIndex].Name + " has melted the item " + ObjData[ItemIndex].Name);
 	}
 
 	UserList[UserIndex].Counters.Trabajando = UserList[UserIndex].Counters.Trabajando + 1;

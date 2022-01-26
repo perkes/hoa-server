@@ -1081,10 +1081,10 @@ void LookatTile(int UserIndex, int Map, int X, int Y) {
 					}
 
 					if (vb6::Len(UserList[TempCharIndex].desc) > 0) {
-						Stat = "You see " + UserList[TempCharIndex].CommonName + Stat + " - "
+						Stat = "You see " + UserList[TempCharIndex].Name + Stat + " - "
 								+ UserList[TempCharIndex].desc;
 					} else {
-						Stat = "You see " + UserList[TempCharIndex].CommonName + Stat;
+						Stat = "You see " + UserList[TempCharIndex].Name + Stat;
 					}
 
 					if (UserTienePrivilegio(TempCharIndex, PlayerType_RoyalCouncil)) {

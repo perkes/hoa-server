@@ -204,9 +204,9 @@ BackUp=1
 
 [NPC101] ' Propiedades Arkhein
 Name=Vendedor de propiedades.
-Desc=In these demonic lands are the best residences for the members of the Dark Legion, if you are not a member you can also live here... but I assure you, it will be hell for you! hahaha
+Desc=These formerly demonic lands are now one of the safest areas in the empire and a bargain. Come here and we'll do business!
 Head=34
-Body=170
+Body=239
 Heading=3
 Movement=1
 Attackable=0
@@ -1524,7 +1524,7 @@ BackUp=1
 [NPC46] 'VendeMagia Ulla
 Name=Wizard
 NpcType=0
-Desc=Welcome to my small shop here in Ullathorpe... I've some spells that could be of your liking.
+Desc=Welcome to my small shop here in Ullathorpe... I've some spells that could be to your liking.
 Head=110
 Heading=3
 Body=46
@@ -1714,7 +1714,7 @@ BackUp=1
 [NPC47] 'VendeMagia NIX
 Name=Wizard
 NpcType=0
-Desc=Welcome to my small shop here in Nix... I've some spells that could be of your liking.
+Desc=Welcome to my small shop here in Nix... I've some spells that could be to your liking.
 Head=110
 Heading=3
 Body=46
@@ -1917,7 +1917,7 @@ BackUp=1
 [NPC51] 'VendeMagia Bander
 Name=Wizard
 NpcType=0
-Desc=Welcome to my small shop here in Banderbill... I've some spells that could be of your liking.
+Desc=Welcome to my small shop here in Banderbill... I've some spells that could be to your liking.
 Head=110
 Heading=3
 Body=46
@@ -3104,7 +3104,7 @@ BackUp=0
 [NPC83] 'Guardia Armada (Druida)
 Name=Imperial Druid
 NpcType=2
-Desc=Ohhh my son!! May the flame of virtue burn in your heart!!!
+Desc=The filth of the Dark Legion is washing away.
 Head=101
 Heading=3
 Body=56
@@ -3136,7 +3136,7 @@ BackUp=0
 [NPC84] 'Guardia Armada (Druida II)
 Name=Imperial Druid
 NpcType=2
-Desc=Ohhh my son!! May the flame of virtue burn in your heart!!!
+Desc=The filth of the Dark Legion is washing away.
 Head=102
 Heading=3
 Body=56
@@ -3168,7 +3168,7 @@ BackUp=0
 [NPC85] 'Guardia Armada (Druida III)
 Name=Imperial Druid
 NpcType=2
-Desc=Ohhh my son!! May the flame of virtue burn in your heart!!!
+Desc=The filth of the Dark Legion is washing away.
 Head=103
 Heading=3
 Body=56
@@ -3200,7 +3200,7 @@ BackUp=0
 [NPC86] 'Guardia Armada (Mago)
 Name=Imperial Wizard
 NpcType=2
-Desc=Ohhh my son!! May the flame of virtue burn in your heart!!!
+Desc=We're peacekeepers. Not soldiers.
 Head=6
 Heading=3
 Body=130
@@ -3231,7 +3231,7 @@ BackUp=0
 [NPC87] 'guardia armada
 Name=Imperial Wizard
 NpcType=2
-Desc=Ohhh my son!! May the flame of virtue burn in your heart!!!
+Desc=Criminals shall perish under my arcane fire.
 Head=6
 Heading=3
 Body=128
@@ -3476,7 +3476,7 @@ BackUp=0
 [NPC149] 'Guardia Legión En micro ao
 Name=Infernal Guard
 NpcType=0
-Desc=If you are a citizen you should totally go thorugh this portal. No one will behead you on sight, I swear!
+Desc=If you are a citizen you should totally go through this portal. No one will behead you on sight, I swear!
 Head=201
 Heading=3
 Body=170

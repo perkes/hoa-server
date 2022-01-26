@@ -2,9 +2,9 @@
 NumLines=6
 
 [Help]
-Line1=* Reglamento del juego: http://ao.alkon.com.ar/reglamento.php (OBLIGATORIO LEER!)
-Line2=* Manual del juego: http://ao.alkon.com.ar/aomanual/index.htm 
-Line3=* Si estás muerto, dirígete a una ciudad y busca un Sacerdote, él te resucitará.
-Line4=* Para realizar una consulta a un GAME MASTER, debes utilizar el comando /GM y ellos acudirán a ti.
-Line5=* Para denunciar un acto ilegal de otro usuario utiliza el comando /DENUNCIAR, indicando -luego de la palabra denunciar- el nombre del personaje denunciado y qué acto iegal está cometiendo. 
-Line6=* Recuerden que en la página oficial de Argentum encontrarán toda la información que necesiten para jugar y las noticias actualizadas sobre el juego y su comunidad. (www.argentumonline.com.ar)
+Line1=* Game's Rulebook (SOON)
+Line2=* Game's Handbook (SOON)
+Line3=* If you are dead, go to the nearest city and look for the priest, he'll resurrect you.
+Line4=* To start a support session with a GAME MASTER you must use the /GM command and one of them will be with you shortly.
+Line5=* To file a complaint against an illegal act performed by another user, you can use the /COMPLAINT command, indicating the user's name.
+Line6=* All necessary information will be included in https://heroesofargentum.io/.

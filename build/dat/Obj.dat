@@ -652,7 +652,7 @@ Key=1
 Clave=3
 
 [OBJ58]
-Name=Lena
+Name=Wood
 GrhIndex=550
 ObjType=14
 Agarrable=0
@@ -4013,7 +4013,7 @@ CP10=DRUIDA
 CP11=TRABAJADOR
 
 [OBJ361]
-Name=Firestorm
+Name=Fire Storm
 GrhIndex=609
 ObjType=24
 Agarrable=0
@@ -8866,7 +8866,7 @@ ObjType=20
 Agarrable=1
 
 [OBJ726]
-Name=Biblioteca
+Name=Library
 GrhIndex=52
 ObjType=20
 Agarrable=1
@@ -12808,7 +12808,7 @@ Crucial=0
 HechizoIndex=48
 
 [OBJ1068]
-Name=Coliris Fire
+Name=Color Spray
 GrhIndex=609
 ObjType=24
 Agarrable=0

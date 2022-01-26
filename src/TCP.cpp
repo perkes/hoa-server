@@ -205,7 +205,7 @@ bool ValidateSkills(int UserIndex) {
 	return retval;
 }
 
-void ConnectNewUser(int UserIndex, const std::string& name, const std::string& nft_address, eRaza UserRaza,
+void ConnectNewUser(int UserIndex, const std::string& name, eRaza UserRaza,
 		eGenero UserSexo, eClass UserClase, const std::string& UserEmail, eCiudad Hogar, int Head) {
 	/* '************************************************* */
 	/* 'Author: Unknown */
@@ -225,7 +225,7 @@ void ConnectNewUser(int UserIndex, const std::string& name, const std::string& n
 	if (RegistroListaBlancaEmails) {
 		std::string cad = vb6::LCase(vb6::Trim(UserEmail));
 		if (RegistroEmailsHabilitados.find(cad) == RegistroEmailsHabilitados.end()) {
-			WriteErrorMsg(UserIndex, "Servidor en Beta cerrada, registro de personajes deshabilitado. Ingrese al sitio web www.dakara.com.ar para detalles.");
+			WriteErrorMsg(UserIndex, "Server in closed beta, creating new characters has been disabled.");
 			CerrarUserIndex(UserIndex);
 			return ;
 		}
@@ -233,7 +233,7 @@ void ConnectNewUser(int UserIndex, const std::string& name, const std::string& n
 
 	if (UserList[UserIndex].flags.UserLogged) {
 		LogCheating(
-				"El usuario " + UserList[UserIndex].Name + " ha intentado crear a " + nft_address + " desde la IP "
+				"User " + UserList[UserIndex].Name + " has attempted to create a " + name + " from IP "
 						+ UserList[UserIndex].ip);
 
 		/* 'Kick player ( and leave character inside :D )! */
@@ -244,23 +244,23 @@ void ConnectNewUser(int UserIndex, const std::string& name, const std::string& n
 	}
 
 	/* '¿Existe el personaje? */
-	if (FileExist(GetCharPath(nft_address), 0) == true) {
-		WriteErrorMsg(UserIndex, "Ya existe el personaje.");
+	if (FileExist(GetCharPath(name), 0) == true) {
+		WriteErrorMsg(UserIndex, "The character already exists.");
 		return;
 	}
 
 	/* 'Tiró los dados antes de llegar acá?? */
 	if (UserList[UserIndex].Stats.UserAtributos[eAtributos_Fuerza] == 0) {
-		WriteErrorMsg(UserIndex, "Debe tirar los dados antes de poder crear un personaje.");
+		WriteErrorMsg(UserIndex, "You must throw your dice before creating a character.");
 		return;
 	}
 
 	if (!ValidarCabeza(UserRaza, UserSexo, Head)) {
 		LogCheating(
-				"El usuario " + nft_address + " ha seleccionado la cabeza " + vb6::CStr(Head) + " desde la IP "
+				"User " + name + " has selected head " + vb6::CStr(Head) + " from IP "
 						+ UserList[UserIndex].ip);
 
-		WriteErrorMsg(UserIndex, "Cabeza inválida, elija una cabeza seleccionable.");
+		WriteErrorMsg(UserIndex, "Invalid head, please choose a valid head.");
 		return;
 	}
 
@@ -276,8 +276,7 @@ void ConnectNewUser(int UserIndex, const std::string& name, const std::string& n
 
 	UserList[UserIndex].Reputacion.Promedio = 30 / 6;
 
-	UserList[UserIndex].Name = nft_address;
-	UserList[UserIndex].CommonName = name;
+	UserList[UserIndex].Name = name;
 	UserList[UserIndex].clase = UserClase;
 	UserList[UserIndex].raza = UserRaza;
 	UserList[UserIndex].Genero = UserSexo;
@@ -498,12 +497,12 @@ void ConnectNewUser(int UserIndex, const std::string& name, const std::string& n
 	/* 'Valores Default de facciones al Activar nuevo usuario */
 	ResetFacciones(UserIndex);
 
-	SaveUser(UserIndex, GetCharPath(nft_address));
+	SaveUser(UserIndex, GetCharPath(name));
 
-	LogMain("Se ha creado el personaje " + nft_address + " desde IP=" + UserList[UserIndex].ip);
+	LogMain("Se ha creado el personaje " + name + " desde IP=" + UserList[UserIndex].ip);
 
 	/* 'Open User */
-	ConnectUser(UserIndex, name, nft_address);
+	ConnectUser(UserIndex, name);
 }
 
 /* # IF UsarQueSocket = 1 OR UsarQueSocket = 2 THEN */
@@ -704,7 +703,7 @@ bool ValidateChr(int UserIndex) {
 	return retval;
 }
 
-bool ConnectUser(int UserIndex, const std::string & name, const std::string & nft_address) {
+bool ConnectUser(int UserIndex, const std::string & name) {
 	bool retval = false;
 	/* '*************************************************** */
 	/* 'Autor: Unknown (orginal version) */
@@ -720,7 +719,7 @@ bool ConnectUser(int UserIndex, const std::string & name, const std::string & nf
 
 	if (UserList[UserIndex].flags.UserLogged) {
 		LogCheating(
-				"El usuario " + UserList[UserIndex].CommonName + " ha intentado loguear a " + nft_address + " desde la IP "
+				"El usuario " + UserList[UserIndex].Name + " ha intentado loguear a " + name + " desde la IP "
 						+ UserList[UserIndex].ip);
 		/* 'Kick player ( and leave character inside :D )! */
 		CloseSocketSL(UserIndex);
@@ -756,7 +755,7 @@ bool ConnectUser(int UserIndex, const std::string & name, const std::string & nf
 	}
 
 	/* '¿Existe el personaje? */
-	if (!FileExist(GetCharPath(nft_address), 0)) {
+	if (!FileExist(GetCharPath(name), 0)) {
 		WriteErrorMsg(UserIndex, "El personaje no existe.");
 		FlushBuffer(UserIndex);
 		CloseSocket(UserIndex);
@@ -778,8 +777,8 @@ bool ConnectUser(int UserIndex, const std::string & name, const std::string & nf
 #else
 	/* '¿Ya esta conectado el personaje? */
 	int OtherUserIndex;
-	if (CheckForSameName(nft_address, OtherUserIndex)) {
-		WriteErrorMsg(UserIndex, "Tu personaje ya estaba logeado desde otra ubicacion, fue echado.");
+	if (CheckForSameName(name, OtherUserIndex)) {
+		WriteErrorMsg(UserIndex, "Your PC was already logged at a different location. That connection was closed.");
 		FlushBuffer(UserIndex);
 
 		CloseSocket(OtherUserIndex);
@@ -791,19 +790,19 @@ bool ConnectUser(int UserIndex, const std::string & name, const std::string & nf
 	UserResetPrivilegios(UserIndex);
 
 	/* 'Vemos que clase de user es (se lo usa para setear los privilegios al loguear el PJ) */
-	if (EsAdmin(nft_address)) {
+	if (EsAdmin(name)) {
 		UserAsignarPrivilegios(UserIndex, PlayerType_Admin);
-		LogGM(nft_address, "Se conecto con ip:" + UserList[UserIndex].ip);
-	} else if (EsDios(nft_address)) {
+		LogGM(name, "Se conecto con ip:" + UserList[UserIndex].ip);
+	} else if (EsDios(name)) {
 		UserAsignarPrivilegios(UserIndex, PlayerType_Dios);
-		LogGM(nft_address, "Se conecto con ip:" + UserList[UserIndex].ip);
-	} else if (EsSemiDios(nft_address)) {
+		LogGM(name, "Se conecto con ip:" + UserList[UserIndex].ip);
+	} else if (EsSemiDios(name)) {
 		UserAsignarPrivilegios(UserIndex, PlayerType_SemiDios);
-		UserList[UserIndex].flags.PrivEspecial = EsGmEspecial(nft_address);
-		LogGM(nft_address, "Se conecto con ip:" + UserList[UserIndex].ip);
-	} else if (EsConsejero(nft_address)) {
+		UserList[UserIndex].flags.PrivEspecial = EsGmEspecial(name);
+		LogGM(name, "Se conecto con ip:" + UserList[UserIndex].ip);
+	} else if (EsConsejero(name)) {
 		UserAsignarPrivilegios(UserIndex, PlayerType_Consejero);
-		LogGM(nft_address, "Se conecto con ip:" + UserList[UserIndex].ip);
+		LogGM(name, "Se conecto con ip:" + UserList[UserIndex].ip);
 	} else {
 		UserAsignarPrivilegios(UserIndex, PlayerType_User);
 
@@ -811,14 +810,14 @@ bool ConnectUser(int UserIndex, const std::string & name, const std::string & nf
 	}
 
 	/* 'Add RM flag if needed */
-	if (EsRolesMaster(nft_address)) {
+	if (EsRolesMaster(name)) {
 		UserAsignarPrivilegios(UserIndex, PlayerType_RoleMaster);
 	}
 
 	if (ServerSoloGMs > 0) {
 		if (!EsGm(UserIndex)) {
 			WriteErrorMsg(UserIndex,
-					"Servidor restringido a administradores. Por favor reintente en unos momentos.");
+					"Server restricted to admins.");
 			FlushBuffer(UserIndex);
 			CloseSocket(UserIndex);
 			return retval;
@@ -829,7 +828,7 @@ bool ConnectUser(int UserIndex, const std::string & name, const std::string & nf
 	std::shared_ptr<clsIniManager> Leer;
 	Leer.reset(new clsIniManager());
 
-	Leer->Initialize(GetCharPath(nft_address));
+	Leer->Initialize(GetCharPath(name));
 
 	/* 'Cargamos los datos del personaje */
 	LoadUserInit(UserIndex, Leer);
@@ -979,7 +978,7 @@ bool ConnectUser(int UserIndex, const std::string & name, const std::string & nf
 	}
 
 	/* 'Nombre de sistema */
-	UserList[UserIndex].Name = nft_address;
+	UserList[UserIndex].Name = name;
 
 	/* 'Por default los nombres son visibles */
 	UserList[UserIndex].showName = true;

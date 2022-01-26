@@ -227,16 +227,18 @@ void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { 
 	auto status = nlohmann::json::parse(reply.to_string());
 
 	if (status["status"] != "OK") {
-		WriteErrorMsg(UserIndex, "La firma es inválida.");
+		WriteErrorMsg(UserIndex, "Invalid signature.");
 		FlushBuffer(UserIndex);
 		CloseSocket(UserIndex);
 
 		return;
 	}
 
-	if (!PersonajeExiste(nft_address)) {
+	std::string character_name = GetVar(GetDatPath(DATPATH::Names), "Names", nft_address);
+
+	if (!PersonajeExiste(character_name)) {
 		if (PuedeCrearPersonajes == 0) {
-			WriteErrorMsg(UserIndex, "La creación de personajes en este servidor se ha deshabilitado.");
+			WriteErrorMsg(UserIndex, "Character creation has been disabled in this server.");
 			FlushBuffer(UserIndex);
 			CloseSocket(UserIndex);
 
@@ -244,7 +246,7 @@ void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { 
 		}
 
 		if (ServerSoloGMs != 0) {
-			WriteErrorMsg(UserIndex, "Servidor restringido a administradores. Consulte la página oficial o el foro oficial para más información.");
+			WriteErrorMsg(UserIndex, "Server restricted to admins.");
 			FlushBuffer(UserIndex);
 			CloseSocket(UserIndex);
 
@@ -256,6 +258,7 @@ void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { 
 		eCiudad homeland;
 		eClass character_class;
 		int head;
+		int level;
 		std::string name;
 		std::string mail;
 
@@ -279,19 +282,26 @@ void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { 
 			character_class = static_cast<eClass>(status_metadata["ret"]["class"]);
 			head = status_metadata["ret"]["head"];
 			name = status_metadata["ret"]["name"];
+			level = std::stoi(static_cast<std::string>(status_metadata["ret"]["Level"]));
 			mail = "a@a.com";
 			homeland = static_cast<eCiudad>(1);
 
+			WriteVar(GetDatPath(DATPATH::Names), "NAMES", nft_address, name);
 			handleThrowDices();
-			
-			ConnectNewUser(UserIndex, name, nft_address, race, sex, character_class, mail, homeland, head);
+						
+			ConnectNewUser(UserIndex, name, race, sex, character_class, mail, homeland, head);
+
+			while (UserList[UserIndex].Stats.ELV < level) {
+				UserList[UserIndex].Stats.Exp = UserList[UserIndex].Stats.ELU;
+				CheckUserLevel(UserIndex);
+			}
 		}
 	} else {
-		if (BANCheck(nft_address)) {
+		if (BANCheck(character_name)) {
 			WriteErrorMsg(UserIndex,
 					"You've been banned from Heroes of Argentum");
 		} else {
-			ConnectUser(UserIndex, token, nft_address);
+			ConnectUser(UserIndex, character_name);
 		}
 	}
 }
@@ -1859,7 +1869,7 @@ void DakaraClientPacketHandler::handleCreateNewGuild(CreateNewGuild* p) { (void)
 
 	GuildName = vb6::Trim(p->GuildName);
 	codex = vb6::Split(p->Codex, SEPARATOR);
-
+	
 	if (CrearNuevoClan(UserIndex, desc, GuildName, site, codex, UserList[UserIndex].FundandoGuildAlineacion,
 			errorStr)) {
 		SendData(SendTarget_ToAll, UserIndex,
@@ -5066,7 +5076,7 @@ void DakaraClientPacketHandler::handleGuildFundate(GuildFundate* p) { (void)p;
 				FontTypeNames_FONTTYPE_INFOBOLD);
 		return;
 	}
-
+	
 	WriteShowGuildAlign(UserIndex);
 }
 

@@ -58,7 +58,8 @@ enum class DATPATH {
 	GuildsInfo,
 	SecurityIp,
 	EmailsHabilitados,
-	Stats
+	Stats,
+	Names
 };
 
 std::string GetAppPath();

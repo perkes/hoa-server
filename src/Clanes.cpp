@@ -108,7 +108,7 @@ bool m_ConectarMiembroAClan(int UserIndex, int GuildIndex) {
 	} else {
 		retval = m_ValidarPermanencia(UserIndex, true, NuevaA);
 		if (NuevaA) {
-			News = News + "El clan tiene nueva alineación.";
+			News = News + "The clan has a new alignment.";
 		}
 		/* 'If NuevoL Or NuevaA Then Call guilds(GuildIndex).SetGuildNews(News) */
 	}
@@ -140,8 +140,8 @@ bool m_ValidarPermanencia(int UserIndex, bool SumaAntifaccion, bool & CambioAlin
 		/* ' Es el lider, bajamos 1 rango de alineacion */
 		if (m_EsGuildLeader(UserList[UserIndex].Name, GuildIndex)) {
 			LogClanes(
-					vb6::CStr(UserList[UserIndex].Name) + ", líder de " + guilds[GuildIndex]->GuildName()
-							+ " hizo bajar la alienación de su clan.");
+					vb6::CStr(UserList[UserIndex].Name) + ", leader of " + guilds[GuildIndex]->GuildName()
+							+ " reduced their clan's alignment.");
 
 			CambioAlineacion = true;
 
@@ -151,8 +151,8 @@ bool m_ValidarPermanencia(int UserIndex, bool SumaAntifaccion, bool & CambioAlin
 			} while (!(m_EstadoPermiteEntrar(UserIndex, GuildIndex)));
 		} else {
 			LogClanes(
-					vb6::CStr(UserList[UserIndex].Name) + " de " + guilds[GuildIndex]->GuildName()
-							+ " es expulsado en validar permanencia.");
+					vb6::CStr(UserList[UserIndex].Name) + " of " + guilds[GuildIndex]->GuildName()
+							+ " has been expelled.");
 
 			retval = false;
 			if (SumaAntifaccion) {
@@ -162,9 +162,9 @@ bool m_ValidarPermanencia(int UserIndex, bool SumaAntifaccion, bool & CambioAlin
 			CambioAlineacion = guilds[GuildIndex]->PuntosAntifaccion() == MAXANTIFACCION;
 
 			LogClanes(
-					vb6::CStr(UserList[UserIndex].Name) + " de " + guilds[GuildIndex]->GuildName()
+					vb6::CStr(UserList[UserIndex].Name) + " of " + guilds[GuildIndex]->GuildName()
 							+ vb6::IIf(CambioAlineacion, " SI ", " NO ")
-							+ "provoca cambio de alineación. MAXANT: " + vb6::CStr(CambioAlineacion));
+							+ "caused a change of alignment. MAXANT: " + vb6::CStr(CambioAlineacion));
 
 			m_EcharMiembroDeClan(-1, UserList[UserIndex].Name);
 
@@ -334,8 +334,8 @@ int m_EcharMiembroDeClan(int Expulsador, std::string Expulsado) {
 				guilds[GI]->DesConectarMiembro(UserIndex);
 				guilds[GI]->ExpulsarMiembro(Expulsado);
 				LogClanes(
-						vb6::CStr(Expulsado) + " ha sido expulsado de " + guilds[GI]->GuildName()
-								+ " Expulsador = " + vb6::CStr(Expulsador));
+						vb6::CStr(Expulsado) + " has been expelled from " + guilds[GI]->GuildName()
+								+ " by " + vb6::CStr(Expulsador));
 				UserList[UserIndex].GuildIndex = 0;
 				RefreshCharStatus(UserIndex);
 				retval = GI;
@@ -352,8 +352,8 @@ int m_EcharMiembroDeClan(int Expulsador, std::string Expulsado) {
 			if (m_PuedeSalirDeClan(Expulsado, GI, Expulsador)) {
 				guilds[GI]->ExpulsarMiembro(Expulsado);
 				LogClanes(
-						vb6::CStr(Expulsado) + " ha sido expulsado de " + guilds[GI]->GuildName()
-								+ " Expulsador = " + vb6::CStr(Expulsador));
+						vb6::CStr(Expulsado) + " has been expelled from " + guilds[GI]->GuildName()
+								+ " by " + vb6::CStr(Expulsador));
 				retval = GI;
 			} else {
 				retval = 0;
@@ -457,17 +457,16 @@ bool CrearNuevoClan(int FundadorIndex, std::string & desc, std::string & GuildNa
 	}
 
 	if (GuildName == "" || !GuildNameValido(GuildName)) {
-		refError = "Nombre de clan inválido.";
+		refError = "Invalid clan name.";
 		return retval;
 	}
 
 	if (YaExiste(GuildName)) {
-		refError = "Ya existe un clan con ese nombre.";
+		refError = "A clan with that name already exists.";
 		return retval;
 	}
 
 	CantCodex = vb6::UBound(codex) + 1;
-
 	/* 'tenemos todo para fundar ya */
 	if (CANTIDADDECLANES < vb6::UBound(guilds)) {
 		CANTIDADDECLANES = CANTIDADDECLANES + 1;
@@ -475,34 +474,33 @@ bool CrearNuevoClan(int FundadorIndex, std::string & desc, std::string & GuildNa
 
 		/* 'constructor custom de la clase clan */
 		guilds[CANTIDADDECLANES].reset(new clsClan());
-
 		guilds[CANTIDADDECLANES]->Inicializar(GuildName, CANTIDADDECLANES, Alineacion);
-
 		/* 'Damos de alta al clan como nuevo inicializando sus archivos */
 		guilds[CANTIDADDECLANES]->InicializarNuevoClan(UserList[FundadorIndex].Name);
-
 		/* 'seteamos codex y descripcion */
 		for (i = (1); i <= (CantCodex); i++) {
 			guilds[CANTIDADDECLANES]->SetCodex(i, codex[i - 1]);
 		}
+		
 		guilds[CANTIDADDECLANES]->SetDesc(desc);
+		
 		guilds[CANTIDADDECLANES]->SetGuildNews(
-				"Clan creado con alineación: " + Alineacion2String(Alineacion));
+				"Clan created with alignment: " + Alineacion2String(Alineacion));
+		
 		guilds[CANTIDADDECLANES]->SetLeader(UserList[FundadorIndex].Name);
 		guilds[CANTIDADDECLANES]->SetURL(URL);
 
 		/* '"conectamos" al nuevo miembro a la lista de la clase */
 		guilds[CANTIDADDECLANES]->AceptarNuevoMiembro(UserList[FundadorIndex].Name);
 		guilds[CANTIDADDECLANES]->ConectarMiembro(FundadorIndex);
-
 		UserList[FundadorIndex].GuildIndex = CANTIDADDECLANES;
 		RefreshCharStatus(FundadorIndex);
-
+		
 		for (i = (1); i <= (CANTIDADDECLANES - 1); i++) {
 			guilds[i]->ProcesarFundacionDeOtroClan();
 		}
 	} else {
-		refError = "No hay más slots para fundar clanes. Consulte a un administrador.";
+		refError = "No more clans can be created. Talk to an admin.";
 		return retval;
 	}
 
@@ -606,12 +604,12 @@ bool PuedeFundarUnClan(int UserIndex, ALINEACION_GUILD Alineacion, std::string &
 	/* '*************************************************** */
 
 	if (UserList[UserIndex].GuildIndex > 0) {
-		refError = "Ya perteneces a un clan, no puedes fundar otro";
+		refError = "You already belong to a clan, you can't found another one.";
 		return retval;
 	}
 
 	if (UserList[UserIndex].Stats.ELV < 25 || UserList[UserIndex].Stats.UserSkills[eSkill_Liderazgo] < 90) {
-		refError = "Para fundar un clan debes ser nivel 25 y tener 90 skills en liderazgo.";
+		refError = "In order to found a clan you must be at least level 25 and have at least 90 leadership skill points.";
 		return retval;
 	}
 
@@ -621,42 +619,42 @@ bool PuedeFundarUnClan(int UserIndex, ALINEACION_GUILD Alineacion, std::string &
 
 	case ALINEACION_GUILD_ALINEACION_ARMADA:
 		if (UserList[UserIndex].Faccion.ArmadaReal != 1) {
-			refError = "Para fundar un clan real debes ser miembro del ejército real.";
+			refError = "In order to found a royal clan you must be a member of the Royal Army.";
 			return retval;
 		}
 		break;
 
 	case ALINEACION_GUILD_ALINEACION_CIUDA:
 		if (criminal(UserIndex)) {
-			refError = "Para fundar un clan de ciudadanos no debes ser criminal.";
+			refError = "In order to found a citizens clan you must not be a criminal.";
 			return retval;
 		}
 		break;
 
 	case ALINEACION_GUILD_ALINEACION_CRIMINAL:
 		if (!criminal(UserIndex)) {
-			refError = "Para fundar un clan de criminales no debes ser ciudadano.";
+			refError = "In order to found a criminal clan you must not be a citizen.";
 			return retval;
 		}
 		break;
 
 	case ALINEACION_GUILD_ALINEACION_LEGION:
 		if (UserList[UserIndex].Faccion.FuerzasCaos != 1) {
-			refError = "Para fundar un clan del mal debes pertenecer a la legión oscura.";
+			refError = "In order to found an evil clan you must be a member of the Dark Legion.";
 			return retval;
 		}
 		break;
 
 	case ALINEACION_GUILD_ALINEACION_MASTER:
 		if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_User, PlayerType_Consejero, PlayerType_SemiDios)) {
-			refError = "Para fundar un clan sin alineación debes ser un dios.";
+			refError = "In order to found a clan without any alignment you must be an admin.";
 			return retval;
 		}
 		break;
 
 	case ALINEACION_GUILD_ALINEACION_NEUTRO:
 		if (UserList[UserIndex].Faccion.ArmadaReal != 0 || UserList[UserIndex].Faccion.FuerzasCaos != 0) {
-			refError = "Para fundar un clan neutro no debes pertenecer a ninguna facción.";
+			refError = "In order to found a neutral clan you must not belong to any faction.";
 			return retval;
 		}
 		break;
@@ -995,17 +993,17 @@ bool v_AbrirElecciones(int UserIndex, std::string & refError) {
 	GuildIndex = UserList[UserIndex].GuildIndex;
 
 	if (GuildIndex == 0 || GuildIndex > CANTIDADDECLANES) {
-		refError = "Tú no perteneces a ningún clan.";
+		refError = "You are not part of a clan.";
 		return retval;
 	}
 
 	if (!m_EsGuildLeader(UserList[UserIndex].Name, GuildIndex)) {
-		refError = "No eres el líder de tu clan";
+		refError = "You are not the leader of your clan";
 		return retval;
 	}
 
 	if (guilds[GuildIndex]->EleccionesAbiertas()) {
-		refError = "Las elecciones ya están abiertas.";
+		refError = "Elections have already began.";
 		return retval;
 	}
 
@@ -1031,12 +1029,12 @@ bool v_UsuarioVota(int UserIndex, std::string & Votado, std::string & refError) 
 	GuildIndex = UserList[UserIndex].GuildIndex;
 
 	if (GuildIndex == 0 || GuildIndex > CANTIDADDECLANES) {
-		refError = "Tú no perteneces a ningún clan.";
+		refError = "You are not part of a clan.";
 		return retval;
 	}
 
 	if (!guilds[GuildIndex]->EleccionesAbiertas()) {
-		refError = "No hay elecciones abiertas en tu clan.";
+		refError = "No elections are being held in your clan right now.";
 		return retval;
 	}
 
@@ -1048,12 +1046,12 @@ bool v_UsuarioVota(int UserIndex, std::string & Votado, std::string & refError) 
 	}
 
 	if (i > vb6::UBound(list)) {
-		refError = Votado + " no pertenece al clan.";
+		refError = Votado + " does not belong to the clan.";
 		return retval;
 	}
 
 	if (guilds[GuildIndex]->YaVoto(UserList[UserIndex].Name)) {
-		refError = "Ya has votado, no puedes cambiar tu voto.";
+		refError = "You've already voted, you can't change your vote.";
 		return retval;
 	}
 
@@ -1399,34 +1397,34 @@ int r_DeclararGuerra(int UserIndex, std::string & GuildGuerra, std::string & ref
 	retval = 0;
 	GI = UserList[UserIndex].GuildIndex;
 	if (GI <= 0 || GI > CANTIDADDECLANES) {
-		refError = "No eres miembro de ningún clan.";
+		refError = "You are not part of a clan.";
 		return retval;
 	}
 
 	if (!m_EsGuildLeader(UserList[UserIndex].Name, GI)) {
-		refError = "No eres el líder de tu clan.";
+		refError = "You are not the leader of your clan.";
 		return retval;
 	}
 
 	if (vb6::Trim(GuildGuerra) == "") {
-		refError = "No has seleccionado ningún clan.";
+		refError = "You haven't chosen a valid clan.";
 		return retval;
 	}
 
 	GIG = GetGuildIndex(GuildGuerra);
 	if (guilds[GI]->GetRelacion(GIG) == RELACIONES_GUILD_GUERRA) {
-		refError = "Tu clan ya está en guerra con " + GuildGuerra + ".";
+		refError = "Your clan is already at war with " + GuildGuerra + ".";
 		return retval;
 	}
 
 	if (GI == GIG) {
-		refError = "No puedes declarar la guerra a tu mismo clan.";
+		refError = "You can't declare war to your own clan.";
 		return retval;
 	}
 
 	if (GIG < 1 || GIG > CANTIDADDECLANES) {
 		LogError("ModGuilds.r_DeclararGuerra: " + vb6::CStr(GI) + " declara a " + GuildGuerra);
-		refError = "Inconsistencia en el sistema de clanes. Avise a un administrador (GIG fuera de rango)";
+		refError = "Clans system fatal error. Contact an admin (GIG out of range)";
 		return retval;
 	}
 
@@ -1454,17 +1452,17 @@ int r_AceptarPropuestaDePaz(int UserIndex, std::string & GuildPaz, std::string &
 
 	GI = UserList[UserIndex].GuildIndex;
 	if (GI <= 0 || GI > CANTIDADDECLANES) {
-		refError = "No eres miembro de ningún clan.";
+		refError = "You are not part of a clan.";
 		return retval;
 	}
 
 	if (!m_EsGuildLeader(UserList[UserIndex].Name, GI)) {
-		refError = "No eres el líder de tu clan.";
+		refError = "You are not the leader of your clan.";
 		return retval;
 	}
 
 	if (vb6::Trim(GuildPaz) == "") {
-		refError = "No has seleccionado ningún clan.";
+		refError = "You haven't chosen a valid clan.";
 		return retval;
 	}
 
@@ -1472,17 +1470,17 @@ int r_AceptarPropuestaDePaz(int UserIndex, std::string & GuildPaz, std::string &
 
 	if (GIG < 1 || GIG > CANTIDADDECLANES) {
 		LogError("ModGuilds.r_AceptarPropuestaDePaz: " + vb6::CStr(GI) + " acepta de " + GuildPaz);
-		refError = "Inconsistencia en el sistema de clanes. Avise a un administrador (GIG fuera de rango).";
+		refError = "Clans system fatal error. Contact an admin (GIG out of range)";
 		return retval;
 	}
 
 	if (guilds[GI]->GetRelacion(GIG) != RELACIONES_GUILD_GUERRA) {
-		refError = "No estás en guerra con ese clan.";
+		refError = "You are not at war with that clan.";
 		return retval;
 	}
 
 	if (!guilds[GI]->HayPropuesta(GIG, RELACIONES_GUILD_PAZ)) {
-		refError = "No hay ninguna propuesta de paz para aceptar.";
+		refError = "There are no peace proposals to accept.";
 		return retval;
 	}
 
@@ -1511,17 +1509,17 @@ int r_RechazarPropuestaDeAlianza(int UserIndex, std::string & GuildPro, std::str
 	GI = UserList[UserIndex].GuildIndex;
 
 	if (GI <= 0 || GI > CANTIDADDECLANES) {
-		refError = "No eres miembro de ningún clan.";
+		refError = "You are not part of a clan.";
 		return retval;
 	}
 
 	if (!m_EsGuildLeader(UserList[UserIndex].Name, GI)) {
-		refError = "No eres el líder de tu clan.";
+		refError = "You are not the leader of your clan.";
 		return retval;
 	}
 
 	if (vb6::Trim(GuildPro) == "") {
-		refError = "No has seleccionado ningún clan.";
+		refError = "You haven't chosen a valid clan.";
 		return retval;
 	}
 
@@ -1529,19 +1527,19 @@ int r_RechazarPropuestaDeAlianza(int UserIndex, std::string & GuildPro, std::str
 
 	if (GIG < 1 || GIG > CANTIDADDECLANES) {
 		LogError("ModGuilds.r_RechazarPropuestaDeAlianza: " + vb6::CStr(GI) + " acepta de " + GuildPro);
-		refError = "Inconsistencia en el sistema de clanes. Avise a un administrador (GIG fuera de rango).";
+		refError = "Clans system fatal error. Contact an admin (GIG out of range).";
 		return retval;
 	}
 
 	if (!guilds[GI]->HayPropuesta(GIG, RELACIONES_GUILD_ALIADOS)) {
-		refError = "No hay propuesta de alianza del clan " + GuildPro;
+		refError = "There's no alliance proposal with clan " + GuildPro;
 		return retval;
 	}
 
 	guilds[GI]->AnularPropuestas(GIG);
 	/* 'avisamos al otro clan */
 	guilds[GIG]->SetGuildNews(
-			guilds[GI]->GuildName() + " ha rechazado nuestra propuesta de alianza. "
+			guilds[GI]->GuildName() + " has rejected your alliance proposal. "
 					+ guilds[GIG]->GetGuildNews());
 	retval = GIG;
 
@@ -1564,17 +1562,17 @@ int r_RechazarPropuestaDePaz(int UserIndex, std::string & GuildPro, std::string 
 	GI = UserList[UserIndex].GuildIndex;
 
 	if (GI <= 0 || GI > CANTIDADDECLANES) {
-		refError = "No eres miembro de ningún clan.";
+		refError = "You are not part of a clan.";
 		return retval;
 	}
 
 	if (!m_EsGuildLeader(UserList[UserIndex].Name, GI)) {
-		refError = "No eres el líder de tu clan.";
+		refError = "You are not the leader of your clan.";
 		return retval;
 	}
 
 	if (vb6::Trim(GuildPro) == "") {
-		refError = "No has seleccionado ningún clan.";
+		refError = "You haven't chosen a valid clan.";
 		return retval;
 	}
 
@@ -1582,19 +1580,19 @@ int r_RechazarPropuestaDePaz(int UserIndex, std::string & GuildPro, std::string 
 
 	if (GIG < 1 || GIG > CANTIDADDECLANES) {
 		LogError("ModGuilds.r_RechazarPropuestaDePaz: " + vb6::CStr(GI) + " acepta de " + GuildPro);
-		refError = "Inconsistencia en el sistema de clanes. Avise a un administrador (GIG fuera de rango).";
+		refError = "Clans system fatal error. Contact and admin (GIG out of range).";
 		return retval;
 	}
 
 	if (!guilds[GI]->HayPropuesta(GIG, RELACIONES_GUILD_PAZ)) {
-		refError = "No hay propuesta de paz del clan " + GuildPro;
+		refError = "There's no peace proposal from " + GuildPro;
 		return retval;
 	}
 
 	guilds[GI]->AnularPropuestas(GIG);
 	/* 'avisamos al otro clan */
 	guilds[GIG]->SetGuildNews(
-			guilds[GI]->GuildName() + " ha rechazado nuestra propuesta de paz. "
+			guilds[GI]->GuildName() + " has rejected our peace proposal. "
 					+ guilds[GIG]->GetGuildNews());
 	retval = GIG;
 
@@ -1616,17 +1614,17 @@ int r_AceptarPropuestaDeAlianza(int UserIndex, std::string & GuildAllie, std::st
 	retval = 0;
 	GI = UserList[UserIndex].GuildIndex;
 	if (GI <= 0 || GI > CANTIDADDECLANES) {
-		refError = "No eres miembro de ningún clan.";
+		refError = "You are not part of a clan.";
 		return retval;
 	}
 
 	if (!m_EsGuildLeader(UserList[UserIndex].Name, GI)) {
-		refError = "No eres el líder de tu clan.";
+		refError = "You are not the leader of your clan.";
 		return retval;
 	}
 
 	if (vb6::Trim(GuildAllie) == "") {
-		refError = "No has seleccionado ningún clan.";
+		refError = "You haven't chosen a valid clan.";
 		return retval;
 	}
 
@@ -1634,18 +1632,18 @@ int r_AceptarPropuestaDeAlianza(int UserIndex, std::string & GuildAllie, std::st
 
 	if (GIG < 1 || GIG > CANTIDADDECLANES) {
 		LogError("ModGuilds.r_AceptarPropuestaDeAlianza: " + vb6::CStr(GI) + " acepta de " + GuildAllie);
-		refError = "Inconsistencia en el sistema de clanes. Avise a un administrador (GIG fuera de rango).";
+		refError = "Clans system fatal error. Contact and admin (GIG out of range).";
 		return retval;
 	}
 
 	if (guilds[GI]->GetRelacion(GIG) != RELACIONES_GUILD_PAZ) {
 		refError =
-				"No estás en paz con el clan, solo puedes aceptar propuesas de alianzas con alguien que estes en paz.";
+				"You are not at peace with that clan. You can only accept alliance proposals with clans you are at peace with.";
 		return retval;
 	}
 
 	if (!guilds[GI]->HayPropuesta(GIG, RELACIONES_GUILD_ALIADOS)) {
-		refError = "No hay ninguna propuesta de alianza para aceptar.";
+		refError = "There are no alliance proposals to review.";
 		return retval;
 	}
 
@@ -1675,43 +1673,43 @@ bool r_ClanGeneraPropuesta(int UserIndex, std::string & OtroClan, RELACIONES_GUI
 
 	GI = UserList[UserIndex].GuildIndex;
 	if (GI <= 0 || GI > CANTIDADDECLANES) {
-		refError = "No eres miembro de ningún clan.";
+		refError = "You are not part of a clan.";
 		return retval;
 	}
 
 	OtroClanGI = GetGuildIndex(OtroClan);
 
 	if (OtroClanGI == GI) {
-		refError = "No puedes declarar relaciones con tu propio clan.";
+		refError = "You can't declare an alliance with your own clan.";
 		return retval;
 	}
 
 	if (OtroClanGI <= 0 || OtroClanGI > CANTIDADDECLANES) {
-		refError = "El sistema de clanes esta inconsistente, el otro clan no existe.";
+		refError = "Clans system fatal error. The other clan does not exist. Contact and admin.";
 		return retval;
 	}
 
 	if (guilds[OtroClanGI]->HayPropuesta(GI, Tipo)) {
-		refError = "Ya hay propuesta de " + Relacion2String(Tipo) + " con " + OtroClan;
+		refError = "A " + Relacion2String(Tipo) + " proposal with " + OtroClan + " already exists.";
 		return retval;
 	}
 
 	if (!m_EsGuildLeader(UserList[UserIndex].Name, GI)) {
-		refError = "No eres el líder de tu clan.";
+		refError = "You are not the leader of your clan.";
 		return retval;
 	}
 
 	/* 'de acuerdo al tipo procedemos validando las transiciones */
 	if (Tipo == RELACIONES_GUILD_PAZ) {
 		if (guilds[GI]->GetRelacion(OtroClanGI) != RELACIONES_GUILD_GUERRA) {
-			refError = "No estás en guerra con " + OtroClan;
+			refError = "You are not at war with " + OtroClan;
 			return retval;
 		}
 	} else if (Tipo == RELACIONES_GUILD_GUERRA) {
 		/* 'por ahora no hay propuestas de guerra */
 	} else if (Tipo == RELACIONES_GUILD_ALIADOS) {
 		if (guilds[GI]->GetRelacion(OtroClanGI) != RELACIONES_GUILD_PAZ) {
-			refError = "Para solicitar alianza no debes estar ni aliado ni en guerra con " + OtroClan;
+			refError = "To request an alliance you must not be either allied or at war with " + OtroClan;
 			return retval;
 		}
 	}
@@ -1739,19 +1737,19 @@ std::string r_VerPropuesta(int UserIndex, std::string & OtroGuild, RELACIONES_GU
 
 	GI = UserList[UserIndex].GuildIndex;
 	if (GI <= 0 || GI > CANTIDADDECLANES) {
-		refError = "No eres miembro de ningún clan.";
+		refError = "You are not part of a clan.";
 		return retval;
 	}
 
 	if (!m_EsGuildLeader(UserList[UserIndex].Name, GI)) {
-		refError = "No eres el líder de tu clan.";
+		refError = "You are not the leader of your clan.";
 		return retval;
 	}
 
 	OtroClanGI = GetGuildIndex(OtroGuild);
 
 	if (!guilds[GI]->HayPropuesta(OtroClanGI, Tipo)) {
-		refError = "No existe la propuesta solicitada.";
+		refError = "The proposal does not exist.";
 		return retval;
 	}
 
@@ -1848,19 +1846,19 @@ bool a_RechazarAspirante(int UserIndex, std::string & Nombre, std::string & refE
 	retval = false;
 	GI = UserList[UserIndex].GuildIndex;
 	if (GI <= 0 || GI > CANTIDADDECLANES) {
-		refError = "No perteneces a ningún clan";
+		refError = "You are not part of a clan.";
 		return retval;
 	}
 
 	NroAspirante = guilds[GI]->NumeroDeAspirante(Nombre);
 
 	if (NroAspirante == 0) {
-		refError = Nombre + " no es aspirante a tu clan.";
+		refError = Nombre + " has not requested to join your clan.";
 		return retval;
 	}
 
 	guilds[GI]->RetirarAspirante(Nombre, NroAspirante);
-	refError = "Fue rechazada tu solicitud de ingreso a " + guilds[GI]->GuildName();
+	refError = "Your application to " + guilds[GI]->GuildName() + " has been rejected.";
 	retval = true;
 
 	return retval;
@@ -2033,30 +2031,30 @@ bool a_NuevoAspirante(int UserIndex, std::string & clan, std::string & Solicitud
 	retval = false;
 
 	if (UserList[UserIndex].GuildIndex > 0) {
-		refError = "Ya perteneces a un clan, debes salir del mismo antes de solicitar ingresar a otro.";
+		refError = "You are already part of a clan, leave it before trying to join another one.";
 		return retval;
 	}
 
 	if (EsNewbie(UserIndex)) {
-		refError = "Los newbies no tienen derecho a entrar a un clan.";
+		refError = "Newbies can't join clans.";
 		return retval;
 	}
 
 	NuevoGuildIndex = GetGuildIndex(clan);
 	if (NuevoGuildIndex == 0) {
-		refError = "Ese clan no existe, avise a un administrador.";
+		refError = "That clan doesn't exist. Contact an admin.";
 		return retval;
 	}
 
 	if (!m_EstadoPermiteEntrar(UserIndex, NuevoGuildIndex)) {
-		refError = "Tú no puedes entrar a un clan de alineación "
-				+ Alineacion2String(guilds[NuevoGuildIndex]->Alineacion());
+		refError = "You can't enter a clan with "
+				+ Alineacion2String(guilds[NuevoGuildIndex]->Alineacion()) + " alignment.";
 		return retval;
 	}
 
 	if (guilds[NuevoGuildIndex]->CantidadAspirantes() >= MAXASPIRANTES) {
 		refError =
-				"El clan tiene demasiados aspirantes. Contáctate con un miembro para que procese las solicitudes.";
+				"The clan has too many applications. Contact a clan member so he can process that backlog.";
 		return retval;
 	}
 
@@ -2099,19 +2097,19 @@ bool a_AceptarAspirante(int UserIndex, std::string & Aspirante, std::string & re
 
 	GI = UserList[UserIndex].GuildIndex;
 	if (GI <= 0 || GI > CANTIDADDECLANES) {
-		refError = "No perteneces a ningún clan";
+		refError = "You are not part of a clan.";
 		return retval;
 	}
 
 	if (!m_EsGuildLeader(UserList[UserIndex].Name, GI)) {
-		refError = "No eres el líder de tu clan";
+		refError = "You are not the leader of your clan.";
 		return retval;
 	}
 
 	NroAspirante = guilds[GI]->NumeroDeAspirante(Aspirante);
 
 	if (NroAspirante == 0) {
-		refError = "El Pj no es aspirante al clan.";
+		refError = "The PC hasn't applied.";
 		return retval;
 	}
 
@@ -2119,23 +2117,23 @@ bool a_AceptarAspirante(int UserIndex, std::string & Aspirante, std::string & re
 	if (AspiranteUI > 0) {
 		/* 'pj Online */
 		if (!m_EstadoPermiteEntrar(AspiranteUI, GI)) {
-			refError = Aspirante + " no puede entrar a un clan de alineación "
-					+ Alineacion2String(guilds[GI]->Alineacion());
+			refError = Aspirante + " can't enter a clan with "
+					+ Alineacion2String(guilds[GI]->Alineacion()) + " alignment.";
 			guilds[GI]->RetirarAspirante(Aspirante, NroAspirante);
 			return retval;
 		} else if (UserList[AspiranteUI].GuildIndex != 0) {
-			refError = Aspirante + " ya es parte de otro clan.";
+			refError = Aspirante + " is already part of a clan.";
 			guilds[GI]->RetirarAspirante(Aspirante, NroAspirante);
 			return retval;
 		}
 	} else {
 		if (!m_EstadoPermiteEntrarChar(Aspirante, GI)) {
-			refError = Aspirante + " no puede entrar a un clan de alineación "
-					+ Alineacion2String(guilds[GI]->Alineacion());
+			refError = Aspirante + " can't enter a clan with "
+					+ Alineacion2String(guilds[GI]->Alineacion()) + " alignment.";
 			guilds[GI]->RetirarAspirante(Aspirante, NroAspirante);
 			return retval;
 		} else if (GetGuildIndexFromChar(Aspirante)) {
-			refError = Aspirante + " ya es parte de otro clan.";
+			refError = Aspirante + " is already part of a clan.";
 			guilds[GI]->RetirarAspirante(Aspirante, NroAspirante);
 			return retval;
 		}

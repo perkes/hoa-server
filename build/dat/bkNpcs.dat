@@ -1,6 +1,6 @@
 [NPC12]
-Name=Sastre
-Desc=¡Hola forastero! Soy el Sastre de Ullathorpe, Bienvenido!
+Name=Tailor
+Desc=Hello there! I'm Ullathorpe's tailor, Welcome!
 Head=9
 Body=50
 Heading=3
@@ -34,8 +34,8 @@ Obj8=239-1000
 Obj9=873-1000
 
 [NPC19]
-Name=Sastre
-Desc=¡Bienvenida Viajera! Tengo hermosas vestimentas para ofrecerte...
+Name=Tailor
+Desc=Welcome traveler! I've beautiful dresses for you!
 Head=70
 Body=80
 Heading=3
@@ -66,7 +66,7 @@ Obj5=382-1000
 
 [NPC20]
 Name=Sastre
-Desc=¡Acérquese! Tengo pequenas prendas que serán de su agrado...
+Desc=Come closer! I've small clothes that you may be interested in...
 Head=303
 Body=180
 Heading=3
@@ -98,7 +98,7 @@ Obj6=707-1000
 
 [NPC8]
 Name=Thorkis
-Desc=Hooooola jovencito, tengo las mejores provisiones de Ullathorpe!!
+Desc=Hellooo young man!, I have the best stuff in Ullathorpe!!
 Head=504
 Body=202
 Heading=3
@@ -129,7 +129,7 @@ Obj5=160-1000
 
 [NPC14]
 Name=Lilith
-Desc=Hola, tengo las mejores Pociones de la Alquimia.
+Desc=Hello, I've the best alchemical potions.
 Head=77
 Body=200
 Heading=3
@@ -160,8 +160,8 @@ Obj5=166-1000
 Obj6=645-1000
 
 [NPC80]
-Name=Mercader
-Desc=¡¡Hola buen amigo, compro y vendo todo tipo de mercancías!!
+Name=Trader
+Desc=Hello good friend! I buy and sell all kinds of things!
 Head=2
 Body=3
 Heading=3
@@ -188,7 +188,7 @@ Obj1=534-1000
 
 [NPC8]
 Name=Thorkis
-Desc=Hooooola jovencito, tengo las mejores provisiones de Ullathorpe!!
+Desc=Hellooo young man!, I have the best stuff in Ullathorpe!!
 Head=504
 Body=202
 Heading=3
@@ -218,8 +218,8 @@ Obj4=43-1000
 Obj5=160-1000
 
 [NPC7]
-Name=Herrero
-Desc=Bienvenido, rata de alcantarilla, soy el Herrero de Ullathorpe...tengo algunas armas que pueden ayudarte en tus viajes.
+Name=Blacksmith
+Desc=Welcome, you lousy rat, I'm Ullathorpe's blacksmith... I've some weapons that could help you on your travels.
 Head=505
 Body=199
 Heading=3
@@ -253,8 +253,8 @@ Obj8=389-1000
 Obj9=124-1000
 
 [NPC54]
-Name=Armaduras
-Desc=Acércate, tengo algunas armaduras que podrían protegerte.
+Name=Armors
+Desc=Come close, I've some armors that could protect you.
 Head=6
 Body=93
 Heading=4
@@ -284,8 +284,8 @@ Obj4=1001-1000
 Obj5=1002-1000
 
 [NPC46]
-Name=Mago
-Desc=Bienvenido a mi pequena tienda de Ullathorpe... Tengo algunos hechizos que podrían interesarte.
+Name=Wizard
+Desc=Welcome to my small shop here in Ullathorpe... I've some spells that could be to your liking.
 Head=110
 Body=46
 Heading=3
@@ -318,8 +318,8 @@ Obj7=696-1000
 Obj8=208-1000
 
 [NPC33]
-Name=Lenador
-Desc=¡Hola muchacho!, si deseas vender o comprar madera escribe /COMERCIAR.
+Name=Lumberjack
+Desc=Hello young man!, if you wish to buy or sell wood write /TRADE.
 Head=4
 Body=1
 Heading=3
@@ -347,7 +347,7 @@ Obj2=1005-1000
 
 [NPC34]
 Name=Cullighan
-Desc=Usted sabe que no hay persona noble o respetable en estas tierras que no tenga su propia vivienda. ¡acérquese y sea dueno de una de las exclusivas casas de Ullathorpe. ¡Será admirado por toda la población!
+Desc=You sure know that there's no noble or respectable person in these lands who doesn't have their own dwelling. Come here and become the owner of one of the exclusive Ullathorpe residences! You'll be admired by everyone!
 Head=33
 Body=240
 Heading=3
@@ -376,8 +376,8 @@ Obj3=69-0
 Obj4=73-0
 
 [NPC44]
-Name=Carpintero
-Desc=¡Hola muchacho!, bienvenido a mi humilde Carpintería.
+Name=Carpenter
+Desc=Hello young man!, welcome to my humble carpentry store.
 Head=2
 Body=1
 Heading=3
@@ -408,7 +408,7 @@ Obj5=480-10000
 
 [NPC42]
 Name=Antogne
-Desc=¡Hola aventurero! Si estais hambriento habeis venido al lugar apropiador, tengo todo tipo de frutas.
+Desc=Hello adventurer! If you're hungry, you've come to the right place, I've all kinds of fruits here!
 Head=505
 Body=202
 Heading=3
@@ -440,7 +440,7 @@ Obj6=43-1000
 
 [NPC35]
 Name=Moraday
-Desc=¿Ha descubierto que la ciudad de Nix es la más hermosa de todo Argentum, verdad? ¡Pues qué mejor que ser un terrateniente de este paraíso! ¡Acércate que haremos negocios!
+Desc=You've found out that Nix is the most beautiful city in all of Argentum, am I right? Then what better than having your own property in this paradise? Come here and we'll do business!
 Head=35
 Body=239
 Heading=3
@@ -475,8 +475,8 @@ Obj9=119-0
 Obj10=140-0
 
 [NPC37]
-Name=Herrero
-Desc=Bienvenido, rata de alcantarilla, soy el Herrero de Nix, tengo algunas armas que pueden ayudarte en tus viajes.
+Name=Blacksmith
+Desc=Welcome, you lousy rat, I'm Nix's blacksmith... I've some weapons that could help you on your travels.
 Head=505
 Body=199
 Heading=3
@@ -511,7 +511,7 @@ Obj9=1009-1000
 
 [NPC15]
 Name=Thorkis
-Desc=¡Qué tal amigo! Entra, pues tengo las mejores provisiones de Nix!
+Desc=How's it going my friend! Come in, I've the best food in all of Nix!
 Head=504
 Body=202
 Heading=3
@@ -540,8 +540,8 @@ Obj3=43-1000
 Obj4=160-1000
 
 [NPC21]
-Name=Sastre
-Desc=¡Hola forastero! Soy el Sastre de Nix, Bienvenido!
+Name=Tailor
+Desc=Hey outsider! I'm the tailor of Nix, Welcome!
 Head=7
 Body=50
 Heading=3
@@ -576,8 +576,8 @@ Obj9=239-1000
 Obj10=1036-1000
 
 [NPC22]
-Name=Sastre
-Desc=¡Bienvenida Viajera! Entra a mi tienda, ¡Tengo las mejores prendas de Nix!
+Name=Tailor
+Desc=Welcome traveler! I've some beautiful dresses for you!
 Head=71
 Body=80
 Heading=3
@@ -607,8 +607,8 @@ Obj4=506-1000
 Obj5=382-1000
 
 [NPC23]
-Name=Sastre
-Desc=¡Acérquese! Tengo pequenas prendas que serán de su agrado...
+Name=Tailor
+Desc=Come closer! I've small clothes that you may be interested in...
 Head=404
 Body=180
 Heading=3
@@ -639,8 +639,8 @@ Obj5=502-1000
 Obj6=707-1000
 
 [NPC70]
-Name=Armaduras
-Desc=Acércate, tengo algunas armaduras que podrían protegerte.
+Name=Armors
+Desc=Come closer, I've some armors that could protect you.
 Head=6
 Body=93
 Heading=4
@@ -674,7 +674,7 @@ Obj8=1002-1000
 
 [NPC15]
 Name=Thorkis
-Desc=¡Qué tal amigo! Entra, pues tengo las mejores provisiones de Nix!
+Desc=How's it going my friend! Come in, I've the best food in all of Nix!
 Head=504
 Body=202
 Heading=3
@@ -704,7 +704,7 @@ Obj4=160-1000
 
 [NPC14]
 Name=Lilith
-Desc=Hola, tengo las mejores Pociones de la Alquimia.
+Desc=Hello, I've the best alchemical potions.
 Head=77
 Body=200
 Heading=3
@@ -735,8 +735,8 @@ Obj5=166-1000
 Obj6=645-1000
 
 [NPC48]
-Name=Minero
-Desc=Tengo los mejores utensillos para mineros de todo Argentum.
+Name=Miner
+Desc=I've the best miner supplies in all of Argentum.
 Head=2
 Body=1
 Heading=3
@@ -762,8 +762,8 @@ NroItems=1
 Obj1=187-1000
 
 [NPC33]
-Name=Lenador
-Desc=¡Hola muchacho!, si deseas vender o comprar madera escribe /COMERCIAR.
+Name=Lumberjack
+Desc=Hello young man!, if you wish to buy or sell wood write /TRADE.
 Head=4
 Body=1
 Heading=3
@@ -790,8 +790,8 @@ Obj1=127-1000
 Obj2=1005-1000
 
 [NPC44]
-Name=Carpintero
-Desc=¡Hola muchacho!, bienvenido a mi humilde Carpintería.
+Name=Carpenter
+Desc=Hello young man!, welcome to my humble carpentry store.
 Head=2
 Body=1
 Heading=3
@@ -821,8 +821,8 @@ Obj4=198-1000
 Obj5=480-10000
 
 [NPC47]
-Name=Mago
-Desc=Bienvenido a mi pequena tienda de Nix... Tengo algunos hechizos que podrían interesarte.
+Name=Wizard
+Desc=Welcome to my small shop here in Nix... I've some spells that could be to your liking.
 Head=110
 Body=46
 Heading=3
@@ -858,8 +858,8 @@ Obj10=696-1000
 Obj11=208-1000
 
 [NPC80]
-Name=Mercader
-Desc=¡¡Hola buen amigo, compro y vendo todo tipo de mercancías!!
+Name=Trader
+Desc=Hello good friend! I buy and sell all kinds of things!
 Head=2
 Body=3
 Heading=3
@@ -885,8 +885,8 @@ NroItems=1
 Obj1=534-1000
 
 [NPC41]
-Name=Pescador
-Desc=¡Bienvenido al gremio de pescadores!
+Name=Fisherman
+Desc=Welcome to the fishermen's guild!
 Head=2
 Body=3
 Heading=3
@@ -914,7 +914,7 @@ Obj2=139-1000
 
 [NPC50]
 Name=Tellez
-Desc=¡Hola! Bienvenido al "Mesón Hostigado", ¿Qué desea que le sirva?
+Desc=Hello and Welcome to the "Mesón Hostigado", What are you having?
 Head=505
 Body=202
 Heading=3
@@ -949,8 +949,8 @@ Obj9=42-1000
 Obj10=161-1000
 
 [NPC80]
-Name=Mercader
-Desc=¡¡Hola buen amigo, compro y vendo todo tipo de mercancías!!
+Name=Trader
+Desc=Hello good friend! I buy and sell all kinds of things!
 Head=2
 Body=3
 Heading=3
@@ -977,7 +977,7 @@ Obj1=534-1000
 
 [NPC52]
 Name=Rantarisk
-Desc=De lejos pude ver vuestro blazón, seguro busca una de las moradas más lujosas de todo el Argentum. En la ciudad real de Banderbill es donde deben habitar la flor y la nata de la nobleza ¡Venga y hagamos negocios!
+Desc=You can see our coat of arms from afar, you're for sure looking for one of the most luxurious residences in all of Argentum. The royal city of Banderbill is the place were the best of the aristocracy dwells, come here and we'll do business!
 Head=32
 Body=241
 Heading=3
@@ -1020,8 +1020,8 @@ Obj17=351-0
 Obj18=355-0
 
 [NPC38]
-Name=Herrero
-Desc=¡Ven, pasa, que he fabricado las más poderosas armas de Banderbill para tí!
+Name=Blacksmith
+Desc=Come in! I've made the most powerful weapons in all of Argentum just for you!
 Head=505
 Body=199
 Heading=3
@@ -1055,8 +1055,8 @@ Obj8=990-1000
 Obj9=1009-1000
 
 [NPC51]
-Name=Mago
-Desc=Bienvenido a mi pequena Tienda de Banderbill... Tengo algunos hechizos que podrían interesarte.
+Name=Wizard
+Desc=Welcome to my small shop here in Banderbill... I've some spells that could be to your liking.
 Head=110
 Body=46
 Heading=3
@@ -1097,7 +1097,7 @@ Obj15=208-1000
 
 [NPC50]
 Name=Tellez
-Desc=¡Hola! Bienvenido al "Mesón Hostigado", ¿Qué desea que le sirva?
+Desc=Hello and Welcome to the "Mesón Hostigado", What are you having?
 Head=505
 Body=202
 Heading=3
@@ -1132,8 +1132,8 @@ Obj9=42-1000
 Obj10=161-1000
 
 [NPC25]
-Name=Sastre
-Desc=¡Bienvenido a la Sastrería de Banderbill! ¿En qué lo puedo ayudar?
+Name=Tailor
+Desc=Welcome to the Banderbill Tailor shop! How can I help you?
 Head=7
 Body=56
 Heading=3
@@ -1169,8 +1169,8 @@ Obj10=1036-1000
 Obj11=1010-1000
 
 [NPC26]
-Name=Sastre
-Desc=¡Adelante hermosa nina! En mi tienda encontrarás vestidos hechos para tí!
+Name=Tailor
+Desc=Come in beautiful girl! In my store you'll find beautiful dresses made just for you!
 Head=173
 Body=121
 Heading=3
@@ -1200,8 +1200,8 @@ Obj4=382-1000
 Obj5=511-1000
 
 [NPC27]
-Name=Sastre
-Desc=¡Ven y mira estas prendas que he confeccionado para nuestra raza!
+Name=Tailor
+Desc=Come and see these beautiful clothes I made for members of our race!
 Head=305
 Body=159
 Heading=3
@@ -1232,8 +1232,8 @@ Obj5=671-1000
 Obj6=670-1000
 
 [NPC44]
-Name=Carpintero
-Desc=¡Hola muchacho!, bienvenido a mi humilde Carpintería.
+Name=Carpenter
+Desc=Hello young man!, welcome to my humble carpentry store.
 Head=2
 Body=1
 Heading=3
@@ -1264,7 +1264,7 @@ Obj5=480-10000
 
 [NPC14]
 Name=Lilith
-Desc=Hola, tengo las mejores Pociones de la Alquimia.
+Desc=Hello, I've the best alchemical potions.
 Head=77
 Body=200
 Heading=3
@@ -1295,8 +1295,8 @@ Obj5=166-1000
 Obj6=645-1000
 
 [NPC74]
-Name=Armaduras
-Desc=Ven, tengo resistentes armaduras para ofrecerte.
+Name=Armors
+Desc=Come in, I've some tough armors for you.
 Head=6
 Body=93
 Heading=4
@@ -1327,8 +1327,8 @@ Obj5=648-1000
 Obj6=1003-1000
 
 [NPC48]
-Name=Minero
-Desc=Tengo los mejores utensillos para mineros de todo Argentum.
+Name=Miner
+Desc=I've the best miner supplies in all of Argentum.
 Head=2
 Body=1
 Heading=3
@@ -1355,7 +1355,7 @@ Obj1=187-1000
 
 [NPC114]
 Name=SR
-Desc=Bienvenido a la Sastrería Real.
+Desc=Welcome to the Royal Tailor Shop.
 Head=171
 Body=174
 Heading=3
@@ -1393,8 +1393,8 @@ Obj12=693-1000
 Obj13=1038-1000
 
 [NPC44]
-Name=Carpintero
-Desc=¡Hola muchacho!, bienvenido a mi humilde Carpintería.
+Name=Carpenter
+Desc=Hello young man!, welcome to my humble carpentry store.
 Head=2
 Body=1
 Heading=3
@@ -1424,8 +1424,8 @@ Obj4=198-1000
 Obj5=480-10000
 
 [NPC41]
-Name=Pescador
-Desc=¡Bienvenido al gremio de pescadores!
+Name=Fisherman
+Desc=Welcome to the fishermen's guild!
 Head=2
 Body=3
 Heading=3
@@ -1452,8 +1452,8 @@ Obj1=138-1000
 Obj2=139-1000
 
 [NPC31]
-Name=Sastre
-Desc=¡Ven aquí! Te puedo ofrecer las mejores ropas de la isla...
+Name=Tailor
+Desc=Come here! I can offer you the best clothes in the island!
 Head=7
 Body=46
 Heading=3
@@ -1490,7 +1490,7 @@ Obj11=1010-1000
 
 [NPC32]
 Name=Sastre
-Desc=¡Ven y mira estas vestimentas, seguro te encantarán!
+Desc=Come and see these dresses, you'll love them for sure!
 Head=75
 Body=118
 Heading=3
@@ -1520,8 +1520,8 @@ Obj4=488-1000
 Obj5=508-1000
 
 [NPC39]
-Name=Sastre
-Desc=¡Hola forastero! confeccionamos las mejores ropas de la zona.
+Name=Tailor
+Desc=Hey outsider! We have the best clothes in the area.
 Head=304
 Body=135
 Heading=3
@@ -1554,7 +1554,7 @@ Obj7=370-1000
 
 [NPC43]
 Name=Sorks
-Desc=¿¡Estáis sediento y hambriento!?
+Desc=Are you hungry and/or thirsty?!
 Head=505
 Body=202
 Heading=3
@@ -1583,8 +1583,8 @@ Obj3=43-1000
 Obj4=160-1000
 
 [NPC56]
-Name=Herrero
-Desc=¡Ven, pasa, que he fabricado, aquí en Lindos, poderosas armas para tí!
+Name=Blacksmith
+Desc=Come and see, I've made, here in Lindos, powerful weapons for you!
 Head=505
 Body=199
 Heading=3
@@ -1617,8 +1617,8 @@ Obj7=404-1000
 Obj8=990-1000
 
 [NPC69]
-Name=Mago
-Desc=Ven por aquí joven, las artes mágicas superiores te están llamando...
+Name=Wizard
+Desc=Come here young man, the greater magical arts are calling for you...
 Head=110
 Body=46
 Heading=3
@@ -1661,7 +1661,7 @@ Obj17=208-1000
 
 [NPC43]
 Name=Sorks
-Desc=¿¡Estáis sediento y hambriento!?
+Desc=Are you hungry and/or thirsty?!
 Head=505
 Body=202
 Heading=3
@@ -1691,7 +1691,7 @@ Obj4=160-1000
 
 [NPC62]
 Name=Guldorf
-Desc=Si está buscando la paz y la tranquilidad en estas tierras ha llegado al lugar indicado... adquiera una de nuestras exclusivas residencias, y cambie su vida para siempre.
+Desc=If you're looking for peace and tranquility in these lands, you've come to the right place... buy one of our exclusive residences and change your life forever!
 Head=36
 Body=234
 Heading=3
@@ -1723,7 +1723,7 @@ Obj6=440-0
 
 [NPC14]
 Name=Lilith
-Desc=Hola, tengo las mejores Pociones de la Alquimia.
+Desc=Hello, I've the best alchemical potions.
 Head=77
 Body=200
 Heading=3
@@ -1753,9 +1753,230 @@ Obj4=39-1000
 Obj5=166-1000
 Obj6=645-1000
 
+[NPC58]
+Name=Fisherman
+Desc=Welcome to the fishermen's guild!
+Head=101
+Body=3
+Heading=3
+Movement=2
+Attackable=0
+Comercia=1
+TipoItems=1
+Hostil=0
+GiveEXP=0
+GiveGLD=0
+InvReSpawn=0
+NpcType=0
+Alineacion=0
+DEF=0
+MaxHit=0
+MaxHp=0
+MinHit=0
+MinHp=0
+ReSpawn=0
+BackUp=1
+Domable=0
+NroItems=2
+Obj1=138-1000
+Obj2=139-1000
+
+[NPC44]
+Name=Carpenter
+Desc=Hello young man!, welcome to my humble carpentry store.
+Head=2
+Body=1
+Heading=3
+Movement=1
+Attackable=0
+Comercia=1
+TipoItems=20
+Hostil=0
+GiveEXP=0
+GiveGLD=0
+InvReSpawn=0
+NpcType=0
+Alineacion=0
+DEF=0
+MaxHit=0
+MaxHp=0
+MinHit=0
+MinHp=0
+ReSpawn=0
+BackUp=1
+Domable=0
+NroItems=5
+Obj1=163-1000
+Obj2=167-1000
+Obj3=168-1000
+Obj4=198-1000
+Obj5=480-10000
+
+[NPC48]
+Name=Miner
+Desc=I've the best miner supplies in all of Argentum.
+Head=2
+Body=1
+Heading=3
+Movement=1
+Attackable=0
+Comercia=1
+TipoItems=23
+Hostil=0
+GiveEXP=0
+GiveGLD=0
+InvReSpawn=0
+NpcType=0
+Alineacion=0
+DEF=0
+MaxHit=0
+MaxHp=0
+MinHit=0
+MinHp=0
+ReSpawn=0
+BackUp=1
+Domable=0
+NroItems=1
+Obj1=187-1000
+
+[NPC31]
+Name=Tailor
+Desc=Come here! I can offer you the best clothes in the island!
+Head=7
+Body=46
+Heading=3
+Movement=1
+Attackable=0
+Comercia=1
+TipoItems=3
+Hostil=0
+GiveEXP=0
+GiveGLD=0
+InvReSpawn=0
+NpcType=0
+Alineacion=0
+DEF=0
+MaxHit=0
+MaxHp=0
+MinHit=0
+MinHp=0
+ReSpawn=0
+BackUp=1
+Domable=0
+NroItems=11
+Obj1=31-1000
+Obj2=32-1000
+Obj3=35-1000
+Obj4=135-1000
+Obj5=238-1000
+Obj6=239-1000
+Obj7=381-1000
+Obj8=196-1000
+Obj9=986-1000
+Obj10=873-1000
+Obj11=1010-1000
+
 [NPC14]
 Name=Lilith
-Desc=Hola, tengo las mejores Pociones de la Alquimia.
+Desc=Hello, I've the best alchemical potions.
+Head=77
+Body=200
+Heading=3
+Movement=1
+Attackable=0
+Comercia=1
+TipoItems=11
+Hostil=0
+GiveEXP=0
+GiveGLD=0
+InvReSpawn=0
+NpcType=0
+Alineacion=0
+DEF=0
+MaxHit=0
+MaxHp=0
+MinHit=0
+MinHp=0
+ReSpawn=0
+BackUp=1
+Domable=0
+NroItems=6
+Obj1=36-1000
+Obj2=37-1000
+Obj3=38-1000
+Obj4=39-1000
+Obj5=166-1000
+Obj6=645-1000
+
+[NPC71]
+Name=Blacksmith
+Desc=Here you can buy the most powerful weapons in the land... Come and see!
+Head=505
+Body=199
+Heading=3
+Movement=1
+Attackable=0
+Comercia=1
+TipoItems=2
+Hostil=0
+GiveEXP=0
+GiveGLD=0
+InvReSpawn=0
+NpcType=0
+Alineacion=0
+DEF=0
+MaxHit=0
+MaxHp=0
+MinHit=0
+MinHp=0
+ReSpawn=0
+BackUp=1
+Domable=0
+NroItems=9
+Obj1=164-1000
+Obj2=19-1000
+Obj3=123-1000
+Obj4=124-1000
+Obj5=401-1000
+Obj6=125-1000
+Obj7=753-1000
+Obj8=990-1000
+Obj9=1009-1000
+
+[NPC54]
+Name=Armors
+Desc=Come close, I've some armors that could protect you.
+Head=6
+Body=93
+Heading=4
+Movement=1
+Attackable=0
+Comercia=1
+TipoItems=3
+Hostil=0
+GiveEXP=0
+GiveGLD=0
+InvReSpawn=0
+NpcType=0
+Alineacion=0
+DEF=0
+MaxHit=0
+MaxHp=0
+MinHit=0
+MinHp=0
+ReSpawn=0
+BackUp=1
+Domable=0
+NroItems=5
+Obj1=30-1000
+Obj2=529-1000
+Obj3=668-1000
+Obj4=1001-1000
+Obj5=1002-1000
+
+[NPC14]
+Name=Lilith
+Desc=Hello, I've the best alchemical potions.
 Head=77
 Body=200
 Heading=3
@@ -1786,8 +2007,8 @@ Obj5=166-1000
 Obj6=645-1000
 
 [NPC111]
-Name=Armaduras
-Desc=Ven, tengo resistentes armaduras para ofrecerte.
+Name=Armors
+Desc=Come, I have tough armors to offer you.
 Head=6
 Body=93
 Heading=4
@@ -1819,7 +2040,7 @@ Obj6=1003-1000
 
 [NPC40]
 Name=Tolloz
-Desc=¡Hola! Bienvenido a la Taberna de Arkhein, ¿Qué desea que le sirva?
+Desc=Hello! Welcome to Arkhein's tavern, What would you like to drink?
 Head=505
 Body=202
 Heading=3
@@ -1854,8 +2075,8 @@ Obj9=42-1000
 Obj10=161-1000
 
 [NPC112]
-Name=Herrero
-Desc=Con estas manos he construído algunas armas que te podrán servir en tus aventuras... ¡paga por ellas y serán tuyas!
+Name=Blacksmith
+Desc=I've built some weapons with these two hands that could prove useful for your aventures... pay for them and they'll be yours!
 Head=16
 Body=199
 Heading=3
@@ -1888,8 +2109,8 @@ Obj7=125-1000
 Obj8=123-1000
 
 [NPC61]
-Name=Mago
-Desc=Bienvenido a mi pequena tienda de Arkhein... Tengo algunos hechizos que podrían interesarte.
+Name=Wizard
+Desc=Welcome to my small shop in Arkhein... I have some spells that might be of your interest.
 Head=110
 Body=46
 Heading=3
@@ -1930,8 +2151,8 @@ Obj15=696-1000
 Obj16=208-1000
 
 [NPC28]
-Name=Sastre
-Desc=¡Entrad Valiente Viajero! En la Sastrería de Arkhein están las mejores ropas del continente.
+Name=Tailor
+Desc=Come brave traveler! Here in Arkhein's tailor shop are the best clothes in the continent.
 Head=15
 Body=56
 Heading=3
@@ -1970,8 +2191,8 @@ Obj13=1036-1000
 Obj14=1010-1000
 
 [NPC29]
-Name=Sastre
-Desc=¡Ven y mira estas vestimentas, seguro te encantarán!
+Name=Tailor
+Desc=Come and take a look at these dresses, you'll sure love them!
 Head=173
 Body=80
 Heading=3
@@ -2000,8 +2221,8 @@ Obj3=506-1000
 Obj4=382-1000
 
 [NPC30]
-Name=Sastre
-Desc=Aquí encontrarás las mejores prendas para enanos ¡Y a muy buen precio!
+Name=Tailor
+Desc=Here you'll find the best clothes for dwarves, and at the best price!
 Head=404
 Body=159
 Heading=3
@@ -2032,8 +2253,8 @@ Obj5=671-1000
 Obj6=670-1000
 
 [NPC41]
-Name=Pescador
-Desc=¡Bienvenido al gremio de pescadores!
+Name=Fisherman
+Desc=Welcome to the fishermen's guild!
 Head=2
 Body=3
 Heading=3
@@ -2060,8 +2281,8 @@ Obj1=138-1000
 Obj2=139-1000
 
 [NPC44]
-Name=Carpintero
-Desc=¡Hola muchacho!, bienvenido a mi humilde Carpintería.
+Name=Carpenter
+Desc=Hello young man!, welcome to my humble carpentry store.
 Head=2
 Body=1
 Heading=3
@@ -2092,9 +2313,9 @@ Obj5=480-10000
 
 [NPC101]
 Name=Vendedor de propiedades.
-Desc=En estas tierras demoníacas están las mejores residencias para los miembros de la Legión Oscura... Si no eres legionario puedes también vivir acá, ¡pero os aseguro que los augura un infierno! jajaja!
+Desc=These formerly demonic lands are now one of the safest areas in the empire and a bargain. Come here and we'll do business!
 Head=34
-Body=170
+Body=239
 Heading=3
 Movement=1
 Attackable=0
@@ -2124,47 +2345,9 @@ Obj6=603-0
 Obj7=607-0
 Obj8=611-0
 
-[NPC115]
-Name=SC
-Desc=¡AQUÍ OBTENDRÁS TU ARMADURA LEGIONARIA!
-Head=0
-Body=69
-Heading=3
-Movement=1
-Attackable=0
-Comercia=1
-TipoItems=3
-Hostil=0
-GiveEXP=0
-GiveGLD=0
-InvReSpawn=0
-NpcType=0
-Alineacion=0
-DEF=0
-MaxHit=0
-MaxHp=0
-MinHit=0
-MinHp=0
-ReSpawn=0
-BackUp=1
-Domable=0
-NroItems=12
-Obj1=677-1000
-Obj2=509-1000
-Obj3=518-1000
-Obj4=523-1000
-Obj5=369-1000
-Obj6=634-1000
-Obj7=684-1000
-Obj8=635-1000
-Obj9=683-1000
-Obj10=689-1000
-Obj11=701-1000
-Obj12=1037-1000
-
 [NPC80]
-Name=Mercader
-Desc=¡¡Hola buen amigo, compro y vendo todo tipo de mercancías!!
+Name=Trader
+Desc=Hello good friend! I buy and sell all kinds of things!
 Head=2
 Body=3
 Heading=3
@@ -2191,7 +2374,7 @@ Obj1=534-1000
 
 [NPC9]
 Name=Ralph
-Desc=¡Hola, pequeno aventurero, tengo aquí unas mercaderías para saciar tu hambre y sed!.
+Desc=Hello, young adventurer, I've everything you need to satiate your hunger and quench your thirst!
 Head=504
 Body=202
 Heading=3
@@ -2219,8 +2402,8 @@ Obj2=158-1000
 Obj3=43-1000
 
 [NPC99]
-Name=Mago
-Desc=¿Estás buscando los hechizos más poderosos? A buen puerto has llegado...
+Name=Wizard
+Desc=Are you loking for the most powerful spells? You've sure come to the right place...
 Head=110
 Body=46
 Heading=3
@@ -2251,8 +2434,8 @@ Obj5=696-1000
 Obj6=208-1000
 
 [NPC116]
-Name=Armaduras
-Desc=Si estás buscando las mejores armaduras de estas tierras, has llegado al lugar correcto...
+Name=Armors
+Desc=If you're looking for the best armors in the land, you've come to the right place...
 Head=6
 Body=93
 Heading=4
@@ -2288,8 +2471,8 @@ Obj10=243-1000
 Obj11=1004-1000
 
 [NPC71]
-Name=Herrero
-Desc=Tened aquí las armas más poderosas de estas tierras... ¡Pasad y ved!
+Name=Blacksmith
+Desc=Here you can buy the most powerful weapons in the land... Come and see!
 Head=505
 Body=199
 Heading=3
@@ -2324,7 +2507,7 @@ Obj9=1009-1000
 
 [NPC122]
 Name=Nelvi
-Desc=Poseo una gran cantidad de ropajes para los astutos GNOMOS, ¿Deseas algo en particular?
+Desc=I've lots of clothes for clever gnomes! Are you looking for anything in particular?
 Head=403
 Body=294
 Heading=3
@@ -2370,7 +2553,7 @@ Obj20=932-1000
 
 [NPC123]
 Name=Aile
-Desc=Bienvenido, vendo ropas para los hermosos GNOMOS de estas tierras.
+Desc=Welcome stranger, I sell clothes for the beautiful gnomes in these lands.
 Head=473
 Body=288
 Heading=3
@@ -2411,7 +2594,7 @@ Obj15=940-1000
 
 [NPC124]
 Name=Varinya
-Desc=Tengo para ofrecerte los mejores ropajes para ELFOS.
+Desc=I've the best clothes for elves.
 Head=172
 Body=234
 Heading=3
@@ -2451,7 +2634,7 @@ Obj14=956-1000
 
 [NPC120]
 Name=Ireth
-Desc=Bienvenido amigo, vendo ropajes para MUJERES HUMANAS.
+Desc=Welcome friend!, I sell clothes for human females.
 Head=71
 Body=254
 Heading=3
@@ -2492,7 +2675,7 @@ Obj15=904-1000
 
 [NPC121]
 Name=Isaac
-Desc=¿Buscas ropas para HOMBRES HUMANOS? Entonces has hecho bien en acudir a mí.
+Desc=Are you looking for clothes for human males? You've come to the right place.
 Head=7
 Body=240
 Heading=3
@@ -2525,7 +2708,7 @@ Obj7=903-1000
 
 [NPC125]
 Name=Torke
-Desc=Solo tengo ropajes para ENANOS, si no las puedes usar, ¡vete de aqui!
+Desc=I've only got clothes for dwarves, if you can't use them, leave!
 Head=371
 Body=306
 Heading=3
@@ -2569,7 +2752,7 @@ Obj18=974-1000
 
 [NPC126]
 Name=Gourk
-Desc=Vendo ropas para DROWS, de hermosas telas y refinados detalles.
+Desc=I sell clothes for drows, made of beautiful fabrics and with the most refined details.
 Head=203
 Body=264
 Heading=3
@@ -2603,8 +2786,8 @@ Obj8=984-1000
 Obj9=985-1000
 
 [NPC117]
-Name=Sastre
-Desc=¡Aquí en la Ciudad Perdida encontrarán las mejores ropas pequenas de todo el mundo!
+Name=Tailor
+Desc=Here in the Lost City you'll find the best small garments in the whole world!
 Head=402
 Body=136
 Heading=3
@@ -2635,8 +2818,8 @@ Obj5=525-1000
 Obj6=526-1000
 
 [NPC109]
-Name=Sastre
-Desc=¡Bienvenidos a la Gran Sastrería de la Ciudad Perdida! Aquí encontrarán las ropas más exóticas del mundo...
+Name=Tailor
+Desc=Welcome to the Grand Tailor Shop of the Lost City! Here you'll find the most exotic clothes in the world...
 Head=406
 Body=130
 Heading=3
@@ -2671,8 +2854,8 @@ Obj9=1036-1000
 Obj10=1010-1000
 
 [NPC110]
-Name=Sastre
-Desc=¡Entra! Jamás verás prendas más bellas que las que tengo para ofrecerte...
+Name=Tailor
+Desc=Come in! You'll never see most beautiful dresses than the ones I have here for you!
 Head=474
 Body=124
 Heading=3
@@ -2703,8 +2886,8 @@ Obj5=513-1000
 Obj6=514-1000
 
 [NPC48]
-Name=Minero
-Desc=Tengo los mejores utensillos para mineros de todo Argentum.
+Name=Miner
+Desc=I've the best miner supplies in all of Argentum.
 Head=2
 Body=1
 Heading=3
@@ -2730,8 +2913,8 @@ NroItems=1
 Obj1=187-1000
 
 [NPC44]
-Name=Carpintero
-Desc=¡Hola muchacho!, bienvenido a mi humilde Carpintería.
+Name=Carpenter
+Desc=Hello young man!, welcome to my humble carpentry store.
 Head=2
 Body=1
 Heading=3
@@ -2762,7 +2945,7 @@ Obj5=480-10000
 
 [NPC103]
 Name=Carahuel
-Desc=¡Hola, pequeno amigo! ¿Estás buscando algo para llenar tu estómago? Creo que puedo ayudarte...
+Desc=Hey, little friend! Are you looking for somehting to fill your stomach with? I think I can help you...
 Head=474
 Body=309
 Heading=3
@@ -2792,7 +2975,7 @@ Obj4=754-1000
 
 [NPC57]
 Name=Bhoemond
-Desc= ¡Sea bienvenido a la famosa Taberna de Arghal!, Aquí podrá saciarse con la mejor comida y la mejor bebida de toda la zona.
+Desc= Be welcome to Arghal's most famous tavern!, Here you'll find the best food and beverages in the area.
 Head=17
 Body=100
 Heading=3
@@ -2828,7 +3011,7 @@ Obj10=161-1000
 
 [NPC63]
 Name=Steve
-Desc=Ven, acércate, que tengo para ofrecerte las mejores prendas masculinas de todo Arghal...
+Desc=Come closer, I can offer you the best male clothes in Arghal...
 Head=22
 Body=342
 Heading=3
@@ -2864,7 +3047,7 @@ Obj10=1036-1000
 
 [NPC64]
 Name=Virgin
-Desc=¡Bienvenida jovencita! Soy quien hace los mejores atuendos femeninos de todo Arghal, ven y prueba mi mercadería.
+Desc=Welcome young lady! I'm the best seamstress in Arghal, come and try on my merchandise.
 Head=70
 Body=80
 Heading=3
@@ -2895,7 +3078,7 @@ Obj5=382-1000
 
 [NPC68]
 Name=Odkon
-Desc=¡Acérquese pequeno vistante de Arghal... Tengo prendas a su medida.
+Desc=Come closer little Arghal visitor... I've clothes to fit your size.
 Head=404
 Body=371
 Heading=3
@@ -2927,8 +3110,8 @@ Obj6=707-1000
 Obj7=867-1000
 
 [NPC73]
-Name=Armaduras
-Desc=Si tienes agallas como para abandonar la ciudad y enfrentar el peligro de los bosques, deberás comprar una de las armaduras que he fabricado.
+Name=Armors
+Desc=If you have the guts to live the city and face the dangers in the forest, you should buy one of my armor suits.
 Head=39
 Body=93
 Heading=3
@@ -2957,7 +3140,7 @@ Obj3=668-1000
 
 [NPC14]
 Name=Lilith
-Desc=Hola, tengo las mejores Pociones de la Alquimia.
+Desc=Hello, I've the best alchemical potions.
 Head=77
 Body=200
 Heading=3
@@ -2988,8 +3171,8 @@ Obj5=166-1000
 Obj6=645-1000
 
 [NPC59]
-Name=Mago
-Desc=Bienvenido, neófito a ésta, a mi pequena escuela de Magia, ubicada en el corazón mismo de la ciudad de Arghal.
+Name=Wizard
+Desc=Welcome, neophyte, to this, my small school of magic, located in the very heart of the city of Arghal.
 Head=20
 Body=34
 Heading=3
@@ -3022,7 +3205,7 @@ Obj7=659-1000
 
 [NPC103]
 Name=Carahuel
-Desc=¡Hola, pequeno amigo! ¿Estás buscando algo para llenar tu estómago? Creo que puedo ayudarte...
+Desc=Hey, little friend! Are you looking for somehting to fill your stomach with? I think I can help you...
 Head=474
 Body=309
 Heading=3
@@ -3051,8 +3234,8 @@ Obj3=158-1000
 Obj4=754-1000
 
 [NPC41]
-Name=Pescador
-Desc=¡Bienvenido al gremio de pescadores!
+Name=Fisherman
+Desc=Welcome to the fishermen's guild!
 Head=2
 Body=3
 Heading=3
@@ -3080,7 +3263,7 @@ Obj2=139-1000
 
 [NPC154]
 Name=Lilith
-Desc=Hola, tengo las mejores Pociones de la Alquimia para principiantes.
+Desc=Hi! I have the best alchemical potions for beginners.
 Head=77
 Body=200
 Heading=3
@@ -3110,8 +3293,8 @@ Obj4=858-1000
 Obj5=166-1000
 
 [NPC155]
-Name=Armaduras Newbie
-Desc=Si estás buscando túnicas y armaduras para principiantes, has llegado al lugar indicado.
+Name=Newbie Armors
+Desc=If you are looking for robes and armors for beginners, you've come to the right place.
 Head=6
 Body=93
 Heading=3
@@ -3144,7 +3327,7 @@ Obj7=1052-1000
 
 [NPC156]
 Name=Armas Newbie
-Desc=Hola novato, tengo algunas armas que pueden ayudarte en tus aventuras.
+Desc=Hey noob, I have some weapons that can help you on your adventures.
 Head=505
 Body=199
 Heading=3
@@ -3178,7 +3361,7 @@ Obj8=563-1000
 
 [NPC157]
 Name=Magia Newbie
-Desc=Bienvenido a mi pequena tienda. Tengo algunos hechizos que podrían interesarte.
+Desc=Welcome to my small shop. I have some spells that could be of your interest.
 Head=110
 Body=46
 Heading=3

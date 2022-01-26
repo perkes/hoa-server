@@ -1,15 +1,15 @@
 [INIT]
 ConsultaActual= 1
-ConsultaActualTexto= ¿Desde donde juegas?
+ConsultaActualTexto= Where are you playing from?
 NivelRequerido= 10
 
 
 [ENCUESTA1]
 CantOpciones=4
 OPCION1=Argentina
-OPCION2=Espana
-OPCION3=Otro (America)
-OPCION4=Otro (Europa)
+OPCION2=Spain
+OPCION3=Other (America)
+OPCION4=Other (Europa)
 
 [RESULTADOS1]
 V1= 240

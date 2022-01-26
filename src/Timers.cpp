@@ -99,7 +99,7 @@ void CheckIdleUser() {
 			}
 
 			if (UserList[iUserIndex].Counters.IdleCount >= IdleLimit) {
-				WriteShowMessageBox(iUserIndex, "You've spent to much time inactive. You've been disconnected.");
+				WriteShowMessageBox(iUserIndex, "You've spent too much time inactive. You've been disconnected.");
 				/* 'mato los comercios seguros */
 				if (UserList[iUserIndex].ComUsu.DestUsu > 0) {
 					if (UserList[UserList[iUserIndex].ComUsu.DestUsu].flags.UserLogged) {
