@@ -1634,6 +1634,7 @@ void LoadMapData() {
 	MapInfo.redim(1, NumMaps);
 
 	for (Map = (1); Map <= (NumMaps); Map++) {
+		std::cout << "Cargando mapa " << Map << std::endl;
 		CargarMapa(Map, false);
 	}
 

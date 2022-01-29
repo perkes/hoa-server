@@ -409,26 +409,26 @@ void LoadConstants() {
 	ListaClases[eClass_Pirat] = "Pirata";
 
 	/* ' Skills */
-	SkillsNames[eSkill_Magia] = "Magia";
-	SkillsNames[eSkill_Robar] = "Robar";
-	SkillsNames[eSkill_Tacticas] = "Evasión en combate";
-	SkillsNames[eSkill_Armas] = "Combate con armas";
-	SkillsNames[eSkill_Meditar] = "Meditar";
-	SkillsNames[eSkill_Apunalar] = "Apunalar";
-	SkillsNames[eSkill_Ocultarse] = "Ocultarse";
-	SkillsNames[eSkill_Supervivencia] = "Supervivencia";
-	SkillsNames[eSkill_Talar] = "Talar";
-	SkillsNames[eSkill_Comerciar] = "Comercio";
-	SkillsNames[eSkill_Defensa] = "Defensa con escudos";
-	SkillsNames[eSkill_Pesca] = "Pesca";
-	SkillsNames[eSkill_Mineria] = "Mineria";
-	SkillsNames[eSkill_Carpinteria] = "Carpinteria";
-	SkillsNames[eSkill_Herreria] = "Herreria";
-	SkillsNames[eSkill_Liderazgo] = "Liderazgo";
-	SkillsNames[eSkill_Domar] = "Domar animales";
-	SkillsNames[eSkill_Proyectiles] = "Combate a distancia";
-	SkillsNames[eSkill_Wrestling] = "Combate sin armas";
-	SkillsNames[eSkill_Navegacion] = "Navegacion";
+	SkillsNames[eSkill_Magia] = "Magic";
+	SkillsNames[eSkill_Robar] = "Stealing";
+	SkillsNames[eSkill_Tacticas] = "Evasion";
+	SkillsNames[eSkill_Armas] = "Hand-to-hand combat";
+	SkillsNames[eSkill_Meditar] = "Meditate";
+	SkillsNames[eSkill_Apunalar] = "Stabbing";
+	SkillsNames[eSkill_Ocultarse] = "Hiding";
+	SkillsNames[eSkill_Supervivencia] = "Survival";
+	SkillsNames[eSkill_Talar] = "Woodchopping";
+	SkillsNames[eSkill_Comerciar] = "Trade";
+	SkillsNames[eSkill_Defensa] = "Use of shields";
+	SkillsNames[eSkill_Pesca] = "Fishing";
+	SkillsNames[eSkill_Mineria] = "Mining";
+	SkillsNames[eSkill_Carpinteria] = "Carpentry";
+	SkillsNames[eSkill_Herreria] = "Blacksmithery";
+	SkillsNames[eSkill_Liderazgo] = "Leadership";
+	SkillsNames[eSkill_Domar] = "Animal taming";
+	SkillsNames[eSkill_Proyectiles] = "Ranged combat";
+	SkillsNames[eSkill_Wrestling] = "Brawl";
+	SkillsNames[eSkill_Navegacion] = "Seafaring";
 
 	/* ' Attributes */
 	ListaAtributos[eAtributos_Fuerza] = "Fuerza";

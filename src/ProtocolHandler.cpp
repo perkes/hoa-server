@@ -1439,6 +1439,7 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 
 	int WeaponIndex;
 
+	int Map = UserList[UserIndex].Pos.Map;
 	X = p->X;
 	Y = p->Y;
 
@@ -1524,6 +1525,11 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 		break;
 
 	case eSkill_Pesca:
+		if (MapData[Map][X][Y].trigger == eTrigger_ZONASEGURA || MapInfo[Map].Pk == false) {
+			WriteConsoleMsg(UserIndex, "You can't fish within safe zones.", FontTypeNames_FONTTYPE_INFO);
+			return;
+		}
+
 		WeaponIndex = UserList[UserIndex].Invent.WeaponEqpObjIndex;
 		if (WeaponIndex == 0) {
 			return;
@@ -1642,6 +1648,10 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 		break;
 
 	case eSkill_Talar:
+		if (MapData[Map][X][Y].trigger == eTrigger_ZONASEGURA || MapInfo[Map].Pk == false) {
+			WriteConsoleMsg(UserIndex, "You can't chop wood within safe zones.", FontTypeNames_FONTTYPE_INFO);
+			return;
+		}
 		/* 'Check interval */
 		if (!IntervaloPermiteTrabajar(UserIndex)) {
 			return;
