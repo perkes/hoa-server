@@ -1,77 +1,5 @@
-##############################################
-#########TIPOS  DE OBJETOS (ObjType)##########
-##############################################
-
-' 1: Comida
-' 2: Armas
-' 3: Armaduras
-' 4: Arboles
-' 5: Dinero
-' 6: Doors
-' 7: Objetos contenedores (x ej. bolsas y cofres)
-' 8: Signes
-' 9: Keys
-' 10: Forums
-' 11: Pociones
-' 12: Libros
-' 13: Bebida
-' 14: Lena
-' 15: Fogata
-' 16: escudos
-' 17: cascos
-' 18: Anillos
-' 19: telep
-' 20: Muebles
-' 21: joyas
-' 22: yacimiento
-' 23: metales
-' 24: pergaminos
-' 25: aura
-' 26: Instrumentos Musicales
-' 27: Anvil
-' 28: Forge
-' 29: Gemas
-' 30: Flowers
-' 31: barcos
-' 32: flechas
-' 33: botellas vacias
-' 34: botellas llenas
-' 35: manchas
-
-
-##############################################
-#############TIPOS  DE POCIONES###############
-##############################################
-
-'1 Modifica la Agilidad
-'2 Modifica la Fuerza
-'3 Repone HP
-'4 Repone Mana
-'5 Cura Envenenamiento
-
-
-##############################################
-#############NRO DE OBJS LIBRES###############
-##############################################
-
-'cuando se pueda hay que utilizarlos, intentando
-usar primero los nros m�s bajos.
-
-(Todos usados)
-
-
-##############################################
-##############################################
-##############################################
-
-
 [INIT]
-'aca va el numero de OBJ mas alto, NO la cantidad de OBJs.
-'esto sirve para que los GMS puedan ver la lista completa de items para crear en una ventanita.
 NumOBJs=1189
-
-
-
 
 [OBJ1]
 Name=Red Apple
@@ -93,15 +21,13 @@ MinHit=1
 MaxHit=8
 Valor=210
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
 LingH=3
 LingP=0
 LingO=0
 SkHerreria=25
+CP1=MAGO
+CP2=BANDIDO
+CP3=DRUIDA
 
 [OBJ3]
 Name=Axe
@@ -113,16 +39,15 @@ MinHit=2
 MaxHit=6
 Valor=140
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=ASESINO
-CP6=CLERIGO
 LingH=2
 LingP=0
 LingO=0
 SkHerreria=15
+CP1=ASESINO
+CP2=BARDO
+CP3=MAGO
+CP4=LADRON
+CP5=DRUIDA
 
 [OBJ4]
 Name=Tree
@@ -142,7 +67,7 @@ GrhIndex=7002
 ObjType=4
 Agarrable=1
 
-[OBJ7] 'Door para negocio porque no tiene clave
+[OBJ7]
 Name=Open Wooden Door
 GrhIndex=5592
 ObjType=6
@@ -153,7 +78,7 @@ IndexAbierta=7
 IndexCerrada=8
 IndexCerradaKey=8
 
-[OBJ8] 'Door para negocio porque no tiene clave
+[OBJ8]
 Name=Closed Wooden Door
 GrhIndex=5593
 ObjType=6
@@ -245,7 +170,7 @@ LingO=0
 Upgrade=165
 SkHerreria=10
 
-[OBJ16] 'CASA RUINAS
+[OBJ16]
 Name=Open Wooden Door 2
 GrhIndex=5599
 ObjType=6
@@ -256,7 +181,7 @@ IndexAbierta=16
 IndexCerrada=17
 IndexCerradaKey=17
 
-[OBJ17] 'CASA RUINAS
+[OBJ17]
 Name=Closed Wooden Door 2
 GrhIndex=5600
 ObjType=6
@@ -286,16 +211,13 @@ MinHit=4
 MaxHit=9
 Valor=1120
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=ASESINO
-CP6=CLERIGO
 LingH=16
 LingP=0
 LingO=0
 SkHerreria=20
+CP1=MAGO
+CP2=BANDIDO
+CP3=DRUIDA
 
 [OBJ20]
 Name=Tombstone
@@ -408,6 +330,7 @@ MaxDef=0
 MinDef=0
 Valor=50
 Crucial=1
+CP1=GUERRERO
 
 [OBJ32]
 Name=Common Clothes
@@ -458,7 +381,7 @@ DuracionEfecto=1000
 Valor=120
 Crucial=1
 
-[OBJ37] 
+[OBJ37]
 Name=Blue Potion
 GrhIndex=541
 ObjType=11
@@ -545,40 +468,36 @@ MinDef=0
 Valor=80
 Crucial=1
 
-[OBJ46]'Snow 1
+[OBJ46]
 Name=Tree
 GrhIndex=641
 ObjType=4
 Agarrable=1
 
-[OBJ47]'Snow 2
+[OBJ47]
 Name=Tree
 GrhIndex=642
 ObjType=4
 Agarrable=1
 
-[OBJ48]'Snow 3
+[OBJ48]
 Name=Tree
 GrhIndex=641
 ObjType=4
 Agarrable=1
 
-[OBJ49]'Snow 4
+[OBJ49]
 Name=Tree
 GrhIndex=644
 ObjType=4
 Agarrable=1
 
-[OBJ50]'Snow 5
+[OBJ50]
 Name=Tree
 GrhIndex=647
 ObjType=4
 Agarrable=1
 
-
-'<--------------------------------CASAS ULLA-------------------------------->
-
-'<<<<<<<<<<<casa 1 Ullathorpe>>>>>>>>>>>>
 [OBJ51]
 Name=Open Wooden Door
 GrhIndex=5592
@@ -703,10 +622,9 @@ GrhIndex=506
 ObjType=1
 MinHam=10
 Valor=2
-Respawn=1 ' Hace ReSpawn
+Respawn=1
 
-'<<<<<<<<<<<casa 2 Ullathorpe>>>>>>>>>>>>
-[OBJ65] 
+[OBJ65]
 Name=Key to Ullathorpe House Number 2
 GrhIndex=509
 ObjType=9
@@ -751,8 +669,7 @@ IndexAbierta=66
 IndexCerrada=67
 IndexCerradaKey=68
 
-'<<<<<<<<<<<casa 3 Ullathorpe>>>>>>>>>>>>
-[OBJ69] 
+[OBJ69]
 Name=Key to Ullathorpe House Number 3
 GrhIndex=509
 ObjType=9
@@ -797,8 +714,7 @@ IndexAbierta=70
 IndexCerrada=71
 IndexCerradaKey=72
 
-'<<<<<<<<<<<casa 4 Ullathorpe>>>>>>>>>>>>
-[OBJ73] 
+[OBJ73]
 Name=Key to Ullathorpe House Number 4
 GrhIndex=509
 ObjType=9
@@ -928,10 +844,6 @@ ObjType=8
 Agarrable=1
 Texto=Private Residence.
 
-
-'<--------------------------------CASAS NIX-------------------------------->
-
-'<<<<<<<<<<<casa 1 Nix>>>>>>>>>>>>
 [OBJ87]
 Name=Key to Nix House Number 1
 GrhIndex=509
@@ -977,7 +889,6 @@ IndexAbierta=88
 IndexCerrada=89
 IndexCerradaKey=90
 
-'<<<<<<<<<<<casa 2 Nix>>>>>>>>>>>>
 [OBJ91]
 Name=Key to Nix House Number 2
 GrhIndex=509
@@ -1023,7 +934,6 @@ IndexAbierta=92
 IndexCerrada=93
 IndexCerradaKey=94
 
-'<<<<<<<<<<<casa 3 Nix>>>>>>>>>>>>
 [OBJ95]
 Name=Key to Nix House Number 3
 GrhIndex=509
@@ -1069,7 +979,6 @@ IndexAbierta=96
 IndexCerrada=97
 IndexCerradaKey=98
 
-'<<<<<<<<<<<casa 4 Nix>>>>>>>>>>>>
 [OBJ99]
 Name=Key to Nix House Number 4
 GrhIndex=509
@@ -1113,7 +1022,6 @@ IndexAbierta=100
 IndexCerrada=101
 IndexCerradaKey=102
 
-'<<<<<<<<<<<casa 5 Nix>>>>>>>>>>>>
 [OBJ103]
 Name=Key to Nix House Number 5
 GrhIndex=509
@@ -1159,7 +1067,6 @@ IndexAbierta=104
 IndexCerrada=105
 IndexCerradaKey=106
 
-'<<<<<<<<<<<casa 6 Nix>>>>>>>>>>>>
 [OBJ107]
 Name=Key to Nix House Number 6
 GrhIndex=509
@@ -1205,7 +1112,6 @@ IndexAbierta=108
 IndexCerrada=109
 IndexCerradaKey=110
 
-'<<<<<<<<<<<casa 7 Nix>>>>>>>>>>>>
 [OBJ111]
 Name=Key to Nix House Number 7
 GrhIndex=509
@@ -1251,7 +1157,6 @@ IndexAbierta=112
 IndexCerrada=113
 IndexCerradaKey=114
 
-'<<<<<<<<<<<casa 8 Nix>>>>>>>>>>>>
 [OBJ115]
 Name=Key to Nix House Number 8
 GrhIndex=509
@@ -1297,7 +1202,6 @@ IndexAbierta=116
 IndexCerrada=117
 IndexCerradaKey=118
 
-'<<<<<<<<<<<casa 9 Nix>>>>>>>>>>>>
 [OBJ119]
 Name=Key to Nix House Number 9
 GrhIndex=509
@@ -1378,14 +1282,13 @@ MinHit=5
 MaxHit=15
 Valor=3010
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
 LingH=43
 LingP=0
 LingO=0
 SkHerreria=55
+CP1=MAGO
+CP2=BANDIDO
+CP3=DRUIDA
 
 [OBJ125]
 Name=Saber
@@ -1403,16 +1306,8 @@ LingP=0
 LingO=0
 SkHerreria=70
 CP1=MAGO
-CP2=PALADIN
-CP3=LADRON
-CP4=BARDO
-CP5=DRUIDA
-CP6=GUERRERO
-CP7=ASESINO
-CP8=BANDIDO
-CP9=CAZADOR
-CP10=CLERIGO
-CP11=TRABAJADOR
+CP2=BANDIDO
+CP3=DRUIDA
 
 [OBJ126]
 Name=Battle Axe
@@ -1425,18 +1320,13 @@ MinHit=10
 MaxHit=18
 Valor=6300
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=CLERIGO
-CP7=ASESINO
-CP8=TRABAJADOR
 LingH=90
 LingP=0
 LingO=0
 SkHerreria=90
+CP1=MAGO
+CP2=BANDIDO
+CP3=DRUIDA
 
 [OBJ127]
 Name=Lumberjack Axe
@@ -1452,6 +1342,15 @@ LingH=5
 LingP=0
 LingO=0
 SkHerreria=12
+CP1=CLERIGO
+CP2=ASESINO
+CP3=PALADIN
+CP4=GUERRERO
+CP5=BANDIDO
+CP6=BARDO
+CP7=MAGO
+CP8=LADRON
+CP9=DRUIDA
 
 [OBJ128]
 Name=Iron Shield
@@ -1464,17 +1363,15 @@ MaxDef=3
 MinDef=1
 Valor=4200
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=TRABAJADOR
-CP4=BARDO
-CP5=PIRATA
-CP6=ASESINO
-CP7=CAZADOR
 LingH=60
 LingP=0
 LingO=0
 SkHerreria=55
+CP1=ASESINO
+CP2=BARDO
+CP3=MAGO
+CP4=TRABAJADOR
+CP5=DRUIDA
 
 [OBJ129]
 Name=Double-Edged War Axe
@@ -1486,19 +1383,15 @@ MinHit=7
 MaxHit=20
 Valor=5950
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=ASESINO
-CP7=CAZADOR
-CP8=TRABAJADOR
-CP9=BANDIDO
 LingH=85
 LingP=0
 LingO=0
 SkHerreria=86
+CP1=ASESINO
+CP2=BARDO
+CP3=MAGO
+CP4=LADRON
+CP5=DRUIDA
 
 [OBJ130]
 Name=Silver Shield
@@ -1511,18 +1404,16 @@ MaxDef=5
 MinDef=2
 Valor=13000
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=ASESINO
-CP7=CAZADOR
-CP8=TRABAJADOR
 LingH=100
 LingP=50
 LingO=0
 SkHerreria=85
+CP1=ASESINO
+CP2=BARDO
+CP3=MAGO
+CP4=LADRON
+CP5=TRABAJADOR
+CP6=DRUIDA
 
 [OBJ131]
 Name=Full Iron Helmet
@@ -1535,15 +1426,13 @@ MaxDef=20
 MinDef=10
 Valor=4550
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
 LingH=65
 LingP=0
 LingO=0
 SkHerreria=75
+CP1=MAGO
+CP2=LADRON
+CP3=DRUIDA
 
 [OBJ132]
 Name=Iron Helmet
@@ -1556,14 +1445,14 @@ MaxDef=8
 MinDef=3
 Valor=700
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=PIRATA
 LingH=10
 LingP=0
 LingO=0
 Upgrade=131
 SkHerreria=45
+CP1=MAGO
+CP2=LADRON
+CP3=DRUIDA
 
 [OBJ133]
 Name=Imperial Shield
@@ -1577,16 +1466,16 @@ MaxDef=4
 MinDef=1
 Valor=7800
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=ASESINO
 LingH=60
 LingP=30
 LingO=0
 SkHerreria=70
+CP1=ASESINO
+CP2=BARDO
+CP3=MAGO
+CP4=LADRON
+CP5=TRABAJADOR
+CP6=DRUIDA
 
 [OBJ134]
 Name=Armor Sign
@@ -1631,7 +1520,7 @@ Anim=20
 RazaEnanaAnim=76
 MinHit=1
 MaxHit=1
-Valor= 200
+Valor=200
 Crucial=1
 Madera=70
 SkCarpinteria=12
@@ -1645,7 +1534,6 @@ MinHam=75
 Valor=8
 Crucial=1
 
-'<--------------------MANSION NIX------------------------>
 [OBJ140]
 Name=Key to Nix Mansion
 GrhIndex=509
@@ -1709,49 +1597,49 @@ GrhIndex=669
 ObjType=19
 Agarrable=1
 
-[OBJ147] 
+[OBJ147]
 Name=Tree
 GrhIndex=7001
 ObjType=4
 Agarrable=1
 
-[OBJ148] 
+[OBJ148]
 Name=Jungle Tree
 GrhIndex=7002
 ObjType=4
 Agarrable=1
 
-[OBJ149] 
+[OBJ149]
 Name=Tree
 GrhIndex=7000
 ObjType=4
 Agarrable=1
 
-[OBJ150] 
+[OBJ150]
 Name=Tree
 GrhIndex=7222
 ObjType=4
 Agarrable=1
 
-[OBJ151] 
+[OBJ151]
 Name=Tree
 GrhIndex=7223
 ObjType=4
 Agarrable=1
 
-[OBJ152] 
+[OBJ152]
 Name=Tree
 GrhIndex=7224
 ObjType=4
 Agarrable=1
 
-[OBJ153] 
+[OBJ153]
 Name=Tree
 GrhIndex=7225
 ObjType=4
 Agarrable=1
 
-[OBJ154] 
+[OBJ154]
 Name=Tree
 GrhIndex=7226
 ObjType=4
@@ -1800,17 +1688,16 @@ MinHit=6
 MaxHit=19
 Valor=4690
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=CLERIGO
-CP7=ASESINO
 LingH=67
 LingP=0
 LingO=0
 SkHerreria=63
+CP1=CLERIGO
+CP2=ASESINO
+CP3=BARDO
+CP4=MAGO
+CP5=LADRON
+CP6=DRUIDA
 
 [OBJ160]
 Name=Beer
@@ -1866,6 +1753,9 @@ LingH=15
 LingP=0
 LingO=0
 SkHerreria=40
+CP1=MAGO
+CP2=BANDIDO
+CP3=DRUIDA
 
 [OBJ165]
 Name=Dagger +1
@@ -1884,8 +1774,11 @@ LingP=0
 LingO=0
 Upgrade=365
 SkHerreria=15
+CP1=MAGO
+CP2=BANDIDO
+CP3=DRUIDA
 
-[OBJ166] 
+[OBJ166]
 Name=Violet Potion
 GrhIndex=601
 ObjType=11
@@ -1932,10 +1825,7 @@ MinDef=0
 Valor=50
 Crucial=1
 
-'<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-'			Doors Catacumbas Ulla/NiX
-'<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-[OBJ171] 'CASA RUINAS
+[OBJ171]
 Name=Door
 GrhIndex=5599
 ObjType=6
@@ -1947,7 +1837,7 @@ IndexAbierta=171
 IndexCerrada=172
 IndexCerradaKey=173
 
-[OBJ172] 'CASA RUINAS
+[OBJ172]
 Name=Door
 GrhIndex=5600
 ObjType=6
@@ -1959,7 +1849,7 @@ IndexAbierta=171
 IndexCerrada=172
 IndexCerradaKey=173
 
-[OBJ173] 'CASA RUINAS
+[OBJ173]
 Name=Door
 GrhIndex=5600
 ObjType=6
@@ -1979,7 +1869,7 @@ Agarrable=0
 Clave=17
 Crucial=0
 
-[OBJ175] 'CASA RUINAS
+[OBJ175]
 Name=Door
 GrhIndex=5599
 ObjType=6
@@ -1991,7 +1881,7 @@ IndexAbierta=175
 IndexCerrada=176
 IndexCerradaKey=177
 
-[OBJ176] 'CASA RUINAS
+[OBJ176]
 Name=Door
 GrhIndex=5600
 ObjType=6
@@ -2003,7 +1893,7 @@ IndexAbierta=175
 IndexCerrada=176
 IndexCerradaKey=177
 
-[OBJ177] 'CASA RUINAS
+[OBJ177]
 Name=Door
 GrhIndex=5600
 ObjType=6
@@ -2023,7 +1913,7 @@ Agarrable=0
 Clave=18
 Crucial=0
 
-[OBJ179] 'CASA RUINAS
+[OBJ179]
 Name=Door
 GrhIndex=5599
 ObjType=6
@@ -2035,7 +1925,7 @@ IndexAbierta=179
 IndexCerrada=180
 IndexCerradaKey=181
 
-[OBJ180] 'CASA RUINAS
+[OBJ180]
 Name=Door
 GrhIndex=5600
 ObjType=6
@@ -2047,7 +1937,7 @@ IndexAbierta=179
 IndexCerrada=180
 IndexCerradaKey=181
 
-[OBJ181] 'CASA RUINAS
+[OBJ181]
 Name=Door
 GrhIndex=5600
 ObjType=6
@@ -2067,7 +1957,7 @@ Agarrable=0
 Clave=19
 Crucial=0
 
-[OBJ183] 'FUERTE SUR OESTE ULLA
+[OBJ183]
 Name=Key to the Fort
 GrhIndex=509
 ObjType=9
@@ -2075,7 +1965,7 @@ Agarrable=0
 Clave=20
 Crucial=0
 
-[OBJ184]'Fuerte suroeste Ullathorpe
+[OBJ184]
 Name=Door
 GrhIndex=5592
 ObjType=6
@@ -2087,7 +1977,7 @@ IndexAbierta=184
 IndexCerrada=185
 IndexCerradaKey=186
 
-[OBJ185]'Fuerte suroeste Ullathorpe
+[OBJ185]
 Name=Door
 GrhIndex=5593
 ObjType=6
@@ -2099,7 +1989,7 @@ IndexAbierta=184
 IndexCerrada=185
 IndexCerradaKey=186
 
-[OBJ186]'Fuerte suroeste Ullathorpe
+[OBJ186]
 Name=Door
 GrhIndex=5593
 ObjType=6
@@ -2195,19 +2085,16 @@ MaxDef=40
 MinDef=35
 Valor=27440
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=ASESINO
-CP7=CAZADOR
-CP8=TRABAJADOR
 LingH=392
 LingP=0
 LingO=0
 Upgrade=390
 SkHerreria=70
+CP1=ASESINO
+CP2=BARDO
+CP3=MAGO
+CP4=LADRON
+CP5=DRUIDA
 
 [OBJ196]
 Name=Wizard Robe
@@ -2575,6 +2462,7 @@ MaxDef=10
 MinDef=5
 Valor=2700
 Crucial=1
+CP1=GUERRERO
 
 [OBJ239]
 Name=Red Robe
@@ -2598,8 +2486,9 @@ MaxDef=0
 MinDef=0
 Valor=40
 Crucial=1
+CP1=LADRON
 
-[OBJ241] 'Door para negocio porque no tiene clave
+[OBJ241]
 Name=Open Wooden Door
 GrhIndex=8685
 ObjType=6
@@ -2610,7 +2499,7 @@ IndexAbierta=241
 IndexCerrada=242
 IndexCerradaKey=241
 
-[OBJ242] 'Door para negocio porque no tiene clave
+[OBJ242]
 Name=Closed Wooden Door
 GrhIndex=8684
 ObjType=6
@@ -2632,22 +2521,18 @@ MaxDef=40
 MinDef=35
 Valor=27440
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=ASESINO
-CP7=CAZADOR
 LingH=392
 LingP=0
 LingO=0
 Upgrade=392
 SkHerreria=70
+CP1=ASESINO
+CP2=BARDO
+CP3=MAGO
+CP4=LADRON
+CP5=DRUIDA
 
-'-------------------------------------------------------
-
-[OBJ244] 'Door para negocio porque no tiene clave
+[OBJ244]
 Name=Open Wooden Door
 GrhIndex=9199
 ObjType=6
@@ -2658,7 +2543,7 @@ IndexAbierta=244
 IndexCerrada=245
 IndexCerradaKey=245
 
-[OBJ245] 'Door para negocio porque no tiene clave
+[OBJ245]
 Name=Closed Wooden Door
 GrhIndex=9193
 ObjType=6
@@ -2669,9 +2554,7 @@ IndexAbierta=244
 IndexCerrada=245
 IndexCerradaKey=245
 
-'-------------------------------------------------------
-
-[OBJ246] 'Door para negocio porque no tiene clave
+[OBJ246]
 Name=Open Wooden Door
 GrhIndex=9200
 ObjType=6
@@ -2682,7 +2565,7 @@ IndexAbierta=246
 IndexCerrada=247
 IndexCerradaKey=247
 
-[OBJ247] 'Door para negocio porque no tiene clave
+[OBJ247]
 Name=Closed Wooden Door
 GrhIndex=9194
 ObjType=6
@@ -2693,9 +2576,7 @@ IndexAbierta=246
 IndexCerrada=247
 IndexCerradaKey=247
 
-'------------------------------------------------------
-
-[OBJ248] 'Door para negocio porque no tiene clave
+[OBJ248]
 Name=Open Wooden Door
 GrhIndex=9201
 ObjType=6
@@ -2706,7 +2587,7 @@ IndexAbierta=248
 IndexCerrada=249
 IndexCerradaKey=249
 
-[OBJ249] 'Door para negocio porque no tiene clave
+[OBJ249]
 Name=Closed Wooden Door
 GrhIndex=9195
 ObjType=6
@@ -2717,9 +2598,7 @@ IndexAbierta=248
 IndexCerrada=249
 IndexCerradaKey=249
 
-'------------------------------------------------------
-
-[OBJ250] 'Door para negocio porque no tiene clave
+[OBJ250]
 Name=Open Wooden Door
 GrhIndex=9202
 ObjType=6
@@ -2730,7 +2609,7 @@ IndexAbierta=250
 IndexCerrada=251
 IndexCerradaKey=251
 
-[OBJ251] 'Door para negocio porque no tiene clave
+[OBJ251]
 Name=Closed Wooden Door
 GrhIndex=9196
 ObjType=6
@@ -2741,9 +2620,7 @@ IndexAbierta=250
 IndexCerrada=251
 IndexCerradaKey=251
 
-'------------------------------------------------------
-
-[OBJ252] 'Door para negocio porque no tiene clave
+[OBJ252]
 Name=Open Wooden Door
 GrhIndex=9203
 ObjType=6
@@ -2754,7 +2631,7 @@ IndexAbierta=252
 IndexCerrada=253
 IndexCerradaKey=253
 
-[OBJ253] 'Door para negocio porque no tiene clave
+[OBJ253]
 Name=Closed Wooden Door
 GrhIndex=9197
 ObjType=6
@@ -2765,9 +2642,7 @@ IndexAbierta=252
 IndexCerrada=253
 IndexCerradaKey=253
 
-'------------------------------------------------------
-
-[OBJ254] 'Door para negocio porque no tiene clave
+[OBJ254]
 Name=Open Wooden Door
 GrhIndex=9204
 ObjType=6
@@ -2778,7 +2653,7 @@ IndexAbierta=254
 IndexCerrada=255
 IndexCerradaKey=255
 
-[OBJ255] 'Door para negocio porque no tiene clave
+[OBJ255]
 Name=Closed Wooden Door
 GrhIndex=9198
 ObjType=6
@@ -2788,8 +2663,6 @@ Key=0
 IndexAbierta=254
 IndexCerrada=255
 IndexCerradaKey=255
-
-'------------------------------------------------------
 
 [OBJ256]
 Name=Forum
@@ -2845,11 +2718,6 @@ ObjType=8
 Agarrable=1
 Texto=The Great Council.
 
-
-'<------------------------------CASAS BANDERBILL----------------------------->
-
-'<<<<<<<<<<<<<<<Casa 1 de Banderbill>>>>>>>>>>>>>>>>>
-
 [OBJ263]
 Name=Open Door
 GrhIndex=9201
@@ -2894,8 +2762,6 @@ Agarrable=0
 Clave=25
 Valor=6000000
 Crucial=0
-
-'<<<<<<<<<<<<<<<Casa 2 de Banderbill>>>>>>>>>>>>>>>>>
 
 [OBJ267]
 Name=Open Door
@@ -2942,8 +2808,6 @@ Clave=26
 Valor=4600000
 Crucial=0
 
-'<<<<<<<<<<<<<<<Casa 3 de Banderbill>>>>>>>>>>>>>>>>>
-
 [OBJ271]
 Name=Open Door
 GrhIndex=9201
@@ -2989,8 +2853,6 @@ Clave=27
 Valor=6000000
 Crucial=0
 
-'<<<<<<<<<<<<<<<Casa 4 de Banderbill>>>>>>>>>>>>>>>>>
-
 [OBJ275]
 Name=Open Door
 GrhIndex=9201
@@ -3023,7 +2885,6 @@ Agarrable=1
 Abierta=1
 Key=1
 Clave=28
-Agarrable=1
 IndexAbierta=275
 IndexCerrada=276
 IndexCerradaKey=277
@@ -3036,8 +2897,6 @@ Agarrable=0
 Clave=28
 Valor=3250000
 Crucial=0
-
-'<<<<<<<<<<<<<<<Casa 5 de Banderbill>>>>>>>>>>>>>>>>>
 
 [OBJ279]
 Name=Open Door
@@ -3084,8 +2943,6 @@ Clave=29
 Valor=4600000
 Crucial=0
 
-'<<<<<<<<<<<<<<<Casa 6 de Banderbill>>>>>>>>>>>>>>>>>
-
 [OBJ283]
 Name=Open Door
 GrhIndex=9201
@@ -3130,8 +2987,6 @@ Agarrable=0
 Clave=30
 Valor=6000000
 Crucial=0
-
-'<<<<<<<<<<<<<<<Casa 7 de Banderbill>>>>>>>>>>>>>>>>>
 
 [OBJ287]
 Name=Open Door
@@ -3178,8 +3033,6 @@ Clave=31
 Valor=3250000
 Crucial=0
 
-'<<<<<<<<<<<<<<<Casa 8 de Banderbill>>>>>>>>>>>>>>>>>
-
 [OBJ291]
 Name=Open Door
 GrhIndex=9201
@@ -3224,8 +3077,6 @@ Agarrable=0
 Clave=32
 Valor=6000000
 Crucial=0
-
-'<<<<<<<<<<<<<<<Casa 9 de Banderbill>>>>>>>>>>>>>>>>>
 
 [OBJ295]
 Name=Open Door
@@ -3272,8 +3123,6 @@ Clave=33
 Valor=6000000
 Crucial=0
 
-'<<<<<<<<<<<<<<<Gran Consejo de Banderbill>>>>>>>>>>>>>>>>>
-
 [OBJ299]
 Name=Open Door
 GrhIndex=9199
@@ -3318,8 +3167,6 @@ Agarrable=0
 Clave=34
 Valor=0
 Crucial=0
-
-'<<<<<<<<<<<<<<<Door del vault 1 del gran consejo de Banderbill>>>>>>>>>>>>>>>>>
 
 [OBJ303]
 Name=Open Door
@@ -3366,8 +3213,6 @@ Clave=35
 Valor=0
 Crucial=0
 
-'<<<<<<<<<<<<<<<Door del vault 2 del gran consejo de R�zgul>>>>>>>>>>>>>>>>>
-
 [OBJ307]
 Name=Open Door
 GrhIndex=9199
@@ -3411,8 +3256,6 @@ ObjType=9
 Agarrable=0
 Clave=36
 Crucial=0
-
-'<<<<<<<<<<<<<<<Door de la B�veda Goliath>>>>>>>>>>>>>>>>>
 
 [OBJ311]
 Name=Open Door
@@ -3459,8 +3302,6 @@ Clave=78
 Valor=0
 Crucial=0
 
-'-------------------------------------------------------
-
 [OBJ315]
 Name=Piers Sign
 GrhIndex=675
@@ -3502,8 +3343,6 @@ Agarrable=0
 Valor=290000
 Crucial=1
 HechizoIndex=11
-
-'<<<<<<<<<<<<<<<Casa 10 de Banderbill>>>>>>>>>>>>>>>>>
 
 [OBJ320]
 Name=Open Door
@@ -3550,8 +3389,6 @@ Clave=37
 Valor=8000000
 Crucial=0
 
-'<<<<<<<<<<<<<<<Casa 11 de Banderbill>>>>>>>>>>>>>>>>>
-
 [OBJ324]
 Name=Open Door
 GrhIndex=9201
@@ -3596,8 +3433,6 @@ Agarrable=0
 Clave=38
 Valor=9000000
 Crucial=0
-
-'<<<<<<<<<<<<<<<Casa 12 de Banderbill>>>>>>>>>>>>>>>>>
 
 [OBJ328]
 Name=Open Door
@@ -3644,8 +3479,6 @@ Clave=39
 Valor=8000000
 Crucial=0
 
-'<<<<<<<<<<<<<<<Casa 13 de Banderbill>>>>>>>>>>>>>>>>>
-
 [OBJ332]
 Name=Open Door
 GrhIndex=9201
@@ -3690,8 +3523,6 @@ Agarrable=0
 Clave=40
 Valor=8000000
 Crucial=0
-
-'<<<<<<<<<<<<<<<Casa 14 de Banderbill>>>>>>>>>>>>>>>>>
 
 [OBJ336]
 Name=Open Door
@@ -3738,8 +3569,6 @@ Clave=41
 Valor=10000000
 Crucial=0
 
-'<<<<<<<<<<<<<<<Casa 15 de Banderbill>>>>>>>>>>>>>>>>>
-
 [OBJ340]
 Name=Open Door
 GrhIndex=9201
@@ -3784,8 +3613,6 @@ Agarrable=0
 Clave=42
 Valor=2500000
 Crucial=0
-
-'<<<<<<<<<<<<<<<Casa 16 de Banderbill>>>>>>>>>>>>>>>>>
 
 [OBJ344]
 Name=Open Door
@@ -3832,8 +3659,6 @@ Clave=43
 Valor=2500000
 Crucial=0
 
-'<<<<<<<<<<<<<<<Casa 17 de Banderbill>>>>>>>>>>>>>>>>>
-
 [OBJ348]
 Name=Open Door
 GrhIndex=9201
@@ -3878,8 +3703,6 @@ Agarrable=0
 Clave=44
 Valor=2500000
 Crucial=0
-
-'<<<<<<<<<<<<<<<Casa 18 de Banderbill>>>>>>>>>>>>>>>>>
 
 [OBJ352]
 Name=Open Door
@@ -3926,8 +3749,6 @@ Clave=45
 Valor=2500000
 Crucial=0
 
-'-------------------------------------------------------
-
 [OBJ356]
 Name=Armor of Shadows
 GrhIndex=680
@@ -3938,21 +3759,19 @@ MaxDef=37
 MinDef=30
 Valor=23030
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
-CP4=PIRATA
-CP5=CAZADOR
-CP6=GUERRERO
-CP7=PALADIN
-CP8=BANDIDO
-CP9=CLERIGO
-CP10=LADRON
-CP11=TRABAJADOR
 LingH=329
 LingP=0
 LingO=0
 SkHerreria=75
+CP1=CLERIGO
+CP2=PALADIN
+CP3=GUERRERO
+CP4=BANDIDO
+CP5=BARDO
+CP6=MAGO
+CP7=LADRON
+CP8=TRABAJADOR
+CP9=DRUIDA
 
 [OBJ357]
 Name=Monk Robe
@@ -3964,6 +3783,7 @@ MaxDef=20
 MinDef=15
 Valor=10500
 Crucial=1
+CP1=DRUIDA
 
 [OBJ358]
 Name=Teleport to Banderbill
@@ -3981,13 +3801,13 @@ MaxDef=22
 MinDef=12
 Valor=7350
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=105
 LingP=0
 LingO=0
 SkHerreria=65
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ360]
 Name=Hunter's Armor
@@ -3999,14 +3819,9 @@ MaxDef=20
 MinDef=10
 Valor=17000
 Crucial=1
-CP1=PIRATA
-CP2=MAGO
-CP3=PALADIN
-CP4=CLERIGO
-CP6=LADRON
-CP9=BARDO
-CP10=DRUIDA
-CP11=TRABAJADOR
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ361]
 Name=Fire Storm
@@ -4065,6 +3880,9 @@ LingP=0
 LingO=0
 Upgrade=366
 SkHerreria=35
+CP1=MAGO
+CP2=BANDIDO
+CP3=DRUIDA
 
 [OBJ366]
 Name=Dagger +3
@@ -4078,13 +3896,14 @@ MaxHit=7
 Apunala=1
 Valor=2660
 Crucial=0
-CP1=GUERRERO
-CP2=PIRATA
 LingH=38
 LingP=0
 LingO=0
 Upgrade=367
 SkHerreria=50
+CP1=MAGO
+CP2=BANDIDO
+CP3=DRUIDA
 
 [OBJ367]
 Name=Dagger +4
@@ -4098,21 +3917,13 @@ MaxHit=8
 Apunala=1
 Valor=3500
 Crucial=0
-CP1=PIRATA
-CP2=MAGO
-CP3=PALADIN
-CP4=CLERIGO
-CP5=CAZADOR
-CP6=LADRON
-CP7=BANDIDO
-CP8=GUERRERO
-CP9=BARDO
-CP10=DRUIDA
-CP11=TRABAJADOR
 LingH=50
 LingP=0
 LingO=0
 SkHerreria=75
+CP1=MAGO
+CP2=BANDIDO
+CP3=DRUIDA
 
 [OBJ368]
 Name=Tombstone
@@ -4132,14 +3943,13 @@ MaxDef=13
 MinDef=7
 Valor=3010
 Crucial=1
-CP1=DRUIDA
-CP2=CLERIGO
-CP3=BARDO
-CP4=MAGO
 LingH=43
 LingP=0
 LingO=0
 SkHerreria=35
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ370]
 Name=Hunter's Hood
@@ -4152,17 +3962,14 @@ MaxDef=14
 MinDef=6
 Valor=4550
 Crucial=0
-CP1=PIRATA
-CP2=MAGO
+CP1=CLERIGO
+CP2=ASESINO
 CP3=PALADIN
-CP4=CLERIGO
-CP5=ASESINO
-CP6=LADRON
-CP7=BANDIDO
-CP8=GUERRERO
-CP9=BARDO
-CP10=DRUIDA
-CP11=TRABAJADOR
+CP4=BARDO
+CP5=BANDIDO
+CP6=MAGO
+CP7=TRABAJADOR
+CP8=DRUIDA
 
 [OBJ371]
 Name=Tomb of Nebeth
@@ -4183,18 +3990,13 @@ MinDef=6
 Valor=2900
 Crucial=1
 Real=1
-CP1=GUERRERO
+CP1=ASESINO
 CP2=PALADIN
-CP3=CAZADOR
-CP4=ASESINO
-CP5=PIRATA
-CP6=BANDIDO
-CP7=MAGO
-CP8=LADRON
-CP9=TRABAJADOR
-
-
-'<<<<<<<<<<<<<<<Door Isla Beleta>>>>>>>>>>>>>>>>>
+CP3=GUERRERO
+CP4=BANDIDO
+CP5=MAGO
+CP6=LADRON
+CP7=TRABAJADOR
 
 [OBJ373]
 Name=Open Door
@@ -4241,8 +4043,6 @@ Clave=49
 Valor=0
 Crucial=0
 
-'-------------------------------------------------------
-
 [OBJ377]
 Name=Forum
 ID=Beleta
@@ -4268,11 +4068,13 @@ MaxDef=13
 MinDef=7
 Valor=3010
 Crucial=1
-CP1=MAGO
 LingH=43
 LingP=0
 LingO=0
 SkHerreria=35
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ380]
 Name=Afterlife Invocation
@@ -4319,17 +4121,15 @@ DefensaMagicaMin=7
 DefensaMagicaMax=10
 Valor=10000
 Crucial=1
-CP1=PIRATA
-CP2=CAZADOR
+CP1=CLERIGO
+CP2=ASESINO
 CP3=PALADIN
-CP4=CLERIGO
-CP5=ASESINO
-CP6=LADRON
-CP7=BANDIDO
-CP8=GUERRERO
-CP9=BARDO
-CP10=DRUIDA
-CP11=TRABAJADOR
+CP4=GUERRERO
+CP5=BANDIDO
+CP6=BARDO
+CP7=LADRON
+CP8=TRABAJADOR
+CP9=DRUIDA
 
 [OBJ384]
 Name=Anvil
@@ -4393,18 +4193,18 @@ MaxDef=45
 MinDef=40
 Valor=35350
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=ASESINO
-CP7=TRABAJADOR
 LingH=505
 LingP=0
 LingO=0
 Upgrade=391
 SkHerreria=85
+CP1=CLERIGO
+CP2=ASESINO
+CP3=BARDO
+CP4=MAGO
+CP5=LADRON
+CP6=TRABAJADOR
+CP7=DRUIDA
 
 [OBJ391]
 Name=Full Plate Armor +2
@@ -4416,17 +4216,17 @@ MaxDef=50
 MinDef=45
 Valor=47600
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=ASESINO
-CP7=TRABAJADOR
 LingH=680
 LingP=0
 LingO=0
 SkHerreria=90
+CP1=CLERIGO
+CP2=ASESINO
+CP3=BARDO
+CP4=MAGO
+CP5=LADRON
+CP6=TRABAJADOR
+CP7=DRUIDA
 
 [OBJ392]
 Name=Full Plate Armor +1 (D/G)
@@ -4439,18 +4239,18 @@ MaxDef=45
 MinDef=40
 Valor=35350
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=ASESINO
-CP7=TRABAJADOR
 LingH=505
 LingP=0
 LingO=0
 Upgrade=393
 SkHerreria=85
+CP1=CLERIGO
+CP2=ASESINO
+CP3=BARDO
+CP4=MAGO
+CP5=LADRON
+CP6=TRABAJADOR
+CP7=DRUIDA
 
 [OBJ393]
 Name=Full Plate Armor +2 (D/G)
@@ -4463,17 +4263,17 @@ MaxDef=50
 MinDef=45
 Valor=47600
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=ASESINO
-CP7=TRABAJADOR
 LingH=680
 LingP=0
 LingO=0
 SkHerreria=90
+CP1=CLERIGO
+CP2=ASESINO
+CP3=BARDO
+CP4=MAGO
+CP5=LADRON
+CP6=TRABAJADOR
+CP7=DRUIDA
 
 [OBJ394]
 Name=Call to Nature
@@ -4523,9 +4323,8 @@ MaxHit=3
 Valor=100
 Crucial=1
 CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
+CP2=BANDIDO
+CP3=DRUIDA
 
 [OBJ399]
 Name=Scimitar
@@ -4538,14 +4337,13 @@ MinHit=7
 MaxHit=13
 Valor=3500
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=PIRATA
 LingH=50
 LingP=0
 LingO=0
 SkHerreria=59
+CP1=MAGO
+CP2=BANDIDO
+CP3=DRUIDA
 
 [OBJ400]
 Name=Lesser Wizard Staff
@@ -4587,14 +4385,16 @@ MinHit=6
 MaxHit=11
 Valor=2310
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
 LingH=33
 LingP=0
 LingO=0
 SkHerreria=30
+CP1=ASESINO
+CP2=BARDO
+CP3=MAGO
+CP4=LADRON
+CP5=TRABAJADOR
+CP6=DRUIDA
 
 [OBJ402]
 Name=Dragon Slayer Longsword
@@ -4607,16 +4407,14 @@ MinHit=100
 MaxHit=100
 Valor=188000
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=TRABAJADOR
 LingH=500
 LingP=400
 LingO=300
 SkHerreria=100
 Log=1
+CP1=MAGO
+CP2=BANDIDO
+CP3=DRUIDA
 
 [OBJ403]
 Name=Silver Longsword
@@ -4629,16 +4427,6 @@ MinHit=13
 MaxHit=20
 Valor=36200
 Crucial=0
-CP1=MAGO
-CP2=CLERIGO
-CP3=DRUIDA
-CP4=LADRON
-CP5=BARDO
-CP6=PIRATA
-CP7=CAZADOR
-CP8=ASESINO
-CP9=BANDIDO
-CP10=TRABAJADOR
 LingH=140
 LingP=220
 LingO=0
@@ -4656,13 +4444,12 @@ MaxDef=1
 MinDef=1
 Valor=350
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=PIRATA
 LingH=5
 LingP=0
 LingO=0
 SkHerreria=20
+CP1=MAGO
+CP2=DRUIDA
 
 [OBJ405]
 Name=Silver Helmet
@@ -4675,15 +4462,14 @@ MaxDef=25
 MinDef=20
 Valor=26100
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
 LingH=150
 LingP=130
 LingO=0
 SkHerreria=85
+CP1=MAGO
+CP2=LADRON
+CP3=BARDO
+CP4=DRUIDA
 
 [OBJ406]
 Name=Lunar Gem
@@ -4763,9 +4549,6 @@ ObjType=30
 Valor=100
 Crucial=0
 
-'<-------------------------------CASAS LINDOS------------------------------->
-
-'<<<<<<<<<<<Casa 1 de Lindos>>>>>>>>>>>>
 [OBJ417]
 Name=Open Wooden Door
 GrhIndex=5592
@@ -4811,7 +4594,6 @@ Clave=50
 Valor=1800000
 Crucial=0
 
-'<<<<<<<<<<<Casa 2 de Lindos>>>>>>>>>>>>
 [OBJ421]
 Name=Open Wooden Door
 GrhIndex=5592
@@ -4857,7 +4639,6 @@ Clave=51
 Valor=1800000
 Crucial=0
 
-'<<<<<<<<<<<Casa 3 de Lindos>>>>>>>>>>>>
 [OBJ425]
 Name=Open Wooden Door
 GrhIndex=5592
@@ -4903,7 +4684,6 @@ Clave=52
 Valor=1800000
 Crucial=0
 
-'<<<<<<<<<<<Casa 4 de Lindos>>>>>>>>>>>>
 [OBJ429]
 Name=Open Wooden Door
 GrhIndex=5592
@@ -4949,7 +4729,6 @@ Clave=53
 Valor=1000000
 Crucial=0
 
-'<<<<<<<<<<<Casa 5 de Lindos>>>>>>>>>>>>
 [OBJ433]
 Name=Open Wooden Door
 GrhIndex=5592
@@ -4995,7 +4774,6 @@ Clave=54
 Valor=1000000
 Crucial=0
 
-'<<<<<<<<<<<Casa 6 de Lindos>>>>>>>>>>>>
 [OBJ437]
 Name=Open Wooden Door
 GrhIndex=5592
@@ -5041,7 +4819,6 @@ Clave=55
 Valor=1000000
 Crucial=0
 
-'<<<<< Abad�a de Lindos >>>>>>>>
 [OBJ441]
 Name=Open Wooden Door
 GrhIndex=9203
@@ -5087,7 +4864,6 @@ Clave=56
 Valor=20000000
 Crucial=0
 
-'<<<<< Vault Abad�a >>>>>>>>
 [OBJ445]
 Name=Open Wooden Door
 GrhIndex=9203
@@ -5132,8 +4908,6 @@ Agarrable=0
 Clave=57
 Valor=0
 Crucial=0
-
-'<<<<< PRISI�N BANDERBILL >>>>>>>>
 
 [OBJ449]
 Name=Open Wooden Door
@@ -5207,7 +4981,7 @@ GrhIndex=669
 ObjType=19
 Agarrable=1
 
-[OBJ457]'Prison 1
+[OBJ457]
 Name=Sign
 GrhIndex=718
 VGrande=501
@@ -5215,7 +4989,7 @@ ObjType=8
 Agarrable=1
 Texto=Kingdom's Prison
 
-[OBJ458]'Prison 2
+[OBJ458]
 Name=Sign
 GrhIndex=720
 VGrande=501
@@ -5223,7 +4997,7 @@ ObjType=8
 Agarrable=1
 Texto=Prison
 
-[OBJ459]'Abad�a de Lindos
+[OBJ459]
 Name=Sign
 GrhIndex=721
 VGrande=501
@@ -5244,7 +5018,7 @@ MaxHit=3
 Apunala=1
 Crucial=0
 
-[OBJ461] 'Repone HP
+[OBJ461]
 Name=Red Potion (Newbie)
 GrhIndex=542
 ObjType=11
@@ -5255,7 +5029,7 @@ MaxModificador=30
 MinModificador=30
 Crucial=0
 
-[OBJ462] 'Mod Fuerza
+[OBJ462]
 Name=Green Potion (Newbie)
 GrhIndex=543
 ObjType=11
@@ -5311,6 +5085,7 @@ MaxDef=0
 Crucial=0
 RazaEnana=1
 Newbie=1
+CP1=CLERIGO
 
 [OBJ467]
 Name=Red Apple (Newbie)
@@ -5445,11 +5220,11 @@ MinHit=1
 MaxHit=4
 Valor=92
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
 Madera=42
 Upgrade=663
 SkCarpinteria=20
+CP1=MAGO
+CP2=DRUIDA
 
 [OBJ479]
 Name=Compound Bow
@@ -5464,12 +5239,12 @@ MinHit=4
 MaxHit=10
 Valor=1080
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=PIRATA
 Madera=450
 Upgrade=664
 SkCarpinteria=40
+CP1=MAGO
+CP2=BANDIDO
+CP3=DRUIDA
 
 [OBJ480]
 Name=Arrow
@@ -5496,17 +5271,17 @@ MaxDef=65
 MinDef=60
 Valor=540000
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=ASESINO
-CP7=TRABAJADOR
 LingH=1000
 LingP=1000
 LingO=1000
 SkHerreria=100
+CP1=CLERIGO
+CP2=ASESINO
+CP3=BARDO
+CP4=MAGO
+CP5=LADRON
+CP6=TRABAJADOR
+CP7=DRUIDA
 
 [OBJ482]
 Name=Dragon Scale Armor (H/E/D-W)
@@ -5519,17 +5294,17 @@ MaxDef=65
 MinDef=60
 Valor=540000
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=ASESINO
-CP7=TRABAJADOR
 LingH=1000
 LingP=1000
 LingO=1000
 SkHerreria=100
+CP1=CLERIGO
+CP2=ASESINO
+CP3=BARDO
+CP4=MAGO
+CP5=LADRON
+CP6=TRABAJADOR
+CP7=DRUIDA
 
 [OBJ483]
 Name=Dragon Scale Armor (D/G)
@@ -5542,17 +5317,17 @@ MaxDef=65
 MinDef=60
 Valor=540000
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=ASESINO
-CP7=TRABAJADOR
 LingH=1000
 LingP=1000
 LingO=1000
 SkHerreria=100
+CP1=CLERIGO
+CP2=ASESINO
+CP3=BARDO
+CP4=MAGO
+CP5=LADRON
+CP6=TRABAJADOR
+CP7=DRUIDA
 
 [OBJ484]
 Name=Nobleman's Mantle
@@ -5564,17 +5339,16 @@ MaxDef=15
 MinDef=10
 Valor=4620
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=CLERIGO
-CP6=PIRATA
-CP7=ASESINO
 LingH=66
 LingP=0
 LingO=0
 SkHerreria=50
+CP1=CLERIGO
+CP2=ASESINO
+CP3=BARDO
+CP4=MAGO
+CP5=LADRON
+CP6=DRUIDA
 
 [OBJ485]
 Name=Legendary Armor
@@ -5586,17 +5360,17 @@ MaxDef=60
 MinDef=55
 Valor=328000
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=CLERIGO
-CP6=PIRATA
-CP7=ASESINO
 LingH=1000
 LingP=400
 LingO=600
 SkHerreria=100
+CP1=CLERIGO
+CP2=ASESINO
+CP3=BARDO
+CP4=MAGO
+CP5=LADRON
+CP6=TRABAJADOR
+CP7=DRUIDA
 
 [OBJ486]
 Name=Style Clothes (D/G)
@@ -5609,6 +5383,7 @@ MaxDef=1
 MinDef=1
 Valor=120
 Crucial=1
+CP1=CLERIGO
 
 [OBJ487]
 Name=Lady of Darkness (H/E/D-W)
@@ -5621,19 +5396,17 @@ MaxDef=60
 MinDef=55
 Valor=398000
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=CLERIGO
-CP6=PIRATA
-CP7=ASESINO
-CP8=CAZADOR
-CP9=TRABAJADOR
 LingH=1000
 LingP=400
 LingO=800
 SkHerreria=100
+CP1=CLERIGO
+CP2=ASESINO
+CP3=BARDO
+CP4=MAGO
+CP5=LADRON
+CP6=TRABAJADOR
+CP7=DRUIDA
 
 [OBJ488]
 Name=White Lady (H/E/D-W)
@@ -5646,6 +5419,7 @@ MaxDef=9
 MinDef=7
 Valor=3000
 Crucial=1
+CP1=BANDIDO
 
 [OBJ489]
 Name=Blue Full Plate Armor
@@ -5657,18 +5431,15 @@ MaxDef=45
 MinDef=40
 Valor=59000
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=CLERIGO
-CP6=PIRATA
-CP7=ASESINO
-CP8=TRABAJADOR
 LingH=500
 LingP=200
 LingO=0
 SkHerreria=80
+CP1=ASESINO
+CP2=BARDO
+CP3=MAGO
+CP4=LADRON
+CP5=DRUIDA
 
 [OBJ490]
 Name=Miner's Clothes
@@ -5680,9 +5451,6 @@ MaxDef=16
 MinDef=12
 Valor=5000
 Crucial=1
-CP1=MAGO
-CP2=PIRATA
-CP3=DRUIDA
 
 [OBJ491]
 Name=Royal Shield RM
@@ -5710,14 +5478,13 @@ MaxDef=13
 MinDef=7
 Valor=3010
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=CLERIGO
-CP4=BARDO
 LingH=43
 LingP=0
 LingO=0
 SkHerreria=35
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ493]
 Name=Red Full Plate Armor (H/E/D-W)
@@ -5730,18 +5497,15 @@ MaxDef=40
 MinDef=35
 Valor=53750
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=CLERIGO
-CP6=PIRATA
-CP7=ASESINO
-CP8=TRABAJADOR
 LingH=425
 LingP=200
 LingO=0
 SkHerreria=82
+CP1=ASESINO
+CP2=BARDO
+CP3=MAGO
+CP4=LADRON
+CP5=DRUIDA
 
 [OBJ494]
 Name=Legionary Shield RM
@@ -5767,19 +5531,17 @@ MaxDef=55
 MinDef=50
 Valor=86000
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=CLERIGO
-CP6=PIRATA
-CP7=ASESINO
-CP8=CAZADOR
-CP9=TRABAJADOR
 LingH=800
 LingP=250
 LingO=0
 SkHerreria=100
+CP1=CLERIGO
+CP2=ASESINO
+CP3=BARDO
+CP4=MAGO
+CP5=LADRON
+CP6=TRABAJADOR
+CP7=DRUIDA
 
 [OBJ496]
 Name=Swamp Armor
@@ -5791,19 +5553,17 @@ MaxDef=50
 MinDef=45
 Valor=69500
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=CLERIGO
-CP6=PIRATA
-CP7=ASESINO
-CP8=CAZADOR
-CP9=TRABAJADOR
 LingH=650
 LingP=200
 LingO=0
 SkHerreria=90
+CP1=CLERIGO
+CP2=ASESINO
+CP3=BARDO
+CP4=MAGO
+CP5=LADRON
+CP6=TRABAJADOR
+CP7=DRUIDA
 
 [OBJ497]
 Name=Gala Full Plate Armor
@@ -5815,18 +5575,17 @@ MaxDef=47
 MinDef=42
 Valor=56640
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=CLERIGO
-CP6=PIRATA
-CP7=ASESINO
-CP8=TRABAJADOR
 LingH=600
 LingP=122
 LingO=0
 SkHerreria=85
+CP1=CLERIGO
+CP2=ASESINO
+CP3=BARDO
+CP4=MAGO
+CP5=LADRON
+CP6=TRABAJADOR
+CP7=DRUIDA
 
 [OBJ498]
 Name=Sidra
@@ -5848,9 +5607,6 @@ MaxDef=22
 MinDef=12
 Valor=7350
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=105
 LingP=0
 LingO=0
@@ -5867,14 +5623,6 @@ MaxDef=45
 MinDef=40
 Valor=59000
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=CLERIGO
-CP6=PIRATA
-CP7=ASESINO
-CP8=TRABAJADOR
 LingH=500
 LingP=200
 LingO=0
@@ -5890,8 +5638,6 @@ MaxDef=5
 MinDef=3
 Valor=650
 Crucial=1
-CP1=MAGO
-CP2=PIRATA
 
 [OBJ502]
 Name=Peasant's Clothes (D/G)
@@ -5904,8 +5650,8 @@ MaxDef=5
 MinDef=3
 Valor=650
 Crucial=1
-CP1=MAGO
-CP2=PIRATA
+CP1=CLERIGO
+CP2=ASESINO
 
 [OBJ503]
 Name=Visual Trap (H/E/D-W)
@@ -5918,16 +5664,16 @@ MaxDef=40
 MinDef=30
 Valor=25200
 Crucial=1
-CP1=MAGO
-CP2=PIRATA
-CP3=ASESINO
-CP4=BARDO
-CP5=CAZADOR
-CP6=DRUIDA
 LingH=360
 LingP=0
 LingO=0
 SkHerreria=80
+CP1=ASESINO
+CP2=GUERRERO
+CP3=BARDO
+CP4=LADRON
+CP5=MAGO
+CP6=DRUIDA
 
 [OBJ504]
 Name=Combined Outfit (H/E/D-W)
@@ -5940,7 +5686,7 @@ MaxDef=3
 MinDef=1
 Valor=200
 Crucial=1
-CP1=PIRATA
+CP1=LADRON
 
 [OBJ505]
 Name=Blue Outfit (H/E/D-W)
@@ -5953,6 +5699,7 @@ MaxDef=3
 MinDef=1
 Valor=200
 Crucial=1
+CP1=BARDO
 
 [OBJ506]
 Name=Pink Outfit (H/E/D-W)
@@ -5965,6 +5712,7 @@ MaxDef=3
 MinDef=1
 Valor=200
 Crucial=1
+CP1=MAGO
 
 [OBJ507]
 Name=Violet Clothes (D/G)
@@ -5977,7 +5725,7 @@ MaxDef=4
 MinDef=2
 Valor=410
 Crucial=1
-CP1=MAGO
+CP1=TRABAJADOR
 
 [OBJ508]
 Name=Estuary Clothes (H/E/D-W)
@@ -6003,17 +5751,15 @@ MaxDef=12
 MinDef=5
 Valor=2800
 Crucial=1
-CP1=GUERRERO
-CP2=PALADIN
-CP3=DRUIDA
-CP4=CAZADOR
-CP5=CLERIGO
-CP6=ASESINO
-CP7=PIRATA
-CP8=BANDIDO
-CP9=BARDO
-CP10=LADRON
-CP11=TRABAJADOR
+CP1=CLERIGO
+CP2=ASESINO
+CP3=PALADIN
+CP4=GUERRERO
+CP5=BANDIDO
+CP6=BARDO
+CP7=LADRON
+CP8=TRABAJADOR
+CP9=DRUIDA
 
 [OBJ510]
 Name=Indulgent Dress (H/E/D-W)
@@ -6051,7 +5797,7 @@ MaxDef=10
 MinDef=6
 Valor=3075
 Crucial=1
-CP1=GUERRERO
+CP1=TRABAJADOR
 
 [OBJ513]
 Name=Witch's Dress (H/E/D-W)
@@ -6064,7 +5810,6 @@ MaxDef=20
 MinDef=15
 Valor=10500
 Crucial=1
-CP1=GUERRERO
 
 [OBJ514]
 Name=Special Witch's Dress (H/E/D-W)
@@ -6077,8 +5822,7 @@ MaxDef=26
 MinDef=19
 Valor=15200
 Crucial=1
-CP1=GUERRERO
-CP2=MAGO
+CP1=PALADIN
 
 [OBJ515]
 Name=Legendary Clothes
@@ -6103,17 +5847,15 @@ MaxDef=12
 MinDef=5
 Valor=2800
 Crucial=1
-CP1=GUERRERO
-CP2=PALADIN
-CP3=DRUIDA
-CP4=CAZADOR
-CP5=CLERIGO
-CP6=ASESINO
-CP7=PIRATA
-CP8=BANDIDO
-CP9=BARDO
-CP10=LADRON
-CP11=TRABAJADOR
+CP1=CLERIGO
+CP2=ASESINO
+CP3=PALADIN
+CP4=GUERRERO
+CP5=BANDIDO
+CP6=BARDO
+CP7=LADRON
+CP8=TRABAJADOR
+CP9=DRUIDA
 
 [OBJ517]
 Name=Imperial Wizard Robe
@@ -6126,17 +5868,15 @@ MaxDef=12
 MinDef=5
 Valor=2800
 Crucial=1
-CP1=GUERRERO
-CP2=PALADIN
-CP3=DRUIDA
-CP4=CAZADOR
-CP5=CLERIGO
-CP6=ASESINO
-CP7=PIRATA
-CP8=BANDIDO
-CP9=BARDO
-CP10=LADRON
-CP11=TRABAJADOR
+CP1=CLERIGO
+CP2=ASESINO
+CP3=PALADIN
+CP4=GUERRERO
+CP5=BANDIDO
+CP6=BARDO
+CP7=LADRON
+CP8=TRABAJADOR
+CP9=DRUIDA
 
 [OBJ518]
 Name=Dark Wizard Robe
@@ -6148,17 +5888,15 @@ MaxDef=12
 MinDef=5
 Valor=2800
 Crucial=1
-CP1=GUERRERO
-CP2=PALADIN
-CP3=DRUIDA
-CP4=CAZADOR
-CP5=CLERIGO
-CP6=ASESINO
-CP7=PIRATA
-CP8=BANDIDO
-CP9=BARDO
-CP10=LADRON
-CP11=TRABAJADOR
+CP1=CLERIGO
+CP2=ASESINO
+CP3=PALADIN
+CP4=GUERRERO
+CP5=BANDIDO
+CP6=BARDO
+CP7=LADRON
+CP8=TRABAJADOR
+CP9=DRUIDA
 
 [OBJ519]
 Name=Legendary Robe
@@ -6170,8 +5908,7 @@ MaxDef=35
 MinDef=30
 Valor=20000
 Crucial=1
-CP1=GUERRERO
-CP2=MAGO
+CP1=MAGO
 
 [OBJ520]
 Name=Great Imperial Priestess Armor (H/E/D-W)
@@ -6185,19 +5922,17 @@ MaxDef=22
 MinDef=15
 Valor=9240
 Crucial=1
-CP1=GUERRERO
-CP2=PALADIN
-CP3=CAZADOR
-CP4=ASESINO
-CP5=PIRATA
-CP6=BANDIDO
-CP7=MAGO
-CP8=LADRON
-CP9=TRABAJADOR
 LingH=132
 LingP=0
 LingO=0
 SkHerreria=70
+CP1=ASESINO
+CP2=PALADIN
+CP3=GUERRERO
+CP4=BANDIDO
+CP5=MAGO
+CP6=LADRON
+CP7=TRABAJADOR
 
 [OBJ521]
 Name=Royal Armor
@@ -6210,14 +5945,13 @@ MaxDef=13
 MinDef=7
 Valor=3010
 Crucial=1
-CP1=MAGO
-CP2=CLERIGO
-CP3=DRUIDA
-CP4=BARDO
 LingH=43
 LingP=0
 LingO=0
 SkHerreria=35
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ522]
 Name=Hipocr�s
@@ -6238,15 +5972,13 @@ MaxDef=12
 MinDef=6
 Valor=2900
 Crucial=1
-CP1=GUERRERO
+CP1=ASESINO
 CP2=PALADIN
-CP3=CAZADOR
-CP4=ASESINO
-CP5=PIRATA
-CP6=BANDIDO
-CP7=MAGO
-CP8=LADRON
-CP9=TRABAJADOR
+CP3=GUERRERO
+CP4=BANDIDO
+CP5=MAGO
+CP6=LADRON
+CP7=TRABAJADOR
 
 [OBJ524]
 Name=Special Red Robe (D/G)
@@ -6259,6 +5991,7 @@ MaxDef=20
 MinDef=15
 Valor=10500
 Crucial=1
+CP1=MAGO
 
 [OBJ525]
 Name=Combined Robe (D/G)
@@ -6285,7 +6018,8 @@ MaxDef=35
 MinDef=30
 Valor=20000
 Crucial=1
-CP1=MAGO
+CP1=GUERRERO
+CP2=MAGO
 
 [OBJ527]
 Name=Female Dwarf Clothes (D/G-W)
@@ -6310,7 +6044,7 @@ MaxDef=8
 MinDef=5
 Valor=3000
 Crucial=1
-CP1=GUERRERO
+CP1=MAGO
 
 [OBJ529]
 Name=Leather Armor (H/E/D-W)
@@ -6324,7 +6058,6 @@ MinDef=10
 Valor=4600
 Crucial=1
 CP1=MAGO
-CP2=PIRATA
 
 [OBJ530]
 Name=Hold
@@ -6516,17 +6249,15 @@ MaxDef=12
 MinDef=5
 Valor=2800
 Crucial=1
-CP1=GUERRERO
-CP2=PALADIN
-CP3=DRUIDA
-CP4=CAZADOR
-CP5=CLERIGO
-CP6=ASESINO
-CP7=PIRATA
-CP8=BANDIDO
-CP9=BARDO
-CP10=LADRON
-CP11=TRABAJADOR
+CP1=CLERIGO
+CP2=ASESINO
+CP3=PALADIN
+CP4=GUERRERO
+CP5=BANDIDO
+CP6=BARDO
+CP7=LADRON
+CP8=TRABAJADOR
+CP9=DRUIDA
 
 [OBJ550]
 Name=Pint of Beer
@@ -6645,17 +6376,9 @@ MaxDef=12
 MinDef=5
 Valor=2800
 Crucial=1
-CP1=GUERRERO
-CP2=PALADIN
+CP1=MAGO
+CP2=BARDO
 CP3=DRUIDA
-CP4=CAZADOR
-CP5=CLERIGO
-CP6=ASESINO
-CP7=PIRATA
-CP8=BANDIDO
-CP9=BARDO
-CP10=LADRON
-CP11=TRABAJADOR
 
 [OBJ559]
 Name=Silver Dagger
@@ -6793,7 +6516,7 @@ GrhIndex=874
 ObjType=30
 Agarrable=1
 
-[OBJ574]'Yendo a Arghal
+[OBJ574]
 Name=Sign
 GrhIndex=875
 VGrande=501
@@ -6815,7 +6538,7 @@ GrhIndex=529
 ObjType=10
 Agarrable=1
 
-[OBJ577]'Mystic River Inn
+[OBJ577]
 Name=Sign
 GrhIndex=876
 VGrande=501
@@ -6823,7 +6546,7 @@ ObjType=8
 Agarrable=1
 Texto=A refuge for adventurers, perfect place to drink and find new adventures.
 
-[OBJ578]'Downtown Arghal
+[OBJ578]
 Name=Sign
 GrhIndex=877
 VGrande=501
@@ -6831,7 +6554,7 @@ ObjType=8
 Agarrable=1
 Texto=The historic Arghal downtown area is just east from here.
 
-[OBJ579]'Arghal Central
+[OBJ579]
 Name=Sign
 GrhIndex=878
 VGrande=501
@@ -6839,9 +6562,6 @@ ObjType=8
 Agarrable=1
 Texto=The famous space where the most famous artists and poets of Argentum come together.
 
-'<-------------------------------CASAS ARKHEIN------------------------------->
-
-'<<<<<<<<<<<<<<<Casa 1 de Arkhein>>>>>>>>>>>>>>>>
 [OBJ580]
 Name=Open Wooden Door
 GrhIndex=5592
@@ -6887,7 +6607,6 @@ Clave=70
 Valor=1700000
 Crucial=0
 
-'<<<<<<<<<<<<<<<Casa 2 de Arkhein>>>>>>>>>>>>>>>>
 [OBJ584]
 Name=Open Wooden Door
 GrhIndex=5592
@@ -6933,7 +6652,6 @@ Clave=71
 Valor=1700000
 Crucial=0
 
-'<<<<<<<<<<<<<<<Casa 3 de Arkhein>>>>>>>>>>>>>>>>
 [OBJ588]
 Name=Open Wooden Door
 GrhIndex=5592
@@ -6979,7 +6697,6 @@ Clave=72
 Valor=1700000
 Crucial=0
 
-'<<<<<<<<<<<<<<<Casa 4 de Arkhein>>>>>>>>>>>>>>>>
 [OBJ592]
 Name=Open Wooden Door
 GrhIndex=5592
@@ -7025,7 +6742,6 @@ Clave=73
 Valor=1700000
 Crucial=0
 
-'<<<<<<<<<<<<<<<Casa 5 de Arkhein>>>>>>>>>>>>>>>>
 [OBJ596]
 Name=Open Wooden Door
 GrhIndex=5592
@@ -7071,7 +6787,6 @@ Clave=74
 Valor=1700000
 Crucial=0
 
-'<<<<<<<<<<<<<<<Casa 6 de Arkhein>>>>>>>>>>>>>>>>
 [OBJ600]
 Name=Open Wooden Door
 GrhIndex=5592
@@ -7117,7 +6832,6 @@ Clave=75
 Valor=1700000
 Crucial=0
 
-'<<<<<<<<<<<<<<<Casa 7 de Arkhein>>>>>>>>>>>>>>>>
 [OBJ604]
 Name=Open Wooden Door
 GrhIndex=5592
@@ -7163,7 +6877,6 @@ Clave=76
 Valor=1700000
 Crucial=0
 
-'<<<<<<<<<<<<<<<Casa 8 de Arkhein>>>>>>>>>>>>>>>>
 [OBJ608]
 Name=Open Wooden Door
 GrhIndex=5592
@@ -7225,7 +6938,7 @@ ObjType=29
 Agarrable=0
 Crucial=0
 
-[OBJ614]'2da Jerarq
+[OBJ614]
 Name=Archmage Robe
 GrhIndex=806
 ObjType=3
@@ -7248,7 +6961,7 @@ CP10=DRUIDA
 CP11=TRABAJADOR
 NoSeCae=1
 
-[OBJ615]]'2da Jerarq
+[OBJ615]
 Name=Archmage Robe (D/G)
 GrhIndex=657
 ObjType=3
@@ -7272,7 +6985,7 @@ CP10=DRUIDA
 CP11=TRABAJADOR
 NoSeCae=1
 
-[OBJ616]]'2da Jerarq
+[OBJ616]
 Name=Fighting Champion Armor
 GrhIndex=756
 ObjType=3
@@ -7292,7 +7005,7 @@ CP7=ASESINO
 CP8=TRABAJADOR
 NoSeCae=1
 
-[OBJ617]]]'2da Jerarq
+[OBJ617]
 Name=Fighting Champion Armor (D/G)
 GrhIndex=758
 ObjType=3
@@ -7359,7 +7072,7 @@ ObjType=13
 Agarrable=0
 MinAgu=100
 Valor=100
-Crucial=1 
+Crucial=1
 
 [OBJ623]
 Name=Forum
@@ -7411,7 +7124,7 @@ VGrande=501
 ObjType=12
 Agarrable=1
 
-[OBJ628]'2da Jerarq
+[OBJ628]
 Name=Imperial Archmage Robe
 GrhIndex=687
 ObjType=3
@@ -7422,17 +7135,7 @@ MaxDef=35
 MinDef=35
 Valor=0
 Crucial=0
-CP1=PIRATA
-CP2=CAZADOR
-CP3=PALADIN
-CP4=CLERIGO
-CP5=ASESINO
-CP6=LADRON
-CP7=BANDIDO
-CP8=GUERRERO
-CP9=BARDO
-CP10=DRUIDA
-CP11=TRABAJADOR
+CP1=MAGO
 
 [OBJ629]
 Name=Most Noble Armor
@@ -7445,16 +7148,15 @@ MaxDef=25
 MinDef=15
 Valor=11830
 Crucial=1
-CP1=CLERIGO
-CP2=BARDO
-CP3=DRUIDA
-CP4=MAGO
 LingH=169
 LingP=0
 LingO=0
 SkHerreria=70
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ630] '2da Jerarq
+[OBJ630]
 Name=Celestial Robe
 GrhIndex=767
 ObjType=3
@@ -7466,16 +7168,8 @@ MinDef=40
 Valor=0
 Crucial=0
 CP1=MAGO
-CP2=PIRATA
-CP3=CAZADOR
-CP4=PALADIN
-CP5=GUERRERO
-CP6=ASESINO
-CP7=LADRON
-CP8=BANDIDO
-CP9=TRABAJADOR
 
-[OBJ631] 'la "Jennifer" 2da jerarq
+[OBJ631]
 Name=Imperial Leader Armor (H/E/D-W)
 GrhIndex=797
 ObjType=3
@@ -7494,7 +7188,7 @@ CP5=BARDO
 CP6=DRUIDA
 CP7=PIRATA
 
-[OBJ632] 'Enanos guerres y derivados 2da Jerarq
+[OBJ632]
 Name=Royal Warrior Armor (D/G)
 GrhIndex=776
 ObjType=3
@@ -7512,7 +7206,7 @@ CP3=BARDO
 CP4=DRUIDA
 CP5=PIRATA
 
-[OBJ633] '2da jerarq
+[OBJ633]
 Name=Imperial Wizard Brown Robe (D/G)
 GrhIndex=802
 ObjType=3
@@ -7535,8 +7229,6 @@ CP8=BANDIDO
 CP9=BARDO
 CP10=LADRON
 CP11=TRABAJADOR
-
-'''''CAOS!
 
 [OBJ634]
 Name=Dark Wizard's Egregious Robe
@@ -7571,17 +7263,16 @@ MaxDef=25
 MinDef=15
 Valor=11830
 Crucial=1
-CP1=DRUIDA
-CP2=CLERIGO
-CP3=BARDO
-CP4=MAGO
-CP5=PIRATA
 LingH=169
 LingP=0
 LingO=0
 SkHerreria=70
+CP1=MAGO
+CP2=BARDO
+CP3=ASESINO
+CP4=DRUIDA
 
-[OBJ636] '2da jerarq
+[OBJ636]
 Name=Chaos Leader Robe (D/G)
 GrhIndex=657
 ObjType=3
@@ -7601,7 +7292,7 @@ CP6=BANDIDO
 CP7=GUERRERO
 CP8=TRABAJADOR
 
-[OBJ637] '2da jerarq
+[OBJ637]
 Name=Chaos Leader Robe
 GrhIndex=806
 ObjType=3
@@ -7621,7 +7312,7 @@ CP7=BANDIDO
 CP8=GUERRERO
 CP9=TRABAJADOR
 
-[OBJ638] '2da Jerarq
+[OBJ638]
 Name=Daemon's Guardian Armor
 GrhIndex=756
 ObjType=3
@@ -7637,7 +7328,7 @@ CP3=BARDO
 CP4=DRUIDA
 CP5=PIRATA
 
-[OBJ639] '2da jerarq
+[OBJ639]
 Name=Daemon's Guardian Armor (D/G)
 GrhIndex=758
 ObjType=3
@@ -7654,7 +7345,7 @@ CP3=BARDO
 CP4=DRUIDA
 CP5=PIRATA
 
-[OBJ640]'2da jerarq
+[OBJ640]
 Name=Chaos Archmage Robe
 GrhIndex=657
 ObjType=3
@@ -7750,17 +7441,9 @@ MaxDef=20
 MinDef=10
 Valor=17000
 Crucial=1
-CP1=PIRATA
-CP2=MAGO
-CP3=PALADIN
-CP4=CLERIGO
-CP5=ASESINO
-CP6=LADRON
-CP7=BANDIDO
-CP8=GUERRERO
-CP9=BARDO
-CP10=DRUIDA
-CP11=TRABAJADOR
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ649]
 Name=Sign
@@ -7845,17 +7528,15 @@ StaffPower=1
 StaffDamageBonus=22
 Valor=800
 Crucial=1
-CP1=PIRATA
-CP2=CAZADOR
+CP1=CLERIGO
+CP2=ASESINO
 CP3=PALADIN
-CP4=CLERIGO
-CP5=ASESINO
-CP6=LADRON
-CP7=BANDIDO
-CP8=GUERRERO
-CP9=BARDO
-CP10=DRUIDA
-CP11=TRABAJADOR
+CP4=GUERRERO
+CP5=BANDIDO
+CP6=BARDO
+CP7=LADRON
+CP8=TRABAJADOR
+CP9=DRUIDA
 
 [OBJ659]
 Name=Knotty Staff
@@ -7870,17 +7551,15 @@ StaffPower=2
 StaffDamageBonus=30
 Valor=2500
 Crucial=1
-CP1=PIRATA
-CP2=CAZADOR
+CP1=CLERIGO
+CP2=ASESINO
 CP3=PALADIN
-CP4=CLERIGO
-CP5=ASESINO
-CP6=LADRON
-CP7=BANDIDO
-CP8=GUERRERO
-CP9=BARDO
-CP10=DRUIDA
-CP11=TRABAJADOR
+CP4=GUERRERO
+CP5=BANDIDO
+CP6=BARDO
+CP7=LADRON
+CP8=TRABAJADOR
+CP9=DRUIDA
 
 [OBJ660]
 Name=Socketed Staff
@@ -7895,20 +7574,17 @@ MaxHit=1
 StaffPower=2
 StaffDamageBonus=34
 Valor=13000
-Crucial=0
-CP1=PIRATA
-CP2=CAZADOR
-CP3=PALADIN
-CP4=CLERIGO
-CP5=ASESINO
-CP6=LADRON
-CP7=BANDIDO
-CP8=GUERRERO
-CP9=BARDO
-CP10=DRUIDA
-CP11=TRABAJADOR
 MaderaElfica=2900
 SkCarpinteria=85
+CP1=CLERIGO
+CP2=ASESINO
+CP3=PALADIN
+CP4=GUERRERO
+CP5=BANDIDO
+CP6=BARDO
+CP7=LADRON
+CP8=TRABAJADOR
+CP9=DRUIDA
 
 [OBJ661]
 Name=Apprentice's Hat
@@ -7923,17 +7599,15 @@ DefensaMagicaMin=4
 DefensaMagicaMax=7
 Valor=6000
 Crucial=1
-CP1=PIRATA
-CP2=CAZADOR
+CP1=CLERIGO
+CP2=ASESINO
 CP3=PALADIN
-CP4=CLERIGO
-CP5=ASESINO
-CP6=LADRON
-CP7=BANDIDO
-CP8=GUERRERO
-CP9=BARDO
-CP10=DRUIDA
-CP11=TRABAJADOR
+CP4=GUERRERO
+CP5=BANDIDO
+CP6=BARDO
+CP7=LADRON
+CP8=TRABAJADOR
+CP9=DRUIDA
 
 [OBJ662]
 Name=Wizard's Hat
@@ -7948,17 +7622,15 @@ DefensaMagicaMin=10
 DefensaMagicaMax=15
 Valor=25000
 Crucial=1
-CP1=PIRATA
-CP2=CAZADOR
+CP1=CLERIGO
+CP2=ASESINO
 CP3=PALADIN
-CP4=CLERIGO
-CP5=ASESINO
-CP6=LADRON
-CP7=BANDIDO
-CP8=GUERRERO
-CP9=BARDO
-CP10=DRUIDA
-CP11=TRABAJADOR
+CP4=GUERRERO
+CP5=BANDIDO
+CP6=BARDO
+CP7=LADRON
+CP8=TRABAJADOR
+CP9=DRUIDA
 
 [OBJ663]
 Name=Reinforced Simple Bow
@@ -7974,10 +7646,10 @@ MinHit=2
 MaxHit=4
 Valor=438
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
 Madera=175
 SkCarpinteria=50
+CP1=MAGO
+CP2=DRUIDA
 
 [OBJ664]
 Name=Reinforced Compound Bow
@@ -7993,17 +7665,10 @@ MinHit=5
 MaxHit=10
 Valor=1788
 Crucial=0
-CP1=PIRATA
-CP2=MAGO
-CP3=PALADIN
-CP4=CLERIGO
-CP5=ASESINO
-CP6=LADRON
-CP7=BARDO
-CP8=DRUIDA
-CP9=TRABAJADOR
 Madera=650
 SkCarpinteria=75
+CP1=MAGO
+CP2=DRUIDA
 
 [OBJ665]
 Name=Hunter's Bow
@@ -8019,17 +7684,16 @@ MinHit=6
 MaxHit=11
 Valor=3000
 Crucial=0
-CP1=PIRATA
-CP2=MAGO
-CP3=PALADIN
-CP4=CLERIGO
-CP5=ASESINO
-CP6=TRABAJADOR
-CP7=BANDIDO
-CP8=DRUIDA
-CP9=BARDO
 MaderaElfica=500
 SkCarpinteria=100
+CP1=CLERIGO
+CP2=ASESINO
+CP3=PALADIN
+CP4=BARDO
+CP5=BANDIDO
+CP6=MAGO
+CP7=TRABAJADOR
+CP8=DRUIDA
 
 [OBJ667]
 Name=Chain Mail (D/G)
@@ -8042,13 +7706,13 @@ MaxDef=22
 MinDef=12
 Valor=7350
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=105
 LingP=0
 LingO=0
 SkHerreria=65
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ668]
 Name=Leather Armor (D/G)
@@ -8062,7 +7726,6 @@ MinDef=10
 Valor=4700
 Crucial=1
 CP1=MAGO
-CP2=PIRATA
 
 [OBJ669]
 Name=Royal Clothes
@@ -8075,14 +7738,13 @@ MaxDef=20
 MinDef=20
 Valor=0
 Crucial=0
-CP1=GUERRERO
-CP2=DRUIDA
-CP3=ASESINO
-CP4=CAZADOR
-CP5=PALADIN
-CP6=CLERIGO
-CP7=BANDIDO
-CP8=PIRATA
+CP1=CLERIGO
+CP2=ASESINO
+CP3=PALADIN
+CP4=GUERRERO
+CP5=BANDIDO
+CP6=LADRON
+CP7=DRUIDA
 
 [OBJ670]
 Name=Wizard's Robe (D/G)
@@ -8107,6 +7769,7 @@ MaxDef=15
 MinDef=6
 Valor=3400
 Crucial=1
+CP1=MAGO
 
 [OBJ672]
 Name=Elite Armor (D/G)
@@ -8119,13 +7782,15 @@ MaxDef=35
 MinDef=30
 Valor=21980
 Crucial=1
-CP1=GUERRERO
-CP2=MAGO
-CP3=DRUIDA
 LingH=314
 LingP=0
 LingO=0
 SkHerreria=75
+CP1=ASESINO
+CP2=BARDO
+CP3=MAGO
+CP4=LADRON
+CP5=DRUIDA
 
 [OBJ673]
 Name=Shapeshifting
@@ -8224,19 +7889,17 @@ MaxDef=22
 MinDef=15
 Valor=9240
 Crucial=1
-CP1=GUERRERO
-CP2=PALADIN
-CP3=CAZADOR
-CP4=ASESINO
-CP5=PIRATA
-CP6=BANDIDO
-CP7=MAGO
-CP8=LADRON
-CP9=TRABAJADOR
 LingH=132
 LingP=0
 LingO=0
 SkHerreria=70
+CP1=ASESINO
+CP2=PALADIN
+CP3=GUERRERO
+CP4=BANDIDO
+CP5=MAGO
+CP6=LADRON
+CP7=TRABAJADOR
 
 [OBJ681]
 Name=Most Noble Armor (D/G)
@@ -8250,11 +7913,13 @@ MaxDef=25
 MinDef=15
 Valor=11830
 Crucial=1
-CP1=MAGO
 LingH=169
 LingP=0
 LingO=0
 SkHerreria=70
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ682]
 Name=Imperial Wizard Conspicuous Robe (D/G)
@@ -8290,14 +7955,14 @@ MaxDef=25
 MinDef=15
 Valor=11830
 Crucial=1
-CP1=DRUIDA
-CP2=CLERIGO
-CP3=BARDO
-CP4=MAGO
 LingH=169
 LingP=0
 LingO=0
 SkHerreria=70
+CP1=MAGO
+CP2=TRABAJADOR
+CP3=BARDO
+CP4=DRUIDA
 
 [OBJ684]
 Name=Great Demonic Priest Armor
@@ -8309,19 +7974,17 @@ MaxDef=22
 MinDef=15
 Valor=9240
 Crucial=1
-CP1=GUERRERO
-CP2=PALADIN
-CP3=CAZADOR
-CP4=ASESINO
-CP5=PIRATA
-CP6=BANDIDO
-CP7=MAGO
-CP8=LADRON
-CP9=TRABAJADOR
 LingH=132
 LingP=0
 LingO=0
 SkHerreria=70
+CP1=ASESINO
+CP2=PALADIN
+CP3=GUERRERO
+CP4=BANDIDO
+CP5=MAGO
+CP6=LADRON
+CP7=TRABAJADOR
 
 [OBJ685]
 Name=Dark Armor (D/G)
@@ -8334,11 +7997,13 @@ MaxDef=25
 MinDef=15
 Valor=11830
 Crucial=1
-CP1=MAGO
 LingH=169
 LingP=0
 LingO=0
 SkHerreria=70
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ686]
 Name=Dark Wizard Egregious Robe (D/G)
@@ -8351,17 +8016,15 @@ MaxDef=20
 MinDef=15
 Valor=9500
 Crucial=1
-CP1=GUERRERO
-CP2=PALADIN
-CP3=DRUIDA
-CP4=CAZADOR
-CP5=CLERIGO
-CP6=ASESINO
-CP7=PIRATA
-CP8=BANDIDO
-CP9=BARDO
-CP10=LADRON
-CP11=TRABAJADOR
+CP1=CLERIGO
+CP2=ASESINO
+CP3=PALADIN
+CP4=GUERRERO
+CP5=BANDIDO
+CP6=BARDO
+CP7=LADRON
+CP8=TRABAJADOR
+CP9=DRUIDA
 
 [OBJ687]
 Name=Palatine Robe
@@ -8414,6 +8077,7 @@ MinDef=30
 Valor=18000
 Crucial=1
 CP1=MAGO
+CP2=BANDIDO
 
 [OBJ691]
 Name=Illustrious Knight Armor
@@ -8426,18 +8090,15 @@ MaxDef=40
 MinDef=35
 Valor=25060
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=ASESINO
-CP7=CAZADOR
-CP8=TRABAJADOR
 LingH=250
 LingP=63
 LingO=0
 SkHerreria=80
+CP1=ASESINO
+CP2=BARDO
+CP3=MAGO
+CP4=LADRON
+CP5=DRUIDA
 
 [OBJ692]
 Name=Teleport to Nemahuak
@@ -8457,18 +8118,13 @@ MaxDef=40
 MinDef=35
 Valor=25900
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=ASESINO
-CP7=CAZADOR
-CP8=TRABAJADOR
 LingH=250
 LingP=70
 LingO=0
 SkHerreria=80
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ694]
 Name=Illustrious Knight Armor (D/G)
@@ -8482,18 +8138,15 @@ MaxDef=40
 MinDef=35
 Valor=25060
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=ASESINO
-CP7=CAZADOR
-CP8=TRABAJADOR
 LingH=250
 LingP=63
 LingO=0
 SkHerreria=80
+CP1=ASESINO
+CP2=BARDO
+CP3=MAGO
+CP4=LADRON
+CP5=DRUIDA
 
 [OBJ695]
 Name=Small Pandemonium Armor (D/G)
@@ -8506,18 +8159,15 @@ MaxDef=40
 MinDef=35
 Valor=25060
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=ASESINO
-CP7=CAZADOR
-CP8=TRABAJADOR
 LingH=250
 LingP=63
 LingO=0
 SkHerreria=80
+CP1=ASESINO
+CP2=BARDO
+CP3=MAGO
+CP4=LADRON
+CP5=DRUIDA
 
 [OBJ696]
 Name=Magic Lute
@@ -8609,7 +8259,7 @@ LingH=200
 LingP=100
 LingO=50
 SkHerreria=90
-    
+
 [OBJ700]
 Name=Hero's Ring
 GrhIndex=4903
@@ -8639,18 +8289,15 @@ MaxDef=40
 MinDef=35
 Valor=25060
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=ASESINO
-CP7=CAZADOR
-CP8=TRABAJADOR
 LingH=250
 LingP=63
 LingO=0
 SkHerreria=80
+CP1=ASESINO
+CP2=BARDO
+CP3=MAGO
+CP4=LADRON
+CP5=DRUIDA
 
 [OBJ703]
 Name=Tomb of Cronos
@@ -8688,6 +8335,7 @@ MaxDef=5
 MinDef=3
 Valor=700
 Crucial=1
+CP1=MAGO
 
 [OBJ708]
 Name=Hellish Shield
@@ -8700,16 +8348,16 @@ MaxDef=4
 MinDef=1
 Valor=7800
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=ASESINO
 LingH=60
 LingP=30
 LingO=0
 SkHerreria=70
+CP1=ASESINO
+CP2=BARDO
+CP3=MAGO
+CP4=LADRON
+CP5=TRABAJADOR
+CP6=DRUIDA
 
 [OBJ709]
 Name=Egyptian Column
@@ -9202,19 +8850,19 @@ ObjType=20
 Agarrable=1
 
 [OBJ782]
-Name=Potro 
+Name=Potro
 GrhIndex=1479
 ObjType=20
 Agarrable=1
 
 [OBJ783]
-Name=Rack 
+Name=Rack
 GrhIndex=1480
 ObjType=20
 Agarrable=1
 
 [OBJ784]
-Name=Treasure 
+Name=Treasure
 GrhIndex=1478
 ObjType=20
 Agarrable=1
@@ -9226,13 +8874,13 @@ ObjType=20
 Agarrable=1
 
 [OBJ786]
-Name=Ventana 
+Name=Ventana
 GrhIndex=1482
 ObjType=20
 Agarrable=1
 
 [OBJ787]
-Name=Window 
+Name=Window
 GrhIndex=1483
 ObjType=20
 Agarrable=1
@@ -9678,21 +9326,19 @@ MaxDef=37
 MinDef=30
 Valor=23030
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
-CP4=PIRATA
-CP5=CAZADOR
-CP6=GUERRERO
-CP7=PALADIN
-CP8=BANDIDO
-CP9=CLERIGO
-CP10=LADRON
-CP11=TRABAJADOR
 LingH=329
 LingP=0
 LingO=0
 SkHerreria=75
+CP1=CLERIGO
+CP2=PALADIN
+CP3=GUERRERO
+CP4=BANDIDO
+CP5=BARDO
+CP6=MAGO
+CP7=LADRON
+CP8=TRABAJADOR
+CP9=DRUIDA
 
 [OBJ855]
 Name=Yellow Potion (Newbie)
@@ -9707,7 +9353,7 @@ Valor=4
 Newbie=1
 Crucial=1
 
-[OBJ856] 
+[OBJ856]
 Name=Blue Potion (Newbie)
 GrhIndex=541
 ObjType=11
@@ -9898,7 +9544,7 @@ GrhIndex=513
 VGrande=514
 ObjType=8
 Agarrable=1
-Texto=Here lies Chatillon, who gave his life to the glory and order of these lands. 
+Texto=Here lies Chatillon, who gave his life to the glory and order of these lands.
 
 [OBJ869]
 Name=Tomb of Nightsorrow
@@ -9956,7 +9602,7 @@ CP10=TRABAJADOR
 [OBJ874]
 Name=Royal Army Blowing Horn
 GrhIndex=11980
-ObjType=26 
+ObjType=26
 Snd1=122
 Agarrable=0
 Valor=0
@@ -9985,7 +9631,7 @@ MaxDef=0
 MinDef=0
 NoSeCae=1
 
-[OBJ877] 'enano
+[OBJ877]
 Name=Great Sorcerer Robe (D/G)
 GrhIndex=15519
 ObjType=3
@@ -9997,7 +9643,7 @@ Valor=10500
 Crucial=1
 RazaEnana=1
 
-[OBJ878] 'enano mujer
+[OBJ878]
 Name=Great Sorceress Robe (D/G-W)
 GrhIndex=15303
 ObjType=3
@@ -10009,8 +9655,10 @@ Valor=10500
 Crucial=1
 RazaEnana=1
 Mujer=1
+CP1=GUERRERO
+CP2=DRUIDA
 
-[OBJ879] 'humano mujer
+[OBJ879]
 Name=Embroidered Gala Dress (H/E/D-W)
 GrhIndex=16302
 ObjType=3
@@ -10022,7 +9670,7 @@ Valor=105
 Crucial=1
 Mujer=1
 
-[OBJ880] 'humano mujer
+[OBJ880]
 Name=Oracle Robe (H/E/D-W)
 GrhIndex=16194
 ObjType=3
@@ -10034,10 +9682,9 @@ Valor=120
 Crucial=1
 Mujer=1
 CP1=GUERRERO
-CP2=CAZADOR
-CP3=TRABAJADOR
+CP2=TRABAJADOR
 
-[OBJ881] 'humano Mujer
+[OBJ881]
 Name=Swamp Armor (H/E/D-W)
 GrhIndex=772
 ObjType=3
@@ -10048,21 +9695,19 @@ MinDef=45
 Valor=69500
 Crucial=0
 Mujer=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=CLERIGO
-CP6=PIRATA
-CP7=ASESINO
-CP8=CAZADOR
-CP9=TRABAJADOR
 LingH=650
 LingP=200
 LingO=0
 SkHerreria=90
+CP1=CLERIGO
+CP2=ASESINO
+CP3=BARDO
+CP4=MAGO
+CP5=LADRON
+CP6=TRABAJADOR
+CP7=DRUIDA
 
-[OBJ882] 'humano
+[OBJ882]
 Name=Adventurer Light Chain Mail (H/E/D)
 GrhIndex=16167
 ObjType=3
@@ -10072,15 +9717,15 @@ MinDef=3
 MaxDef=8
 Valor=1190
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=17
 LingP=0
 LingO=0
 SkHerreria=15
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ883] 'humano
+[OBJ883]
 Name=Compound Chain Mail (H/E/D)
 GrhIndex=15627
 ObjType=3
@@ -10090,15 +9735,15 @@ MinDef=5
 MaxDef=9
 Valor=2520
 Crucial=1
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
 LingH=36
 LingP=0
 LingO=0
 SkHerreria=32
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ884] 'humano mujer
+[OBJ884]
 Name=Compound Chain Mail (H/E/D-W)
 GrhIndex=15870
 ObjType=3
@@ -10109,15 +9754,15 @@ MaxDef=9
 Valor=2520
 Crucial=1
 Mujer=1
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
 LingH=36
 LingP=0
 LingO=0
 SkHerreria=32
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ885] 'humano
+[OBJ885]
 Name=Iron Light Armor (H/E/D)
 GrhIndex=15789
 ObjType=3
@@ -10135,7 +9780,7 @@ LingP=0
 LingO=0
 SkHerreria=44
 
-[OBJ886] 'humano mujer
+[OBJ886]
 Name=Archer Dress (H/E/D-W)
 GrhIndex=15897
 ObjType=3
@@ -10146,19 +9791,15 @@ MaxDef=15
 Valor=3500
 Crucial=1
 Mujer=1
-CP1=MAGO
-CP2=PIRATA
-CP3=LADRON
-CP4=PALADIN
-CP5=ASESINO
-CP6=BANDIDO
-CP7=BARDO
-CP8=DRUIDA
-CP9=GUERRERO
-CP10=CLERIGO
-CP11=TRABAJADOR
+CP1=CLERIGO
+CP2=ASESINO
+CP3=PALADIN
+CP4=BARDO
+CP5=MAGO
+CP6=TRABAJADOR
+CP7=DRUIDA
 
-[OBJ887] 'humano
+[OBJ887]
 Name=Brown Chain Mantle (H/E/D)
 GrhIndex=16221
 ObjType=3
@@ -10169,10 +9810,10 @@ MaxDef=25
 Valor=6800
 Crucial=1
 CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ888] 'humano
+[OBJ888]
 Name=Forest Bliaut (H/E/D)
 GrhIndex=16275
 ObjType=3
@@ -10182,13 +9823,13 @@ MinDef=10
 MaxDef=22
 Valor=6500
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
+CP1=PALADIN
+CP2=GUERRERO
 CP3=BARDO
-CP4=GUERRERO
-CP5=PALADIN
+CP4=MAGO
+CP5=DRUIDA
 
-[OBJ889] 'humano
+[OBJ889]
 Name=Green Mantle Chain Mail (H/E/D)
 GrhIndex=15600
 ObjType=3
@@ -10198,15 +9839,15 @@ MinDef=12
 MaxDef=22
 Valor=7350
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=105
 LingP=0
 LingO=0
 SkHerreria=65
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ890] 'humano
+[OBJ890]
 Name=Brown Bear Leather Armor (H/E/D)
 GrhIndex=15762
 ObjType=3
@@ -10217,11 +9858,10 @@ MaxDef=20
 Valor=6000
 Crucial=1
 CP1=MAGO
-CP2=GUERRERO
-CP3=BARDO
-CP4=PALADIN
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ891] 'humano mujer
+[OBJ891]
 Name=Brown Bear Leather Armor (H/E/D-W)
 GrhIndex=15951
 ObjType=3
@@ -10233,11 +9873,10 @@ Valor=6000
 Crucial=1
 Mujer=1
 CP1=MAGO
-CP2=GUERRERO
-CP3=BARDO
-CP4=PALADIN
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ892] 'humano mujer
+[OBJ892]
 Name=Red Compound Breastplate (H/E/D-W)
 GrhIndex=15978
 ObjType=3
@@ -10248,17 +9887,15 @@ MaxDef=23
 Valor=12250
 Crucial=1
 Mujer=1
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
-CP4=ASESINO
-CP5=PIRATA
 LingH=175
 LingP=0
 LingO=0
 SkHerreria=72
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ893] 'humano mujer
+[OBJ893]
 Name=Green Mantle Chain Mail (H/E/D-W)
 GrhIndex=16005
 ObjType=3
@@ -10278,7 +9915,7 @@ LingP=0
 LingO=0
 SkHerreria=65
 
-[OBJ894] 'humano mujer
+[OBJ894]
 Name=Crusader Armor (H/E/D-W)
 GrhIndex=16032
 ObjType=3
@@ -10289,22 +9926,15 @@ MaxDef=23
 Valor=8540
 Crucial=1
 Mujer=1
-CP1=MAGO
-CP2=PIRATA
-CP3=LADRON
-CP4=CAZADOR
-CP5=ASESINO
-CP6=BANDIDO
-CP7=BARDO
-CP8=DRUIDA
-CP9=GUERRERO
-CP10=TRABAJADOR
 LingH=122
 LingP=0
 LingO=0
 SkHerreria=72
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ895] 'humano mujer
+[OBJ895]
 Name=Legendary Armor (H/E/D-W)
 GrhIndex=761
 ObjType=3
@@ -10327,7 +9957,7 @@ LingP=400
 LingO=600
 SkHerreria=100
 
-[OBJ896] 'humano mujer
+[OBJ896]
 Name=Morgana Robe (H/E/D-W)
 GrhIndex=16248
 ObjType=3
@@ -10340,7 +9970,7 @@ Crucial=1
 Mujer=1
 CP1=BARDO
 
-[OBJ897] 'humano
+[OBJ897]
 Name=Piker Chain Mail (H/E/D)
 GrhIndex=16113
 ObjType=3
@@ -10350,16 +9980,12 @@ MinDef=12
 MaxDef=22
 Valor=7350
 Crucial=1
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
-CP4=PIRATA
 LingH=105
 LingP=0
 LingO=0
 SkHerreria=65
 
-[OBJ898] 'humano Mujer
+[OBJ898]
 Name=Gala Full Plate Armor (H/E/D-W)
 GrhIndex=773
 ObjType=3
@@ -10382,7 +10008,7 @@ LingP=122
 LingO=0
 SkHerreria=85
 
-[OBJ899] 'humano mujer
+[OBJ899]
 Name=Plain Chested Chain Mail (H/E/D-W)
 GrhIndex=15924
 ObjType=3
@@ -10393,16 +10019,15 @@ MaxDef=24
 Valor=12250
 Crucial=1
 Mujer=1
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
-CP4=PIRATA
 LingH=175
 LingP=0
 LingO=0
 SkHerreria=72
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ900] 'humano mujer
+[OBJ900]
 Name=Worn out Mantle Chain Mail (H/E/D-W)
 GrhIndex=16140
 ObjType=3
@@ -10413,15 +10038,15 @@ MaxDef=24
 Valor=9240
 Crucial=1
 Mujer=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=PIRATA
 LingH=132
 LingP=0
 LingO=0
 SkHerreria=70
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ901] 'humano mujer
+[OBJ901]
 Name=Women's Compound Breastplate (H/E/D-W)
 GrhIndex=15816
 ObjType=3
@@ -10432,16 +10057,15 @@ MaxDef=25
 Valor=14000
 Crucial=1
 Mujer=1
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
-CP4=PIRATA
 LingH=200
 LingP=0
 LingO=0
 SkHerreria=70
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ902] 'humano mujer
+[OBJ902]
 Name=One Piece Chain Mail (H/E/D-W)
 GrhIndex=15843
 ObjType=3
@@ -10461,7 +10085,7 @@ LingP=0
 LingO=0
 SkHerreria=73
 
-[OBJ903] 'humano
+[OBJ903]
 Name=Champion Armor (H/E/D)
 GrhIndex=15681
 ObjType=3
@@ -10471,17 +10095,15 @@ MinDef=25
 MaxDef=40
 Valor=22400
 Crucial=0
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
-CP4=ASESINO
-CP5=PIRATA
 LingH=320
 LingP=0
 LingO=0
 SkHerreria=80
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ904] 'humano mujer
+[OBJ904]
 Name=Combined Full Plate (H/E/D-W)
 GrhIndex=16059
 ObjType=3
@@ -10491,16 +10113,15 @@ MaxDef=37
 Valor=23100
 Crucial=0
 Mujer=1
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
-CP4=PIRATA
 LingH=210
 LingP=70
 LingO=0
 SkHerreria=80
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ905] 'humano
+[OBJ905]
 Name=Golden Supreme Armor (H/E/D)
 GrhIndex=15708
 ObjType=3
@@ -10510,20 +10131,17 @@ MinDef=35
 MaxDef=45
 Valor=51500
 Crucial=0
-CP1=MAGO
-CP2=PIRATA
-CP3=LADRON
-CP4=ASESINO
-CP5=BANDIDO
-CP6=BARDO
-CP7=DRUIDA
-CP8=TRABAJADOR
 LingH=150
 LingP=50
 LingO=100
 SkHerreria=85
+CP1=ASESINO
+CP2=BANDIDO
+CP3=MAGO
+CP4=LADRON
+CP5=DRUIDA
 
-[OBJ906] 'humano
+[OBJ906]
 Name=Dragon Mantle (H/E/D)
 GrhIndex=16329
 ObjType=3
@@ -10533,18 +10151,17 @@ MinDef=63
 MaxDef=68
 Valor=622000
 Crucial=0
-CP1=MAGO
-CP2=PIRATA
-CP3=LADRON
-CP4=ASESINO
-CP5=BANDIDO
-CP6=BARDO
-CP7=DRUIDA
-CP8=TRABAJADOR
 LingH=1000
 LingP=1100
 LingO=1200
 SkHerreria=100
+CP1=CLERIGO
+CP2=ASESINO
+CP3=BARDO
+CP4=MAGO
+CP5=LADRON
+CP6=TRABAJADOR
+CP7=DRUIDA
 
 [OBJ907]
 Name=Praetorian Royal Robe (D/G)
@@ -10558,7 +10175,7 @@ Valor=675000
 RazaEnana=1
 Crucial=0
 
-[OBJ908] 'gnomo
+[OBJ908]
 Name=Fishermen's Clothes (D/G)
 GrhIndex=15276
 ObjType=3
@@ -10569,19 +10186,8 @@ MaxDef=1
 Valor=100
 Crucial=1
 RazaEnana=1
-CP1=MAGO
-CP2=PIRATA
-CP3=LADRON
-CP4=ASESINO
-CP5=BANDIDO
-CP6=GUERRERO
-CP7=BARDO
-CP8=DRUIDA
-CP9=PALADIN
-CP10=CAZADOR
-CP11=CLERIGO
 
-[OBJ909] 'gnomo mujer
+[OBJ909]
 Name=Wedding Dress (D/G-W)
 GrhIndex=14952
 ObjType=3
@@ -10594,7 +10200,7 @@ Crucial=1
 RazaEnana=1
 Mujer=1
 
-[OBJ910] 'gnomo
+[OBJ910]
 Name=Gnome's Outfit (D/G)
 GrhIndex=14655
 ObjType=3
@@ -10605,8 +10211,9 @@ MaxDef=1
 Valor=110
 Crucial=1
 RazaEnana=1
+CP1=TRABAJADOR
 
-[OBJ911] 'gnomo
+[OBJ911]
 Name=Settler's Burgundy Clothes (D/G)
 GrhIndex=15141
 ObjType=3
@@ -10618,7 +10225,7 @@ Valor=110
 Crucial=1
 RazaEnana=1
 
-[OBJ912] 'gnomo
+[OBJ912]
 Name=Settler's Green Clothes (D/G)
 GrhIndex=15087
 ObjType=3
@@ -10630,7 +10237,7 @@ Valor=110
 Crucial=1
 RazaEnana=1
 
-[OBJ913] 'gnomo
+[OBJ913]
 Name=Hermit's Clothes (D/G)
 GrhIndex=14736
 ObjType=3
@@ -10641,8 +10248,9 @@ MaxDef=2
 Valor=150
 Crucial=1
 RazaEnana=1
+CP1=BARDO
 
-[OBJ914] 'gnomo mujer
+[OBJ914]
 Name=Peasant's Clothes (D/G-W)
 GrhIndex=14925
 ObjType=3
@@ -10654,8 +10262,9 @@ Valor=150
 Crucial=1
 Mujer=1
 RazaEnana=1
+CP1=ASESINO
 
-[OBJ915] 'gnomo
+[OBJ915]
 Name=Peasant's Clothes (D/G)
 GrhIndex=15006
 ObjType=3
@@ -10666,8 +10275,11 @@ MaxDef=2
 Valor=150
 Crucial=1
 RazaEnana=1
+CP1=CLERIGO
+CP2=BARDO
+CP3=ASESINO
 
-[OBJ916] 'gnomo
+[OBJ916]
 Name=Stylish Clothes (D/G)
 GrhIndex=15033
 ObjType=3
@@ -10679,7 +10291,7 @@ Valor=200
 Crucial=1
 RazaEnana=1
 
-[OBJ917] 'gnomo
+[OBJ917]
 Name=Miner's Clothes (D/G)
 GrhIndex=15114
 ObjType=3
@@ -10690,19 +10302,17 @@ MaxDef=3
 Valor=200
 Crucial=1
 RazaEnana=1
-CP1=MAGO
-CP2=PIRATA
-CP3=LADRON
-CP4=ASESINO
+CP1=CLERIGO
+CP2=ASESINO
+CP3=PALADIN
+CP4=GUERRERO
 CP5=BANDIDO
-CP6=GUERRERO
-CP7=BARDO
-CP8=DRUIDA
-CP9=PALADIN
-CP10=CAZADOR
-CP11=CLERIGO
+CP6=BARDO
+CP7=MAGO
+CP8=LADRON
+CP9=DRUIDA
 
-[OBJ918] 'gnomo
+[OBJ918]
 Name=Small Leather Overcoat (D/G)
 GrhIndex=14574
 ObjType=3
@@ -10717,7 +10327,7 @@ CP1=MAGO
 CP2=BARDO
 CP3=DRUIDA
 
-[OBJ919] 'gnomo
+[OBJ919]
 Name=Serpent Overcoat (D/G)
 GrhIndex=14979
 ObjType=3
@@ -10728,11 +10338,12 @@ MaxDef=2
 Valor=200
 Crucial=1
 RazaEnana=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
+CP1=GUERRERO
+CP2=BARDO
+CP3=MAGO
+CP4=DRUIDA
 
-[OBJ920] 'gnomo
+[OBJ920]
 Name=Blacksmith's Clothes (D/G)
 GrhIndex=15060
 ObjType=3
@@ -10743,19 +10354,17 @@ MaxDef=3
 Valor=275
 Crucial=1
 RazaEnana=1
-CP1=MAGO
-CP2=PIRATA
-CP3=LADRON
-CP4=ASESINO
+CP1=CLERIGO
+CP2=ASESINO
+CP3=PALADIN
+CP4=GUERRERO
 CP5=BANDIDO
-CP6=GUERRERO
-CP7=BARDO
-CP8=DRUIDA
-CP9=PALADIN
-CP10=CAZADOR
-CP11=CLERIGO
+CP6=BARDO
+CP7=MAGO
+CP8=LADRON
+CP9=DRUIDA
 
-[OBJ921] 'gnomo
+[OBJ921]
 Name=Elegant Robe (D/G)
 GrhIndex=15168
 ObjType=3
@@ -10767,7 +10376,7 @@ Valor=450
 Crucial=1
 RazaEnana=1
 
-[OBJ922] 'gnomo
+[OBJ922]
 Name=Pirate Captain Suit (D/G)
 GrhIndex=15195
 ObjType=3
@@ -10790,7 +10399,7 @@ CP9=CAZADOR
 CP10=CLERIGO
 CP11=TRABAJADOR
 
-[OBJ923] 'gnomo
+[OBJ923]
 Name=Nobleman's Suit (D/G)
 GrhIndex=15222
 ObjType=3
@@ -10801,8 +10410,9 @@ MaxDef=5
 Valor=700
 Crucial=1
 RazaEnana=1
+CP1=LADRON
 
-[OBJ924] 'gnomo
+[OBJ924]
 Name=Explorer Clothes (D/G)
 GrhIndex=14520
 ObjType=3
@@ -10817,7 +10427,7 @@ CP1=MAGO
 CP2=BARDO
 CP3=DRUIDA
 
-[OBJ925] 'gnomo mujer
+[OBJ925]
 Name=Gladiator's Breastplate (D/G-W)
 GrhIndex=14547
 ObjType=3
@@ -10829,16 +10439,15 @@ Valor=1190
 Crucial=1
 RazaEnana=1
 Mujer=1
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
 LingH=17
 LingP=0
 LingO=0
 SkHerreria=15
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
-
-[OBJ926] 'gnomo mujer
+[OBJ926]
 Name=Amazon's Shoulderplates (D/G-W)
 GrhIndex=14601
 ObjType=3
@@ -10851,10 +10460,11 @@ Crucial=1
 RazaEnana=1
 Mujer=1
 CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
+CP2=TRABAJADOR
+CP3=BARDO
+CP4=DRUIDA
 
-[OBJ927] 'gnomo
+[OBJ927]
 Name=Wolf Overcoat (D/G)
 GrhIndex=14682
 ObjType=3
@@ -10865,19 +10475,17 @@ MaxDef=7
 Valor=1400
 Crucial=1
 RazaEnana=1
-CP1=MAGO
-CP2=PIRATA
-CP3=LADRON
-CP4=ASESINO
+CP1=CLERIGO
+CP2=ASESINO
+CP3=PALADIN
+CP4=GUERRERO
 CP5=BANDIDO
-CP6=GUERRERO
-CP7=BARDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=CLERIGO
-CP11=TRABAJADOR
+CP6=BARDO
+CP7=MAGO
+CP8=TRABAJADOR
+CP9=DRUIDA
 
-[OBJ928] 'gnomo
+[OBJ928]
 Name=Hunter's Overcoat (D/G)
 GrhIndex=14628
 ObjType=3
@@ -10888,19 +10496,16 @@ MaxDef=9
 Valor=2550
 Crucial=1
 RazaEnana=1
-CP1=MAGO
-CP2=PIRATA
-CP3=LADRON
-CP4=ASESINO
+CP1=CLERIGO
+CP2=ASESINO
+CP3=PALADIN
+CP4=BARDO
 CP5=BANDIDO
-CP6=GUERRERO
-CP7=BARDO
+CP6=MAGO
+CP7=TRABAJADOR
 CP8=DRUIDA
-CP9=PALADIN
-CP10=CLERIGO
-CP11=TRABAJADOR
 
-[OBJ929] 'gnomo
+[OBJ929]
 Name=Compound Overcoat (D/G)
 GrhIndex=14709
 ObjType=3
@@ -10913,9 +10518,9 @@ Crucial=1
 RazaEnana=1
 CP1=MAGO
 CP2=BARDO
-CP3=PIRATA
+CP3=DRUIDA
 
-[OBJ930] 'gnomo
+[OBJ930]
 Name=Apprentice's Toga (D/G)
 GrhIndex=15465
 ObjType=3
@@ -10927,7 +10532,7 @@ Valor=2700
 Crucial=1
 RazaEnana=1
 
-[OBJ931] 'gnomo mujer
+[OBJ931]
 Name=Elegant Purple Dress (D/G-W)
 GrhIndex=15384
 ObjType=3
@@ -10940,7 +10545,7 @@ Crucial=1
 RazaEnana=1
 Mujer=1
 
-[OBJ932] 'gnomo
+[OBJ932]
 Name=Grand Sorcerer Cassock (D/G)
 GrhIndex=15492
 ObjType=3
@@ -10951,15 +10556,14 @@ MaxDef=12
 Valor=3200
 Crucial=1
 RazaEnana=1
-CP1=GUERRERO
+CP1=ASESINO
 CP2=PALADIN
-CP3=PIRATA
-CP4=ASESINO
-CP5=BANDIDO
-CP6=CAZADOR
-CP7=TRABAJADOR
+CP3=GUERRERO
+CP4=BANDIDO
+CP5=LADRON
+CP6=TRABAJADOR
 
-[OBJ933] 'gnomo mujer
+[OBJ933]
 Name=Light Green Chain Mail (D/G-W)
 GrhIndex=14817
 ObjType=3
@@ -10971,14 +10575,15 @@ Valor=3710
 Crucial=1
 RazaEnana=1
 Mujer=1
-CP1=MAGO
-CP2=DRUIDA
 LingH=53
 LingP=0
 LingO=0
 SkHerreria=40
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ934] 'gnomo
+[OBJ934]
 Name=Light Chain Mail (D/G)
 GrhIndex=14871
 ObjType=3
@@ -10990,10 +10595,10 @@ Valor=4600
 Crucial=1
 RazaEnana=1
 CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ935] 'gnomo mujer
+[OBJ935]
 Name=Compound Chain Mail Breastplate (D/G-W)
 GrhIndex=14844
 ObjType=3
@@ -11005,16 +10610,15 @@ Valor=6020
 Crucial=1
 RazaEnana=1
 Mujer=1
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
-CP4=PIRATA
 LingH=86
 LingP=0
 LingO=0
 SkHerreria=57
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ936] 'gnomo mujer 
+[OBJ936]
 Name=Grand Sorceress Robe (D/G-W)
 GrhIndex=15303
 ObjType=3
@@ -11027,7 +10631,7 @@ Crucial=1
 RazaEnana=1
 Mujer=1
 
-[OBJ937] 'gnomo
+[OBJ937]
 Name=Purple Chain Mail Breastplate (D/G)
 GrhIndex=14790
 ObjType=3
@@ -11038,16 +10642,15 @@ MaxDef=22
 Valor=7350
 Crucial=1
 RazaEnana=1
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
-CP4=PIRATA
 LingH=105
 LingP=0
 LingO=0
 SkHerreria=65
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ938] 'gnomo mujer
+[OBJ938]
 Name=Witch Gown (D/G-W)
 GrhIndex=15330
 ObjType=3
@@ -11059,9 +10662,9 @@ Valor=10500
 Crucial=1
 Mujer=1
 RazaEnana=1
-CP1=GUERRERO
+CP1=DRUIDA
 
-[OBJ939] 'gnomo
+[OBJ939]
 Name=Gala Red Robe (D/G)
 GrhIndex=15546
 ObjType=3
@@ -11072,8 +10675,9 @@ MaxDef=23
 Valor=13500
 Crucial=1
 RazaEnana=1
+CP1=BARDO
 
-[OBJ940] 'gnomo
+[OBJ940]
 Name=One-Piece Chain Mail (D/G)
 GrhIndex=14898
 ObjType=3
@@ -11084,16 +10688,15 @@ MaxDef=26
 Valor=15330
 Crucial=1
 RazaEnana=1
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
-CP4=PIRATA
 LingH=219
 LingP=0
 LingO=0
 SkHerreria=75
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ941] 'gnomo mujer
+[OBJ941]
 Name=Oracle's Seductive Gown (D/G-W)
 GrhIndex=15411
 ObjType=3
@@ -11109,7 +10712,7 @@ CP1=MAGO
 CP2=BARDO
 CP3=DRUIDA
 
-[OBJ942] 'gnomo mujer
+[OBJ942]
 Name=Turquoise Gala Dress (D/G-W)
 GrhIndex=15438
 ObjType=3
@@ -11121,11 +10724,8 @@ Valor=22000
 Crucial=1
 RazaEnana=1
 Mujer=1
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
 
-[OBJ943] 'elfo
+[OBJ943]
 Name=Elven Overdress (H/E/D)
 GrhIndex=16356
 ObjType=3
@@ -11136,7 +10736,7 @@ MaxDef=0
 Valor=50
 Crucial=1
 
-[OBJ944] 'elfo mujer
+[OBJ944]
 Name=Aure Dress (H/E/D-W)
 GrhIndex=16410
 ObjType=3
@@ -11147,8 +10747,10 @@ MaxDef=0
 Valor=50
 Crucial=1
 Mujer=1
+CP1=CLERIGO
+CP2=ASESINO
 
-[OBJ945] 'elfo mujer
+[OBJ945]
 Name=Alcarinque Gala Dress (H/E/D-W)
 GrhIndex=16383
 ObjType=3
@@ -11159,8 +10761,9 @@ MaxDef=1
 Valor=105
 Crucial=1
 Mujer=1
+CP1=CLERIGO
 
-[OBJ946] 'elfo
+[OBJ946]
 Name=Elven Settler's Clothes (H/E/D)
 GrhIndex=16625
 ObjType=3
@@ -11171,7 +10774,7 @@ MaxDef=1
 Valor=110
 Crucial=1
 
-[OBJ947] 'elfo
+[OBJ947]
 Name=Ritual Light Habit (H/E/D)
 GrhIndex=16679
 ObjType=3
@@ -11182,7 +10785,7 @@ MaxDef=4
 Valor=420
 Crucial=1
 
-[OBJ948] 'elfo mujer
+[OBJ948]
 Name=Embroidered Elite Dress (H/E/D-W)
 GrhIndex=16707
 ObjType=3
@@ -11194,7 +10797,7 @@ Valor=300
 Crucial=1
 Mujer=1
 
-[OBJ949] 'elfo Mujer
+[OBJ949]
 Name=Ritual Light Habit (H/E/D-W)
 GrhIndex=16571
 ObjType=3
@@ -11206,7 +10809,7 @@ Valor=450
 Crucial=1
 Mujer=1
 
-[OBJ950] 'elfo mujer
+[OBJ950]
 Name=Red Elven Dress (H/E/D-W)
 GrhIndex=16652
 ObjType=3
@@ -11218,7 +10821,7 @@ Valor=550
 Crucial=1
 Mujer=1
 
-[OBJ951] 'elfo mujer
+[OBJ951]
 Name=Nature Garment (H/E/D-W)
 GrhIndex=16598
 ObjType=3
@@ -11229,18 +10832,17 @@ MaxDef=5
 Valor=700
 Crucial=1
 Mujer=1
-CP1=MAGO
-CP2=PIRATA
-CP3=LADRON
-CP4=ASESINO
+CP1=CLERIGO
+CP2=ASESINO
+CP3=PALADIN
+CP4=GUERRERO
 CP5=BANDIDO
-CP6=GUERRERO
-CP7=BARDO
-CP8=PALADIN
-CP9=CLERIGO
-CP10=TRABAJADOR
+CP6=BARDO
+CP7=MAGO
+CP8=LADRON
+CP9=TRABAJADOR
 
-[OBJ952] 'elfo
+[OBJ952]
 Name=Elven Explorer's Clothes (H/E/D)
 GrhIndex=16544
 ObjType=3
@@ -11252,7 +10854,7 @@ Valor=850
 Crucial=1
 CP1=MAGO
 
-[OBJ953] 'elfo mujer 
+[OBJ953]
 Name=Purple Elven Mantle (H/E/D-W)
 GrhIndex=16437
 ObjType=3
@@ -11264,7 +10866,7 @@ Valor=3550
 Crucial=1
 Mujer=1
 
-[OBJ954] 'elfo
+[OBJ954]
 Name=Male Ritual Habit (H/E/D)
 GrhIndex=16490
 ObjType=3
@@ -11275,7 +10877,7 @@ MaxDef=20
 Valor=8000
 Crucial=1
 
-[OBJ955] 'elfo mujer
+[OBJ955]
 Name=Female Ritual Habit (H/E/D-W)
 GrhIndex=16517
 ObjType=3
@@ -11286,8 +10888,9 @@ MaxDef=20
 Valor=8000
 Crucial=1
 Mujer=1
+CP1=CLERIGO
 
-[OBJ956] 'elfo mujer 
+[OBJ956]
 Name=Valya Silmeanar (H/E/D-W)
 GrhIndex=16734
 ObjType=3
@@ -11298,15 +10901,15 @@ MaxDef=25
 Valor=15000
 Crucial=1
 Mujer=1
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
 LingH=156
 LingP=34
 LingO=0
 SkHerreria=73
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ957] 'enano mujer
+[OBJ957]
 Name=Dwarven Dress (D/G-W)
 GrhIndex=17274
 ObjType=3
@@ -11319,7 +10922,7 @@ Crucial=1
 RazaEnana=1
 Mujer=1
 
-[OBJ958] 'enano
+[OBJ958]
 Name=Common Clothes (D/G)
 GrhIndex=17139
 ObjType=3
@@ -11330,8 +10933,9 @@ MaxDef=0
 Valor=50
 Crucial=1
 RazaEnana=1
+CP1=DRUIDA
 
-[OBJ959] 'enano
+[OBJ959]
 Name=Dwarf Carpenter Clothes (D/G)
 GrhIndex=17220
 ObjType=3
@@ -11342,18 +10946,8 @@ MaxDef=1
 Valor=100
 Crucial=1
 RazaEnana=1
-CP1=MAGO
-CP2=PIRATA
-CP3=LADRON
-CP4=CLERIGO
-CP5=BANDIDO
-CP6=GUERRERO
-CP7=BARDO
-CP8=DRUIDA
-CP9=PALADIN
-CP10=CAZADOR
 
-[OBJ960] 'enano
+[OBJ960]
 Name=Lumberjack Clothes (D/G)
 GrhIndex=17085
 ObjType=3
@@ -11364,19 +10958,17 @@ MaxDef=1
 Valor=100
 Crucial=1
 RazaEnana=1
-CP1=MAGO
-CP2=PIRATA
-CP3=LADRON
-CP4=ASESINO
+CP1=CLERIGO
+CP2=ASESINO
+CP3=PALADIN
+CP4=GUERRERO
 CP5=BANDIDO
-CP6=GUERRERO
-CP7=BARDO
-CP8=DRUIDA
-CP9=PALADIN
-CP10=CAZADOR
-CP11=CLERIGO
+CP6=BARDO
+CP7=MAGO
+CP8=LADRON
+CP9=DRUIDA
 
-[OBJ961] 'enano
+[OBJ961]
 Name=Miner's Clothes (D/G)
 GrhIndex=16977
 ObjType=3
@@ -11387,19 +10979,8 @@ MaxDef=2
 Valor=125
 Crucial=1
 RazaEnana=1
-CP1=MAGO
-CP2=PIRATA
-CP3=LADRON
-CP4=ASESINO
-CP5=BANDIDO
-CP6=GUERRERO
-CP7=BARDO
-CP8=DRUIDA
-CP9=PALADIN
-CP10=CAZADOR
-CP11=CLERIGO
 
-[OBJ962] 'enano
+[OBJ962]
 Name=Elegant Robe (D/G)
 GrhIndex=17166
 ObjType=3
@@ -11411,7 +10992,7 @@ Valor=200
 Crucial=1
 RazaEnana=1
 
-[OBJ963] 'enano
+[OBJ963]
 Name=Mine's Wrestler Garb (D/G)
 GrhIndex=17247
 ObjType=3
@@ -11423,8 +11004,9 @@ Valor=275
 Crucial=1
 RazaEnana=1
 Hombre=1
+CP1=PALADIN
 
-[OBJ964] 'enano
+[OBJ964]
 Name=Traveler Clothes (D/G)
 GrhIndex=16896
 ObjType=3
@@ -11435,8 +11017,10 @@ MaxDef=4
 Valor=400
 Crucial=1
 RazaEnana=1
+CP1=ASESINO
+CP2=DRUIDA
 
-[OBJ965] 'enano
+[OBJ965]
 Name=Old Golden Armor (D/G)
 GrhIndex=16869
 ObjType=3
@@ -11447,9 +11031,10 @@ MaxDef=5
 Valor=700
 Crucial=1
 RazaEnana=1
-CP1=DRUIDA
+CP1=ASESINO
+CP2=DRUIDA
 
-[OBJ966] 'enano
+[OBJ966]
 Name=Pirate's Clothes (D/G)
 GrhIndex=17193
 ObjType=3
@@ -11460,19 +11045,9 @@ MaxDef=16
 Valor=3200
 Crucial=1
 RazaEnana=1
-CP1=MAGO
-CP2=LADRON
-CP3=ASESINO
-CP4=BANDIDO
-CP5=GUERRERO
-CP6=BARDO
-CP7=DRUIDA
-CP8=PALADIN
-CP9=CAZADOR
-CP10=CLERIGO
-CP11=TRABAJADOR
+CP1=TRABAJADOR
 
-[OBJ967] 'enano
+[OBJ967]
 Name=Seeker's Clothes (D/G)
 GrhIndex=17301
 ObjType=3
@@ -11483,9 +11058,8 @@ MaxDef=17
 Valor=3600
 Crucial=1
 RazaEnana=1
-CP1=PIRATA
 
-[OBJ968] 'enano
+[OBJ968]
 Name=Engraved Full Plate Armor (D/G)
 GrhIndex=16842
 ObjType=3
@@ -11496,15 +11070,14 @@ MaxDef=19
 Valor=4480
 Crucial=1
 RazaEnana=1
-CP1=MAGO
-CP2=DRUIDA
-CP2=PIRATA
 LingH=64
 LingP=0
 LingO=0
 SkHerreria=47
+CP1=MAGO
+CP2=LADRON
 
-[OBJ969] 'enano
+[OBJ969]
 Name=Gala Golden Robe (D/G)
 GrhIndex=16950
 ObjType=3
@@ -11515,8 +11088,9 @@ MaxDef=18
 Valor=10000
 Crucial=1
 RazaEnana=1
+CP1=MAGO
 
-[OBJ970] 'enano
+[OBJ970]
 Name=Thor Half Plate Armor (D/G)
 GrhIndex=16761
 ObjType=3
@@ -11531,7 +11105,7 @@ CP1=MAGO
 CP2=BARDO
 CP3=DRUIDA
 
-[OBJ971] 'enano
+[OBJ971]
 Name=Dark Metal Armor (D/G)
 GrhIndex=16923
 ObjType=3
@@ -11542,16 +11116,15 @@ MaxDef=23
 Valor=13720
 Crucial=1
 RazaEnana=1
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
-CP4=PIRATA
 LingH=196
 LingP=0
 LingO=0
 SkHerreria=70
+CP1=GUERRERO
+CP2=LADRON
+CP3=MAGO
 
-[OBJ972] 'enano
+[OBJ972]
 Name=Mahal Robe (D/G)
 GrhIndex=17004
 ObjType=3
@@ -11565,7 +11138,7 @@ RazaEnana=1
 CP1=BARDO
 CP2=DRUIDA
 
-[OBJ973] 'enano mujer
+[OBJ973]
 Name=Thor Half Plate Armor (D/G-W)
 GrhIndex=17328
 ObjType=3
@@ -11577,16 +11150,13 @@ Valor=13350
 Crucial=1
 RazaEnana=1
 Mujer=1
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
-CP4=PIRATA
 LingH=141
 LingP=29
 LingO=0
 SkHerreria=70
+CP1=BANDIDO
 
-[OBJ974] 'enano
+[OBJ974]
 Name=Mithril Monk Cape (D/G)
 GrhIndex=17058
 ObjType=3
@@ -11597,12 +11167,13 @@ MaxDef=35
 Valor=19000
 Crucial=1
 RazaEnana=1
-CP1=MAGO
+CP1=GUERRERO
 CP2=BARDO
-CP3=DRUIDA
-CP4=PIRATA
+CP3=LADRON
+CP4=MAGO
+CP5=DRUIDA
 
-[OBJ975] 'enano
+[OBJ975]
 Name=Long Chain Mail (D/G)
 GrhIndex=17031
 ObjType=3
@@ -11613,16 +11184,14 @@ MaxDef=40
 Valor=23100
 Crucial=0
 RazaEnana=1
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
-CP4=PIRATA
 LingH=330
 LingP=0
 LingO=0
 SkHerreria=80
+CP1=MAGO
+CP2=LADRON
 
-[OBJ976] 'enano
+[OBJ976]
 Name=Iron and Bronze Heavy Armor (D/G)
 GrhIndex=16788
 ObjType=3
@@ -11633,16 +11202,19 @@ MaxDef=50
 Valor=54000
 Crucial=0
 RazaEnana=1
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
-CP4=PIRATA
 LingH=600
 LingP=100
 LingO=0
 SkHerreria=85
+CP1=CLERIGO
+CP2=ASESINO
+CP3=BARDO
+CP4=MAGO
+CP5=LADRON
+CP6=TRABAJADOR
+CP7=DRUIDA
 
-[OBJ977] 'elfo oscuro
+[OBJ977]
 Name=Slave Garb (D)
 GrhIndex=17409
 ObjType=3
@@ -11653,8 +11225,10 @@ MaxDef=0
 Valor=50
 Crucial=1
 RazaDrow=1
+CP1=LADRON
+CP2=ASESINO
 
-[OBJ978] 'elfo oscuro
+[OBJ978]
 Name=Cave Rags (D)
 GrhIndex=17382
 ObjType=3
@@ -11665,8 +11239,9 @@ MaxDef=1
 Valor=105
 Crucial=1
 RazaDrow=1
+CP1=LADRON
 
-[OBJ979] 'elfo oscuro
+[OBJ979]
 Name=Red Maghtere Armor (D)
 GrhIndex=17355
 ObjType=3
@@ -11681,9 +11256,9 @@ LingH=100
 LingP=0
 LingO=0
 SkHerreria=63
-CP1=DRUIDA
+CP1=TRABAJADOR
 
-[OBJ980] 'elfo oscuro
+[OBJ980]
 Name=Combat Light Armor (D)
 GrhIndex=16706
 ObjType=3
@@ -11696,7 +11271,7 @@ Crucial=1
 RazaDrow=1
 CP1=DRUIDA
 
-[OBJ981] 'elfo oscuro
+[OBJ981]
 Name=Fire Piwafwi (D)
 GrhIndex=17436
 ObjType=3
@@ -11707,8 +11282,9 @@ MaxDef=20
 Valor=11000
 Crucial=1
 RazaDrow=1
+CP1=BARDO
 
-[OBJ982] 'elfo oscuro
+[OBJ982]
 Name=Explorer's Melee Armor (D)
 GrhIndex=17463
 ObjType=3
@@ -11720,11 +11296,11 @@ Valor=13400
 Crucial=1
 RazaDrow=1
 CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
-CP4=PIRATA
+CP2=LADRON
+CP3=BARDO
+CP4=DRUIDA
 
-[OBJ983] 'elfo oscuro
+[OBJ983]
 Name=Purple Silence Piwafwi (D-W)
 GrhIndex=17490
 ObjType=3
@@ -11740,7 +11316,7 @@ CP1=MAGO
 CP2=BARDO
 CP3=DRUIDA
 
-[OBJ984] 'elfo oscuro
+[OBJ984]
 Name=High Narbondel Piwafwi (D)
 GrhIndex=17517
 ObjType=3
@@ -11751,11 +11327,8 @@ MaxDef=25
 Valor=15000
 Crucial=1
 RazaDrow=1
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
 
-[OBJ985] 'elfo oscuro mujer
+[OBJ985]
 Name=Sorcere Piwafwi of Lolth (D-W)
 GrhIndex=17544
 ObjType=3
@@ -11771,7 +11344,7 @@ CP1=MAGO
 CP2=BARDO
 CP3=DRUIDA
 
-[OBJ986] 'Túnica de Druida
+[OBJ986]
 Name=Druid Robe
 GrhIndex=681
 ObjType=3
@@ -11779,7 +11352,7 @@ NumRopaje=56
 Agarrable=0
 MaxDef=25
 MinDef=20
-Valor= 17000
+Valor=17000
 Crucial=1
 
 [OBJ987]
@@ -11788,7 +11361,7 @@ GrhIndex=0
 VGrande=18996
 ObjType=8
 Agarrable=1
-Texto= 
+Texto=
 
 [OBJ988]
 Name=Teleport to Arghal
@@ -11802,7 +11375,7 @@ GrhIndex=0
 VGrande=19715
 ObjType=8
 Agarrable=1
-Texto= 
+Texto=
 
 [OBJ990]
 Name=Judgment Mace
@@ -11816,14 +11389,8 @@ MaxHit=16
 Valor=4100
 Crucial=1
 CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=GUERRERO
-CP7=BANDIDO
-CP8=CAZADOR
-CP9=TRABAJADOR
+CP2=BANDIDO
+CP3=DRUIDA
 
 [OBJ991]
 Name=Olympic Clothes (D)
@@ -11849,6 +11416,7 @@ Valor=50
 Crucial=0
 Mujer=1
 RazaDrow=1
+CP1=TRABAJADOR
 
 [OBJ993]
 Name=Olympic Clothes (E-W)
@@ -11862,6 +11430,8 @@ Valor=50
 Crucial=0
 Mujer=1
 RazaEnana=1
+CP1=CLERIGO
+CP2=ASESINO
 
 [OBJ994]
 Name=Olympic Clothes (E)
@@ -11918,6 +11488,7 @@ Valor=50
 Crucial=0
 Mujer=1
 RazaEnana=1
+CP1=TRABAJADOR
 
 [OBJ999]
 Name=Olympic Clothes (G)
@@ -11930,6 +11501,7 @@ MaxDef=1
 Valor=50
 Crucial=0
 RazaEnana=1
+CP1=BARDO
 
 [OBJ1000]
 Name=Olympic Hand Torch
@@ -11942,6 +11514,9 @@ MinHit=1
 MaxHit=8
 Valor=210
 Crucial=0
+CP1=MAGO
+CP2=BANDIDO
+CP3=DRUIDA
 
 [OBJ1001]
 Name=Eagle Helmet
@@ -11954,7 +11529,6 @@ MaxDef=5
 MinDef=1
 Valor=2500
 Crucial=0
-CP1=PIRATA
 
 [OBJ1002]
 Name=Wolf Helmet
@@ -11982,17 +11556,15 @@ DefensaMagicaMin=4
 DefensaMagicaMax=6
 Valor=10500
 Crucial=1
-CP1=MAGO
-CP2=PALADIN
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=GUERRERO
-CP7=ASESINO
-CP8=BANDIDO
-CP9=CAZADOR
-CP10=CLERIGO
-CP11=TRABAJADOR
+CP1=CLERIGO
+CP2=ASESINO
+CP3=PALADIN
+CP4=GUERRERO
+CP5=BANDIDO
+CP6=BARDO
+CP7=MAGO
+CP8=LADRON
+CP9=TRABAJADOR
 
 [OBJ1004]
 Name=Tiger Helmet
@@ -12007,17 +11579,15 @@ DefensaMagicaMin=8
 DefensaMagicaMax=12
 Valor=18500
 Crucial=1
-CP1=MAGO
-CP2=PALADIN
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=GUERRERO
-CP7=ASESINO
-CP8=BANDIDO
-CP9=CAZADOR
-CP10=CLERIGO
-CP11=TRABAJADOR
+CP1=CLERIGO
+CP2=ASESINO
+CP3=PALADIN
+CP4=GUERRERO
+CP5=BANDIDO
+CP6=BARDO
+CP7=MAGO
+CP8=LADRON
+CP9=TRABAJADOR
 
 [OBJ1005]
 Name=Elven Wood Axe
@@ -12096,16 +11666,14 @@ DefensaMagicaMin=5
 DefensaMagicaMax=9
 Valor=25000
 Crucial=1
-CP1=MAGO
-CP2=PALADIN
-CP3=TRABAJADOR
+CP1=CLERIGO
+CP2=ASESINO
+CP3=PALADIN
 CP4=BARDO
-CP5=DRUIDA
-CP6=GUERRERO
-CP7=ASESINO
-CP8=BANDIDO
-CP9=CAZADOR
-CP10=CLERIGO
+CP5=BANDIDO
+CP6=MAGO
+CP7=TRABAJADOR
+CP8=DRUIDA
 
 [OBJ1011]
 Name=Lantern
@@ -12274,7 +11842,7 @@ ObjType=8
 Agarrable=1
 Texto=Lumberjacks
 
-[OBJ1033]' Sign Ulla
+[OBJ1033]
 Name=Ulathorpe Sign
 GrhIndex=4986
 VGrande=4987
@@ -12282,8 +11850,7 @@ ObjType=8
 Agarrable=1
 Texto=Ullathorpe has ceased being part of the Kingdom of Banderbill, it's now a neutral zone. ideal for travelers. Ullathorpe's Mayor.
 
-
-[OBJ1034]' Nix Sign
+[OBJ1034]
 Name=Nix Sign
 GrhIndex=4986
 VGrande=4987
@@ -12331,14 +11898,12 @@ MaxDef=1
 MinDef=1
 Valor=350
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=PIRATA
-CP4=LADRON
 LingH=5
 LingP=0
 LingO=0
 SkHerreria=20
+CP1=MAGO
+CP2=DRUIDA
 
 [OBJ1038]
 Name=Royal Shield
@@ -12352,14 +11917,12 @@ MaxDef=1
 MinDef=1
 Valor=350
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=PIRATA
-CP4=LADRON
 LingH=5
 LingP=0
 LingO=0
 SkHerreria=20
+CP1=MAGO
+CP2=DRUIDA
 
 [OBJ1039]
 Name=Imperial Priest Mantle (D/G)
@@ -12373,15 +11936,13 @@ Valor=2900
 Crucial=1
 Real=1
 RazaEnana=1
-CP1=GUERRERO
+CP1=ASESINO
 CP2=PALADIN
-CP3=CAZADOR
-CP4=ASESINO
-CP5=PIRATA
-CP6=BANDIDO
-CP7=MAGO
-CP8=LADRON
-CP9=TRABAJADOR
+CP3=GUERRERO
+CP4=BANDIDO
+CP5=MAGO
+CP6=LADRON
+CP7=TRABAJADOR
 
 [OBJ1040]
 Name=Archcleric Imperial Armor (D/G)
@@ -12395,19 +11956,17 @@ MaxDef=22
 MinDef=15
 Valor=9240
 Crucial=1
-CP1=GUERRERO
-CP2=PALADIN
-CP3=CAZADOR
-CP4=ASESINO
-CP5=PIRATA
-CP6=BANDIDO
-CP7=MAGO
-CP8=LADRON
-CP9=TRABAJADOR
 LingH=132
 LingP=0
 LingO=0
 SkHerreria=70
+CP1=ASESINO
+CP2=PALADIN
+CP3=GUERRERO
+CP4=BANDIDO
+CP5=MAGO
+CP6=LADRON
+CP7=TRABAJADOR
 
 [OBJ1041]
 Name=Demonic Priest Mantle (D/G)
@@ -12420,15 +11979,13 @@ MaxDef=12
 MinDef=6
 Valor=2900
 Crucial=1
-CP1=GUERRERO
+CP1=ASESINO
 CP2=PALADIN
-CP3=CAZADOR
-CP4=ASESINO
-CP5=PIRATA
-CP6=BANDIDO
-CP7=MAGO
-CP8=LADRON
-CP9=TRABAJADOR
+CP3=GUERRERO
+CP4=BANDIDO
+CP5=MAGO
+CP6=LADRON
+CP7=TRABAJADOR
 
 [OBJ1042]
 Name=Demonic Archcleric Armor (D/G)
@@ -12441,19 +11998,17 @@ MaxDef=22
 MinDef=15
 Valor=9240
 Crucial=1
-CP1=GUERRERO
-CP2=PALADIN
-CP3=CAZADOR
-CP4=ASESINO
-CP5=PIRATA
-CP6=BANDIDO
-CP7=MAGO
-CP8=LADRON
-CP9=TRABAJADOR
 LingH=132
 LingP=0
 LingO=0
 SkHerreria=70
+CP1=ASESINO
+CP2=PALADIN
+CP3=GUERRERO
+CP4=BANDIDO
+CP5=MAGO
+CP6=LADRON
+CP7=TRABAJADOR
 
 [OBJ1043]
 Name=You don't see anything of interest.
@@ -12769,7 +12324,7 @@ Crucial=0
 HechizoIndex=49
 
 [OBJ1069]
-Name=Second-Rate Assassin Armor 
+Name=Second-Rate Assassin Armor
 GrhIndex=20536
 ObjType=3
 NumRopaje=488
@@ -12779,16 +12334,7 @@ Real=2
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=LADRON
-CP5=BARDO
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1070]
 Name=Second-Rate Assassin Armor (D/G)
@@ -12802,16 +12348,7 @@ RazaEnana=1
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=LADRON
-CP5=BARDO
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1071]
 Name=Second-Rate Assassin Armor
@@ -12824,16 +12361,7 @@ Caos=2
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=LADRON
-CP5=BARDO
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1072]
 Name=Second-Rate Assassin Armor (D/G)
@@ -12847,16 +12375,7 @@ RazaEnana=1
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=LADRON
-CP5=BARDO
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1073]
 Name=Second-Rate Brigand Armor
@@ -12869,16 +12388,8 @@ Real=2
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=BARDO
-CP7=DRUIDA
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
+CP3=TRABAJADOR
 
 [OBJ1074]
 Name=Second-Rate Brigand Armor (D/G)
@@ -12892,16 +12403,7 @@ RazaEnana=1
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=BARDO
-CP7=DRUIDA
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1075]
 Name=Second-Rate Brigand Armor
@@ -12937,16 +12439,8 @@ RazaEnana=1
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=BARDO
-CP7=DRUIDA
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
+CP3=TRABAJADOR
 
 [OBJ1077]
 Name=Second-Rate Bard Armor
@@ -12959,16 +12453,7 @@ Real=2
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1078]
 Name=Second-Rate Bard Armor (D/G)
@@ -12982,16 +12467,7 @@ RazaEnana=1
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1079]
 Name=Second-Rate Bard Armor
@@ -13004,16 +12480,7 @@ Caos=2
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1080]
 Name=Second-Rate Bard Armor (D/G)
@@ -13026,17 +12493,9 @@ Caos=2
 RazaEnana=1
 NoSeCae=1
 Log=1
-CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP1=CLERIGO
+CP2=MAGO
+CP3=LADRON
 
 [OBJ1081]
 Name=Second-Rate Hunter Armor
@@ -13049,16 +12508,7 @@ Real=2
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=BARDO
-CP7=DRUIDA
-CP8=BANDIDO
-CP9=PALADIN
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1082]
 Name=Second-Rate Hunter Armor (D/G)
@@ -13072,16 +12522,7 @@ RazaEnana=1
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=BARDO
-CP7=DRUIDA
-CP8=BANDIDO
-CP9=PALADIN
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1083]
 Name=Second-Rate Hunter Armor
@@ -13094,16 +12535,7 @@ Caos=2
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=BARDO
-CP7=DRUIDA
-CP8=BANDIDO
-CP9=PALADIN
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1084]
 Name=Second-Rate Hunter Armor (D/G)
@@ -13117,16 +12549,7 @@ RazaEnana=1
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=BARDO
-CP7=DRUIDA
-CP8=BANDIDO
-CP9=PALADIN
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1085]
 Name=Second-Rate Cleric Armor
@@ -13139,16 +12562,7 @@ Real=2
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=GUERRERO
-CP3=ASESINO
-CP4=LADRON
-CP5=BARDO
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1086]
 Name=Second-Rate Cleric Armor (D/G)
@@ -13162,16 +12576,7 @@ RazaEnana=1
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=GUERRERO
-CP3=ASESINO
-CP4=LADRON
-CP5=BARDO
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1087]
 Name=Second-Rate Cleric Armor
@@ -13184,16 +12589,7 @@ Caos=2
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=GUERRERO
-CP3=ASESINO
-CP4=LADRON
-CP5=BARDO
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1088]
 Name=Second-Rate Cleric Armor (D/G)
@@ -13207,16 +12603,7 @@ RazaEnana=1
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=GUERRERO
-CP3=ASESINO
-CP4=LADRON
-CP5=BARDO
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1089]
 Name=Second-Rate Druid Armor
@@ -13229,16 +12616,7 @@ Real=2
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=BARDO
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1090]
 Name=Second-Rate Druid Armor (D/G)
@@ -13252,19 +12630,10 @@ RazaEnana=1
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=BARDO
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1091]
-Name=Second-Rate Druid Armor 
+Name=Second-Rate Druid Armor
 GrhIndex=21400
 ObjType=3
 NumRopaje=520
@@ -13274,16 +12643,7 @@ Caos=2
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=BARDO
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1092]
 Name=Second-Rate Druid Armor (D/G)
@@ -13297,19 +12657,10 @@ RazaEnana=1
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=BARDO
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1093]
-Name=Second-Rate Fighter Armor 
+Name=Second-Rate Fighter Armor
 GrhIndex=20860
 ObjType=3
 NumRopaje=500
@@ -13319,16 +12670,7 @@ Real=2
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=ASESINO
-CP4=LADRON
-CP5=BARDO
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1094]
 Name=Second-Rate Fighter Armor (D/G)
@@ -13354,7 +12696,7 @@ CP10=TRABAJADOR
 CP11=PIRATA
 
 [OBJ1095]
-Name=Second-Rate Fighter Armor 
+Name=Second-Rate Fighter Armor
 GrhIndex=21454
 ObjType=3
 NumRopaje=522
@@ -13364,16 +12706,7 @@ Caos=2
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=ASESINO
-CP4=LADRON
-CP5=BARDO
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1096]
 Name=Second-Rate Fighter Armor (D/G)
@@ -13387,16 +12720,8 @@ RazaEnana=1
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=ASESINO
-CP4=LADRON
-CP5=BARDO
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
+CP3=BANDIDO
 
 [OBJ1097]
 Name=Second-Rate Rogue Armor
@@ -13409,16 +12734,7 @@ Real=2
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=BARDO
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1098]
 Name=Second-Rate Rogue Armor (D/G)
@@ -13432,16 +12748,7 @@ RazaEnana=1
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=BARDO
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1099]
 Name=Second-Rate Rogue Armor
@@ -13454,16 +12761,7 @@ Caos=2
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=BARDO
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1100]
 Name=Second-Rate Rogue Armor (D/G)
@@ -13477,19 +12775,10 @@ RazaEnana=1
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=BARDO
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1101]
-Name=Second-Rate Wizard Armor 
+Name=Second-Rate Wizard Armor
 GrhIndex=20968
 ObjType=3
 NumRopaje=504
@@ -13498,17 +12787,8 @@ MaxDef=20
 Real=2
 NoSeCae=1
 Log=1
-CP1=CLERIGO
-CP2=GUERRERO
-CP3=ASESINO
-CP4=LADRON
-CP5=BARDO
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP1=MAGO
+CP2=LADRON
 
 [OBJ1102]
 Name=Second-Rate Wizard Armor (D/G)
@@ -13521,20 +12801,12 @@ Real=2
 RazaEnana=1
 NoSeCae=1
 Log=1
-CP1=CLERIGO
-CP2=GUERRERO
-CP3=ASESINO
-CP4=LADRON
-CP5=BARDO
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP1=MAGO
+CP2=LADRON
+CP3=DRUIDA
 
 [OBJ1103]
-Name=Second-Rate Wizard Armor 
+Name=Second-Rate Wizard Armor
 GrhIndex=21562
 ObjType=3
 NumRopaje=526
@@ -13543,17 +12815,8 @@ MaxDef=20
 Caos=2
 NoSeCae=1
 Log=1
-CP1=CLERIGO
-CP2=GUERRERO
-CP3=ASESINO
-CP4=LADRON
-CP5=BARDO
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP1=MAGO
+CP2=LADRON
 
 [OBJ1104]
 Name=Second-Rate Wizard Armor (D/G)
@@ -13566,20 +12829,11 @@ Caos=2
 RazaEnana=1
 NoSeCae=1
 Log=1
-CP1=CLERIGO
-CP2=GUERRERO
-CP3=ASESINO
-CP4=LADRON
-CP5=BARDO
-CP6=DRUIDA
-CP7=BANDIDO
-CP8=PALADIN
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP1=MAGO
+CP2=LADRON
 
 [OBJ1105]
-Name=Second-Rate Paladin Armor 
+Name=Second-Rate Paladin Armor
 GrhIndex=21022
 ObjType=3
 NumRopaje=506
@@ -13589,16 +12843,7 @@ Real=2
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=BARDO
-CP7=DRUIDA
-CP8=BANDIDO
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1106]
 Name=Second-Rate Paladin Armor (D/G)
@@ -13612,19 +12857,10 @@ RazaEnana=1
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=BARDO
-CP7=DRUIDA
-CP8=BANDIDO
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1107]
-Name=Second-Rate Paladin Armor 
+Name=Second-Rate Paladin Armor
 GrhIndex=21616
 ObjType=3
 NumRopaje=528
@@ -13634,16 +12870,7 @@ Caos=2
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=BARDO
-CP7=DRUIDA
-CP8=BANDIDO
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
 
 [OBJ1108]
 Name=Second-Rate Paladin Armor (D/G)
@@ -13657,19 +12884,11 @@ RazaEnana=1
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=BARDO
-CP7=DRUIDA
-CP8=BANDIDO
-CP9=CAZADOR
-CP10=TRABAJADOR
-CP11=PIRATA
+CP2=LADRON
+CP3=ASESINO
 
 [OBJ1109]
-Name=Second-Rate Pirate Armor 
+Name=Second-Rate Pirate Armor
 GrhIndex=21076
 ObjType=3
 NumRopaje=508
@@ -13679,16 +12898,7 @@ Real=2
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=BARDO
-CP7=DRUIDA
-CP8=BANDIDO
-CP9=PALADIN
-CP10=CAZADOR
-CP11=TRABAJADOR
+CP2=LADRON
 
 [OBJ1110]
 Name=Second-Rate Pirate Armor (D/G)
@@ -13702,19 +12912,10 @@ RazaEnana=1
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=BARDO
-CP7=DRUIDA
-CP8=BANDIDO
-CP9=PALADIN
-CP10=CAZADOR
-CP11=TRABAJADOR
+CP2=LADRON
 
 [OBJ1111]
-Name=Second-Rate Pirate Armor 
+Name=Second-Rate Pirate Armor
 GrhIndex=21670
 ObjType=3
 NumRopaje=530
@@ -13723,17 +12924,9 @@ MaxDef=20
 Caos=2
 NoSeCae=1
 Log=1
-CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=BARDO
-CP7=DRUIDA
-CP8=BANDIDO
-CP9=PALADIN
-CP10=CAZADOR
-CP11=TRABAJADOR
+CP1=GUERRERO
+CP2=LADRON
+CP3=MAGO
 
 [OBJ1112]
 Name=Second-Rate Pirate Armor (D/G)
@@ -13747,16 +12940,7 @@ RazaEnana=1
 NoSeCae=1
 Log=1
 CP1=MAGO
-CP2=CLERIGO
-CP3=GUERRERO
-CP4=ASESINO
-CP5=LADRON
-CP6=BARDO
-CP7=DRUIDA
-CP8=BANDIDO
-CP9=PALADIN
-CP10=CAZADOR
-CP11=TRABAJADOR
+CP2=LADRON
 
 [OBJ1113]
 Name=Bronze Crown
@@ -13959,6 +13143,7 @@ MaxDef=3
 MinDef=2
 Valor=275
 Crucial=1
+CP1=MAGO
 
 [OBJ1127]
 Name=Red Dress (H/E/D-W)
@@ -13982,14 +13167,15 @@ MaxDef=37
 MinDef=30
 Valor=35000
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=329
 LingP=100
 LingO=10
 SkHerreria=100
 RazaDrow=1
+CP1=MAGO
+CP2=BARDO
+CP3=BANDIDO
+CP4=DRUIDA
 
 [OBJ1129]
 Name=Amazonian Breastplate (H/E/D-W)
@@ -14002,13 +13188,13 @@ MaxDef=27
 MinDef=20
 Valor=15000
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=200
 LingP=75
 LingO=0
 SkHerreria=100
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ1130]
 Name=Underdark Chain Mail
@@ -14020,14 +13206,15 @@ MaxDef=25
 MinDef=15
 Valor=15000
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=129
 LingP=50
 LingO=5
 SkHerreria=100
 RazaDrow=1
+CP1=CLERIGO
+CP2=MAGO
+CP3=BARDO
+CP4=DRUIDA
 
 [OBJ1131]
 Name=Blue Robe (H/E/D-W)
@@ -14049,8 +13236,11 @@ NumRopaje=258
 Agarrable=0
 MaxDef=30
 MinDef=25
-Valor= 23000
+Valor=23000
 Crucial=1
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ1133]
 Name=Wedding Dress (D/G-W)
@@ -14064,6 +13254,7 @@ Valor=3400
 Crucial=1
 RazaEnana=1
 Mujer=1
+CP1=TRABAJADOR
 
 [OBJ1134]
 Name=Drow's Clothes
@@ -14076,6 +13267,8 @@ MinDef=5
 Valor=650
 Crucial=1
 RazaDrow=1
+CP1=CLERIGO
+CP2=MAGO
 
 [OBJ1135]
 Name=Blue Breastplate
@@ -14087,13 +13280,13 @@ MaxDef=27
 MinDef=20
 Valor=15000
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=200
 LingP=0
 LingO=0
 SkHerreria=75
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ1136]
 Name=White Robe
@@ -14106,6 +13299,7 @@ MaxDef=12
 Valor=3200
 Crucial=1
 Mujer=1
+CP1=ASESINO
 
 [OBJ1137]
 Name=Underdark Full Plate Armor
@@ -14117,14 +13311,14 @@ MaxDef=50
 MinDef=45
 Valor=35000
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=300
 LingP=125
 LingO=15
 SkHerreria=100
 RazaDrow=1
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ1138]
 Name=Green Breastplate
@@ -14136,13 +13330,13 @@ MaxDef=27
 MinDef=20
 Valor=15000
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=200
 LingP=0
 LingO=0
 SkHerreria=75
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ1139]
 Name=Forest Armor
@@ -14155,9 +13349,6 @@ MaxDef=25
 MinDef=20
 Valor=13500
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=150
 LingP=0
 LingO=0
@@ -14174,13 +13365,15 @@ MaxDef=25
 MinDef=20
 Valor=13500
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=180
 LingP=0
 LingO=0
 SkHerreria=75
+CP1=ASESINO
+CP2=BANDIDO
+CP3=MAGO
+CP4=LADRON
+CP5=DRUIDA
 
 [OBJ1141]
 Name=Chain Mail (H/E/D-W)
@@ -14193,13 +13386,13 @@ MaxDef=22
 MinDef=12
 Valor=12000
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=130
 LingP=0
 LingO=0
 SkHerreria=65
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ1142]
 Name=Scarlet Dress (H/E/D-W)
@@ -14212,6 +13405,7 @@ MaxDef=3
 MinDef=2
 Valor=1000
 Crucial=1
+CP1=LADRON
 
 [OBJ1143]
 Name=Savage Dress (D/G-W)
@@ -14236,17 +13430,7 @@ MaxDef=15
 MinDef=10
 Valor=45000
 Crucial=1
-CP1=MAGO
-CP2=PALADIN
-CP3=LADRON
-CP4=BARDO
-CP5=DRUIDA
-CP6=GUERRERO
-CP7=ASESINO
-CP8=BANDIDO
-CP9=CAZADOR
-CP10=PIRATA
-CP11=TRABAJADOR
+CP1=LADRON
 
 [OBJ1145]
 Name=Dark Wizard's Egregious Robe (H/E/D-W)
@@ -14259,6 +13443,15 @@ MaxDef=5
 MinDef=3
 Valor=9500
 Crucial=1
+CP1=CLERIGO
+CP2=ASESINO
+CP3=PALADIN
+CP4=GUERRERO
+CP5=BANDIDO
+CP6=BARDO
+CP7=LADRON
+CP8=TRABAJADOR
+CP9=DRUIDA
 
 [OBJ1146]
 Name=Chain Mail (H/E/D-W)
@@ -14271,13 +13464,13 @@ MaxDef=20
 MinDef=10
 Valor=10000
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=120
 LingP=0
 LingO=0
 SkHerreria=65
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ1147]
 Name=Fishermen's Clothes
@@ -14313,9 +13506,7 @@ MaxDef=5
 MinDef=3
 Valor=350
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
+CP1=PALADIN
 
 [OBJ1150]
 Name=Bardic Robe
@@ -14327,17 +13518,6 @@ MaxDef=20
 MinDef=10
 Valor=3500
 Crucial=1
-CP1=MAGO
-CP2=PALADIN
-CP3=LADRON
-CP4=CLERIGO
-CP5=DRUIDA
-CP6=GUERRERO
-CP7=ASESINO
-CP8=BANDIDO
-CP9=CAZADOR
-CP10=PIRATA
-CP11=TRABAJADOR
 
 [OBJ1151]
 Name=Southern Breastplate
@@ -14349,13 +13529,13 @@ MaxDef=25
 MinDef=20
 Valor=12500
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=170
 LingP=0
 LingO=0
 SkHerreria=75
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ1152]
 Name=Chain Mail
@@ -14367,13 +13547,13 @@ MaxDef=22
 MinDef=12
 Valor=12000
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=130
 LingP=0
 LingO=0
 SkHerreria=65
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ1153]
 Name=Legendary Robe (H/E/D-W)
@@ -14386,8 +13566,7 @@ MaxDef=35
 MinDef=30
 Valor=20000
 Crucial=1
-CP1=GUERRERO
-CP2=MAGO
+CP1=MAGO
 
 [OBJ1154]
 Name=Ranger's Clothes
@@ -14399,10 +13578,11 @@ MaxDef=15
 MinDef=8
 Valor=2000
 Crucial=1
-CP1=GUERRERO
-CP2=MAGO
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ1155] 'elfo oscuro
+[OBJ1155]
 Name=Night Piwafwi (D)
 GrhIndex=14304
 ObjType=3
@@ -14413,8 +13593,10 @@ MaxDef=20
 Valor=11000
 Crucial=1
 RazaDrow=1
+CP1=MAGO
+CP2=BANDIDO
 
-[OBJ1156] 'gnomo
+[OBJ1156]
 Name=Small Leather Overcoat (D/G-W)
 GrhIndex=14574
 ObjType=3
@@ -14442,6 +13624,8 @@ MinDef=3
 Valor=1600
 Crucial=1
 RazaDrow=1
+CP1=CLERIGO
+CP2=BARDO
 
 [OBJ1158]
 Name=Gentleman Formal Attire
@@ -14465,6 +13649,7 @@ MinDef=3
 Valor=1600
 Crucial=1
 RazaEnana=1
+CP1=PALADIN
 
 [OBJ1160]
 Name=Gentleman Semiformal Attire
@@ -14512,6 +13697,7 @@ MaxDef=3
 MinDef=1
 Valor=175
 Crucial=1
+CP1=BARDO
 
 [OBJ1164]
 Name=Blue Robe (H/E/D-W)
@@ -14524,6 +13710,8 @@ MaxDef=12
 MinDef=8
 Valor=3200
 Crucial=1
+CP1=MAGO
+CP2=BARDO
 
 [OBJ1165]
 Name=Odalisque Dress (H/E/D-W)
@@ -14558,13 +13746,13 @@ MaxDef=25
 MinDef=20
 Valor=12500
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=170
 LingP=0
 LingO=0
 SkHerreria=75
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ1168]
 Name=Chain Mail (H/E/D-W)
@@ -14577,15 +13765,15 @@ MaxDef=22
 MinDef=12
 Valor=12000
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=130
 LingP=0
 LingO=0
 SkHerreria=65
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ1169] 'gnomo
+[OBJ1169]
 Name=Gnome's Outfit (D/G)
 GrhIndex=14520
 ObjType=3
@@ -14607,9 +13795,6 @@ MaxDef=20
 MinDef=15
 Valor=10000
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=120
 LingP=0
 LingO=0
@@ -14626,6 +13811,7 @@ MaxDef=10
 MinDef=3
 Valor=2000
 Crucial=1
+CP1=GUERRERO
 
 [OBJ1172]
 Name=Full Chain Mail
@@ -14637,13 +13823,13 @@ MaxDef=20
 MinDef=15
 Valor=12000
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=130
 LingP=0
 LingO=0
 SkHerreria=65
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ1173]
 Name=Huntress' Armor (H/E/D-W)
@@ -14656,14 +13842,9 @@ MaxDef=20
 MinDef=10
 Valor=17000
 Crucial=1
-CP1=PIRATA
-CP2=MAGO
-CP3=PALADIN
-CP4=CLERIGO
-CP6=LADRON
-CP9=BARDO
-CP10=DRUIDA
-CP11=TRABAJADOR
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ1174]
 Name=Natural Dress (H/E/D-W)
@@ -14687,13 +13868,13 @@ MaxDef=22
 MinDef=16
 Valor=14000
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=140
 LingP=0
 LingO=0
 SkHerreria=65
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ1176]
 Name=Desert Clothes
@@ -14717,7 +13898,7 @@ MinDef=0
 Valor=50
 Crucial=1
 
-[OBJ1178] 'gnomo
+[OBJ1178]
 Name=Sky Robe (D/G-W)
 GrhIndex=12887
 ObjType=3
@@ -14729,8 +13910,10 @@ MaxDef=15
 Valor=4200
 Crucial=1
 RazaEnana=1
+CP1=GUERRERO
+CP2=TRABAJADOR
 
-[OBJ1179] 'gnomo
+[OBJ1179]
 Name=Swamp Armor (D/G)
 GrhIndex=13639
 ObjType=3
@@ -14740,20 +13923,18 @@ MaxDef=50
 MinDef=45
 Valor=69500
 Crucial=0
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=CLERIGO
-CP6=PIRATA
-CP7=ASESINO
-CP8=CAZADOR
-CP9=TRABAJADOR
 LingH=550
 LingP=180
 LingO=0
 SkHerreria=90
 RazaEnana=1
+CP1=CLERIGO
+CP2=ASESINO
+CP3=BARDO
+CP4=MAGO
+CP5=LADRON
+CP6=TRABAJADOR
+CP7=DRUIDA
 
 [OBJ1180]
 Name=Red Robe (H/E/D-W)
@@ -14777,14 +13958,14 @@ MaxDef=27
 MinDef=22
 Valor=22000
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=229
 LingP=50
 LingO=0
 SkHerreria=100
 RazaDrow=1
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ1182]
 Name=Elegant Purple Dress (D/G-W)
@@ -14798,6 +13979,8 @@ MinDef=10
 Valor=5000
 Crucial=1
 RazaEnana=1
+CP1=LADRON
+CP2=TRABAJADOR
 
 [OBJ1183]
 Name=Long Chain Mail
@@ -14809,15 +13992,15 @@ MaxDef=22
 MinDef=18
 Valor=15000
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=BARDO
 LingH=145
 LingP=0
 LingO=0
 SkHerreria=65
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
-[OBJ1184] 'Túnica de Druida
+[OBJ1184]
 Name=Druid Robe
 GrhIndex=13800
 ObjType=3
@@ -14826,8 +14009,10 @@ Agarrable=0
 Mujer=1
 MaxDef=25
 MinDef=20
-Valor= 16000
+Valor=16000
 Crucial=1
+CP1=PALADIN
+CP2=MAGO
 
 [OBJ1185]
 Name=Warlock Robe (D/G)
@@ -14847,15 +14032,18 @@ GrhIndex=18997
 ObjType=2
 Agarrable=0
 Anim=77
-RazaEnanaAnim=72 'FIXME
+RazaEnanaAnim=72
 MinHit=15
 MaxHit=25
-Valor=500000 'FIXME
+Valor=500000
 Crucial=1
 LingH=45
 LingP=75
 LingO=0
 SkHerreria=105
+CP1=MAGO
+CP2=BANDIDO
+CP3=DRUIDA
 
 [OBJ1187]
 Name=Gulfas' Gold Sword
@@ -14863,15 +14051,18 @@ GrhIndex=19473
 ObjType=2
 Agarrable=0
 Anim=78
-RazaEnanaAnim=65 'FIXME
+RazaEnanaAnim=65
 MinHit=20
 MaxHit=30
-Valor=1000000 'FIXME
+Valor=1000000
 Crucial=1
 LingH=45
 LingP=75
 LingO=0
 SkHerreria=115
+CP1=MAGO
+CP2=BANDIDO
+CP3=DRUIDA
 
 [OBJ1188]
 Name=Pirate's Bandana
@@ -14884,6 +14075,14 @@ MaxDef=1
 MinDef=0
 Valor=50
 Crucial=0
+CP1=CLERIGO
+CP2=ASESINO
+CP3=PALADIN
+CP4=BARDO
+CP5=BANDIDO
+CP6=MAGO
+CP7=TRABAJADOR
+CP8=DRUIDA
 
 [OBJ1189]
 Name=Saber
@@ -14896,11 +14095,11 @@ MinHit=5
 MaxHit=17
 Valor=3550
 Crucial=1
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
 LingH=45
 LingP=0
 LingO=0
 SkHerreria=60
+CP1=MAGO
+CP2=BANDIDO
+CP3=DRUIDA
+
