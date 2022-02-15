@@ -608,8 +608,8 @@ bool PuedeFundarUnClan(int UserIndex, ALINEACION_GUILD Alineacion, std::string &
 		return retval;
 	}
 
-	if (UserList[UserIndex].Stats.ELV < 25 || UserList[UserIndex].Stats.UserSkills[eSkill_Liderazgo] < 90) {
-		refError = "In order to found a clan you must be at least level 25 and have at least 90 leadership skill points.";
+	if (UserList[UserIndex].Stats.ELV < 30) {
+		refError = "In order to found a clan you must be at least level 30.";
 		return retval;
 	}
 

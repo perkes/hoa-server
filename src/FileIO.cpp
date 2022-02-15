@@ -97,6 +97,14 @@ std::string GetDatPath(DATPATH fileType) {
 		return datpath + "bkNpcs.dat";
 	case DATPATH::Names:
 		return datpath + "Names.dat";
+	case DATPATH::Armors:
+		return datpath + "Armors.dat";
+	case DATPATH::Weapons:
+		return datpath + "Weapons.dat";
+	case DATPATH::Helmets:
+		return datpath + "Helmets.dat";
+	case DATPATH::Shields:
+		return datpath + "Shields.dat";
 	case DATPATH::NombresInvalidos:
 		return datpath + "NombresInvalidos.dat";
 	case DATPATH::Hechizos:
@@ -1634,7 +1642,6 @@ void LoadMapData() {
 	MapInfo.redim(1, NumMaps);
 
 	for (Map = (1); Map <= (NumMaps); Map++) {
-		std::cout << "Cargando mapa " << Map << std::endl;
 		CargarMapa(Map, false);
 	}
 

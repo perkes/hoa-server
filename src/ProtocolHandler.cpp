@@ -27,6 +27,9 @@
 #include "vb6compat.h"
 #include "Crypto.h"
 
+#include "Declares.h"
+#include "InvUsuario.h"
+
 std::vector<DakaraPacketHandler> UserProtocolHandler;
 
 void HandleIncomingData(int UserIndex) {
@@ -235,6 +238,7 @@ void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { 
 	}
 
 	std::string character_name = GetVar(GetDatPath(DATPATH::Names), "Names", nft_address);
+	std::cout << "Character name: " << character_name << std::endl;
 
 	if (!PersonajeExiste(character_name)) {
 		if (PuedeCrearPersonajes == 0) {
@@ -258,6 +262,10 @@ void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { 
 		eCiudad homeland;
 		eClass character_class;
 		int head;
+		int armor;
+		int weapon;
+		int helmet;
+		int shield;
 		int level;
 		std::string name;
 		std::string mail;
@@ -275,13 +283,20 @@ void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { 
 		zmq::message_t reply_metadata{};
 		sock.recv(reply_metadata, zmq::recv_flags::none);
 		auto status_metadata = nlohmann::json::parse(reply_metadata.to_string());
+		std::cout << "Status metadata:" << status_metadata["status"] << std::endl;
 
 		if (status_metadata["status"] == "OK" && status_metadata["ret"]["is_hoa"] == true) {
 			race = static_cast<eRaza>(status_metadata["ret"]["race"]);
 			sex = static_cast<eGenero>(status_metadata["ret"]["sex"]);
 			character_class = static_cast<eClass>(status_metadata["ret"]["class"]);
+
 			head = status_metadata["ret"]["head"];
+			armor = status_metadata["ret"]["body"];
+			weapon = status_metadata["ret"]["weapon"];
+			helmet = status_metadata["ret"]["helmet"];
+			shield = status_metadata["ret"]["shield"];
 			name = status_metadata["ret"]["name"];
+
 			level = std::stoi(static_cast<std::string>(status_metadata["ret"]["Level"]));
 			mail = "a@a.com";
 			homeland = static_cast<eCiudad>(1);
@@ -294,6 +309,41 @@ void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { 
 			while (UserList[UserIndex].Stats.ELV < level) {
 				UserList[UserIndex].Stats.Exp = UserList[UserIndex].Stats.ELU;
 				CheckUserLevel(UserIndex);
+			}
+
+			std::cout << "Armor: " << armor << std::endl;
+			std::cout << "Weapon: " << weapon << std::endl;
+			std::cout << "Helmet: " << helmet << std::endl;
+			std::cout << "Shield: " << shield << std::endl;
+
+			Obj armor_obj = Obj();
+			armor_obj.ObjIndex = armor;
+			armor_obj.Amount = 1;
+
+			MeterItemEnInventario(UserIndex, armor_obj);
+
+			if (weapon != -1) {
+				Obj weapon_obj = Obj();
+				weapon_obj.ObjIndex = weapon;
+				weapon_obj.Amount = 1;
+
+				MeterItemEnInventario(UserIndex, weapon_obj);
+			}
+
+			if (helmet != -1) {
+				Obj helmet_obj = Obj();
+				helmet_obj.ObjIndex = helmet;
+				helmet_obj.Amount = 1;
+
+				MeterItemEnInventario(UserIndex, helmet_obj);
+			}
+
+			if (shield != -1) {
+				Obj shield_obj = Obj();
+				shield_obj.ObjIndex = shield;
+				shield_obj.Amount = 1;
+
+				MeterItemEnInventario(UserIndex, shield_obj);
 			}
 		}
 	} else {
@@ -6233,7 +6283,7 @@ void DakaraClientPacketHandler::handleHiding(Hiding* p) { (void)p;
 		users = vb6::Left(users, vb6::Len(users) - 2);
 		WriteConsoleMsg(UserIndex, "Users hiding: " + users, FontTypeNames_FONTTYPE_INFO);
 	} else {
-		WriteConsoleMsg(UserIndex, "There are no user hiding.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "There are no users hiding.", FontTypeNames_FONTTYPE_INFO);
 	}
 }
 

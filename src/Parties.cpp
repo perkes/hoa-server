@@ -105,11 +105,6 @@ bool PuedeCrearParty(int UserIndex) {
 		WriteConsoleMsg(UserIndex, "Staff members can't create parties!",
 				FontTypeNames_FONTTYPE_PARTY);
 		retval = false;
-	} else if (vb6::CInt(UserList[UserIndex].Stats.UserAtributos[eAtributos_Carisma])
-			* UserList[UserIndex].Stats.UserSkills[eSkill_Liderazgo] < 100) {
-		WriteConsoleMsg(UserIndex, "Your charisma and leadership skills are not high enough to create a party.",
-				FontTypeNames_FONTTYPE_PARTY);
-		retval = false;
 	} else if (UserList[UserIndex].flags.Muerto == 1) {
 		WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_PARTY);
 		retval = false;
@@ -128,36 +123,30 @@ void CrearParty(int UserIndex) {
 
 	if (UserList[UserIndex].PartyIndex == 0) {
 		if (UserList[UserIndex].flags.Muerto == 0) {
-			if (UserList[UserIndex].Stats.UserSkills[eSkill_Liderazgo] >= 5) {
-				tInt = NextParty();
-				if (tInt == -1) {
-					WriteConsoleMsg(UserIndex, "No more parties can be created at the time.",
+			tInt = NextParty();
+			if (tInt == -1) {
+				WriteConsoleMsg(UserIndex, "No more parties can be created at the time.",
+						FontTypeNames_FONTTYPE_PARTY);
+				return;
+			} else {
+				Parties[tInt].reset(new clsParty());
+				if (!Parties[tInt]->NuevoMiembro(UserIndex)) {
+					WriteConsoleMsg(UserIndex, "The party is full, you cannot join it.",
 							FontTypeNames_FONTTYPE_PARTY);
+					Parties[tInt].reset();
 					return;
 				} else {
-					Parties[tInt].reset(new clsParty());
-					if (!Parties[tInt]->NuevoMiembro(UserIndex)) {
-						WriteConsoleMsg(UserIndex, "The party is full, you cannot join it.",
+					WriteConsoleMsg(UserIndex, "You've created a party!", FontTypeNames_FONTTYPE_PARTY);
+					UserList[UserIndex].PartyIndex = tInt;
+					UserList[UserIndex].PartySolicitud = 0;
+					if (!Parties[tInt]->HacerLeader(UserIndex)) {
+						WriteConsoleMsg(UserIndex, "You can't make yourself leader.",
 								FontTypeNames_FONTTYPE_PARTY);
-						Parties[tInt].reset();
-						return;
 					} else {
-						WriteConsoleMsg(UserIndex, "You've created a party!", FontTypeNames_FONTTYPE_PARTY);
-						UserList[UserIndex].PartyIndex = tInt;
-						UserList[UserIndex].PartySolicitud = 0;
-						if (!Parties[tInt]->HacerLeader(UserIndex)) {
-							WriteConsoleMsg(UserIndex, "You can't make yourself leader.",
-									FontTypeNames_FONTTYPE_PARTY);
-						} else {
-							WriteConsoleMsg(UserIndex, "You've become the leader of your party!",
-									FontTypeNames_FONTTYPE_PARTY);
-						}
+						WriteConsoleMsg(UserIndex, "You've become the leader of your party!",
+								FontTypeNames_FONTTYPE_PARTY);
 					}
 				}
-			} else {
-				WriteConsoleMsg(UserIndex,
-						"Your leadership skills are not high enough to be the leader of a party.",
-						FontTypeNames_FONTTYPE_PARTY);
 			}
 		} else {
 			WriteConsoleMsg(UserIndex, "You're dead!!", FontTypeNames_FONTTYPE_PARTY);

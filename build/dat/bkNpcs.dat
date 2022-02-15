@@ -22,7 +22,7 @@ MinHp=0
 ReSpawn=0
 BackUp=1
 Domable=0
-NroItems=9
+NroItems=10
 Obj1=31-1000
 Obj2=32-1000
 Obj3=35-1000
@@ -32,6 +32,7 @@ Obj6=135-1000
 Obj7=238-1000
 Obj8=239-1000
 Obj9=873-1000
+Obj10=1188-1000
 
 [NPC19]
 Name=Tailor

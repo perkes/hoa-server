@@ -1,33 +1,3 @@
-[GUILD1]
-ALINEACION=Neutral
-ANTIFACCION=0
-CODEX1=The first rule of NAM is that there are no rules.
-CODEX2=The second rule of NAM is that you do not talk about NAM.
-CODEX3=The third rule is only two men per fight.
-CODEX4=The fourth rule is, if the other party yields, the fight is over.
-DATE=2022-Jan-22 12:27:32
-DESC=A neutral clan
-FOUNDER=Gonddis
-GUILDNAME=NAM
-GUILDNEWS=Clan created with alignment: Neutral
-LEADER=Gonddis
-URL=nam.io
-
-[GUILD2]
-ALINEACION=Neutral
-ANTIFACCION=0
-CODEX1=Thou shalt not kill
-CODEX2=Thou shalt not steal
-CODEX3=Thou shalt not lie
-CODEX4=Thou shalt not have impure thoughts
-DATE=2022-Jan-22 15:12:30
-DESC=Imperium Guild
-FOUNDER=Binkflonk
-GUILDNAME=Imperium
-GUILDNEWS=Clan created with alignment: Legal
-LEADER=Binkflonk
-URL=imperiumao.io
-
 [INIT]
-NROGUILDS=2
+NROGUILDS=0
 

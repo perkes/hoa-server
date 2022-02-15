@@ -479,7 +479,7 @@ bool PuedeLanzar(int UserIndex, int HechizoIndex) {
 	}
 
 	if (UserList[UserIndex].Stats.UserSkills[eSkill_Magia] < Hechizos[HechizoIndex].MinSkill) {
-		WriteConsoleMsg(UserIndex, "You don't have enough magic skill points to cast sthis spell.",
+		WriteConsoleMsg(UserIndex, "You don't have enough magic skill points to cast this spell.",
 				FontTypeNames_FONTTYPE_INFO);
 		return retval;
 	}

@@ -59,7 +59,11 @@ enum class DATPATH {
 	SecurityIp,
 	EmailsHabilitados,
 	Stats,
-	Names
+	Names,
+	Armors,
+	Weapons,
+	Shields,
+	Helmets
 };
 
 std::string GetAppPath();

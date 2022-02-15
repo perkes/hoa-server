@@ -65,7 +65,7 @@ bool ClasePuedeUsarItem(int UserIndex, int ObjIndex, std::string& sMotivo) {
 			for (i = (1); i <= (NUMCLASES); i++) {
 				if (ObjData[ObjIndex].ClaseProhibida[i] == UserList[UserIndex].clase) {
 					retval = false;
-					sMotivo = "Tu clase no puede usar este objeto.";
+					sMotivo = "Your class cannot use that object.";
 					return retval;
 				}
 			}
@@ -1126,7 +1126,7 @@ bool CheckRazaUsaRopa(int UserIndex, int ItemIndex, std::string& sMotivo) {
 	}
 
 	if (!retval) {
-		sMotivo = "Tu raza no puede usar este objeto.";
+		sMotivo = "Your race cannot use that object.";
 	}
 
 	return retval;

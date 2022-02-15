@@ -68,7 +68,7 @@ usar primero los nros m�s bajos.
 [INIT]
 'aca va el numero de OBJ mas alto, NO la cantidad de OBJs.
 'esto sirve para que los GMS puedan ver la lista completa de items para crear en una ventanita.
-NumOBJs=1125
+NumOBJs=1189
 
 
 
@@ -1466,12 +1466,11 @@ Valor=4200
 Crucial=0
 CP1=MAGO
 CP2=DRUIDA
-CP3=LADRON
+CP3=TRABAJADOR
 CP4=BARDO
 CP5=PIRATA
 CP6=ASESINO
 CP7=CAZADOR
-CP8=TRABAJADOR
 LingH=60
 LingP=0
 LingO=0
@@ -2301,7 +2300,7 @@ Crucial=1
 HechizoIndex=7
 
 [OBJ205]
-Name=Magic Projectile
+Name=Magic Missile
 GrhIndex=609
 ObjType=24
 Agarrable=0
@@ -4004,10 +4003,7 @@ CP1=PIRATA
 CP2=MAGO
 CP3=PALADIN
 CP4=CLERIGO
-CP5=ASESINO
 CP6=LADRON
-CP7=BANDIDO
-CP8=GUERRERO
 CP9=BARDO
 CP10=DRUIDA
 CP11=TRABAJADOR
@@ -4132,7 +4128,6 @@ GrhIndex=691
 ObjType=3
 NumRopaje=77
 Agarrable=0
-Caos=1
 MaxDef=13
 MinDef=7
 Valor=3010
@@ -4269,7 +4264,6 @@ ObjType=3
 NumRopaje=81
 Agarrable=0
 Razaenana=1
-Caos=1
 MaxDef=13
 MinDef=7
 Valor=3010
@@ -4665,7 +4659,6 @@ Crucial=1
 CP1=MAGO
 CP2=DRUIDA
 CP3=PIRATA
-CP4=LADRON
 LingH=5
 LingP=0
 LingO=0
@@ -6006,7 +5999,6 @@ ObjType=3
 NumRopaje=119
 Agarrable=0
 Mujer=1
-Caos=1
 MaxDef=12
 MinDef=5
 Valor=2800
@@ -6036,7 +6028,7 @@ Valor=10500
 Crucial=1
 
 [OBJ511]
-Name=Sexy Bride Dress (H/E/D-W)
+Name=Wedding Dress (H/E/D-W)
 GrhIndex=787
 ObjType=3
 NumRopaje=121
@@ -6152,7 +6144,6 @@ GrhIndex=795
 ObjType=3
 NumRopaje=129
 Agarrable=0
-Caos=1
 MaxDef=12
 MinDef=5
 Valor=2800
@@ -6243,7 +6234,6 @@ GrhIndex=800
 ObjType=3
 NumRopaje=134
 Agarrable=0
-Caos=1
 MaxDef=12
 MinDef=6
 Valor=2900
@@ -6561,12 +6551,8 @@ CP2=MAGO
 CP3=PALADIN
 CP4=CLERIGO
 CP5=ASESINO
-CP6=LADRON
-CP7=BANDIDO
-CP8=GUERRERO
-CP9=BARDO
-CP10=DRUIDA
-CP11=TRABAJADOR
+CP6=BARDO
+CP7=DRUIDA
 Madera=4
 Upgrade=552
 SkCarpinteria=40
@@ -6585,12 +6571,8 @@ CP2=MAGO
 CP3=PALADIN
 CP4=CLERIGO
 CP5=ASESINO
-CP6=LADRON
-CP7=BANDIDO
-CP8=GUERRERO
-CP9=BARDO
-CP10=DRUIDA
-CP11=TRABAJADOR
+CP6=BARDO
+CP7=DRUIDA
 Madera=6
 SkCarpinteria=65
 
@@ -6608,12 +6590,10 @@ CP2=MAGO
 CP3=PALADIN
 CP4=CLERIGO
 CP5=ASESINO
-CP6=LADRON
+CP6=DRUIDA
 CP7=BANDIDO
-CP8=GUERRERO
+CP8=TRABAJADOR
 CP9=BARDO
-CP10=DRUIDA
-CP11=TRABAJADOR
 MaderaElfica=2
 SkCarpinteria=90
 
@@ -6660,7 +6640,6 @@ GrhIndex=774
 ObjType=3
 NumRopaje=23
 Agarrable=0
-Caos=1
 RazaEnana=1
 MaxDef=12
 MinDef=5
@@ -7565,7 +7544,6 @@ GrhIndex=4916
 ObjType=3
 NumRopaje=549
 Agarrable=0
-Caos=1
 MaxDef=20
 MinDef=15
 Valor=9500
@@ -7588,7 +7566,6 @@ GrhIndex=770
 ObjType=3
 NumRopaje=104
 Agarrable=0
-Caos=1
 Mujer=1
 MaxDef=25
 MinDef=15
@@ -7610,7 +7587,6 @@ GrhIndex=657
 ObjType=3
 NumRopaje=135
 Agarrable=0
-Caos=1
 RazaEnana=1
 MaxDef=35
 MinDef=35
@@ -7631,7 +7607,6 @@ GrhIndex=806
 ObjType=3
 NumRopaje=140
 Agarrable=0
-Caos=1
 MaxDef=40
 MinDef=40
 Valor=0
@@ -7652,7 +7627,6 @@ GrhIndex=756
 ObjType=3
 NumRopaje=89
 Agarrable=0
-Caos=1
 MaxDef=55
 MinDef=55
 Valor=0
@@ -7669,7 +7643,6 @@ GrhIndex=758
 ObjType=3
 NumRopaje=91
 Agarrable=0
-Caos=1
 RazaEnana=1
 MaxDef=55
 MinDef=55
@@ -7687,7 +7660,6 @@ GrhIndex=657
 ObjType=3
 NumRopaje=50
 Agarrable=0
-Caos=1
 MaxDef=55
 MinDef=55
 Valor=0
@@ -8052,12 +8024,10 @@ CP2=MAGO
 CP3=PALADIN
 CP4=CLERIGO
 CP5=ASESINO
-CP6=LADRON
+CP6=TRABAJADOR
 CP7=BANDIDO
-CP8=GUERRERO
+CP8=DRUIDA
 CP9=BARDO
-CP10=DRUIDA
-CP11=TRABAJADOR
 MaderaElfica=500
 SkCarpinteria=100
 
@@ -8203,7 +8173,6 @@ GrhIndex=4926
 ObjType=3
 NumRopaje=176
 Agarrable=0
-Caos=1
 MaxDef=3
 MinDef=1
 Valor=175
@@ -8215,7 +8184,6 @@ GrhIndex=4927
 ObjType=3
 NumRopaje=177
 Agarrable=0
-Caos=1
 RazaEnana=1
 MaxDef=3
 MinDef=1
@@ -8318,7 +8286,6 @@ GrhIndex=4919
 ObjType=3
 NumRopaje=170
 Agarrable=0
-Caos=1
 MaxDef=25
 MinDef=15
 Valor=11830
@@ -8338,7 +8305,6 @@ GrhIndex=4918
 ObjType=3
 NumRopaje=169
 Agarrable=0
-Caos=1
 MaxDef=22
 MinDef=15
 Valor=9240
@@ -8363,7 +8329,6 @@ GrhIndex=4917
 ObjType=3
 NumRopaje=168
 Agarrable=0
-Caos=1
 RazaEnana=1
 MaxDef=25
 MinDef=15
@@ -8381,7 +8346,6 @@ GrhIndex=4916
 ObjType=3
 NumRopaje=167
 Agarrable=0
-Caos=1
 RazaEnana=1
 MaxDef=20
 MinDef=15
@@ -8432,7 +8396,6 @@ GrhIndex=806
 ObjType=3
 NumRopaje=140
 Agarrable=0
-Caos=1
 MaxDef=35
 MinDef=30
 Valor=18000
@@ -8445,7 +8408,6 @@ GrhIndex=4914
 ObjType=3
 NumRopaje=165
 Agarrable=0
-Caos=1
 RazaEnana=1
 MaxDef=35
 MinDef=30
@@ -8539,7 +8501,6 @@ GrhIndex=4910
 ObjType=3
 NumRopaje=163
 Agarrable=0
-Caos=1
 RazaEnana=1
 MaxDef=40
 MinDef=35
@@ -8674,7 +8635,6 @@ GrhIndex=4911
 ObjType=3
 NumRopaje=162
 Agarrable=0
-Caos=1
 MaxDef=40
 MinDef=35
 Valor=25060
@@ -8736,7 +8696,6 @@ ObjType=16
 NumRopaje=2
 Agarrable=0
 Anim=5
-Caos=1
 MaxDef=4
 MinDef=1
 Valor=7800
@@ -9971,7 +9930,7 @@ GrhIndex=513
 VGrande=514
 ObjType=8
 Agarrable=1
-Texto=Here lies The people of Argentum will honor you forever.
+Texto=Here lies El Oso. The people of Argentum will honor you forever.
 
 [OBJ873]
 Name=Thief's Gloves
@@ -10014,8 +9973,6 @@ Snd1=123
 Agarrable=0
 Valor=0
 Crucial=0
-Caos=1
-NoSeCae=1
 Log=1
 
 [OBJ876]
@@ -11105,7 +11062,7 @@ RazaEnana=1
 CP1=GUERRERO
 
 [OBJ939] 'gnomo
-Name=Túnica de Gala Roja (D/G)
+Name=Gala Red Robe (D/G)
 GrhIndex=15546
 ObjType=3
 NumRopaje=312
@@ -11296,7 +11253,7 @@ Crucial=1
 CP1=MAGO
 
 [OBJ953] 'elfo mujer 
-Name=Purple ELven Mantle (H/E/D-W)
+Name=Purple Elven Mantle (H/E/D-W)
 GrhIndex=16437
 ObjType=3
 NumRopaje=345
@@ -11388,14 +11345,13 @@ RazaEnana=1
 CP1=MAGO
 CP2=PIRATA
 CP3=LADRON
-CP4=ASESINO
+CP4=CLERIGO
 CP5=BANDIDO
 CP6=GUERRERO
 CP7=BARDO
 CP8=DRUIDA
 CP9=PALADIN
 CP10=CAZADOR
-CP11=CLERIGO
 
 [OBJ960] 'enano
 Name=Lumberjack Clothes (D/G)
@@ -11815,7 +11771,7 @@ CP1=MAGO
 CP2=BARDO
 CP3=DRUIDA
 
-[OBJ986] Túnica de Druida
+[OBJ986] 'Túnica de Druida
 Name=Druid Robe
 GrhIndex=681
 ObjType=3
@@ -12142,7 +12098,7 @@ Valor=25000
 Crucial=1
 CP1=MAGO
 CP2=PALADIN
-CP3=LADRON
+CP3=TRABAJADOR
 CP4=BARDO
 CP5=DRUIDA
 CP6=GUERRERO
@@ -12150,7 +12106,6 @@ CP7=ASESINO
 CP8=BANDIDO
 CP9=CAZADOR
 CP10=CLERIGO
-CP11=TRABAJADOR
 
 [OBJ1011]
 Name=Lantern
@@ -12372,7 +12327,6 @@ ObjType=16
 NumRopaje=2
 Agarrable=0
 Anim=9
-Caos=1
 MaxDef=1
 MinDef=1
 Valor=350
@@ -12461,7 +12415,6 @@ GrhIndex=23177
 ObjType=3
 NumRopaje=548
 Agarrable=0
-Caos=1
 RazaEnana=1
 MaxDef=12
 MinDef=6
@@ -12483,7 +12436,6 @@ GrhIndex=23123
 ObjType=3
 NumRopaje=546
 Agarrable=0
-Caos=1
 RazaEnana=1
 MaxDef=22
 MinDef=15
@@ -13995,3 +13947,960 @@ NoSeCae=1
 NoRobable=1
 NoComerciable=1
 Log=1
+
+[OBJ1126]
+Name=Alpine Dress (H/E/D-W)
+GrhIndex=23673
+ObjType=3
+NumRopaje=193
+Agarrable=0
+Mujer=1
+MaxDef=3
+MinDef=2
+Valor=275
+Crucial=1
+
+[OBJ1127]
+Name=Red Dress (H/E/D-W)
+GrhIndex=5955
+ObjType=3
+NumRopaje=66
+Agarrable=0
+Mujer=1
+MaxDef=3
+MinDef=2
+Valor=1000
+Crucial=1
+
+[OBJ1128]
+Name=Underdark Red Armor
+GrhIndex=14250
+ObjType=3
+NumRopaje=263
+Agarrable=0
+MaxDef=37
+MinDef=30
+Valor=35000
+Crucial=1
+CP1=MAGO
+CP2=DRUIDA
+CP3=BARDO
+LingH=329
+LingP=100
+LingO=10
+SkHerreria=100
+RazaDrow=1
+
+[OBJ1129]
+Name=Amazonian Breastplate (H/E/D-W)
+GrhIndex=770
+ObjType=3
+NumRopaje=108
+Agarrable=0
+Mujer=1
+MaxDef=27
+MinDef=20
+Valor=15000
+Crucial=1
+CP1=MAGO
+CP2=DRUIDA
+CP3=BARDO
+LingH=200
+LingP=75
+LingO=0
+SkHerreria=100
+
+[OBJ1130]
+Name=Underdark Chain Mail
+GrhIndex=465
+ObjType=3
+NumRopaje=249
+Agarrable=0
+MaxDef=25
+MinDef=15
+Valor=15000
+Crucial=1
+CP1=MAGO
+CP2=DRUIDA
+CP3=BARDO
+LingH=129
+LingP=50
+LingO=5
+SkHerreria=100
+RazaDrow=1
+
+[OBJ1131]
+Name=Blue Robe (H/E/D-W)
+GrhIndex=13827
+ObjType=3
+NumRopaje=252
+Agarrable=0
+Mujer=1
+MaxDef=10
+MinDef=5
+Valor=2700
+Crucial=1
+
+[OBJ1132]
+Name=Druid Armor
+GrhIndex=1476
+ObjType=3
+NumRopaje=258
+Agarrable=0
+MaxDef=30
+MinDef=25
+Valor= 23000
+Crucial=1
+
+[OBJ1133]
+Name=Wedding Dress (D/G-W)
+GrhIndex=9964
+ObjType=3
+NumRopaje=235
+Agarrable=0
+MinDef=7
+MaxDef=12
+Valor=3400
+Crucial=1
+RazaEnana=1
+Mujer=1
+
+[OBJ1134]
+Name=Drow's Clothes
+GrhIndex=14277
+ObjType=3
+NumRopaje=264
+Agarrable=0
+MaxDef=10
+MinDef=5
+Valor=650
+Crucial=1
+RazaDrow=1
+
+[OBJ1135]
+Name=Blue Breastplate
+GrhIndex=9659
+ObjType=3
+NumRopaje=224
+Agarrable=0
+MaxDef=27
+MinDef=20
+Valor=15000
+Crucial=1
+CP1=MAGO
+CP2=DRUIDA
+CP3=BARDO
+LingH=200
+LingP=0
+LingO=0
+SkHerreria=75
+
+[OBJ1136]
+Name=White Robe
+GrhIndex=5556
+ObjType=3
+NumRopaje=245
+Agarrable=0
+MinDef=7
+MaxDef=12
+Valor=3200
+Crucial=1
+Mujer=1
+
+[OBJ1137]
+Name=Underdark Full Plate Armor
+GrhIndex=14223
+ObjType=3
+NumRopaje=262
+Agarrable=0
+MaxDef=50
+MinDef=45
+Valor=35000
+Crucial=1
+CP1=MAGO
+CP2=DRUIDA
+CP3=BARDO
+LingH=300
+LingP=125
+LingO=15
+SkHerreria=100
+RazaDrow=1
+
+[OBJ1138]
+Name=Green Breastplate
+GrhIndex=14331
+ObjType=3
+NumRopaje=266
+Agarrable=0
+MaxDef=27
+MinDef=20
+Valor=15000
+Crucial=1
+CP1=MAGO
+CP2=DRUIDA
+CP3=BARDO
+LingH=200
+LingP=0
+LingO=0
+SkHerreria=75
+
+[OBJ1139]
+Name=Forest Armor
+GrhIndex=9529
+ObjType=3
+NumRopaje=220
+Agarrable=0
+RazaEnana=1
+MaxDef=25
+MinDef=20
+Valor=13500
+Crucial=1
+CP1=MAGO
+CP2=DRUIDA
+CP3=BARDO
+LingH=150
+LingP=0
+LingO=0
+Upgrade=392
+SkHerreria=70
+
+[OBJ1140]
+Name=Plain Breastplate
+GrhIndex=9686
+ObjType=3
+NumRopaje=225
+Agarrable=0
+MaxDef=25
+MinDef=20
+Valor=13500
+Crucial=1
+CP1=MAGO
+CP2=DRUIDA
+CP3=BARDO
+LingH=180
+LingP=0
+LingO=0
+SkHerreria=75
+
+[OBJ1141]
+Name=Chain Mail (H/E/D-W)
+GrhIndex=14412
+ObjType=3
+NumRopaje=269
+Agarrable=0
+Mujer=1
+MaxDef=22
+MinDef=12
+Valor=12000
+Crucial=1
+CP1=MAGO
+CP2=DRUIDA
+CP3=BARDO
+LingH=130
+LingP=0
+LingO=0
+SkHerreria=65
+
+[OBJ1142]
+Name=Scarlet Dress (H/E/D-W)
+GrhIndex=12914
+ObjType=3
+NumRopaje=549
+Agarrable=0
+Mujer=1
+MaxDef=3
+MinDef=2
+Valor=1000
+Crucial=1
+
+[OBJ1143]
+Name=Savage Dress (D/G-W)
+GrhIndex=805
+ObjType=3
+NumRopaje=139
+Agarrable=0
+MinDef=5
+MaxDef=10
+Valor=2750
+Crucial=1
+RazaEnana=1
+Mujer=1
+
+[OBJ1144]
+Name=Cardinal Ferraiolo
+GrhIndex=13590
+ObjType=3
+NumRopaje=244
+Agarrable=0
+MaxDef=15
+MinDef=10
+Valor=45000
+Crucial=1
+CP1=MAGO
+CP2=PALADIN
+CP3=LADRON
+CP4=BARDO
+CP5=DRUIDA
+CP6=GUERRERO
+CP7=ASESINO
+CP8=BANDIDO
+CP9=CAZADOR
+CP10=PIRATA
+CP11=TRABAJADOR
+
+[OBJ1145]
+Name=Dark Wizard's Egregious Robe (H/E/D-W)
+GrhIndex=4916
+ObjType=3
+NumRopaje=78
+Agarrable=0
+Mujer=1
+MaxDef=5
+MinDef=3
+Valor=9500
+Crucial=1
+
+[OBJ1146]
+Name=Chain Mail (H/E/D-W)
+GrhIndex=14466
+ObjType=3
+NumRopaje=271
+Agarrable=0
+Mujer=1
+MaxDef=20
+MinDef=10
+Valor=10000
+Crucial=1
+CP1=MAGO
+CP2=DRUIDA
+CP3=BARDO
+LingH=120
+LingP=0
+LingO=0
+SkHerreria=65
+
+[OBJ1147]
+Name=Fishermen's Clothes
+GrhIndex=13666
+ObjType=3
+NumRopaje=246
+Agarrable=0
+MaxDef=8
+MinDef=5
+Valor=550
+Crucial=1
+RazaEnana=1
+
+[OBJ1148]
+Name=Common Clothes
+GrhIndex=9713
+ObjType=3
+NumRopaje=226
+Agarrable=0
+MaxDef=0
+MinDef=0
+Valor=50
+Crucial=1
+
+[OBJ1149]
+Name=Huntress Dress
+GrhIndex=14358
+ObjType=3
+NumRopaje=267
+Agarrable=0
+Mujer=1
+MaxDef=5
+MinDef=3
+Valor=350
+Crucial=1
+CP1=MAGO
+CP2=DRUIDA
+CP3=BARDO
+
+[OBJ1150]
+Name=Bardic Robe
+GrhIndex=14493
+ObjType=3
+NumRopaje=272
+Agarrable=0
+MaxDef=20
+MinDef=10
+Valor=3500
+Crucial=1
+CP1=MAGO
+CP2=PALADIN
+CP3=LADRON
+CP4=CLERIGO
+CP5=DRUIDA
+CP6=GUERRERO
+CP7=ASESINO
+CP8=BANDIDO
+CP9=CAZADOR
+CP10=PIRATA
+CP11=TRABAJADOR
+
+[OBJ1151]
+Name=Southern Breastplate
+GrhIndex=14079
+ObjType=3
+NumRopaje=257
+Agarrable=0
+MaxDef=25
+MinDef=20
+Valor=12500
+Crucial=1
+CP1=MAGO
+CP2=DRUIDA
+CP3=BARDO
+LingH=170
+LingP=0
+LingO=0
+SkHerreria=75
+
+[OBJ1152]
+Name=Chain Mail
+GrhIndex=14439
+ObjType=3
+NumRopaje=270
+Agarrable=0
+MaxDef=22
+MinDef=12
+Valor=12000
+Crucial=1
+CP1=MAGO
+CP2=DRUIDA
+CP3=BARDO
+LingH=130
+LingP=0
+LingO=0
+SkHerreria=65
+
+[OBJ1153]
+Name=Legendary Robe (H/E/D-W)
+GrhIndex=6967
+ObjType=3
+NumRopaje=211
+Agarrable=0
+Mujer=1
+MaxDef=35
+MinDef=30
+Valor=20000
+Crucial=1
+CP1=GUERRERO
+CP2=MAGO
+
+[OBJ1154]
+Name=Ranger's Clothes
+GrhIndex=15843
+ObjType=3
+NumRopaje=323
+Agarrable=0
+MaxDef=15
+MinDef=8
+Valor=2000
+Crucial=1
+CP1=GUERRERO
+CP2=MAGO
+
+[OBJ1155] 'elfo oscuro
+Name=Night Piwafwi (D)
+GrhIndex=14304
+ObjType=3
+NumRopaje=265
+Agarrable=0
+MinDef=16
+MaxDef=20
+Valor=11000
+Crucial=1
+RazaDrow=1
+
+[OBJ1156] 'gnomo
+Name=Small Leather Overcoat (D/G-W)
+GrhIndex=14574
+ObjType=3
+NumRopaje=275
+Agarrable=0
+Mujer=1
+MinDef=2
+MaxDef=2
+Valor=200
+Crucial=1
+RazaEnana=1
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
+
+[OBJ1157]
+Name=Wedding Dress (H/E/D-W)
+GrhIndex=787
+ObjType=3
+NumRopaje=122
+Agarrable=0
+Mujer=1
+MaxDef=10
+MinDef=3
+Valor=1600
+Crucial=1
+RazaDrow=1
+
+[OBJ1158]
+Name=Gentleman Formal Attire
+GrhIndex=12806
+ObjType=3
+NumRopaje=239
+Agarrable=0
+MaxDef=10
+MinDef=3
+Valor=3600
+Crucial=1
+
+[OBJ1159]
+Name=Gray Robe (D/G)
+GrhIndex=13693
+ObjType=3
+NumRopaje=247
+Agarrable=0
+MaxDef=10
+MinDef=3
+Valor=1600
+Crucial=1
+RazaEnana=1
+
+[OBJ1160]
+Name=Gentleman Semiformal Attire
+GrhIndex=12833
+ObjType=3
+NumRopaje=240
+Agarrable=0
+MaxDef=10
+MinDef=3
+Valor=3000
+Crucial=1
+
+[OBJ1161]
+Name=Legionary Clothes (H/E/D-W)
+GrhIndex=12752
+ObjType=3
+NumRopaje=237
+Agarrable=0
+Mujer=1
+MaxDef=3
+MinDef=1
+Valor=175
+Crucial=1
+
+[OBJ1162]
+Name=Peasant Girl Dress (H/E/D-W)
+GrhIndex=9910
+ObjType=3
+NumRopaje=233
+Agarrable=0
+Mujer=1
+MaxDef=10
+MinDef=3
+Valor=1600
+Crucial=1
+
+[OBJ1163]
+Name=Royal Army Clothes (H/E/D-W)
+GrhIndex=12779
+ObjType=3
+NumRopaje=238
+Agarrable=0
+Mujer=1
+MaxDef=3
+MinDef=1
+Valor=175
+Crucial=1
+
+[OBJ1164]
+Name=Blue Robe (H/E/D-W)
+GrhIndex=23674
+ObjType=3
+NumRopaje=253
+Agarrable=0
+Mujer=1
+MaxDef=12
+MinDef=8
+Valor=3200
+Crucial=1
+
+[OBJ1165]
+Name=Odalisque Dress (H/E/D-W)
+GrhIndex=3715
+ObjType=3
+NumRopaje=16
+Agarrable=0
+Mujer=1
+MaxDef=10
+MinDef=3
+Valor=1600
+Crucial=1
+
+[OBJ1166]
+Name=Gentleman Formal Attire
+GrhIndex=12860
+ObjType=3
+NumRopaje=241
+Agarrable=0
+MaxDef=10
+MinDef=3
+Valor=3600
+Crucial=1
+
+[OBJ1167]
+Name=Eastern Breastplate
+GrhIndex=23675
+ObjType=3
+NumRopaje=256
+Agarrable=0
+MaxDef=25
+MinDef=20
+Valor=12500
+Crucial=1
+CP1=MAGO
+CP2=DRUIDA
+CP3=BARDO
+LingH=170
+LingP=0
+LingO=0
+SkHerreria=75
+
+[OBJ1168]
+Name=Chain Mail (H/E/D-W)
+GrhIndex=16167
+ObjType=3
+NumRopaje=335
+Agarrable=0
+Mujer=1
+MaxDef=22
+MinDef=12
+Valor=12000
+Crucial=1
+CP1=MAGO
+CP2=DRUIDA
+CP3=BARDO
+LingH=130
+LingP=0
+LingO=0
+SkHerreria=65
+
+[OBJ1169] 'gnomo
+Name=Gnome's Outfit (D/G)
+GrhIndex=14520
+ObjType=3
+NumRopaje=273
+Agarrable=0
+MinDef=1
+MaxDef=1
+Valor=110
+Crucial=1
+RazaEnana=1
+
+[OBJ1170]
+Name=Light Iron Breastplate
+GrhIndex=9632
+ObjType=3
+NumRopaje=223
+Agarrable=0
+MaxDef=20
+MinDef=15
+Valor=10000
+Crucial=1
+CP1=MAGO
+CP2=DRUIDA
+CP3=BARDO
+LingH=120
+LingP=0
+LingO=0
+SkHerreria=75
+
+[OBJ1171]
+Name=Two Piece Dress (H/E/D-W)
+GrhIndex=13881
+ObjType=3
+NumRopaje=254
+Agarrable=0
+Mujer=1
+MaxDef=10
+MinDef=3
+Valor=2000
+Crucial=1
+
+[OBJ1172]
+Name=Full Chain Mail
+GrhIndex=9581
+ObjType=3
+NumRopaje=221
+Agarrable=0
+MaxDef=20
+MinDef=15
+Valor=12000
+Crucial=1
+CP1=MAGO
+CP2=DRUIDA
+CP3=BARDO
+LingH=130
+LingP=0
+LingO=0
+SkHerreria=65
+
+[OBJ1173]
+Name=Huntress' Armor (H/E/D-W)
+GrhIndex=23676
+ObjType=3
+NumRopaje=55
+Agarrable=0
+Mujer=1
+MaxDef=20
+MinDef=10
+Valor=17000
+Crucial=1
+CP1=PIRATA
+CP2=MAGO
+CP3=PALADIN
+CP4=CLERIGO
+CP6=LADRON
+CP9=BARDO
+CP10=DRUIDA
+CP11=TRABAJADOR
+
+[OBJ1174]
+Name=Natural Dress (H/E/D-W)
+GrhIndex=9740
+ObjType=3
+NumRopaje=227
+Agarrable=0
+Mujer=1
+MaxDef=8
+MinDef=2
+Valor=2000
+Crucial=1
+
+[OBJ1175]
+Name=Full Chain Mail
+GrhIndex=15627
+ObjType=3
+NumRopaje=316
+Agarrable=0
+MaxDef=22
+MinDef=16
+Valor=14000
+Crucial=1
+CP1=MAGO
+CP2=DRUIDA
+CP3=BARDO
+LingH=140
+LingP=0
+LingO=0
+SkHerreria=65
+
+[OBJ1176]
+Name=Desert Clothes
+GrhIndex=9767
+ObjType=3
+NumRopaje=316
+Agarrable=0
+MaxDef=10
+MinDef=5
+Valor=2500
+Crucial=1
+
+[OBJ1177]
+Name=Common Clothes
+GrhIndex=13589
+ObjType=3
+NumRopaje=243
+Agarrable=0
+MaxDef=0
+MinDef=0
+Valor=50
+Crucial=1
+
+[OBJ1178] 'gnomo
+Name=Sky Robe (D/G-W)
+GrhIndex=12887
+ObjType=3
+NumRopaje=242
+Agarrable=0
+Mujer=1
+MinDef=8
+MaxDef=15
+Valor=4200
+Crucial=1
+RazaEnana=1
+
+[OBJ1179] 'gnomo
+Name=Swamp Armor (D/G)
+GrhIndex=13639
+ObjType=3
+NumRopaje=37
+Agarrable=0
+MaxDef=50
+MinDef=45
+Valor=69500
+Crucial=0
+CP1=MAGO
+CP2=DRUIDA
+CP3=LADRON
+CP4=BARDO
+CP5=CLERIGO
+CP6=PIRATA
+CP7=ASESINO
+CP8=CAZADOR
+CP9=TRABAJADOR
+LingH=550
+LingP=180
+LingO=0
+SkHerreria=90
+RazaEnana=1
+
+[OBJ1180]
+Name=Red Robe (H/E/D-W)
+GrhIndex=13773
+ObjType=3
+NumRopaje=250
+Agarrable=0
+Mujer=1
+MaxDef=10
+MinDef=5
+Valor=2500
+Crucial=1
+
+[OBJ1181]
+Name=Dark Steel Breastplate
+GrhIndex=14196
+ObjType=3
+NumRopaje=261
+Agarrable=0
+MaxDef=27
+MinDef=22
+Valor=22000
+Crucial=1
+CP1=MAGO
+CP2=DRUIDA
+CP3=BARDO
+LingH=229
+LingP=50
+LingO=0
+SkHerreria=100
+RazaDrow=1
+
+[OBJ1182]
+Name=Elegant Purple Dress (D/G-W)
+GrhIndex=15384
+ObjType=3
+NumRopaje=305
+Agarrable=0
+Mujer=1
+MaxDef=15
+MinDef=10
+Valor=5000
+Crucial=1
+RazaEnana=1
+
+[OBJ1183]
+Name=Long Chain Mail
+GrhIndex=14385
+ObjType=3
+NumRopaje=268
+Agarrable=0
+MaxDef=22
+MinDef=18
+Valor=15000
+Crucial=1
+CP1=MAGO
+CP2=DRUIDA
+CP3=BARDO
+LingH=145
+LingP=0
+LingO=0
+SkHerreria=65
+
+[OBJ1184] 'Túnica de Druida
+Name=Druid Robe
+GrhIndex=13800
+ObjType=3
+NumRopaje=251
+Agarrable=0
+Mujer=1
+MaxDef=25
+MinDef=20
+Valor= 16000
+Crucial=1
+
+[OBJ1185]
+Name=Warlock Robe (D/G)
+GrhIndex=15357
+ObjType=3
+NumRopaje=304
+Agarrable=0
+MaxDef=15
+MinDef=10
+Valor=5000
+Crucial=1
+RazaEnana=1
+
+[OBJ1186]
+Name=Gulfas' Silver Sword
+GrhIndex=18997
+ObjType=2
+Agarrable=0
+Anim=77
+RazaEnanaAnim=72 'FIXME
+MinHit=15
+MaxHit=25
+Valor=500000 'FIXME
+Crucial=1
+LingH=45
+LingP=75
+LingO=0
+SkHerreria=105
+
+[OBJ1187]
+Name=Gulfas' Gold Sword
+GrhIndex=19473
+ObjType=2
+Agarrable=0
+Anim=78
+RazaEnanaAnim=65 'FIXME
+MinHit=20
+MaxHit=30
+Valor=1000000 'FIXME
+Crucial=1
+LingH=45
+LingP=75
+LingO=0
+SkHerreria=115
+
+[OBJ1188]
+Name=Pirate's Bandana
+GrhIndex=23204
+ObjType=17
+NumRopaje=2
+Agarrable=0
+Anim=16
+MaxDef=1
+MinDef=0
+Valor=50
+Crucial=0
+
+[OBJ1189]
+Name=Saber
+GrhIndex=563
+ObjType=2
+Agarrable=0
+Anim=27
+RazaEnanaAnim=54
+MinHit=5
+MaxHit=17
+Valor=3550
+Crucial=1
+CP1=MAGO
+CP2=DRUIDA
+CP3=LADRON
+CP4=BARDO
+LingH=45
+LingP=0
+LingO=0
+SkHerreria=60

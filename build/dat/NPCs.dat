@@ -1564,16 +1564,17 @@ Domable=0
 Alineacion=0
 Comercia=1
 TipoItems=3
-NROITEMS=9
+NROITEMS=10
 Obj1=31-1000 'Vestimentas Comunes
 Obj2=32-1000 'Vestimentas Comunes
 Obj3=35-1000 'Vestimentas Comunes
 Obj4=641-1000 'Ropa de Pordiosero
 Obj5=501-1000 'Ropa de Campesino
 Obj6=135-1000 'Túnica Roja Burda
-obj7=238-1000 'Túnica Azul
-obj8=239-1000 'Túnica Roja
-obj9=873-1000 'Guantes de hurto
+Obj7=238-1000 'Túnica Azul
+Obj8=239-1000 'Túnica Roja
+Obj9=873-1000 'Guantes de hurto
+Obj10=1188-1000 '
 BackUp=1
 
 #############################################
