@@ -98,7 +98,7 @@ int main(int argc, char **argv) {
 		 * this way, when there is an exception the process dies and we can see the stack trace.
 		 */
 
-		cout << "Dakara Server" << endl; // prints !!!Hello World!!!
+		cout << "Heroes of Argentum Server" << endl; // prints !!!Hello World!!!
 
 		atexit(atexit_func);
 

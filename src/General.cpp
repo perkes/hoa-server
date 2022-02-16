@@ -232,7 +232,7 @@ void Main() {
 	BanIpCargar();
 
 	/* ' Start loading.. */
-	std::cout << "Dakara Server v0.0.1" << std::endl;
+	std::cout << "Heroes of Argentum Server v0.0.1" << std::endl;
 
 	/* ' Constants & vars */
 	std::cout << "Cargando constantes..." << std::endl;

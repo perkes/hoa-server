@@ -295,6 +295,8 @@ void loadAdministrativeUsers() {
 	/* 'RoleMasters => RM */
 
 	/* 'Si esta mierda tuviese array asociativos el código sería tan lindo. */
+	std::cout << "Cargando Administradores." << std::endl;
+
 	int buf;
 	int i;
 	std::string Name;
@@ -333,6 +335,7 @@ void loadAdministrativeUsers() {
 
 		if (vb6::Left(Name, 1) == "*" || vb6::Left(Name, 1) == "+") {
 			Name = vb6::Right(Name, vb6::Len(Name) - 1);
+			std::cout << Name << " es 'dios'" << std::endl;
 		}
 
 		/* ' Add key */

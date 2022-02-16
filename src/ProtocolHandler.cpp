@@ -238,7 +238,6 @@ void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { 
 	}
 
 	std::string character_name = GetVar(GetDatPath(DATPATH::Names), "Names", nft_address);
-	std::cout << "Character name: " << character_name << std::endl;
 
 	if (!PersonajeExiste(character_name)) {
 		if (PuedeCrearPersonajes == 0) {
@@ -283,7 +282,6 @@ void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { 
 		zmq::message_t reply_metadata{};
 		sock.recv(reply_metadata, zmq::recv_flags::none);
 		auto status_metadata = nlohmann::json::parse(reply_metadata.to_string());
-		std::cout << "Status metadata:" << status_metadata["status"] << std::endl;
 
 		if (status_metadata["status"] == "OK" && status_metadata["ret"]["is_hoa"] == true) {
 			race = static_cast<eRaza>(status_metadata["ret"]["race"]);
@@ -310,11 +308,6 @@ void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { 
 				UserList[UserIndex].Stats.Exp = UserList[UserIndex].Stats.ELU;
 				CheckUserLevel(UserIndex);
 			}
-
-			std::cout << "Armor: " << armor << std::endl;
-			std::cout << "Weapon: " << weapon << std::endl;
-			std::cout << "Helmet: " << helmet << std::endl;
-			std::cout << "Shield: " << shield << std::endl;
 
 			Obj armor_obj = Obj();
 			armor_obj.ObjIndex = armor;
