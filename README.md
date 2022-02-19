@@ -8,7 +8,7 @@ You need CMake, Libevent2, and boost >= 1.49.
 
 If you're on Ubuntu, you also need to install (if you haven't alredy) the libraries before you proceed:
 
-    sudo apt install libevent-dev libboost-date-time-dev libboost-filesystem-dev libboost-system-dev libboost-locale-dev
+    sudo apt install libevent-dev libboost-date-time-dev libboost-filesystem-dev libboost-system-dev libboost-locale-dev libzmq3-dev
 
 After all the required libraries are installed, you compile the source:
 
