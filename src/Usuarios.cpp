@@ -1467,17 +1467,6 @@ void SubirSkill(int UserIndex, int Skill, bool Acerto) {
 	/* '11/19/2009 Pato - Implement the new system to train the skills. */
 	/* '************************************************* */
 	if (UserList[UserIndex].flags.Hambre == 0 && UserList[UserIndex].flags.Sed == 0) {
-		if (UserList[UserIndex].Counters.AsignedSkills < 10) {
-			if (UserList[UserIndex].flags.UltimoMensaje != 7) {
-				WriteConsoleMsg(UserIndex,
-						"To train a skill you need a minimum of 10 skill points in that skill.",
-						FontTypeNames_FONTTYPE_INFO);
-				UserList[UserIndex].flags.UltimoMensaje = 7;
-			}
-
-			return;
-		}
-
 		if (UserList[UserIndex].Stats.UserSkills[Skill] == MAXSKILLPOINTS) {
 			return;
 		}
