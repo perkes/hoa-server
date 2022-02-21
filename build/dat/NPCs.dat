@@ -203,7 +203,7 @@ BackUp=1
 #############################################
 
 [NPC101] ' Propiedades Arkhein
-Name=Vendedor de propiedades.
+Name=Mael
 Desc=These formerly demonic lands are now one of the safest areas in the empire and a bargain. Come here and we'll do business!
 Head=34
 Body=239

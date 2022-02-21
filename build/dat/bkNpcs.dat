@@ -2313,7 +2313,7 @@ Obj4=198-1000
 Obj5=480-10000
 
 [NPC101]
-Name=Vendedor de propiedades.
+Name=Mael
 Desc=These formerly demonic lands are now one of the safest areas in the empire and a bargain. Come here and we'll do business!
 Head=34
 Body=239

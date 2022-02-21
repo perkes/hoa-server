@@ -5811,7 +5811,7 @@ void DakaraClientPacketHandler::handleCreaturesInMap(CreaturesInMap* p) { (void)
 			}
 		}
 
-		WriteConsoleMsg(UserIndex, "Hostiles NPCs in map: ", FontTypeNames_FONTTYPE_WARNING);
+		WriteConsoleMsg(UserIndex, "Hostile NPCs in map: ", FontTypeNames_FONTTYPE_WARNING);
 		if (NPCcount1 == 0) {
 			WriteConsoleMsg(UserIndex, "There are no more hostile NPCs", FontTypeNames_FONTTYPE_INFO);
 		} else {
@@ -6291,7 +6291,6 @@ void DakaraClientPacketHandler::handleJail(Jail* p) { (void)p;
 	/* 'Last Modification: 07/06/2010 */
 	/* '07/06/2010: ZaMa - Ahora no se puede usar para saber si hay dioses/admins online. */
 	/* '*************************************************** */
-
 	std::string UserName;
 	std::string Reason;
 	int jailTime;
@@ -6321,7 +6320,7 @@ void DakaraClientPacketHandler::handleJail(Jail* p) { (void)p;
 					WriteConsoleMsg(UserIndex, "User is offline.", FontTypeNames_FONTTYPE_INFO);
 				}
 			} else {
-				if (!UserTieneAlgunPrivilegios(UserIndex, PlayerType_User)) {
+				if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_User)) {
 					WriteConsoleMsg(UserIndex, "You can't jail admins.",
 							FontTypeNames_FONTTYPE_INFO);
 				} else if (jailTime > 60) {
@@ -6340,12 +6339,12 @@ void DakaraClientPacketHandler::handleJail(Jail* p) { (void)p;
 						Count = vb6::val(GetVar(userCharPath, "PENAS", "Cant"));
 						WriteVar(userCharPath, "PENAS", "Cant", Count + 1);
 						WriteVar(userCharPath, "PENAS", "P" + vb6::CStr(Count + 1),
-								vb6::LCase(UserList[UserIndex].Name) + ": CARCEL " + vb6::CStr(jailTime)
-										+ "m, MOTIVO: " + vb6::LCase(Reason) + " " + vb6::dateToString(vb6::Now()));
+								vb6::LCase(UserList[UserIndex].Name) + ": JAIL " + vb6::CStr(jailTime)
+										+ "m, REASON: " + vb6::LCase(Reason) + " " + vb6::dateToString(vb6::Now()));
 					}
 
 					Encarcelar(tUser, jailTime, UserList[UserIndex].Name);
-					LogGM(UserList[UserIndex].Name, " encarceló a " + UserName);
+					LogGM(UserList[UserIndex].Name, " jailed " + UserName);
 				}
 			}
 		}
@@ -7348,10 +7347,10 @@ void DakaraClientPacketHandler::handleReviveChar(ReviveChar* p) { (void)p;
 						UserList[tUser].Char.heading, UserList[tUser].Char.WeaponAnim,
 						UserList[tUser].Char.ShieldAnim, UserList[tUser].Char.CascoAnim);
 
-				WriteConsoleMsg(tUser, UserList[UserIndex].Name + " te ha resucitado.",
+				WriteConsoleMsg(tUser, UserList[UserIndex].Name + " has revived you.",
 						FontTypeNames_FONTTYPE_INFO);
 			} else {
-				WriteConsoleMsg(tUser, UserList[UserIndex].Name + " te ha curado.",
+				WriteConsoleMsg(tUser, UserList[UserIndex].Name + " has cured you.",
 						FontTypeNames_FONTTYPE_INFO);
 			}
 
@@ -7367,7 +7366,7 @@ void DakaraClientPacketHandler::handleReviveChar(ReviveChar* p) { (void)p;
 
 			FlushBuffer(tUser);
 
-			LogGM(UserList[UserIndex].Name, "Resucito a " + UserName);
+			LogGM(UserList[UserIndex].Name, "Revived " + UserName);
 		}
 	}
 
@@ -7490,10 +7489,10 @@ void DakaraClientPacketHandler::handleForgive(Forgive* p) { (void)p;
 			if (EsNewbie(tUser)) {
 				VolverCiudadano(tUser);
 			} else {
-				LogGM(UserList[UserIndex].Name, "Intento perdonar un personaje de nivel avanzado.");
+				LogGM(UserList[UserIndex].Name, "Tried to pardon a non-newbie character.");
 
 				if (!(EsDios(UserName) || EsAdmin(UserName))) {
-					WriteConsoleMsg(UserIndex, "Sólo se permite perdonar newbies.",
+					WriteConsoleMsg(UserIndex, "Only newbies can be pardoned.",
 							FontTypeNames_FONTTYPE_INFO);
 				}
 			}
@@ -7569,21 +7568,21 @@ void DakaraClientPacketHandler::handleExecute(Execute* p) { (void)p;
 
 		if (tUser > 0) {
 			if (!UserTieneAlgunPrivilegios(tUser, PlayerType_User)) {
-				WriteConsoleMsg(UserIndex, "¿¿Estás loco?? ¿¿Cómo vas a pinatear un gm?? :@",
+				WriteConsoleMsg(UserIndex, "You can't execute admins.",
 						FontTypeNames_FONTTYPE_INFO);
 			} else {
 				UserDie(tUser);
 				SendData(SendTarget_ToAll, 0,
 						dakara::protocol::server::BuildConsoleMsg(
-								UserList[UserIndex].Name + " ha ejecutado a " + UserName + ".",
+								UserList[UserIndex].Name + " has executed " + UserName + ".",
 								FontTypeNames_FONTTYPE_EJECUCION));
-				LogGM(UserList[UserIndex].Name, " ejecuto a " + UserName);
+				LogGM(UserList[UserIndex].Name, " executed " + UserName);
 			}
 		} else {
 			if (!(EsDios(UserName) || EsAdmin(UserName))) {
-				WriteConsoleMsg(UserIndex, "No está online.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "They're offline.", FontTypeNames_FONTTYPE_INFO);
 			} else {
-				WriteConsoleMsg(UserIndex, "¿¿Estás loco?? ¿¿Cómo vas a pinatear un gm?? :@",
+				WriteConsoleMsg(UserIndex, "You can't execute admins.",
 						FontTypeNames_FONTTYPE_INFO);
 			}
 		}
@@ -7718,16 +7717,16 @@ void DakaraClientPacketHandler::handleSummonChar(SummonChar* p) { (void)p;
 
 		if (tUser <= 0) {
 			if (EsDios(UserName) || EsAdmin(UserName)) {
-				WriteConsoleMsg(UserIndex, "No puedes invocar a dioses y admins.",
+				WriteConsoleMsg(UserIndex, "You can't summon admins.",
 						FontTypeNames_FONTTYPE_INFO);
 			} else {
-				WriteConsoleMsg(UserIndex, "El jugador no está online.", FontTypeNames_FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "Player is offline.", FontTypeNames_FONTTYPE_INFO);
 			}
 
 		} else {
 			if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_Dios, PlayerType_Admin)
 					|| UserTieneAlgunPrivilegios(tUser, PlayerType_Consejero, PlayerType_User)) {
-				WriteConsoleMsg(tUser, UserList[UserIndex].Name + " te ha trasportado.",
+				WriteConsoleMsg(tUser, UserList[UserIndex].Name + " has teleported you.",
 						FontTypeNames_FONTTYPE_INFO);
 				X = UserList[UserIndex].Pos.X;
 				Y = UserList[UserIndex].Pos.Y + 1;
@@ -7740,7 +7739,7 @@ void DakaraClientPacketHandler::handleSummonChar(SummonChar* p) { (void)p;
 								UserList[UserIndex].Pos.X,
 								UserList[UserIndex].Pos.Y));
 			} else {
-				WriteConsoleMsg(UserIndex, "No puedes invocar a dioses y admins.",
+				WriteConsoleMsg(UserIndex, "You can't summon admins.",
 						FontTypeNames_FONTTYPE_INFO);
 			}
 		}

@@ -638,9 +638,9 @@ const int MAX_HELP_LINES = 10000;
 const std::string MENSAJE_REY_CAOS =
 		"¿Esperabas pasar desapercibido, intruso? Los servidores del Demonio no son bienvenidos, ¡Guardias, a él!";
 const std::string MENSAJE_REY_CRIMINAL_NOENLISTABLE =
-		"Tus pecados son grandes, pero aún así puedes redimirte. El pasado deja huellas, pero aún puedes limpiar tu alma.";
+		"Your sins are great, but you can still redeem yourself. Past leaves its mark, but you can still cleanse your soul.";
 const std::string MENSAJE_REY_CRIMINAL_ENLISTABLE =
-		"Limpia tu reputación y paga por los delitos cometidos. Un miembro de la Armada Real debe tener un comportamiento ejemplar.";
+		"Improve your reputation, pay for the crimes you commited. A member of the Royal Army must have an exemplar behavior.";
 
 const std::string MENSAJE_DEMONIO_REAL =
 		"Lacayo de Tancredo, ve y dile a tu gente que nadie pisará estas tierras si no se arrodilla ante mi.";
