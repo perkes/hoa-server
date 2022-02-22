@@ -73,10 +73,10 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 IndexAbierta=7
 IndexCerrada=8
-IndexCerradaKey=8
+IndexCerradaLlave=8
 
 [OBJ8]
 Name=Closed Wooden Door
@@ -84,10 +84,10 @@ GrhIndex=5593
 ObjType=6
 Abierta=1
 Agarrable=1
-Key=0
+Llave=0
 IndexAbierta=7
 IndexCerrada=8
-IndexCerradaKey=8
+IndexCerradaLlave=8
 
 [OBJ9]
 Name=Pitchfork
@@ -116,7 +116,7 @@ GrhIndex=502
 ObjType=7
 Agarrable=0
 Abierta=0
-Key=0
+Llave=0
 CantItems=10
 NroItems=0
 
@@ -126,7 +126,7 @@ GrhIndex=503
 ObjType=7
 Agarrable=0
 Abierta=0
-Key=0
+Llave=0
 CantItems=10
 NroItems=0
 
@@ -176,10 +176,10 @@ GrhIndex=5599
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 IndexAbierta=16
 IndexCerrada=17
-IndexCerradaKey=17
+IndexCerradaLlave=17
 
 [OBJ17]
 Name=Closed Wooden Door 2
@@ -187,10 +187,10 @@ GrhIndex=5600
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 IndexAbierta=16
 IndexCerrada=17
-IndexCerradaKey=17
+IndexCerradaLlave=17
 
 [OBJ18]
 Name=Food Market Sign
@@ -455,7 +455,7 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 
 [OBJ45]
 Name=Clan's clothes
@@ -504,11 +504,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=2
 IndexAbierta=51
 IndexCerrada=52
-IndexCerradaKey=53
+IndexCerradaLlave=53
 
 [OBJ52]
 Name=Closed Wooden Door
@@ -516,11 +516,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=2
 IndexAbierta=51
 IndexCerrada=52
-IndexCerradaKey=53
+IndexCerradaLlave=53
 
 [OBJ53]
 Name=Closed Wooden Door
@@ -528,11 +528,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=2
 IndexAbierta=51
 IndexCerrada=52
-IndexCerradaKey=53
+IndexCerradaLlave=53
 
 [OBJ54]
 Name=Key to Ullathorpe House Number 1
@@ -549,7 +549,7 @@ GrhIndex=5599
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=3
 
 [OBJ56]
@@ -558,7 +558,7 @@ GrhIndex=5600
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=3
 
 [OBJ57]
@@ -567,7 +567,7 @@ GrhIndex=5600
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=3
 
 [OBJ58]
@@ -639,11 +639,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=4
 IndexAbierta=66
 IndexCerrada=67
-IndexCerradaKey=68
+IndexCerradaLlave=68
 
 [OBJ67]
 Name=Closed Wooden Door
@@ -651,11 +651,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=4
 IndexAbierta=66
 IndexCerrada=67
-IndexCerradaKey=68
+IndexCerradaLlave=68
 
 [OBJ68]
 Name=Closed Wooden Door
@@ -663,11 +663,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=4
 IndexAbierta=66
 IndexCerrada=67
-IndexCerradaKey=68
+IndexCerradaLlave=68
 
 [OBJ69]
 Name=Key to Ullathorpe House Number 3
@@ -684,11 +684,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=5
 IndexAbierta=70
 IndexCerrada=71
-IndexCerradaKey=72
+IndexCerradaLlave=72
 
 [OBJ71]
 Name=Closed Wooden Door
@@ -696,11 +696,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=5
 IndexAbierta=70
 IndexCerrada=71
-IndexCerradaKey=72
+IndexCerradaLlave=72
 
 [OBJ72]
 Name=Closed Wooden Door
@@ -708,11 +708,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=5
 IndexAbierta=70
 IndexCerrada=71
-IndexCerradaKey=72
+IndexCerradaLlave=72
 
 [OBJ73]
 Name=Key to Ullathorpe House Number 4
@@ -729,11 +729,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=6
 IndexAbierta=74
 IndexCerrada=75
-IndexCerradaKey=76
+IndexCerradaLlave=76
 
 [OBJ75]
 Name=Closed Wooden Door
@@ -741,11 +741,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=6
 IndexAbierta=74
 IndexCerrada=75
-IndexCerradaKey=76
+IndexCerradaLlave=76
 
 [OBJ76]
 Name=Closed Wooden Door
@@ -753,11 +753,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=6
 IndexAbierta=74
 IndexCerrada=75
-IndexCerradaKey=76
+IndexCerradaLlave=76
 
 [OBJ77]
 Name=House Number 2
@@ -859,11 +859,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=7
 IndexAbierta=88
 IndexCerrada=89
-IndexCerradaKey=90
+IndexCerradaLlave=90
 
 [OBJ89]
 Name=Closed Wooden Door
@@ -871,11 +871,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=7
 IndexAbierta=88
 IndexCerrada=89
-IndexCerradaKey=90
+IndexCerradaLlave=90
 
 [OBJ90]
 Name=Closed Wooden Door
@@ -883,11 +883,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=7
 IndexAbierta=88
 IndexCerrada=89
-IndexCerradaKey=90
+IndexCerradaLlave=90
 
 [OBJ91]
 Name=Key to Nix House Number 2
@@ -904,11 +904,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=8
 IndexAbierta=92
 IndexCerrada=93
-IndexCerradaKey=94
+IndexCerradaLlave=94
 
 [OBJ93]
 Name=Closed Wooden Door
@@ -916,11 +916,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=8
 IndexAbierta=92
 IndexCerrada=93
-IndexCerradaKey=94
+IndexCerradaLlave=94
 
 [OBJ94]
 Name=Closed Wooden Door
@@ -928,11 +928,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=8
 IndexAbierta=92
 IndexCerrada=93
-IndexCerradaKey=94
+IndexCerradaLlave=94
 
 [OBJ95]
 Name=Key to Nix House Number 3
@@ -949,11 +949,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=9
 IndexAbierta=96
 IndexCerrada=97
-IndexCerradaKey=98
+IndexCerradaLlave=98
 
 [OBJ97]
 Name=Closed Wooden Door
@@ -961,11 +961,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=9
 IndexAbierta=96
 IndexCerrada=97
-IndexCerradaKey=98
+IndexCerradaLlave=98
 
 [OBJ98]
 Name=Closed Wooden Door
@@ -973,11 +973,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=9
 IndexAbierta=96
 IndexCerrada=97
-IndexCerradaKey=98
+IndexCerradaLlave=98
 
 [OBJ99]
 Name=Key to Nix House Number 4
@@ -992,11 +992,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=10
 IndexAbierta=100
 IndexCerrada=101
-IndexCerradaKey=102
+IndexCerradaLlave=102
 
 [OBJ101]
 Name=Closed Wooden Door
@@ -1004,11 +1004,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=10
 IndexAbierta=100
 IndexCerrada=101
-IndexCerradaKey=102
+IndexCerradaLlave=102
 
 [OBJ102]
 Name=Closed Wooden Door
@@ -1016,11 +1016,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=10
 IndexAbierta=100
 IndexCerrada=101
-IndexCerradaKey=102
+IndexCerradaLlave=102
 
 [OBJ103]
 Name=Key to Nix House Number 5
@@ -1036,36 +1036,36 @@ Name=Open Wooden Door
 GrhIndex=5592
 ObjType=6
 Abierta=0
-Key=0
+Llave=0
 Clave=11
 Agarrable=1
 IndexAbierta=104
 IndexCerrada=105
-IndexCerradaKey=106
+IndexCerradaLlave=106
 
 [OBJ105]
 Name=Closed Wooden Door
 GrhIndex=5593
 ObjType=6
 Abierta=1
-Key=0
+Llave=0
 Clave=11
 Agarrable=1
 IndexAbierta=104
 IndexCerrada=105
-IndexCerradaKey=106
+IndexCerradaLlave=106
 
 [OBJ106]
 Name=Closed Wooden Door
 GrhIndex=5593
 ObjType=6
 Abierta=1
-Key=1
+Llave=1
 Clave=11
 Agarrable=1
 IndexAbierta=104
 IndexCerrada=105
-IndexCerradaKey=106
+IndexCerradaLlave=106
 
 [OBJ107]
 Name=Key to Nix House Number 6
@@ -1082,11 +1082,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=12
 IndexAbierta=108
 IndexCerrada=109
-IndexCerradaKey=110
+IndexCerradaLlave=110
 
 [OBJ109]
 Name=Closed Wooden Door
@@ -1094,11 +1094,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=12
 IndexAbierta=108
 IndexCerrada=109
-IndexCerradaKey=110
+IndexCerradaLlave=110
 
 [OBJ110]
 Name=Closed Wooden Door
@@ -1106,11 +1106,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=12
 IndexAbierta=108
 IndexCerrada=109
-IndexCerradaKey=110
+IndexCerradaLlave=110
 
 [OBJ111]
 Name=Key to Nix House Number 7
@@ -1127,11 +1127,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=13
 IndexAbierta=112
 IndexCerrada=113
-IndexCerradaKey=114
+IndexCerradaLlave=114
 
 [OBJ113]
 Name=Closed Wooden Door
@@ -1139,11 +1139,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=13
 IndexAbierta=112
 IndexCerrada=113
-IndexCerradaKey=114
+IndexCerradaLlave=114
 
 [OBJ114]
 Name=Closed Wooden Door
@@ -1151,11 +1151,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=13
 IndexAbierta=112
 IndexCerrada=113
-IndexCerradaKey=114
+IndexCerradaLlave=114
 
 [OBJ115]
 Name=Key to Nix House Number 8
@@ -1172,11 +1172,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=14
 IndexAbierta=116
 IndexCerrada=117
-IndexCerradaKey=118
+IndexCerradaLlave=118
 
 [OBJ117]
 Name=Closed Wooden Door
@@ -1184,11 +1184,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=14
 IndexAbierta=116
 IndexCerrada=117
-IndexCerradaKey=118
+IndexCerradaLlave=118
 
 [OBJ118]
 Name=Closed Wooden Door
@@ -1196,11 +1196,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=14
 IndexAbierta=116
 IndexCerrada=117
-IndexCerradaKey=118
+IndexCerradaLlave=118
 
 [OBJ119]
 Name=Key to Nix House Number 9
@@ -1217,11 +1217,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=15
 IndexAbierta=120
 IndexCerrada=121
-IndexCerradaKey=122
+IndexCerradaLlave=122
 
 [OBJ121]
 Name=Closed Wooden Door
@@ -1229,11 +1229,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=15
 IndexAbierta=120
 IndexCerrada=121
-IndexCerradaKey=122
+IndexCerradaLlave=122
 
 [OBJ122]
 Name=Closed Wooden Door
@@ -1241,11 +1241,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=15
 IndexAbierta=120
 IndexCerrada=121
-IndexCerradaKey=122
+IndexCerradaLlave=122
 
 [OBJ123]
 Name=Viking Sword
@@ -1549,11 +1549,11 @@ GrhIndex=9199
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=16
 IndexAbierta=141
 IndexCerrada=142
-IndexCerradaKey=143
+IndexCerradaLlave=143
 
 [OBJ142]
 Name=Closed Wooden Door
@@ -1561,11 +1561,11 @@ GrhIndex=9193
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=16
 IndexAbierta=141
 IndexCerrada=142
-IndexCerradaKey=143
+IndexCerradaLlave=143
 
 [OBJ143]
 Name=Closed Wooden Door
@@ -1573,11 +1573,11 @@ GrhIndex=9193
 ObjType=6
 Abierta=1
 Agarrable=1
-Key=1
+Llave=1
 Clave=16
 IndexAbierta=141
 IndexCerrada=142
-IndexCerradaKey=143
+IndexCerradaLlave=143
 
 [OBJ144]
 Name=Teleport to Newbie Dungeon
@@ -1831,11 +1831,11 @@ GrhIndex=5599
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=17
 IndexAbierta=171
 IndexCerrada=172
-IndexCerradaKey=173
+IndexCerradaLlave=173
 
 [OBJ172]
 Name=Door
@@ -1843,11 +1843,11 @@ GrhIndex=5600
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=17
 IndexAbierta=171
 IndexCerrada=172
-IndexCerradaKey=173
+IndexCerradaLlave=173
 
 [OBJ173]
 Name=Door
@@ -1855,11 +1855,11 @@ GrhIndex=5600
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=17
 IndexAbierta=171
 IndexCerrada=172
-IndexCerradaKey=173
+IndexCerradaLlave=173
 
 [OBJ174]
 Name=Key to Ullathorpe Catacombs
@@ -1875,11 +1875,11 @@ GrhIndex=5599
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=18
 IndexAbierta=175
 IndexCerrada=176
-IndexCerradaKey=177
+IndexCerradaLlave=177
 
 [OBJ176]
 Name=Door
@@ -1887,11 +1887,11 @@ GrhIndex=5600
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=18
 IndexAbierta=175
 IndexCerrada=176
-IndexCerradaKey=177
+IndexCerradaLlave=177
 
 [OBJ177]
 Name=Door
@@ -1899,11 +1899,11 @@ GrhIndex=5600
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=18
 IndexAbierta=175
 IndexCerrada=176
-IndexCerradaKey=177
+IndexCerradaLlave=177
 
 [OBJ178]
 Name=Key to Dungeon Maleheing
@@ -1919,11 +1919,11 @@ GrhIndex=5599
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=19
 IndexAbierta=179
 IndexCerrada=180
-IndexCerradaKey=181
+IndexCerradaLlave=181
 
 [OBJ180]
 Name=Door
@@ -1931,11 +1931,11 @@ GrhIndex=5600
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=19
 IndexAbierta=179
 IndexCerrada=180
-IndexCerradaKey=181
+IndexCerradaLlave=181
 
 [OBJ181]
 Name=Door
@@ -1943,11 +1943,11 @@ GrhIndex=5600
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=19
 IndexAbierta=179
 IndexCerrada=180
-IndexCerradaKey=181
+IndexCerradaLlave=181
 
 [OBJ182]
 Name=Key to Dungeon Maleheing
@@ -1971,11 +1971,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=20
 IndexAbierta=184
 IndexCerrada=185
-IndexCerradaKey=186
+IndexCerradaLlave=186
 
 [OBJ185]
 Name=Door
@@ -1983,11 +1983,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=20
 IndexAbierta=184
 IndexCerrada=185
-IndexCerradaKey=186
+IndexCerradaLlave=186
 
 [OBJ186]
 Name=Door
@@ -1995,11 +1995,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=20
 IndexAbierta=184
 IndexCerrada=185
-IndexCerradaKey=186
+IndexCerradaLlave=186
 
 [OBJ187]
 Name=Miner's Picket
@@ -2494,10 +2494,10 @@ GrhIndex=8685
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 IndexAbierta=241
 IndexCerrada=242
-IndexCerradaKey=241
+IndexCerradaLlave=241
 
 [OBJ242]
 Name=Closed Wooden Door
@@ -2505,10 +2505,10 @@ GrhIndex=8684
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 IndexAbierta=241
 IndexCerrada=242
-IndexCerradaKey=241
+IndexCerradaLlave=241
 
 [OBJ243]
 Name=Full Plate Armor (D/G)
@@ -2538,10 +2538,10 @@ GrhIndex=9199
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 IndexAbierta=244
 IndexCerrada=245
-IndexCerradaKey=245
+IndexCerradaLlave=245
 
 [OBJ245]
 Name=Closed Wooden Door
@@ -2549,10 +2549,10 @@ GrhIndex=9193
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 IndexAbierta=244
 IndexCerrada=245
-IndexCerradaKey=245
+IndexCerradaLlave=245
 
 [OBJ246]
 Name=Open Wooden Door
@@ -2560,10 +2560,10 @@ GrhIndex=9200
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 IndexAbierta=246
 IndexCerrada=247
-IndexCerradaKey=247
+IndexCerradaLlave=247
 
 [OBJ247]
 Name=Closed Wooden Door
@@ -2571,10 +2571,10 @@ GrhIndex=9194
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 IndexAbierta=246
 IndexCerrada=247
-IndexCerradaKey=247
+IndexCerradaLlave=247
 
 [OBJ248]
 Name=Open Wooden Door
@@ -2582,10 +2582,10 @@ GrhIndex=9201
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 IndexAbierta=248
 IndexCerrada=249
-IndexCerradaKey=249
+IndexCerradaLlave=249
 
 [OBJ249]
 Name=Closed Wooden Door
@@ -2593,10 +2593,10 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 IndexAbierta=248
 IndexCerrada=249
-IndexCerradaKey=249
+IndexCerradaLlave=249
 
 [OBJ250]
 Name=Open Wooden Door
@@ -2604,10 +2604,10 @@ GrhIndex=9202
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 IndexAbierta=250
 IndexCerrada=251
-IndexCerradaKey=251
+IndexCerradaLlave=251
 
 [OBJ251]
 Name=Closed Wooden Door
@@ -2615,10 +2615,10 @@ GrhIndex=9196
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 IndexAbierta=250
 IndexCerrada=251
-IndexCerradaKey=251
+IndexCerradaLlave=251
 
 [OBJ252]
 Name=Open Wooden Door
@@ -2626,10 +2626,10 @@ GrhIndex=9203
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 IndexAbierta=252
 IndexCerrada=253
-IndexCerradaKey=253
+IndexCerradaLlave=253
 
 [OBJ253]
 Name=Closed Wooden Door
@@ -2637,10 +2637,10 @@ GrhIndex=9197
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 IndexAbierta=252
 IndexCerrada=253
-IndexCerradaKey=253
+IndexCerradaLlave=253
 
 [OBJ254]
 Name=Open Wooden Door
@@ -2648,10 +2648,10 @@ GrhIndex=9204
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 IndexAbierta=254
 IndexCerrada=255
-IndexCerradaKey=255
+IndexCerradaLlave=255
 
 [OBJ255]
 Name=Closed Wooden Door
@@ -2659,10 +2659,10 @@ GrhIndex=9198
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 IndexAbierta=254
 IndexCerrada=255
-IndexCerradaKey=255
+IndexCerradaLlave=255
 
 [OBJ256]
 Name=Forum
@@ -2724,11 +2724,11 @@ GrhIndex=9201
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=25
 IndexAbierta=263
 IndexCerrada=264
-IndexCerradaKey=265
+IndexCerradaLlave=265
 
 [OBJ264]
 Name=Closed Door
@@ -2736,11 +2736,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=25
 IndexAbierta=263
 IndexCerrada=264
-IndexCerradaKey=265
+IndexCerradaLlave=265
 
 [OBJ265]
 Name=Closed Door
@@ -2748,11 +2748,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=25
 IndexAbierta=263
 IndexCerrada=264
-IndexCerradaKey=265
+IndexCerradaLlave=265
 
 [OBJ266]
 Name=Key to Banderbill House Number 1
@@ -2769,11 +2769,11 @@ GrhIndex=9201
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=26
 IndexAbierta=267
 IndexCerrada=268
-IndexCerradaKey=269
+IndexCerradaLlave=269
 
 [OBJ268]
 Name=Closed Door
@@ -2781,11 +2781,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=26
 IndexAbierta=267
 IndexCerrada=268
-IndexCerradaKey=269
+IndexCerradaLlave=269
 
 [OBJ269]
 Name=Closed Door
@@ -2793,11 +2793,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=26
 IndexAbierta=267
 IndexCerrada=268
-IndexCerradaKey=269
+IndexCerradaLlave=269
 
 [OBJ270]
 Name=Key to Banderbill House Number 2
@@ -2814,11 +2814,11 @@ GrhIndex=9201
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=27
 IndexAbierta=271
 IndexCerrada=272
-IndexCerradaKey=273
+IndexCerradaLlave=273
 
 [OBJ272]
 Name=Closed Door
@@ -2826,11 +2826,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=27
 IndexAbierta=271
 IndexCerrada=272
-IndexCerradaKey=273
+IndexCerradaLlave=273
 
 [OBJ273]
 Name=Closed Door
@@ -2838,11 +2838,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=27
 IndexAbierta=271
 IndexCerrada=272
-IndexCerradaKey=273
+IndexCerradaLlave=273
 
 [OBJ274]
 Name=Key to Banderbill House Number 3
@@ -2859,11 +2859,11 @@ GrhIndex=9201
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=28
 IndexAbierta=275
 IndexCerrada=276
-IndexCerradaKey=277
+IndexCerradaLlave=277
 
 [OBJ276]
 Name=Closed Door
@@ -2871,11 +2871,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=28
 IndexAbierta=275
 IndexCerrada=276
-IndexCerradaKey=277
+IndexCerradaLlave=277
 
 [OBJ277]
 Name=Closed Door
@@ -2883,11 +2883,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=28
 IndexAbierta=275
 IndexCerrada=276
-IndexCerradaKey=277
+IndexCerradaLlave=277
 
 [OBJ278]
 Name=Key to Banderbill House Number 4
@@ -2904,11 +2904,11 @@ GrhIndex=9201
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=29
 IndexAbierta=279
 IndexCerrada=280
-IndexCerradaKey=281
+IndexCerradaLlave=281
 
 [OBJ280]
 Name=Closed Door
@@ -2916,11 +2916,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=29
 IndexAbierta=279
 IndexCerrada=280
-IndexCerradaKey=281
+IndexCerradaLlave=281
 
 [OBJ281]
 Name=Closed Door
@@ -2928,11 +2928,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=29
 IndexAbierta=279
 IndexCerrada=280
-IndexCerradaKey=281
+IndexCerradaLlave=281
 
 [OBJ282]
 Name=Key to Banderbill House Number 5
@@ -2949,11 +2949,11 @@ GrhIndex=9201
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=30
 IndexAbierta=283
 IndexCerrada=284
-IndexCerradaKey=285
+IndexCerradaLlave=285
 
 [OBJ284]
 Name=Closed Door
@@ -2961,11 +2961,11 @@ GrhIndex=9195
 ObjType=6
 Abierta=1
 Agarrable=1
-Key=0
+Llave=0
 Clave=30
 IndexAbierta=283
 IndexCerrada=284
-IndexCerradaKey=285
+IndexCerradaLlave=285
 
 [OBJ285]
 Name=Closed Door
@@ -2973,11 +2973,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=30
 IndexAbierta=283
 IndexCerrada=284
-IndexCerradaKey=285
+IndexCerradaLlave=285
 
 [OBJ286]
 Name=Key to Banderbill House Number 6
@@ -2994,11 +2994,11 @@ GrhIndex=9201
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=31
 IndexAbierta=287
 IndexCerrada=288
-IndexCerradaKey=289
+IndexCerradaLlave=289
 
 [OBJ288]
 Name=Closed Door
@@ -3006,11 +3006,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=31
 IndexAbierta=287
 IndexCerrada=288
-IndexCerradaKey=289
+IndexCerradaLlave=289
 
 [OBJ289]
 Name=Closed Door
@@ -3018,11 +3018,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=31
 IndexAbierta=287
 IndexCerrada=288
-IndexCerradaKey=289
+IndexCerradaLlave=289
 
 [OBJ290]
 Name=Key to Banderbill House Number 7
@@ -3039,11 +3039,11 @@ GrhIndex=9201
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=32
 IndexAbierta=291
 IndexCerrada=292
-IndexCerradaKey=293
+IndexCerradaLlave=293
 
 [OBJ292]
 Name=Closed Door
@@ -3051,11 +3051,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=32
 IndexAbierta=291
 IndexCerrada=292
-IndexCerradaKey=293
+IndexCerradaLlave=293
 
 [OBJ293]
 Name=Closed Door
@@ -3063,11 +3063,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=32
 IndexAbierta=291
 IndexCerrada=292
-IndexCerradaKey=293
+IndexCerradaLlave=293
 
 [OBJ294]
 Name=Key to Banderbill House Number 8
@@ -3084,11 +3084,11 @@ GrhIndex=9201
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=33
 IndexAbierta=295
 IndexCerrada=296
-IndexCerradaKey=297
+IndexCerradaLlave=297
 
 [OBJ296]
 Name=Closed Door
@@ -3096,11 +3096,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=33
 IndexAbierta=295
 IndexCerrada=296
-IndexCerradaKey=297
+IndexCerradaLlave=297
 
 [OBJ297]
 Name=Closed Door
@@ -3108,11 +3108,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=33
 IndexAbierta=295
 IndexCerrada=296
-IndexCerradaKey=297
+IndexCerradaLlave=297
 
 [OBJ298]
 Name=Key to Banderbill House Number 9
@@ -3129,11 +3129,11 @@ GrhIndex=9199
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=34
 IndexAbierta=299
 IndexCerrada=300
-IndexCerradaKey=301
+IndexCerradaLlave=301
 
 [OBJ300]
 Name=Closed Door
@@ -3141,11 +3141,11 @@ GrhIndex=9193
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=34
 IndexAbierta=299
 IndexCerrada=300
-IndexCerradaKey=301
+IndexCerradaLlave=301
 
 [OBJ301]
 Name=Closed Door
@@ -3153,11 +3153,11 @@ GrhIndex=9193
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=34
 IndexAbierta=299
 IndexCerrada=300
-IndexCerradaKey=301
+IndexCerradaLlave=301
 
 [OBJ302]
 Name=Key to the Great Council
@@ -3174,11 +3174,11 @@ GrhIndex=9199
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=35
 IndexAbierta=303
 IndexCerrada=304
-IndexCerradaKey=305
+IndexCerradaLlave=305
 
 [OBJ304]
 Name=Closed Door
@@ -3186,11 +3186,11 @@ GrhIndex=9193
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=35
 IndexAbierta=303
 IndexCerrada=304
-IndexCerradaKey=305
+IndexCerradaLlave=305
 
 [OBJ305]
 Name=Closed Door
@@ -3198,11 +3198,11 @@ GrhIndex=9193
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=35
 IndexAbierta=303
 IndexCerrada=304
-IndexCerradaKey=305
+IndexCerradaLlave=305
 
 [OBJ306]
 Name=Key to the Vault of the Great Council
@@ -3219,11 +3219,11 @@ GrhIndex=9199
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=36
 IndexAbierta=307
 IndexCerrada=308
-IndexCerradaKey=309
+IndexCerradaLlave=309
 
 [OBJ308]
 Name=Closed Door
@@ -3231,11 +3231,11 @@ GrhIndex=9193
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=36
 IndexAbierta=307
 IndexCerrada=308
-IndexCerradaKey=309
+IndexCerradaLlave=309
 
 [OBJ309]
 Name=Closed Door
@@ -3243,11 +3243,11 @@ GrhIndex=9193
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=36
 IndexAbierta=307
 IndexCerrada=308
-IndexCerradaKey=309
+IndexCerradaLlave=309
 
 [OBJ310]
 Name=Key to the Vault of the Great Council
@@ -3263,11 +3263,11 @@ GrhIndex=9199
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=999
 IndexAbierta=311
 IndexCerrada=312
-IndexCerradaKey=313
+IndexCerradaLlave=313
 
 [OBJ312]
 Name=Closed Door
@@ -3275,11 +3275,11 @@ GrhIndex=9193
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=78
 IndexAbierta=311
 IndexCerrada=312
-IndexCerradaKey=313
+IndexCerradaLlave=313
 
 [OBJ313]
 Name=Closed Door
@@ -3287,11 +3287,11 @@ GrhIndex=9193
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=78
 IndexAbierta=311
 IndexCerrada=312
-IndexCerradaKey=313
+IndexCerradaLlave=313
 
 [OBJ314]
 Name=Key to the Vault of Goliath Banking Clan
@@ -3350,11 +3350,11 @@ GrhIndex=9201
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=37
 IndexAbierta=320
 IndexCerrada=321
-IndexCerradaKey=322
+IndexCerradaLlave=322
 
 [OBJ321]
 Name=Closed Door
@@ -3362,11 +3362,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=37
 IndexAbierta=320
 IndexCerrada=321
-IndexCerradaKey=322
+IndexCerradaLlave=322
 
 [OBJ322]
 Name=Closed Door
@@ -3374,11 +3374,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=37
 IndexAbierta=320
 IndexCerrada=321
-IndexCerradaKey=322
+IndexCerradaLlave=322
 
 [OBJ323]
 Name=Key to Banderbill House Number 10
@@ -3395,11 +3395,11 @@ GrhIndex=9201
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=38
 IndexAbierta=324
 IndexCerrada=325
-IndexCerradaKey=326
+IndexCerradaLlave=326
 
 [OBJ325]
 Name=Closed Door
@@ -3407,11 +3407,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=38
 IndexAbierta=324
 IndexCerrada=325
-IndexCerradaKey=326
+IndexCerradaLlave=326
 
 [OBJ326]
 Name=Closed Door
@@ -3419,11 +3419,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=38
 IndexAbierta=324
 IndexCerrada=325
-IndexCerradaKey=326
+IndexCerradaLlave=326
 
 [OBJ327]
 Name=Key to Banderbill House Number 11
@@ -3440,11 +3440,11 @@ GrhIndex=9201
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=39
 IndexAbierta=328
 IndexCerrada=329
-IndexCerradaKey=330
+IndexCerradaLlave=330
 
 [OBJ329]
 Name=Closed Door
@@ -3452,11 +3452,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=39
 IndexAbierta=328
 IndexCerrada=329
-IndexCerradaKey=330
+IndexCerradaLlave=330
 
 [OBJ330]
 Name=Closed Door
@@ -3464,11 +3464,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=39
 IndexAbierta=328
 IndexCerrada=329
-IndexCerradaKey=330
+IndexCerradaLlave=330
 
 [OBJ331]
 Name=Key to Banderbill House Number 12
@@ -3485,11 +3485,11 @@ GrhIndex=9201
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=40
 IndexAbierta=332
 IndexCerrada=333
-IndexCerradaKey=334
+IndexCerradaLlave=334
 
 [OBJ333]
 Name=Closed Door
@@ -3497,11 +3497,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=40
 IndexAbierta=332
 IndexCerrada=333
-IndexCerradaKey=334
+IndexCerradaLlave=334
 
 [OBJ334]
 Name=Closed Door
@@ -3509,11 +3509,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=40
 IndexAbierta=332
 IndexCerrada=333
-IndexCerradaKey=334
+IndexCerradaLlave=334
 
 [OBJ335]
 Name=Key to Banderbill House Number 13
@@ -3530,11 +3530,11 @@ GrhIndex=9201
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=41
 IndexAbierta=336
 IndexCerrada=337
-IndexCerradaKey=338
+IndexCerradaLlave=338
 
 [OBJ337]
 Name=Closed Door
@@ -3542,11 +3542,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=41
 IndexAbierta=336
 IndexCerrada=337
-IndexCerradaKey=338
+IndexCerradaLlave=338
 
 [OBJ338]
 Name=Closed Door
@@ -3554,11 +3554,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=41
 IndexAbierta=336
 IndexCerrada=337
-IndexCerradaKey=338
+IndexCerradaLlave=338
 
 [OBJ339]
 Name=Key to Banderbill House Number 14
@@ -3575,11 +3575,11 @@ GrhIndex=9201
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=42
 IndexAbierta=340
 IndexCerrada=341
-IndexCerradaKey=342
+IndexCerradaLlave=342
 
 [OBJ341]
 Name=Closed Door
@@ -3587,11 +3587,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=42
 IndexAbierta=340
 IndexCerrada=341
-IndexCerradaKey=342
+IndexCerradaLlave=342
 
 [OBJ342]
 Name=Closed Door
@@ -3599,11 +3599,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=42
 IndexAbierta=340
 IndexCerrada=341
-IndexCerradaKey=342
+IndexCerradaLlave=342
 
 [OBJ343]
 Name=Key to Banderbill House Number 15
@@ -3620,11 +3620,11 @@ GrhIndex=9201
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=43
 IndexAbierta=344
 IndexCerrada=345
-IndexCerradaKey=346
+IndexCerradaLlave=346
 
 [OBJ345]
 Name=Closed Door
@@ -3632,11 +3632,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=43
 IndexAbierta=344
 IndexCerrada=345
-IndexCerradaKey=346
+IndexCerradaLlave=346
 
 [OBJ346]
 Name=Closed Door
@@ -3644,11 +3644,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=43
 IndexAbierta=344
 IndexCerrada=345
-IndexCerradaKey=346
+IndexCerradaLlave=346
 
 [OBJ347]
 Name=Key to Banderbill House Number 16
@@ -3665,11 +3665,11 @@ GrhIndex=9201
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=44
 IndexAbierta=348
 IndexCerrada=349
-IndexCerradaKey=350
+IndexCerradaLlave=350
 
 [OBJ349]
 Name=Closed Door
@@ -3677,11 +3677,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=44
 IndexAbierta=348
 IndexCerrada=349
-IndexCerradaKey=350
+IndexCerradaLlave=350
 
 [OBJ350]
 Name=Closed Door
@@ -3689,11 +3689,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=44
 IndexAbierta=348
 IndexCerrada=349
-IndexCerradaKey=350
+IndexCerradaLlave=350
 
 [OBJ351]
 Name=Key to Banderbill House Number 17
@@ -3710,11 +3710,11 @@ GrhIndex=9201
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=45
 IndexAbierta=352
 IndexCerrada=353
-IndexCerradaKey=354
+IndexCerradaLlave=354
 
 [OBJ353]
 Name=Closed Door
@@ -3722,11 +3722,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=45
 IndexAbierta=352
 IndexCerrada=353
-IndexCerradaKey=354
+IndexCerradaLlave=354
 
 [OBJ354]
 Name=Closed Door
@@ -3734,11 +3734,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=45
 IndexAbierta=352
 IndexCerrada=353
-IndexCerradaKey=354
+IndexCerradaLlave=354
 
 [OBJ355]
 Name=Key to Banderbill House Number 18
@@ -4004,11 +4004,11 @@ GrhIndex=9201
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=49
 IndexAbierta=373
 IndexCerrada=374
-IndexCerradaKey=375
+IndexCerradaLlave=375
 
 [OBJ374]
 Name=Closed Door
@@ -4016,11 +4016,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=49
 IndexAbierta=373
 IndexCerrada=374
-IndexCerradaKey=375
+IndexCerradaLlave=375
 
 [OBJ375]
 Name=Closed Door
@@ -4028,11 +4028,11 @@ GrhIndex=9195
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=49
 IndexAbierta=373
 IndexCerrada=374
-IndexCerradaKey=375
+IndexCerradaLlave=375
 
 [OBJ376]
 Name=Key to Vane Island
@@ -4555,11 +4555,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=50
 IndexAbierta=417
 IndexCerrada=418
-IndexCerradaKey=419
+IndexCerradaLlave=419
 
 [OBJ418]
 Name=Closed Wooden Door
@@ -4567,11 +4567,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=50
 IndexAbierta=417
 IndexCerrada=418
-IndexCerradaKey=419
+IndexCerradaLlave=419
 
 [OBJ419]
 Name=Closed Wooden Door
@@ -4579,11 +4579,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=50
 IndexAbierta=417
 IndexCerrada=418
-IndexCerradaKey=419
+IndexCerradaLlave=419
 
 [OBJ420]
 Name=Key to Lindos House Number 1
@@ -4600,11 +4600,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=51
 IndexAbierta=421
 IndexCerrada=422
-IndexCerradaKey=423
+IndexCerradaLlave=423
 
 [OBJ422]
 Name=Closed Wooden Door
@@ -4612,11 +4612,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=51
 IndexAbierta=421
 IndexCerrada=422
-IndexCerradaKey=423
+IndexCerradaLlave=423
 
 [OBJ423]
 Name=Closed Wooden Door
@@ -4624,11 +4624,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=51
 IndexAbierta=421
 IndexCerrada=422
-IndexCerradaKey=423
+IndexCerradaLlave=423
 
 [OBJ424]
 Name=Key to Lindos House Number 2
@@ -4645,11 +4645,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=52
 IndexAbierta=425
 IndexCerrada=426
-IndexCerradaKey=427
+IndexCerradaLlave=427
 
 [OBJ426]
 Name=Closed Wooden Door
@@ -4657,11 +4657,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=52
 IndexAbierta=425
 IndexCerrada=426
-IndexCerradaKey=427
+IndexCerradaLlave=427
 
 [OBJ427]
 Name=Closed Wooden Door
@@ -4669,11 +4669,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=52
 IndexAbierta=425
 IndexCerrada=426
-IndexCerradaKey=427
+IndexCerradaLlave=427
 
 [OBJ428]
 Name=Key to Lindos House Number 3
@@ -4690,11 +4690,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=53
 IndexAbierta=429
 IndexCerrada=430
-IndexCerradaKey=431
+IndexCerradaLlave=431
 
 [OBJ430]
 Name=Closed Wooden Door
@@ -4702,11 +4702,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=53
 IndexAbierta=429
 IndexCerrada=430
-IndexCerradaKey=431
+IndexCerradaLlave=431
 
 [OBJ431]
 Name=Closed Wooden Door
@@ -4714,11 +4714,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=53
 IndexAbierta=429
 IndexCerrada=430
-IndexCerradaKey=431
+IndexCerradaLlave=431
 
 [OBJ432]
 Name=Key to Lindos House Number 4
@@ -4735,11 +4735,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=54
 IndexAbierta=433
 IndexCerrada=434
-IndexCerradaKey=435
+IndexCerradaLlave=435
 
 [OBJ434]
 Name=Closed Wooden Door
@@ -4747,11 +4747,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=54
 IndexAbierta=433
 IndexCerrada=434
-IndexCerradaKey=435
+IndexCerradaLlave=435
 
 [OBJ435]
 Name=Closed Wooden Door
@@ -4759,11 +4759,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=54
 IndexAbierta=433
 IndexCerrada=434
-IndexCerradaKey=435
+IndexCerradaLlave=435
 
 [OBJ436]
 Name=Key to Lindos House Number 5
@@ -4780,11 +4780,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=55
 IndexAbierta=437
 IndexCerrada=438
-IndexCerradaKey=439
+IndexCerradaLlave=439
 
 [OBJ438]
 Name=Closed Wooden Door
@@ -4792,11 +4792,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=55
 IndexAbierta=437
 IndexCerrada=438
-IndexCerradaKey=439
+IndexCerradaLlave=439
 
 [OBJ439]
 Name=Closed Wooden Door
@@ -4804,11 +4804,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=55
 IndexAbierta=437
 IndexCerrada=438
-IndexCerradaKey=439
+IndexCerradaLlave=439
 
 [OBJ440]
 Name=Key to Lindos House Number 6
@@ -4825,11 +4825,11 @@ GrhIndex=9203
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=56
 IndexAbierta=441
 IndexCerrada=442
-IndexCerradaKey=443
+IndexCerradaLlave=443
 
 [OBJ442]
 Name=Closed Wooden Door
@@ -4837,11 +4837,11 @@ GrhIndex=9197
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=56
 IndexAbierta=441
 IndexCerrada=442
-IndexCerradaKey=443
+IndexCerradaLlave=443
 
 [OBJ443]
 Name=Closed Wooden Door
@@ -4849,11 +4849,11 @@ GrhIndex=9197
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=56
 IndexAbierta=441
 IndexCerrada=442
-IndexCerradaKey=443
+IndexCerradaLlave=443
 
 [OBJ444]
 Name=Key to Lindos' Abbey
@@ -4870,11 +4870,11 @@ GrhIndex=9203
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=57
 IndexAbierta=445
 IndexCerrada=446
-IndexCerradaKey=447
+IndexCerradaLlave=447
 
 [OBJ446]
 Name=Closed Wooden Door
@@ -4882,11 +4882,11 @@ GrhIndex=9197
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=57
 IndexAbierta=445
 IndexCerrada=446
-IndexCerradaKey=447
+IndexCerradaLlave=447
 
 [OBJ447]
 Name=Closed Wooden Door
@@ -4894,11 +4894,11 @@ GrhIndex=9197
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=57
 IndexAbierta=445
 IndexCerrada=446
-IndexCerradaKey=447
+IndexCerradaLlave=447
 
 [OBJ448]
 Name=Key to the Vault in Lindos' Abbey
@@ -4915,11 +4915,11 @@ GrhIndex=9202
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=58
 IndexAbierta=449
 IndexCerrada=450
-IndexCerradaKey=451
+IndexCerradaLlave=451
 
 [OBJ450]
 Name=Closed Wooden Door
@@ -4927,11 +4927,11 @@ GrhIndex=9196
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=58
 IndexAbierta=449
 IndexCerrada=450
-IndexCerradaKey=451
+IndexCerradaLlave=451
 
 [OBJ451]
 Name=Closed Wooden Door
@@ -4939,11 +4939,11 @@ GrhIndex=9196
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=58
 IndexAbierta=449
 IndexCerrada=450
-IndexCerradaKey=451
+IndexCerradaLlave=451
 
 [OBJ452]
 Name=Key to Banderbill's Prison
@@ -6568,11 +6568,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=70
 IndexAbierta=580
 IndexCerrada=581
-IndexCerradaKey=582
+IndexCerradaLlave=582
 
 [OBJ581]
 Name=Closed Wooden Door
@@ -6580,11 +6580,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=70
 IndexAbierta=580
 IndexCerrada=581
-IndexCerradaKey=582
+IndexCerradaLlave=582
 
 [OBJ582]
 Name=Closed Wooden Door
@@ -6592,11 +6592,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=70
 IndexAbierta=580
 IndexCerrada=581
-IndexCerradaKey=582
+IndexCerradaLlave=582
 
 [OBJ583]
 Name=Key to Arkhein House Number 1
@@ -6613,11 +6613,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=71
 IndexAbierta=584
 IndexCerrada=585
-IndexCerradaKey=586
+IndexCerradaLlave=586
 
 [OBJ585]
 Name=Closed Wooden Door
@@ -6625,11 +6625,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=71
 IndexAbierta=584
 IndexCerrada=585
-IndexCerradaKey=586
+IndexCerradaLlave=586
 
 [OBJ586]
 Name=Closed Wooden Door
@@ -6637,11 +6637,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=71
 IndexAbierta=584
 IndexCerrada=585
-IndexCerradaKey=586
+IndexCerradaLlave=586
 
 [OBJ587]
 Name=Key to Arkhein House Number 2
@@ -6658,11 +6658,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=72
 IndexAbierta=588
 IndexCerrada=589
-IndexCerradaKey=590
+IndexCerradaLlave=590
 
 [OBJ589]
 Name=Closed Wooden Door
@@ -6670,11 +6670,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=72
 IndexAbierta=588
 IndexCerrada=589
-IndexCerradaKey=590
+IndexCerradaLlave=590
 
 [OBJ590]
 Name=Closed Wooden Door
@@ -6682,11 +6682,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=72
 IndexAbierta=588
 IndexCerrada=589
-IndexCerradaKey=590
+IndexCerradaLlave=590
 
 [OBJ591]
 Name=Key to Arkhein House Number 3
@@ -6703,11 +6703,11 @@ GrhIndex=5592
 ObjType=6
 Abierta=0
 Agarrable=1
-Key=0
+Llave=0
 Clave=73
 IndexAbierta=592
 IndexCerrada=593
-IndexCerradaKey=594
+IndexCerradaLlave=594
 
 [OBJ593]
 Name=Closed Wooden Door
@@ -6715,11 +6715,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=73
 IndexAbierta=592
 IndexCerrada=593
-IndexCerradaKey=594
+IndexCerradaLlave=594
 
 [OBJ594]
 Name=Closed Wooden Door
@@ -6727,11 +6727,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=73
 IndexAbierta=592
 IndexCerrada=593
-IndexCerradaKey=594
+IndexCerradaLlave=594
 
 [OBJ595]
 Name=Key to Arkhein House Number 4
@@ -6748,11 +6748,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=74
 IndexAbierta=596
 IndexCerrada=597
-IndexCerradaKey=598
+IndexCerradaLlave=598
 
 [OBJ597]
 Name=Closed Wooden Door
@@ -6760,11 +6760,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=74
 IndexAbierta=596
 IndexCerrada=597
-IndexCerradaKey=598
+IndexCerradaLlave=598
 
 [OBJ598]
 Name=Closed Wooden Door
@@ -6772,11 +6772,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=74
 IndexAbierta=596
 IndexCerrada=597
-IndexCerradaKey=598
+IndexCerradaLlave=598
 
 [OBJ599]
 Name=Key to Arkhein House Number 5
@@ -6793,11 +6793,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=75
 IndexAbierta=600
 IndexCerrada=601
-IndexCerradaKey=602
+IndexCerradaLlave=602
 
 [OBJ601]
 Name=Closed Wooden Door
@@ -6805,11 +6805,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=75
 IndexAbierta=600
 IndexCerrada=601
-IndexCerradaKey=602
+IndexCerradaLlave=602
 
 [OBJ602]
 Name=Closed Wooden Door
@@ -6817,11 +6817,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=75
 IndexAbierta=600
 IndexCerrada=601
-IndexCerradaKey=602
+IndexCerradaLlave=602
 
 [OBJ603]
 Name=Key to Arkhein House Number 6
@@ -6838,11 +6838,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=76
 IndexAbierta=604
 IndexCerrada=605
-IndexCerradaKey=606
+IndexCerradaLlave=606
 
 [OBJ605]
 Name=Closed Wooden Door
@@ -6850,11 +6850,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=76
 IndexAbierta=604
 IndexCerrada=605
-IndexCerradaKey=606
+IndexCerradaLlave=606
 
 [OBJ606]
 Name=Closed Wooden Door
@@ -6862,11 +6862,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=76
 IndexAbierta=604
 IndexCerrada=605
-IndexCerradaKey=606
+IndexCerradaLlave=606
 
 [OBJ607]
 Name=Key to Arkhein House Number 7
@@ -6883,11 +6883,11 @@ GrhIndex=5592
 ObjType=6
 Agarrable=1
 Abierta=0
-Key=0
+Llave=0
 Clave=77
 IndexAbierta=608
 IndexCerrada=609
-IndexCerradaKey=610
+IndexCerradaLlave=610
 
 [OBJ609]
 Name=Closed Wooden Door
@@ -6895,11 +6895,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=0
+Llave=0
 Clave=77
 IndexAbierta=608
 IndexCerrada=609
-IndexCerradaKey=610
+IndexCerradaLlave=610
 
 [OBJ610]
 Name=Closed Wooden Door
@@ -6907,11 +6907,11 @@ GrhIndex=5593
 ObjType=6
 Agarrable=1
 Abierta=1
-Key=1
+Llave=1
 Clave=77
 IndexAbierta=608
 IndexCerrada=609
-IndexCerradaKey=610
+IndexCerradaLlave=610
 
 [OBJ611]
 Name=Key to Arkhein House Number 8
