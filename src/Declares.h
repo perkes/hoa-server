@@ -1609,6 +1609,7 @@ extern std::shared_ptr<clsIniManager> Administradores;
 extern const int MIN_AMOUNT_LOG;
 extern const int MIN_VALUE_LOG;
 extern const int MIN_GOLD_AMOUNT_LOG;
+extern const int GOLD_PER_LEVEL;
 
 /* 'TODO:Esto hay que volarlo, es temporal! */
 //extern std::string GUILDPATH;

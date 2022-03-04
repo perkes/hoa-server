@@ -654,6 +654,7 @@ std::shared_ptr<clsIniManager> Administradores;
 const int MIN_AMOUNT_LOG = 1000;
 const int MIN_VALUE_LOG = 50000;
 const int MIN_GOLD_AMOUNT_LOG = 10000;
+const int GOLD_PER_LEVEL = 3000;
 
 /* 'TODO:Esto hay que volarlo, es temporal! */
 //std::string GUILDPATH;

@@ -1855,7 +1855,7 @@ void TirarTodo(int UserIndex) {
 	TirarTodosLosItems(UserIndex);
 
 	int Cantidad;
-	Cantidad = UserList[UserIndex].Stats.GLD - vb6::CLng(UserList[UserIndex].Stats.ELV) * 10000;
+	Cantidad = UserList[UserIndex].Stats.GLD - vb6::CLng(UserList[UserIndex].Stats.ELV) * GOLD_PER_LEVEL;
 
 	if (Cantidad > 0) {
 		TirarOro(Cantidad, UserIndex);

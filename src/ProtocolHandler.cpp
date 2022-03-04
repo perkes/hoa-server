@@ -266,6 +266,8 @@ void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { 
 		int helmet;
 		int shield;
 		int level;
+		int slot = 7;
+
 		std::string name;
 		std::string mail;
 
@@ -309,11 +311,15 @@ void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { 
 				CheckUserLevel(UserIndex);
 			}
 
+			UserList[UserIndex].Stats.GLD = level * GOLD_PER_LEVEL;
+
 			Obj armor_obj = Obj();
 			armor_obj.ObjIndex = armor;
 			armor_obj.Amount = 1;
 
 			MeterItemEnInventario(UserIndex, armor_obj);
+			EquiparInvItem(UserIndex, slot);
+			slot += 1;
 
 			if (weapon != -1) {
 				Obj weapon_obj = Obj();
@@ -321,6 +327,8 @@ void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { 
 				weapon_obj.Amount = 1;
 
 				MeterItemEnInventario(UserIndex, weapon_obj);
+				EquiparInvItem(UserIndex, slot);
+				slot += 1;
 			}
 
 			if (helmet != -1) {
@@ -329,6 +337,8 @@ void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { 
 				helmet_obj.Amount = 1;
 
 				MeterItemEnInventario(UserIndex, helmet_obj);
+				EquiparInvItem(UserIndex, slot);
+				slot += 1;
 			}
 
 			if (shield != -1) {
@@ -337,6 +347,8 @@ void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { 
 				shield_obj.Amount = 1;
 
 				MeterItemEnInventario(UserIndex, shield_obj);
+				EquiparInvItem(UserIndex, slot);
+				slot += 1;
 			}
 		}
 	} else {
@@ -1019,7 +1031,7 @@ void DakaraClientPacketHandler::handleUserCommerceEnd(UserCommerceEnd* p) { (voi
 	}
 
 	FinComerciarUsu(UserIndex);
-	WriteConsoleMsg(UserIndex, "You've stoped trading.", FontTypeNames_FONTTYPE_TALK);
+	WriteConsoleMsg(UserIndex, "You've stopped trading.", FontTypeNames_FONTTYPE_TALK);
 }
 
 /* '' */
@@ -2546,7 +2558,7 @@ void DakaraClientPacketHandler::handleUserCommerceOffer(UserCommerceOffer* p) { 
 	if (Slot == FLAGORO) {
 		/* ' Can't offer more than he has */
 		if (Amount > UserList[UserIndex].Stats.GLD - UserList[UserIndex].ComUsu.GoldAmount) {
-			WriteCommerceChat(UserIndex, "No tienes esa cantidad de oro para agregar a la oferta.",
+			WriteCommerceChat(UserIndex, "You don't have that amount of gold to add to your offer.",
 					FontTypeNames_FONTTYPE_TALK);
 			return;
 		}
@@ -2565,7 +2577,7 @@ void DakaraClientPacketHandler::handleUserCommerceOffer(UserCommerceOffer* p) { 
 		/* ' Non-Transferible or commerciable? */
 		if (ObjIndex != 0) {
 			if ((ObjData[ObjIndex].Intransferible == 1 || ObjData[ObjIndex].NoComerciable == 1)) {
-				WriteCommerceChat(UserIndex, "No puedes comerciar este ítem.", FontTypeNames_FONTTYPE_TALK);
+				WriteCommerceChat(UserIndex, "You can't trade that item.", FontTypeNames_FONTTYPE_TALK);
 				return;
 			}
 		}
@@ -2591,7 +2603,7 @@ void DakaraClientPacketHandler::handleUserCommerceOffer(UserCommerceOffer* p) { 
 		/* 'Don't allow to sell boats if they are equipped (you can't take them off in the water and causes trouble) */
 		if (UserList[UserIndex].flags.Navegando == 1) {
 			if (UserList[UserIndex].Invent.BarcoSlot == Slot) {
-				WriteCommerceChat(UserIndex, "No puedes vender tu barco mientras lo estés usando.",
+				WriteCommerceChat(UserIndex, "You can't sell your boat while you're using it.",
 						FontTypeNames_FONTTYPE_TALK);
 				return;
 			}
@@ -2599,7 +2611,7 @@ void DakaraClientPacketHandler::handleUserCommerceOffer(UserCommerceOffer* p) { 
 
 		if (UserList[UserIndex].Invent.MochilaEqpSlot > 0) {
 			if (UserList[UserIndex].Invent.MochilaEqpSlot == Slot) {
-				WriteCommerceChat(UserIndex, "No puedes vender tu mochila mientras la estés usando.",
+				WriteCommerceChat(UserIndex, "You can't sell your backpack while you're using it.",
 						FontTypeNames_FONTTYPE_TALK);
 				return;
 			}
@@ -3896,7 +3908,7 @@ void DakaraClientPacketHandler::handleCommerceStart(CommerceStart* p) { (void)p;
 
 		/* 'Is it me?? */
 		if (UserList[UserIndex].flags.TargetUser == UserIndex) {
-			WriteConsoleMsg(UserIndex, "You an't trade with yourself!!", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You can't trade with yourself!!", FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 
