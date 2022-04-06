@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -29,47 +29,47 @@
 #endif
 
 
-#define DAKARA_MAX_INPUT_BUFFER_SIZE 75000
+#define HOA_MAX_INPUT_BUFFER_SIZE 75000
 
 
-void DakaraBeginCloseSocket(dakara::Socket* sctx);
-void DakaraRealCloseSocket(dakara::Socket* sctx);
+void HoABeginCloseSocket(hoa::Socket* sctx);
+void HoARealCloseSocket(hoa::Socket* sctx);
 
-class DakaraSocketEvents : public dakara::SocketEvents {
+class HoASocketEvents : public hoa::SocketEvents {
 public:
-	virtual void onSocketNew(dakara::Socket* s) override;
-	virtual void onSocketRead(dakara::Socket* s, const char* data, size_t data_len) override;
-	virtual void onSocketWrite(dakara::Socket* s) override;
-	virtual void onSocketClose(dakara::Socket* s) override;
+	virtual void onSocketNew(hoa::Socket* s) override;
+	virtual void onSocketRead(hoa::Socket* s, const char* data, size_t data_len) override;
+	virtual void onSocketWrite(hoa::Socket* s) override;
+	virtual void onSocketClose(hoa::Socket* s) override;
 };
 
-class EchoServerSocketEvents : public dakara::SocketEvents {
+class EchoServerSocketEvents : public hoa::SocketEvents {
 public:
-	virtual void onSocketNew(dakara::Socket* s) override;
-	virtual void onSocketRead(dakara::Socket* s, const char* data, size_t data_len) override;
-	virtual void onSocketWrite(dakara::Socket* s) override;
-	virtual void onSocketClose(dakara::Socket* s) override;
+	virtual void onSocketNew(hoa::Socket* s) override;
+	virtual void onSocketRead(hoa::Socket* s, const char* data, size_t data_len) override;
+	virtual void onSocketWrite(hoa::Socket* s) override;
+	virtual void onSocketClose(hoa::Socket* s) override;
 };
 
-void EchoServerSocketEvents::onSocketNew(dakara::Socket* s) {
+void EchoServerSocketEvents::onSocketNew(hoa::Socket* s) {
 	std::cout << "echo onSocketNew " << s->getIP() << std::endl;
 }
 
-void EchoServerSocketEvents::onSocketRead(dakara::Socket* s, const char* data, size_t data_len) {
+void EchoServerSocketEvents::onSocketRead(hoa::Socket* s, const char* data, size_t data_len) {
 	std::cout << "echo onSocketRead " << s->getIP() << " len: " << data_len << std::endl;
 	s->write(data, data_len);
 }
 
-void EchoServerSocketEvents::onSocketWrite(dakara::Socket* s) {
+void EchoServerSocketEvents::onSocketWrite(hoa::Socket* s) {
 	std::cout << "echo onSocketWrite " << s->getIP() << std::endl;
 }
 
-void EchoServerSocketEvents::onSocketClose(dakara::Socket* s) {
+void EchoServerSocketEvents::onSocketClose(hoa::Socket* s) {
 	std::cout << "echo onSocketClose " << s->getIP() << std::endl;
 }
 
 
-void DakaraSocketEvents::onSocketRead(dakara::Socket* s, const char* data, size_t data_len) {
+void HoASocketEvents::onSocketRead(hoa::Socket* s, const char* data, size_t data_len) {
 	int UserIndex = s->userData;
 	clsByteQueue* incomingData = UserList[UserIndex].incomingData.get();
 	//clsByteQueue* outgoingData = UserList[UserIndex].outgoingData.get();
@@ -77,9 +77,9 @@ void DakaraSocketEvents::onSocketRead(dakara::Socket* s, const char* data, size_
 	try {
 		incomingData->WriteBlock(data, data_len);
 
-		if (incomingData->length() > DAKARA_MAX_INPUT_BUFFER_SIZE) {
+		if (incomingData->length() > HOA_MAX_INPUT_BUFFER_SIZE) {
 			LogApiSock("WsApiEnviar MAX_INPUT_BUFFER_SIZE UserIndex=" + vb6::CStr(UserIndex));
-			DakaraBeginCloseSocket(s);
+			HoABeginCloseSocket(s);
 			return;
 		}
 
@@ -100,11 +100,11 @@ void DakaraSocketEvents::onSocketRead(dakara::Socket* s, const char* data, size_
 	}
 }
 
-void DakaraSocketEvents::onSocketWrite(dakara::Socket* s) {
+void HoASocketEvents::onSocketWrite(hoa::Socket* s) {
 	(void)s;
 }
 
-void DakaraSocketEvents::onSocketNew(dakara::Socket* s) {
+void HoASocketEvents::onSocketNew(hoa::Socket* s) {
 	try {
 		int UserIndex = NextOpenUser();
 
@@ -155,15 +155,15 @@ void DakaraSocketEvents::onSocketNew(dakara::Socket* s) {
 	}
 }
 
-void DakaraSocketEvents::onSocketClose(dakara::Socket* s) {
-	DakaraBeginCloseSocket(s);
+void HoASocketEvents::onSocketClose(hoa::Socket* s) {
+	HoABeginCloseSocket(s);
 	CerrarUserIndex(s->userData);
 }
 
 
-std::unique_ptr<dakara::SocketServer> DakaraSocketServer;
+std::unique_ptr<hoa::SocketServer> HoASocketServer;
 
-DakaraSocketEvents sev;
+HoASocketEvents sev;
 EchoServerSocketEvents echosev;
 
 void break_signal_handler(short event, void* arg) {
@@ -175,7 +175,7 @@ void break_signal_handler(short event, void* arg) {
 	LogApiSock(msg);
 	std::cout << msg << std::endl << std::flush;
 
-	DakaraSocketServer->stop();
+	HoASocketServer->stop();
 }
 
 void signal_handler(short event, void* arg) {
@@ -204,33 +204,33 @@ void IniciaWsApi() {
 	}
 #endif
 
-	DakaraSocketServer = dakara::BuildSocketServer("libevent");
+	HoASocketServer = hoa::BuildSocketServer("libevent");
 
 #ifndef _WIN32
-	DakaraSocketServer->addSignalHandler(SIGINT, break_signal_handler, 0);
-	DakaraSocketServer->addSignalHandler(SIGPIPE, signal_handler, 0);
+	HoASocketServer->addSignalHandler(SIGINT, break_signal_handler, 0);
+	HoASocketServer->addSignalHandler(SIGPIPE, signal_handler, 0);
 #endif
 
-	DakaraSocketServer->addListener("0.0.0.0", Puerto, &sev);
+	HoASocketServer->addListener("0.0.0.0", Puerto, &sev);
 
 #if 1
-	DakaraSocketServer->addListener("127.0.0.1", Puerto + 1, &echosev);
+	HoASocketServer->addListener("127.0.0.1", Puerto + 1, &echosev);
 #endif
 }
 
 void ServerLoop() {
 
-	DakaraSocketServer->loop();
+	HoASocketServer->loop();
 
 }
 
 void LimpiaWsApi() {
 
-	DakaraSocketServer.release();
+	HoASocketServer.release();
 
 }
 
-void FlushBuffer(dakara::Socket* s) {
+void FlushBuffer(hoa::Socket* s) {
 	int UserIndex = s->userData;
 
 	//clsByteQueue* incomingData = UserList[UserIndex].incomingData.get();
@@ -250,8 +250,8 @@ void FlushBuffer(dakara::Socket* s) {
 	WsApiEnviar(s, sndData);
 }
 
-void CloseSocket(dakara::Socket* s) {
-	DakaraBeginCloseSocket(s);
+void CloseSocket(hoa::Socket* s) {
+	HoABeginCloseSocket(s);
 }
 
 void WsApiEnviar(int UserIndex, const char* str, std::size_t str_len) {
@@ -262,7 +262,7 @@ void WsApiEnviar(int UserIndex, const char* str, std::size_t str_len) {
 	WsApiEnviar(UserList[UserIndex].sockctx, str, str_len);
 }
 
-void WsApiEnviar(dakara::Socket* s, const char* str, std::size_t str_len) {
+void WsApiEnviar(hoa::Socket* s, const char* str, std::size_t str_len) {
 	int UserIndex = s->userData;
 	//clsByteQueue* incomingData = UserList[UserIndex].incomingData.get();
 	clsByteQueue* outgoingData = UserList[UserIndex].outgoingData.get();
@@ -291,7 +291,7 @@ bool UserIndexSocketValido(int UserIndex) {
 	return UserIndex >= 1 && UserIndex <= MaxUsers && UserList[UserIndex].sockctx != nullptr;
 }
 
-void DakaraBeginCloseSocket(dakara::Socket* s) {
+void HoABeginCloseSocket(hoa::Socket* s) {
 	int UserIndex = s->userData;
 
     if (UserIndexSocketValido(UserIndex)) {
@@ -302,7 +302,7 @@ void DakaraBeginCloseSocket(dakara::Socket* s) {
     s->close(false);
 }
 
-void DakaraRealCloseSocket(dakara::Socket* s) {
+void HoARealCloseSocket(hoa::Socket* s) {
 	s->close(false);
 }
 
@@ -311,8 +311,8 @@ void WSApiCloseSocket(int UserIndex) {
 		throw std::runtime_error("WSApiCloseSocket: ConnIDValida = False, UserIndex = " + std::to_string(UserIndex));
 	}
 
-	dakara::Socket* sctx = UserList[UserIndex].sockctx;
+	hoa::Socket* sctx = UserList[UserIndex].sockctx;
 
-	DakaraBeginCloseSocket(sctx);
+	HoABeginCloseSocket(sctx);
 }
 

@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -21,7 +21,7 @@
 #include "Crypto.h"
 
 std::string GetAppPath() {
-	return DakaraBasePath;
+	return HoABasePath;
 }
 
 std::string GetGuildsPath(std::string guildName, EGUILDPATH fileType) {
@@ -52,15 +52,15 @@ std::string GetGuildsPath(std::string guildName, EGUILDPATH fileType) {
 		throw std::runtime_error("unknown fileType");
 	}
 
-	return DakaraBasePath + "guilds/" + guildName + ext;
+	return HoABasePath + "guilds/" + guildName + ext;
 }
 
 std::string GetIniPath(std::string baseName) {
-	return DakaraBasePath + baseName;
+	return HoABasePath + baseName;
 }
 
 std::string GetCharPath(std::string baseName) {
-	return DakaraBasePath + "Charfile/" + vb6::UCase(baseName) + ".chr";
+	return HoABasePath + "Charfile/" + vb6::UCase(baseName) + ".chr";
 }
 
 std::string GetMapPath(int mapNum, MAPPATH filetype, bool backup) {
@@ -68,13 +68,13 @@ std::string GetMapPath(int mapNum, MAPPATH filetype, bool backup) {
 
 	switch (filetype) {
 	case MAPPATH::DAT:
-		return DakaraBasePath + base + std::to_string(mapNum) + ".dat";
+		return HoABasePath + base + std::to_string(mapNum) + ".dat";
 
 	case MAPPATH::INF:
-		return DakaraBasePath + base + std::to_string(mapNum) + ".inf";
+		return HoABasePath + base + std::to_string(mapNum) + ".inf";
 
 	case MAPPATH::MAP:
-		return DakaraBasePath + base + std::to_string(mapNum) + ".map";
+		return HoABasePath + base + std::to_string(mapNum) + ".map";
 
 	default:
 		throw std::runtime_error("unknown fileType");
@@ -82,7 +82,7 @@ std::string GetMapPath(int mapNum, MAPPATH filetype, bool backup) {
 }
 
 std::string GetDatPath(DATPATH fileType) {
-	std::string datpath = DakaraBasePath + "dat/";
+	std::string datpath = HoABasePath + "dat/";
 
 	switch (fileType) {
 	case DATPATH::apuestas:
@@ -149,18 +149,18 @@ std::string GetDatPath(DATPATH fileType) {
 }
 
 std::string GetLogFileName(const std::string& baseName) {
-	return DakaraBasePath + "logs/" + baseName + ".log";
+	return HoABasePath + "logs/" + baseName + ".log";
 }
 
 std::string GetForumPath(std::string ForoID) {
 	// vb6::App().Path + "/foros/" + sForoID + ".for";
-	return DakaraBasePath + "foros/" + (ForoID) + ".for";
+	return HoABasePath + "foros/" + (ForoID) + ".for";
 }
 
 std::string GetForumMsgPath(std::string ForoID, int PostIndex, bool post) {
 	// PostPath = vb6::App().Path + "/foros/" + vb6::CStr(sForoID) + "-" + vb6::CStr(PostIndex) + ".for";
 	// vb6::App().Path + "/Foros/" + vb6::CStr(Foros[ForumIndex].ID) + "-" + vb6::CStr(PostIndex) + "a.for"
-	return DakaraBasePath + "foros/" + (ForoID) + "-" + std::to_string(PostIndex) + (post ? "" : "a") + ".for";
+	return HoABasePath + "foros/" + (ForoID) + "-" + std::to_string(PostIndex) + (post ? "" : "a") + ".for";
 }
 
 
@@ -637,7 +637,7 @@ void DoBackUp() {
 	/* '''''''''''/'lo pongo aca x sugernecia del yind */
 
 	SendData(SendTarget_ToAll, 0,
-			dakara::protocol::server::BuildPauseToggle());
+			hoa::protocol::server::BuildPauseToggle());
 
 	LimpiarMundo();
 	WorldSave();
@@ -645,7 +645,7 @@ void DoBackUp() {
 	/* 'Call ResetCentinelaInfo     'Reseteamos al centinela 'Lo saco porque ahora el reset lo maneja el modCentinela [C4b3z0n] */
 
 	SendData(SendTarget_ToAll, 0,
-			dakara::protocol::server::BuildPauseToggle());
+			hoa::protocol::server::BuildPauseToggle());
 
 	/* 'Call EstadisticasWeb.Informar(EVENTO_NUEVO_CLAN, 0) */
 

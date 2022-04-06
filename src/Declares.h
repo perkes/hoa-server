@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -38,7 +38,7 @@
 #include "ComercioUsuario.h"
 
 
-namespace dakara {
+namespace hoa {
 	class Socket;
 }
 
@@ -769,6 +769,7 @@ struct ObjData {
 };
 
 struct Obj {
+	bool CanUse = true;
 	int ObjIndex = 0;
 	int Amount = 0;
 };
@@ -1146,7 +1147,7 @@ struct User {
 	bool IncomingDataAvailable = false;
 
 	/* 'ID */
-	class dakara::Socket* sockctx = 0;
+	class hoa::Socket* sockctx = 0;
 	std::shared_ptr<clsByteQueue> outgoingData;
 	std::shared_ptr<clsByteQueue> incomingData;
 
@@ -1615,6 +1616,6 @@ extern const int GOLD_PER_LEVEL;
 //extern std::string GUILDPATH;
 //extern std::string GUILDINFOFILE;
 
-extern std::string DakaraBasePath;
+extern std::string HoABasePath;
 
 #endif

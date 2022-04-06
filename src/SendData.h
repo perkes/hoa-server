@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -33,11 +33,11 @@
 /* ' @version 1.0.0 */
 /* ' @date 20070107 */
 
-std::string PacketToString(const dakara::protocol::Packet& p);
+std::string PacketToString(const hoa::protocol::Packet& p);
 
 void SendData(SendTarget sndRoute, int sndIndex, std::string sndData, bool IsDenounce = false);
 
-void SendData(SendTarget sndRoute, int sndIndex, const dakara::protocol::Packet& p, bool IsDenounce = false);
+void SendData(SendTarget sndRoute, int sndIndex, const hoa::protocol::Packet& p, bool IsDenounce = false);
 
 void SendToUserArea(int UserIndex, std::string sdData);
 

@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -300,7 +300,7 @@ bool clsParty::HacerLeader(int UserIndex) {
 		LogError("INCONSISTENCIA DE PARTIES");
 		std::cerr << ("INCONSISTENCIA DE PARTIES en HacerLeader") << std::endl;
 		SendData(SendTarget_ToAdmins, 0,
-				dakara::protocol::server::BuildConsoleMsg(
+				hoa::protocol::server::BuildConsoleMsg(
 						"¡¡¡Inconsistencia de parties en HACERLEADER (UII = 0), AVISE A UN PROGRAMADOR ESTO ES UNA CATASTROFE!!!!",
 						FontTypeNames_FONTTYPE_GUILD));
 		retval = false;

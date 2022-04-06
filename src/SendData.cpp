@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -21,13 +21,13 @@
 #include "ProtocolNew.h"
 
 
-std::string PacketToString(const dakara::protocol::Packet& p) {
+std::string PacketToString(const hoa::protocol::Packet& p) {
 	clsByteQueue q;
 	p.serialize(&q);
 	return q.PeekBinaryFixed(q.length());
 }
 
-void SendData(SendTarget sndRoute, int sndIndex, const dakara::protocol::Packet& p, bool IsDenounce) {
+void SendData(SendTarget sndRoute, int sndIndex, const hoa::protocol::Packet& p, bool IsDenounce) {
 	clsByteQueue q;
 
 	p.serialize(&q);

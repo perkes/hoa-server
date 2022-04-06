@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -34,17 +34,17 @@ const int NIF_TIP = 4;
 
 namespace {
 
-std::unique_ptr<dakara::Timer> timerAuditoria;
-std::unique_ptr<dakara::Timer> timerPiquete;
-std::unique_ptr<dakara::Timer> timerFX;
-std::unique_ptr<dakara::Timer> timerGameTimer;
-std::unique_ptr<dakara::Timer> timerLluviaEvent;
-std::unique_ptr<dakara::Timer> timerLluvia;
-std::unique_ptr<dakara::Timer> timerAutoSave;
-std::unique_ptr<dakara::Timer> timerNpcAtaca;
-std::unique_ptr<dakara::Timer> timerAI;
-std::unique_ptr<dakara::Timer> timerKillLog;
-std::unique_ptr<dakara::Timer> timerHandleData;
+std::unique_ptr<hoa::Timer> timerAuditoria;
+std::unique_ptr<hoa::Timer> timerPiquete;
+std::unique_ptr<hoa::Timer> timerFX;
+std::unique_ptr<hoa::Timer> timerGameTimer;
+std::unique_ptr<hoa::Timer> timerLluviaEvent;
+std::unique_ptr<hoa::Timer> timerLluvia;
+std::unique_ptr<hoa::Timer> timerAutoSave;
+std::unique_ptr<hoa::Timer> timerNpcAtaca;
+std::unique_ptr<hoa::Timer> timerAI;
+std::unique_ptr<hoa::Timer> timerKillLog;
+std::unique_ptr<hoa::Timer> timerHandleData;
 
 void TimerHandleData_Timer() {
 	int UserIndex;
@@ -72,7 +72,7 @@ void TimerHandleData_Timer() {
 }
 
 void TimersRegisterAll() {
-	dakara::SocketServer& ss = (*DakaraSocketServer.get());
+	hoa::SocketServer& ss = (*HoASocketServer.get());
 
 	timerAuditoria = ss.addTimer(1000, Auditoria_Timer, true);
 	timerPiquete = ss.addTimer(6000, tPiqueteC_Timer, true);
@@ -190,7 +190,7 @@ void AutoSave_Timer() {
 		/* ' Desactiva */
 		if (tmpHappyHour == 1) {
 			SendData(SendTarget_ToAll, 0,
-					dakara::protocol::server::BuildConsoleMsg("The Happy Hour has ended!", FontTypeNames_FONTTYPE_DIOS));
+					hoa::protocol::server::BuildConsoleMsg("The Happy Hour has ended!", FontTypeNames_FONTTYPE_DIOS));
 
 			HappyHourActivated = false;
 
@@ -200,13 +200,13 @@ void AutoSave_Timer() {
 
 			if (HappyHour != 1) {
 				SendData(SendTarget_ToAll, 0,
-						dakara::protocol::server::BuildConsoleMsg(
+						hoa::protocol::server::BuildConsoleMsg(
 								"The Happy Hour has been modified, from now on the XP given by creatures is increased by "
 										+ vb6::CStr(vb6::Round((tmpHappyHour - 1) * 100, 2)) + "%",
 								FontTypeNames_FONTTYPE_DIOS));
 			} else {
 				SendData(SendTarget_ToAll, 0,
-						dakara::protocol::server::BuildConsoleMsg(
+						hoa::protocol::server::BuildConsoleMsg(
 								"The Happy Hour has started! The XP given by creatures is increased by "
 										+ vb6::CStr(vb6::Round((tmpHappyHour - 1) * 100, 2)) + "%!",
 								FontTypeNames_FONTTYPE_DIOS));
@@ -225,7 +225,7 @@ void AutoSave_Timer() {
 
 	if (Minutos == MinutosWs - 1) {
 		SendData(SendTarget_ToAll, 0,
-				dakara::protocol::server::BuildConsoleMsg("Worldsave in 1 minute ...", FontTypeNames_FONTTYPE_VENENO));
+				hoa::protocol::server::BuildConsoleMsg("Worldsave in 1 minute ...", FontTypeNames_FONTTYPE_VENENO));
 	}
 
 	if (Minutos >= MinutosWs) {
@@ -236,7 +236,7 @@ void AutoSave_Timer() {
 
 	if (MinsPjesSave == MinutosGuardarUsuarios - 1) {
 		SendData(SendTarget_ToAll, 0,
-				dakara::protocol::server::BuildConsoleMsg("CharSave in 1 minute ...", FontTypeNames_FONTTYPE_VENENO));
+				hoa::protocol::server::BuildConsoleMsg("CharSave in 1 minute ...", FontTypeNames_FONTTYPE_VENENO));
 	} else if (MinsPjesSave >= MinutosGuardarUsuarios) {
 		ActualizaExperiencias();
 		GuardarUsuarios();
@@ -568,24 +568,24 @@ void tLluviaEvent_Timer() {
 			if (RandomNumber(1, 100) <= 2) {
 				Lloviendo = true;
 				MinutosSinLluvia = 0;
-				SendData(SendTarget_ToAll, 0, dakara::protocol::server::BuildRainToggle());
+				SendData(SendTarget_ToAll, 0, hoa::protocol::server::BuildRainToggle());
 			}
 		} else if (MinutosSinLluvia >= 1440) {
 			Lloviendo = true;
 			MinutosSinLluvia = 0;
-			SendData(SendTarget_ToAll, 0, dakara::protocol::server::BuildRainToggle());
+			SendData(SendTarget_ToAll, 0, hoa::protocol::server::BuildRainToggle());
 		}
 	} else {
 		MinutosLloviendo = MinutosLloviendo + 1;
 		if (MinutosLloviendo >= 5) {
 			Lloviendo = false;
-			SendData(SendTarget_ToAll, 0, dakara::protocol::server::BuildRainToggle());
+			SendData(SendTarget_ToAll, 0, hoa::protocol::server::BuildRainToggle());
 			MinutosLloviendo = 0;
 		} else {
 			if (RandomNumber(1, 100) <= 2) {
 				Lloviendo = false;
 				MinutosLloviendo = 0;
-				SendData(SendTarget_ToAll, 0, dakara::protocol::server::BuildRainToggle());
+				SendData(SendTarget_ToAll, 0, hoa::protocol::server::BuildRainToggle());
 			}
 		}
 	}
@@ -633,7 +633,7 @@ void tPiqueteC_Timer() {
 				}
 				if (NuevaA) {
 					SendData(SendTarget_ToGuildMembers, GI,
-							dakara::protocol::server::BuildConsoleMsg(
+							hoa::protocol::server::BuildConsoleMsg(
 									"The clan has changed its alignment to " + GuildAlignment(GI) + "!",
 									FontTypeNames_FONTTYPE_GUILD));
 					LogClanes("The clan has changed its alignment!");

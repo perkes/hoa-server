@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -440,7 +440,7 @@ void EraseObj(int num, int Map, int X, int Y) {
 		MapData[Map][X][Y].ObjInfo.ObjIndex = 0;
 		MapData[Map][X][Y].ObjInfo.Amount = 0;
 
-		SendToAreaByPos(Map, X, Y, PacketToString(dakara::protocol::server::BuildObjectDelete(X, Y)));
+		SendToAreaByPos(Map, X, Y, PacketToString(hoa::protocol::server::BuildObjectDelete(X, Y)));
 	}
 
 }
@@ -459,7 +459,7 @@ void MakeObj(struct Obj & Obj, int Map, int X, int Y) {
 		} else {
 			MapData[Map][X][Y].ObjInfo = Obj;
 
-			SendToAreaByPos(Map, X, Y, PacketToString(dakara::protocol::server::BuildObjectCreate(X, Y,ObjData[Obj.ObjIndex].GrhIndex)));
+			SendToAreaByPos(Map, X, Y, PacketToString(hoa::protocol::server::BuildObjectCreate(X, Y,ObjData[Obj.ObjIndex].GrhIndex)));
 		}
 	}
 
@@ -770,7 +770,7 @@ bool SexoPuedeUsarItem(int UserIndex, int ObjIndex, std::string& sMotivo) {
 	}
 
 	if (!retval) {
-		sMotivo = "Tu género no puede usar este objeto.";
+		sMotivo = "Your sex cannot use that object.";
 	}
 
 	return retval;
@@ -801,7 +801,7 @@ bool FaccionPuedeUsarItem(int UserIndex, int ObjIndex, std::string& sMotivo) {
 	}
 
 	if (!retval) {
-		sMotivo = "Tu alineación no puede usar este objeto.";
+		sMotivo = "Your alignment cannot use that object.";
 	}
 
 	return retval;
@@ -860,7 +860,7 @@ void EquiparInvItem(int UserIndex, int Slot) {
 			/* 'El sonido solo se envia si no lo produce un admin invisible */
 			if (!(UserList[UserIndex].flags.AdminInvisible == 1)) {
 				SendData(SendTarget_ToPCArea, UserIndex,
-						dakara::protocol::server::BuildPlayWave(SND_SACARARMA, UserList[UserIndex].Pos.X,
+						hoa::protocol::server::BuildPlayWave(SND_SACARARMA, UserList[UserIndex].Pos.X,
 								UserList[UserIndex].Pos.Y));
 			}
 
@@ -1379,11 +1379,11 @@ void UseInvItem(int UserIndex, int Slot) {
 			/* ' Los admin invisibles solo producen sonidos a si mismos */
 			if (UserList[UserIndex].flags.AdminInvisible == 1) {
 				SendData(SendTarget_ToUserIndex, UserIndex,
-						dakara::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X,
+						hoa::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X,
 								UserList[UserIndex].Pos.Y));
 			} else {
 				SendData(SendTarget_ToPCArea, UserIndex,
-						dakara::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X,
+						hoa::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X,
 								UserList[UserIndex].Pos.Y));
 			}
 			WriteUpdateDexterity(UserIndex);
@@ -1413,11 +1413,11 @@ void UseInvItem(int UserIndex, int Slot) {
 			/* ' Los admin invisibles solo producen sonidos a si mismos */
 			if (UserList[UserIndex].flags.AdminInvisible == 1) {
 				SendData(SendTarget_ToUserIndex, UserIndex,
-						dakara::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X,
+						hoa::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X,
 								UserList[UserIndex].Pos.Y));
 			} else {
 				SendData(SendTarget_ToPCArea, UserIndex,
-						dakara::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X,
+						hoa::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X,
 								UserList[UserIndex].Pos.Y));
 			}
 			WriteUpdateStrenght(UserIndex);
@@ -1439,11 +1439,11 @@ void UseInvItem(int UserIndex, int Slot) {
 			/* ' Los admin invisibles solo producen sonidos a si mismos */
 			if (UserList[UserIndex].flags.AdminInvisible == 1) {
 				SendData(SendTarget_ToUserIndex, UserIndex,
-						dakara::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X,
+						hoa::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X,
 								UserList[UserIndex].Pos.Y));
 			} else {
 				SendData(SendTarget_ToPCArea, UserIndex,
-						dakara::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X,
+						hoa::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X,
 								UserList[UserIndex].Pos.Y));
 			}
 
@@ -1474,11 +1474,11 @@ void UseInvItem(int UserIndex, int Slot) {
 			/* ' Los admin invisibles solo producen sonidos a si mismos */
 			if (UserList[UserIndex].flags.AdminInvisible == 1) {
 				SendData(SendTarget_ToUserIndex, UserIndex,
-						dakara::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X,
+						hoa::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X,
 								UserList[UserIndex].Pos.Y));
 			} else {
 				SendData(SendTarget_ToPCArea, UserIndex,
-						dakara::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X,
+						hoa::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X,
 								UserList[UserIndex].Pos.Y));
 			}
 
@@ -1496,11 +1496,11 @@ void UseInvItem(int UserIndex, int Slot) {
 			/* ' Los admin invisibles solo producen sonidos a si mismos */
 			if (UserList[UserIndex].flags.AdminInvisible == 1) {
 				SendData(SendTarget_ToUserIndex, UserIndex,
-						dakara::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X,
+						hoa::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X,
 								UserList[UserIndex].Pos.Y));
 			} else {
 				SendData(SendTarget_ToPCArea, UserIndex,
-						dakara::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X,
+						hoa::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X,
 								UserList[UserIndex].Pos.Y));
 			}
 
@@ -1539,10 +1539,10 @@ void UseInvItem(int UserIndex, int Slot) {
 		/* ' Los admin invisibles solo producen sonidos a si mismos */
 		if (UserList[UserIndex].flags.AdminInvisible == 1) {
 			SendData(SendTarget_ToUserIndex, UserIndex,
-					dakara::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
+					hoa::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
 		} else {
 			SendData(SendTarget_ToPCArea, UserIndex,
-					dakara::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
+					hoa::protocol::server::BuildPlayWave(SND_BEBER, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
 		}
 
 		UpdateUserInv(false, UserIndex, Slot);
@@ -1696,12 +1696,12 @@ void UseInvItem(int UserIndex, int Slot) {
 				/* ' Los admin invisibles solo producen sonidos a si mismos */
 				if (UserList[UserIndex].flags.AdminInvisible == 1) {
 					SendData(SendTarget_ToUserIndex, UserIndex,
-							dakara::protocol::server::BuildPlayWave(Obj.Snd1, UserList[UserIndex].Pos.X,
+							hoa::protocol::server::BuildPlayWave(Obj.Snd1, UserList[UserIndex].Pos.X,
 									UserList[UserIndex].Pos.Y));
 				} else {
 					AlertarFaccionarios(UserIndex);
 					SendData(SendTarget_toMap, UserList[UserIndex].Pos.Map,
-							dakara::protocol::server::BuildPlayWave(Obj.Snd1, UserList[UserIndex].Pos.X,
+							hoa::protocol::server::BuildPlayWave(Obj.Snd1, UserList[UserIndex].Pos.X,
 									UserList[UserIndex].Pos.Y));
 				}
 
@@ -1723,12 +1723,12 @@ void UseInvItem(int UserIndex, int Slot) {
 				/* ' Los admin invisibles solo producen sonidos a si mismos */
 				if (UserList[UserIndex].flags.AdminInvisible == 1) {
 					SendData(SendTarget_ToUserIndex, UserIndex,
-							dakara::protocol::server::BuildPlayWave(Obj.Snd1, UserList[UserIndex].Pos.X,
+							hoa::protocol::server::BuildPlayWave(Obj.Snd1, UserList[UserIndex].Pos.X,
 									UserList[UserIndex].Pos.Y));
 				} else {
 					AlertarFaccionarios(UserIndex);
 					SendData(SendTarget_toMap, UserList[UserIndex].Pos.Map,
-							dakara::protocol::server::BuildPlayWave(Obj.Snd1, UserList[UserIndex].Pos.X,
+							hoa::protocol::server::BuildPlayWave(Obj.Snd1, UserList[UserIndex].Pos.X,
 									UserList[UserIndex].Pos.Y));
 				}
 
@@ -1743,10 +1743,10 @@ void UseInvItem(int UserIndex, int Slot) {
 		/* ' Los admin invisibles solo producen sonidos a si mismos */
 		if (UserList[UserIndex].flags.AdminInvisible == 1) {
 			SendData(SendTarget_ToUserIndex, UserIndex,
-					dakara::protocol::server::BuildPlayWave(Obj.Snd1, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
+					hoa::protocol::server::BuildPlayWave(Obj.Snd1, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
 		} else {
 			SendData(SendTarget_ToPCArea, UserIndex,
-					dakara::protocol::server::BuildPlayWave(Obj.Snd1, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
+					hoa::protocol::server::BuildPlayWave(Obj.Snd1, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
 		}
 
 		break;

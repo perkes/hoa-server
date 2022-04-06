@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -434,7 +434,7 @@ void ActualizarNoticias(int UserIndex, std::string Datos) {
 	guilds[GI]->SetGuildNews(Datos);
 
 	SendData(SendTarget_ToDiosesYclan, UserList[UserIndex].GuildIndex,
-			dakara::protocol::server::BuildGuildChat(UserList[UserIndex].Name + " ha actualizado las noticias del clan!"));
+			hoa::protocol::server::BuildGuildChat(UserList[UserIndex].Name + " ha actualizado las noticias del clan!"));
 }
 
 bool CrearNuevoClan(int FundadorIndex, std::string & desc, std::string & GuildName, std::string & URL,
@@ -1071,12 +1071,12 @@ void v_RutinaElecciones() {
 	int i;
 
 	SendData(SendTarget_ToAll, 0,
-			dakara::protocol::server::BuildConsoleMsg("Server> Checking elections", FontTypeNames_FONTTYPE_SERVER));
+			hoa::protocol::server::BuildConsoleMsg("Server> Checking elections", FontTypeNames_FONTTYPE_SERVER));
 	for (i = (1); i <= (CANTIDADDECLANES); i++) {
 		if (guilds[i] == nullptr) {
 			if (guilds[i]->RevisarElecciones()) {
 				SendData(SendTarget_ToAll, 0,
-						dakara::protocol::server::BuildConsoleMsg(
+						hoa::protocol::server::BuildConsoleMsg(
 								"Server> " + guilds[i]->GetLeader() + " is the new leader of "
 										+ guilds[i]->GuildName() + ".", FontTypeNames_FONTTYPE_SERVER));
 			}
@@ -1084,7 +1084,7 @@ void v_RutinaElecciones() {
 		/* FIXME: proximo : */
 	}
 	SendData(SendTarget_ToAll, 0,
-			dakara::protocol::server::BuildConsoleMsg("Server> elections checked.", FontTypeNames_FONTTYPE_SERVER));
+			hoa::protocol::server::BuildConsoleMsg("Server> elections checked.", FontTypeNames_FONTTYPE_SERVER));
 }
 
 int GetGuildIndexFromChar(std::string & PlayerName) {

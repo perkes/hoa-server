@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -22,7 +22,7 @@
 
 #include "SocketsLib.h"
 
-extern std::unique_ptr<dakara::SocketServer> DakaraSocketServer;
+extern std::unique_ptr<hoa::SocketServer> HoASocketServer;
 
 void IniciaWsApi();
 
@@ -30,15 +30,15 @@ void ServerLoop();
 
 void LimpiaWsApi();
 
-void FlushBuffer(dakara::Socket* sctx);
+void FlushBuffer(hoa::Socket* sctx);
 
-void CloseSocket(dakara::Socket* sctx);
+void CloseSocket(hoa::Socket* sctx);
 
 void WsApiEnviar(int UserIndex, const char* str, std::size_t str_len);
 
-void WsApiEnviar(dakara::Socket* sctx, const char* str, std::size_t str_len);
+void WsApiEnviar(hoa::Socket* sctx, const char* str, std::size_t str_len);
 
-inline void WsApiEnviar(dakara::Socket* sctx, std::vector<std::int8_t> data) {
+inline void WsApiEnviar(hoa::Socket* sctx, std::vector<std::int8_t> data) {
 	return WsApiEnviar(sctx, reinterpret_cast<const char*>(data.data()), data.size());
 }
 

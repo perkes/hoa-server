@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -30,7 +30,7 @@
 #include "Declares.h"
 #include "InvUsuario.h"
 
-std::vector<DakaraPacketHandler> UserProtocolHandler;
+std::vector<HoAPacketHandler> UserProtocolHandler;
 
 void HandleIncomingData(int UserIndex) {
 
@@ -82,7 +82,7 @@ void HandleIncomingDataOnePacket(int UserIndex) {
 	packetID = UserList[UserIndex].incomingData->PeekByte();
 
 	/* 'Does the packet requires a logged user?? */
-	if (!(packetID == dakara::protocol::client::ClientPacketID_ThrowDices || packetID == dakara::protocol::client::ClientPacketID_LoginExistingChar)) {
+	if (!(packetID == hoa::protocol::client::ClientPacketID_ThrowDices || packetID == hoa::protocol::client::ClientPacketID_LoginExistingChar)) {
 
 		/* 'Is the user actually logged? */
 		if (!UserList[UserIndex].flags.UserLogged) {
@@ -90,10 +90,10 @@ void HandleIncomingDataOnePacket(int UserIndex) {
 			return;
 
 			/* 'He is logged. Reset idle counter if id is valid. */
-		} else if (packetID <= dakara::protocol::client::ClientPacketID_PACKET_COUNT) {
+		} else if (packetID <= hoa::protocol::client::ClientPacketID_PACKET_COUNT) {
 			UserList[UserIndex].Counters.IdleCount = 0;
 		}
-	} else if (packetID <= dakara::protocol::client::ClientPacketID_PACKET_COUNT) {
+	} else if (packetID <= hoa::protocol::client::ClientPacketID_PACKET_COUNT) {
 		UserList[UserIndex].Counters.IdleCount = 0;
 
 		/* 'Is the user logged? */
@@ -107,41 +107,41 @@ void HandleIncomingDataOnePacket(int UserIndex) {
 	UserList[UserIndex].flags.NoPuedeSerAtacado = false;
 
 	try {
-		DakaraPacketHandler packet(UserIndex);
-		dakara::protocol::client::ClientPacketDecodeAndDispatch(
+		HoAPacketHandler packet(UserIndex);
+		hoa::protocol::client::ClientPacketDecodeAndDispatch(
 				UserList[UserIndex].incomingData.get(),
 				&(packet));
-	} catch (const dakara::protocol::PacketDecodingError& e) {
+	} catch (const hoa::protocol::PacketDecodingError& e) {
 		CerrarUserIndex(UserIndex);
 	}
 }
 
-dakara::protocol::client::ClientPacketHandler* DakaraPacketHandler::getPacketHandlerClientPacket() {
+hoa::protocol::client::ClientPacketHandler* HoAPacketHandler::getPacketHandlerClientPacket() {
 	return &clientPacketHandler;
 }
 
-dakara::protocol::clientgm::ClientGMPacketHandler* DakaraPacketHandler::getPacketHandlerClientGMPacket() {
+hoa::protocol::clientgm::ClientGMPacketHandler* HoAPacketHandler::getPacketHandlerClientGMPacket() {
 	return &clientPacketHandler;
 }
 
-dakara::protocol::server::ServerPacketHandler* DakaraPacketHandler::getPacketHandlerServerPacket() {
+hoa::protocol::server::ServerPacketHandler* HoAPacketHandler::getPacketHandlerServerPacket() {
 	return nullptr;
 }
 
-void DakaraClientPacketHandler::handleGMCommands(dakara::protocol::client::GMCommands* p) {
-	DakaraPacketHandler packet(UserIndex);
+void HoAClientPacketHandler::handleGMCommands(hoa::protocol::client::GMCommands* p) {
+	HoAPacketHandler packet(UserIndex);
 	p->composite->dispatch(&packet);
 }
 
-using namespace dakara::protocol::client;
-using namespace dakara::protocol::clientgm;
+using namespace hoa::protocol::client;
+using namespace hoa::protocol::clientgm;
 
 
 /* '' */
 /* ' Handles the "Home" message. */
 /* ' */
 
-void DakaraClientPacketHandler::handleHome(Home* p) { (void)p;
+void HoAClientPacketHandler::handleHome(Home* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Budi */
 	/* 'Creation Date: 06/01/2010 */
@@ -183,7 +183,7 @@ void DakaraClientPacketHandler::handleHome(Home* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleThrowDices() {
+void HoAClientPacketHandler::handleThrowDices() {
 	/* '*************************************************** */
 	/* 'Last Modification: 05/17/06 */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -203,7 +203,7 @@ void DakaraClientPacketHandler::handleThrowDices() {
 }
 
 
-void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { (void)p;
+void HoAClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -366,7 +366,7 @@ void DakaraClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { 
 /* ' */
 
 
-void DakaraClientPacketHandler::handleTalk(Talk* p) { (void)p;
+void HoAClientPacketHandler::handleTalk(Talk* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 13/01/2010 */
@@ -420,7 +420,7 @@ void DakaraClientPacketHandler::handleTalk(Talk* p) { (void)p;
 		} else {
 			if (vb6::RTrim(Chat) != "") {
 				SendData(SendTarget_ToPCArea, UserIndex,
-						dakara::protocol::server::BuildConsoleMsg("Gm> " + Chat, FontTypeNames_FONTTYPE_GM));
+						hoa::protocol::server::BuildConsoleMsg("Gm> " + Chat, FontTypeNames_FONTTYPE_GM));
 			}
 		}
 	}
@@ -434,7 +434,7 @@ void DakaraClientPacketHandler::handleTalk(Talk* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleYell(Yell* p) { (void)p;
+void HoAClientPacketHandler::handleYell(Yell* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 13/01/2010 (ZaMa) */
@@ -490,7 +490,7 @@ void DakaraClientPacketHandler::handleYell(Yell* p) { (void)p;
 								CHAT_COLOR_GM_YELL));
 			} else {
 				SendData(SendTarget_ToPCArea, UserIndex,
-						dakara::protocol::server::BuildConsoleMsg("Gm> " + Chat, FontTypeNames_FONTTYPE_GM));
+						hoa::protocol::server::BuildConsoleMsg("Gm> " + Chat, FontTypeNames_FONTTYPE_GM));
 			}
 		}
 	}
@@ -504,7 +504,7 @@ void DakaraClientPacketHandler::handleYell(Yell* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleWhisper(Whisper* p) { (void)p;
+void HoAClientPacketHandler::handleWhisper(Whisper* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 03/12/2010 */
@@ -611,7 +611,7 @@ void DakaraClientPacketHandler::handleWhisper(Whisper* p) { (void)p;
 
 						if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_User, PlayerType_Consejero)) {
 							SendData(SendTarget_ToAdminsAreaButConsejeros, UserIndex,
-									dakara::protocol::server::BuildConsoleMsg(
+									hoa::protocol::server::BuildConsoleMsg(
 											"GM said to " + UserList[TargetUserIndex].Name + "> " + Chat,
 											FontTypeNames_FONTTYPE_GM));
 						}
@@ -630,7 +630,7 @@ void DakaraClientPacketHandler::handleWhisper(Whisper* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleWalk(Walk* p) { (void)p;
+void HoAClientPacketHandler::handleWalk(Walk* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 13/01/2010 (ZaMa) */
@@ -663,7 +663,7 @@ void DakaraClientPacketHandler::handleWalk(Walk* p) { (void)p;
 
 				LogHackAttemp("Tramposo SH: " + UserList[UserIndex].Name + " , " + vb6::CStr(dummy));
 				SendData(SendTarget_ToAdmins, 0,
-						dakara::protocol::server::BuildConsoleMsg(
+						hoa::protocol::server::BuildConsoleMsg(
 								"Server> " + UserList[UserIndex].Name
 										+ " you've been kicked out of the server for the possible use of SH.",
 								FontTypeNames_FONTTYPE_SERVER));
@@ -700,7 +700,7 @@ void DakaraClientPacketHandler::handleWalk(Walk* p) { (void)p;
 			WriteConsoleMsg(UserIndex, "You stopped meditating.", FontTypeNames_FONTTYPE_INFO);
 
 			SendData(SendTarget_ToPCArea, UserIndex,
-					dakara::protocol::server::BuildCreateFX(UserList[UserIndex].Char.CharIndex, 0, 0));
+					hoa::protocol::server::BuildCreateFX(UserList[UserIndex].Char.CharIndex, 0, 0));
 		} else {
 			/* 'Move user */
 			MoveUserChar(UserIndex, heading);
@@ -756,7 +756,7 @@ void DakaraClientPacketHandler::handleWalk(Walk* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRequestPositionUpdate(RequestPositionUpdate* p) { (void)p;
+void HoAClientPacketHandler::handleRequestPositionUpdate(RequestPositionUpdate* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -770,7 +770,7 @@ void DakaraClientPacketHandler::handleRequestPositionUpdate(RequestPositionUpdat
 /* ' */
 
 
-void DakaraClientPacketHandler::handleAttack(Attack* p) { (void)p;
+void HoAClientPacketHandler::handleAttack(Attack* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 13/01/2010 */
@@ -840,7 +840,7 @@ void DakaraClientPacketHandler::handleAttack(Attack* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handlePickUp(PickUp* p) { (void)p;
+void HoAClientPacketHandler::handlePickUp(PickUp* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 07/25/09 */
@@ -873,7 +873,7 @@ void DakaraClientPacketHandler::handlePickUp(PickUp* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleSafeToggle(SafeToggle* p) { (void)p;
+void HoAClientPacketHandler::handleSafeToggle(SafeToggle* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -896,7 +896,7 @@ void DakaraClientPacketHandler::handleSafeToggle(SafeToggle* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleResuscitationSafeToggle(ResuscitationSafeToggle* p) { (void)p;
+void HoAClientPacketHandler::handleResuscitationSafeToggle(ResuscitationSafeToggle* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Rapsodius */
 	/* 'Creation Date: 10/10/07 */
@@ -918,7 +918,7 @@ void DakaraClientPacketHandler::handleResuscitationSafeToggle(ResuscitationSafeT
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRequestGuildLeaderInfo(RequestGuildLeaderInfo* p) { (void)p;
+void HoAClientPacketHandler::handleRequestGuildLeaderInfo(RequestGuildLeaderInfo* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -933,7 +933,7 @@ void DakaraClientPacketHandler::handleRequestGuildLeaderInfo(RequestGuildLeaderI
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRequestAtributes(RequestAtributes* p) { (void)p;
+void HoAClientPacketHandler::handleRequestAtributes(RequestAtributes* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -948,7 +948,7 @@ void DakaraClientPacketHandler::handleRequestAtributes(RequestAtributes* p) { (v
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRequestFame(RequestFame* p) { (void)p;
+void HoAClientPacketHandler::handleRequestFame(RequestFame* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -963,7 +963,7 @@ void DakaraClientPacketHandler::handleRequestFame(RequestFame* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRequestSkills(RequestSkills* p) { (void)p;
+void HoAClientPacketHandler::handleRequestSkills(RequestSkills* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -978,7 +978,7 @@ void DakaraClientPacketHandler::handleRequestSkills(RequestSkills* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRequestMiniStats(RequestMiniStats* p) { (void)p;
+void HoAClientPacketHandler::handleRequestMiniStats(RequestMiniStats* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -993,7 +993,7 @@ void DakaraClientPacketHandler::handleRequestMiniStats(RequestMiniStats* p) { (v
 /* ' */
 
 
-void DakaraClientPacketHandler::handleCommerceEnd(CommerceEnd* p) { (void)p;
+void HoAClientPacketHandler::handleCommerceEnd(CommerceEnd* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -1010,7 +1010,7 @@ void DakaraClientPacketHandler::handleCommerceEnd(CommerceEnd* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleUserCommerceEnd(UserCommerceEnd* p) { (void)p;
+void HoAClientPacketHandler::handleUserCommerceEnd(UserCommerceEnd* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 11/03/2010 */
@@ -1038,7 +1038,7 @@ void DakaraClientPacketHandler::handleUserCommerceEnd(UserCommerceEnd* p) { (voi
 /* ' Handles the "UserCommerceConfirm" message. */
 /* ' */
 
-void DakaraClientPacketHandler::handleUserCommerceConfirm(UserCommerceConfirm* p) { (void)p;
+void HoAClientPacketHandler::handleUserCommerceConfirm(UserCommerceConfirm* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: ZaMa */
 	/* 'Last Modification: 14/12/2009 */
@@ -1057,7 +1057,7 @@ void DakaraClientPacketHandler::handleUserCommerceConfirm(UserCommerceConfirm* p
 
 }
 
-void DakaraClientPacketHandler::handleCommerceChat(CommerceChat* p) { (void)p;
+void HoAClientPacketHandler::handleCommerceChat(CommerceChat* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: ZaMa */
 	/* 'Last Modification: 03/12/2009 */
@@ -1087,7 +1087,7 @@ void DakaraClientPacketHandler::handleCommerceChat(CommerceChat* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleBankEnd(BankEnd* p) { (void)p;
+void HoAClientPacketHandler::handleBankEnd(BankEnd* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -1104,7 +1104,7 @@ void DakaraClientPacketHandler::handleBankEnd(BankEnd* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleUserCommerceOk(UserCommerceOk* p) { (void)p;
+void HoAClientPacketHandler::handleUserCommerceOk(UserCommerceOk* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -1120,7 +1120,7 @@ void DakaraClientPacketHandler::handleUserCommerceOk(UserCommerceOk* p) { (void)
 /* ' */
 
 
-void DakaraClientPacketHandler::handleUserCommerceReject(UserCommerceReject* p) { (void)p;
+void HoAClientPacketHandler::handleUserCommerceReject(UserCommerceReject* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -1151,7 +1151,7 @@ void DakaraClientPacketHandler::handleUserCommerceReject(UserCommerceReject* p) 
 /* ' */
 
 
-void DakaraClientPacketHandler::handleDrop(Drop* p) { (void)p;
+void HoAClientPacketHandler::handleDrop(Drop* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 07/25/09 */
@@ -1204,7 +1204,7 @@ void DakaraClientPacketHandler::handleDrop(Drop* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleCastSpell(CastSpell* p) { (void)p;
+void HoAClientPacketHandler::handleCastSpell(CastSpell* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -1239,7 +1239,7 @@ void DakaraClientPacketHandler::handleCastSpell(CastSpell* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleLeftClick(LeftClick* p) { (void)p;
+void HoAClientPacketHandler::handleLeftClick(LeftClick* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -1254,7 +1254,7 @@ void DakaraClientPacketHandler::handleLeftClick(LeftClick* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleDoubleClick(DoubleClick* p) { (void)p;
+void HoAClientPacketHandler::handleDoubleClick(DoubleClick* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -1269,7 +1269,7 @@ void DakaraClientPacketHandler::handleDoubleClick(DoubleClick* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleWork(Work* p) { (void)p;
+void HoAClientPacketHandler::handleWork(Work* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 13/01/2010 (ZaMa) */
@@ -1343,7 +1343,7 @@ void DakaraClientPacketHandler::handleWork(Work* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleInitCrafting(InitCrafting* p) { (void)p;
+void HoAClientPacketHandler::handleInitCrafting(InitCrafting* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: ZaMa */
 	/* 'Last Modification: 29/01/2010 */
@@ -1366,7 +1366,7 @@ void DakaraClientPacketHandler::handleInitCrafting(InitCrafting* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleUseSpellMacro(UseSpellMacro* p) { (void)p;
+void HoAClientPacketHandler::handleUseSpellMacro(UseSpellMacro* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -1374,7 +1374,7 @@ void DakaraClientPacketHandler::handleUseSpellMacro(UseSpellMacro* p) { (void)p;
 	/* '*************************************************** */
 
 	SendData(SendTarget_ToAdmins, UserIndex,
-			dakara::protocol::server::BuildConsoleMsg(UserList[UserIndex].Name + " was expelled by the anti-macro spell system.",
+			hoa::protocol::server::BuildConsoleMsg(UserList[UserIndex].Name + " was expelled by the anti-macro spell system.",
 					FontTypeNames_FONTTYPE_VENENO));
 	WriteErrorMsg(UserIndex,
 			"You've been expelled for using a spells macro.");
@@ -1387,7 +1387,7 @@ void DakaraClientPacketHandler::handleUseSpellMacro(UseSpellMacro* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleUseItem(UseItem* p) { (void)p;
+void HoAClientPacketHandler::handleUseItem(UseItem* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -1418,7 +1418,7 @@ void DakaraClientPacketHandler::handleUseItem(UseItem* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleCraftBlacksmith(CraftBlacksmith* p) { (void)p;
+void HoAClientPacketHandler::handleCraftBlacksmith(CraftBlacksmith* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -1446,7 +1446,7 @@ void DakaraClientPacketHandler::handleCraftBlacksmith(CraftBlacksmith* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleCraftCarpenter(CraftCarpenter* p) { (void)p;
+void HoAClientPacketHandler::handleCraftCarpenter(CraftCarpenter* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -1474,7 +1474,7 @@ void DakaraClientPacketHandler::handleCraftCarpenter(CraftCarpenter* p) { (void)
 /* ' */
 
 
-void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
+void HoAClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 14/01/2010 (ZaMa) */
@@ -1644,7 +1644,7 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 
 			/* 'Play sound! */
 			SendData(SendTarget_ToPCArea, UserIndex,
-					dakara::protocol::server::BuildPlayWave(SND_PESCAR, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
+					hoa::protocol::server::BuildPlayWave(SND_PESCAR, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
 		} else {
 			WriteConsoleMsg(UserIndex, "There's no water where to fish. Look for a body of water.",
 					FontTypeNames_FONTTYPE_INFO);
@@ -1743,7 +1743,7 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 			if (ObjData[DummyInt].OBJType == eOBJType_otArboles) {
 				if (WeaponIndex == HACHA_LENADOR || WeaponIndex == HACHA_LENADOR_NEWBIE) {
 					SendData(SendTarget_ToPCArea, UserIndex,
-							dakara::protocol::server::BuildPlayWave(SND_TALAR, UserList[UserIndex].Pos.X,
+							hoa::protocol::server::BuildPlayWave(SND_TALAR, UserList[UserIndex].Pos.X,
 									UserList[UserIndex].Pos.Y));
 					DoTalar(UserIndex);
 				} else {
@@ -1756,7 +1756,7 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 
 				if (WeaponIndex == HACHA_LENA_ELFICA) {
 					SendData(SendTarget_ToPCArea, UserIndex,
-							dakara::protocol::server::BuildPlayWave(SND_TALAR, UserList[UserIndex].Pos.X,
+							hoa::protocol::server::BuildPlayWave(SND_TALAR, UserList[UserIndex].Pos.X,
 									UserList[UserIndex].Pos.Y));
 					DoTalar(UserIndex, true);
 				} else {
@@ -1919,7 +1919,7 @@ void DakaraClientPacketHandler::handleWorkLeftClick(WorkLeftClick* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleCreateNewGuild(CreateNewGuild* p) { (void)p;
+void HoAClientPacketHandler::handleCreateNewGuild(CreateNewGuild* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/11/09 */
@@ -1938,11 +1938,11 @@ void DakaraClientPacketHandler::handleCreateNewGuild(CreateNewGuild* p) { (void)
 	if (CrearNuevoClan(UserIndex, desc, GuildName, site, codex, UserList[UserIndex].FundandoGuildAlineacion,
 			errorStr)) {
 		SendData(SendTarget_ToAll, UserIndex,
-				dakara::protocol::server::BuildConsoleMsg(
+				hoa::protocol::server::BuildConsoleMsg(
 						UserList[UserIndex].Name + " founded clan " + GuildName + " with alignment "
 								+ GuildAlignment(UserList[UserIndex].GuildIndex) + ".",
 						FontTypeNames_FONTTYPE_GUILD));
-		SendData(SendTarget_ToAll, 0, dakara::protocol::server::BuildPlayWave(44, NO_3D_SOUND, NO_3D_SOUND));
+		SendData(SendTarget_ToAll, 0, hoa::protocol::server::BuildPlayWave(44, NO_3D_SOUND, NO_3D_SOUND));
 
 		/* 'Update tag */
 		RefreshCharStatus(UserIndex);
@@ -1956,7 +1956,7 @@ void DakaraClientPacketHandler::handleCreateNewGuild(CreateNewGuild* p) { (void)
 /* ' */
 
 
-void DakaraClientPacketHandler::handleSpellInfo(SpellInfo* p) { (void)p;
+void HoAClientPacketHandler::handleSpellInfo(SpellInfo* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -1993,7 +1993,7 @@ void DakaraClientPacketHandler::handleSpellInfo(SpellInfo* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleEquipItem(EquipItem* p) { (void)p;
+void HoAClientPacketHandler::handleEquipItem(EquipItem* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -2026,7 +2026,7 @@ void DakaraClientPacketHandler::handleEquipItem(EquipItem* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleChangeHeading(ChangeHeading* p) { (void)p;
+void HoAClientPacketHandler::handleChangeHeading(ChangeHeading* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 06/28/2008 */
@@ -2084,7 +2084,7 @@ void DakaraClientPacketHandler::handleChangeHeading(ChangeHeading* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleModifySkills(ModifySkills* p) { (void)p;
+void HoAClientPacketHandler::handleModifySkills(ModifySkills* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 11/19/09 */
@@ -2157,7 +2157,7 @@ void DakaraClientPacketHandler::handleModifySkills(ModifySkills* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleTrain(Train* p) { (void)p;
+void HoAClientPacketHandler::handleTrain(Train* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -2201,7 +2201,7 @@ void DakaraClientPacketHandler::handleTrain(Train* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleCommerceBuy(CommerceBuy* p) { (void)p;
+void HoAClientPacketHandler::handleCommerceBuy(CommerceBuy* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -2248,7 +2248,7 @@ void DakaraClientPacketHandler::handleCommerceBuy(CommerceBuy* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleBankExtractItem(BankExtractItem* p) { (void)p;
+void HoAClientPacketHandler::handleBankExtractItem(BankExtractItem* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -2286,7 +2286,7 @@ void DakaraClientPacketHandler::handleBankExtractItem(BankExtractItem* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleCommerceSell(CommerceSell* p) { (void)p;
+void HoAClientPacketHandler::handleCommerceSell(CommerceSell* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -2327,7 +2327,7 @@ void DakaraClientPacketHandler::handleCommerceSell(CommerceSell* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleBankDeposit(BankDeposit* p) { (void)p;
+void HoAClientPacketHandler::handleBankDeposit(BankDeposit* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -2365,7 +2365,7 @@ void DakaraClientPacketHandler::handleBankDeposit(BankDeposit* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleForumPost(ForumPost* p) { (void)p;
+void HoAClientPacketHandler::handleForumPost(ForumPost* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 02/01/2010 */
@@ -2416,7 +2416,7 @@ void DakaraClientPacketHandler::handleForumPost(ForumPost* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleMoveSpell(MoveSpell* p) { (void)p;
+void HoAClientPacketHandler::handleMoveSpell(MoveSpell* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -2439,7 +2439,7 @@ void DakaraClientPacketHandler::handleMoveSpell(MoveSpell* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleMoveBank(MoveBank* p) { (void)p;
+void HoAClientPacketHandler::handleMoveBank(MoveBank* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Torres Patricio (Pato) */
 	/* 'Last Modification: 06/14/09 */
@@ -2483,7 +2483,7 @@ void DakaraClientPacketHandler::handleMoveBank(MoveBank* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleClanCodexUpdate(ClanCodexUpdate* p) { (void)p;
+void HoAClientPacketHandler::handleClanCodexUpdate(ClanCodexUpdate* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -2504,7 +2504,7 @@ void DakaraClientPacketHandler::handleClanCodexUpdate(ClanCodexUpdate* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleUserCommerceOffer(UserCommerceOffer* p) { (void)p;
+void HoAClientPacketHandler::handleUserCommerceOffer(UserCommerceOffer* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 24/11/2009 */
@@ -2628,7 +2628,7 @@ void DakaraClientPacketHandler::handleUserCommerceOffer(UserCommerceOffer* p) { 
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildAcceptPeace(GuildAcceptPeace* p) { (void)p;
+void HoAClientPacketHandler::handleGuildAcceptPeace(GuildAcceptPeace* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -2647,10 +2647,10 @@ void DakaraClientPacketHandler::handleGuildAcceptPeace(GuildAcceptPeace* p) { (v
 		WriteConsoleMsg(UserIndex, errorStr, FontTypeNames_FONTTYPE_GUILD);
 	} else {
 		SendData(SendTarget_ToGuildMembers, UserList[UserIndex].GuildIndex,
-				dakara::protocol::server::BuildConsoleMsg("Your clan has made peace with " + guild + ".",
+				hoa::protocol::server::BuildConsoleMsg("Your clan has made peace with " + guild + ".",
 						FontTypeNames_FONTTYPE_GUILD));
 		SendData(SendTarget_ToGuildMembers, otherClanIndex,
-				dakara::protocol::server::BuildConsoleMsg(
+				hoa::protocol::server::BuildConsoleMsg(
 						"Your clan has made peace with " + GuildName(UserList[UserIndex].GuildIndex) + ".",
 						FontTypeNames_FONTTYPE_GUILD));
 	}
@@ -2664,7 +2664,7 @@ void DakaraClientPacketHandler::handleGuildAcceptPeace(GuildAcceptPeace* p) { (v
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildRejectAlliance(GuildRejectAlliance* p) { (void)p;
+void HoAClientPacketHandler::handleGuildRejectAlliance(GuildRejectAlliance* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -2683,10 +2683,10 @@ void DakaraClientPacketHandler::handleGuildRejectAlliance(GuildRejectAlliance* p
 		WriteConsoleMsg(UserIndex, errorStr, FontTypeNames_FONTTYPE_GUILD);
 	} else {
 		SendData(SendTarget_ToGuildMembers, UserList[UserIndex].GuildIndex,
-				dakara::protocol::server::BuildConsoleMsg("Your clan has rejected an alliance with " + guild,
+				hoa::protocol::server::BuildConsoleMsg("Your clan has rejected an alliance with " + guild,
 						FontTypeNames_FONTTYPE_GUILD));
 		SendData(SendTarget_ToGuildMembers, otherClanIndex,
-				dakara::protocol::server::BuildConsoleMsg(
+				hoa::protocol::server::BuildConsoleMsg(
 						GuildName(UserList[UserIndex].GuildIndex)
 								+ " has rejected our alliance proposal.",
 						FontTypeNames_FONTTYPE_GUILD));
@@ -2702,7 +2702,7 @@ void DakaraClientPacketHandler::handleGuildRejectAlliance(GuildRejectAlliance* p
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildRejectPeace(GuildRejectPeace* p) { (void)p;
+void HoAClientPacketHandler::handleGuildRejectPeace(GuildRejectPeace* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -2721,10 +2721,10 @@ void DakaraClientPacketHandler::handleGuildRejectPeace(GuildRejectPeace* p) { (v
 		WriteConsoleMsg(UserIndex, errorStr, FontTypeNames_FONTTYPE_GUILD);
 	} else {
 		SendData(SendTarget_ToGuildMembers, UserList[UserIndex].GuildIndex,
-				dakara::protocol::server::BuildConsoleMsg("Your clan has rejected the peace proposal sent by " + guild + ".",
+				hoa::protocol::server::BuildConsoleMsg("Your clan has rejected the peace proposal sent by " + guild + ".",
 						FontTypeNames_FONTTYPE_GUILD));
 		SendData(SendTarget_ToGuildMembers, otherClanIndex,
-				dakara::protocol::server::BuildConsoleMsg(
+				hoa::protocol::server::BuildConsoleMsg(
 						GuildName(UserList[UserIndex].GuildIndex)
 								+ " has rejected our peace proposal.",
 						FontTypeNames_FONTTYPE_GUILD));
@@ -2740,7 +2740,7 @@ void DakaraClientPacketHandler::handleGuildRejectPeace(GuildRejectPeace* p) { (v
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildAcceptAlliance(GuildAcceptAlliance* p) { (void)p;
+void HoAClientPacketHandler::handleGuildAcceptAlliance(GuildAcceptAlliance* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -2759,10 +2759,10 @@ void DakaraClientPacketHandler::handleGuildAcceptAlliance(GuildAcceptAlliance* p
 		WriteConsoleMsg(UserIndex, errorStr, FontTypeNames_FONTTYPE_GUILD);
 	} else {
 		SendData(SendTarget_ToGuildMembers, UserList[UserIndex].GuildIndex,
-				dakara::protocol::server::BuildConsoleMsg("Your clan has entered into an alliance with " + guild + ".",
+				hoa::protocol::server::BuildConsoleMsg("Your clan has entered into an alliance with " + guild + ".",
 						FontTypeNames_FONTTYPE_GUILD));
 		SendData(SendTarget_ToGuildMembers, otherClanIndex,
-				dakara::protocol::server::BuildConsoleMsg(
+				hoa::protocol::server::BuildConsoleMsg(
 						"Your clan has signed a peace agreement with " + GuildName(UserList[UserIndex].GuildIndex) + ".",
 						FontTypeNames_FONTTYPE_GUILD));
 	}
@@ -2773,7 +2773,7 @@ void DakaraClientPacketHandler::handleGuildAcceptAlliance(GuildAcceptAlliance* p
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildOfferPeace(GuildOfferPeace* p) { (void)p;
+void HoAClientPacketHandler::handleGuildOfferPeace(GuildOfferPeace* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -2799,7 +2799,7 @@ void DakaraClientPacketHandler::handleGuildOfferPeace(GuildOfferPeace* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildOfferAlliance(GuildOfferAlliance* p) { (void)p;
+void HoAClientPacketHandler::handleGuildOfferAlliance(GuildOfferAlliance* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -2825,7 +2825,7 @@ void DakaraClientPacketHandler::handleGuildOfferAlliance(GuildOfferAlliance* p) 
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildAllianceDetails(GuildAllianceDetails* p) { (void)p;
+void HoAClientPacketHandler::handleGuildAllianceDetails(GuildAllianceDetails* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -2852,7 +2852,7 @@ void DakaraClientPacketHandler::handleGuildAllianceDetails(GuildAllianceDetails*
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildPeaceDetails(GuildPeaceDetails* p) { (void)p;
+void HoAClientPacketHandler::handleGuildPeaceDetails(GuildPeaceDetails* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -2879,7 +2879,7 @@ void DakaraClientPacketHandler::handleGuildPeaceDetails(GuildPeaceDetails* p) { 
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildRequestJoinerInfo(GuildRequestJoinerInfo* p) { (void)p;
+void HoAClientPacketHandler::handleGuildRequestJoinerInfo(GuildRequestJoinerInfo* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -2906,7 +2906,7 @@ void DakaraClientPacketHandler::handleGuildRequestJoinerInfo(GuildRequestJoinerI
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildAlliancePropList(GuildAlliancePropList* p) { (void)p;
+void HoAClientPacketHandler::handleGuildAlliancePropList(GuildAlliancePropList* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -2921,7 +2921,7 @@ void DakaraClientPacketHandler::handleGuildAlliancePropList(GuildAlliancePropLis
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildPeacePropList(GuildPeacePropList* p) { (void)p;
+void HoAClientPacketHandler::handleGuildPeacePropList(GuildPeacePropList* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -2936,7 +2936,7 @@ void DakaraClientPacketHandler::handleGuildPeacePropList(GuildPeacePropList* p) 
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildDeclareWar(GuildDeclareWar* p) { (void)p;
+void HoAClientPacketHandler::handleGuildDeclareWar(GuildDeclareWar* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -2956,16 +2956,16 @@ void DakaraClientPacketHandler::handleGuildDeclareWar(GuildDeclareWar* p) { (voi
 	} else {
 		/* 'WAR shall be! */
 		SendData(SendTarget_ToGuildMembers, UserList[UserIndex].GuildIndex,
-				dakara::protocol::server::BuildConsoleMsg("YOUR CLAN IS NOW IN WAR WITH " + guild + ".",
+				hoa::protocol::server::BuildConsoleMsg("YOUR CLAN IS NOW IN WAR WITH " + guild + ".",
 						FontTypeNames_FONTTYPE_GUILD));
 		SendData(SendTarget_ToGuildMembers, otherGuildIndex,
-				dakara::protocol::server::BuildConsoleMsg(
+				hoa::protocol::server::BuildConsoleMsg(
 						GuildName(UserList[UserIndex].GuildIndex) + " DECLARES WAR TO YOUR CLAN.",
 						FontTypeNames_FONTTYPE_GUILD));
 		SendData(SendTarget_ToGuildMembers, UserList[UserIndex].GuildIndex,
-				dakara::protocol::server::BuildPlayWave(45, NO_3D_SOUND, NO_3D_SOUND));
+				hoa::protocol::server::BuildPlayWave(45, NO_3D_SOUND, NO_3D_SOUND));
 		SendData(SendTarget_ToGuildMembers, otherGuildIndex,
-				dakara::protocol::server::BuildPlayWave(45, NO_3D_SOUND, NO_3D_SOUND));
+				hoa::protocol::server::BuildPlayWave(45, NO_3D_SOUND, NO_3D_SOUND));
 	}
 
 
@@ -2978,7 +2978,7 @@ void DakaraClientPacketHandler::handleGuildDeclareWar(GuildDeclareWar* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildNewWebsite(GuildNewWebsite* p) { (void)p;
+void HoAClientPacketHandler::handleGuildNewWebsite(GuildNewWebsite* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -2993,7 +2993,7 @@ void DakaraClientPacketHandler::handleGuildNewWebsite(GuildNewWebsite* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildAcceptNewMember(GuildAcceptNewMember* p) { (void)p;
+void HoAClientPacketHandler::handleGuildAcceptNewMember(GuildAcceptNewMember* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -3016,10 +3016,10 @@ void DakaraClientPacketHandler::handleGuildAcceptNewMember(GuildAcceptNewMember*
 		}
 
 		SendData(SendTarget_ToGuildMembers, UserList[UserIndex].GuildIndex,
-				dakara::protocol::server::BuildConsoleMsg(UserName + " has been accepted as a member of your clan.",
+				hoa::protocol::server::BuildConsoleMsg(UserName + " has been accepted as a member of your clan.",
 						FontTypeNames_FONTTYPE_GUILD));
 		SendData(SendTarget_ToGuildMembers, UserList[UserIndex].GuildIndex,
-				dakara::protocol::server::BuildPlayWave(43, NO_3D_SOUND, NO_3D_SOUND));
+				hoa::protocol::server::BuildPlayWave(43, NO_3D_SOUND, NO_3D_SOUND));
 	}
 
 
@@ -3032,7 +3032,7 @@ void DakaraClientPacketHandler::handleGuildAcceptNewMember(GuildAcceptNewMember*
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildRejectNewMember(GuildRejectNewMember* p) { (void)p;
+void HoAClientPacketHandler::handleGuildRejectNewMember(GuildRejectNewMember* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 01/08/07 */
@@ -3071,7 +3071,7 @@ void DakaraClientPacketHandler::handleGuildRejectNewMember(GuildRejectNewMember*
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildKickMember(GuildKickMember* p) { (void)p;
+void HoAClientPacketHandler::handleGuildKickMember(GuildKickMember* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -3087,9 +3087,9 @@ void DakaraClientPacketHandler::handleGuildKickMember(GuildKickMember* p) { (voi
 
 	if (GuildIndex > 0) {
 		SendData(SendTarget_ToGuildMembers, GuildIndex,
-				dakara::protocol::server::BuildConsoleMsg(UserName + " was expelled from the clan.",
+				hoa::protocol::server::BuildConsoleMsg(UserName + " was expelled from the clan.",
 						FontTypeNames_FONTTYPE_GUILD));
-		SendData(SendTarget_ToGuildMembers, GuildIndex, dakara::protocol::server::BuildPlayWave(45, NO_3D_SOUND, NO_3D_SOUND));
+		SendData(SendTarget_ToGuildMembers, GuildIndex, hoa::protocol::server::BuildPlayWave(45, NO_3D_SOUND, NO_3D_SOUND));
 	} else {
 		WriteConsoleMsg(UserIndex, "You cannot expel this PC from the clan.",
 				FontTypeNames_FONTTYPE_GUILD);
@@ -3102,7 +3102,7 @@ void DakaraClientPacketHandler::handleGuildKickMember(GuildKickMember* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildUpdateNews(GuildUpdateNews* p) { (void)p;
+void HoAClientPacketHandler::handleGuildUpdateNews(GuildUpdateNews* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -3117,7 +3117,7 @@ void DakaraClientPacketHandler::handleGuildUpdateNews(GuildUpdateNews* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildMemberInfo(GuildMemberInfo* p) { (void)p;
+void HoAClientPacketHandler::handleGuildMemberInfo(GuildMemberInfo* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -3132,7 +3132,7 @@ void DakaraClientPacketHandler::handleGuildMemberInfo(GuildMemberInfo* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildOpenElections(GuildOpenElections* p) { (void)p;
+void HoAClientPacketHandler::handleGuildOpenElections(GuildOpenElections* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -3145,7 +3145,7 @@ void DakaraClientPacketHandler::handleGuildOpenElections(GuildOpenElections* p) 
 		WriteConsoleMsg(UserIndex, ERROR, FontTypeNames_FONTTYPE_GUILD);
 	} else {
 		SendData(SendTarget_ToGuildMembers, UserList[UserIndex].GuildIndex,
-				dakara::protocol::server::BuildConsoleMsg(
+				hoa::protocol::server::BuildConsoleMsg(
 						"Clan elections have started! You can vote by typing /VOTE followed by the candidate you wish to vote for "
 								+ UserList[UserIndex].Name, FontTypeNames_FONTTYPE_GUILD));
 	}
@@ -3156,7 +3156,7 @@ void DakaraClientPacketHandler::handleGuildOpenElections(GuildOpenElections* p) 
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildRequestMembership(GuildRequestMembership* p) { (void)p;
+void HoAClientPacketHandler::handleGuildRequestMembership(GuildRequestMembership* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -3184,7 +3184,7 @@ void DakaraClientPacketHandler::handleGuildRequestMembership(GuildRequestMembers
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildRequestDetails(GuildRequestDetails* p) { (void)p;
+void HoAClientPacketHandler::handleGuildRequestDetails(GuildRequestDetails* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -3200,7 +3200,7 @@ void DakaraClientPacketHandler::handleGuildRequestDetails(GuildRequestDetails* p
 /* ' */
 
 
-void DakaraClientPacketHandler::handleOnline(Online* p) { (void)p;
+void HoAClientPacketHandler::handleOnline(Online* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -3225,7 +3225,7 @@ void DakaraClientPacketHandler::handleOnline(Online* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleQuit(Quit* p) { (void)p;
+void HoAClientPacketHandler::handleQuit(Quit* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 04/15/2008 (NicoNZ) */
@@ -3247,7 +3247,7 @@ void DakaraClientPacketHandler::handleQuit(Quit* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildLeave(GuildLeave* p) { (void)p;
+void HoAClientPacketHandler::handleGuildLeave(GuildLeave* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -3261,7 +3261,7 @@ void DakaraClientPacketHandler::handleGuildLeave(GuildLeave* p) { (void)p;
 	if (GuildIndex > 0) {
 		WriteConsoleMsg(UserIndex, "You leave the clan.", FontTypeNames_FONTTYPE_GUILD);
 		SendData(SendTarget_ToGuildMembers, GuildIndex,
-				dakara::protocol::server::BuildConsoleMsg(UserList[UserIndex].Name + " deja el clan.",
+				hoa::protocol::server::BuildConsoleMsg(UserList[UserIndex].Name + " deja el clan.",
 						FontTypeNames_FONTTYPE_GUILD));
 	} else {
 		WriteConsoleMsg(UserIndex, "You cannot leave this clan.", FontTypeNames_FONTTYPE_GUILD);
@@ -3273,7 +3273,7 @@ void DakaraClientPacketHandler::handleGuildLeave(GuildLeave* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRequestAccountState(RequestAccountState* p) { (void)p;
+void HoAClientPacketHandler::handleRequestAccountState(RequestAccountState* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -3341,7 +3341,7 @@ void DakaraClientPacketHandler::handleRequestAccountState(RequestAccountState* p
 /* ' */
 
 
-void DakaraClientPacketHandler::handlePetStand(PetStand* p) { (void)p;
+void HoAClientPacketHandler::handlePetStand(PetStand* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -3386,7 +3386,7 @@ void DakaraClientPacketHandler::handlePetStand(PetStand* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handlePetFollow(PetFollow* p) { (void)p;
+void HoAClientPacketHandler::handlePetFollow(PetFollow* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -3431,7 +3431,7 @@ void DakaraClientPacketHandler::handlePetFollow(PetFollow* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleReleasePet(ReleasePet* p) { (void)p;
+void HoAClientPacketHandler::handleReleasePet(ReleasePet* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: ZaMa */
 	/* 'Last Modification: 18/11/2009 */
@@ -3475,7 +3475,7 @@ void DakaraClientPacketHandler::handleReleasePet(ReleasePet* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleTrainList(TrainList* p) { (void)p;
+void HoAClientPacketHandler::handleTrainList(TrainList* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -3517,7 +3517,7 @@ void DakaraClientPacketHandler::handleTrainList(TrainList* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRest(Rest* p) { (void)p;
+void HoAClientPacketHandler::handleRest(Rest* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -3563,7 +3563,7 @@ void DakaraClientPacketHandler::handleRest(Rest* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleMeditate(Meditate* p) { (void)p;
+void HoAClientPacketHandler::handleMeditate(Meditate* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 04/15/08 (NicoNZ) */
@@ -3633,7 +3633,7 @@ void DakaraClientPacketHandler::handleMeditate(Meditate* p) { (void)p;
 		}
 
 		SendData(SendTarget_ToPCArea, UserIndex,
-				dakara::protocol::server::BuildCreateFX(UserList[UserIndex].Char.CharIndex, UserList[UserIndex].Char.FX,
+				hoa::protocol::server::BuildCreateFX(UserList[UserIndex].Char.CharIndex, UserList[UserIndex].Char.FX,
 						INFINITE_LOOPS));
 	} else {
 		UserList[UserIndex].Counters.bPuedeMeditar = false;
@@ -3641,7 +3641,7 @@ void DakaraClientPacketHandler::handleMeditate(Meditate* p) { (void)p;
 		UserList[UserIndex].Char.FX = 0;
 		UserList[UserIndex].Char.loops = 0;
 		SendData(SendTarget_ToPCArea, UserIndex,
-				dakara::protocol::server::BuildCreateFX(UserList[UserIndex].Char.CharIndex, 0, 0));
+				hoa::protocol::server::BuildCreateFX(UserList[UserIndex].Char.CharIndex, 0, 0));
 	}
 }
 
@@ -3650,7 +3650,7 @@ void DakaraClientPacketHandler::handleMeditate(Meditate* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleResucitate(Resucitate* p) { (void)p;
+void HoAClientPacketHandler::handleResucitate(Resucitate* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -3691,7 +3691,7 @@ void DakaraClientPacketHandler::handleResucitate(Resucitate* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleConsultation(Consultation* p) { (void)p;
+void HoAClientPacketHandler::handleConsultation(Consultation* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: ZaMa */
 	/* 'Last Modification: 01/05/2010 */
@@ -3774,7 +3774,7 @@ void DakaraClientPacketHandler::handleConsultation(Consultation* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleHeal(Heal* p) { (void)p;
+void HoAClientPacketHandler::handleHeal(Heal* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -3815,7 +3815,7 @@ void DakaraClientPacketHandler::handleHeal(Heal* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRequestStats(RequestStats* p) { (void)p;
+void HoAClientPacketHandler::handleRequestStats(RequestStats* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -3832,7 +3832,7 @@ void DakaraClientPacketHandler::handleRequestStats(RequestStats* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleHelp(Help* p) { (void)p;
+void HoAClientPacketHandler::handleHelp(Help* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -3849,7 +3849,7 @@ void DakaraClientPacketHandler::handleHelp(Help* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleCommerceStart(CommerceStart* p) { (void)p;
+void HoAClientPacketHandler::handleCommerceStart(CommerceStart* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -3951,7 +3951,7 @@ void DakaraClientPacketHandler::handleCommerceStart(CommerceStart* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleBankStart(BankStart* p) { (void)p;
+void HoAClientPacketHandler::handleBankStart(BankStart* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -3993,7 +3993,7 @@ void DakaraClientPacketHandler::handleBankStart(BankStart* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleEnlist(Enlist* p) { (void)p;
+void HoAClientPacketHandler::handleEnlist(Enlist* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -4032,7 +4032,7 @@ void DakaraClientPacketHandler::handleEnlist(Enlist* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleInformation(Information* p) { (void)p;
+void HoAClientPacketHandler::handleInformation(Information* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -4113,7 +4113,7 @@ void DakaraClientPacketHandler::handleInformation(Information* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleReward(Reward* p) { (void)p;
+void HoAClientPacketHandler::handleReward(Reward* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -4162,7 +4162,7 @@ void DakaraClientPacketHandler::handleReward(Reward* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRequestMOTD(RequestMOTD* p) { (void)p;
+void HoAClientPacketHandler::handleRequestMOTD(RequestMOTD* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -4179,7 +4179,7 @@ void DakaraClientPacketHandler::handleRequestMOTD(RequestMOTD* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleUpTime(UpTime* p) { (void)p;
+void HoAClientPacketHandler::handleUpTime(UpTime* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 01/10/08 */
@@ -4218,7 +4218,7 @@ void DakaraClientPacketHandler::handleUpTime(UpTime* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handlePartyLeave(PartyLeave* p) { (void)p;
+void HoAClientPacketHandler::handlePartyLeave(PartyLeave* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -4235,7 +4235,7 @@ void DakaraClientPacketHandler::handlePartyLeave(PartyLeave* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handlePartyCreate(PartyCreate* p) { (void)p;
+void HoAClientPacketHandler::handlePartyCreate(PartyCreate* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -4256,7 +4256,7 @@ void DakaraClientPacketHandler::handlePartyCreate(PartyCreate* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handlePartyJoin(PartyJoin* p) { (void)p;
+void HoAClientPacketHandler::handlePartyJoin(PartyJoin* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -4273,7 +4273,7 @@ void DakaraClientPacketHandler::handlePartyJoin(PartyJoin* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleShareNpc(ShareNpc* p) { (void)p;
+void HoAClientPacketHandler::handleShareNpc(ShareNpc* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: ZaMa */
 	/* 'Last Modification: 15/04/2010 */
@@ -4354,7 +4354,7 @@ void DakaraClientPacketHandler::handleShareNpc(ShareNpc* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleStopSharingNpc(StopSharingNpc* p) { (void)p;
+void HoAClientPacketHandler::handleStopSharingNpc(StopSharingNpc* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: ZaMa */
 	/* 'Last Modification: 15/04/2010 */
@@ -4388,7 +4388,7 @@ void DakaraClientPacketHandler::handleStopSharingNpc(StopSharingNpc* p) { (void)
 /* ' */
 
 
-void DakaraClientPacketHandler::handleInquiry(Inquiry* p) { (void)p;
+void HoAClientPacketHandler::handleInquiry(Inquiry* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -4403,7 +4403,7 @@ void DakaraClientPacketHandler::handleInquiry(Inquiry* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildMessage(GuildMessage* p) { (void)p;
+void HoAClientPacketHandler::handleGuildMessage(GuildMessage* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 15/07/2009 */
@@ -4421,7 +4421,7 @@ void DakaraClientPacketHandler::handleGuildMessage(GuildMessage* p) { (void)p;
 
 		if (UserList[UserIndex].GuildIndex > 0) {
 			SendData(SendTarget_ToDiosesYclan, UserList[UserIndex].GuildIndex,
-					dakara::protocol::server::BuildGuildChat(UserList[UserIndex].Name + "> " + Chat));
+					hoa::protocol::server::BuildGuildChat(UserList[UserIndex].Name + "> " + Chat));
 
 			if (!(UserList[UserIndex].flags.AdminInvisible == 1)) {
 				SendData(SendTarget_ToClanArea, UserIndex,
@@ -4441,7 +4441,7 @@ void DakaraClientPacketHandler::handleGuildMessage(GuildMessage* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handlePartyMessage(PartyMessage* p) { (void)p;
+void HoAClientPacketHandler::handlePartyMessage(PartyMessage* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -4471,7 +4471,7 @@ void DakaraClientPacketHandler::handlePartyMessage(PartyMessage* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleCentinelReport(CentinelReport* p) { (void)p;
+void HoAClientPacketHandler::handleCentinelReport(CentinelReport* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -4486,7 +4486,7 @@ void DakaraClientPacketHandler::handleCentinelReport(CentinelReport* p) { (void)
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildOnline(GuildOnline* p) { (void)p;
+void HoAClientPacketHandler::handleGuildOnline(GuildOnline* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -4510,7 +4510,7 @@ void DakaraClientPacketHandler::handleGuildOnline(GuildOnline* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handlePartyOnline(PartyOnline* p) { (void)p;
+void HoAClientPacketHandler::handlePartyOnline(PartyOnline* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -4527,7 +4527,7 @@ void DakaraClientPacketHandler::handlePartyOnline(PartyOnline* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleCouncilMessage(CouncilMessage* p) { (void)p;
+void HoAClientPacketHandler::handleCouncilMessage(CouncilMessage* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -4544,11 +4544,11 @@ void DakaraClientPacketHandler::handleCouncilMessage(CouncilMessage* p) { (void)
 
 		if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_RoyalCouncil)) {
 			SendData(SendTarget_ToConsejo, UserIndex,
-					dakara::protocol::server::BuildConsoleMsg("(Councilman) " + UserList[UserIndex].Name + "> " + Chat,
+					hoa::protocol::server::BuildConsoleMsg("(Councilman) " + UserList[UserIndex].Name + "> " + Chat,
 							FontTypeNames_FONTTYPE_CONSEJO));
 		} else if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_ChaosCouncil)) {
 			SendData(SendTarget_ToConsejoCaos, UserIndex,
-					dakara::protocol::server::BuildConsoleMsg("(Councilman) " + UserList[UserIndex].Name + "> " + Chat,
+					hoa::protocol::server::BuildConsoleMsg("(Councilman) " + UserList[UserIndex].Name + "> " + Chat,
 							FontTypeNames_FONTTYPE_CONSEJOCAOS));
 		}
 	}
@@ -4562,7 +4562,7 @@ void DakaraClientPacketHandler::handleCouncilMessage(CouncilMessage* p) { (void)
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRoleMasterRequest(RoleMasterRequest* p) { (void)p;
+void HoAClientPacketHandler::handleRoleMasterRequest(RoleMasterRequest* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -4576,7 +4576,7 @@ void DakaraClientPacketHandler::handleRoleMasterRequest(RoleMasterRequest* p) { 
 	if (vb6::LenB(request) != 0) {
 		WriteConsoleMsg(UserIndex, "Your request has been sent.", FontTypeNames_FONTTYPE_INFO);
 		SendData(SendTarget_ToRMsAndHigherAdmins, 0,
-				dakara::protocol::server::BuildConsoleMsg(UserList[UserIndex].Name + " ROLE PLAYING QUESTION: " + request,
+				hoa::protocol::server::BuildConsoleMsg(UserList[UserIndex].Name + " ROLE PLAYING QUESTION: " + request,
 						FontTypeNames_FONTTYPE_GUILDMSG));
 	}
 }
@@ -4586,7 +4586,7 @@ void DakaraClientPacketHandler::handleRoleMasterRequest(RoleMasterRequest* p) { 
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGMRequest(GMRequest* p) { (void)p;
+void HoAClientPacketHandler::handleGMRequest(GMRequest* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -4613,7 +4613,7 @@ void DakaraClientPacketHandler::handleGMRequest(GMRequest* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleBugReport(BugReport* p) { (void)p;
+void HoAClientPacketHandler::handleBugReport(BugReport* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -4633,7 +4633,7 @@ void DakaraClientPacketHandler::handleBugReport(BugReport* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleChangeDescription(ChangeDescription* p) { (void)p;
+void HoAClientPacketHandler::handleChangeDescription(ChangeDescription* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -4664,7 +4664,7 @@ void DakaraClientPacketHandler::handleChangeDescription(ChangeDescription* p) { 
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildVote(GuildVote* p) { (void)p;
+void HoAClientPacketHandler::handleGuildVote(GuildVote* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -4692,7 +4692,7 @@ void DakaraClientPacketHandler::handleGuildVote(GuildVote* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleShowGuildNews(ShowGuildNews* p) { (void)p;
+void HoAClientPacketHandler::handleShowGuildNews(ShowGuildNews* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: ZaMA */
 	/* 'Last Modification: 05/17/06 */
@@ -4710,7 +4710,7 @@ void DakaraClientPacketHandler::handleShowGuildNews(ShowGuildNews* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handlePunishments(Punishments* p) { (void)p;
+void HoAClientPacketHandler::handlePunishments(Punishments* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 25/08/2009 */
@@ -4771,7 +4771,7 @@ void DakaraClientPacketHandler::handlePunishments(Punishments* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGamble(Gamble* p) { (void)p;
+void HoAClientPacketHandler::handleGamble(Gamble* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -4854,7 +4854,7 @@ void DakaraClientPacketHandler::handleGamble(Gamble* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleInquiryVote(InquiryVote* p) { (void)p;
+void HoAClientPacketHandler::handleInquiryVote(InquiryVote* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -4873,7 +4873,7 @@ void DakaraClientPacketHandler::handleInquiryVote(InquiryVote* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleBankExtractGold(BankExtractGold* p) { (void)p;
+void HoAClientPacketHandler::handleBankExtractGold(BankExtractGold* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -4927,7 +4927,7 @@ void DakaraClientPacketHandler::handleBankExtractGold(BankExtractGold* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleLeaveFaction(LeaveFaction* p) { (void)p;
+void HoAClientPacketHandler::handleLeaveFaction(LeaveFaction* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 09/28/2010 */
@@ -5038,7 +5038,7 @@ void DakaraClientPacketHandler::handleLeaveFaction(LeaveFaction* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleBankDepositGold(BankDepositGold* p) { (void)p;
+void HoAClientPacketHandler::handleBankDepositGold(BankDepositGold* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -5092,7 +5092,7 @@ void DakaraClientPacketHandler::handleBankDepositGold(BankDepositGold* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleDenounce(Denounce* p) { (void)p;
+void HoAClientPacketHandler::handleDenounce(Denounce* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 14/11/2010 */
@@ -5110,7 +5110,7 @@ void DakaraClientPacketHandler::handleDenounce(Denounce* p) { (void)p;
 
 		msg = vb6::LCase(UserList[UserIndex].Name) + " COMPLAINT: " + Text;
 
-		SendData(SendTarget_ToAdmins, 0, dakara::protocol::server::BuildConsoleMsg(msg, FontTypeNames_FONTTYPE_GUILDMSG),
+		SendData(SendTarget_ToAdmins, 0, hoa::protocol::server::BuildConsoleMsg(msg, FontTypeNames_FONTTYPE_GUILDMSG),
 				true);
 
 		Denuncias.push_back(msg);
@@ -5129,7 +5129,7 @@ void DakaraClientPacketHandler::handleDenounce(Denounce* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildFundate(GuildFundate* p) { (void)p;
+void HoAClientPacketHandler::handleGuildFundate(GuildFundate* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: ZaMa */
 	/* 'Last Modification: 14/12/2009 */
@@ -5150,7 +5150,7 @@ void DakaraClientPacketHandler::handleGuildFundate(GuildFundate* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildFundation(GuildFundation* p) { (void)p;
+void HoAClientPacketHandler::handleGuildFundation(GuildFundation* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: ZaMa */
 	/* 'Last Modification: 14/12/2009 */
@@ -5216,7 +5216,7 @@ void DakaraClientPacketHandler::handleGuildFundation(GuildFundation* p) { (void)
 /* ' */
 
 
-void DakaraClientPacketHandler::handlePartyKick(PartyKick* p) { (void)p;
+void HoAClientPacketHandler::handlePartyKick(PartyKick* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/05/09 */
@@ -5254,7 +5254,7 @@ void DakaraClientPacketHandler::handlePartyKick(PartyKick* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handlePartySetLeader(PartySetLeader* p) { (void)p;
+void HoAClientPacketHandler::handlePartySetLeader(PartySetLeader* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/05/09 */
@@ -5299,7 +5299,7 @@ void DakaraClientPacketHandler::handlePartySetLeader(PartySetLeader* p) { (void)
 /* ' */
 
 
-void DakaraClientPacketHandler::handlePartyAcceptMember(PartyAcceptMember* p) { (void)p;
+void HoAClientPacketHandler::handlePartyAcceptMember(PartyAcceptMember* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/05/09 */
@@ -5355,7 +5355,7 @@ void DakaraClientPacketHandler::handlePartyAcceptMember(PartyAcceptMember* p) { 
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildMemberList(GuildMemberList* p) { (void)p;
+void HoAClientPacketHandler::handleGuildMemberList(GuildMemberList* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -5404,7 +5404,7 @@ void DakaraClientPacketHandler::handleGuildMemberList(GuildMemberList* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGMMessage(GMMessage* p) { (void)p;
+void HoAClientPacketHandler::handleGMMessage(GMMessage* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 01/08/07 */
@@ -5423,7 +5423,7 @@ void DakaraClientPacketHandler::handleGMMessage(GMMessage* p) { (void)p;
 			ParseChat(message);
 
 			SendData(SendTarget_ToAdmins, 0,
-					dakara::protocol::server::BuildConsoleMsg(UserList[UserIndex].Name + "> " + message,
+					hoa::protocol::server::BuildConsoleMsg(UserList[UserIndex].Name + "> " + message,
 							FontTypeNames_FONTTYPE_GMMSG));
 		}
 	}
@@ -5438,7 +5438,7 @@ void DakaraClientPacketHandler::handleGMMessage(GMMessage* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleShowName(ShowName* p) { (void)p;
+void HoAClientPacketHandler::handleShowName(ShowName* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -5460,7 +5460,7 @@ void DakaraClientPacketHandler::handleShowName(ShowName* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleOnlineRoyalArmy(OnlineRoyalArmy* p) { (void)p;
+void HoAClientPacketHandler::handleOnlineRoyalArmy(OnlineRoyalArmy* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 28/05/2010 */
@@ -5505,7 +5505,7 @@ void DakaraClientPacketHandler::handleOnlineRoyalArmy(OnlineRoyalArmy* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleOnlineChaosLegion(OnlineChaosLegion* p) { (void)p;
+void HoAClientPacketHandler::handleOnlineChaosLegion(OnlineChaosLegion* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 28/05/2010 */
@@ -5550,7 +5550,7 @@ void DakaraClientPacketHandler::handleOnlineChaosLegion(OnlineChaosLegion* p) { 
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGoNearby(GoNearby* p) { (void)p;
+void HoAClientPacketHandler::handleGoNearby(GoNearby* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 01/10/07 */
@@ -5626,7 +5626,7 @@ void DakaraClientPacketHandler::handleGoNearby(GoNearby* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleComment(Comment* p) { (void)p;
+void HoAClientPacketHandler::handleComment(Comment* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -5650,7 +5650,7 @@ void DakaraClientPacketHandler::handleComment(Comment* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleServerTime(ServerTime* p) { (void)p;
+void HoAClientPacketHandler::handleServerTime(ServerTime* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 01/08/07 */
@@ -5666,7 +5666,7 @@ void DakaraClientPacketHandler::handleServerTime(ServerTime* p) { (void)p;
 	LogGM(UserList[UserIndex].Name, "Time.");
 
 	SendData(SendTarget_ToAll, 0,
-			dakara::protocol::server::BuildConsoleMsg("Time: " + vb6::dateToString(vb6::Now()), FontTypeNames_FONTTYPE_INFO));
+			hoa::protocol::server::BuildConsoleMsg("Time: " + vb6::dateToString(vb6::Now()), FontTypeNames_FONTTYPE_INFO));
 }
 
 /* '' */
@@ -5674,7 +5674,7 @@ void DakaraClientPacketHandler::handleServerTime(ServerTime* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleWhere(Where* p) { (void)p;
+void HoAClientPacketHandler::handleWhere(Where* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 18/11/2010 */
@@ -5738,7 +5738,7 @@ void DakaraClientPacketHandler::handleWhere(Where* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleCreaturesInMap(CreaturesInMap* p) { (void)p;
+void HoAClientPacketHandler::handleCreaturesInMap(CreaturesInMap* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 30/07/06 */
@@ -5848,7 +5848,7 @@ void DakaraClientPacketHandler::handleCreaturesInMap(CreaturesInMap* p) { (void)
 /* ' */
 
 
-void DakaraClientPacketHandler::handleWarpMeToTarget(WarpMeToTarget* p) { (void)p;
+void HoAClientPacketHandler::handleWarpMeToTarget(WarpMeToTarget* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 26/03/09 */
@@ -5879,7 +5879,7 @@ void DakaraClientPacketHandler::handleWarpMeToTarget(WarpMeToTarget* p) { (void)
 /* ' */
 
 
-void DakaraClientPacketHandler::handleWarpChar(WarpChar* p) { (void)p;
+void HoAClientPacketHandler::handleWarpChar(WarpChar* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 26/03/2009 */
@@ -5945,7 +5945,7 @@ void DakaraClientPacketHandler::handleWarpChar(WarpChar* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleSilence(Silence* p) { (void)p;
+void HoAClientPacketHandler::handleSilence(Silence* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -5990,7 +5990,7 @@ void DakaraClientPacketHandler::handleSilence(Silence* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleSOSShowList(SOSShowList* p) { (void)p;
+void HoAClientPacketHandler::handleSOSShowList(SOSShowList* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -6010,7 +6010,7 @@ void DakaraClientPacketHandler::handleSOSShowList(SOSShowList* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRequestPartyForm(RequestPartyForm* p) { (void)p;
+void HoAClientPacketHandler::handleRequestPartyForm(RequestPartyForm* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Budi */
 	/* 'Last Modification: 11/26/09 */
@@ -6030,7 +6030,7 @@ void DakaraClientPacketHandler::handleRequestPartyForm(RequestPartyForm* p) { (v
 /* ' */
 
 
-void DakaraClientPacketHandler::handleItemUpgrade(ItemUpgrade* p) { (void)p;
+void HoAClientPacketHandler::handleItemUpgrade(ItemUpgrade* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Torres Patricio */
 	/* 'Last Modification: 12/09/09 */
@@ -6058,7 +6058,7 @@ void DakaraClientPacketHandler::handleItemUpgrade(ItemUpgrade* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleSOSRemove(SOSRemove* p) { (void)p;
+void HoAClientPacketHandler::handleSOSRemove(SOSRemove* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -6085,7 +6085,7 @@ void DakaraClientPacketHandler::handleSOSRemove(SOSRemove* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGoToChar(GoToChar* p) { (void)p;
+void HoAClientPacketHandler::handleGoToChar(GoToChar* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 26/03/2009 */
@@ -6138,7 +6138,7 @@ void DakaraClientPacketHandler::handleGoToChar(GoToChar* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleInvisible(Invisible* p) { (void)p;
+void HoAClientPacketHandler::handleInvisible(Invisible* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -6160,7 +6160,7 @@ void DakaraClientPacketHandler::handleInvisible(Invisible* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGMPanel(GMPanel* p) { (void)p;
+void HoAClientPacketHandler::handleGMPanel(GMPanel* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -6181,7 +6181,7 @@ void DakaraClientPacketHandler::handleGMPanel(GMPanel* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRequestUserList(RequestUserList* p) { (void)p;
+void HoAClientPacketHandler::handleRequestUserList(RequestUserList* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 01/09/07 */
@@ -6222,7 +6222,7 @@ void DakaraClientPacketHandler::handleRequestUserList(RequestUserList* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleWorking(Working* p) { (void)p;
+void HoAClientPacketHandler::handleWorking(Working* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 07/10/2010 */
@@ -6262,7 +6262,7 @@ void DakaraClientPacketHandler::handleWorking(Working* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleHiding(Hiding* p) { (void)p;
+void HoAClientPacketHandler::handleHiding(Hiding* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 05/17/06 */
@@ -6297,7 +6297,7 @@ void DakaraClientPacketHandler::handleHiding(Hiding* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleJail(Jail* p) { (void)p;
+void HoAClientPacketHandler::handleJail(Jail* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 07/06/2010 */
@@ -6372,7 +6372,7 @@ void DakaraClientPacketHandler::handleJail(Jail* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleKillNPC(KillNPC* p) { (void)p;
+void HoAClientPacketHandler::handleKillNPC(KillNPC* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 04/22/08 (NicoNZ) */
@@ -6417,7 +6417,7 @@ void DakaraClientPacketHandler::handleKillNPC(KillNPC* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleWarnUser(WarnUser* p) { (void)p;
+void HoAClientPacketHandler::handleWarnUser(WarnUser* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/26/06 */
@@ -6473,7 +6473,7 @@ void DakaraClientPacketHandler::handleWarnUser(WarnUser* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleEditChar(EditChar* p) { (void)p;
+void HoAClientPacketHandler::handleEditChar(EditChar* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 18/09/2010 */
@@ -6698,7 +6698,7 @@ void DakaraClientPacketHandler::handleEditChar(EditChar* p) { (void)p;
 							m_EcharMiembroDeClan(-1, UserName);
 
 							SendData(SendTarget_ToGuildMembers, GI,
-									dakara::protocol::server::BuildConsoleMsg(UserName + " deja el clan.",
+									hoa::protocol::server::BuildConsoleMsg(UserName + " deja el clan.",
 											FontTypeNames_FONTTYPE_GUILD));
 							/* ' Si esta online le avisamos */
 							if (tUser > 0) {
@@ -7001,7 +7001,7 @@ void DakaraClientPacketHandler::handleEditChar(EditChar* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRequestCharInfo(RequestCharInfo* p) { (void)p;
+void HoAClientPacketHandler::handleRequestCharInfo(RequestCharInfo* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Fredy Horacio Treboux (liquid) */
 	/* 'Last Modification: 01/08/07 */
@@ -7041,7 +7041,7 @@ void DakaraClientPacketHandler::handleRequestCharInfo(RequestCharInfo* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRequestCharStats(RequestCharStats* p) { (void)p;
+void HoAClientPacketHandler::handleRequestCharStats(RequestCharStats* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 07/06/2010 */
@@ -7096,7 +7096,7 @@ void DakaraClientPacketHandler::handleRequestCharStats(RequestCharStats* p) { (v
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRequestCharGold(RequestCharGold* p) { (void)p;
+void HoAClientPacketHandler::handleRequestCharGold(RequestCharGold* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 07/06/2010 */
@@ -7155,7 +7155,7 @@ void DakaraClientPacketHandler::handleRequestCharGold(RequestCharGold* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRequestCharInventory(RequestCharInventory* p) { (void)p;
+void HoAClientPacketHandler::handleRequestCharInventory(RequestCharInventory* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 07/06/2010 */
@@ -7211,7 +7211,7 @@ void DakaraClientPacketHandler::handleRequestCharInventory(RequestCharInventory*
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRequestCharBank(RequestCharBank* p) { (void)p;
+void HoAClientPacketHandler::handleRequestCharBank(RequestCharBank* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 07/06/2010 */
@@ -7267,7 +7267,7 @@ void DakaraClientPacketHandler::handleRequestCharBank(RequestCharBank* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRequestCharSkills(RequestCharSkills* p) { (void)p;
+void HoAClientPacketHandler::handleRequestCharSkills(RequestCharSkills* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/29/06 */
@@ -7317,7 +7317,7 @@ void DakaraClientPacketHandler::handleRequestCharSkills(RequestCharSkills* p) { 
 /* ' */
 
 
-void DakaraClientPacketHandler::handleReviveChar(ReviveChar* p) { (void)p;
+void HoAClientPacketHandler::handleReviveChar(ReviveChar* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 11/03/2010 */
@@ -7392,7 +7392,7 @@ void DakaraClientPacketHandler::handleReviveChar(ReviveChar* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleOnlineGM(OnlineGM* p) { (void)p;
+void HoAClientPacketHandler::handleOnlineGM(OnlineGM* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Fredy Horacio Treboux (liquid) */
 	/* 'Last Modification: 12/28/06 */
@@ -7436,7 +7436,7 @@ void DakaraClientPacketHandler::handleOnlineGM(OnlineGM* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleOnlineMap(OnlineMap* p) { (void)p;
+void HoAClientPacketHandler::handleOnlineMap(OnlineMap* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 23/03/2009 */
@@ -7481,7 +7481,7 @@ void DakaraClientPacketHandler::handleOnlineMap(OnlineMap* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleForgive(Forgive* p) { (void)p;
+void HoAClientPacketHandler::handleForgive(Forgive* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 07/06/2010 */
@@ -7517,7 +7517,7 @@ void DakaraClientPacketHandler::handleForgive(Forgive* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleKick(Kick* p) { (void)p;
+void HoAClientPacketHandler::handleKick(Kick* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 07/06/2010 */
@@ -7562,7 +7562,7 @@ void DakaraClientPacketHandler::handleKick(Kick* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleExecute(Execute* p) { (void)p;
+void HoAClientPacketHandler::handleExecute(Execute* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 07/06/2010 */
@@ -7585,7 +7585,7 @@ void DakaraClientPacketHandler::handleExecute(Execute* p) { (void)p;
 			} else {
 				UserDie(tUser);
 				SendData(SendTarget_ToAll, 0,
-						dakara::protocol::server::BuildConsoleMsg(
+						hoa::protocol::server::BuildConsoleMsg(
 								UserList[UserIndex].Name + " has executed " + UserName + ".",
 								FontTypeNames_FONTTYPE_EJECUCION));
 				LogGM(UserList[UserIndex].Name, " executed " + UserName);
@@ -7610,7 +7610,7 @@ void DakaraClientPacketHandler::handleExecute(Execute* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleBanChar(BanChar* p) { (void)p;
+void HoAClientPacketHandler::handleBanChar(BanChar* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/29/06 */
@@ -7634,7 +7634,7 @@ void DakaraClientPacketHandler::handleBanChar(BanChar* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleUnbanChar(UnbanChar* p) { (void)p;
+void HoAClientPacketHandler::handleUnbanChar(UnbanChar* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/29/06 */
@@ -7686,7 +7686,7 @@ void DakaraClientPacketHandler::handleUnbanChar(UnbanChar* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleNPCFollow(NPCFollow* p) { (void)p;
+void HoAClientPacketHandler::handleNPCFollow(NPCFollow* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/29/06 */
@@ -7710,7 +7710,7 @@ void DakaraClientPacketHandler::handleNPCFollow(NPCFollow* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleSummonChar(SummonChar* p) { (void)p;
+void HoAClientPacketHandler::handleSummonChar(SummonChar* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 26/03/2009 */
@@ -7763,7 +7763,7 @@ void DakaraClientPacketHandler::handleSummonChar(SummonChar* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleSpawnListRequest(SpawnListRequest* p) { (void)p;
+void HoAClientPacketHandler::handleSpawnListRequest(SpawnListRequest* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/29/06 */
@@ -7784,7 +7784,7 @@ void DakaraClientPacketHandler::handleSpawnListRequest(SpawnListRequest* p) { (v
 /* ' */
 
 
-void DakaraClientPacketHandler::handleSpawnCreature(SpawnCreature* p) { (void)p;
+void HoAClientPacketHandler::handleSpawnCreature(SpawnCreature* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/29/06 */
@@ -7808,7 +7808,7 @@ void DakaraClientPacketHandler::handleSpawnCreature(SpawnCreature* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleResetNPCInventory(ResetNPCInventory* p) { (void)p;
+void HoAClientPacketHandler::handleResetNPCInventory(ResetNPCInventory* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/29/06 */
@@ -7834,7 +7834,7 @@ void DakaraClientPacketHandler::handleResetNPCInventory(ResetNPCInventory* p) { 
 /* ' */
 
 
-void DakaraClientPacketHandler::handleCleanWorld(CleanWorld* p) { (void)p;
+void HoAClientPacketHandler::handleCleanWorld(CleanWorld* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/29/06 */
@@ -7855,7 +7855,7 @@ void DakaraClientPacketHandler::handleCleanWorld(CleanWorld* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleServerMessage(ServerMessage* p) { (void)p;
+void HoAClientPacketHandler::handleServerMessage(ServerMessage* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 28/05/2010 */
@@ -7867,7 +7867,7 @@ void DakaraClientPacketHandler::handleServerMessage(ServerMessage* p) { (void)p;
 	if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_Admin, PlayerType_Dios, PlayerType_SemiDios)) {
 		if (vb6::LenB(message) != 0) {
 			LogGM(UserList[UserIndex].Name, "Mensaje Broadcast:" + message);
-			SendData(SendTarget_ToAll, 0, dakara::protocol::server::BuildConsoleMsg(message, FontTypeNames_FONTTYPE_TALK));
+			SendData(SendTarget_ToAll, 0, hoa::protocol::server::BuildConsoleMsg(message, FontTypeNames_FONTTYPE_TALK));
 			/* ''''''''''''''''SOLO PARA EL TESTEO''''''' */
 			/* ''''''''''SE USA PARA COMUNICARSE CON EL SERVER''''''''''' */
 			/* 'frmMain.txtChat.Text = frmMain.txtChat.Text & vbNewLine & UserList(UserIndex).name & " > " & message */
@@ -7880,7 +7880,7 @@ void DakaraClientPacketHandler::handleServerMessage(ServerMessage* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleMapMessage(MapMessage* p) { (void)p;
+void HoAClientPacketHandler::handleMapMessage(MapMessage* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: ZaMa */
 	/* 'Last Modification: 14/11/2010 */
@@ -7897,7 +7897,7 @@ void DakaraClientPacketHandler::handleMapMessage(MapMessage* p) { (void)p;
 			mapa = UserList[UserIndex].Pos.Map;
 
 			LogGM(UserList[UserIndex].Name, "Mensaje a mapa " + vb6::CStr(mapa) + ":" + message);
-			SendData(SendTarget_toMap, mapa, dakara::protocol::server::BuildConsoleMsg(message, FontTypeNames_FONTTYPE_TALK));
+			SendData(SendTarget_toMap, mapa, hoa::protocol::server::BuildConsoleMsg(message, FontTypeNames_FONTTYPE_TALK));
 		}
 	}
 
@@ -7911,7 +7911,7 @@ void DakaraClientPacketHandler::handleMapMessage(MapMessage* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleNickToIP(NickToIP* p) { (void)p;
+void HoAClientPacketHandler::handleNickToIP(NickToIP* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 07/06/2010 */
@@ -7981,7 +7981,7 @@ void DakaraClientPacketHandler::handleNickToIP(NickToIP* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleIPToNick(IPToNick* p) { (void)p;
+void HoAClientPacketHandler::handleIPToNick(IPToNick* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/29/06 */
@@ -8028,7 +8028,7 @@ void DakaraClientPacketHandler::handleIPToNick(IPToNick* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildOnlineMembers(GuildOnlineMembers* p) { (void)p;
+void HoAClientPacketHandler::handleGuildOnlineMembers(GuildOnlineMembers* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/29/06 */
@@ -8061,7 +8061,7 @@ void DakaraClientPacketHandler::handleGuildOnlineMembers(GuildOnlineMembers* p) 
 /* ' */
 
 
-void DakaraClientPacketHandler::handleTeleportCreate(TeleportCreate* p) { (void)p;
+void HoAClientPacketHandler::handleTeleportCreate(TeleportCreate* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 22/03/2010 */
@@ -8132,7 +8132,7 @@ void DakaraClientPacketHandler::handleTeleportCreate(TeleportCreate* p) { (void)
 /* ' */
 
 
-void DakaraClientPacketHandler::handleTeleportDestroy(TeleportDestroy* p) { (void)p;
+void HoAClientPacketHandler::handleTeleportDestroy(TeleportDestroy* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/29/06 */
@@ -8185,7 +8185,7 @@ void DakaraClientPacketHandler::handleTeleportDestroy(TeleportDestroy* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRainToggle(RainToggle* p) { (void)p;
+void HoAClientPacketHandler::handleRainToggle(RainToggle* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/29/06 */
@@ -8201,7 +8201,7 @@ void DakaraClientPacketHandler::handleRainToggle(RainToggle* p) { (void)p;
 	LogGM(UserList[UserIndex].Name, "/LLUVIA");
 	Lloviendo = !Lloviendo;
 
-	SendData(SendTarget_ToAll, 0, dakara::protocol::server::BuildRainToggle());
+	SendData(SendTarget_ToAll, 0, hoa::protocol::server::BuildRainToggle());
 }
 
 /* '' */
@@ -8209,7 +8209,7 @@ void DakaraClientPacketHandler::handleRainToggle(RainToggle* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleEnableDenounces(EnableDenounces* p) { (void)p;
+void HoAClientPacketHandler::handleEnableDenounces(EnableDenounces* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: ZaMa */
 	/* 'Last Modification: 14/11/2010 */
@@ -8244,7 +8244,7 @@ void DakaraClientPacketHandler::handleEnableDenounces(EnableDenounces* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleShowDenouncesList(ShowDenouncesList* p) { (void)p;
+void HoAClientPacketHandler::handleShowDenouncesList(ShowDenouncesList* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: ZaMa */
 	/* 'Last Modification: 14/11/2010 */
@@ -8262,7 +8262,7 @@ void DakaraClientPacketHandler::handleShowDenouncesList(ShowDenouncesList* p) { 
 /* ' */
 
 
-void DakaraClientPacketHandler::handleSetCharDescription(SetCharDescription* p) { (void)p;
+void HoAClientPacketHandler::handleSetCharDescription(SetCharDescription* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/29/06 */
@@ -8289,7 +8289,7 @@ void DakaraClientPacketHandler::handleSetCharDescription(SetCharDescription* p) 
 /* ' */
 
 
-void DakaraClientPacketHandler::handleForceMIDIToMap(ForceMIDIToMap* p) { (void)p;
+void HoAClientPacketHandler::handleForceMIDIToMap(ForceMIDIToMap* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/29/06 */
@@ -8312,10 +8312,10 @@ void DakaraClientPacketHandler::handleForceMIDIToMap(ForceMIDIToMap* p) { (void)
 		if (midiID == 0) {
 			/* 'Ponemos el default del mapa */
 			SendData(SendTarget_toMap, mapa,
-					dakara::protocol::server::BuildPlayMidi(MapInfo[UserList[UserIndex].Pos.Map].Music, 0));
+					hoa::protocol::server::BuildPlayMidi(MapInfo[UserList[UserIndex].Pos.Map].Music, 0));
 		} else {
 			/* 'Ponemos el pedido por el GM */
-			SendData(SendTarget_toMap, mapa, dakara::protocol::server::BuildPlayMidi(midiID, 0));
+			SendData(SendTarget_toMap, mapa, hoa::protocol::server::BuildPlayMidi(midiID, 0));
 		}
 	}
 }
@@ -8325,7 +8325,7 @@ void DakaraClientPacketHandler::handleForceMIDIToMap(ForceMIDIToMap* p) { (void)
 /* ' */
 
 
-void DakaraClientPacketHandler::handleForceWAVEToMap(ForceWAVEToMap* p) { (void)p;
+void HoAClientPacketHandler::handleForceWAVEToMap(ForceWAVEToMap* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/29/06 */
@@ -8352,7 +8352,7 @@ void DakaraClientPacketHandler::handleForceWAVEToMap(ForceWAVEToMap* p) { (void)
 		}
 
 		/* 'Ponemos el pedido por el GM */
-		SendData(SendTarget_toMap, mapa, dakara::protocol::server::BuildPlayWave(waveID, X, Y));
+		SendData(SendTarget_toMap, mapa, hoa::protocol::server::BuildPlayWave(waveID, X, Y));
 	}
 }
 
@@ -8361,7 +8361,7 @@ void DakaraClientPacketHandler::handleForceWAVEToMap(ForceWAVEToMap* p) { (void)
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRoyalArmyMessage(RoyalArmyMessage* p) { (void)p;
+void HoAClientPacketHandler::handleRoyalArmyMessage(RoyalArmyMessage* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/29/06 */
@@ -8373,7 +8373,7 @@ void DakaraClientPacketHandler::handleRoyalArmyMessage(RoyalArmyMessage* p) { (v
 	/* 'Solo dioses, admins, semis y RMS */
 	if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_Dios, PlayerType_Admin, PlayerType_SemiDios, PlayerType_RoleMaster)) {
 		SendData(SendTarget_ToRealYRMs, 0,
-				dakara::protocol::server::BuildConsoleMsg("ROYAL ARMY> " + message, FontTypeNames_FONTTYPE_TALK));
+				hoa::protocol::server::BuildConsoleMsg("ROYAL ARMY> " + message, FontTypeNames_FONTTYPE_TALK));
 	}
 }
 
@@ -8382,7 +8382,7 @@ void DakaraClientPacketHandler::handleRoyalArmyMessage(RoyalArmyMessage* p) { (v
 /* ' */
 
 
-void DakaraClientPacketHandler::handleChaosLegionMessage(ChaosLegionMessage* p) { (void)p;
+void HoAClientPacketHandler::handleChaosLegionMessage(ChaosLegionMessage* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/29/06 */
@@ -8394,7 +8394,7 @@ void DakaraClientPacketHandler::handleChaosLegionMessage(ChaosLegionMessage* p) 
 	/* 'Solo dioses, admins, semis y RMS */
 	if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_Dios, PlayerType_Admin, PlayerType_SemiDios, PlayerType_RoleMaster)) {
 		SendData(SendTarget_ToCaosYRMs, 0,
-				dakara::protocol::server::BuildConsoleMsg("DARK LEGION> " + message, FontTypeNames_FONTTYPE_TALK));
+				hoa::protocol::server::BuildConsoleMsg("DARK LEGION> " + message, FontTypeNames_FONTTYPE_TALK));
 	}
 }
 
@@ -8403,7 +8403,7 @@ void DakaraClientPacketHandler::handleChaosLegionMessage(ChaosLegionMessage* p) 
 /* ' */
 
 
-void DakaraClientPacketHandler::handleCitizenMessage(CitizenMessage* p) { (void)p;
+void HoAClientPacketHandler::handleCitizenMessage(CitizenMessage* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/29/06 */
@@ -8415,7 +8415,7 @@ void DakaraClientPacketHandler::handleCitizenMessage(CitizenMessage* p) { (void)
 	/* 'Solo dioses, admins, semis y RMS */
 	if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_Dios, PlayerType_Admin, PlayerType_SemiDios, PlayerType_RoleMaster)) {
 		SendData(SendTarget_ToCiudadanosYRMs, 0,
-				dakara::protocol::server::BuildConsoleMsg("CITIZENS> " + message, FontTypeNames_FONTTYPE_TALK));
+				hoa::protocol::server::BuildConsoleMsg("CITIZENS> " + message, FontTypeNames_FONTTYPE_TALK));
 	}
 
 
@@ -8428,7 +8428,7 @@ void DakaraClientPacketHandler::handleCitizenMessage(CitizenMessage* p) { (void)
 /* ' */
 
 
-void DakaraClientPacketHandler::handleCriminalMessage(CriminalMessage* p) { (void)p;
+void HoAClientPacketHandler::handleCriminalMessage(CriminalMessage* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/29/06 */
@@ -8441,7 +8441,7 @@ void DakaraClientPacketHandler::handleCriminalMessage(CriminalMessage* p) { (voi
 	/* 'Solo dioses, admins y RMS */
 	if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_Dios, PlayerType_Admin, PlayerType_RoleMaster)) {
 		SendData(SendTarget_ToCriminalesYRMs, 0,
-				dakara::protocol::server::BuildConsoleMsg("CRIMINALS> " + message, FontTypeNames_FONTTYPE_TALK));
+				hoa::protocol::server::BuildConsoleMsg("CRIMINALS> " + message, FontTypeNames_FONTTYPE_TALK));
 	}
 
 
@@ -8454,7 +8454,7 @@ void DakaraClientPacketHandler::handleCriminalMessage(CriminalMessage* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleTalkAsNPC(TalkAsNPC* p) { (void)p;
+void HoAClientPacketHandler::handleTalkAsNPC(TalkAsNPC* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/29/06 */
@@ -8487,7 +8487,7 @@ void DakaraClientPacketHandler::handleTalkAsNPC(TalkAsNPC* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleDestroyAllItemsInArea(DestroyAllItemsInArea* p) { (void)p;
+void HoAClientPacketHandler::handleDestroyAllItemsInArea(DestroyAllItemsInArea* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/30/06 */
@@ -8528,7 +8528,7 @@ void DakaraClientPacketHandler::handleDestroyAllItemsInArea(DestroyAllItemsInAre
 /* ' */
 
 
-void DakaraClientPacketHandler::handleAcceptRoyalCouncilMember(AcceptRoyalCouncilMember* p) { (void)p;
+void HoAClientPacketHandler::handleAcceptRoyalCouncilMember(AcceptRoyalCouncilMember* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/30/06 */
@@ -8547,7 +8547,7 @@ void DakaraClientPacketHandler::handleAcceptRoyalCouncilMember(AcceptRoyalCounci
 			WriteConsoleMsg(UserIndex, "User offline", FontTypeNames_FONTTYPE_INFO);
 		} else {
 			SendData(SendTarget_ToAll, 0,
-					dakara::protocol::server::BuildConsoleMsg(
+					hoa::protocol::server::BuildConsoleMsg(
 							UserName + " was accepted as a member of the Royal Council of Banderbill.",
 							FontTypeNames_FONTTYPE_CONSEJO));
 			if (UserTienePrivilegio(tUser, PlayerType_ChaosCouncil)) {
@@ -8567,7 +8567,7 @@ void DakaraClientPacketHandler::handleAcceptRoyalCouncilMember(AcceptRoyalCounci
 /* ' */
 
 
-void DakaraClientPacketHandler::handleAcceptChaosCouncilMember(AcceptChaosCouncilMember* p) { (void)p;
+void HoAClientPacketHandler::handleAcceptChaosCouncilMember(AcceptChaosCouncilMember* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/30/06 */
@@ -8586,7 +8586,7 @@ void DakaraClientPacketHandler::handleAcceptChaosCouncilMember(AcceptChaosCounci
 			WriteConsoleMsg(UserIndex, "User offline", FontTypeNames_FONTTYPE_INFO);
 		} else {
 			SendData(SendTarget_ToAll, 0,
-					dakara::protocol::server::BuildConsoleMsg(UserName + " was accepted as a member of the Council of Shadows.",
+					hoa::protocol::server::BuildConsoleMsg(UserName + " was accepted as a member of the Council of Shadows.",
 							FontTypeNames_FONTTYPE_CONSEJO));
 
 			if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_RoyalCouncil)) {
@@ -8610,7 +8610,7 @@ void DakaraClientPacketHandler::handleAcceptChaosCouncilMember(AcceptChaosCounci
 /* ' */
 
 
-void DakaraClientPacketHandler::handleItemsInTheFloor(ItemsInTheFloor* p) { (void)p;
+void HoAClientPacketHandler::handleItemsInTheFloor(ItemsInTheFloor* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/30/06 */
@@ -8646,7 +8646,7 @@ void DakaraClientPacketHandler::handleItemsInTheFloor(ItemsInTheFloor* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleMakeDumb(MakeDumb* p) { (void)p;
+void HoAClientPacketHandler::handleMakeDumb(MakeDumb* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/30/06 */
@@ -8682,7 +8682,7 @@ void DakaraClientPacketHandler::handleMakeDumb(MakeDumb* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleMakeDumbNoMore(MakeDumbNoMore* p) { (void)p;
+void HoAClientPacketHandler::handleMakeDumbNoMore(MakeDumbNoMore* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/30/06 */
@@ -8717,7 +8717,7 @@ void DakaraClientPacketHandler::handleMakeDumbNoMore(MakeDumbNoMore* p) { (void)
 /* ' */
 
 
-void DakaraClientPacketHandler::handleDumpIPTables(DumpIPTables* p) { (void)p;
+void HoAClientPacketHandler::handleDumpIPTables(DumpIPTables* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/30/06 */
@@ -8736,7 +8736,7 @@ void DakaraClientPacketHandler::handleDumpIPTables(DumpIPTables* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleCouncilKick(CouncilKick* p) { (void)p;
+void HoAClientPacketHandler::handleCouncilKick(CouncilKick* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/30/06 */
@@ -8771,7 +8771,7 @@ void DakaraClientPacketHandler::handleCouncilKick(CouncilKick* p) { (void)p;
 				WarpUserChar(tUser, UserList[tUser].Pos.Map, UserList[tUser].Pos.X, UserList[tUser].Pos.Y,
 						false);
 				SendData(SendTarget_ToAll, 0,
-						dakara::protocol::server::BuildConsoleMsg(UserName + " was expeled from the Royal Council of Banderbill.",
+						hoa::protocol::server::BuildConsoleMsg(UserName + " was expeled from the Royal Council of Banderbill.",
 								FontTypeNames_FONTTYPE_CONSEJO));
 			}
 
@@ -8783,7 +8783,7 @@ void DakaraClientPacketHandler::handleCouncilKick(CouncilKick* p) { (void)p;
 				WarpUserChar(tUser, UserList[tUser].Pos.Map, UserList[tUser].Pos.X, UserList[tUser].Pos.Y,
 						false);
 				SendData(SendTarget_ToAll, 0,
-						dakara::protocol::server::BuildConsoleMsg(UserName + " was expeled from the Council of Shadows.",
+						hoa::protocol::server::BuildConsoleMsg(UserName + " was expeled from the Council of Shadows.",
 								FontTypeNames_FONTTYPE_CONSEJO));
 			}
 		}
@@ -8799,7 +8799,7 @@ void DakaraClientPacketHandler::handleCouncilKick(CouncilKick* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleSetTrigger(SetTrigger* p) { (void)p;
+void HoAClientPacketHandler::handleSetTrigger(SetTrigger* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/30/06 */
@@ -8833,7 +8833,7 @@ void DakaraClientPacketHandler::handleSetTrigger(SetTrigger* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleAskTrigger(AskTrigger* p) { (void)p;
+void HoAClientPacketHandler::handleAskTrigger(AskTrigger* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 04/13/07 */
@@ -8869,7 +8869,7 @@ void DakaraClientPacketHandler::handleAskTrigger(AskTrigger* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleBannedIPList(BannedIPList* p) { (void)p;
+void HoAClientPacketHandler::handleBannedIPList(BannedIPList* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/30/06 */
@@ -8900,7 +8900,7 @@ void DakaraClientPacketHandler::handleBannedIPList(BannedIPList* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleBannedIPReload(BannedIPReload* p) { (void)p;
+void HoAClientPacketHandler::handleBannedIPReload(BannedIPReload* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/30/06 */
@@ -8920,7 +8920,7 @@ void DakaraClientPacketHandler::handleBannedIPReload(BannedIPReload* p) { (void)
 /* ' */
 
 
-void DakaraClientPacketHandler::handleGuildBan(GuildBan* p) { (void)p;
+void HoAClientPacketHandler::handleGuildBan(GuildBan* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/30/06 */
@@ -8946,7 +8946,7 @@ void DakaraClientPacketHandler::handleGuildBan(GuildBan* p) { (void)p;
 			WriteConsoleMsg(UserIndex, "Clan does not exist: " + GuildName, FontTypeNames_FONTTYPE_INFO);
 		} else {
 			SendData(SendTarget_ToAll, 0,
-					dakara::protocol::server::BuildConsoleMsg(
+					hoa::protocol::server::BuildConsoleMsg(
 							UserList[UserIndex].Name + " banned clan " + vb6::UCase(GuildName),
 							FontTypeNames_FONTTYPE_FIGHT));
 
@@ -8962,7 +8962,7 @@ void DakaraClientPacketHandler::handleGuildBan(GuildBan* p) { (void)p;
 				Ban(member, "Server Administration", "Clan Banned");
 
 				SendData(SendTarget_ToAll, 0,
-						dakara::protocol::server::BuildConsoleMsg(
+						hoa::protocol::server::BuildConsoleMsg(
 								"   " + member + "<" + GuildName + "> has been expeled from the server.",
 								FontTypeNames_FONTTYPE_FIGHT));
 
@@ -8991,7 +8991,7 @@ void DakaraClientPacketHandler::handleGuildBan(GuildBan* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleBanIP(BanIP* p) { (void)p;
+void HoAClientPacketHandler::handleBanIP(BanIP* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 07/02/09 */
@@ -9018,7 +9018,7 @@ void DakaraClientPacketHandler::handleBanIP(BanIP* p) { (void)p;
 			} else {
 				BanIpAgrega(bannedIP);
 				SendData(SendTarget_ToAdmins, 0,
-						dakara::protocol::server::BuildConsoleMsg(
+						hoa::protocol::server::BuildConsoleMsg(
 								UserList[UserIndex].Name + " banned IP " + bannedIP + " because of " + Reason,
 								FontTypeNames_FONTTYPE_FIGHT));
 
@@ -9042,7 +9042,7 @@ void DakaraClientPacketHandler::handleBanIP(BanIP* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleUnbanIP(UnbanIP* p) { (void)p;
+void HoAClientPacketHandler::handleUnbanIP(UnbanIP* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 12/30/06 */
@@ -9069,7 +9069,7 @@ void DakaraClientPacketHandler::handleUnbanIP(UnbanIP* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleCreateItem(CreateItem* p) { (void)p;
+void HoAClientPacketHandler::handleCreateItem(CreateItem* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/30/06 */
@@ -9133,7 +9133,7 @@ void DakaraClientPacketHandler::handleCreateItem(CreateItem* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleDestroyItems(DestroyItems* p) { (void)p;
+void HoAClientPacketHandler::handleDestroyItems(DestroyItems* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/30/06 */
@@ -9178,7 +9178,7 @@ void DakaraClientPacketHandler::handleDestroyItems(DestroyItems* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleChaosLegionKick(ChaosLegionKick* p) { (void)p;
+void HoAClientPacketHandler::handleChaosLegionKick(ChaosLegionKick* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/30/06 */
@@ -9255,7 +9255,7 @@ void DakaraClientPacketHandler::handleChaosLegionKick(ChaosLegionKick* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRoyalArmyKick(RoyalArmyKick* p) { (void)p;
+void HoAClientPacketHandler::handleRoyalArmyKick(RoyalArmyKick* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/30/06 */
@@ -9330,7 +9330,7 @@ void DakaraClientPacketHandler::handleRoyalArmyKick(RoyalArmyKick* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleForceMIDIAll(ForceMIDIAll* p) { (void)p;
+void HoAClientPacketHandler::handleForceMIDIAll(ForceMIDIAll* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/30/06 */
@@ -9345,10 +9345,10 @@ void DakaraClientPacketHandler::handleForceMIDIAll(ForceMIDIAll* p) { (void)p;
 	}
 
 	SendData(SendTarget_ToAll, 0,
-			dakara::protocol::server::BuildConsoleMsg(UserList[UserIndex].Name + " broadcasting music: " + vb6::CStr(midiID),
+			hoa::protocol::server::BuildConsoleMsg(UserList[UserIndex].Name + " broadcasting music: " + vb6::CStr(midiID),
 					FontTypeNames_FONTTYPE_SERVER));
 
-	SendData(SendTarget_ToAll, 0, dakara::protocol::server::BuildPlayMidi(midiID, 0));
+	SendData(SendTarget_ToAll, 0, hoa::protocol::server::BuildPlayMidi(midiID, 0));
 }
 
 /* '' */
@@ -9356,7 +9356,7 @@ void DakaraClientPacketHandler::handleForceMIDIAll(ForceMIDIAll* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleForceWAVEAll(ForceWAVEAll* p) { (void)p;
+void HoAClientPacketHandler::handleForceWAVEAll(ForceWAVEAll* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/30/06 */
@@ -9370,7 +9370,7 @@ void DakaraClientPacketHandler::handleForceWAVEAll(ForceWAVEAll* p) { (void)p;
 		return;
 	}
 
-	SendData(SendTarget_ToAll, 0, dakara::protocol::server::BuildPlayWave(waveID, NO_3D_SOUND, NO_3D_SOUND));
+	SendData(SendTarget_ToAll, 0, hoa::protocol::server::BuildPlayWave(waveID, NO_3D_SOUND, NO_3D_SOUND));
 }
 
 /* '' */
@@ -9378,7 +9378,7 @@ void DakaraClientPacketHandler::handleForceWAVEAll(ForceWAVEAll* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRemovePunishment(RemovePunishment* p) { (void)p;
+void HoAClientPacketHandler::handleRemovePunishment(RemovePunishment* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 1/05/07 */
@@ -9432,7 +9432,7 @@ void DakaraClientPacketHandler::handleRemovePunishment(RemovePunishment* p) { (v
 /* ' */
 
 
-void DakaraClientPacketHandler::handleTileBlockedToggle(TileBlockedToggle* p) { (void)p;
+void HoAClientPacketHandler::handleTileBlockedToggle(TileBlockedToggle* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/30/06 */
@@ -9465,7 +9465,7 @@ void DakaraClientPacketHandler::handleTileBlockedToggle(TileBlockedToggle* p) { 
 /* ' */
 
 
-void DakaraClientPacketHandler::handleKillNPCNoRespawn(KillNPCNoRespawn* p) { (void)p;
+void HoAClientPacketHandler::handleKillNPCNoRespawn(KillNPCNoRespawn* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/30/06 */
@@ -9491,7 +9491,7 @@ void DakaraClientPacketHandler::handleKillNPCNoRespawn(KillNPCNoRespawn* p) { (v
 /* ' */
 
 
-void DakaraClientPacketHandler::handleKillAllNearbyNPCs(KillAllNearbyNPCs* p) { (void)p;
+void HoAClientPacketHandler::handleKillAllNearbyNPCs(KillAllNearbyNPCs* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/30/06 */
@@ -9526,7 +9526,7 @@ void DakaraClientPacketHandler::handleKillAllNearbyNPCs(KillAllNearbyNPCs* p) { 
 /* ' */
 
 
-void DakaraClientPacketHandler::handleLastIP(LastIP* p) { (void)p;
+void HoAClientPacketHandler::handleLastIP(LastIP* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 	/* 'Last Modification: 12/30/06 */
@@ -9592,7 +9592,7 @@ void DakaraClientPacketHandler::handleLastIP(LastIP* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleChatColor(ChatColor* p) { (void)p;
+void HoAClientPacketHandler::handleChatColor(ChatColor* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 	/* 'Last Modification: 12/23/06 */
@@ -9614,7 +9614,7 @@ void DakaraClientPacketHandler::handleChatColor(ChatColor* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleIgnored(Ignored* p) { (void)p;
+void HoAClientPacketHandler::handleIgnored(Ignored* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 	/* 'Last Modification: 12/23/06 */
@@ -9631,7 +9631,7 @@ void DakaraClientPacketHandler::handleIgnored(Ignored* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleCheckSlot(CheckSlot* p) { (void)p;
+void HoAClientPacketHandler::handleCheckSlot(CheckSlot* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Pablo (ToxicWaste) */
 	/* 'Last Modification: 07/06/2010 */
@@ -9703,7 +9703,7 @@ void DakaraClientPacketHandler::handleCheckSlot(CheckSlot* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleResetAutoUpdate(ResetAutoUpdate* p) { (void)p;
+void HoAClientPacketHandler::handleResetAutoUpdate(ResetAutoUpdate* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 	/* 'Last Modification: 12/23/06 */
@@ -9730,7 +9730,7 @@ void DakaraClientPacketHandler::handleResetAutoUpdate(ResetAutoUpdate* p) { (voi
 /* ' */
 
 
-void DakaraClientPacketHandler::handleRestart(dakara::protocol::clientgm::Restart* p) { (void)p;
+void HoAClientPacketHandler::handleRestart(hoa::protocol::clientgm::Restart* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 	/* 'Last Modification: 12/23/06 */
@@ -9760,7 +9760,7 @@ void DakaraClientPacketHandler::handleRestart(dakara::protocol::clientgm::Restar
 /* ' */
 
 
-void DakaraClientPacketHandler::handleReloadObjects(ReloadObjects* p) { (void)p;
+void HoAClientPacketHandler::handleReloadObjects(ReloadObjects* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 	/* 'Last Modification: 12/23/06 */
@@ -9783,7 +9783,7 @@ void DakaraClientPacketHandler::handleReloadObjects(ReloadObjects* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleReloadSpells(ReloadSpells* p) { (void)p;
+void HoAClientPacketHandler::handleReloadSpells(ReloadSpells* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 	/* 'Last Modification: 12/23/06 */
@@ -9808,7 +9808,7 @@ void DakaraClientPacketHandler::handleReloadSpells(ReloadSpells* p) { (void)p;
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleReloadServerIni(ReloadServerIni* p) { (void)p;
+void HoAClientPacketHandler::handleReloadServerIni(ReloadServerIni* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 	/* 'Last Modification: 12/23/06 */
@@ -9833,7 +9833,7 @@ void DakaraClientPacketHandler::handleReloadServerIni(ReloadServerIni* p) { (voi
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleReloadNPCs(ReloadNPCs* p) { (void)p;
+void HoAClientPacketHandler::handleReloadNPCs(ReloadNPCs* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 	/* 'Last Modification: 12/23/06 */
@@ -9858,7 +9858,7 @@ void DakaraClientPacketHandler::handleReloadNPCs(ReloadNPCs* p) { (void)p;
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleKickAllChars(KickAllChars* p) { (void)p;
+void HoAClientPacketHandler::handleKickAllChars(KickAllChars* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 	/* 'Last Modification: 12/23/06 */
@@ -9881,7 +9881,7 @@ void DakaraClientPacketHandler::handleKickAllChars(KickAllChars* p) { (void)p;
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleNight(Night* p) { (void)p;
+void HoAClientPacketHandler::handleNight(Night* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 	/* 'Last Modification: 12/23/06 */
@@ -9917,7 +9917,7 @@ void DakaraClientPacketHandler::handleNight(Night* p) { (void)p;
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleShowServerForm(ShowServerForm* p) { (void)p;
+void HoAClientPacketHandler::handleShowServerForm(ShowServerForm* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 	/* 'Last Modification: 12/23/06 */
@@ -9939,7 +9939,7 @@ void DakaraClientPacketHandler::handleShowServerForm(ShowServerForm* p) { (void)
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleCleanSOS(CleanSOS* p) { (void)p;
+void HoAClientPacketHandler::handleCleanSOS(CleanSOS* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 	/* 'Last Modification: 12/23/06 */
@@ -9962,7 +9962,7 @@ void DakaraClientPacketHandler::handleCleanSOS(CleanSOS* p) { (void)p;
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleSaveChars(SaveChars* p) { (void)p;
+void HoAClientPacketHandler::handleSaveChars(SaveChars* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 	/* 'Last Modification: 12/23/06 */
@@ -9986,7 +9986,7 @@ void DakaraClientPacketHandler::handleSaveChars(SaveChars* p) { (void)p;
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleChangeMapInfoBackup(ChangeMapInfoBackup* p) { (void)p;
+void HoAClientPacketHandler::handleChangeMapInfoBackup(ChangeMapInfoBackup* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 	/* 'Last Modification: 12/24/06 */
@@ -10026,7 +10026,7 @@ void DakaraClientPacketHandler::handleChangeMapInfoBackup(ChangeMapInfoBackup* p
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleChangeMapInfoPK(ChangeMapInfoPK* p) { (void)p;
+void HoAClientPacketHandler::handleChangeMapInfoPK(ChangeMapInfoPK* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 	/* 'Last Modification: 12/24/06 */
@@ -10061,7 +10061,7 @@ void DakaraClientPacketHandler::handleChangeMapInfoPK(ChangeMapInfoPK* p) { (voi
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleChangeMapInfoRestricted(ChangeMapInfoRestricted* p) { (void)p;
+void HoAClientPacketHandler::handleChangeMapInfoRestricted(ChangeMapInfoRestricted* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Pablo (ToxicWaste) */
 	/* 'Last Modification: 26/01/2007 */
@@ -10103,7 +10103,7 @@ void DakaraClientPacketHandler::handleChangeMapInfoRestricted(ChangeMapInfoRestr
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleChangeMapInfoNoMagic(ChangeMapInfoNoMagic* p) { (void)p;
+void HoAClientPacketHandler::handleChangeMapInfoNoMagic(ChangeMapInfoNoMagic* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Pablo (ToxicWaste) */
 	/* 'Last Modification: 26/01/2007 */
@@ -10132,7 +10132,7 @@ void DakaraClientPacketHandler::handleChangeMapInfoNoMagic(ChangeMapInfoNoMagic*
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleChangeMapInfoNoInvi(ChangeMapInfoNoInvi* p) { (void)p;
+void HoAClientPacketHandler::handleChangeMapInfoNoInvi(ChangeMapInfoNoInvi* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Pablo (ToxicWaste) */
 	/* 'Last Modification: 26/01/2007 */
@@ -10161,7 +10161,7 @@ void DakaraClientPacketHandler::handleChangeMapInfoNoInvi(ChangeMapInfoNoInvi* p
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleChangeMapInfoNoResu(ChangeMapInfoNoResu* p) { (void)p;
+void HoAClientPacketHandler::handleChangeMapInfoNoResu(ChangeMapInfoNoResu* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Pablo (ToxicWaste) */
 	/* 'Last Modification: 26/01/2007 */
@@ -10190,7 +10190,7 @@ void DakaraClientPacketHandler::handleChangeMapInfoNoResu(ChangeMapInfoNoResu* p
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleChangeMapInfoLand(ChangeMapInfoLand* p) { (void)p;
+void HoAClientPacketHandler::handleChangeMapInfoLand(ChangeMapInfoLand* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Pablo (ToxicWaste) */
 	/* 'Last Modification: 26/01/2007 */
@@ -10234,7 +10234,7 @@ void DakaraClientPacketHandler::handleChangeMapInfoLand(ChangeMapInfoLand* p) { 
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleChangeMapInfoZone(ChangeMapInfoZone* p) { (void)p;
+void HoAClientPacketHandler::handleChangeMapInfoZone(ChangeMapInfoZone* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Pablo (ToxicWaste) */
 	/* 'Last Modification: 26/01/2007 */
@@ -10272,7 +10272,7 @@ void DakaraClientPacketHandler::handleChangeMapInfoZone(ChangeMapInfoZone* p) { 
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleChangeMapInfoStealNpc(ChangeMapInfoStealNpc* p) { (void)p;
+void HoAClientPacketHandler::handleChangeMapInfoStealNpc(ChangeMapInfoStealNpc* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: ZaMa */
 	/* 'Last Modification: 25/07/2010 */
@@ -10304,7 +10304,7 @@ void DakaraClientPacketHandler::handleChangeMapInfoStealNpc(ChangeMapInfoStealNp
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleChangeMapInfoNoOcultar(ChangeMapInfoNoOcultar* p) { (void)p;
+void HoAClientPacketHandler::handleChangeMapInfoNoOcultar(ChangeMapInfoNoOcultar* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: ZaMa */
 	/* 'Last Modification: 18/09/2010 */
@@ -10340,7 +10340,7 @@ void DakaraClientPacketHandler::handleChangeMapInfoNoOcultar(ChangeMapInfoNoOcul
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleChangeMapInfoNoInvocar(ChangeMapInfoNoInvocar* p) { (void)p;
+void HoAClientPacketHandler::handleChangeMapInfoNoInvocar(ChangeMapInfoNoInvocar* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: ZaMa */
 	/* 'Last Modification: 18/09/2010 */
@@ -10376,7 +10376,7 @@ void DakaraClientPacketHandler::handleChangeMapInfoNoInvocar(ChangeMapInfoNoInvo
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleSaveMap(SaveMap* p) { (void)p;
+void HoAClientPacketHandler::handleSaveMap(SaveMap* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 	/* 'Last Modification: 12/24/06 */
@@ -10402,7 +10402,7 @@ void DakaraClientPacketHandler::handleSaveMap(SaveMap* p) { (void)p;
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleShowGuildMessages(ShowGuildMessages* p) { (void)p;
+void HoAClientPacketHandler::handleShowGuildMessages(ShowGuildMessages* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 	/* 'Last Modification: 12/24/06 */
@@ -10425,7 +10425,7 @@ void DakaraClientPacketHandler::handleShowGuildMessages(ShowGuildMessages* p) { 
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleDoBackUp(dakara::protocol::clientgm::DoBackUp* p) { (void)p;
+void HoAClientPacketHandler::handleDoBackUp(hoa::protocol::clientgm::DoBackUp* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 	/* 'Last Modification: 12/24/06 */
@@ -10447,7 +10447,7 @@ void DakaraClientPacketHandler::handleDoBackUp(dakara::protocol::clientgm::DoBac
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleToggleCentinelActivated(ToggleCentinelActivated* p) { (void)p;
+void HoAClientPacketHandler::handleToggleCentinelActivated(ToggleCentinelActivated* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 	/* 'Last Modification: 12/26/06 */
@@ -10467,10 +10467,10 @@ void DakaraClientPacketHandler::handleToggleCentinelActivated(ToggleCentinelActi
 
 	if (centinelaActivado) {
 		SendData(SendTarget_ToAdmins, 0,
-				dakara::protocol::server::BuildConsoleMsg("El centinela ha sido activado.", FontTypeNames_FONTTYPE_SERVER));
+				hoa::protocol::server::BuildConsoleMsg("El centinela ha sido activado.", FontTypeNames_FONTTYPE_SERVER));
 	} else {
 		SendData(SendTarget_ToAdmins, 0,
-				dakara::protocol::server::BuildConsoleMsg("El centinela ha sido desactivado.", FontTypeNames_FONTTYPE_SERVER));
+				hoa::protocol::server::BuildConsoleMsg("El centinela ha sido desactivado.", FontTypeNames_FONTTYPE_SERVER));
 	}
 }
 
@@ -10479,7 +10479,7 @@ void DakaraClientPacketHandler::handleToggleCentinelActivated(ToggleCentinelActi
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleAlterName(AlterName* p) { (void)p;
+void HoAClientPacketHandler::handleAlterName(AlterName* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 12/26/06 */
@@ -10557,7 +10557,7 @@ void DakaraClientPacketHandler::handleAlterName(AlterName* p) { (void)p;
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleAlterMail(AlterMail* p) { (void)p;
+void HoAClientPacketHandler::handleAlterMail(AlterMail* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 12/26/06 */
@@ -10593,7 +10593,7 @@ void DakaraClientPacketHandler::handleAlterMail(AlterMail* p) { (void)p;
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleCreateNPC(CreateNPC* p) { (void)p;
+void HoAClientPacketHandler::handleCreateNPC(CreateNPC* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 26/09/2010 */
@@ -10631,7 +10631,7 @@ void DakaraClientPacketHandler::handleCreateNPC(CreateNPC* p) { (void)p;
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleCreateNPCWithRespawn(CreateNPCWithRespawn* p) { (void)p;
+void HoAClientPacketHandler::handleCreateNPCWithRespawn(CreateNPCWithRespawn* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 26/09/2010 */
@@ -10666,7 +10666,7 @@ void DakaraClientPacketHandler::handleCreateNPCWithRespawn(CreateNPCWithRespawn*
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleImperialArmour(ImperialArmour* p) { (void)p;
+void HoAClientPacketHandler::handleImperialArmour(ImperialArmour* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 12/24/06 */
@@ -10710,7 +10710,7 @@ void DakaraClientPacketHandler::handleImperialArmour(ImperialArmour* p) { (void)
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleChaosArmour(ChaosArmour* p) { (void)p;
+void HoAClientPacketHandler::handleChaosArmour(ChaosArmour* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 12/24/06 */
@@ -10754,7 +10754,7 @@ void DakaraClientPacketHandler::handleChaosArmour(ChaosArmour* p) { (void)p;
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleNavigateToggle(NavigateToggle* p) { (void)p;
+void HoAClientPacketHandler::handleNavigateToggle(NavigateToggle* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 01/12/07 */
@@ -10780,7 +10780,7 @@ void DakaraClientPacketHandler::handleNavigateToggle(NavigateToggle* p) { (void)
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleServerOpenToUsersToggle(ServerOpenToUsersToggle* p) { (void)p;
+void HoAClientPacketHandler::handleServerOpenToUsersToggle(ServerOpenToUsersToggle* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 12/24/06 */
@@ -10805,7 +10805,7 @@ void DakaraClientPacketHandler::handleServerOpenToUsersToggle(ServerOpenToUsersT
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleTurnOffServer(TurnOffServer* p) { (void)p;
+void HoAClientPacketHandler::handleTurnOffServer(TurnOffServer* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 12/24/06 */
@@ -10819,7 +10819,7 @@ void DakaraClientPacketHandler::handleTurnOffServer(TurnOffServer* p) { (void)p;
 
 	LogGM(UserList[UserIndex].Name, "/APAGAR");
 	SendData(SendTarget_ToAll, 0,
-			dakara::protocol::server::BuildConsoleMsg("¡¡¡" + UserList[UserIndex].Name + " VA A APAGAR EL SERVIDOR!!!",
+			hoa::protocol::server::BuildConsoleMsg("¡¡¡" + UserList[UserIndex].Name + " VA A APAGAR EL SERVIDOR!!!",
 					FontTypeNames_FONTTYPE_FIGHT));
 
 	LogMain(vb6::string_format("%d server apagado por %s", vb6::Now(), UserList[UserIndex].Name.c_str()));
@@ -10830,7 +10830,7 @@ void DakaraClientPacketHandler::handleTurnOffServer(TurnOffServer* p) { (void)p;
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleTurnCriminal(TurnCriminal* p) { (void)p;
+void HoAClientPacketHandler::handleTurnCriminal(TurnCriminal* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 12/26/06 */
@@ -10863,7 +10863,7 @@ void DakaraClientPacketHandler::handleTurnCriminal(TurnCriminal* p) { (void)p;
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleResetFactions(ResetFactions* p) { (void)p;
+void HoAClientPacketHandler::handleResetFactions(ResetFactions* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 06/09/09 */
@@ -10930,7 +10930,7 @@ void DakaraClientPacketHandler::handleResetFactions(ResetFactions* p) { (void)p;
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleRemoveCharFromGuild(RemoveCharFromGuild* p) { (void)p;
+void HoAClientPacketHandler::handleRemoveCharFromGuild(RemoveCharFromGuild* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 12/26/06 */
@@ -10955,7 +10955,7 @@ void DakaraClientPacketHandler::handleRemoveCharFromGuild(RemoveCharFromGuild* p
 		} else {
 			WriteConsoleMsg(UserIndex, "Expelled.", FontTypeNames_FONTTYPE_INFO);
 			SendData(SendTarget_ToGuildMembers, GuildIndex,
-					dakara::protocol::server::BuildConsoleMsg(
+					hoa::protocol::server::BuildConsoleMsg(
 							UserName + " has been expelled from the clan by the server's admins.",
 							FontTypeNames_FONTTYPE_GUILD));
 		}
@@ -10971,7 +10971,7 @@ void DakaraClientPacketHandler::handleRemoveCharFromGuild(RemoveCharFromGuild* p
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleRequestCharMail(RequestCharMail* p) { (void)p;
+void HoAClientPacketHandler::handleRequestCharMail(RequestCharMail* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 12/26/06 */
@@ -10998,7 +10998,7 @@ void DakaraClientPacketHandler::handleRequestCharMail(RequestCharMail* p) { (voi
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleSystemMessage(SystemMessage* p) { (void)p;
+void HoAClientPacketHandler::handleSystemMessage(SystemMessage* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 	/* 'Last Modification: 12/29/06 */
@@ -11010,7 +11010,7 @@ void DakaraClientPacketHandler::handleSystemMessage(SystemMessage* p) { (void)p;
 	if (UserTieneAlgunPrivilegios(UserIndex, PlayerType_Admin, PlayerType_Dios)) {
 		LogGM(UserList[UserIndex].Name, "Mensaje de sistema:" + message);
 
-		SendData(SendTarget_ToAll, 0, dakara::protocol::server::BuildShowMessageBox(message));
+		SendData(SendTarget_ToAll, 0, hoa::protocol::server::BuildShowMessageBox(message));
 	}
 }
 
@@ -11019,7 +11019,7 @@ void DakaraClientPacketHandler::handleSystemMessage(SystemMessage* p) { (void)p;
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleSetMOTD(SetMOTD* p) { (void)p;
+void HoAClientPacketHandler::handleSetMOTD(SetMOTD* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 	/* 'Last Modification: 03/31/07 */
@@ -11068,7 +11068,7 @@ void DakaraClientPacketHandler::handleSetMOTD(SetMOTD* p) { (void)p;
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleChangeMOTD(ChangeMOTD* p) { (void)p;
+void HoAClientPacketHandler::handleChangeMOTD(ChangeMOTD* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Juan Martín sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 12/29/06 */
@@ -11102,7 +11102,7 @@ void DakaraClientPacketHandler::handleChangeMOTD(ChangeMOTD* p) { (void)p;
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handlePing(Ping* p) { (void)p;
+void HoAClientPacketHandler::handlePing(Ping* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 	/* 'Last Modification: 12/24/06 */
@@ -11117,7 +11117,7 @@ void DakaraClientPacketHandler::handlePing(Ping* p) { (void)p;
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleSetIniVar(SetIniVar* p) { (void)p;
+void HoAClientPacketHandler::handleSetIniVar(SetIniVar* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Brian Chaia (BrianPr) */
 	/* 'Last Modification: 01/23/10 (Marco) */
@@ -11172,7 +11172,7 @@ void DakaraClientPacketHandler::handleSetIniVar(SetIniVar* p) { (void)p;
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleCreatePretorianClan(CreatePretorianClan* p) { (void)p;
+void HoAClientPacketHandler::handleCreatePretorianClan(CreatePretorianClan* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: ZaMa */
 	/* 'Last Modification: 29/10/2010 */
@@ -11225,7 +11225,7 @@ void DakaraClientPacketHandler::handleCreatePretorianClan(CreatePretorianClan* p
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleRemovePretorianClan(RemovePretorianClan* p) { (void)p;
+void HoAClientPacketHandler::handleRemovePretorianClan(RemovePretorianClan* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: ZaMa */
 	/* 'Last Modification: 29/10/2010 */
@@ -11268,7 +11268,7 @@ void DakaraClientPacketHandler::handleRemovePretorianClan(RemovePretorianClan* p
 /* ' */
 /* ' @param UserIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleSetDialog(SetDialog* p) { (void)p;
+void HoAClientPacketHandler::handleSetDialog(SetDialog* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Amraphen */
 	/* 'Last Modification: 18/11/2010 */
@@ -11291,7 +11291,7 @@ void DakaraClientPacketHandler::handleSetDialog(SetDialog* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleImpersonate(Impersonate* p) { (void)p;
+void HoAClientPacketHandler::handleImpersonate(Impersonate* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: ZaMa */
 	/* 'Last Modification: 20/11/2010 */
@@ -11330,7 +11330,7 @@ void DakaraClientPacketHandler::handleImpersonate(Impersonate* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleImitate(Imitate* p) { (void)p;
+void HoAClientPacketHandler::handleImitate(Imitate* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: ZaMa */
 	/* 'Last Modification: 20/11/2010 */
@@ -11361,7 +11361,7 @@ void DakaraClientPacketHandler::handleImitate(Imitate* p) { (void)p;
 /* ' */
 /* ' @param UserIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleRecordAdd(RecordAdd* p) { (void)p;
+void HoAClientPacketHandler::handleRecordAdd(RecordAdd* p) { (void)p;
 	/* '************************************************************** */
 	/* 'Author: Amraphen */
 	/* 'Last Modify Date: 29/11/2010 */
@@ -11393,7 +11393,7 @@ void DakaraClientPacketHandler::handleRecordAdd(RecordAdd* p) { (void)p;
 /* ' */
 /* ' @param UserIndex The index of the user sending the message. */
 
-void DakaraClientPacketHandler::handleRecordAddObs(RecordAddObs* p) { (void)p;
+void HoAClientPacketHandler::handleRecordAddObs(RecordAddObs* p) { (void)p;
 	/* '************************************************************** */
 	/* 'Author: Amraphen */
 	/* 'Last Modify Date: 29/11/2010 */
@@ -11419,7 +11419,7 @@ void DakaraClientPacketHandler::handleRecordAddObs(RecordAddObs* p) { (void)p;
 /* ' */
 /* ' @param UserIndex The index of the user sending the message. */
 
-void DakaraClientPacketHandler::handleRecordRemove(RecordRemove* p) { (void)p;
+void HoAClientPacketHandler::handleRecordRemove(RecordRemove* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Amraphen */
 	/* 'Last Modification: 29/11/2010 */
@@ -11448,7 +11448,7 @@ void DakaraClientPacketHandler::handleRecordRemove(RecordRemove* p) { (void)p;
 /* ' */
 /* ' @param UserIndex The index of the user sending the message. */
 
-void DakaraClientPacketHandler::handleRecordListRequest(RecordListRequest* p) { (void)p;
+void HoAClientPacketHandler::handleRecordListRequest(RecordListRequest* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Amraphen */
 	/* 'Last Modification: 29/11/2010 */
@@ -11469,7 +11469,7 @@ void DakaraClientPacketHandler::handleRecordListRequest(RecordListRequest* p) { 
 /* ' */
 /* ' @param UserIndex The index of the user sending the message. */
 
-void DakaraClientPacketHandler::handleRecordDetailsRequest(RecordDetailsRequest* p) { (void)p;
+void HoAClientPacketHandler::handleRecordDetailsRequest(RecordDetailsRequest* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Amraphen */
 	/* 'Last Modification: 07/04/2011 */
@@ -11486,7 +11486,7 @@ void DakaraClientPacketHandler::handleRecordDetailsRequest(RecordDetailsRequest*
 	WriteRecordDetails(UserIndex, RecordIndex);
 }
 
-void DakaraClientPacketHandler::handleMoveItem(MoveItem* p) { (void)p;
+void HoAClientPacketHandler::handleMoveItem(MoveItem* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Ignacio Mariano Tirabasso (Budi) */
 	/* 'Last Modification: 01/01/2011 */
@@ -11501,7 +11501,7 @@ void DakaraClientPacketHandler::handleMoveItem(MoveItem* p) { (void)p;
 /* ' */
 
 
-void DakaraClientPacketHandler::handleHigherAdminsMessage(HigherAdminsMessage* p) { (void)p;
+void HoAClientPacketHandler::handleHigherAdminsMessage(HigherAdminsMessage* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Torres Patricio (Pato) */
 	/* 'Last Modification: 03/30/12 */
@@ -11518,7 +11518,7 @@ void DakaraClientPacketHandler::handleHigherAdminsMessage(HigherAdminsMessage* p
 			ParseChat(message);
 
 			SendData(SendTarget_ToHigherAdminsButRMs, 0,
-					dakara::protocol::server::BuildConsoleMsg(UserList[UserIndex].Name + "(Sólo Dioses)> " + message,
+					hoa::protocol::server::BuildConsoleMsg(UserList[UserIndex].Name + "(Sólo Dioses)> " + message,
 							FontTypeNames_FONTTYPE_GMMSG));
 		}
 	}
@@ -11530,7 +11530,7 @@ void DakaraClientPacketHandler::handleHigherAdminsMessage(HigherAdminsMessage* p
 /* ' */
 /* ' @param userIndex The index of the user sending the message */
 
-void DakaraClientPacketHandler::handleAlterGuildName(AlterGuildName* p) { (void)p;
+void HoAClientPacketHandler::handleAlterGuildName(AlterGuildName* p) { (void)p;
 	/* '*************************************************** */
 	/* 'Author: Lex! */
 	/* 'Last Modification: 14/05/12 */

@@ -7,7 +7,7 @@
 
 #include "ProtocolNew.h"
 
-namespace dakara {
+namespace hoa {
 namespace protocol {
 
 
@@ -3875,7 +3875,7 @@ GMCommands::GMCommands() : ClientPacket(ClientPacketID_GMCommands /* 122 */) {
 
 GMCommands::GMCommands(clsByteQueue* buffer) : ClientPacket(ClientPacketID_GMCommands /* 122 */) {
     buffer->ReadByte(); /* PacketID */
-    composite.reset(dakara::protocol::clientgm::ClientGMPacketFactory(buffer));
+    composite.reset(hoa::protocol::clientgm::ClientGMPacketFactory(buffer));
 /*  */
 }
 
@@ -5814,7 +5814,7 @@ GMMessage::GMMessage(const std::string& Chat_) : ClientGMPacket(ClientGMPacketID
 }
 
 void GMMessage::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_GMMessage); /* PacketID: 1 */
     buffer->WriteUnicodeString(Chat);
 
@@ -5833,7 +5833,7 @@ ShowName::ShowName(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_ShowN
 }
 
 void ShowName::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ShowName); /* PacketID: 2 */
 
 }
@@ -5851,7 +5851,7 @@ OnlineRoyalArmy::OnlineRoyalArmy(clsByteQueue* buffer) : ClientGMPacket(ClientGM
 }
 
 void OnlineRoyalArmy::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_OnlineRoyalArmy); /* PacketID: 3 */
 
 }
@@ -5869,7 +5869,7 @@ OnlineChaosLegion::OnlineChaosLegion(clsByteQueue* buffer) : ClientGMPacket(Clie
 }
 
 void OnlineChaosLegion::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_OnlineChaosLegion); /* PacketID: 4 */
 
 }
@@ -5891,7 +5891,7 @@ GoNearby::GoNearby(const std::string& UserName_) : ClientGMPacket(ClientGMPacket
 }
 
 void GoNearby::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_GoNearby); /* PacketID: 5 */
     buffer->WriteUnicodeString(UserName);
 
@@ -5914,7 +5914,7 @@ Comment::Comment(const std::string& Data_) : ClientGMPacket(ClientGMPacketID_Com
 }
 
 void Comment::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_Comment); /* PacketID: 6 */
     buffer->WriteUnicodeString(Data);
 
@@ -5933,7 +5933,7 @@ ServerTime::ServerTime(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_S
 }
 
 void ServerTime::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ServerTime); /* PacketID: 7 */
 
 }
@@ -5955,7 +5955,7 @@ Where::Where(const std::string& UserName_) : ClientGMPacket(ClientGMPacketID_Whe
 }
 
 void Where::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_Where); /* PacketID: 8 */
     buffer->WriteUnicodeString(UserName);
 
@@ -5978,7 +5978,7 @@ CreaturesInMap::CreaturesInMap(std::int16_t Map_) : ClientGMPacket(ClientGMPacke
 }
 
 void CreaturesInMap::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_CreaturesInMap); /* PacketID: 9 */
     buffer->WriteInteger(Map);
 
@@ -5997,7 +5997,7 @@ WarpMeToTarget::WarpMeToTarget(clsByteQueue* buffer) : ClientGMPacket(ClientGMPa
 }
 
 void WarpMeToTarget::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_WarpMeToTarget); /* PacketID: 10 */
 
 }
@@ -6022,7 +6022,7 @@ WarpChar::WarpChar(const std::string& UserName_, std::int16_t Map_, std::uint8_t
 }
 
 void WarpChar::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_WarpChar); /* PacketID: 11 */
     buffer->WriteUnicodeString(UserName);
     buffer->WriteInteger(Map);
@@ -6048,7 +6048,7 @@ Silence::Silence(const std::string& UserName_) : ClientGMPacket(ClientGMPacketID
 }
 
 void Silence::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_Silence); /* PacketID: 12 */
     buffer->WriteUnicodeString(UserName);
 
@@ -6067,7 +6067,7 @@ SOSShowList::SOSShowList(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID
 }
 
 void SOSShowList::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_SOSShowList); /* PacketID: 13 */
 
 }
@@ -6089,7 +6089,7 @@ SOSRemove::SOSRemove(const std::string& UserName_) : ClientGMPacket(ClientGMPack
 }
 
 void SOSRemove::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_SOSRemove); /* PacketID: 14 */
     buffer->WriteUnicodeString(UserName);
 
@@ -6112,7 +6112,7 @@ GoToChar::GoToChar(const std::string& UserName_) : ClientGMPacket(ClientGMPacket
 }
 
 void GoToChar::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_GoToChar); /* PacketID: 15 */
     buffer->WriteUnicodeString(UserName);
 
@@ -6131,7 +6131,7 @@ Invisible::Invisible(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_Inv
 }
 
 void Invisible::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_Invisible); /* PacketID: 16 */
 
 }
@@ -6149,7 +6149,7 @@ GMPanel::GMPanel(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_GMPanel
 }
 
 void GMPanel::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_GMPanel); /* PacketID: 17 */
 
 }
@@ -6167,7 +6167,7 @@ RequestUserList::RequestUserList(clsByteQueue* buffer) : ClientGMPacket(ClientGM
 }
 
 void RequestUserList::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_RequestUserList); /* PacketID: 18 */
 
 }
@@ -6185,7 +6185,7 @@ Working::Working(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_Working
 }
 
 void Working::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_Working); /* PacketID: 19 */
 
 }
@@ -6203,7 +6203,7 @@ Hiding::Hiding(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_Hiding /*
 }
 
 void Hiding::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_Hiding); /* PacketID: 20 */
 
 }
@@ -6227,7 +6227,7 @@ Jail::Jail(const std::string& UserName_, const std::string& Reason_, std::uint8_
 }
 
 void Jail::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_Jail); /* PacketID: 21 */
     buffer->WriteUnicodeString(UserName);
     buffer->WriteUnicodeString(Reason);
@@ -6248,7 +6248,7 @@ KillNPC::KillNPC(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_KillNPC
 }
 
 void KillNPC::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_KillNPC); /* PacketID: 22 */
 
 }
@@ -6271,7 +6271,7 @@ WarnUser::WarnUser(const std::string& UserName_, const std::string& Reason_) : C
 }
 
 void WarnUser::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_WarnUser); /* PacketID: 23 */
     buffer->WriteUnicodeString(UserName);
     buffer->WriteUnicodeString(Reason);
@@ -6298,7 +6298,7 @@ EditChar::EditChar(const std::string& UserName_, std::uint8_t Opcion_, const std
 }
 
 void EditChar::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_EditChar); /* PacketID: 24 */
     buffer->WriteUnicodeString(UserName);
     buffer->WriteByte(Opcion);
@@ -6324,7 +6324,7 @@ RequestCharInfo::RequestCharInfo(const std::string& TargetName_) : ClientGMPacke
 }
 
 void RequestCharInfo::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_RequestCharInfo); /* PacketID: 25 */
     buffer->WriteUnicodeString(TargetName);
 
@@ -6347,7 +6347,7 @@ RequestCharStats::RequestCharStats(const std::string& UserName_) : ClientGMPacke
 }
 
 void RequestCharStats::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_RequestCharStats); /* PacketID: 26 */
     buffer->WriteUnicodeString(UserName);
 
@@ -6370,7 +6370,7 @@ RequestCharGold::RequestCharGold(const std::string& UserName_) : ClientGMPacket(
 }
 
 void RequestCharGold::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_RequestCharGold); /* PacketID: 27 */
     buffer->WriteUnicodeString(UserName);
 
@@ -6393,7 +6393,7 @@ RequestCharInventory::RequestCharInventory(const std::string& UserName_) : Clien
 }
 
 void RequestCharInventory::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_RequestCharInventory); /* PacketID: 28 */
     buffer->WriteUnicodeString(UserName);
 
@@ -6416,7 +6416,7 @@ RequestCharBank::RequestCharBank(const std::string& UserName_) : ClientGMPacket(
 }
 
 void RequestCharBank::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_RequestCharBank); /* PacketID: 29 */
     buffer->WriteUnicodeString(UserName);
 
@@ -6439,7 +6439,7 @@ RequestCharSkills::RequestCharSkills(const std::string& UserName_) : ClientGMPac
 }
 
 void RequestCharSkills::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_RequestCharSkills); /* PacketID: 30 */
     buffer->WriteUnicodeString(UserName);
 
@@ -6462,7 +6462,7 @@ ReviveChar::ReviveChar(const std::string& UserName_) : ClientGMPacket(ClientGMPa
 }
 
 void ReviveChar::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ReviveChar); /* PacketID: 31 */
     buffer->WriteUnicodeString(UserName);
 
@@ -6481,7 +6481,7 @@ OnlineGM::OnlineGM(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_Onlin
 }
 
 void OnlineGM::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_OnlineGM); /* PacketID: 32 */
 
 }
@@ -6503,7 +6503,7 @@ OnlineMap::OnlineMap(std::int16_t Map_) : ClientGMPacket(ClientGMPacketID_Online
 }
 
 void OnlineMap::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_OnlineMap); /* PacketID: 33 */
     buffer->WriteInteger(Map);
 
@@ -6526,7 +6526,7 @@ Forgive::Forgive(const std::string& UserName_) : ClientGMPacket(ClientGMPacketID
 }
 
 void Forgive::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_Forgive); /* PacketID: 34 */
     buffer->WriteUnicodeString(UserName);
 
@@ -6549,7 +6549,7 @@ Kick::Kick(const std::string& UserName_) : ClientGMPacket(ClientGMPacketID_Kick 
 }
 
 void Kick::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_Kick); /* PacketID: 35 */
     buffer->WriteUnicodeString(UserName);
 
@@ -6572,7 +6572,7 @@ Execute::Execute(const std::string& UserName_) : ClientGMPacket(ClientGMPacketID
 }
 
 void Execute::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_Execute); /* PacketID: 36 */
     buffer->WriteUnicodeString(UserName);
 
@@ -6596,7 +6596,7 @@ BanChar::BanChar(const std::string& UserName_, const std::string& Reason_) : Cli
 }
 
 void BanChar::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_BanChar); /* PacketID: 37 */
     buffer->WriteUnicodeString(UserName);
     buffer->WriteUnicodeString(Reason);
@@ -6620,7 +6620,7 @@ UnbanChar::UnbanChar(const std::string& UserName_) : ClientGMPacket(ClientGMPack
 }
 
 void UnbanChar::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_UnbanChar); /* PacketID: 38 */
     buffer->WriteUnicodeString(UserName);
 
@@ -6639,7 +6639,7 @@ NPCFollow::NPCFollow(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_NPC
 }
 
 void NPCFollow::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_NPCFollow); /* PacketID: 39 */
 
 }
@@ -6661,7 +6661,7 @@ SummonChar::SummonChar(const std::string& UserName_) : ClientGMPacket(ClientGMPa
 }
 
 void SummonChar::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_SummonChar); /* PacketID: 40 */
     buffer->WriteUnicodeString(UserName);
 
@@ -6680,7 +6680,7 @@ SpawnListRequest::SpawnListRequest(clsByteQueue* buffer) : ClientGMPacket(Client
 }
 
 void SpawnListRequest::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_SpawnListRequest); /* PacketID: 41 */
 
 }
@@ -6702,7 +6702,7 @@ SpawnCreature::SpawnCreature(std::int16_t NPC_) : ClientGMPacket(ClientGMPacketI
 }
 
 void SpawnCreature::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_SpawnCreature); /* PacketID: 42 */
     buffer->WriteInteger(NPC);
 
@@ -6721,7 +6721,7 @@ ResetNPCInventory::ResetNPCInventory(clsByteQueue* buffer) : ClientGMPacket(Clie
 }
 
 void ResetNPCInventory::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ResetNPCInventory); /* PacketID: 43 */
 
 }
@@ -6739,7 +6739,7 @@ CleanWorld::CleanWorld(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_C
 }
 
 void CleanWorld::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_CleanWorld); /* PacketID: 44 */
 
 }
@@ -6761,7 +6761,7 @@ ServerMessage::ServerMessage(const std::string& Message_) : ClientGMPacket(Clien
 }
 
 void ServerMessage::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ServerMessage); /* PacketID: 45 */
     buffer->WriteUnicodeString(Message);
 
@@ -6784,7 +6784,7 @@ NickToIP::NickToIP(const std::string& UserName_) : ClientGMPacket(ClientGMPacket
 }
 
 void NickToIP::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_NickToIP); /* PacketID: 46 */
     buffer->WriteUnicodeString(UserName);
 
@@ -6810,7 +6810,7 @@ IPToNick::IPToNick(std::uint8_t A_, std::uint8_t B_, std::uint8_t C_, std::uint8
 }
 
 void IPToNick::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_IPToNick); /* PacketID: 47 */
     buffer->WriteByte(A);
     buffer->WriteByte(B);
@@ -6836,7 +6836,7 @@ GuildOnlineMembers::GuildOnlineMembers(const std::string& GuildName_) : ClientGM
 }
 
 void GuildOnlineMembers::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_GuildOnlineMembers); /* PacketID: 48 */
     buffer->WriteUnicodeString(GuildName);
 
@@ -6862,7 +6862,7 @@ TeleportCreate::TeleportCreate(std::int16_t Map_, std::uint8_t X_, std::uint8_t 
 }
 
 void TeleportCreate::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_TeleportCreate); /* PacketID: 49 */
     buffer->WriteInteger(Map);
     buffer->WriteByte(X);
@@ -6884,7 +6884,7 @@ TeleportDestroy::TeleportDestroy(clsByteQueue* buffer) : ClientGMPacket(ClientGM
 }
 
 void TeleportDestroy::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_TeleportDestroy); /* PacketID: 50 */
 
 }
@@ -6902,7 +6902,7 @@ RainToggle::RainToggle(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_R
 }
 
 void RainToggle::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_RainToggle); /* PacketID: 51 */
 
 }
@@ -6924,7 +6924,7 @@ SetCharDescription::SetCharDescription(const std::string& Description_) : Client
 }
 
 void SetCharDescription::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_SetCharDescription); /* PacketID: 52 */
     buffer->WriteUnicodeString(Description);
 
@@ -6948,7 +6948,7 @@ ForceMIDIToMap::ForceMIDIToMap(std::uint8_t MidiID_, std::int16_t Map_) : Client
 }
 
 void ForceMIDIToMap::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ForceMIDIToMap); /* PacketID: 53 */
     buffer->WriteByte(MidiID);
     buffer->WriteInteger(Map);
@@ -6975,7 +6975,7 @@ ForceWAVEToMap::ForceWAVEToMap(std::uint8_t Wave_, std::int16_t Map_, std::uint8
 }
 
 void ForceWAVEToMap::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ForceWAVEToMap); /* PacketID: 54 */
     buffer->WriteByte(Wave);
     buffer->WriteInteger(Map);
@@ -7001,7 +7001,7 @@ RoyalArmyMessage::RoyalArmyMessage(const std::string& Message_) : ClientGMPacket
 }
 
 void RoyalArmyMessage::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_RoyalArmyMessage); /* PacketID: 55 */
     buffer->WriteUnicodeString(Message);
 
@@ -7024,7 +7024,7 @@ ChaosLegionMessage::ChaosLegionMessage(const std::string& Message_) : ClientGMPa
 }
 
 void ChaosLegionMessage::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ChaosLegionMessage); /* PacketID: 56 */
     buffer->WriteUnicodeString(Message);
 
@@ -7047,7 +7047,7 @@ CitizenMessage::CitizenMessage(const std::string& Message_) : ClientGMPacket(Cli
 }
 
 void CitizenMessage::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_CitizenMessage); /* PacketID: 57 */
     buffer->WriteUnicodeString(Message);
 
@@ -7070,7 +7070,7 @@ CriminalMessage::CriminalMessage(const std::string& Message_) : ClientGMPacket(C
 }
 
 void CriminalMessage::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_CriminalMessage); /* PacketID: 58 */
     buffer->WriteUnicodeString(Message);
 
@@ -7093,7 +7093,7 @@ TalkAsNPC::TalkAsNPC(const std::string& Message_) : ClientGMPacket(ClientGMPacke
 }
 
 void TalkAsNPC::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_TalkAsNPC); /* PacketID: 59 */
     buffer->WriteUnicodeString(Message);
 
@@ -7112,7 +7112,7 @@ DestroyAllItemsInArea::DestroyAllItemsInArea(clsByteQueue* buffer) : ClientGMPac
 }
 
 void DestroyAllItemsInArea::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_DestroyAllItemsInArea); /* PacketID: 60 */
 
 }
@@ -7134,7 +7134,7 @@ AcceptRoyalCouncilMember::AcceptRoyalCouncilMember(const std::string& UserName_)
 }
 
 void AcceptRoyalCouncilMember::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_AcceptRoyalCouncilMember); /* PacketID: 61 */
     buffer->WriteUnicodeString(UserName);
 
@@ -7157,7 +7157,7 @@ AcceptChaosCouncilMember::AcceptChaosCouncilMember(const std::string& UserName_)
 }
 
 void AcceptChaosCouncilMember::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_AcceptChaosCouncilMember); /* PacketID: 62 */
     buffer->WriteUnicodeString(UserName);
 
@@ -7176,7 +7176,7 @@ ItemsInTheFloor::ItemsInTheFloor(clsByteQueue* buffer) : ClientGMPacket(ClientGM
 }
 
 void ItemsInTheFloor::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ItemsInTheFloor); /* PacketID: 63 */
 
 }
@@ -7198,7 +7198,7 @@ MakeDumb::MakeDumb(const std::string& UserName_) : ClientGMPacket(ClientGMPacket
 }
 
 void MakeDumb::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_MakeDumb); /* PacketID: 64 */
     buffer->WriteUnicodeString(UserName);
 
@@ -7221,7 +7221,7 @@ MakeDumbNoMore::MakeDumbNoMore(const std::string& UserName_) : ClientGMPacket(Cl
 }
 
 void MakeDumbNoMore::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_MakeDumbNoMore); /* PacketID: 65 */
     buffer->WriteUnicodeString(UserName);
 
@@ -7240,7 +7240,7 @@ DumpIPTables::DumpIPTables(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacket
 }
 
 void DumpIPTables::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_DumpIPTables); /* PacketID: 66 */
 
 }
@@ -7262,7 +7262,7 @@ CouncilKick::CouncilKick(const std::string& UserName_) : ClientGMPacket(ClientGM
 }
 
 void CouncilKick::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_CouncilKick); /* PacketID: 67 */
     buffer->WriteUnicodeString(UserName);
 
@@ -7285,7 +7285,7 @@ SetTrigger::SetTrigger(std::uint8_t Trigger_) : ClientGMPacket(ClientGMPacketID_
 }
 
 void SetTrigger::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_SetTrigger); /* PacketID: 68 */
     buffer->WriteByte(Trigger);
 
@@ -7304,7 +7304,7 @@ AskTrigger::AskTrigger(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_A
 }
 
 void AskTrigger::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_AskTrigger); /* PacketID: 69 */
 
 }
@@ -7322,7 +7322,7 @@ BannedIPList::BannedIPList(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacket
 }
 
 void BannedIPList::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_BannedIPList); /* PacketID: 70 */
 
 }
@@ -7340,7 +7340,7 @@ BannedIPReload::BannedIPReload(clsByteQueue* buffer) : ClientGMPacket(ClientGMPa
 }
 
 void BannedIPReload::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_BannedIPReload); /* PacketID: 71 */
 
 }
@@ -7362,7 +7362,7 @@ GuildMemberList::GuildMemberList(const std::string& GuildName_) : ClientGMPacket
 }
 
 void GuildMemberList::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_GuildMemberList); /* PacketID: 72 */
     buffer->WriteUnicodeString(GuildName);
 
@@ -7385,7 +7385,7 @@ GuildBan::GuildBan(const std::string& GuildName_) : ClientGMPacket(ClientGMPacke
 }
 
 void GuildBan::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_GuildBan); /* PacketID: 73 */
     buffer->WriteUnicodeString(GuildName);
 
@@ -7409,7 +7409,7 @@ BanIP::BanIP(const std::string& IP_, const std::string& Reason_) : ClientGMPacke
 }
 
 void BanIP::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_BanIP); /* PacketID: 74 */
     buffer->WriteUnicodeString(IP);
     buffer->WriteUnicodeString(Reason);
@@ -7433,7 +7433,7 @@ UnbanIP::UnbanIP(const std::string& IP_) : ClientGMPacket(ClientGMPacketID_Unban
 }
 
 void UnbanIP::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_UnbanIP); /* PacketID: 75 */
     buffer->WriteUnicodeString(IP);
 
@@ -7456,7 +7456,7 @@ CreateItem::CreateItem(std::int16_t Item_) : ClientGMPacket(ClientGMPacketID_Cre
 }
 
 void CreateItem::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_CreateItem); /* PacketID: 76 */
     buffer->WriteInteger(Item);
 
@@ -7475,7 +7475,7 @@ DestroyItems::DestroyItems(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacket
 }
 
 void DestroyItems::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_DestroyItems); /* PacketID: 77 */
 
 }
@@ -7498,7 +7498,7 @@ ChaosLegionKick::ChaosLegionKick(const std::string& UserName_, const std::string
 }
 
 void ChaosLegionKick::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ChaosLegionKick); /* PacketID: 78 */
     buffer->WriteUnicodeString(UserName);
     buffer->WriteUnicodeString(Reason);
@@ -7523,7 +7523,7 @@ RoyalArmyKick::RoyalArmyKick(const std::string& UserName_, const std::string& Re
 }
 
 void RoyalArmyKick::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_RoyalArmyKick); /* PacketID: 79 */
     buffer->WriteUnicodeString(UserName);
     buffer->WriteUnicodeString(Reason);
@@ -7547,7 +7547,7 @@ ForceMIDIAll::ForceMIDIAll(std::uint8_t MidiID_) : ClientGMPacket(ClientGMPacket
 }
 
 void ForceMIDIAll::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ForceMIDIAll); /* PacketID: 80 */
     buffer->WriteByte(MidiID);
 
@@ -7570,7 +7570,7 @@ ForceWAVEAll::ForceWAVEAll(std::uint8_t WaveID_) : ClientGMPacket(ClientGMPacket
 }
 
 void ForceWAVEAll::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ForceWAVEAll); /* PacketID: 81 */
     buffer->WriteByte(WaveID);
 
@@ -7595,7 +7595,7 @@ RemovePunishment::RemovePunishment(const std::string& UserName_, std::uint8_t Pu
 }
 
 void RemovePunishment::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_RemovePunishment); /* PacketID: 82 */
     buffer->WriteUnicodeString(UserName);
     buffer->WriteByte(Punishment);
@@ -7616,7 +7616,7 @@ TileBlockedToggle::TileBlockedToggle(clsByteQueue* buffer) : ClientGMPacket(Clie
 }
 
 void TileBlockedToggle::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_TileBlockedToggle); /* PacketID: 83 */
 
 }
@@ -7634,7 +7634,7 @@ KillNPCNoRespawn::KillNPCNoRespawn(clsByteQueue* buffer) : ClientGMPacket(Client
 }
 
 void KillNPCNoRespawn::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_KillNPCNoRespawn); /* PacketID: 84 */
 
 }
@@ -7652,7 +7652,7 @@ KillAllNearbyNPCs::KillAllNearbyNPCs(clsByteQueue* buffer) : ClientGMPacket(Clie
 }
 
 void KillAllNearbyNPCs::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_KillAllNearbyNPCs); /* PacketID: 85 */
 
 }
@@ -7674,7 +7674,7 @@ LastIP::LastIP(const std::string& UserName_) : ClientGMPacket(ClientGMPacketID_L
 }
 
 void LastIP::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_LastIP); /* PacketID: 86 */
     buffer->WriteUnicodeString(UserName);
 
@@ -7693,7 +7693,7 @@ ChangeMOTD::ChangeMOTD(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_C
 }
 
 void ChangeMOTD::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ChangeMOTD); /* PacketID: 87 */
 
 }
@@ -7715,7 +7715,7 @@ SetMOTD::SetMOTD(const std::string& Motd_) : ClientGMPacket(ClientGMPacketID_Set
 }
 
 void SetMOTD::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_SetMOTD); /* PacketID: 88 */
     buffer->WriteUnicodeString(Motd);
 
@@ -7738,7 +7738,7 @@ SystemMessage::SystemMessage(const std::string& Message_) : ClientGMPacket(Clien
 }
 
 void SystemMessage::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_SystemMessage); /* PacketID: 89 */
     buffer->WriteUnicodeString(Message);
 
@@ -7761,7 +7761,7 @@ CreateNPC::CreateNPC(std::int16_t NpcIndex_) : ClientGMPacket(ClientGMPacketID_C
 }
 
 void CreateNPC::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_CreateNPC); /* PacketID: 90 */
     buffer->WriteInteger(NpcIndex);
 
@@ -7784,7 +7784,7 @@ CreateNPCWithRespawn::CreateNPCWithRespawn(std::int16_t NpcIndex_) : ClientGMPac
 }
 
 void CreateNPCWithRespawn::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_CreateNPCWithRespawn); /* PacketID: 91 */
     buffer->WriteInteger(NpcIndex);
 
@@ -7808,7 +7808,7 @@ ImperialArmour::ImperialArmour(std::uint8_t Index_, std::int16_t ObjIndex_) : Cl
 }
 
 void ImperialArmour::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ImperialArmour); /* PacketID: 92 */
     buffer->WriteByte(Index);
     buffer->WriteInteger(ObjIndex);
@@ -7833,7 +7833,7 @@ ChaosArmour::ChaosArmour(std::uint8_t Index_, std::int16_t ObjIndex_) : ClientGM
 }
 
 void ChaosArmour::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ChaosArmour); /* PacketID: 93 */
     buffer->WriteByte(Index);
     buffer->WriteInteger(ObjIndex);
@@ -7853,7 +7853,7 @@ NavigateToggle::NavigateToggle(clsByteQueue* buffer) : ClientGMPacket(ClientGMPa
 }
 
 void NavigateToggle::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_NavigateToggle); /* PacketID: 94 */
 
 }
@@ -7871,7 +7871,7 @@ ServerOpenToUsersToggle::ServerOpenToUsersToggle(clsByteQueue* buffer) : ClientG
 }
 
 void ServerOpenToUsersToggle::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ServerOpenToUsersToggle); /* PacketID: 95 */
 
 }
@@ -7889,7 +7889,7 @@ TurnOffServer::TurnOffServer(clsByteQueue* buffer) : ClientGMPacket(ClientGMPack
 }
 
 void TurnOffServer::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_TurnOffServer); /* PacketID: 96 */
 
 }
@@ -7911,7 +7911,7 @@ TurnCriminal::TurnCriminal(const std::string& UserName_) : ClientGMPacket(Client
 }
 
 void TurnCriminal::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_TurnCriminal); /* PacketID: 97 */
     buffer->WriteUnicodeString(UserName);
 
@@ -7934,7 +7934,7 @@ ResetFactions::ResetFactions(const std::string& UserName_) : ClientGMPacket(Clie
 }
 
 void ResetFactions::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ResetFactions); /* PacketID: 98 */
     buffer->WriteUnicodeString(UserName);
 
@@ -7957,7 +7957,7 @@ RemoveCharFromGuild::RemoveCharFromGuild(const std::string& UserName_) : ClientG
 }
 
 void RemoveCharFromGuild::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_RemoveCharFromGuild); /* PacketID: 99 */
     buffer->WriteUnicodeString(UserName);
 
@@ -7980,7 +7980,7 @@ RequestCharMail::RequestCharMail(const std::string& UserName_) : ClientGMPacket(
 }
 
 void RequestCharMail::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_RequestCharMail); /* PacketID: 100 */
     buffer->WriteUnicodeString(UserName);
 
@@ -8004,7 +8004,7 @@ AlterMail::AlterMail(const std::string& UserName_, const std::string& NewMail_) 
 }
 
 void AlterMail::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_AlterMail); /* PacketID: 102 */
     buffer->WriteUnicodeString(UserName);
     buffer->WriteUnicodeString(NewMail);
@@ -8029,7 +8029,7 @@ AlterName::AlterName(const std::string& UserName_, const std::string& NewName_) 
 }
 
 void AlterName::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_AlterName); /* PacketID: 103 */
     buffer->WriteUnicodeString(UserName);
     buffer->WriteUnicodeString(NewName);
@@ -8049,7 +8049,7 @@ ToggleCentinelActivated::ToggleCentinelActivated(clsByteQueue* buffer) : ClientG
 }
 
 void ToggleCentinelActivated::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ToggleCentinelActivated); /* PacketID: 104 */
 
 }
@@ -8067,7 +8067,7 @@ DoBackUp::DoBackUp(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_DoBac
 }
 
 void DoBackUp::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_DoBackUp); /* PacketID: 105 */
 
 }
@@ -8089,7 +8089,7 @@ ShowGuildMessages::ShowGuildMessages(const std::string& GuildName_) : ClientGMPa
 }
 
 void ShowGuildMessages::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ShowGuildMessages); /* PacketID: 106 */
     buffer->WriteUnicodeString(GuildName);
 
@@ -8108,7 +8108,7 @@ SaveMap::SaveMap(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_SaveMap
 }
 
 void SaveMap::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_SaveMap); /* PacketID: 107 */
 
 }
@@ -8130,7 +8130,7 @@ ChangeMapInfoPK::ChangeMapInfoPK(bool Pk_) : ClientGMPacket(ClientGMPacketID_Cha
 }
 
 void ChangeMapInfoPK::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ChangeMapInfoPK); /* PacketID: 108 */
     buffer->WriteBoolean(Pk);
 
@@ -8153,7 +8153,7 @@ ChangeMapInfoBackup::ChangeMapInfoBackup(bool Backup_) : ClientGMPacket(ClientGM
 }
 
 void ChangeMapInfoBackup::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ChangeMapInfoBackup); /* PacketID: 109 */
     buffer->WriteBoolean(Backup);
 
@@ -8176,7 +8176,7 @@ ChangeMapInfoRestricted::ChangeMapInfoRestricted(const std::string& RestrictedTo
 }
 
 void ChangeMapInfoRestricted::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ChangeMapInfoRestricted); /* PacketID: 110 */
     buffer->WriteUnicodeString(RestrictedTo);
 
@@ -8199,7 +8199,7 @@ ChangeMapInfoNoMagic::ChangeMapInfoNoMagic(bool NoMagic_) : ClientGMPacket(Clien
 }
 
 void ChangeMapInfoNoMagic::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ChangeMapInfoNoMagic); /* PacketID: 111 */
     buffer->WriteBoolean(NoMagic);
 
@@ -8222,7 +8222,7 @@ ChangeMapInfoNoInvi::ChangeMapInfoNoInvi(bool NoInvi_) : ClientGMPacket(ClientGM
 }
 
 void ChangeMapInfoNoInvi::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ChangeMapInfoNoInvi); /* PacketID: 112 */
     buffer->WriteBoolean(NoInvi);
 
@@ -8245,7 +8245,7 @@ ChangeMapInfoNoResu::ChangeMapInfoNoResu(bool NoResu_) : ClientGMPacket(ClientGM
 }
 
 void ChangeMapInfoNoResu::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ChangeMapInfoNoResu); /* PacketID: 113 */
     buffer->WriteBoolean(NoResu);
 
@@ -8268,7 +8268,7 @@ ChangeMapInfoLand::ChangeMapInfoLand(const std::string& Data_) : ClientGMPacket(
 }
 
 void ChangeMapInfoLand::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ChangeMapInfoLand); /* PacketID: 114 */
     buffer->WriteUnicodeString(Data);
 
@@ -8291,7 +8291,7 @@ ChangeMapInfoZone::ChangeMapInfoZone(const std::string& Data_) : ClientGMPacket(
 }
 
 void ChangeMapInfoZone::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ChangeMapInfoZone); /* PacketID: 115 */
     buffer->WriteUnicodeString(Data);
 
@@ -8314,7 +8314,7 @@ ChangeMapInfoStealNpc::ChangeMapInfoStealNpc(bool RoboNpc_) : ClientGMPacket(Cli
 }
 
 void ChangeMapInfoStealNpc::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ChangeMapInfoStealNpc); /* PacketID: 116 */
     buffer->WriteBoolean(RoboNpc);
 
@@ -8337,7 +8337,7 @@ ChangeMapInfoNoOcultar::ChangeMapInfoNoOcultar(bool NoOcultar_) : ClientGMPacket
 }
 
 void ChangeMapInfoNoOcultar::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ChangeMapInfoNoOcultar); /* PacketID: 117 */
     buffer->WriteBoolean(NoOcultar);
 
@@ -8360,7 +8360,7 @@ ChangeMapInfoNoInvocar::ChangeMapInfoNoInvocar(bool NoInvocar_) : ClientGMPacket
 }
 
 void ChangeMapInfoNoInvocar::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ChangeMapInfoNoInvocar); /* PacketID: 118 */
     buffer->WriteBoolean(NoInvocar);
 
@@ -8379,7 +8379,7 @@ SaveChars::SaveChars(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_Sav
 }
 
 void SaveChars::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_SaveChars); /* PacketID: 119 */
 
 }
@@ -8397,7 +8397,7 @@ CleanSOS::CleanSOS(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_Clean
 }
 
 void CleanSOS::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_CleanSOS); /* PacketID: 120 */
 
 }
@@ -8415,7 +8415,7 @@ ShowServerForm::ShowServerForm(clsByteQueue* buffer) : ClientGMPacket(ClientGMPa
 }
 
 void ShowServerForm::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ShowServerForm); /* PacketID: 121 */
 
 }
@@ -8433,7 +8433,7 @@ Night::Night(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_Night /* 12
 }
 
 void Night::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_Night); /* PacketID: 122 */
 
 }
@@ -8451,7 +8451,7 @@ KickAllChars::KickAllChars(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacket
 }
 
 void KickAllChars::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_KickAllChars); /* PacketID: 123 */
 
 }
@@ -8469,7 +8469,7 @@ ReloadNPCs::ReloadNPCs(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_R
 }
 
 void ReloadNPCs::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ReloadNPCs); /* PacketID: 124 */
 
 }
@@ -8487,7 +8487,7 @@ ReloadServerIni::ReloadServerIni(clsByteQueue* buffer) : ClientGMPacket(ClientGM
 }
 
 void ReloadServerIni::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ReloadServerIni); /* PacketID: 125 */
 
 }
@@ -8505,7 +8505,7 @@ ReloadSpells::ReloadSpells(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacket
 }
 
 void ReloadSpells::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ReloadSpells); /* PacketID: 126 */
 
 }
@@ -8523,7 +8523,7 @@ ReloadObjects::ReloadObjects(clsByteQueue* buffer) : ClientGMPacket(ClientGMPack
 }
 
 void ReloadObjects::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ReloadObjects); /* PacketID: 127 */
 
 }
@@ -8541,7 +8541,7 @@ Restart::Restart(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_Restart
 }
 
 void Restart::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_Restart); /* PacketID: 128 */
 
 }
@@ -8559,7 +8559,7 @@ ResetAutoUpdate::ResetAutoUpdate(clsByteQueue* buffer) : ClientGMPacket(ClientGM
 }
 
 void ResetAutoUpdate::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ResetAutoUpdate); /* PacketID: 129 */
 
 }
@@ -8583,7 +8583,7 @@ ChatColor::ChatColor(std::uint8_t R_, std::uint8_t G_, std::uint8_t B_) : Client
 }
 
 void ChatColor::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ChatColor); /* PacketID: 130 */
     buffer->WriteByte(R);
     buffer->WriteByte(G);
@@ -8604,7 +8604,7 @@ Ignored::Ignored(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_Ignored
 }
 
 void Ignored::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_Ignored); /* PacketID: 131 */
 
 }
@@ -8627,7 +8627,7 @@ CheckSlot::CheckSlot(const std::string& UserName_, std::uint8_t Slot_) : ClientG
 }
 
 void CheckSlot::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_CheckSlot); /* PacketID: 132 */
     buffer->WriteUnicodeString(UserName);
     buffer->WriteByte(Slot);
@@ -8653,7 +8653,7 @@ SetIniVar::SetIniVar(const std::string& Seccion_, const std::string& Clave_, con
 }
 
 void SetIniVar::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_SetIniVar); /* PacketID: 133 */
     buffer->WriteUnicodeString(Seccion);
     buffer->WriteUnicodeString(Clave);
@@ -8680,7 +8680,7 @@ CreatePretorianClan::CreatePretorianClan(std::int16_t Map_, std::uint8_t X_, std
 }
 
 void CreatePretorianClan::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_CreatePretorianClan); /* PacketID: 134 */
     buffer->WriteInteger(Map);
     buffer->WriteByte(X);
@@ -8705,7 +8705,7 @@ RemovePretorianClan::RemovePretorianClan(std::int16_t Map_) : ClientGMPacket(Cli
 }
 
 void RemovePretorianClan::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_RemovePretorianClan); /* PacketID: 135 */
     buffer->WriteInteger(Map);
 
@@ -8724,7 +8724,7 @@ EnableDenounces::EnableDenounces(clsByteQueue* buffer) : ClientGMPacket(ClientGM
 }
 
 void EnableDenounces::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_EnableDenounces); /* PacketID: 136 */
 
 }
@@ -8742,7 +8742,7 @@ ShowDenouncesList::ShowDenouncesList(clsByteQueue* buffer) : ClientGMPacket(Clie
 }
 
 void ShowDenouncesList::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_ShowDenouncesList); /* PacketID: 137 */
 
 }
@@ -8764,7 +8764,7 @@ MapMessage::MapMessage(const std::string& Message_) : ClientGMPacket(ClientGMPac
 }
 
 void MapMessage::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_MapMessage); /* PacketID: 138 */
     buffer->WriteUnicodeString(Message);
 
@@ -8787,7 +8787,7 @@ SetDialog::SetDialog(const std::string& Message_) : ClientGMPacket(ClientGMPacke
 }
 
 void SetDialog::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_SetDialog); /* PacketID: 139 */
     buffer->WriteUnicodeString(Message);
 
@@ -8806,7 +8806,7 @@ Impersonate::Impersonate(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID
 }
 
 void Impersonate::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_Impersonate); /* PacketID: 140 */
 
 }
@@ -8824,7 +8824,7 @@ Imitate::Imitate(clsByteQueue* buffer) : ClientGMPacket(ClientGMPacketID_Imitate
 }
 
 void Imitate::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_Imitate); /* PacketID: 141 */
 
 }
@@ -8847,7 +8847,7 @@ RecordAdd::RecordAdd(const std::string& UserName_, const std::string& Reason_) :
 }
 
 void RecordAdd::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_RecordAdd); /* PacketID: 142 */
     buffer->WriteUnicodeString(UserName);
     buffer->WriteUnicodeString(Reason);
@@ -8871,7 +8871,7 @@ RecordRemove::RecordRemove(std::uint8_t Index_) : ClientGMPacket(ClientGMPacketI
 }
 
 void RecordRemove::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_RecordRemove); /* PacketID: 143 */
     buffer->WriteByte(Index);
 
@@ -8895,7 +8895,7 @@ RecordAddObs::RecordAddObs(std::uint8_t Index_, const std::string& Obs_) : Clien
 }
 
 void RecordAddObs::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_RecordAddObs); /* PacketID: 144 */
     buffer->WriteByte(Index);
     buffer->WriteUnicodeString(Obs);
@@ -8915,7 +8915,7 @@ RecordListRequest::RecordListRequest(clsByteQueue* buffer) : ClientGMPacket(Clie
 }
 
 void RecordListRequest::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_RecordListRequest); /* PacketID: 145 */
 
 }
@@ -8937,7 +8937,7 @@ RecordDetailsRequest::RecordDetailsRequest(std::uint8_t Index_) : ClientGMPacket
 }
 
 void RecordDetailsRequest::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_RecordDetailsRequest); /* PacketID: 146 */
     buffer->WriteByte(Index);
 
@@ -8961,7 +8961,7 @@ AlterGuildName::AlterGuildName(const std::string& OldGuildName_, const std::stri
 }
 
 void AlterGuildName::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_AlterGuildName); /* PacketID: 147 */
     buffer->WriteUnicodeString(OldGuildName);
     buffer->WriteUnicodeString(NewGuildName);
@@ -8985,7 +8985,7 @@ HigherAdminsMessage::HigherAdminsMessage(const std::string& Message_) : ClientGM
 }
 
 void HigherAdminsMessage::serialize(clsByteQueue* buffer) const {
-    buffer->WriteByte(dakara::protocol::client::ClientPacketID_GMCommands);
+    buffer->WriteByte(hoa::protocol::client::ClientPacketID_GMCommands);
     buffer->WriteByte(ClientGMPacketID_HigherAdminsMessage); /* PacketID: 148 */
     buffer->WriteUnicodeString(Message);
 
@@ -11802,7 +11802,7 @@ void ShowSignal::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleShowSignal(this);
 }
 
-ChangeNPCInventorySlot::ChangeNPCInventorySlot() : ServerPacket(ServerPacketID_ChangeNPCInventorySlot /* 59 */), Slot(), ObjName(), Amount(), Price(), GrhIndex(), ObjIndex(), ObjType(), MaxHit(), MinHit(), MaxDef(), MinDef() {
+ChangeNPCInventorySlot::ChangeNPCInventorySlot() : ServerPacket(ServerPacketID_ChangeNPCInventorySlot /* 59 */), Slot(), ObjName(), Amount(), Price(), canUse(), GrhIndex(), ObjIndex(), ObjType(), MaxHit(), MinHit(), MaxDef(), MinDef() {
 }
 
 ChangeNPCInventorySlot::ChangeNPCInventorySlot(clsByteQueue* buffer) : ServerPacket(ServerPacketID_ChangeNPCInventorySlot /* 59 */) {
@@ -11811,6 +11811,7 @@ ChangeNPCInventorySlot::ChangeNPCInventorySlot(clsByteQueue* buffer) : ServerPac
     ObjName = buffer->ReadUnicodeString();
     Amount = buffer->ReadInteger();
     Price = buffer->ReadSingle();
+    canUse = buffer->ReadBoolean();
     GrhIndex = buffer->ReadInteger();
     ObjIndex = buffer->ReadInteger();
     ObjType = buffer->ReadByte();
@@ -11821,7 +11822,7 @@ ChangeNPCInventorySlot::ChangeNPCInventorySlot(clsByteQueue* buffer) : ServerPac
 
 }
 
-ChangeNPCInventorySlot::ChangeNPCInventorySlot(std::uint8_t Slot_, const std::string& ObjName_, std::int16_t Amount_, float Price_, std::int16_t GrhIndex_, std::int16_t ObjIndex_, std::uint8_t ObjType_, std::int16_t MaxHit_, std::int16_t MinHit_, std::int16_t MaxDef_, std::int16_t MinDef_) : ServerPacket(ServerPacketID_ChangeNPCInventorySlot /* 59 */), Slot(Slot_), ObjName(ObjName_), Amount(Amount_), Price(Price_), GrhIndex(GrhIndex_), ObjIndex(ObjIndex_), ObjType(ObjType_), MaxHit(MaxHit_), MinHit(MinHit_), MaxDef(MaxDef_), MinDef(MinDef_) {
+ChangeNPCInventorySlot::ChangeNPCInventorySlot(std::uint8_t Slot_, const std::string& ObjName_, std::int16_t Amount_, float Price_, bool canUse_, std::int16_t GrhIndex_, std::int16_t ObjIndex_, std::uint8_t ObjType_, std::int16_t MaxHit_, std::int16_t MinHit_, std::int16_t MaxDef_, std::int16_t MinDef_) : ServerPacket(ServerPacketID_ChangeNPCInventorySlot /* 59 */), Slot(Slot_), ObjName(ObjName_), Amount(Amount_), Price(Price_), canUse(canUse_), GrhIndex(GrhIndex_), ObjIndex(ObjIndex_), ObjType(ObjType_), MaxHit(MaxHit_), MinHit(MinHit_), MaxDef(MaxDef_), MinDef(MinDef_) {
 }
 
 void ChangeNPCInventorySlot::serialize(clsByteQueue* buffer) const {
@@ -11830,6 +11831,7 @@ void ChangeNPCInventorySlot::serialize(clsByteQueue* buffer) const {
     buffer->WriteUnicodeString(ObjName);
     buffer->WriteInteger(Amount);
     buffer->WriteSingle(Price);
+    buffer->WriteBoolean(canUse);
     buffer->WriteInteger(GrhIndex);
     buffer->WriteInteger(ObjIndex);
     buffer->WriteByte(ObjType);

@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -259,7 +259,7 @@ void AccionParaPuerta(int Map, int X, int Y, int UserIndex) {
 
 					SendToAreaByPos(Map, X, Y,
 							PacketToString(
-									dakara::protocol::server::BuildObjectCreate(
+									hoa::protocol::server::BuildObjectCreate(
 											X, Y,
 											ObjData[MapData[Map][X][Y].ObjInfo.ObjIndex].GrhIndex)));
 					/* 'Desbloquea */
@@ -271,7 +271,7 @@ void AccionParaPuerta(int Map, int X, int Y, int UserIndex) {
 					Bloquear(true, Map, X - 1, Y, 0);
 
 					/* 'Sonido */
-					auto msg = dakara::protocol::server::BuildPlayWave(SND_PUERTA, X, Y);
+					auto msg = hoa::protocol::server::BuildPlayWave(SND_PUERTA, X, Y);
 					SendData(SendTarget_ToPCArea, UserIndex, msg);
 
 				} else {
@@ -286,7 +286,7 @@ void AccionParaPuerta(int Map, int X, int Y, int UserIndex) {
 
 				SendToAreaByPos(Map, X, Y,
 						PacketToString(
-								dakara::protocol::server::BuildObjectCreate(X,
+								hoa::protocol::server::BuildObjectCreate(X,
 										Y,
 										ObjData[MapData[Map][X][Y].ObjInfo.ObjIndex].GrhIndex)));
 				MapData[Map][X][Y].Blocked = 1;
@@ -295,7 +295,7 @@ void AccionParaPuerta(int Map, int X, int Y, int UserIndex) {
 				Bloquear(true, Map, X - 1, Y, 1);
 				Bloquear(true, Map, X, Y, 1);
 
-				auto msg = dakara::protocol::server::BuildPlayWave(SND_PUERTA, X, Y);
+				auto msg = hoa::protocol::server::BuildPlayWave(SND_PUERTA, X, Y);
 				SendData(SendTarget_ToPCArea, UserIndex, msg);
 			}
 

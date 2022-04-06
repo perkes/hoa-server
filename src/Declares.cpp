@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -660,4 +660,4 @@ const int GOLD_PER_LEVEL = 3000;
 //std::string GUILDPATH;
 //std::string GUILDINFOFILE;
 
-std::string DakaraBasePath;
+std::string HoABasePath;

@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -335,7 +335,7 @@ void AprobarIngresoAParty(int leader, int NewMember) {
 						/* 'no pudo entrar */
 						/* 'ACA UNO PUEDE CODIFICAR OTRO TIPO DE ERRORES... */
 						SendData(SendTarget_ToAdmins, leader,
-								dakara::protocol::server::BuildConsoleMsg(
+								hoa::protocol::server::BuildConsoleMsg(
 										" Server> CATÁSTROFE EN PARTIES, NUEVOMIEMBRO DIO FALSE! :S ",
 										FontTypeNames_FONTTYPE_PARTY));
 					}
@@ -481,10 +481,10 @@ void ActualizaExperiencias() {
 
 		haciendoBK = true;
 		SendData(SendTarget_ToAll, 0,
-				dakara::protocol::server::BuildPauseToggle());
+				hoa::protocol::server::BuildPauseToggle());
 
 		SendData(SendTarget_ToAll, 0,
-				dakara::protocol::server::BuildConsoleMsg("Server> Distributing XP among parties.",
+				hoa::protocol::server::BuildConsoleMsg("Server> Distributing XP among parties.",
 						FontTypeNames_FONTTYPE_SERVER));
 		for (i = (1); i <= (MAX_PARTIES); i++) {
 			if (Parties[i] != nullptr) {
@@ -492,10 +492,10 @@ void ActualizaExperiencias() {
 			}
 		}
 		SendData(SendTarget_ToAll, 0,
-				dakara::protocol::server::BuildConsoleMsg("Server> XP distributed.",
+				hoa::protocol::server::BuildConsoleMsg("Server> XP distributed.",
 						FontTypeNames_FONTTYPE_SERVER));
 		SendData(SendTarget_ToAll, 0,
-				dakara::protocol::server::BuildPauseToggle());
+				hoa::protocol::server::BuildPauseToggle());
 		haciendoBK = false;
 
 	}

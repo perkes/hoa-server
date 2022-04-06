@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -248,7 +248,7 @@ void clsClan::ConectarMiembro(int UserIndex) {
 	/* ' No avisa cuando loguea un dios */
 	if (UserTienePrivilegio(UserIndex, PlayerType_Admin) || UserTienePrivilegio(UserIndex, PlayerType_Dios)) {
 		SendData(SendTarget_ToDiosesYclan, UserList[UserIndex].GuildIndex,
-				dakara::protocol::server::BuildGuildChat(UserList[UserIndex].Name + " se ha conectado."));
+				hoa::protocol::server::BuildGuildChat(UserList[UserIndex].Name + " se ha conectado."));
 	}
 }
 
@@ -266,7 +266,7 @@ void clsClan::DesConectarMiembro(int UserIndex) {
 		/* ' No avisa cuando se desconecta un dios */
 		if (UserTienePrivilegio(UserIndex, PlayerType_Admin) || UserTienePrivilegio(UserIndex, PlayerType_Dios)) {
 			SendData(SendTarget_ToDiosesYclan, UserList[UserIndex].GuildIndex,
-					dakara::protocol::server::BuildGuildChat(UserList[UserIndex].Name + " se ha desconectado."));
+					hoa::protocol::server::BuildGuildChat(UserList[UserIndex].Name + " se ha desconectado."));
 		}
 	}
 }

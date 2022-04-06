@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -232,7 +232,7 @@ void ChangeUserChar(int UserIndex, int body, int Head, int heading, int Arma, in
 	UserList[UserIndex].Char.CascoAnim = casco;
 
 	SendData(SendTarget_ToPCArea, UserIndex,
-			dakara::protocol::server::BuildCharacterChange(UserList[UserIndex].Char.CharIndex,body, Head, static_cast<eHeading>(heading),Arma,
+			hoa::protocol::server::BuildCharacterChange(UserList[UserIndex].Char.CharIndex,body, Head, static_cast<eHeading>(heading),Arma,
 					Escudo, casco, UserList[UserIndex].Char.FX, UserList[UserIndex].Char.loops));
 }
 
@@ -300,11 +300,11 @@ void EraseUserChar(int UserIndex, bool IsAdminInvisible) {
 		/* ' Si esta invisible, solo el sabe de su propia existencia, es innecesario borrarlo en los demas clientes */
 		if (IsAdminInvisible) {
 			SendData(SendTarget_ToUserIndex, UserIndex,
-					dakara::protocol::server::BuildCharacterRemove(UserList[UserIndex].Char.CharIndex));
+					hoa::protocol::server::BuildCharacterRemove(UserList[UserIndex].Char.CharIndex));
 		} else {
 			/* 'Le mandamos el mensaje para que borre el personaje a los clientes que estén cerca */
 			SendData(SendTarget_ToPCArea, UserIndex,
-					dakara::protocol::server::BuildCharacterRemove(UserList[UserIndex].Char.CharIndex));
+					hoa::protocol::server::BuildCharacterRemove(UserList[UserIndex].Char.CharIndex));
 		}
 	}
 
@@ -340,10 +340,10 @@ void RefreshCharStatus(int UserIndex) {
 
 	if (UserList[UserIndex].showName) {
 		SendData(SendTarget_ToPCArea, UserIndex,
-				dakara::protocol::server::BuildUpdateTagAndStatus(UserIndex, NickColor, UserList[UserIndex].Name + ClanTag));
+				hoa::protocol::server::BuildUpdateTagAndStatus(UserIndex, NickColor, UserList[UserIndex].Name + ClanTag));
 	} else {
 		SendData(SendTarget_ToPCArea, UserIndex,
-				dakara::protocol::server::BuildUpdateTagAndStatus(UserIndex, NickColor, ""));
+				hoa::protocol::server::BuildUpdateTagAndStatus(UserIndex, NickColor, ""));
 	}
 
 	/* 'Si esta navengando, se cambia la barca. */
@@ -513,7 +513,7 @@ void CheckUserLevel(int UserIndex) {
 		UserLevelUp(UserIndex);
 
 		SendData(SendTarget_ToPCArea, UserIndex,
-				dakara::protocol::server::BuildPlayWave(SND_NIVEL, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
+				hoa::protocol::server::BuildPlayWave(SND_NIVEL, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
 		WriteConsoleMsg(UserIndex, "You've leveled up!", FontTypeNames_FONTTYPE_INFO);
 
 		if (UserList[UserIndex].Stats.ELV == 1) {
@@ -750,7 +750,7 @@ void CheckUserLevel(int UserIndex) {
 					/* 'We get here, so guild has factionary alignment, we have to expulse the user */
 					m_EcharMiembroDeClan(-1, UserList[UserIndex].Name);
 					SendData(SendTarget_ToGuildMembers, GI,
-							dakara::protocol::server::BuildConsoleMsg(UserList[UserIndex].Name + " leaves the clan.",
+							hoa::protocol::server::BuildConsoleMsg(UserList[UserIndex].Name + " leaves the clan.",
 									FontTypeNames_FONTTYPE_GUILD));
 					WriteConsoleMsg(UserIndex,
 							"You are mature enough to know under which banner you'll fight! For that reason, until you join the faction that's your clan is aligned to you'll be excluded from it.",
@@ -841,7 +841,7 @@ void MoveUserChar(int UserIndex, eHeading nHeading) {
 					/* ' Si es un admin invisible, no se avisa a los demas clientes */
 					if (UserList[CasperIndex].flags.AdminInvisible != 1) {
 						SendData(SendTarget_ToPCAreaButIndex, CasperIndex,
-								dakara::protocol::server::BuildCharacterMove(UserList[CasperIndex].Char.CharIndex,
+								hoa::protocol::server::BuildCharacterMove(UserList[CasperIndex].Char.CharIndex,
 										UserList[CasperIndex].Pos.X, UserList[CasperIndex].Pos.Y));
 					}
 
@@ -860,7 +860,7 @@ void MoveUserChar(int UserIndex, eHeading nHeading) {
 			/* ' Si es un admin invisible, no se avisa a los demas clientes */
 			if (!isAdminInvi) {
 				SendData(SendTarget_ToPCAreaButIndex, UserIndex,
-						dakara::protocol::server::BuildCharacterMove(UserList[UserIndex].Char.CharIndex, nPos.X, nPos.Y));
+						hoa::protocol::server::BuildCharacterMove(UserList[UserIndex].Char.CharIndex, nPos.X, nPos.Y));
 			}
 
 		}
@@ -1554,7 +1554,7 @@ void UserDie(int UserIndex) {
 
 	/* 'Quitar el dialogo del user muerto */
 	SendData(SendTarget_ToPCArea, UserIndex,
-			dakara::protocol::server::BuildRemoveCharDialog(UserList[UserIndex].Char.CharIndex));
+			hoa::protocol::server::BuildRemoveCharDialog(UserList[UserIndex].Char.CharIndex));
 
 	UserList[UserIndex].Stats.MinHp = 0;
 	UserList[UserIndex].Stats.MinSta = 0;
@@ -1858,7 +1858,7 @@ void WarpUserChar(int UserIndex, int Map, int X, int Y, bool FX, bool Teletransp
 
 	/* 'Quitar el dialogo */
 	SendData(SendTarget_ToPCArea, UserIndex,
-			dakara::protocol::server::BuildRemoveCharDialog(UserList[UserIndex].Char.CharIndex));
+			hoa::protocol::server::BuildRemoveCharDialog(UserList[UserIndex].Char.CharIndex));
 
 	OldMap = UserList[UserIndex].Pos.Map;
 
@@ -1977,9 +1977,9 @@ void WarpUserChar(int UserIndex, int Map, int X, int Y, bool FX, bool Teletransp
 
 	/* 'FX */
 	if (FX && UserList[UserIndex].flags.AdminInvisible == 0) {
-		SendData(SendTarget_ToPCArea, UserIndex, dakara::protocol::server::BuildPlayWave(SND_WARP, X, Y));
+		SendData(SendTarget_ToPCArea, UserIndex, hoa::protocol::server::BuildPlayWave(SND_WARP, X, Y));
 		SendData(SendTarget_ToPCArea, UserIndex,
-				dakara::protocol::server::BuildCreateFX(UserList[UserIndex].Char.CharIndex, FXIDs_FXWARP, 0));
+				hoa::protocol::server::BuildCreateFX(UserList[UserIndex].Char.CharIndex, FXIDs_FXWARP, 0));
 	}
 
 	if (UserList[UserIndex].NroMascotas) {
@@ -2472,7 +2472,7 @@ void SetInvisible(int UserIndex, int userCharIndex, bool invisible) {
 	std::string sndNick;
 
 	SendData(SendTarget_ToUsersAndRmsAndCounselorsAreaButGMs, UserIndex,
-			dakara::protocol::server::BuildSetInvisible(userCharIndex, invisible));
+			hoa::protocol::server::BuildSetInvisible(userCharIndex, invisible));
 
 	sndNick = UserList[UserIndex].Name;
 
@@ -2485,7 +2485,7 @@ void SetInvisible(int UserIndex, int userCharIndex, bool invisible) {
 	}
 
 	SendData(SendTarget_ToGMsAreaButRmsOrCounselors, UserIndex,
-			dakara::protocol::server::BuildCharacterChangeNick(userCharIndex, sndNick));
+			hoa::protocol::server::BuildCharacterChangeNick(userCharIndex, sndNick));
 }
 
 void SetConsulatMode(int UserIndex) {
@@ -2508,7 +2508,7 @@ void SetConsulatMode(int UserIndex) {
 	}
 
 	SendData(SendTarget_ToPCArea, UserIndex,
-			dakara::protocol::server::BuildCharacterChangeNick(UserList[UserIndex].Char.CharIndex, sndNick));
+			hoa::protocol::server::BuildCharacterChangeNick(UserList[UserIndex].Char.CharIndex, sndNick));
 }
 
 bool IsArena(int UserIndex) {

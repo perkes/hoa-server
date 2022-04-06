@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -34,7 +34,7 @@
 
 std::shared_ptr<clsIniManager> LeerNPCs;
 
-void dakara_print_backtrace() {
+void hoa_print_backtrace() {
 #ifndef _WIN32
 	void *trace_elems[20];
 	int trace_elem_count(backtrace(trace_elems, 20));
@@ -140,7 +140,7 @@ void Bloquear(bool toMap, int sndIndex, int X, int Y, bool b) {
 	/* '*************************************************** */
 
 	if (toMap) {
-		SendData(SendTarget_toMap, sndIndex, dakara::protocol::server::BuildBlockPosition(X, Y, b));
+		SendData(SendTarget_toMap, sndIndex, hoa::protocol::server::BuildBlockPosition(X, Y, b));
 	} else {
 		WriteBlockPosition(sndIndex, X, Y, b);
 	}
@@ -1338,9 +1338,9 @@ void GuardarUsuarios() {
 	haciendoBK = true;
 
 	SendData(SendTarget_ToAll, 0,
-			dakara::protocol::server::BuildPauseToggle());
+			hoa::protocol::server::BuildPauseToggle());
 	SendData(SendTarget_ToAll, 0,
-			dakara::protocol::server::BuildConsoleMsg("Server> Saving characters", FontTypeNames_FONTTYPE_SERVER));
+			hoa::protocol::server::BuildConsoleMsg("Server> Saving characters", FontTypeNames_FONTTYPE_SERVER));
 
 	int i;
 	for (i = (1); i <= (LastUser); i++) {
@@ -1353,9 +1353,9 @@ void GuardarUsuarios() {
 	SaveRecords();
 
 	SendData(SendTarget_ToAll, 0,
-			dakara::protocol::server::BuildConsoleMsg("Server> Characters saved", FontTypeNames_FONTTYPE_SERVER));
+			hoa::protocol::server::BuildConsoleMsg("Server> Characters saved", FontTypeNames_FONTTYPE_SERVER));
 	SendData(SendTarget_ToAll, 0,
-			dakara::protocol::server::BuildPauseToggle());
+			hoa::protocol::server::BuildPauseToggle());
 
 	haciendoBK = false;
 }

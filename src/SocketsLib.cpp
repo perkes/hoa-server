@@ -16,7 +16,7 @@
 ******************************************************************************/
 
 /*
- * Dakara Sockets Library.
+ * HoA Sockets Library.
  *
  * This is a wrapper around both Libevent and boost::asio, to allow the
  * selection of any backend for the server. Libevent is a bit faster on Linux,
@@ -75,7 +75,7 @@
 
 #define MAX_OUTPUT_BUFFER_SIZE (86000)
 
-namespace dakara {
+namespace hoa {
 
 class Socket;
 class SocketBase;
@@ -531,4 +531,4 @@ std::unique_ptr<SocketServer> BuildSocketServer(std::string backend) {
 }
 
 
-} /* namespace dakara */
+} /* namespace hoa */

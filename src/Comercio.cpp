@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -49,7 +49,7 @@ void Comercio(eModoComercio Modo, int UserIndex, int NpcIndex, int Slot, int Can
 			return;
 		} else if (Cantidad > MAX_INVENTORY_OBJS) {
 			SendData(SendTarget_ToAll, 0,
-					dakara::protocol::server::BuildConsoleMsg(
+					hoa::protocol::server::BuildConsoleMsg(
 							UserList[UserIndex].Name + " has been banned by the anti-cheat system.",
 							FontTypeNames_FONTTYPE_FIGHT));
 			Ban(UserList[UserIndex].Name, "Anti Cheat System",
@@ -302,14 +302,58 @@ void EnviarNpcInv(int UserIndex, int NpcIndex) {
 			thisObj.ObjIndex = Npclist[NpcIndex].Invent.Object[Slot].ObjIndex;
 			thisObj.Amount = Npclist[NpcIndex].Invent.Object[Slot].Amount;
 
+			bool canUse = CanUse(UserIndex, thisObj.ObjIndex);
 			val = (ObjData[thisObj.ObjIndex].Valor) / Descuento(UserIndex);
 
-			WriteChangeNPCInventorySlot(UserIndex, Slot, thisObj, val);
+			WriteChangeNPCInventorySlot(UserIndex, Slot, thisObj, val, canUse);
 		} else {
 			struct Obj DummyObj;
-			WriteChangeNPCInventorySlot(UserIndex, Slot, DummyObj, 0);
+			WriteChangeNPCInventorySlot(UserIndex, Slot, DummyObj, 0, true);
 		}
 	}
+}
+
+/* '' */
+/* ' Determines if the current user (represented by UserInex) can use */
+/* ' a given object (represented by objIndex). */
+/* ' @param userIndex The index of the User */
+/* ' @param objIndex The index of the Object */
+
+bool CanUse(int UserIndex, int ObjIndex) {
+	bool retval = true;
+	if (ObjData[ObjIndex].ClaseProhibida[1] != 0) {
+		int i;
+		for (i = (1); i <= (NUMCLASES); i++) {
+			if (ObjData[ObjIndex].ClaseProhibida[i] == UserList[UserIndex].clase) {
+				return false;
+			}
+		}
+	}
+
+	if (UserList[UserIndex].raza == eRaza_Humano || UserList[UserIndex].raza == eRaza_Elfo
+			|| UserList[UserIndex].raza == eRaza_Drow) {
+		retval = (ObjData[ObjIndex].RazaEnana == 0);
+	} else {
+		retval = (ObjData[ObjIndex].RazaEnana == 1);
+	}
+
+	if ((UserList[UserIndex].raza != eRaza_Drow) && ObjData[ObjIndex].RazaDrow) {
+		retval = false;
+	}
+
+	if (retval == false) {
+		return false;
+	}
+
+	if (ObjData[ObjIndex].Mujer == 1) {
+		retval = UserList[UserIndex].Genero != eGenero_Hombre;
+	} else if (ObjData[ObjIndex].Hombre == 1) {
+		retval = UserList[UserIndex].Genero != eGenero_Mujer;
+	} else {
+		retval = true;
+	}
+
+	return retval;
 }
 
 /* '' */

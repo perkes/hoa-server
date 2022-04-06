@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -260,7 +260,7 @@ bool NpcImpacto(int NpcIndex, int UserIndex) {
 			if (Rechazo) {
 				/* 'Se rechazo el ataque con el escudo */
 				SendData(SendTarget_ToPCArea, UserIndex,
-						dakara::protocol::server::BuildPlayWave(SND_ESCUDO, UserList[UserIndex].Pos.X,
+						hoa::protocol::server::BuildPlayWave(SND_ESCUDO, UserList[UserIndex].Pos.X,
 								UserList[UserIndex].Pos.Y));
 				/* 'Call WriteBlockedWithShieldUser(UserIndex) */
 				WriteMultiMessage(UserIndex, eMessages_BlockedWithShieldUser);
@@ -594,7 +594,7 @@ void NpcDano(int NpcIndex, int UserIndex) {
 			UserList[UserIndex].Char.FX = 0;
 			UserList[UserIndex].Char.loops = 0;
 			SendData(SendTarget_ToPCArea, UserIndex,
-					dakara::protocol::server::BuildCreateFX(UserList[UserIndex].Char.CharIndex, 0, 0));
+					hoa::protocol::server::BuildCreateFX(UserList[UserIndex].Char.CharIndex, 0, 0));
 		}
 	}
 
@@ -748,18 +748,18 @@ bool NpcAtacaUser(int NpcIndex, int UserIndex) {
 
 	if (Npclist[NpcIndex].flags.Snd1 > 0) {
 		SendData(SendTarget_ToNPCArea, NpcIndex,
-				dakara::protocol::server::BuildPlayWave(Npclist[NpcIndex].flags.Snd1, Npclist[NpcIndex].Pos.X,
+				hoa::protocol::server::BuildPlayWave(Npclist[NpcIndex].flags.Snd1, Npclist[NpcIndex].Pos.X,
 						Npclist[NpcIndex].Pos.Y));
 	}
 
 	if (NpcImpacto(NpcIndex, UserIndex)) {
 		SendData(SendTarget_ToPCArea, UserIndex,
-				dakara::protocol::server::BuildPlayWave(SND_IMPACTO, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
+				hoa::protocol::server::BuildPlayWave(SND_IMPACTO, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
 
 		if (UserList[UserIndex].flags.Meditando == false) {
 			if (UserList[UserIndex].flags.Navegando == 0) {
 				SendData(SendTarget_ToPCArea, UserIndex,
-						dakara::protocol::server::BuildCreateFX(UserList[UserIndex].Char.CharIndex, FXSANGRE, 0));
+						hoa::protocol::server::BuildCreateFX(UserList[UserIndex].Char.CharIndex, FXSANGRE, 0));
 			}
 		}
 
@@ -869,7 +869,7 @@ void NpcAtacaNpc(int Atacante, int Victima, bool cambiarMOvimiento) {
 
 	if (Npclist[Atacante].flags.Snd1 > 0) {
 		SendData(SendTarget_ToNPCArea, Atacante,
-				dakara::protocol::server::BuildPlayWave(Npclist[Atacante].flags.Snd1, Npclist[Atacante].Pos.X,
+				hoa::protocol::server::BuildPlayWave(Npclist[Atacante].flags.Snd1, Npclist[Atacante].Pos.X,
 						Npclist[Atacante].Pos.Y));
 	}
 
@@ -887,29 +887,29 @@ void NpcAtacaNpc(int Atacante, int Victima, bool cambiarMOvimiento) {
 	if (NpcImpactoNpc(Atacante, Victima)) {
 		if (Npclist[Victima].flags.Snd2 > 0) {
 			SendData(SendTarget_ToNPCArea, Victima,
-					dakara::protocol::server::BuildPlayWave(Npclist[Victima].flags.Snd2, Npclist[Victima].Pos.X,
+					hoa::protocol::server::BuildPlayWave(Npclist[Victima].flags.Snd2, Npclist[Victima].Pos.X,
 							Npclist[Victima].Pos.Y));
 		} else {
 			SendData(SendTarget_ToNPCArea, Victima,
-					dakara::protocol::server::BuildPlayWave(SND_IMPACTO2, Npclist[Victima].Pos.X, Npclist[Victima].Pos.Y));
+					hoa::protocol::server::BuildPlayWave(SND_IMPACTO2, Npclist[Victima].Pos.X, Npclist[Victima].Pos.Y));
 		}
 
 		if (MasterIndex > 0) {
 			SendData(SendTarget_ToNPCArea, Atacante,
-					dakara::protocol::server::BuildPlayWave(SND_IMPACTO, Npclist[Atacante].Pos.X, Npclist[Atacante].Pos.Y));
+					hoa::protocol::server::BuildPlayWave(SND_IMPACTO, Npclist[Atacante].Pos.X, Npclist[Atacante].Pos.Y));
 		} else {
 			SendData(SendTarget_ToNPCArea, Victima,
-					dakara::protocol::server::BuildPlayWave(SND_IMPACTO, Npclist[Victima].Pos.X, Npclist[Victima].Pos.Y));
+					hoa::protocol::server::BuildPlayWave(SND_IMPACTO, Npclist[Victima].Pos.X, Npclist[Victima].Pos.Y));
 		}
 
 		NpcDanoNpc(Atacante, Victima);
 	} else {
 		if (MasterIndex > 0) {
 			SendData(SendTarget_ToNPCArea, Atacante,
-					dakara::protocol::server::BuildPlayWave(SND_SWING, Npclist[Atacante].Pos.X, Npclist[Atacante].Pos.Y));
+					hoa::protocol::server::BuildPlayWave(SND_SWING, Npclist[Atacante].Pos.X, Npclist[Atacante].Pos.Y));
 		} else {
 			SendData(SendTarget_ToNPCArea, Victima,
-					dakara::protocol::server::BuildPlayWave(SND_SWING, Npclist[Victima].Pos.X, Npclist[Victima].Pos.Y));
+					hoa::protocol::server::BuildPlayWave(SND_SWING, Npclist[Victima].Pos.X, Npclist[Victima].Pos.Y));
 		}
 	}
 }
@@ -933,17 +933,17 @@ bool UsuarioAtacaNpc(int UserIndex, int NpcIndex) {
 	if (UserImpactoNpc(UserIndex, NpcIndex)) {
 		if (Npclist[NpcIndex].flags.Snd2 > 0) {
 			SendData(SendTarget_ToNPCArea, NpcIndex,
-					dakara::protocol::server::BuildPlayWave(Npclist[NpcIndex].flags.Snd2, Npclist[NpcIndex].Pos.X,
+					hoa::protocol::server::BuildPlayWave(Npclist[NpcIndex].flags.Snd2, Npclist[NpcIndex].Pos.X,
 							Npclist[NpcIndex].Pos.Y));
 		} else {
 			SendData(SendTarget_ToPCArea, UserIndex,
-					dakara::protocol::server::BuildPlayWave(SND_IMPACTO2, Npclist[NpcIndex].Pos.X, Npclist[NpcIndex].Pos.Y));
+					hoa::protocol::server::BuildPlayWave(SND_IMPACTO2, Npclist[NpcIndex].Pos.X, Npclist[NpcIndex].Pos.Y));
 		}
 
 		UserDanoNpc(UserIndex, NpcIndex);
 	} else {
 		SendData(SendTarget_ToPCArea, UserIndex,
-				dakara::protocol::server::BuildPlayWave(SND_SWING, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
+				hoa::protocol::server::BuildPlayWave(SND_SWING, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
 		WriteMultiMessage(UserIndex, eMessages_UserSwing);
 	}
 
@@ -998,7 +998,7 @@ void UsuarioAtaca(int UserIndex) {
 	if (AttackPos.X < XMinMapSize || AttackPos.X > XMaxMapSize || AttackPos.Y <= YMinMapSize
 			|| AttackPos.Y > YMaxMapSize) {
 		SendData(SendTarget_ToPCArea, UserIndex,
-				dakara::protocol::server::BuildPlayWave(SND_SWING, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
+				hoa::protocol::server::BuildPlayWave(SND_SWING, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
 		return;
 	}
 
@@ -1034,7 +1034,7 @@ void UsuarioAtaca(int UserIndex) {
 	}
 
 	SendData(SendTarget_ToPCArea, UserIndex,
-			dakara::protocol::server::BuildPlayWave(SND_SWING, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
+			hoa::protocol::server::BuildPlayWave(SND_SWING, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
 	WriteUpdateUserStats(UserIndex);
 
 	if (UserList[UserIndex].Counters.Trabajando) {
@@ -1122,7 +1122,7 @@ bool UsuarioImpacto(int AtacanteIndex, int VictimaIndex) {
 			if (Rechazo) {
 				/* 'Se rechazo el ataque con el escudo */
 				SendData(SendTarget_ToPCArea, VictimaIndex,
-						dakara::protocol::server::BuildPlayWave(SND_ESCUDO, UserList[VictimaIndex].Pos.X,
+						hoa::protocol::server::BuildPlayWave(SND_ESCUDO, UserList[VictimaIndex].Pos.X,
 								UserList[VictimaIndex].Pos.Y));
 
 				WriteMultiMessage(AtacanteIndex, eMessages_BlockedWithShieldother);
@@ -1166,12 +1166,12 @@ bool UsuarioAtacaUsuario(int AtacanteIndex, int VictimaIndex) {
 
 	if (UsuarioImpacto(AtacanteIndex, VictimaIndex)) {
 		SendData(SendTarget_ToPCArea, AtacanteIndex,
-				dakara::protocol::server::BuildPlayWave(SND_IMPACTO, UserList[AtacanteIndex].Pos.X,
+				hoa::protocol::server::BuildPlayWave(SND_IMPACTO, UserList[AtacanteIndex].Pos.X,
 						UserList[AtacanteIndex].Pos.Y));
 
 		if (UserList[VictimaIndex].flags.Navegando == 0) {
 			SendData(SendTarget_ToPCArea, VictimaIndex,
-					dakara::protocol::server::BuildCreateFX(UserList[VictimaIndex].Char.CharIndex, FXSANGRE, 0));
+					hoa::protocol::server::BuildCreateFX(UserList[VictimaIndex].Char.CharIndex, FXSANGRE, 0));
 		}
 
 		/* 'Pablo (ToxicWaste): Guantes de Hurto del Bandido en acción */
@@ -1189,11 +1189,11 @@ bool UsuarioAtacaUsuario(int AtacanteIndex, int VictimaIndex) {
 		/* ' Invisible admins doesn't make sound to other clients except itself */
 		if (UserList[AtacanteIndex].flags.AdminInvisible == 1) {
 			EnviarDatosASlot(AtacanteIndex,
-					PacketToString(dakara::protocol::server::BuildPlayWave(SND_SWING, UserList[AtacanteIndex].Pos.X,
+					PacketToString(hoa::protocol::server::BuildPlayWave(SND_SWING, UserList[AtacanteIndex].Pos.X,
 							UserList[AtacanteIndex].Pos.Y)));
 		} else {
 			SendData(SendTarget_ToPCArea, AtacanteIndex,
-					dakara::protocol::server::BuildPlayWave(SND_SWING, UserList[AtacanteIndex].Pos.X,
+					hoa::protocol::server::BuildPlayWave(SND_SWING, UserList[AtacanteIndex].Pos.X,
 							UserList[AtacanteIndex].Pos.Y));
 		}
 
@@ -1423,7 +1423,7 @@ void UsuarioAtacadoPorUsuario(int AttackerIndex, int VictimIndex) {
 		UserList[VictimIndex].Char.FX = 0;
 		UserList[VictimIndex].Char.loops = 0;
 		SendData(SendTarget_ToPCArea, VictimIndex,
-				dakara::protocol::server::BuildCreateFX(UserList[VictimIndex].Char.CharIndex, 0, 0));
+				hoa::protocol::server::BuildCreateFX(UserList[VictimIndex].Char.CharIndex, 0, 0));
 	}
 
 	EraCriminal = criminal(AttackerIndex);

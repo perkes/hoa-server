@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -55,5 +55,13 @@ void EnviarNpcInv(int UserIndex, int NpcIndex);
 /* ' @param ObjIndex  El número de objeto al cual le calculamos el precio de venta */
 
 float SalePrice(int ObjIndex);
+
+/* '' */
+/* ' Determines if the current user (represented by UserInex) can use */
+/* ' a given object (represented by objIndex). */
+/* ' @param userIndex The index of the User */
+/* ' @param objIndex The index of the Object */
+
+bool CanUse(int UserIndex, int ObjIndex);
 
 #endif

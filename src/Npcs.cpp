@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -78,7 +78,7 @@ void MuereNpc(int NpcIndex, int UserIndex) {
 
 		if (MiNPC.flags.Snd3 > 0) {
 			SendData(SendTarget_ToPCArea, UserIndex,
-					dakara::protocol::server::BuildPlayWave(MiNPC.flags.Snd3, MiNPC.Pos.X, MiNPC.Pos.Y));
+					hoa::protocol::server::BuildPlayWave(MiNPC.flags.Snd3, MiNPC.Pos.X, MiNPC.Pos.Y));
 		}
 		UserList[UserIndex].flags.TargetNPC = 0;
 		UserList[UserIndex].flags.TargetNpcTipo = eNPCType_Comun;
@@ -613,7 +613,7 @@ void ChangeNPCChar(int NpcIndex, int body, int Head, eHeading heading) {
 		Npclist[NpcIndex].Char.heading = heading;
 
 		SendData(SendTarget_ToNPCArea, NpcIndex,
-				dakara::protocol::server::BuildCharacterChange(Npclist[NpcIndex].Char.CharIndex, body, Head, heading, 0, 0, 0,
+				hoa::protocol::server::BuildCharacterChange(Npclist[NpcIndex].Char.CharIndex, body, Head, heading, 0, 0, 0,
 						0, 0));
 	}
 }
@@ -643,7 +643,7 @@ void EraseNPCChar(int NpcIndex) {
 
 	/* 'Actualizamos los clientes */
 	SendData(SendTarget_ToNPCArea, NpcIndex,
-			dakara::protocol::server::BuildCharacterRemove(Npclist[NpcIndex].Char.CharIndex));
+			hoa::protocol::server::BuildCharacterRemove(Npclist[NpcIndex].Char.CharIndex));
 
 	/* 'Update la lista npc */
 	Npclist[NpcIndex].Char.CharIndex = 0;
@@ -709,13 +709,13 @@ bool MoveNPCChar(int NpcIndex, int nHeading) {
 
 			/* ' Avisamos a los usuarios del area, y al propio usuario lo forzamos a moverse */
 			SendData(SendTarget_ToPCAreaButIndex, UserIndex,
-					dakara::protocol::server::BuildCharacterMove(UserList[UserIndex].Char.CharIndex, UserList[UserIndex].Pos.X,
+					hoa::protocol::server::BuildCharacterMove(UserList[UserIndex].Char.CharIndex, UserList[UserIndex].Pos.X,
 							UserList[UserIndex].Pos.Y));
 			WriteForceCharMove(UserIndex, InvertHeading(static_cast<eHeading>(nHeading)));
 		}
 
 		SendData(SendTarget_ToNPCArea, NpcIndex,
-				dakara::protocol::server::BuildCharacterMove(Npclist[NpcIndex].Char.CharIndex, nPos.X, nPos.Y));
+				hoa::protocol::server::BuildCharacterMove(Npclist[NpcIndex].Char.CharIndex, nPos.X, nPos.Y));
 
 		/* 'Update map and user pos */
 		MapData[Npclist[NpcIndex].Pos.Map][Npclist[NpcIndex].Pos.X][Npclist[NpcIndex].Pos.Y].NpcIndex = 0;
@@ -853,9 +853,9 @@ int SpawnNpc(int NpcIndex, struct WorldPos Pos, bool FX, bool Respawn) {
 
 	if (FX) {
 		SendData(SendTarget_ToNPCArea, nIndex,
-				dakara::protocol::server::BuildPlayWave(SND_WARP, X, Y));
+				hoa::protocol::server::BuildPlayWave(SND_WARP, X, Y));
 		SendData(SendTarget_ToNPCArea, nIndex,
-				dakara::protocol::server::BuildCreateFX(Npclist[nIndex].Char.CharIndex, FXIDs_FXWARP, 0));
+				hoa::protocol::server::BuildCreateFX(Npclist[nIndex].Char.CharIndex, FXIDs_FXWARP, 0));
 	}
 
 	retval = nIndex;

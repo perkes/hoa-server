@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -224,7 +224,7 @@ void CentinelaFinalCheck(int CentiIndex) {
 
 		/* 'Avisamos a los admins */
 		SendData(SendTarget_ToAdmins, 0,
-				dakara::protocol::server::BuildConsoleMsg(
+				hoa::protocol::server::BuildConsoleMsg(
 						"Server> The centinel has executed " + UserName + " and kicked them out of the game.",
 						FontTypeNames_FONTTYPE_SERVER));
 

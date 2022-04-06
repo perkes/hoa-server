@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -25,7 +25,7 @@
 
 extern std::shared_ptr<clsIniManager> LeerNPCs;
 
-void dakara_print_backtrace();
+void hoa_print_backtrace();
 
 void DarCuerpoDesnudo(int UserIndex, bool Mimetizado = false);
 

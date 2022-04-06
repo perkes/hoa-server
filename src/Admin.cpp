@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -127,7 +127,7 @@ void WorldSave() {
 	int loopX;
 
 	SendData(SendTarget_ToAll, 0,
-			dakara::protocol::server::BuildConsoleMsg("Server> Starting WorldSave",
+			hoa::protocol::server::BuildConsoleMsg("Server> Starting WorldSave",
 					FontTypeNames_FONTTYPE_SERVER));
 
 	/* 'respawn de los guardias en las pos originales */
@@ -164,7 +164,7 @@ void WorldSave() {
 	SaveForums();
 
 	SendData(SendTarget_ToAll, 0,
-			dakara::protocol::server::BuildConsoleMsg("Server> WorldSave done.",
+			hoa::protocol::server::BuildConsoleMsg("Server> WorldSave done.",
 					FontTypeNames_FONTTYPE_SERVER));
 
 	Logger::getInstance().flushAll();
@@ -503,7 +503,7 @@ void BanCharacter(int bannerUserIndex, std::string UserName,
 				} else {
 					LogBanFromName(UserName, bannerUserIndex, Reason);
 					SendData(SendTarget_ToAdminsButCounselorsAndRms, 0,
-							dakara::protocol::server::BuildConsoleMsg(
+							hoa::protocol::server::BuildConsoleMsg(
 									"Server> "
 											+ UserList[bannerUserIndex].Name
 											+ " has banned " + UserName + ".",
@@ -526,7 +526,7 @@ void BanCharacter(int bannerUserIndex, std::string UserName,
 					if (UserTieneIgualPrivilegiosQue(UserName, bannerUserIndex)) {
 						UserList[bannerUserIndex].flags.Ban = 1;
 						SendData(SendTarget_ToAdmins, 0,
-								dakara::protocol::server::BuildConsoleMsg(
+								hoa::protocol::server::BuildConsoleMsg(
 										UserList[bannerUserIndex].Name
 												+ " banned by the server por bannear un Administrador.",
 										FontTypeNames_FONTTYPE_FIGHT));
@@ -551,7 +551,7 @@ void BanCharacter(int bannerUserIndex, std::string UserName,
 
 			LogBan(tUser, bannerUserIndex, Reason);
 			SendData(SendTarget_ToAdminsButCounselorsAndRms, 0,
-					dakara::protocol::server::BuildConsoleMsg(
+					hoa::protocol::server::BuildConsoleMsg(
 							"Server> " + UserList[bannerUserIndex].Name
 									+ " has banned " + UserList[tUser].Name
 									+ ".", FontTypeNames_FONTTYPE_SERVER));
@@ -562,7 +562,7 @@ void BanCharacter(int bannerUserIndex, std::string UserName,
 			if (UserTieneIgualPrivilegiosQue(tUser, bannerUserIndex)) {
 				UserList[bannerUserIndex].flags.Ban = 1;
 				SendData(SendTarget_ToAdminsButCounselorsAndRms, 0,
-						dakara::protocol::server::BuildConsoleMsg(
+						hoa::protocol::server::BuildConsoleMsg(
 								UserList[bannerUserIndex].Name
 										+ " banned by the server for banning an admin.",
 								FontTypeNames_FONTTYPE_FIGHT));

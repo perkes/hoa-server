@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -82,12 +82,12 @@ void SoundMapInfo::ReproducirSonidosDeMapas() {
 				if (Lloviendo) {
 					if (p_Mapas[i].flags[SonidoMapa] ^ p_eSoundFlags_Lluvia) {
 						SendData(SendTarget_toMap, i,
-								dakara::protocol::server::BuildPlayWave(p_Mapas[i].SoundIndex[SonidoMapa], posX, posY));
+								hoa::protocol::server::BuildPlayWave(p_Mapas[i].SoundIndex[SonidoMapa], posX, posY));
 					}
 				} else {
 					if (p_Mapas[i].flags[SonidoMapa] ^ p_eSoundFlags_ninguna) {
 						SendData(SendTarget_toMap, i,
-								dakara::protocol::server::BuildPlayWave(p_Mapas[i].SoundIndex[SonidoMapa], posX, posY));
+								hoa::protocol::server::BuildPlayWave(p_Mapas[i].SoundIndex[SonidoMapa], posX, posY));
 					}
 				}
 			}
@@ -97,5 +97,5 @@ void SoundMapInfo::ReproducirSonidosDeMapas() {
 
 void SoundMapInfo::ReproducirSonido(SendTarget Destino, int index, int SoundIndex) {
 	SendData(Destino, index,
-			dakara::protocol::server::BuildPlayWave(SoundIndex, UserList[index].Pos.X, UserList[index].Pos.Y));
+			hoa::protocol::server::BuildPlayWave(SoundIndex, UserList[index].Pos.X, UserList[index].Pos.Y));
 }

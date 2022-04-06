@@ -24,7 +24,7 @@
 #include <functional>
 
 
-namespace dakara {
+namespace hoa {
 
 class Socket;
 class SocketServer;
@@ -91,6 +91,6 @@ public:
 };
 
 
-} /* namespace dakara */
+} /* namespace hoa */
 
 #endif /* SRC_SOCKETSLIB_H_ */

@@ -1,5 +1,5 @@
 /******************************************************************************
-p    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+p    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -27,8 +27,8 @@ p    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
 
 extern const std::string SEPARATOR;
 
-inline dakara::protocol::server::ChatOverHead BuildChatOverHead(const std::string& Chat, std::int16_t CharIndex, std::uint32_t color) {
-	return dakara::protocol::server::BuildChatOverHead(Chat, CharIndex, color & 0xff, (color >> 8) & 0xff, (color >> 16) & 0xff);
+inline hoa::protocol::server::ChatOverHead BuildChatOverHead(const std::string& Chat, std::int16_t CharIndex, std::uint32_t color) {
+	return hoa::protocol::server::BuildChatOverHead(Chat, CharIndex, color & 0xff, (color >> 8) & 0xff, (color >> 16) & 0xff);
 }
 
 void WriteMultiMessage(int UserIndex, int MessageIndex, int Arg1 = int(), int Arg2 = int(), int Arg3 = int(),
@@ -582,7 +582,7 @@ void WriteShowSignal(int UserIndex, int ObjIndex);
 /* ' @param    price       The value the NPC asks for the object. */
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
-void WriteChangeNPCInventorySlot(int UserIndex, int Slot, struct Obj & Obj, float price);
+void WriteChangeNPCInventorySlot(int UserIndex, int Slot, struct Obj & Obj, float price, bool canUse);
 
 /* '' */
 /* ' Writes the "UpdateHungerAndThirst" message to the given user's outgoing data buffer. */

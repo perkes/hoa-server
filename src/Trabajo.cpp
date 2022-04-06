@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -740,7 +740,7 @@ void HerreroConstruirItem(int UserIndex, int ItemIndex) {
 		SubirSkill(UserIndex, eSkill_Herreria, true);
 
 		SendData(SendTarget_ToPCArea, UserIndex,
-				dakara::protocol::server::BuildPlayWave(MARTILLOHERRERO, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
+				hoa::protocol::server::BuildPlayWave(MARTILLOHERRERO, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
 
 		/*
 		SendData(SendTarget_ToPCArea, UserIndex,
@@ -898,7 +898,7 @@ void CarpinteroConstruirItem(int UserIndex, int ItemIndex) {
 		SubirSkill(UserIndex, eSkill_Carpinteria, true);
 
 		SendData(SendTarget_ToPCArea, UserIndex,
-				dakara::protocol::server::BuildPlayWave(LABUROCARPINTERO, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
+				hoa::protocol::server::BuildPlayWave(LABUROCARPINTERO, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
 
 		/*
 		SendData(SendTarget_ToPCArea, UserIndex,
@@ -1190,7 +1190,7 @@ void DoUpgrade(int UserIndex, int ItemIndex) {
 		SubirSkill(UserIndex, eSkill_Herreria, true);
 
 		SendData(SendTarget_ToPCArea, UserIndex,
-				dakara::protocol::server::BuildPlayWave(MARTILLOHERRERO, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
+				hoa::protocol::server::BuildPlayWave(MARTILLOHERRERO, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
 
 		/*
 		SendData(SendTarget_ToPCArea, UserIndex,
@@ -1236,7 +1236,7 @@ void DoUpgrade(int UserIndex, int ItemIndex) {
 		SubirSkill(UserIndex, eSkill_Carpinteria, true);
 
 		SendData(SendTarget_ToPCArea, UserIndex,
-				dakara::protocol::server::BuildPlayWave(LABUROCARPINTERO, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
+				hoa::protocol::server::BuildPlayWave(LABUROCARPINTERO, UserList[UserIndex].Pos.X, UserList[UserIndex].Pos.Y));
 
 		/*
 		SendData(SendTarget_ToPCArea, UserIndex,
@@ -1572,7 +1572,7 @@ void DoAdminInvisible(int UserIndex) {
 		/* 'Le mandamos el mensaje para que borre el personaje a los clientes que estén cerca */
 
 		{
-			dakara::protocol::server::CharacterRemove p;
+			hoa::protocol::server::CharacterRemove p;
 			p.CharIndex = UserList[UserIndex].Char.CharIndex;
 			SendData(SendTarget_ToPCAreaButIndex, UserIndex, p);
 		}
@@ -2499,7 +2499,7 @@ void DoMeditar(int UserIndex) {
 				PrepareMessageCreateFX(UserList[UserIndex].Char.CharIndex, 0, 0));
 				*/
 		SendData(SendTarget_ToPCArea, UserIndex,
-				dakara::protocol::server::BuildCreateFX(UserList[UserIndex].Char.CharIndex, 0, 0));
+				hoa::protocol::server::BuildCreateFX(UserList[UserIndex].Char.CharIndex, 0, 0));
 
 		return;
 	}

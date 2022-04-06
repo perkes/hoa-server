@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -49,7 +49,7 @@
 #define vbYellow 0x00ffff00
 #define vbCrLf "\r\n"
 
-void dakara_print_backtrace();
+void hoa_print_backtrace();
 
 namespace vb6 {
 
@@ -65,7 +65,7 @@ public:
 
 	T& operator[](std::size_t idx) {
 		if (idx < lbound_ || idx > ubound_) {
-			dakara_print_backtrace();
+			hoa_print_backtrace();
 			throw std::runtime_error("out of bounds: " + std::to_string(idx));
 		}
 		return data_[idx - lbound_];
@@ -73,7 +73,7 @@ public:
 
 	const T& operator[](std::size_t idx) const {
 		if (idx < lbound_ || idx > ubound_) {
-			dakara_print_backtrace();
+			hoa_print_backtrace();
 			throw std::runtime_error("out of bounds: " + std::to_string(idx));
 		}
 		return data_[idx - lbound_];

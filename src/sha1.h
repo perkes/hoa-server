@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -17,7 +17,6 @@
 
 /* public api for steve reid's public domain SHA-1 implementation */
 /* this file is in the public domain */
-/* edited for dakara-online by Alejandro Santos */
 
 #ifndef __SHA1_H
 #define __SHA1_H

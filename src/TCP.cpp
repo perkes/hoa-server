@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -1051,7 +1051,7 @@ bool ConnectUser(int UserIndex, const std::string & name) {
 	SendMOTD(UserIndex);
 
     if (EnviarPopupOfTheDay) {
-        SendData(SendTarget_ToUserIndex, UserIndex, dakara::protocol::server::BuildShowMessageBox(PopupOfTheDayMessage));
+        SendData(SendTarget_ToUserIndex, UserIndex, hoa::protocol::server::BuildShowMessageBox(PopupOfTheDayMessage));
     }
 
 	if (haciendoBK) {
@@ -1095,7 +1095,7 @@ bool ConnectUser(int UserIndex, const std::string & name) {
 
 	if (NumUsers > RECORDusuarios) {
 		SendData(SendTarget_ToAll, 0,
-				dakara::protocol::server::BuildConsoleMsg(
+				hoa::protocol::server::BuildConsoleMsg(
 						vb6::CStr("RECORD de usuarios conectados simultaneamente. Hay ") + vb6::CStr(NumUsers) + " usuarios.",
 						FontTypeNames_FONTTYPE_INFO));
 		RECORDusuarios = NumUsers;
@@ -1144,7 +1144,7 @@ bool ConnectUser(int UserIndex, const std::string & name) {
 	}
 
 	SendData(SendTarget_ToPCArea, UserIndex,
-			dakara::protocol::server::BuildCreateFX(UserList[UserIndex].Char.CharIndex, FXIDs_FXWARP, 0));
+			hoa::protocol::server::BuildCreateFX(UserList[UserIndex].Char.CharIndex, FXIDs_FXWARP, 0));
 
 	WriteLoggedMessage(UserIndex);
 
@@ -1161,7 +1161,7 @@ bool ConnectUser(int UserIndex, const std::string & name) {
 
 	if (vb6::LenB(tStr) != 0) {
 		WriteShowMessageBox(UserIndex,
-				"Tu solicitud de ingreso al clan ha sido rechazada. El clan te explica que: " + tStr);
+				"Your request to join the clan has been rejected. Reason: " + tStr);
 	}
 
 	/* 'Load the user statistics */
@@ -1568,7 +1568,7 @@ void CloseUser(int UserIndex) {
 	UserList[UserIndex].Char.FX = 0;
 	UserList[UserIndex].Char.loops = 0;
 	SendData(SendTarget_ToPCArea, UserIndex,
-			dakara::protocol::server::BuildCreateFX(UserList[UserIndex].Char.CharIndex, 0, 0));
+			hoa::protocol::server::BuildCreateFX(UserList[UserIndex].Char.CharIndex, 0, 0));
 
 	UserList[UserIndex].flags.UserLogged = false;
 	UserList[UserIndex].Counters.Saliendo = false;
@@ -1602,7 +1602,7 @@ void CloseUser(int UserIndex) {
 	if (MapaValido(Map)) {
 		if (MapInfo[Map].NumUsers > 0) {
 			SendData(SendTarget_ToPCAreaButIndex, UserIndex,
-					dakara::protocol::server::BuildRemoveCharDialog(UserList[UserIndex].Char.CharIndex));
+					hoa::protocol::server::BuildRemoveCharDialog(UserList[UserIndex].Char.CharIndex));
 		}
 
 		/* 'Update Map Users */

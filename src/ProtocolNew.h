@@ -1,8 +1,8 @@
 
 /* Automatically generated file */
 
-#ifndef DAKARAPROTOCOLNEW_H
-#define DAKARAPROTOCOLNEW_H
+#ifndef HOAPROTOCOLNEW_H
+#define HOAPROTOCOLNEW_H
 
 #include <stdint.h>
 #include <string>
@@ -12,7 +12,7 @@
 
 #include "ByteQueue.h"
 
-namespace dakara {
+namespace hoa {
 namespace protocol {
 
 namespace clientgm {
@@ -2102,7 +2102,7 @@ public:
     virtual void serialize(clsByteQueue* buffer) const;
     virtual void dispatch(PacketHandler* d);
 
-    std::unique_ptr<dakara::protocol::clientgm::ClientGMPacket> composite;
+    std::unique_ptr<hoa::protocol::clientgm::ClientGMPacket> composite;
 
 };
 
@@ -6194,7 +6194,7 @@ class ChangeNPCInventorySlot : public ServerPacket {
 public:
     ChangeNPCInventorySlot();
     ChangeNPCInventorySlot(clsByteQueue* buffer);
-    ChangeNPCInventorySlot(std::uint8_t Slot, const std::string& ObjName, std::int16_t Amount, float Price, std::int16_t GrhIndex, std::int16_t ObjIndex, std::uint8_t ObjType, std::int16_t MaxHit, std::int16_t MinHit, std::int16_t MaxDef, std::int16_t MinDef);
+    ChangeNPCInventorySlot(std::uint8_t Slot, const std::string& ObjName, std::int16_t Amount, float Price, bool canUse, std::int16_t GrhIndex, std::int16_t ObjIndex, std::uint8_t ObjType, std::int16_t MaxHit, std::int16_t MinHit, std::int16_t MaxDef, std::int16_t MinDef);
 
     virtual void serialize(clsByteQueue* buffer) const;
     virtual void dispatch(PacketHandler* d);
@@ -6203,6 +6203,7 @@ public:
     std::string ObjName; 
     std::int16_t Amount; 
     float Price; 
+    bool canUse;
     std::int16_t GrhIndex; 
     std::int16_t ObjIndex; 
     std::uint8_t ObjType; 
@@ -6212,8 +6213,8 @@ public:
     std::int16_t MinDef; 
 };
 
-inline ChangeNPCInventorySlot BuildChangeNPCInventorySlot(std::uint8_t Slot, const std::string& ObjName, std::int16_t Amount, float Price, std::int16_t GrhIndex, std::int16_t ObjIndex, std::uint8_t ObjType, std::int16_t MaxHit, std::int16_t MinHit, std::int16_t MaxDef, std::int16_t MinDef) {
-    return ChangeNPCInventorySlot(Slot, ObjName, Amount, Price, GrhIndex, ObjIndex, ObjType, MaxHit, MinHit, MaxDef, MinDef);
+inline ChangeNPCInventorySlot BuildChangeNPCInventorySlot(std::uint8_t Slot, const std::string& ObjName, std::int16_t Amount, float Price, bool canUse, std::int16_t GrhIndex, std::int16_t ObjIndex, std::uint8_t ObjType, std::int16_t MaxHit, std::int16_t MinHit, std::int16_t MaxDef, std::int16_t MinDef) {
+    return ChangeNPCInventorySlot(Slot, ObjName, Amount, Price, canUse, GrhIndex, ObjIndex, ObjType, MaxHit, MinHit, MaxDef, MinDef);
 }
 
 class UpdateHungerAndThirst : public ServerPacket {

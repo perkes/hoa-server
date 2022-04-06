@@ -1,5 +1,5 @@
 /******************************************************************************
-    Copyright (C) 2002-2015 Argentum Online & Dakara Online Developers
+    Copyright (C) 2002-2022 Heroes of Argentum Developers
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -32,7 +32,7 @@ void WriteMultiMessage(int UserIndex, int MessageIndex, int Arg1, int Arg2, int 
 	/* ' */
 	/* '*************************************************** */
 
-	UserList[UserIndex].outgoingData->WriteByte(dakara::protocol::server::ServerPacketID_MultiMessage);
+	UserList[UserIndex].outgoingData->WriteByte(hoa::protocol::server::ServerPacketID_MultiMessage);
 	UserList[UserIndex].outgoingData->WriteByte(MessageIndex);
 
 	switch (MessageIndex) {
@@ -137,7 +137,7 @@ void WriteMultiMessage(int UserIndex, int MessageIndex, int Arg1, int Arg2, int 
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteLoggedMessage(int UserIndex) {
-	dakara::protocol::server::Logged p;
+	hoa::protocol::server::Logged p;
 
 	p.Clase = UserList[UserIndex].clase;
 
@@ -151,7 +151,7 @@ void WriteLoggedMessage(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteRemoveAllDialogs(int UserIndex) {
-	dakara::protocol::server::RemoveDialogs p;
+	hoa::protocol::server::RemoveDialogs p;
 
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
@@ -164,7 +164,7 @@ void WriteRemoveAllDialogs(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteRemoveCharDialog(int UserIndex, int CharIndex) {
-	dakara::protocol::server::RemoveCharDialog p;
+	hoa::protocol::server::RemoveCharDialog p;
 
 	p.CharIndex = CharIndex;
 
@@ -178,7 +178,7 @@ void WriteRemoveCharDialog(int UserIndex, int CharIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteNavigateToggle(int UserIndex) {
-	dakara::protocol::server::NavigateToggle p;
+	hoa::protocol::server::NavigateToggle p;
 
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
@@ -190,7 +190,7 @@ void WriteNavigateToggle(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteDisconnect(int UserIndex) {
-	dakara::protocol::server::Disconnect p;
+	hoa::protocol::server::Disconnect p;
 
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
@@ -202,7 +202,7 @@ void WriteDisconnect(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteUserOfferConfirm(int UserIndex) {
-	dakara::protocol::server::UserOfferConfirm p;
+	hoa::protocol::server::UserOfferConfirm p;
 
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
@@ -214,7 +214,7 @@ void WriteUserOfferConfirm(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteCommerceEnd(int UserIndex) {
-	dakara::protocol::server::CommerceEnd p;
+	hoa::protocol::server::CommerceEnd p;
 
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
@@ -226,7 +226,7 @@ void WriteCommerceEnd(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteBankEnd(int UserIndex) {
-	dakara::protocol::server::BankEnd p;
+	hoa::protocol::server::BankEnd p;
 
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
@@ -238,7 +238,7 @@ void WriteBankEnd(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteCommerceInit(int UserIndex) {
-	dakara::protocol::server::CommerceInit p;
+	hoa::protocol::server::CommerceInit p;
 
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
@@ -250,7 +250,7 @@ void WriteCommerceInit(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteBankInit(int UserIndex) {
-	dakara::protocol::server::BankInit p;
+	hoa::protocol::server::BankInit p;
 
 	p.Banco = UserList[UserIndex].Stats.Banco;
 
@@ -264,7 +264,7 @@ void WriteBankInit(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteUserCommerceInit(int UserIndex) {
-	dakara::protocol::server::UserCommerceInit p;
+	hoa::protocol::server::UserCommerceInit p;
 
 	p.DestUserName = UserList[UserIndex].ComUsu.DestNick;
 
@@ -278,7 +278,7 @@ void WriteUserCommerceInit(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteUserCommerceEnd(int UserIndex) {
-	dakara::protocol::server::UserCommerceEnd p;
+	hoa::protocol::server::UserCommerceEnd p;
 
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
@@ -290,7 +290,7 @@ void WriteUserCommerceEnd(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteShowBlacksmithForm(int UserIndex) {
-	dakara::protocol::server::ShowBlacksmithForm p;
+	hoa::protocol::server::ShowBlacksmithForm p;
 
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
@@ -302,7 +302,7 @@ void WriteShowBlacksmithForm(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteShowCarpenterForm(int UserIndex) {
-	dakara::protocol::server::ShowCarpenterForm p;
+	hoa::protocol::server::ShowCarpenterForm p;
 
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
@@ -314,7 +314,7 @@ void WriteShowCarpenterForm(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteUpdateSta(int UserIndex) {
-	dakara::protocol::server::UpdateSta p;
+	hoa::protocol::server::UpdateSta p;
 
 	p.Value = UserList[UserIndex].Stats.MinSta;
 
@@ -328,7 +328,7 @@ void WriteUpdateSta(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteUpdateMana(int UserIndex) {
-	dakara::protocol::server::UpdateMana p;
+	hoa::protocol::server::UpdateMana p;
 
 	p.Value = UserList[UserIndex].Stats.MinMAN;
 
@@ -342,7 +342,7 @@ void WriteUpdateMana(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteUpdateHP(int UserIndex) {
-	dakara::protocol::server::UpdateHP p;
+	hoa::protocol::server::UpdateHP p;
 
 	p.Value = UserList[UserIndex].Stats.MinHp;
 
@@ -356,7 +356,7 @@ void WriteUpdateHP(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteUpdateGold(int UserIndex) {
-	dakara::protocol::server::UpdateGold p;
+	hoa::protocol::server::UpdateGold p;
 
 	p.Value = UserList[UserIndex].Stats.GLD;
 
@@ -370,7 +370,7 @@ void WriteUpdateGold(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteUpdateBankGold(int UserIndex) {
-	dakara::protocol::server::UpdateBankGold p;
+	hoa::protocol::server::UpdateBankGold p;
 
 	p.Value = UserList[UserIndex].Stats.Banco;
 
@@ -384,7 +384,7 @@ void WriteUpdateBankGold(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteUpdateExp(int UserIndex) {
-	dakara::protocol::server::UpdateExp p;
+	hoa::protocol::server::UpdateExp p;
 
 	p.Value = UserList[UserIndex].Stats.Exp;
 
@@ -398,7 +398,7 @@ void WriteUpdateExp(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteUpdateStrenghtAndDexterity(int UserIndex) {
-	dakara::protocol::server::UpdateStrenghtAndDexterity p;
+	hoa::protocol::server::UpdateStrenghtAndDexterity p;
 
 	p.Fuerza = UserList[UserIndex].Stats.UserAtributos[eAtributos_Fuerza];
 	p.Agilidad = UserList[UserIndex].Stats.UserAtributos[eAtributos_Agilidad];
@@ -412,7 +412,7 @@ void WriteUpdateStrenghtAndDexterity(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteUpdateDexterity(int UserIndex) {
-	dakara::protocol::server::UpdateDexterity p;
+	hoa::protocol::server::UpdateDexterity p;
 
 	p.Agilidad = UserList[UserIndex].Stats.UserAtributos[eAtributos_Agilidad];
 
@@ -425,7 +425,7 @@ void WriteUpdateDexterity(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteUpdateStrenght(int UserIndex) {
-	dakara::protocol::server::UpdateStrenght p;
+	hoa::protocol::server::UpdateStrenght p;
 
 	p.Fuerza = UserList[UserIndex].Stats.UserAtributos[eAtributos_Fuerza];
 
@@ -441,7 +441,7 @@ void WriteUpdateStrenght(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteChangeMap(int UserIndex, int Map, int version) {
-	dakara::protocol::server::ChangeMap p;
+	hoa::protocol::server::ChangeMap p;
 
 	p.Map = Map;
 	p.Version = version;
@@ -456,7 +456,7 @@ void WriteChangeMap(int UserIndex, int Map, int version) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WritePosUpdate(int UserIndex) {
-	dakara::protocol::server::PosUpdate p;
+	hoa::protocol::server::PosUpdate p;
 
 	p.X = UserList[UserIndex].Pos.X;
 	p.Y = UserList[UserIndex].Pos.Y;
@@ -474,7 +474,7 @@ void WritePosUpdate(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteChatOverHead(int UserIndex, std::string Chat, int CharIndex, int color) {
-	dakara::protocol::server::ChatOverHead p;
+	hoa::protocol::server::ChatOverHead p;
 
 	p.CharIndex = CharIndex;
 	p.Chat = Chat;
@@ -494,7 +494,7 @@ void WriteChatOverHead(int UserIndex, std::string Chat, int CharIndex, int color
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteConsoleMsg(int UserIndex, std::string Chat, FontTypeNames FontIndex) {
-	dakara::protocol::server::ConsoleMsg p;
+	hoa::protocol::server::ConsoleMsg p;
 
 	p.Chat = Chat;
 	p.FontIndex = FontIndex;
@@ -503,7 +503,7 @@ void WriteConsoleMsg(int UserIndex, std::string Chat, FontTypeNames FontIndex) {
 }
 
 void WriteCommerceChat(int UserIndex, std::string Chat, FontTypeNames FontIndex) {
-	dakara::protocol::server::CommerceChat p;
+	hoa::protocol::server::CommerceChat p;
 
 	p.Chat = Chat;
 	p.FontIndex = FontIndex;
@@ -519,7 +519,7 @@ void WriteCommerceChat(int UserIndex, std::string Chat, FontTypeNames FontIndex)
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteGuildChat(int UserIndex, std::string Chat) {
-	dakara::protocol::server::GuildChat p;
+	hoa::protocol::server::GuildChat p;
 
 	p.Chat = Chat;
 
@@ -534,7 +534,7 @@ void WriteGuildChat(int UserIndex, std::string Chat) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteShowMessageBox(int UserIndex, std::string message) {
-	dakara::protocol::server::ShowMessageBox p;
+	hoa::protocol::server::ShowMessageBox p;
 
 	p.Chat = message;
 
@@ -548,7 +548,7 @@ void WriteShowMessageBox(int UserIndex, std::string message) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteUserIndexInServer(int UserIndex) {
-	dakara::protocol::server::UserIndexInServer p;
+	hoa::protocol::server::UserIndexInServer p;
 
 	p.UserIndex = UserIndex;
 
@@ -562,7 +562,7 @@ void WriteUserIndexInServer(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteUserCharIndexInServer(int UserIndex) {
-	dakara::protocol::server::UserCharIndexInServer p;
+	hoa::protocol::server::UserCharIndexInServer p;
 
 	p.CharIndex = UserList[UserIndex].Char.CharIndex;
 
@@ -592,7 +592,7 @@ void WriteUserCharIndexInServer(int UserIndex) {
 void WriteCharacterCreate(int UserIndex, int body, int Head, eHeading heading, int CharIndex, int X, int Y,
 		int weapon, int shield, int FX, int FXLoops, int helmet, std::string Name, int NickColor,
 		int Privileges) {
-	dakara::protocol::server::CharacterCreate p;
+	hoa::protocol::server::CharacterCreate p;
 
 	p.Body = body;
 	p.Head = Head;
@@ -620,7 +620,7 @@ void WriteCharacterCreate(int UserIndex, int body, int Head, eHeading heading, i
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteCharacterRemove(int UserIndex, int CharIndex) {
-	dakara::protocol::server::CharacterRemove p;
+	hoa::protocol::server::CharacterRemove p;
 
 	p.CharIndex = CharIndex;
 
@@ -637,7 +637,7 @@ void WriteCharacterRemove(int UserIndex, int CharIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteCharacterMove(int UserIndex, int CharIndex, int X, int Y) {
-	dakara::protocol::server::CharacterMove p;
+	hoa::protocol::server::CharacterMove p;
 
 	p.CharIndex = CharIndex;
 	p.X = X;
@@ -647,7 +647,7 @@ void WriteCharacterMove(int UserIndex, int CharIndex, int X, int Y) {
 }
 
 void WriteForceCharMove(int UserIndex, eHeading Direccion) {
-	dakara::protocol::server::ForceCharMove p;
+	hoa::protocol::server::ForceCharMove p;
 
 	p.Direction = Direccion;
 
@@ -671,7 +671,7 @@ void WriteForceCharMove(int UserIndex, eHeading Direccion) {
 
 void WriteCharacterChange(int UserIndex, int body, int Head, eHeading heading, int CharIndex, int weapon,
 		int shield, int FX, int FXLoops, int helmet) {
-	dakara::protocol::server::CharacterChange p;
+	hoa::protocol::server::CharacterChange p;
 
 	p.Body = body;
 	p.Head = Head;
@@ -696,7 +696,7 @@ void WriteCharacterChange(int UserIndex, int body, int Head, eHeading heading, i
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteObjectCreate(int UserIndex, int GrhIndex, int X, int Y) {
-	dakara::protocol::server::ObjectCreate p;
+	hoa::protocol::server::ObjectCreate p;
 
 	p.GrhIndex = GrhIndex;
 	p.X = X;
@@ -714,7 +714,7 @@ void WriteObjectCreate(int UserIndex, int GrhIndex, int X, int Y) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteObjectDelete(int UserIndex, int X, int Y) {
-	dakara::protocol::server::ObjectDelete p;
+	hoa::protocol::server::ObjectDelete p;
 
 	p.X = X;
 	p.Y = Y;
@@ -732,7 +732,7 @@ void WriteObjectDelete(int UserIndex, int X, int Y) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteBlockPosition(int UserIndex, int X, int Y, bool Blocked) {
-	dakara::protocol::server::BlockPosition p;
+	hoa::protocol::server::BlockPosition p;
 
 	p.X = X;
 	p.Y = Y;
@@ -750,7 +750,7 @@ void WriteBlockPosition(int UserIndex, int X, int Y, bool Blocked) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WritePlayMidi(int UserIndex, int midi, int loops) {
-	dakara::protocol::server::PlayMidi p;
+	hoa::protocol::server::PlayMidi p;
 
 	p.MidiID = midi;
 	p.Loops = loops;
@@ -768,7 +768,7 @@ void WritePlayMidi(int UserIndex, int midi, int loops) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WritePlayWave(int UserIndex, int wave, int X, int Y) {
-	dakara::protocol::server::PlayWave p;
+	hoa::protocol::server::PlayWave p;
 
 	p.WaveID = wave;
 	p.X = X;
@@ -797,7 +797,7 @@ void WriteGuildList(int UserIndex, std::vector<std::string> & guildList) {
 		Tmp = vb6::Left(Tmp, vb6::Len(Tmp) - 1);
 	}
 
-	dakara::protocol::server::GuildList p;
+	hoa::protocol::server::GuildList p;
 
 	p.Data = Tmp;
 
@@ -811,7 +811,7 @@ void WriteGuildList(int UserIndex, std::vector<std::string> & guildList) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteAreaChanged(int UserIndex) {
-	dakara::protocol::server::AreaChanged p;
+	hoa::protocol::server::AreaChanged p;
 
 	p.X = UserList[UserIndex].Pos.X;
 	p.Y = UserList[UserIndex].Pos.Y;
@@ -826,7 +826,7 @@ void WriteAreaChanged(int UserIndex) {
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WritePauseToggle(int UserIndex) {
-	dakara::protocol::server::PauseToggle p;
+	hoa::protocol::server::PauseToggle p;
 
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
@@ -843,7 +843,7 @@ void WriteRainToggle(int UserIndex) {
 	/* 'Last Modification: 05/17/06 */
 	/* 'Writes the "RainToggle" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
-	dakara::protocol::server::RainToggle p;
+	hoa::protocol::server::RainToggle p;
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
 
@@ -862,7 +862,7 @@ void WriteCreateFX(int UserIndex, int CharIndex, int FX, int FXLoops) {
 	/* 'Last Modification: 05/17/06 */
 	/* 'Writes the "CreateFX" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
-	dakara::protocol::server::CreateFX p;
+	hoa::protocol::server::CreateFX p;
 	p.CharIndex = CharIndex;
 	p.FX =FX;
 	p.FXLoops = FXLoops;
@@ -882,7 +882,7 @@ void WriteUpdateUserStats(int UserIndex) {
 	/* 'Writes the "UpdateUserStats" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
 
-	dakara::protocol::server::UpdateUserStats p;
+	hoa::protocol::server::UpdateUserStats p;
 	p.MaxHp = UserList[UserIndex].Stats.MaxHp;
 	p.MaxMan = UserList[UserIndex].Stats.MaxMAN;
 	p.MinHp = UserList[UserIndex].Stats.MinHp;
@@ -909,7 +909,7 @@ void WriteWorkRequestTarget(int UserIndex, eSkill Skill) {
 	/* 'Last Modification: 05/17/06 */
 	/* 'Writes the "WorkRequestTarget" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
-	dakara::protocol::server::WorkRequestTarget p;
+	hoa::protocol::server::WorkRequestTarget p;
 	p.Skill = Skill;
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
@@ -929,7 +929,7 @@ void WriteChangeInventorySlot(int UserIndex, int Slot) {
 	/* '3/12/09: Budi - Ahora se envia MaxDef y MinDef en lugar de Def */
 	/* '*************************************************** */
 
-	dakara::protocol::server::ChangeInventorySlot p;
+	hoa::protocol::server::ChangeInventorySlot p;
 	p.Slot = Slot;
 
 	int ObjIndex;
@@ -962,7 +962,7 @@ void WriteAddSlots(int UserIndex, eMochilas Mochila) {
 	/* 'Last Modification: 01/12/09 */
 	/* 'Writes the "AddSlots" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
-	dakara::protocol::server::AddSlots p;
+	hoa::protocol::server::AddSlots p;
 	p.Mochila = Mochila;
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
@@ -982,7 +982,7 @@ void WriteChangeBankSlot(int UserIndex, int Slot) {
 	/* '12/03/09: Budi - Ahora se envia MaxDef y MinDef en lugar de sólo Def */
 	/* '*************************************************** */
 
-	dakara::protocol::server::ChangeBankSlot p;
+	hoa::protocol::server::ChangeBankSlot p;
 	p.Slot = Slot;
 
 	int ObjIndex;
@@ -1021,7 +1021,7 @@ void WriteChangeSpellSlot(int UserIndex, int Slot) {
 	/* 'Writes the "ChangeSpellSlot" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
 
-	dakara::protocol::server::ChangeSpellSlot p;
+	hoa::protocol::server::ChangeSpellSlot p;
 	p.Slot = Slot;
 	p.SpellID = UserList[UserIndex].Stats.UserHechizos[Slot];
 
@@ -1045,7 +1045,7 @@ void WriteAttributes(int UserIndex) {
 	/* 'Last Modification: 05/17/06 */
 	/* 'Writes the "Atributes" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
-	dakara::protocol::server::Atributes p;
+	hoa::protocol::server::Atributes p;
 
 	p.Fuerza = UserList[UserIndex].Stats.UserAtributos[eAtributos_Fuerza];
 	p.Agilidad = UserList[UserIndex].Stats.UserAtributos[eAtributos_Agilidad];
@@ -1068,7 +1068,7 @@ void WriteBlacksmithWeapons(int UserIndex) {
 	/* 'Writes the "BlacksmithWeapons" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
 
-	dakara::protocol::server::BlacksmithWeapons p;
+	hoa::protocol::server::BlacksmithWeapons p;
 	int i;
 	struct ObjData Obj;
 	std::vector<int> validIndexes;
@@ -1110,7 +1110,7 @@ void WriteBlacksmithArmors(int UserIndex) {
 	/* 'Writes the "BlacksmithArmors" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
 
-	dakara::protocol::server::BlacksmithArmors p;
+	hoa::protocol::server::BlacksmithArmors p;
 	int i;
 	struct ObjData Obj;
 	std::vector<int> validIndexes;
@@ -1153,7 +1153,7 @@ void WriteCarpenterObjects(int UserIndex) {
 	/* 'Writes the "CarpenterObjects" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
 
-	dakara::protocol::server::CarpenterObjects p;
+	hoa::protocol::server::CarpenterObjects p;
 	int i;
 	struct ObjData Obj;
 	std::vector<int> validIndexes;
@@ -1195,7 +1195,7 @@ void WriteRestOK(int UserIndex) {
 	/* 'Last Modification: 05/17/06 */
 	/* 'Writes the "RestOK" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
-	dakara::protocol::server::RestOK p;
+	hoa::protocol::server::RestOK p;
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
 
@@ -1212,7 +1212,7 @@ void WriteErrorMsg(int UserIndex, std::string message) {
 	/* 'Last Modification: 05/17/06 */
 	/* 'Writes the "ErrorMsg" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
-	dakara::protocol::server::ErrorMsg p;
+	hoa::protocol::server::ErrorMsg p;
 	p.Message = message;
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
@@ -1229,7 +1229,7 @@ void WriteBlind(int UserIndex) {
 	/* 'Last Modification: 05/17/06 */
 	/* 'Writes the "Blind" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
-	dakara::protocol::server::Blind p;
+	hoa::protocol::server::Blind p;
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
 
@@ -1245,7 +1245,7 @@ void WriteDumb(int UserIndex) {
 	/* 'Last Modification: 05/17/06 */
 	/* 'Writes the "Dumb" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
-	dakara::protocol::server::Dumb p;
+	hoa::protocol::server::Dumb p;
 
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
@@ -1264,7 +1264,7 @@ void WriteShowSignal(int UserIndex, int ObjIndex) {
 	/* 'Writes the "ShowSignal" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
 
-	dakara::protocol::server::ShowSignal p;
+	hoa::protocol::server::ShowSignal p;
 
 	p.Texto = ObjData[ObjIndex].texto;
 	p.Grh = ObjData[ObjIndex].GrhSecundario;
@@ -1280,7 +1280,7 @@ void WriteShowSignal(int UserIndex, int ObjIndex) {
 /* ' @param    price       The value the NPC asks for the object. */
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
-void WriteChangeNPCInventorySlot(int UserIndex, int Slot, struct Obj & Obj, float price) {
+void WriteChangeNPCInventorySlot(int UserIndex, int Slot, struct Obj & Obj, float price, bool canUse) {
 	/* '*************************************************** */
 	/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 	/* 'Last Modification: 12/03/09 */
@@ -1289,7 +1289,7 @@ void WriteChangeNPCInventorySlot(int UserIndex, int Slot, struct Obj & Obj, floa
 	/* '12/03/09: Budi - Ahora se envia MaxDef y MinDef en lugar de sólo Def */
 	/* '*************************************************** */
 
-	dakara::protocol::server::ChangeNPCInventorySlot p;
+	hoa::protocol::server::ChangeNPCInventorySlot p;
 
 	struct ObjData ObjInfo;
 
@@ -1302,6 +1302,7 @@ void WriteChangeNPCInventorySlot(int UserIndex, int Slot, struct Obj & Obj, floa
 	p.ObjName = ObjInfo.Name;
 	p.Amount = Obj.Amount;
 	p.Price = price;
+	p.canUse = canUse;
 	p.GrhIndex = ObjInfo.GrhIndex;
 	p.ObjIndex = Obj.ObjIndex;
 	p.ObjType = ObjInfo.OBJType;
@@ -1324,7 +1325,7 @@ void WriteUpdateHungerAndThirst(int UserIndex) {
 	/* 'Last Modification: 05/17/06 */
 	/* 'Writes the "UpdateHungerAndThirst" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
-	dakara::protocol::server::UpdateHungerAndThirst p;
+	hoa::protocol::server::UpdateHungerAndThirst p;
 
 	p.MaxAgu = UserList[UserIndex].Stats.MaxAGU;
 	p.MinAgu = UserList[UserIndex].Stats.MinAGU;
@@ -1345,7 +1346,7 @@ void WriteFame(int UserIndex) {
 	/* 'Last Modification: 05/17/06 */
 	/* 'Writes the "Fame" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
-	dakara::protocol::server::Fame p;
+	hoa::protocol::server::Fame p;
 
 
 	p.Asesino = UserList[UserIndex].Reputacion.AsesinoRep;
@@ -1370,7 +1371,7 @@ void WriteMiniStats(int UserIndex) {
 	/* 'Last Modification: 05/17/06 */
 	/* 'Writes the "MiniStats" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
-	dakara::protocol::server::MiniStats p;
+	hoa::protocol::server::MiniStats p;
 
 
 	p.CiudadanosMatados= UserList[UserIndex].Faccion.CiudadanosMatados;
@@ -1398,7 +1399,7 @@ void WriteLevelUp(int UserIndex, int skillPoints) {
 	/* 'Last Modification: 05/17/06 */
 	/* 'Writes the "LevelUp" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
-	dakara::protocol::server::LevelUp p;
+	hoa::protocol::server::LevelUp p;
 
 	p.SkillPoints = skillPoints;
 	p.serialize(UserList[UserIndex].outgoingData.get());
@@ -1419,7 +1420,7 @@ void WriteAddForumMsg(int UserIndex, eForumMsgType ForumType, std::string & Titl
 	/* 'Writes the "AddForumMsg" message to the given user's outgoing data buffer */
 	/* '02/01/2010: ZaMa - Now sends Author and forum type */
 	/* '*************************************************** */
-	dakara::protocol::server::AddForumMsg p;
+	hoa::protocol::server::AddForumMsg p;
 
 	p.ForumType = ForumType;
 	p.Title = Title;
@@ -1441,7 +1442,7 @@ void WriteShowForumForm(int UserIndex) {
 	/* 'Writes the "ShowForumForm" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
 
-	dakara::protocol::server::ShowForumForm p;
+	hoa::protocol::server::ShowForumForm p;
 	int Visibilidad;
 	int CanMakeSticky = 0;
 
@@ -1485,7 +1486,7 @@ void WriteSetInvisible(int UserIndex, int CharIndex, bool invisible) {
 	/* 'Last Modification: 05/17/06 */
 	/* 'Writes the "SetInvisible" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
-	dakara::protocol::server::SetInvisible p;
+	hoa::protocol::server::SetInvisible p;
 	p.charIndex = CharIndex;
 	p.invisible = invisible;
 	p.serialize(UserList[UserIndex].outgoingData.get());
@@ -1504,7 +1505,7 @@ void WriteMeditateToggle(int UserIndex) {
 	/* 'Writes the "MeditateToggle" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
 
-	dakara::protocol::server::MeditateToggle p;
+	hoa::protocol::server::MeditateToggle p;
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
 
@@ -1521,7 +1522,7 @@ void WriteBlindNoMore(int UserIndex) {
 	/* 'Writes the "BlindNoMore" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
 
-	dakara::protocol::server::BlindNoMore p;
+	hoa::protocol::server::BlindNoMore p;
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
 
@@ -1538,7 +1539,7 @@ void WriteDumbNoMore(int UserIndex) {
 	/* 'Writes the "DumbNoMore" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
 
-	dakara::protocol::server::DumbNoMore p;
+	hoa::protocol::server::DumbNoMore p;
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
 
@@ -1557,7 +1558,7 @@ void WriteSendSkills(int UserIndex) {
 	/* '*************************************************** */
 
 	int i;
-	dakara::protocol::server::SendSkills p;
+	hoa::protocol::server::SendSkills p;
 	for (i = (1); i <= (NUMSKILLS); i++) {
 		// Skills contiene pares de numero de skill y su porcentaje
 		p.Skills.emplace_back(UserList[UserIndex].Stats.UserSkills[i]);
@@ -1588,7 +1589,7 @@ void WriteTrainerCreatureList(int UserIndex, int NpcIndex) {
 
 	int i;
 	std::string str;
-	dakara::protocol::server::TrainerCreatureList p;
+	hoa::protocol::server::TrainerCreatureList p;
 
 
 	for (i = (1); i <= (Npclist[NpcIndex].NroCriaturas); i++) {
@@ -1621,7 +1622,7 @@ void WriteGuildNews(int UserIndex, std::string guildNews, std::vector<std::strin
 	/* '*************************************************** */
 
 	std::string Tmp;
-	dakara::protocol::server::GuildNews p;
+	hoa::protocol::server::GuildNews p;
 
 
 	p.News = guildNews;
@@ -1665,7 +1666,7 @@ void WriteOfferDetails(int UserIndex, std::string details) {
 	/* 'Writes the "OfferDetails" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
 
-	dakara::protocol::server::OfferDetails p;
+	hoa::protocol::server::OfferDetails p;
 	p.Details= details;
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
@@ -1685,7 +1686,7 @@ void WriteAlianceProposalsList(int UserIndex, std::vector<std::string> guilds) {
 	/* '*************************************************** */
 
 	std::string Tmp;
-	dakara::protocol::server::AlianceProposalsList p;
+	hoa::protocol::server::AlianceProposalsList p;
 
 
 	/* ' Prepare guild's list */
@@ -1717,7 +1718,7 @@ void WritePeaceProposalsList(int UserIndex, std::vector<std::string> guilds) {
 
 	std::string Tmp;
 
-	dakara::protocol::server::PeaceProposalsList p;
+	hoa::protocol::server::PeaceProposalsList p;
 	/* ' Prepare guilds' list */
 	for (auto& x : guilds) {
 		Tmp = Tmp + x + SEPARATOR;
@@ -1761,7 +1762,7 @@ void WriteCharacterInfo(int UserIndex, std::string charName, eRaza race, eClass 
 	/* 'Writes the "CharacterInfo" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
 
-	dakara::protocol::server::CharacterInfo p;
+	hoa::protocol::server::CharacterInfo p;
 	p.CharName = charName;
 	p.Race = race;
 	p.Class = Class;
@@ -1804,7 +1805,7 @@ void WriteGuildLeaderInfo(int UserIndex, std::vector<std::string> & guildList,
 
 	std::string Tmp;
 
-	dakara::protocol::server::GuildLeaderInfo p;
+	hoa::protocol::server::GuildLeaderInfo p;
 
 	/* ' Prepare guild name's list */
 	for (auto& x : guildList) {
@@ -1863,7 +1864,7 @@ void WriteGuildMemberInfo(int UserIndex, std::vector<std::string> & guildList,
 	/* '*************************************************** */
 
 	std::string Tmp;
-	dakara::protocol::server::GuildMemberInfo p;
+	hoa::protocol::server::GuildMemberInfo p;
 
 
 	/* ' Prepare guild name's list */
@@ -1921,7 +1922,7 @@ void WriteGuildDetails(int UserIndex, std::string GuildName, std::string founder
 	/* '*************************************************** */
 
 	std::string temp;
-	dakara::protocol::server::GuildDetails p;
+	hoa::protocol::server::GuildDetails p;
 
 	p.GuildName = GuildName;
 	p.Founder = founder;
@@ -1960,7 +1961,7 @@ void WriteShowGuildAlign(int UserIndex) {
 	/* 'Writes the "ShowGuildAlign" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
 
-	dakara::protocol::server::ShowGuildAlign p;
+	hoa::protocol::server::ShowGuildAlign p;
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
 
@@ -1977,7 +1978,7 @@ void WriteShowGuildFundationForm(int UserIndex) {
 	/* 'Writes the "ShowGuildFundationForm" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
 
-	dakara::protocol::server::ShowGuildFundationForm p;
+	hoa::protocol::server::ShowGuildFundationForm p;
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
 
@@ -1996,7 +1997,7 @@ void WriteParalizeOK(int UserIndex) {
 	/* 'And updates user position */
 	/* '*************************************************** */
 
-	dakara::protocol::server::ParalizeOK p;
+	hoa::protocol::server::ParalizeOK p;
 	p.serialize(UserList[UserIndex].outgoingData.get());
 	WritePosUpdate(UserIndex);
 }
@@ -2015,7 +2016,7 @@ void WriteShowUserRequest(int UserIndex, std::string details) {
 	/* 'Writes the "ShowUserRequest" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
 
-	dakara::protocol::server::ShowUserRequest p;
+	hoa::protocol::server::ShowUserRequest p;
 	p.Details = details;
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
@@ -2033,7 +2034,7 @@ void WriteTradeOK(int UserIndex) {
 	/* 'Writes the "TradeOK" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
 
-	dakara::protocol::server::TradeOK p;
+	hoa::protocol::server::TradeOK p;
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
 
@@ -2050,7 +2051,7 @@ void WriteBankOK(int UserIndex) {
 	/* 'Writes the "BankOK" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
 
-	dakara::protocol::server::BankOK p;
+	hoa::protocol::server::BankOK p;
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
 
@@ -2071,7 +2072,7 @@ void WriteChangeUserTradeSlot(int UserIndex, int OfferSlot, int ObjIndex, int Am
 	/* '12/03/09: Budi - Ahora se envia MaxDef y MinDef en lugar de sólo Def */
 	/* '*************************************************** */
 
-	dakara::protocol::server::ChangeUserTradeSlot p;
+	hoa::protocol::server::ChangeUserTradeSlot p;
 	p.OfferSlot =OfferSlot;
 	p.ObjIndex=ObjIndex;
 	p.Amount=Amount;
@@ -2112,7 +2113,7 @@ void WriteSendNight(int UserIndex, bool night) {
 	/* 'Writes the "SendNight" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
 
-	dakara::protocol::server::SendNight p;
+	hoa::protocol::server::SendNight p;
 	p.Night= night;
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
@@ -2132,7 +2133,7 @@ void WriteSpawnList(int UserIndex, std::vector<std::string> & npcNames) {
 	/* '*************************************************** */
 
 	std::string Tmp;
-	dakara::protocol::server::SpawnList p;
+	hoa::protocol::server::SpawnList p;
 
 
 	for (auto& x : npcNames) {
@@ -2161,7 +2162,7 @@ void WriteShowSOSForm(int UserIndex) {
 	/* '*************************************************** */
 
 	std::string Tmp;
-	dakara::protocol::server::ShowSOSForm p;
+	hoa::protocol::server::ShowSOSForm p;
 
 
 	for (auto& e : Ayuda) {
@@ -2191,7 +2192,7 @@ void WriteShowDenounces(int UserIndex) {
 
 	//int DenounceIndex;
 	std::string DenounceList;
-	dakara::protocol::server::ShowDenounces p;
+	hoa::protocol::server::ShowDenounces p;
 
 
 	for (auto& e : Denuncias) {
@@ -2223,7 +2224,7 @@ void WriteShowPartyForm(int UserIndex) {
 	std::string Tmp;
 	int PI;
 	std::vector<int> members;
-	dakara::protocol::server::ShowPartyForm p;
+	hoa::protocol::server::ShowPartyForm p;
 
 
 	PI = UserList[UserIndex].PartyIndex;
@@ -2262,7 +2263,7 @@ void WriteShowMOTDEditionForm(int UserIndex, std::string currentMOTD) {
 	/* 'Writes the "ShowMOTDEditionForm" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
 
-	dakara::protocol::server::ShowMOTDEditionForm p;
+	hoa::protocol::server::ShowMOTDEditionForm p;
 	p.Data=currentMOTD;
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
@@ -2280,7 +2281,7 @@ void WriteShowGMPanelForm(int UserIndex) {
 	/* 'Writes the "ShowGMPanelForm" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
 
-	dakara::protocol::server::ShowGMPanelForm p;
+	hoa::protocol::server::ShowGMPanelForm p;
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
 
@@ -2301,7 +2302,7 @@ void WriteUserNameList(int UserIndex, std::vector<std::string> & userNamesList, 
 
 	int i;
 	std::string Tmp;
-	dakara::protocol::server::UserNameList p;
+	hoa::protocol::server::UserNameList p;
 
 
 	/* ' Prepare user's names list */
@@ -2330,7 +2331,7 @@ void WritePong(int UserIndex) {
 	/* 'Writes the "Pong" message to the given user's outgoing data buffer */
 	/* '*************************************************** */
 
-	dakara::protocol::server::Pong p;
+	hoa::protocol::server::Pong p;
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }
 
@@ -2362,7 +2363,7 @@ void WriteStopWorking(int UserIndex) {
 	/* ' */
 	/* '*************************************************** */
 
-	dakara::protocol::server::StopWorking p;
+	hoa::protocol::server::StopWorking p;
 	p.serialize(UserList[UserIndex].outgoingData.get());
 
 }
@@ -2380,7 +2381,7 @@ void WriteCancelOfferItem(int UserIndex, int Slot) {
 	/* ' */
 	/* '*************************************************** */
 
-	dakara::protocol::server::CancelOfferItem p;
+	hoa::protocol::server::CancelOfferItem p;
 	p.Slot = Slot;
 	p.serialize(UserList[UserIndex].outgoingData.get());
 
@@ -2402,7 +2403,7 @@ void WriteRecordDetails(int UserIndex, int RecordIndex) {
 	int tIndex;
 	std::string tmpStr;
 	boost::posix_time::time_duration TempDate;
-	dakara::protocol::server::RecordDetails p;
+	hoa::protocol::server::RecordDetails p;
 
 
 	/* 'Creador y motivo */
@@ -2464,7 +2465,7 @@ void WriteRecordList(int UserIndex) {
 	/* '*************************************************** */
 	int i;
 
-	dakara::protocol::server::RecordList p;
+	hoa::protocol::server::RecordList p;
 	for (i = (1); i <= (NumRecords); i++) {
 		p.addItem(Records[i].Usuario);
 	}
