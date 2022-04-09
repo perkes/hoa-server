@@ -77,7 +77,7 @@ void EnviarOferta(int UserIndex, int OfferSlot) {
 	int ObjIndex;
 	int ObjAmount;
 	int OtherUserIndex;
-
+	
 	OtherUserIndex = UserList[UserIndex].ComUsu.DestUsu;
 
 	if (OfferSlot == GOLD_OFFER_SLOT) {
@@ -88,7 +88,9 @@ void EnviarOferta(int UserIndex, int OfferSlot) {
 		ObjAmount = UserList[OtherUserIndex].ComUsu.cant[OfferSlot];
 	}
 
-	WriteChangeUserTradeSlot(UserIndex, OfferSlot, ObjIndex, ObjAmount);
+	bool canUse = CanUse(UserIndex, ObjIndex);
+
+	WriteChangeUserTradeSlot(UserIndex, OfferSlot, ObjIndex, ObjAmount, canUse);
 	FlushBuffer(UserIndex);
 }
 

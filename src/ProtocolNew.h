@@ -6685,7 +6685,7 @@ class ChangeUserTradeSlot : public ServerPacket {
 public:
     ChangeUserTradeSlot();
     ChangeUserTradeSlot(clsByteQueue* buffer);
-    ChangeUserTradeSlot(std::uint8_t OfferSlot, std::int16_t ObjIndex, std::int32_t Amount, std::int16_t GrhIndex, std::uint8_t ObjType, std::int16_t MaxHit, std::int16_t MinHit, std::int16_t MaxDef, std::int16_t MinDef, std::int32_t Price, const std::string& ObjName);
+    ChangeUserTradeSlot(std::uint8_t OfferSlot, std::int16_t ObjIndex, std::int32_t Amount, std::int16_t GrhIndex, std::uint8_t ObjType, std::int16_t MaxHit, std::int16_t MinHit, std::int16_t MaxDef, std::int16_t MinDef, std::int32_t Price, bool canUse, const std::string& ObjName);
 
     virtual void serialize(clsByteQueue* buffer) const;
     virtual void dispatch(PacketHandler* d);
@@ -6700,11 +6700,12 @@ public:
     std::int16_t MaxDef; 
     std::int16_t MinDef; 
     std::int32_t Price; 
+    bool canUse;
     std::string ObjName; 
 };
 
-inline ChangeUserTradeSlot BuildChangeUserTradeSlot(std::uint8_t OfferSlot, std::int16_t ObjIndex, std::int32_t Amount, std::int16_t GrhIndex, std::uint8_t ObjType, std::int16_t MaxHit, std::int16_t MinHit, std::int16_t MaxDef, std::int16_t MinDef, std::int32_t Price, const std::string& ObjName) {
-    return ChangeUserTradeSlot(OfferSlot, ObjIndex, Amount, GrhIndex, ObjType, MaxHit, MinHit, MaxDef, MinDef, Price, ObjName);
+inline ChangeUserTradeSlot BuildChangeUserTradeSlot(std::uint8_t OfferSlot, std::int16_t ObjIndex, std::int32_t Amount, std::int16_t GrhIndex, std::uint8_t ObjType, std::int16_t MaxHit, std::int16_t MinHit, std::int16_t MaxDef, std::int16_t MinDef, std::int32_t Price, bool canUse, const std::string& ObjName) {
+    return ChangeUserTradeSlot(OfferSlot, ObjIndex, Amount, GrhIndex, ObjType, MaxHit, MinHit, MaxDef, MinDef, Price, canUse, ObjName);
 }
 
 class SendNight : public ServerPacket {

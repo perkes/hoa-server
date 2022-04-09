@@ -855,7 +855,7 @@ void WriteBankOK(int UserIndex);
 /* ' @param    amount The number of objects offered. */
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
-void WriteChangeUserTradeSlot(int UserIndex, int OfferSlot, int ObjIndex, int Amount);
+void WriteChangeUserTradeSlot(int UserIndex, int OfferSlot, int ObjIndex, int Amount, bool canUse);
 
 /* '' */
 /* ' Writes the "SendNight" message to the given user's outgoing data buffer. */

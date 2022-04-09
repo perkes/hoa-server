@@ -12493,7 +12493,7 @@ void BankOK::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleBankOK(this);
 }
 
-ChangeUserTradeSlot::ChangeUserTradeSlot() : ServerPacket(ServerPacketID_ChangeUserTradeSlot /* 86 */), OfferSlot(), ObjIndex(), Amount(), GrhIndex(), ObjType(), MaxHit(), MinHit(), MaxDef(), MinDef(), Price(), ObjName() {
+ChangeUserTradeSlot::ChangeUserTradeSlot() : ServerPacket(ServerPacketID_ChangeUserTradeSlot /* 86 */), OfferSlot(), ObjIndex(), Amount(), GrhIndex(), ObjType(), MaxHit(), MinHit(), MaxDef(), MinDef(), Price(), canUse(), ObjName() {
 }
 
 ChangeUserTradeSlot::ChangeUserTradeSlot(clsByteQueue* buffer) : ServerPacket(ServerPacketID_ChangeUserTradeSlot /* 86 */) {
@@ -12508,11 +12508,12 @@ ChangeUserTradeSlot::ChangeUserTradeSlot(clsByteQueue* buffer) : ServerPacket(Se
     MaxDef = buffer->ReadInteger();
     MinDef = buffer->ReadInteger();
     Price = buffer->ReadLong();
+    canUse = buffer->ReadBoolean();
     ObjName = buffer->ReadUnicodeString();
 
 }
 
-ChangeUserTradeSlot::ChangeUserTradeSlot(std::uint8_t OfferSlot_, std::int16_t ObjIndex_, std::int32_t Amount_, std::int16_t GrhIndex_, std::uint8_t ObjType_, std::int16_t MaxHit_, std::int16_t MinHit_, std::int16_t MaxDef_, std::int16_t MinDef_, std::int32_t Price_, const std::string& ObjName_) : ServerPacket(ServerPacketID_ChangeUserTradeSlot /* 86 */), OfferSlot(OfferSlot_), ObjIndex(ObjIndex_), Amount(Amount_), GrhIndex(GrhIndex_), ObjType(ObjType_), MaxHit(MaxHit_), MinHit(MinHit_), MaxDef(MaxDef_), MinDef(MinDef_), Price(Price_), ObjName(ObjName_) {
+ChangeUserTradeSlot::ChangeUserTradeSlot(std::uint8_t OfferSlot_, std::int16_t ObjIndex_, std::int32_t Amount_, std::int16_t GrhIndex_, std::uint8_t ObjType_, std::int16_t MaxHit_, std::int16_t MinHit_, std::int16_t MaxDef_, std::int16_t MinDef_, std::int32_t Price_, bool canUse_, const std::string& ObjName_) : ServerPacket(ServerPacketID_ChangeUserTradeSlot /* 86 */), OfferSlot(OfferSlot_), ObjIndex(ObjIndex_), Amount(Amount_), GrhIndex(GrhIndex_), ObjType(ObjType_), MaxHit(MaxHit_), MinHit(MinHit_), MaxDef(MaxDef_), MinDef(MinDef_), Price(Price_), canUse(canUse_), ObjName(ObjName_) {
 }
 
 void ChangeUserTradeSlot::serialize(clsByteQueue* buffer) const {
@@ -12527,6 +12528,7 @@ void ChangeUserTradeSlot::serialize(clsByteQueue* buffer) const {
     buffer->WriteInteger(MaxDef);
     buffer->WriteInteger(MinDef);
     buffer->WriteLong(Price);
+    buffer->WriteBoolean(canUse);
     buffer->WriteUnicodeString(ObjName);
 
 }
