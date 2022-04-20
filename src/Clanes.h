@@ -78,7 +78,7 @@ int m_EcharMiembroDeClan(int Expulsador, std::string Expulsado);
 
 void ActualizarWebSite(int UserIndex, const std::string & Web);
 
-void ChangeCodexAndDesc(std::string & desc, std::vector<std::string> & codex, int GuildIndex);
+void ChangeCodexAndDesc(std::string & desc, std::vector<std::string> & codex, std::string & url, int GuildIndex);
 
 void ActualizarNoticias(int UserIndex, std::string Datos);
 

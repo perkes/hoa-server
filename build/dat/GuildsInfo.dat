@@ -4,16 +4,16 @@ ANTIFACCION=0
 CODEX1=Good Deeds
 CODEX2=Heroism
 CODEX3=Grave
-CODEX4=Knowledge
+CODEX4=Knowledge is Power
 CODEX5=Life
 CODEX6=Honor
 DATE=2022-Apr-12 17:21:09
-DESC=The Undying Court is the first really lawful clan in Heroes of Argentum.
+DESC=The Undying Court is the first lawful clan in Heroes of Argentum.
 FOUNDER=Corlivupis
 GUILDNAME=Undying Court
 GUILDNEWS=Clan created with alignment: Legal
 LEADER=Corlivupis
-URL=undyingcourt.io
+URL=undyingcourt.com
 
 [GUILD2]
 ALINEACION=Legal

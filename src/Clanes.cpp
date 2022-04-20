@@ -388,7 +388,7 @@ void ActualizarWebSite(int UserIndex, const std::string & Web) {
 
 }
 
-void ChangeCodexAndDesc(std::string & desc, std::vector<std::string> & codex, int GuildIndex) {
+void ChangeCodexAndDesc(std::string & desc, std::vector<std::string> & codex, std::string & url, int GuildIndex) {
 	/* '*************************************************** */
 	/* 'Author: Unknown */
 	/* 'Last Modification: - */
@@ -402,6 +402,7 @@ void ChangeCodexAndDesc(std::string & desc, std::vector<std::string> & codex, in
 	}
 
 	guilds[GuildIndex]->SetDesc(desc);
+	guilds[GuildIndex]->SetURL(url);
 
 	for (i = (0); i <= (vb6::UBound(codex)); i++) {
 		guilds[GuildIndex]->SetCodex(i+1, codex[i]);

@@ -2403,24 +2403,24 @@ void MoveBank::dispatch(PacketHandler* d) {
     d->getPacketHandlerClientPacket()->handleMoveBank(this);
 }
 
-ClanCodexUpdate::ClanCodexUpdate() : ClientPacket(ClientPacketID_ClanCodexUpdate /* 47 */), Desc(), Codex() {
+ClanCodexUpdate::ClanCodexUpdate() : ClientPacket(ClientPacketID_ClanCodexUpdate /* 47 */), Desc(), Codex(), Url() {
 }
 
 ClanCodexUpdate::ClanCodexUpdate(clsByteQueue* buffer) : ClientPacket(ClientPacketID_ClanCodexUpdate /* 47 */) {
     buffer->ReadByte(); /* PacketID */
     Desc = buffer->ReadUnicodeString();
     Codex = buffer->ReadUnicodeString();
-
+    Url = buffer->ReadUnicodeString();
 }
 
-ClanCodexUpdate::ClanCodexUpdate(const std::string& Desc_, const std::string& Codex_) : ClientPacket(ClientPacketID_ClanCodexUpdate /* 47 */), Desc(Desc_), Codex(Codex_) {
+ClanCodexUpdate::ClanCodexUpdate(const std::string& Desc_, const std::string& Codex_, const std::string& Url_) : ClientPacket(ClientPacketID_ClanCodexUpdate /* 47 */), Desc(Desc_), Codex(Codex_), Url(Url_) {
 }
 
 void ClanCodexUpdate::serialize(clsByteQueue* buffer) const {
     buffer->WriteByte(ClientPacketID_ClanCodexUpdate); /* PacketID: 47 */
     buffer->WriteUnicodeString(Desc);
     buffer->WriteUnicodeString(Codex);
-
+    buffer->WriteUnicodeString(Url);
 }
 
 void ClanCodexUpdate::dispatch(PacketHandler* d) {

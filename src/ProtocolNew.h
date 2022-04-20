@@ -941,17 +941,18 @@ class ClanCodexUpdate : public ClientPacket {
 public:
     ClanCodexUpdate();
     ClanCodexUpdate(clsByteQueue* buffer);
-    ClanCodexUpdate(const std::string& Desc, const std::string& Codex);
+    ClanCodexUpdate(const std::string& Desc, const std::string& Codex, const std::string& Url);
 
     virtual void serialize(clsByteQueue* buffer) const;
     virtual void dispatch(PacketHandler* d);
 
     std::string Desc; 
-    std::string Codex; 
+    std::string Codex;
+    std::string Url; 
 };
 
-inline ClanCodexUpdate BuildClanCodexUpdate(const std::string& Desc, const std::string& Codex) {
-    return ClanCodexUpdate(Desc, Codex);
+inline ClanCodexUpdate BuildClanCodexUpdate(const std::string& Desc, const std::string& Codex, const std::string& Url) {
+    return ClanCodexUpdate(Desc, Codex, Url);
 }
 
 class UserCommerceOffer : public ClientPacket {

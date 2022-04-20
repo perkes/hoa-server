@@ -2490,13 +2490,15 @@ void HoAClientPacketHandler::handleClanCodexUpdate(ClanCodexUpdate* p) { (void)p
 	/* ' */
 	/* '*************************************************** */
 
+	std::string url;
 	std::string desc;
 	std::vector<std::string> codex;
 
 	desc = p->Desc;
 	codex = vb6::Split(p->Codex, SEPARATOR);
+	url = p->Url;
 
-	ChangeCodexAndDesc(desc, codex, UserList[UserIndex].GuildIndex);
+	ChangeCodexAndDesc(desc, codex, url, UserList[UserIndex].GuildIndex);
 }
 
 /* '' */
