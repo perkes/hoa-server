@@ -472,7 +472,7 @@ void ActualizaExperiencias() {
 	/* ' */
 	/* '*************************************************** */
 
-	/* 'esta funcion se invoca antes de worlsaves, y apagar servidores */
+	/* 'esta funcion se invoca antes de worldsaves, y apagar servidores */
 	/* 'en caso que la experiencia sea acumulada y no por golpe */
 	/* 'para que grabe los datos en los charfiles */
 	int i;

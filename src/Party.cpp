@@ -92,7 +92,6 @@ void clsParty::ObtenerExito(int ExpGanada, int mapa, int X, int Y) {
 	double expThisUser;
 
 	p_expTotal = p_expTotal + ExpGanada;
-
 	for (i = (1); i <= (PARTY_MAXMEMBERS); i++) {
 		UI = p_members[i].UserIndex;
 		if (UI > 0) {

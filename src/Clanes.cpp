@@ -404,11 +404,7 @@ void ChangeCodexAndDesc(std::string & desc, std::vector<std::string> & codex, in
 	guilds[GuildIndex]->SetDesc(desc);
 
 	for (i = (0); i <= (vb6::UBound(codex)); i++) {
-		guilds[GuildIndex]->SetCodex(i, codex[i]);
-	}
-
-	for (; i <= (CANTIDADMAXIMACODEX); i++) {
-		guilds[GuildIndex]->SetCodex(i, "");
+		guilds[GuildIndex]->SetCodex(i+1, codex[i]);
 	}
 }
 
@@ -434,7 +430,7 @@ void ActualizarNoticias(int UserIndex, std::string Datos) {
 	guilds[GI]->SetGuildNews(Datos);
 
 	SendData(SendTarget_ToDiosesYclan, UserList[UserIndex].GuildIndex,
-			hoa::protocol::server::BuildGuildChat(UserList[UserIndex].Name + " ha actualizado las noticias del clan!"));
+			hoa::protocol::server::BuildGuildChat(UserList[UserIndex].Name + " has updated the clan's news section!"));
 }
 
 bool CrearNuevoClan(int FundadorIndex, std::string & desc, std::string & GuildName, std::string & URL,
@@ -1958,7 +1954,7 @@ void SendDetallesPersonaje(int UserIndex, std::string Personaje) {
 		if (GuildActual > 0 && GuildActual <= CANTIDADDECLANES) {
 			GuildName = "<" + guilds[GuildActual]->GuildName() + ">";
 		} else {
-			GuildName = "Ninguno";
+			GuildName = "None";
 		}
 
 		/* 'Get previous guilds */
