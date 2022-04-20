@@ -298,6 +298,11 @@ void HoAClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { (vo
 			name = status_metadata["ret"]["name"];
 
 			level = std::stoi(static_cast<std::string>(status_metadata["ret"]["Level"]));
+
+			if (level > LimiteNewbie) {
+				slot = 1;
+			}
+
 			mail = "a@a.com";
 			homeland = static_cast<eCiudad>(1);
 
@@ -316,7 +321,6 @@ void HoAClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { (vo
 			Obj armor_obj = Obj();
 			armor_obj.ObjIndex = armor;
 			armor_obj.Amount = 1;
-
 			MeterItemEnInventario(UserIndex, armor_obj);
 			EquiparInvItem(UserIndex, slot);
 			slot += 1;

@@ -1,35 +1,3 @@
-[GUILD1]
-ALINEACION=Legal
-ANTIFACCION=0
-CODEX1=Good Deeds
-CODEX2=Heroism
-CODEX3=Grave
-CODEX4=Knowledge is Power
-CODEX5=Life
-CODEX6=Honor
-DATE=2022-Apr-12 17:21:09
-DESC=The Undying Court is the first lawful clan in Heroes of Argentum.
-FOUNDER=Corlivupis
-GUILDNAME=Undying Court
-GUILDNEWS=Clan created with alignment: Legal
-LEADER=Corlivupis
-URL=undyingcourt.com
-
-[GUILD2]
-ALINEACION=Legal
-ANTIFACCION=0
-CODEX1=Thou shalt help the needy.
-CODEX2=Thou shalt punish the wicked.
-CODEX3=Thou shalt serve the King.
-CODEX4=Thou shalt strive for Glory.
-DATE=2022-Apr-12 17:31:35
-DESC=Imperium clan needs no introduction.
-FOUNDER=Lyre
-GUILDNAME=Imperium
-GUILDNEWS=Please everyone join me in giving a warm welcome to DARRIMM, our new clan member to our awesome clan!
-LEADER=Lyre
-URL=imperiumao.ar
-
 [INIT]
-NROGUILDS=2
+NROGUILDS=0
 
