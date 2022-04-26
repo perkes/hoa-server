@@ -1141,12 +1141,12 @@ Resis=0
 '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
 [HECHIZO19]
-Nombre=Clumsiness
+Nombre=Shivering Touch
 Desc=Counters the dexterity spell.
 PalabrasMagicas=ASYNC YUP A'INC
-HechizeroMsg=You've casted clumsiness on 
-TargetMsg=casted clumsiness on you.
-PropioMsg=You've casted clumsiness on you.
+HechizeroMsg=You've casted shivering touch on 
+TargetMsg=casted shivering touch on you.
+PropioMsg=You've casted shivering touch on yourself.
 Tipo=1
 WAV=17
 FXgrh=0
@@ -1899,7 +1899,7 @@ WAV=17
 FXgrh=0
 Loops=0
 MinSkill=30
-ManaRequerido=800
+ManaRequerido=300
 StaRequerido=76
 Target=1
 SubeHP=0

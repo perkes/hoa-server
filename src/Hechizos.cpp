@@ -528,7 +528,7 @@ bool PuedeLanzar(int UserIndex, int HechizoIndex) {
 	}
 
 	if (UserList[UserIndex].Stats.MinMAN < Hechizos[HechizoIndex].ManaRequerido * DruidManaBonus) {
-		WriteConsoleMsg(UserIndex, "You don't have enough mana points.", FontTypeNames_FONTTYPE_INFO);
+		WriteConsoleMsg(UserIndex, "You don't have enough mana.", FontTypeNames_FONTTYPE_INFO);
 		return retval;
 	}
 

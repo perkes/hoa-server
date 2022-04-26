@@ -1859,7 +1859,7 @@ BackUp=1
 [NPC50] 'Provisiones Bander
 Name=Tellez
 NpcType=0
-Desc=Hello and Welcome to the "Mesón Hostigado", What are you having?
+"Desc=Hello and Welcome to the ""Mesón Hostigado""", What are you having?
 Head=505
 Heading=3
 Body=202
@@ -3627,7 +3627,7 @@ Hostile=0
 Domable=450
 Alineacion=0
 Comercia=0
-GiveEXP=10
+GiveEXP=500
 GiveGLD=0
 MinHP=15
 MaxHP=15
@@ -3654,7 +3654,7 @@ Hostile=0
 Domable=500
 Alineacion=0
 Comercia=0
-GiveEXP=15
+GiveEXP=750
 GiveGLD=0
 MinHP=35
 MaxHP=35
@@ -3682,7 +3682,7 @@ Hostile=0
 Domable=810
 Alineacion=0
 Comercia=0
-GiveEXP=10
+GiveEXP=500
 GiveGLD=0
 MinHP=65
 MaxHP=65
@@ -3710,7 +3710,7 @@ Hostile=0
 Domable=450
 Alineacion=0
 Comercia=0
-GiveEXP=10
+GiveEXP=500
 GiveGLD=0
 MinHP=15
 MaxHP=15
@@ -3737,7 +3737,7 @@ Hostile=0
 Domable=450
 Alineacion=0
 Comercia=0
-GiveEXP=10
+GiveEXP=500
 GiveGLD=0
 MinHP=15
 MaxHP=15
@@ -3784,7 +3784,7 @@ Hostile=0
 Domable=0
 Alineacion=0
 Comercia=0
-GiveEXP=10
+GiveEXP=500
 GiveGLD=0
 MinHP=15
 MaxHP=15
@@ -3811,7 +3811,7 @@ Hostile=0
 Domable=0
 Alineacion=0
 Comercia=0
-GiveEXP=15
+GiveEXP=750
 GiveGLD=0
 MinHP=35
 MaxHP=35
@@ -3838,7 +3838,7 @@ Hostile=0
 Domable=0
 Alineacion=0
 Comercia=0
-GiveEXP=10
+GiveEXP=500
 GiveGLD=0
 MinHP=45
 MaxHP=45
@@ -3865,7 +3865,7 @@ Hostile=0
 Domable=1100
 Alineacion=0
 Comercia=0
-GiveEXP=55
+GiveEXP=2750
 GiveGLD=0
 MinHP=30
 MaxHP=30
@@ -3892,7 +3892,7 @@ Hostile=0
 Domable=425
 Alineacion=0
 Comercia=0
-GiveEXP=5
+GiveEXP=250
 GiveGLD=0
 MinHP=5
 MaxHP=5
@@ -3919,7 +3919,7 @@ Hostile=0
 Domable=700
 Alineacion=0
 Comercia=0
-GiveEXP=5
+GiveEXP=250
 GiveGLD=0
 MinHP=15
 MaxHP=15
@@ -3948,7 +3948,7 @@ Hostile=0
 Domable=2010
 Alineacion=0
 Comercia=0
-GiveEXP=550
+GiveEXP=27500
 GiveGLD=0
 MinHP=600
 MaxHP=600
@@ -3975,7 +3975,7 @@ Hostile=0
 Domable=2010
 Alineacion=0
 Comercia=0
-GiveEXP=350
+GiveEXP=17500
 GiveGLD=0
 MinHP=315
 MaxHP=315
@@ -4031,7 +4031,7 @@ Hostile=0
 Domable=0
 Alineacion=0
 Comercia=0
-GiveEXP=6000
+GiveEXP=300000
 GiveGLD=1000
 MinHP=15000
 MaxHP=15000
@@ -4061,7 +4061,7 @@ Hostile=0
 Domable=0
 Alineacion=0
 Comercia=0
-GiveEXP=2000
+GiveEXP=100000
 GiveGLD=2000
 MinHP=29550
 MaxHP=29550
@@ -4091,7 +4091,7 @@ Hostile=0
 Domable=1200
 Alineacion=0
 Comercia=0
-GiveEXP=75
+GiveEXP=3750
 GiveGLD=0
 MinHP=40
 MaxHP=40
@@ -4203,7 +4203,7 @@ Hostile=0
 Domable=2010
 Alineacion=0
 Comercia=0
-GiveEXP=550
+GiveEXP=27500
 GiveGLD=0
 MinHP=515
 MaxHP=515
@@ -4230,7 +4230,7 @@ Hostile=0
 Domable=2010
 Alineacion=0
 Comercia=0
-GiveEXP=600
+GiveEXP=30000
 GiveGLD=0
 MinHP=800
 MaxHP=800
@@ -4257,7 +4257,7 @@ Hostile=0
 Domable=660
 Alineacion=0
 Comercia=0
-GiveEXP=20
+GiveEXP=1000
 GiveGLD=0
 MinHP=30
 MaxHP=30
@@ -4291,7 +4291,7 @@ Hostile=1
 Domable=400
 Alineacion=2
 Comercia=0
-GiveEXP=10
+GiveEXP=500
 MinHP=15
 MaxHP=15
 MaxHIT=4
@@ -4302,10 +4302,10 @@ PoderAtaque=30
 PoderEvasion=10
 BackUp=0
 NROITEMS=5
-Drop1=12-1  ' Oro
-Drop2=12-2  ' Oro
-Drop4=12-15 ' Oro
-Drop5=12-70 ' Oro
+Drop1=12-50	' Oro
+Drop2=12-100	' Oro
+Drop4=12-750	' Oro
+Drop5=12-3500	' Oro
 
 ############################################
 
@@ -4323,7 +4323,7 @@ Hostile=1
 Domable=1250
 Alineacion=2
 Comercia=0
-GiveEXP=100
+GiveEXP=5000
 MinHP=75
 MaxHP=75
 MaxHIT=18
@@ -4335,10 +4335,10 @@ Snd1=35
 Snd2=9
 BackUp=0
 NROITEMS=5
-Drop1=414-1 'Piel de Lobo
-Drop2=27-3 'Chuleta
-Drop3=1002-1 'Casco de Lobo
-Drop4=394-1 'Llamado a la Naturaleza.
+Drop1=414-50	'Piel de Lobo
+Drop2=27-150	'Chuleta
+Drop3=1002-50	'Casco de Lobo
+Drop4=394-50	'Llamado a la Naturaleza.
 
 ############################################
 
@@ -4356,7 +4356,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=175
+GiveEXP=8750
 MinHP=250
 MaxHP=250
 MaxHIT=12
@@ -4368,10 +4368,10 @@ Snd2=33
 Snd3=164
 BackUp=0
 NROITEMS=5
-Drop1=12-21 'Oro
-Drop2=45-1 'Ropa de Clan
-Drop3=12-50 'Oro
-Drop4=38-30 'Pociones Rojas
+Drop1=12-1050	'Oro
+Drop2=45-50	'Ropa de Clan
+Drop3=12-2500	'Oro
+Drop4=38-1500	'Pociones Rojas
 
 ############################################
 
@@ -4389,7 +4389,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=47
+GiveEXP=2350
 MinHP=50
 MaxHP=50
 MaxHIT=8
@@ -4399,11 +4399,11 @@ PoderAtaque=30
 PoderEvasion=30
 BackUp=0
 NROITEMS=5
-Drop1=12-8 'Oro
-Drop2=12-8 'Oro
-Drop3=363-1 'Ataque de Hambre
-Drop4=2-2 ' Espada larga
-Drop5=197-1 'Flecha magica
+Drop1=12-400	'Oro
+Drop2=12-400	'Oro
+Drop3=363-50	'Ataque de Hambre
+Drop4=2-100	' Espada larga
+Drop5=197-50	'Flecha magica
 
 ############################################
 
@@ -4421,7 +4421,7 @@ Hostile=1
 Domable=400
 Alineacion=2
 Comercia=0
-GiveEXP=15
+GiveEXP=750
 MinHP=22
 MaxHP=22
 MaxHIT=1
@@ -4432,9 +4432,9 @@ PoderEvasion=0
 SND2=103
 BackUp=0
 NROITEMS=5
-Drop3=38-10 'Pociones Rojas
-Drop4=200-1 'Antídoto Mágico
-Drop5=202-1 'Toxina
+Drop3=38-500	'Pociones Rojas
+Drop4=200-50	'Antídoto Mágico
+Drop5=202-50	'Toxina
 
 ############################################
 
@@ -4452,7 +4452,7 @@ Hostile=1
 Domable=1500
 Alineacion=2
 Comercia=0
-GiveEXP=95
+GiveEXP=4750
 MinHP=110
 MaxHP=110
 MaxHIT=12
@@ -4463,11 +4463,11 @@ PoderEvasion=40
 Snd3=142
 BackUp=0
 NROITEMS=5
-Drop1=12-15 'Oro
-Drop2=12-22 'Oro
-Drop3=15-1 'Daga
-Drop4=132-1 'Casco de Hierro
-Drop5=39-10 'Pociones Verdes
+Drop1=12-750	'Oro
+Drop2=12-1100	'Oro
+Drop3=15-50	'Daga
+Drop4=132-50	'Casco de Hierro
+Drop5=39-500	'Pociones Verdes
 
 ############################################
 
@@ -4485,7 +4485,7 @@ Hostile=1
 Domable=450
 Alineacion=2
 Comercia=0
-GiveEXP=10
+GiveEXP=500
 MinHP=15
 MaxHP=15
 MaxHIT=1
@@ -4496,9 +4496,9 @@ PoderEvasion=5
 SND3=67
 BackUp=0
 NROITEMS=5
-Drop1=26-1 'Pollo
-Drop2=12-5 'Oro
-Drop3=12-50 'Oro
+Drop1=26-50	'Pollo
+Drop2=12-250	'Oro
+Drop3=12-2500	'Oro
 
 ############################################
 
@@ -4516,7 +4516,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=355
+GiveEXP=17750
 MinHP=350
 MaxHP=350
 MaxHIT=25
@@ -4528,10 +4528,10 @@ SND2=33
 Snd3=164
 BackUp=0
 NROITEMS=5
-Drop1=12-50 'Oro
-Drop2=38-7 'Pociones Rojas
-Drop3=37-5 'Pociones Azules
-Drop5=395-1 'Llamado Nigromante
+Drop1=12-2500	'Oro
+Drop2=38-350	'Pociones Rojas
+Drop3=37-250	'Pociones Azules
+Drop5=395-50	'Llamado Nigromante
 
 ############################################
 
@@ -4549,7 +4549,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=155
+GiveEXP=7750
 MinHP=150
 MaxHP=150
 MaxHIT=18
@@ -4559,10 +4559,10 @@ PoderAtaque=60
 PoderEvasion=50
 BackUp=0
 NROITEMS=5
-Drop1=12-25 'Oro
-Drop3=132-1 'Casco de Hierro
-Drop4=126-1 'Hacha Larga de Guerra
-Drop5=380-1 'Invocación de Ultratumba
+Drop1=12-1250	'Oro
+Drop3=132-50	'Casco de Hierro
+Drop4=126-50	'Hacha Larga de Guerra
+Drop5=380-50	'Invocación de Ultratumba
 
 ############################################
 
@@ -4580,7 +4580,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=8500
+GiveEXP=425000
 MinHP=5000
 MaxHP=5000
 MaxHIT=300
@@ -4592,11 +4592,11 @@ PoderEvasion=250
 Snd3=160
 BackUp=0
 NROITEMS=5
-Drop1=12-1000 'Oro
-Drop2=239-1 'Túnica Roja
-Drop3=12-4700 'Oro
-Drop4=981-2 'Piwafwi de Fuego
-Drop5=481-1 'Armadura de Dragón
+Drop1=12-50000	'Oro
+Drop2=239-50	'Túnica Roja
+Drop3=12-235000	'Oro
+Drop4=981-100	'Piwafwi de Fuego
+Drop5=481-50	'Armadura de Dragón
 
 ############################################
 
@@ -4614,7 +4614,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=1450
+GiveEXP=72500
 MinHP=1000
 MaxHP=1000
 MaxHIT=100
@@ -4625,11 +4625,11 @@ PoderEvasion=70
 Veneno=1
 BackUp=0
 NROITEMS=5
-Drop1=12-175 'Oro
-Drop2=38-30 ' Pociones Rojas
-Drop3=164-1 'Espada Corta
-Drop4=480-110 'Flechas
-Drop5=206-1 'Paralizar
+Drop1=12-8750	'Oro
+Drop2=38-1500	' Pociones Rojas
+Drop3=164-50	'Espada Corta
+Drop4=480-5500	'Flechas
+Drop5=206-50	'Paralizar
 
 ############################################
 
@@ -4647,7 +4647,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=4110
+GiveEXP=205500
 MinHP=2750
 MaxHP=2750
 MaxHIT=190
@@ -4659,10 +4659,10 @@ PoderEvasion=210
 snd2=78
 BackUp=0
 NROITEMS=5
-Drop1=12-350 'Oro
-Drop2=37-55 'Pociones Azul
-Drop3=401-1 'Martillo de Guerra
-Drop5=697-1 'Anillo Mágico
+Drop1=12-17500	'Oro
+Drop2=37-2750	'Pociones Azul
+Drop3=401-50	'Martillo de Guerra
+Drop5=697-50	'Anillo Mágico
 
 ############################################
 
@@ -4709,7 +4709,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=7288
+GiveEXP=364400
 MinHP=4500
 MaxHP=4500
 MaxHIT=250
@@ -4721,11 +4721,11 @@ PoderEvasion=245
 snd2=78
 BackUp=0
 NROITEMS=5
-Drop1=12-900 'Oro
-Drop2=37-145 'Poción Azul
-Drop3=990-1 'Mazo de Juicio
-Drop4=698-1 'Anillo de Resitencia Mágica
-Drop5=359-3 'Cotas de Mallas
+Drop1=12-45000	'Oro
+Drop2=37-7250	'Poción Azul
+Drop3=990-50	'Mazo de Juicio
+Drop4=698-50	'Anillo de Resitencia Mágica
+Drop5=359-150	'Cotas de Mallas
 
 ############################################
 
@@ -4743,7 +4743,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=3410
+GiveEXP=170500
 MinHP=5000
 MaxHP=5000
 MaxHIT=45
@@ -4755,11 +4755,11 @@ PoderEvasion=150
 SND2=103
 BackUp=0
 NROITEMS=5
-Drop1=12-3000 'Oro
-Drop2=697-3 'Anillo Mágico
-Drop3=698-2 'Anillo de Resistencia Mágica
-Drop4=699-1 'Anillo de Disolución Mágica
-Drop5=503-2 'Trampa Visual
+Drop1=12-150000	'Oro
+Drop2=697-150	'Anillo Mágico
+Drop3=698-100	'Anillo de Resistencia Mágica
+Drop4=699-50	'Anillo de Disolución Mágica
+Drop5=503-100	'Trampa Visual
 
 ############################################
 
@@ -4777,7 +4777,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=1880
+GiveEXP=94000
 MinHP=1300
 MaxHP=1300
 MaxHIT=130
@@ -4788,11 +4788,11 @@ PoderAtaque=160
 PoderEvasion=70
 BackUp=0
 NROITEMS=5
-Drop1=12-175 'Oro
-Drop2=38-30 'Poción Roja
-Drop3=37-50 'Poción Azul
-Drop4=480-310 'Flechas
-Drop5=697-2 'Anillo Mágico
+Drop1=12-8750	'Oro
+Drop2=38-1500	'Poción Roja
+Drop3=37-2500	'Poción Azul
+Drop4=480-15500	'Flechas
+Drop5=697-100	'Anillo Mágico
 
 ############################################
 
@@ -4810,7 +4810,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=45
+GiveEXP=2250
 GiveGLD=0
 MinHP=90
 MaxHP=90
@@ -4836,7 +4836,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=7000
+GiveEXP=350000
 MinHP=4200
 MaxHP=4200
 MaxHIT=140
@@ -4849,11 +4849,11 @@ Sp1=9
 Sp2=23
 BackUp=0
 NROITEMS=5
-Drop1=12-1200 'Oro
-Drop2=12-1550 'Oro
-Drop3=37-175 'Pociones Azules
-Drop4=206-1 'Paralizar
-Drop5=531-1 'Descarga Eléctrica
+Drop1=12-60000	'Oro
+Drop2=12-77500	'Oro
+Drop3=37-8750	'Pociones Azules
+Drop4=206-50	'Paralizar
+Drop5=531-50	'Descarga Eléctrica
 
 ############################################
 
@@ -4871,7 +4871,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=2100
+GiveEXP=105000
 MinHP=2000
 MaxHP=2000
 MaxHIT=150
@@ -4885,10 +4885,10 @@ Sp2=15
 Snd3=89
 BackUp=0
 NROITEMS=5
-Drop1=12-150 'Oro
-Drop3=37-120 'Pociones Azules
-Drop4=361-1 'Tormenta de Fuego
-Drop5=206-1 'Paralizar
+Drop1=12-7500	'Oro
+Drop3=37-6000	'Pociones Azules
+Drop4=361-50	'Tormenta de Fuego
+Drop5=206-50	'Paralizar
 
 ############################################
 
@@ -4906,7 +4906,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=1450
+GiveEXP=72500
 MinHP=1000
 MaxHP=1000
 MaxHIT=100
@@ -4917,10 +4917,10 @@ PoderEvasion=70
 Veneno=1
 BackUp=0
 NROITEMS=5
-Drop1=12-175 'Oro
-Drop2=38-30 'Poción Roja
-Drop3=36-10 'Poción Amarilla
-Drop4=480-365 'Flechas
+Drop1=12-8750	'Oro
+Drop2=38-1500	'Poción Roja
+Drop3=36-500	'Poción Amarilla
+Drop4=480-18250	'Flechas
 
 ############################################
 
@@ -4965,7 +4965,7 @@ Hostile=1
 Domable=2010
 Alineacion=2
 Comercia=0
-GiveEXP=600
+GiveEXP=30000
 MinHP=800
 MaxHP=800
 MaxHIT=70
@@ -4975,10 +4975,10 @@ PoderAtaque=700
 PoderEvasion=45
 BackUp=0
 NROITEMS=5
-Drop1=414-20 'Piel de Tigre (le pongo de lobo mientras, cambiar!!)
-Drop3=27-23 'Chuleta
-Drop4=30-1 'Armadura de Cuero
-Drop5=1004-1 'Casco de Tigre
+Drop1=414-1000	'Piel de Tigre (le pongo de lobo mientras, cambiar!!)
+Drop3=27-1150	'Chuleta
+Drop4=30-50	'Armadura de Cuero
+Drop5=1004-50	'Casco de Tigre
 
 ############################################
 
@@ -4996,7 +4996,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=395
+GiveEXP=19750
 MinHP=350
 MaxHP=350
 MaxHIT=35
@@ -5006,11 +5006,11 @@ PoderAtaque=100
 PoderEvasion=75
 BackUp=0
 NROITEMS=5
-Drop1=12-114 'Oro
-Drop2=3-1 'Hacha
-Drop3=39-10 'Poción Verde
-Drop4=990-2 'Mazos de Juicio
-Drop5=359-2 'Cotas de Malla
+Drop1=12-5700	'Oro
+Drop2=3-50	'Hacha
+Drop3=39-500	'Poción Verde
+Drop4=990-100	'Mazos de Juicio
+Drop5=359-100	'Cotas de Malla
 
 ############################################
 
@@ -5028,7 +5028,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=395
+GiveEXP=19750
 GiveGLD=44
 MinHP=350
 MaxHP=350
@@ -5038,11 +5038,11 @@ DEF=30
 PoderAtaque=100
 PoderEvasion=75
 NROITEMS=5
-Drop1=12-114 'Oro
-Drop2=3-1 'Hacha
-Drop3=39-10 'Poción Verde
-Drop4=990-2 'Mazos de Juicio
-Drop5=359-2 'Cotas de Malla
+Drop1=12-5700	'Oro
+Drop2=3-50	'Hacha
+Drop3=39-500	'Poción Verde
+Drop4=990-100	'Mazos de Juicio
+Drop5=359-100	'Cotas de Malla
 BackUp=0
 
 ############################################
@@ -5061,7 +5061,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=2000
+GiveEXP=100000
 MinHP=1000
 MaxHP=1000
 MaxHIT=400
@@ -5072,11 +5072,11 @@ PoderEvasion=200
 Nroitems=1
 BackUp=0
 NROITEMS=5
-Drop1=183-1 'Llave Fuerte
-Drop2=183-1 'Llave Fuerte
-Drop3=183-1 'Llave Fuerte
-Drop4=183-1 'Llave Fuerte
-Drop5=183-1 'Llave Fuerte
+Drop1=183-50	'Llave Fuerte
+Drop2=183-50	'Llave Fuerte
+Drop3=183-50	'Llave Fuerte
+Drop4=183-50	'Llave Fuerte
+Drop5=183-50	'Llave Fuerte
 
 ############################################
 
@@ -5094,7 +5094,7 @@ Hostile=1
 Domable=1200
 Alineacion=2
 Comercia=0
-GiveEXP=10
+GiveEXP=500
 MinHP=40
 MaxHP=40
 MaxHIT=15
@@ -5105,8 +5105,8 @@ PoderEvasion=160
 SND3=62
 BackUp=0
 NROITEMS=5
-Drop2=139-1 'Pescado
-Drop3=544-5 'Pez Dorado
+Drop2=139-50	'Pescado
+Drop3=544-250	'Pez Dorado
 
 ############################################
 
@@ -5124,7 +5124,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=1450
+GiveEXP=72500
 MinHP=3000
 MaxHP=3000
 MaxHIT=100
@@ -5136,11 +5136,11 @@ Nroitems=1
 Veneno=1
 BackUp=0
 NROITEMS=5
-Drop1=174-1 'Llave Catacumbas de Ulla
-Drop2=174-1 'Llave Catacumbas de Ulla
-Drop3=174-1 'Llave Catacumbas de Ulla
-Drop4=174-1 'Llave Catacumbas de Ulla
-Drop5=174-1 'Llave Catacumbas de Ulla
+Drop1=174-50	'Llave Catacumbas de Ulla
+Drop2=174-50	'Llave Catacumbas de Ulla
+Drop3=174-50	'Llave Catacumbas de Ulla
+Drop4=174-50	'Llave Catacumbas de Ulla
+Drop5=174-50	'Llave Catacumbas de Ulla
 
 ############################################
 
@@ -5158,7 +5158,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=8500
+GiveEXP=425000
 MinHP=5000
 MaxHP=5000
 MaxHIT=300
@@ -5169,11 +5169,11 @@ PoderEvasion=250
 Nroitems=1
 BackUp=0
 NROITEMS=5
-Drop1=178-1 'Llave Dungeon Malaheing
-Drop2=178-1 'Llave Dungeon Malaheing
-Drop3=178-1 'Llave Dungeon Malaheing
-Drop4=178-1 'Llave Dungeon Malaheing
-Drop5=178-1 'Llave Dungeon Malaheing
+Drop1=178-50	'Llave Dungeon Malaheing
+Drop2=178-50	'Llave Dungeon Malaheing
+Drop3=178-50	'Llave Dungeon Malaheing
+Drop4=178-50	'Llave Dungeon Malaheing
+Drop5=178-50	'Llave Dungeon Malaheing
 
 ############################################
 
@@ -5191,7 +5191,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=51
+GiveEXP=2550
 MinHP=75
 MaxHP=75
 MaxHIT=5
@@ -5202,9 +5202,9 @@ PoderEvasion=0
 SND2=103
 BackUp=0
 NROITEMS=5
-Drop1=12-5 'Oro
-Drop2=12-10 'Oro
-Drop3=12-50 'Oro
+Drop1=12-250	'Oro
+Drop2=12-500	'Oro
+Drop3=12-2500	'Oro
 
 ############################################
 
@@ -5222,7 +5222,7 @@ Hostile=1
 Domable=600
 Alineacion=2
 Comercia=0
-GiveEXP=32
+GiveEXP=1600
 MinHP=32
 MaxHP=32
 MaxHIT=3
@@ -5234,10 +5234,10 @@ PoderEvasion=10
 Veneno=1
 BackUp=0
 NROITEMS=5
-Drop1=12-2   ' Oro
-Drop3=12-30  ' Oro
-Drop4=2-1    ' Espada larga
-Drop5=164-1  ' Espada corta
+Drop1=12-100	' Oro
+Drop3=12-1500	' Oro
+Drop4=2-50	' Espada larga
+Drop5=164-50	' Espada corta
 
 ############################################
 
@@ -5255,7 +5255,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=266
+GiveEXP=13300
 MinHP=200
 MaxHP=200
 MaxHIT=39
@@ -5266,10 +5266,10 @@ PoderEvasion=50
 Snd3=157
 BackUp=0
 NROITEMS=5
-Drop1=12-50 'Oro
-Drop2=641-1 'Ropa Pordiosero
-Drop3=38-10 'Pociones Rojas
-Drop4=873-1 'Guantes de Hurto
+Drop1=12-2500	'Oro
+Drop2=641-50	'Ropa Pordiosero
+Drop3=38-500	'Pociones Rojas
+Drop4=873-50	'Guantes de Hurto
 
 ############################################
 
@@ -5287,7 +5287,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=1500
+GiveEXP=75000
 MinHP=850
 MaxHP=850
 MaxHIT=139
@@ -5298,11 +5298,11 @@ PoderEvasion=200
 Snd3=155
 BackUp=0
 NROITEMS=5
-Drop1=12-200 'Oro
-Drop2=38-10 'Pociones Rojas
-Drop3=366-1 'Daga +3
-Drop4=367-1 'Daga +4
-Drop5=356-1 'Armadura de las Sombras
+Drop1=12-10000	'Oro
+Drop2=38-500	'Pociones Rojas
+Drop3=366-50	'Daga +3
+Drop4=367-50	'Daga +4
+Drop5=356-50	'Armadura de las Sombras
 
 ############################################
 
@@ -5320,7 +5320,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=550
+GiveEXP=27500
 MinHP=400
 MaxHP=400
 MaxHIT=70
@@ -5330,9 +5330,9 @@ PoderAtaque=230
 PoderEvasion=60
 BackUp=0
 NROITEMS=5
-Drop1=415-1 'Piel de Oso Pardo
-Drop3=38-10 'Pociones Rojas
-Drop4=480-50 'Flechas
+Drop1=415-50	'Piel de Oso Pardo
+Drop3=38-500	'Pociones Rojas
+Drop4=480-2500	'Flechas
 
 ############################################
 
@@ -5350,7 +5350,7 @@ Hostile=1
 Domable=1100
 Alineacion=2
 Comercia=0
-GiveEXP=41
+GiveEXP=2050
 GiveGLD=0
 MinHP=50
 MaxHP=50
@@ -5363,10 +5363,10 @@ PoderEvasion=25
 SND3=63
 BackUp=0
 NROITEMS=5
-Drop1=12-4    ' Oro
-Drop3=12-53   ' Oro
-Drop4=12-250  ' Oro
-Drop5=12-1000 ' Oro
+Drop1=12-200	' Oro
+Drop3=12-2650	' Oro
+Drop4=12-12500	' Oro
+Drop5=12-50000	' Oro
 
 ############################################
 
@@ -5384,7 +5384,7 @@ Hostile=1
 Domable=2010
 Alineacion=2
 Comercia=0
-GiveEXP=500
+GiveEXP=25000
 MinHP=400
 MaxHP=400
 MaxHIT=100
@@ -5394,11 +5394,11 @@ PoderAtaque=150
 PoderEvasion=100
 BackUp=0
 NROITEMS=5
-Drop1=12-100 'Oro
-Drop2=478-1 'Arco Simple
-Drop3=479-1 'Arco Compuesto
-Drop4=38-15 'Pociones Rojas
-Drop5=480-500 ' Flechas
+Drop1=12-5000	'Oro
+Drop2=478-50	'Arco Simple
+Drop3=479-50	'Arco Compuesto
+Drop4=38-750	'Pociones Rojas
+Drop5=480-25000	' Flechas
 
 ############################################
 
@@ -5416,7 +5416,7 @@ Hostile=1
 Domable=425
 Alineacion=2
 Comercia=0
-GiveEXP=5
+GiveEXP=250
 MinHP=5
 MaxHP=5
 MaxHIT=1
@@ -5426,9 +5426,9 @@ PoderAtaque=5
 PoderEvasion=3
 BackUp=0
 NROITEMS=5
-Drop1=12-1 'Oro
-Drop3=12-10 'Oro
-Drop5=12-200 'Oro
+Drop1=12-50	'Oro
+Drop3=12-500	'Oro
+Drop5=12-10000	'Oro
 
 ############################################
 
@@ -5446,7 +5446,7 @@ Hostile=1
 Domable=700
 Alineacion=2
 Comercia=0
-GiveEXP=16
+GiveEXP=800
 MinHP=15
 MaxHP=15
 MaxHIT=4
@@ -5459,10 +5459,10 @@ EXP1=Crick Crick
 EXP2=Clir chuik
 BackUp=0
 NROITEMS=5
-Drop1=12-2 'Oro
-Drop3=28-10 'Queso de Cabra
-Drop4=534-10 'Odre Vacía
-Drop5=12-100 'Oro
+Drop1=12-100	'Oro
+Drop3=28-500	'Queso de Cabra
+Drop4=534-500	'Odre Vacía
+Drop5=12-5000	'Oro
 
 ############################################
 
@@ -5480,7 +5480,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=2500
+GiveEXP=125000
 MinHP=1400
 MaxHP=1400
 MaxHIT=300
@@ -5490,11 +5490,11 @@ PoderAtaque=350
 PoderEvasion=200
 BackUp=0
 NROITEMS=5
-Drop1=12-360 'Oro
-Drop2=12-500 'Oro
-Drop3=37-100 'Pociones Azules
-Drop4=205-1 'Proyectil Etereo
-Drop5=12-10000 'Oro
+Drop1=12-18000	'Oro
+Drop2=12-25000	'Oro
+Drop3=37-5000	'Pociones Azules
+Drop4=205-50	'Proyectil Etereo
+Drop5=12-500000	'Oro
 
 ############################################
 
@@ -5512,7 +5512,7 @@ Hostile=1
 Domable=2010
 Alineacion=2
 Comercia=0
-GiveEXP=850
+GiveEXP=42500
 MinHP=600
 MaxHP=600
 MaxHIT=100
@@ -5522,11 +5522,11 @@ PoderAtaque=250
 PoderEvasion=65
 BackUp=0
 NROITEMS=5
-Drop1=415-1 'Piel Oso Pardo
-Drop2=12-26 'Oro
-Drop3=480-50 'Flechas
-Drop4=479-1 'Arco Compuesto
-Drop5=38-100 'Pociones Rojas
+Drop1=415-50	'Piel Oso Pardo
+Drop2=12-1300	'Oro
+Drop3=480-2500	'Flechas
+Drop4=479-50	'Arco Compuesto
+Drop5=38-5000	'Pociones Rojas
 
 ############################################
 
@@ -5544,7 +5544,7 @@ Hostile=1
 Domable=2010
 Alineacion=2
 Comercia=0
-GiveEXP=500
+GiveEXP=25000
 MinHP=550
 MaxHP=550
 MaxHIT=50
@@ -5554,10 +5554,10 @@ PoderAtaque=100
 PoderEvasion=45
 BackUp=0
 NROITEMS=5
-Drop1=404-1 'Escudo de Tortuga
-Drop2=12-175 'Oro
-Drop3=38-20 'Pociones Rojas
-Drop4=203-1 'Aura Sanadora Avanzada
+Drop1=404-50	'Escudo de Tortuga
+Drop2=12-8750	'Oro
+Drop3=38-1000	'Pociones Rojas
+Drop4=203-50	'Aura Sanadora Avanzada
 
 ############################################
 
@@ -5575,7 +5575,7 @@ Hostile=1
 Domable=1700
 Alineacion=2
 Comercia=0
-GiveEXP=245
+GiveEXP=12250
 MinHP=210
 MaxHP=210
 MaxHIT=32
@@ -5586,10 +5586,10 @@ PoderEvasion=60
 Snd3=161
 BackUp=0
 NROITEMS=5
-Drop1=12-23 'Oro
-Drop3=12-150 'Oro
-Drop4=197-1 'Flecha Mágica
-Drop5=204-1 'Flecha Eléctrica
+Drop1=12-1150	'Oro
+Drop3=12-7500	'Oro
+Drop4=197-50	'Flecha Mágica
+Drop5=204-50	'Flecha Eléctrica
 
 ############################################
 
@@ -5607,7 +5607,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=3500
+GiveEXP=175000
 MinHP=2250
 MaxHP=2250
 MaxHIT=232
@@ -5618,11 +5618,11 @@ PoderEvasion=230
 snd2=78
 BackUp=0
 NROITEMS=5
-Drop1=12-512 'Oro
-Drop2=398-20 'Garrote
-Drop3=38-120 'Pociones Rojas
-Drop4=37-150 'Pociones Azules
-Drop5=698-1
+Drop1=12-25600	'Oro
+Drop2=398-1000	'Garrote
+Drop3=38-6000	'Pociones Rojas
+Drop4=37-7500	'Pociones Azules
+Drop5=698-50	
 
 ############################################
 
@@ -5640,7 +5640,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=265000
+GiveEXP=13250000
 MinHP=200000
 MaxHP=200000
 MaxHIT=5000
@@ -5657,11 +5657,11 @@ SND3=32
 AfectaParalisis=1
 BackUp=0
 NROITEMS=5
-Drop1=12-65000 'Oro
-Drop2= 194-5000 'Minerales de Oro
-Drop3=402-1 'Espada Mata Dragones
-Drop4=532-1 'Apocalipsis
-Drop5=481-3 'Armaduras de Dragón
+Drop1=12-3250000	'Oro
+Drop2= 194-250000	'Minerales de Oro
+Drop3=402-50	'Espada Mata Dragones
+Drop4=532-50	'Apocalipsis
+Drop5=481-150	'Armaduras de Dragón
 
 ############################################
 
@@ -5679,7 +5679,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=14200
+GiveEXP=710000
 MinHP=15000
 MaxHP=15000
 MaxHIT=350
@@ -5690,11 +5690,11 @@ PoderEvasion=220
 Snd3=159
 BackUp=0
 NROITEMS=5
-Drop1=12-6000 'Oro
-Drop2=12-10000 'Oro
-Drop3=126-1 'Hacha Larga de Guerra
-Drop4=129-3 'Hacha Doble Filo
-Drop5=495-1 'Armadura Escarlata.
+Drop1=12-300000	'Oro
+Drop2=12-500000	'Oro
+Drop3=126-50	'Hacha Larga de Guerra
+Drop4=129-150	'Hacha Doble Filo
+Drop5=495-50	'Armadura Escarlata.
 
 ############################################
 
@@ -5712,7 +5712,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=200
+GiveEXP=10000
 MinHP=500
 MaxHP=500
 MaxHIT=7
@@ -5722,11 +5722,11 @@ PoderAtaque=10
 PoderEvasion=10
 BackUp=0
 NROITEMS=5
-Drop1=12-50 'Oro
-Drop2=12-80 'Oro
-Drop3=12-150 'Oro
-Drop4=37-50 'Poción Azul
-Drop5=12-5000 'Oro
+Drop1=12-2500	'Oro
+Drop2=12-4000	'Oro
+Drop3=12-7500	'Oro
+Drop4=37-2500	'Poción Azul
+Drop5=12-250000	'Oro
 
 ############################################
 
@@ -5744,7 +5744,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=850
+GiveEXP=42500
 MinHP=600
 MaxHP=600
 MaxHIT=100
@@ -5754,11 +5754,11 @@ PoderAtaque=250
 PoderEvasion=65
 BackUp=0 
 NROITEMS=5
-Drop1=12-100 'Oro
-Drop2=38-10 'Poción Roja
-Drop3=414-30 'Piel de Lobo
-Drop4=1002-1 'Casco de Lobo
-Drop5=394-1 'Llamado a la Naturaleza.
+Drop1=12-5000	'Oro
+Drop2=38-500	'Poción Roja
+Drop3=414-1500	'Piel de Lobo
+Drop4=1002-50	'Casco de Lobo
+Drop5=394-50	'Llamado a la Naturaleza.
 
 ############################################
 
@@ -5804,7 +5804,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=1450
+GiveEXP=72500
 MinHP=1000
 MaxHP=1000
 MaxHIT=100
@@ -5815,11 +5815,11 @@ PoderEvasion=70
 Veneno=1
 BackUp=0
 NROITEMS=5
-Drop1=12-175 'Oro
-Drop2=38-25 'Pociones Rojas
-Drop3=36-15 'Poción Amarilla
-Drop4=39-20 'Poción Verde
-Drop5=159-5 'Hachas de Bárbaro
+Drop1=12-8750	'Oro
+Drop2=38-1250	'Pociones Rojas
+Drop3=36-750	'Poción Amarilla
+Drop4=39-1000	'Poción Verde
+Drop5=159-250	'Hachas de Bárbaro
 
 ############################################
 
@@ -5838,7 +5838,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=8500
+GiveEXP=425000
 MinHP=6000
 MaxHP=6000
 MaxHIT=250
@@ -5849,11 +5849,11 @@ PoderEvasion=180
 Snd2=59
 BackUp=0
 NROITEMS=5
-Drop1=12-2100 'Oro
-Drop2=36-30 'Poción Amarilla
-Drop3=39-30 'Poción Verde
-Drop4=537-1 'Invocar Elemental de Agua
-Drop5=496-1 'Armadura de las Ciénagas
+Drop1=12-105000	'Oro
+Drop2=36-1500	'Poción Amarilla
+Drop3=39-1500	'Poción Verde
+Drop4=537-50	'Invocar Elemental de Agua
+Drop5=496-50	'Armadura de las Ciénagas
 
 ############################################
 
@@ -5871,7 +5871,7 @@ Hostile=1
 Domable=2250
 Alineacion=2
 Comercia=0
-GiveEXP=2810
+GiveEXP=140500
 MinHP=1900
 MaxHP=1900
 MaxHIT=120
@@ -5884,11 +5884,11 @@ Sp1=8
 Snd3=171
 BackUp=0
 NROITEMS=5
-Drop1=12-500 'Oro
-Drop2=12-650 'Oro
-Drop3=205-1 'Proyectil Etéreo
-Drop4=38-300 'Poción Roja
-Drop5=37-500 'Poción Azul
+Drop1=12-25000	'Oro
+Drop2=12-32500	'Oro
+Drop3=205-50	'Proyectil Etéreo
+Drop4=38-15000	'Poción Roja
+Drop5=37-25000	'Poción Azul
 
 ############################################
 
@@ -5906,7 +5906,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=6100
+GiveEXP=305000
 MinHP=4200
 MaxHP=4200
 MaxHIT=140
@@ -5922,11 +5922,11 @@ Sp2=9
 Sp3=15
 BackUp=0
 NROITEMS=5
-Drop1=12-1000 Òro
-Drop2=659-1 'Baston Nudoso
-Drop3=514-1 'Vestido de Bruja Especial
-Drop4=12-5000 'Oro
-Drop5=12-15000 'Oro
+Drop1=12-50000	'Oro
+Drop2=659-50	'Baston Nudoso
+Drop3=514-50	'Vestido de Bruja Especial
+Drop4=12-250000	'Oro
+Drop5=12-750000	'Oro
 
 ############################################
 
@@ -5944,7 +5944,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=4000
+GiveEXP=200000
 MinHP=3000
 MaxHP=3000
 MaxHIT=126
@@ -5958,11 +5958,11 @@ Sp2=9
 Sp3=15
 BackUp=0
 NROITEMS=5
-Drop1=12-1500 'Oro
-Drop2=12-2000 'Oro
-Drop3=524-2 'Túnica Roja Especial (E/G)
-Drop4=206-1 'Paralizar
-Drop5=660-5 'Báculos Engarzados
+Drop1=12-75000	'Oro
+Drop2=12-100000	'Oro
+Drop3=524-100	'Túnica Roja Especial (E/G)
+Drop4=206-50	'Paralizar
+Drop5=660-250	'Báculos Engarzados
 
 ############################################
 
@@ -5980,7 +5980,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=41800
+GiveEXP=2090000
 MinHP=35000
 MaxHP=35000
 MaxHIT=600
@@ -5992,11 +5992,11 @@ Snd2=79
 Snd3=89
 BackUp=0
 NROITEMS=5
-Drop1=12-2000 'Oro
-Drop2=12-2750 'Oro
-Drop3=12-10000 'Oro
-Drop4=403-2 'Espadas de Plata
-Drop5=485-1 'Armadura Legendaria
+Drop1=12-100000	'Oro
+Drop2=12-137500	'Oro
+Drop3=12-500000	'Oro
+Drop4=403-100	'Espadas de Plata
+Drop5=485-50	'Armadura Legendaria
 
 ############################################
 
@@ -6014,7 +6014,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=12250
+GiveEXP=612500
 MinHP=6500
 MaxHP=6500
 MaxHIT=185
@@ -6029,11 +6029,11 @@ Sp2=23
 Sp3=9
 BackUp=0
 NROITEMS=5
-Drop1=12-1200 'Oro
-Drop2=38-100 'Pociones Rojas
-Drop3=12-7500 'Oro
-Drop4=206-1 'Paralizar
-Drop5=531-1 'Descarga Eléctrica
+Drop1=12-60000	'Oro
+Drop2=38-5000	'Pociones Rojas
+Drop3=12-375000	'Oro
+Drop4=206-50	'Paralizar
+Drop5=531-50	'Descarga Eléctrica
 
 ############################################
 
@@ -6051,7 +6051,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=3000
+GiveEXP=150000
 MinHP=2000
 MaxHP=2000
 MaxHIT=250
@@ -6062,11 +6062,11 @@ PoderEvasion=190
 Snd3=168
 BackUp=0
 NROITEMS=5
-Drop1=12-1000 'Oro
-Drop2=12-2000 'Oro
-Drop3=196-5 'Túnica de Mago
-Drop4=380-1 'Invocación de Ultratumba
-Drop5=660-5 'Báculos Engarzados
+Drop1=12-50000	'Oro
+Drop2=12-100000	'Oro
+Drop3=196-250	'Túnica de Mago
+Drop4=380-50	'Invocación de Ultratumba
+Drop5=660-250	'Báculos Engarzados
 
 ############################################
 
@@ -6084,7 +6084,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=2500
+GiveEXP=125000
 MinHP=1750
 MaxHP=1750
 MaxHIT=200
@@ -6094,11 +6094,11 @@ PoderAtaque=170
 PoderEvasion=100
 BackUp=0
 NROITEMS=5
-Drop1=12-800 'Oro
-Drop2=38-100 'Pociones Rojas
-Drop3=132-2 'Casco de Hierro
-Drop4=126-5 'Hacha Larga de Guerra
-Drop5=130-3 'Escudo de Plata
+Drop1=12-40000	'Oro
+Drop2=38-5000	'Pociones Rojas
+Drop3=132-100	'Casco de Hierro
+Drop4=126-250	'Hacha Larga de Guerra
+Drop5=130-150	'Escudo de Plata
 
 ############################################
 
@@ -6116,7 +6116,7 @@ Hostile=1
 Domable=800
 Alineacion=2
 Comercia=0
-GiveEXP=25
+GiveEXP=1250
 MinHP=50
 MaxHP=50
 MaxHIT=10
@@ -6126,11 +6126,11 @@ PoderAtaque=45
 PoderEvasion=50
 BackUp=0
 NROITEMS=5
-Drop1=12-15  'Oro
-Drop2=12-20  'Oro
-Drop3=12-100 'Oro
-Drop4=12-250 'Oro
-Drop5=12-750 'Oro
+Drop1=12-750	'Oro
+Drop2=12-1000	'Oro
+Drop3=12-5000	'Oro
+Drop4=12-12500	'Oro
+Drop5=12-37500	'Oro
 
 ############################################
 
@@ -6148,7 +6148,7 @@ Hostile=1
 Domable=2010
 Alineacion=2
 Comercia=0
-GiveEXP=340
+GiveEXP=17000
 MinHP=515
 MaxHP=515
 MaxHIT=100
@@ -6159,9 +6159,9 @@ PoderEvasion=70
 Snd2=98
 BackUp=0
 NROITEMS=5
-Drop1=27-10 'Chuleta
-Drop2=12-50 'Oro
-Drop3=38-20 'Pociones Rojas
+Drop1=27-500	'Chuleta
+Drop2=12-2500	'Oro
+Drop3=38-1000	'Pociones Rojas
 
 ############################################
 
@@ -6179,7 +6179,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=45000
+GiveEXP=2250000
 GiveGLD=25000
 MinHP=45000
 MaxHP=45000
@@ -6206,7 +6206,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=45000
+GiveEXP=2250000
 GiveGLD=25000
 MinHP=45000
 MaxHP=45000
@@ -6233,7 +6233,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=45000
+GiveEXP=2250000
 GiveGLD=25000
 MinHP=45000
 MaxHP=45000
@@ -6260,7 +6260,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=45000
+GiveEXP=2250000
 GiveGLD=25000
 MinHP=45000
 MaxHP=45000
@@ -6287,7 +6287,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=45000
+GiveEXP=2250000
 GiveGLD=25000
 MinHP=45000
 MaxHP=45000
@@ -6314,7 +6314,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=32
+GiveEXP=1600
 GiveGLD=0
 MinHP=32
 MaxHP=32
@@ -6342,7 +6342,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=15
+GiveEXP=750
 GiveGLD=0
 MinHP=22
 MaxHP=22
@@ -6371,7 +6371,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=12
+GiveEXP=600
 GiveGLD=0
 MinHP=10
 MaxHP=10
@@ -6410,10 +6410,10 @@ LanzaSpells=1
 Sp1=2
 BackUp=0
 NROITEMS=5
-Drop1=12-50 'Oro
-Drop2=12-75 'Oro
-Drop3=12-150' Oro
-Drop4=199-5 'Dardo Mágico
+Drop1=12-2500	'Oro
+Drop2=12-3750	'Oro
+Drop3=12-7500	' Oro
+Drop4=199-250	'Dardo Mágico
 
 ############################################
 
@@ -6432,7 +6432,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=6000
+GiveEXP=300000
 MinHP=4000
 MaxHP=4000
 MaxHIT=250
@@ -6443,10 +6443,10 @@ PoderEvasion=150
 Snd3=172
 BackUp=0
 NROITEMS=5
-Drop2=12-5000 'Oro (Poner alforja despues)
-Drop3=474-1 'Barca
-Drop4=475-1 'Galera
-Drop5=476-1 'Galeón
+Drop2=12-250000	'Oro (Poner alforja despues)
+Drop3=474-50	'Barca
+Drop4=475-50	'Galera
+Drop5=476-50	'Galeón
 
 ############################################
 
@@ -6465,7 +6465,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=10000
+GiveEXP=500000
 MinHP=7000
 MaxHP=7000
 MaxHIT=350
@@ -6477,9 +6477,9 @@ LanzaSpells=1
 Sp1=15
 BackUp=0
 NROITEMS=5
-Drop2=12-3500 'Oro (Poner Mochila de Viajero despues)
-Drop3=474-1 'Barca
-Drop4=475-1 'Galera
+Drop2=12-175000	'Oro (Poner Mochila de Viajero despues)
+Drop3=474-50	'Barca
+Drop4=475-50	'Galera
 
 ############################################
 
@@ -6498,7 +6498,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=100
+GiveEXP=5000
 MinHP=10
 MaxHP=10
 MaxHIT=2
@@ -6509,7 +6509,7 @@ PoderEvasion=10
 Veneno=1
 BackUp=0
 NROITEMS=5
-Drop2=58-15 'Lena
+Drop2=58-750	'Lena
 
 ############################################
 
@@ -6527,7 +6527,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=900
+GiveEXP=45000
 MinHP=1500
 MaxHP=1500
 MaxHIT=90
@@ -6540,11 +6540,11 @@ Snd2=13
 Veneno=1
 BackUp=0
 NROITEMS=5
-Drop1=58-50 'Lena
-Drop2=58-100 'Lena
-Drop3=58-500 'Lena
-Drop4=58-3000 'Lena
-Drop5=58-10000 'Lena
+Drop1=58-2500	'Lena
+Drop2=58-5000	'Lena
+Drop3=58-25000	'Lena
+Drop4=58-150000	'Lena
+Drop5=58-500000	'Lena
 
 ############################################
 
@@ -6562,7 +6562,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=100
+GiveEXP=5000
 MinHP=1500
 MaxHP=1500
 MaxHIT=250
@@ -6575,9 +6575,9 @@ Snd2=13
 Veneno=1
 BackUp=0
 NROITEMS=5
-Drop1=58-10 'Lena
-Drop2=208-1 'Flauta Mágica
-Drop3=696-5 'Laúd Mágico
+Drop1=58-500	'Lena
+Drop2=208-50	'Flauta Mágica
+Drop3=696-250	'Laúd Mágico
 
 ############################################
 
@@ -6595,7 +6595,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=100
+GiveEXP=5000
 MinHP=10
 MaxHP=10
 MaxHIT=2
@@ -6606,7 +6606,7 @@ PoderEvasion=10
 Veneno=1
 BackUp=0
 NROITEMS=5
-Drop2=58-15 'Lena
+Drop2=58-750	'Lena
 
 ############################################
 
@@ -6625,7 +6625,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=500
+GiveEXP=25000
 MinHP=700
 MaxHP=700
 MaxHIT=100
@@ -6638,9 +6638,9 @@ SND2=31
 SND3=32
 BackUp=0
 NROITEMS=5
-Drop1=12-50 'Oro
-Drop2=12-100 'Oro
-Drop3=645-1 'Poción Negra
+Drop1=12-2500	'Oro
+Drop2=12-5000	'Oro
+Drop3=645-50	'Poción Negra
 
 ############################################
 
@@ -6659,7 +6659,7 @@ Hostile=1
 Domable=500
 Alineacion=2
 Comercia=0
-GiveEXP=15
+GiveEXP=750
 MinHP=35
 MaxHP=35
 MaxHIT=2
@@ -6669,8 +6669,8 @@ PoderAtaque=10
 PoderEvasion=15
 BackUp=0
 NROITEMS=5
-Drop1=27-1 'Chuleta
-Drop2=12-10 'Oro
+Drop1=27-50	'Chuleta
+Drop2=12-500	'Oro
 
 ############################################
 
@@ -6689,7 +6689,7 @@ Hostile=1
 Domable=810
 Alineacion=2
 Comercia=0
-GiveEXP=25
+GiveEXP=1250
 MinHP=65
 MaxHP=65
 MaxHIT=5
@@ -6700,8 +6700,8 @@ PoderEvasion=15
 Snd2=8
 BackUp=0
 NROITEMS=5
-Drop1=27-5 'Chuleta
-Drop2=12-50 'Oro
+Drop1=27-250	'Chuleta
+Drop2=12-2500	'Oro
 
 ############################################
 
@@ -6719,7 +6719,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=5000
+GiveEXP=250000
 MinHP=3000
 MaxHP=3000
 MaxHIT=165
@@ -6730,11 +6730,11 @@ PoderEvasion=140
 AfectaParalisis=1
 BackUp=0
 NROITEMS=5
-Drop1=12-500 'Oro
-Drop2=38-50 'Pociones Rojas
-Drop3=159-1 'Hacha de Bárbaro
-Drop4=243-2 'Armadura de Placas Completas (E/G)
-Drop5=393-3 'Armadura de Placas Completas + 2 (E/G)
+Drop1=12-25000	'Oro
+Drop2=38-2500	'Pociones Rojas
+Drop3=159-50	'Hacha de Bárbaro
+Drop4=243-100	'Armadura de Placas Completas (E/G)
+Drop5=393-150	'Armadura de Placas Completas + 2 (E/G)
 
 ############################################
 
@@ -6752,7 +6752,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=10000
+GiveEXP=500000
 MinHP=10000
 MaxHP=10000
 MaxHIT=250
@@ -6767,11 +6767,11 @@ Sp3=15
 AfectaParalisis=1
 BackUp=0
 NROITEMS=5
-Drop1=12-10000 'Oro
-Drop2=12-15000 'Oro
-Drop3=361-2 'Tormentas de Fuego
-Drop4=206-3 'Paralizar
-Drop5=400-3 'Varas de Mago
+Drop1=12-500000	'Oro
+Drop2=12-750000	'Oro
+Drop3=361-100	'Tormentas de Fuego
+Drop4=206-150	'Paralizar
+Drop5=400-150	'Varas de Mago
 
 ############################################
 
@@ -6789,7 +6789,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=10000
+GiveEXP=500000
 MinHP=15000
 MaxHP=15000
 MaxHIT=350
@@ -6800,11 +6800,11 @@ PoderEvasion=220
 Snd3=100
 BackUp=0
 NROITEMS=5
-Drop1=12-8000 'Oro
-Drop2=12-16000 'Oro
-Drop3=126-3 'Hacha Larga de Guerra
-Drop4=129-5 'Hachas Doble Filo
-Drop5=495-2 'Armaduras Escarlata
+Drop1=12-400000	'Oro
+Drop2=12-800000	'Oro
+Drop3=126-150	'Hacha Larga de Guerra
+Drop4=129-250	'Hachas Doble Filo
+Drop5=495-100	'Armaduras Escarlata
 
 ############################################
 
@@ -6822,7 +6822,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=2500
+GiveEXP=125000
 MinHP=5000
 MaxHP=5000
 MaxHIT=300
@@ -6833,11 +6833,11 @@ PoderAtaque=380
 PoderEvasion=250
 BackUp=0
 NROITEMS=5
-Drop1=12-4000 'Oro
-Drop2=12-6000 'Oro
-Drop3=12-10000 'Oro
-Drop4=12-50000 'Oro
-Drop5=402-1 'Espada Mata Dragones
+Drop1=12-200000	'Oro
+Drop2=12-300000	'Oro
+Drop3=12-500000	'Oro
+Drop4=12-2500000	'Oro
+Drop5=402-50	'Espada Mata Dragones
 
 ############################################
 
@@ -6855,7 +6855,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=35000
+GiveEXP=1750000
 MinHP=49000
 MaxHP=49000
 MaxHIT=600
@@ -6867,11 +6867,11 @@ Snd2=79
 Snd3=89
 BackUp=0
 NROITEMS=5
-Drop1=12-15000 'Oro
-Drop2=38-1000 'Pociones Rojas
-Drop3=37-2000 'Pociones Azules
-Drop4=12-100000 'Oro
-Drop5=485-2 'Armaduras Legendarias
+Drop1=12-750000	'Oro
+Drop2=38-50000	'Pociones Rojas
+Drop3=37-100000	'Pociones Azules
+Drop4=12-5000000	'Oro
+Drop5=485-100	'Armaduras Legendarias
 
 ############################################
 
@@ -6889,7 +6889,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=2000
+GiveEXP=100000
 MinHP=3500
 MaxHP=3500
 MaxHIT=126
@@ -6904,11 +6904,11 @@ Sp3=15
 Snd3=156
 BackUp=0
 NROITEMS=5
-Drop1=12-2500 'Oro
-Drop2=37-200 'Pociones Azules
-Drop3=361-1 'Tormentas de Fuego
-Drop4=530-2 'Inmovilizar
-Drop5=699-3 'Anillo de Disolución Mágica
+Drop1=12-125000	'Oro
+Drop2=37-10000	'Pociones Azules
+Drop3=361-50	'Tormentas de Fuego
+Drop4=530-100	'Inmovilizar
+Drop5=699-150	'Anillo de Disolución Mágica
 
 ############################################
 
@@ -6926,7 +6926,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=100
+GiveEXP=5000
 MinHP=600
 MaxHP=600
 MaxHIT=250
@@ -6938,10 +6938,10 @@ LanzaSpells=1
 Sp1=8
 BackUp=0
 NROITEMS=5
-Drop1=12-500 'Oro
-Drop2=38-100 'Pociones Rojas
-Drop3=239-1 'Túnica Roja
-Drop4=205-1 'Proyectil Etéreo
+Drop1=12-25000	'Oro
+Drop2=38-5000	'Pociones Rojas
+Drop3=239-50	'Túnica Roja
+Drop4=205-50	'Proyectil Etéreo
 
 ############################################
 
@@ -6959,7 +6959,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=1000
+GiveEXP=50000
 MinHP=7000
 MaxHP=7000
 MaxHIT=140
@@ -6975,11 +6975,11 @@ Sp1=15
 Sp2=25
 BackUp=0
 NROITEMS=5
-Drop1=12-10000 'Oro
-Drop2=12-15000 'Oro
-Drop3=361-2 'Tormentas de Fuego
-Drop4=536-1 'Invocar Elemental de Fuego
-Drop5=532-1 'Apocalipsis
+Drop1=12-500000	'Oro
+Drop2=12-750000	'Oro
+Drop3=361-100	'Tormentas de Fuego
+Drop4=536-50	'Invocar Elemental de Fuego
+Drop5=532-50	'Apocalipsis
 
 ############################################
 
@@ -6997,7 +6997,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=455
+GiveEXP=22750
 MinHP=435
 MaxHP=435
 MaxHIT=90
@@ -7007,11 +7007,11 @@ PoderAtaque=150
 PoderEvasion=50
 BackUp=0
 NROITEMS=5
-Drop1=12-100 'Oro
-Drop2=12-150 'Oro
-Drop3=12-300 'Oro
-Drop4=12-600 'Oro
-Drop5=12-1200 'Oro
+Drop1=12-5000	'Oro
+Drop2=12-7500	'Oro
+Drop3=12-15000	'Oro
+Drop4=12-30000	'Oro
+Drop5=12-60000	'Oro
 
 ############################################
 
@@ -7029,7 +7029,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=1100
+GiveEXP=55000
 MinHP=700
 MaxHP=700
 MaxHIT=100
@@ -7039,11 +7039,11 @@ PoderAtaque=200
 PoderEvasion=80
 BackUp=0
 NROITEMS=5
-Drop1=12-125 'Oro
-Drop2=12-200 'Oro
-Drop3=12-300 'Oro
-Drop4=12-500 'Oro
-Drop5=12-1500 'Oro
+Drop1=12-6250	'Oro
+Drop2=12-10000	'Oro
+Drop3=12-15000	'Oro
+Drop4=12-25000	'Oro
+Drop5=12-75000	'Oro
 
 ############################################
 
@@ -7061,7 +7061,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=700
+GiveEXP=35000
 MinHP=650
 MaxHP=650
 MaxHIT=75
@@ -7071,9 +7071,9 @@ PoderAtaque=110
 PoderEvasion=70
 BackUp=0
 NROITEMS=5
-Drop1=12-75 'Oro
-Drop2=619-1 'Daga Envenenada
-Drop4=202-1 'Toxina
+Drop1=12-3750	'Oro
+Drop2=619-50	'Daga Envenenada
+Drop4=202-50	'Toxina
 
 ############################################
 
@@ -7091,7 +7091,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=850
+GiveEXP=42500
 MinHP=700
 MaxHP=700
 MaxHIT=100
@@ -7101,10 +7101,10 @@ PoderAtaque=250
 PoderEvasion=85
 BackUp=0
 NROITEMS=5
-Drop1=12-50 'Oro
-Drop3=19-1 'Espada Dos manos
-Drop4=125-1 'Sable
-Drop5=873-1 'Guantes de Hurto
+Drop1=12-2500	'Oro
+Drop3=19-50	'Espada Dos manos
+Drop4=125-50	'Sable
+Drop5=873-50	'Guantes de Hurto
 
 ############################################
 
@@ -7122,7 +7122,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=500
+GiveEXP=25000
 MinHP=550
 MaxHP=550
 MaxHIT=80
@@ -7132,9 +7132,9 @@ PoderAtaque=100
 PoderEvasion=45
 BackUp=0
 NROITEMS=5
-Drop1=12-150 'Oro
-Drop2=12-200 'Oro
-Drop3=12-600 'Oro
+Drop1=12-7500	'Oro
+Drop2=12-10000	'Oro
+Drop3=12-30000	'Oro
 
 ############################################
 
@@ -7152,7 +7152,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=900
+GiveEXP=45000
 MinHP=600
 MaxHP=600
 MaxHIT=80
@@ -7162,9 +7162,9 @@ PoderAtaque=80
 PoderEvasion=100
 BackUp=0
 NROITEMS=5
-Drop1=12-70 'Oro
-Drop2=12-140 'Oro
-Drop3=12-200' Oro
+Drop1=12-3500	'Oro
+Drop2=12-7000	'Oro
+Drop3=12-10000	' Oro
 
 ############################################
 
@@ -7182,7 +7182,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=500
+GiveEXP=25000
 MinHP=400
 MaxHP=400
 MaxHIT=130
@@ -7193,8 +7193,8 @@ PoderEvasion=150
 Snd3=163
 BackUp=0
 NROITEMS=5
-Drop1=12-50 'Oro
-Drop2=38-10 'Pociones Rojas
+Drop1=12-2500	'Oro
+Drop2=38-500	'Pociones Rojas
 
 ############################################
 
@@ -7212,7 +7212,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=455
+GiveEXP=22750
 MinHP=435
 MaxHP=435
 MaxHIT=90
@@ -7222,9 +7222,9 @@ PoderAtaque=150
 PoderEvasion=50
 BackUp=0
 NROITEMS=5
-Drop1=12-50 'Oro
-Drop2=12-65 'Oro
-Drop5=380-1
+Drop1=12-2500	'Oro
+Drop2=12-3250	'Oro
+Drop5=380-50	
 
 ############################################
 
@@ -7242,7 +7242,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=700
+GiveEXP=35000
 MinHP=650
 MaxHP=650
 MaxHIT=75
@@ -7253,10 +7253,10 @@ PoderEvasion=70
 Snd3=166
 BackUp=0
 NROITEMS=5
-Drop1=12-75 'Oro
-Drop2=978-2 'Harapos de la Cueva
-Drop4=697-2 'Anillos Mágicos
-Drop5=513-1 'Vestido de Bruja
+Drop1=12-3750	'Oro
+Drop2=978-100	'Harapos de la Cueva
+Drop4=697-100	'Anillos Mágicos
+Drop5=513-50	'Vestido de Bruja
 
 ############################################
 
@@ -7274,7 +7274,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=500
+GiveEXP=25000
 MinHP=550
 MaxHP=550
 MaxHIT=80
@@ -7285,10 +7285,10 @@ PoderEvasion=45
 Snd3=162
 BackUp=0
 NROITEMS=5
-Drop1=12-75 'Oro
-Drop2=38-12 'Pociones Rojas
-Drop3=398-4 'Garrotes
-Drop4=30-1 'Armaduras de Cuero
+Drop1=12-3750	'Oro
+Drop2=38-600	'Pociones Rojas
+Drop3=398-200	'Garrotes
+Drop4=30-50	'Armaduras de Cuero
 
 ############################################
 
@@ -7306,7 +7306,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=900
+GiveEXP=45000
 MinHP=700
 MaxHP=700
 MaxHIT=100
@@ -7316,9 +7316,9 @@ PoderAtaque=200
 PoderEvasion=80
 BackUp=0
 NROITEMS=5
-Drop1=12-125 'Oro
-Drop2=551-50 'Flechas +1
-Drop3=552-50 'Flechas +2
+Drop1=12-6250	'Oro
+Drop2=551-2500	'Flechas +1
+Drop3=552-2500	'Flechas +2
 
 ############################################
 
@@ -7336,7 +7336,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=850
+GiveEXP=42500
 MinHP=600
 MaxHP=600
 MaxHIT=100
@@ -7347,9 +7347,9 @@ PoderEvasion=65
 Snd3=167
 BackUp=0
 NROITEMS=5
-Drop1=12-100 'Oro
-Drop2=414-20 'Pieles de Lobo
-Drop5=1002-5 'Cascos de Lobo
+Drop1=12-5000	'Oro
+Drop2=414-1000	'Pieles de Lobo
+Drop5=1002-250	'Cascos de Lobo
 
 ############################################
 
@@ -7368,7 +7368,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=1150
+GiveEXP=57500
 MinHP=800
 MaxHP=800
 MaxHIT=75
@@ -7378,9 +7378,9 @@ PoderAtaque=200
 PoderEvasion=70
 BackUp=0
 NROITEMS=5
-Drop1=12-150 'Oro
-Drop2=12-275 'Oro
-Drop3=36-10 'Pociones Amarillas
+Drop1=12-7500	'Oro
+Drop2=12-13750	'Oro
+Drop3=36-500	'Pociones Amarillas
 
 ############################################
 
@@ -7399,7 +7399,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=1825
+GiveEXP=91250
 MinHP=1300
 MaxHP=1300
 MaxHIT=110
@@ -7413,9 +7413,9 @@ LanzaSpells=1
 Sp1=9
 BackUp=0
 NROITEMS=5
-Drop1=12-230 'Oro
-Drop3=208-2 'Flauta Mágica
-Drop5=542-1 'Turbación
+Drop1=12-11500	'Oro
+Drop3=208-100	'Flauta Mágica
+Drop5=542-50	'Turbación
 
 ############################################
 
@@ -7434,7 +7434,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=550
+GiveEXP=27500
 MinHP=600
 MaxHP=600
 MaxHIT=55
@@ -7444,9 +7444,9 @@ PoderAtaque=120
 PoderEvasion=45
 BackUp=0
 NROITEMS=5
-Drop1=12-100 'Oro
-Drop2=38-20 'Pociones Rojas
-Drop3=36-4 'Pociones Amarillas
+Drop1=12-5000	'Oro
+Drop2=38-1000	'Pociones Rojas
+Drop3=36-200	'Pociones Amarillas
 
 ############################################
 
@@ -7465,7 +7465,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=2730
+GiveEXP=136500
 MinHP=2100
 MaxHP=2100
 MaxHIT=115
@@ -7476,10 +7476,10 @@ PoderAtaque=150
 PoderEvasion=150
 BackUp=0
 NROITEMS=5
-Drop1=12-550 'Oro
-Drop2=36-15 'Pociones Amarillas
-Drop3=39-15 'Pociones Verdes
-Drop4=12-13500 'Oro
+Drop1=12-27500	'Oro
+Drop2=36-750	'Pociones Amarillas
+Drop3=39-750	'Pociones Verdes
+Drop4=12-675000	'Oro
 
 ############################################
 
@@ -7498,7 +7498,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=3500
+GiveEXP=175000
 MinHP=2500
 MaxHP=2500
 MaxHIT=175
@@ -7509,10 +7509,10 @@ PoderAtaque=220
 PoderEvasion=180
 BackUp=0
 NROITEMS=5
-Drop1=12-150 'Oro
-Drop2=38-25 'Pociones Rojas
-Drop3=39-5 'Pociones Verdes
-Drop4=12-2100 'Oro
+Drop1=12-7500	'Oro
+Drop2=38-1250	'Pociones Rojas
+Drop3=39-250	'Pociones Verdes
+Drop4=12-105000	'Oro
 
 ############################################
 
@@ -7530,7 +7530,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=2700
+GiveEXP=135000
 MinHP=2700
 MaxHP=2700
 MaxHIT=250
@@ -7541,10 +7541,10 @@ PoderAtaque=220
 PoderEvasion=190
 BackUp=0
 NROITEMS=5
-Drop1=12-1000 'Oro
-Drop2=12-1640 'Oro
-Drop3=125-2 'Sables
-Drop4=474-1 'Barca
+Drop1=12-50000	'Oro
+Drop2=12-82000	'Oro
+Drop3=125-100	'Sables
+Drop4=474-50	'Barca
 
 ############################################
 
@@ -7563,7 +7563,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=3500
+GiveEXP=175000
 MinHP=2000
 MaxHP=2000
 MaxHIT=300
@@ -7574,10 +7574,10 @@ PoderEvasion=210
 BackUp=0
 snd3=210
 NROITEMS=5
-Drop1=12-400 'Oro
-Drop2=37-50 'Pociones Azules
-Drop3=38-130 'Pociones Rojas
-Drop4=361-1 'Tormenta de Fuego
+Drop1=12-20000	'Oro
+Drop2=37-2500	'Pociones Azules
+Drop3=38-6500	'Pociones Rojas
+Drop4=361-50	'Tormenta de Fuego
 
 ############################################
 
@@ -7596,7 +7596,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=2000
+GiveEXP=100000
 MinHP=7000
 MaxHP=7000
 MaxHIT=250
@@ -7611,11 +7611,11 @@ AtacaDoble=1
 AfectaParalisis=1
 BackUp=0
 NROITEMS=5
-Drop1=12-10000 'Oro
-Drop2=12-19050 'Oro
-Drop3=657-1 'Quitar la Turbación
-Drop4=542-1 'Turbación
-Drop5=537-1 'Invocar Elemental de Agua
+Drop1=12-500000	'Oro
+Drop2=12-952500	'Oro
+Drop3=657-50	'Quitar la Turbación
+Drop4=542-50	'Turbación
+Drop5=537-50	'Invocar Elemental de Agua
 
 ############################################
 
@@ -7634,7 +7634,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=10500
+GiveEXP=525000
 MinHP=6250
 MaxHP=6250
 MaxHIT=220
@@ -7649,11 +7649,11 @@ Sp1=9
 AtacaDoble=1
 BackUp=0
 NROITEMS=5
-Drop1=12-1200 'Oro
-Drop2=38-110 'Pociones Rojas
-Drop3=405-1 'Casco de Plata
-Drop4=206-1 'Paralizar
-Drop5=475-1 'Galera
+Drop1=12-60000	'Oro
+Drop2=38-5500	'Pociones Rojas
+Drop3=405-50	'Casco de Plata
+Drop4=206-50	'Paralizar
+Drop5=475-50	'Galera
 
 ############################################
 
@@ -7672,7 +7672,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=800
+GiveEXP=40000
 MinHP=750
 MaxHP=750
 MaxHIT=110
@@ -7682,11 +7682,11 @@ PoderAtaque=200
 PoderEvasion=70
 BackUp=0
 NROITEMS=5
-Drop1=12-100 'Oro
-Drop2=38-18 'Pociones Rojas
-Drop3=37-30 'Pociones Azules
-Drop4=36-10 'Pociones Amarillas
-Drop5=39-10 'Pociones Verdes
+Drop1=12-5000	'Oro
+Drop2=38-900	'Pociones Rojas
+Drop3=37-1500	'Pociones Azules
+Drop4=36-500	'Pociones Amarillas
+Drop5=39-500	'Pociones Verdes
 
 ############################################
 
@@ -7705,7 +7705,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=1000
+GiveEXP=50000
 MinHP=550
 MaxHP=550
 MaxHIT=100
@@ -7716,8 +7716,8 @@ PoderAtaque=220
 PoderEvasion=60
 BackUp=0
 NROITEMS=5
-Drop4=619-1 'Daga Envenenada
-Drop5=365-1 'Daga +2
+Drop4=619-50	'Daga Envenenada
+Drop5=365-50	'Daga +2
 
 
 ############################################
@@ -7737,7 +7737,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=1900
+GiveEXP=95000
 MinHP=1350
 MaxHP=1350
 MaxHIT=115
@@ -7748,11 +7748,11 @@ PoderAtaque=150
 PoderEvasion=70
 BackUp=0
 NROITEMS=5
-Drop1=12-150 'Oro
-Drop2=37-23 'Pociones Azules
-Drop3=658-1 'Vara de Frezno
-Drop4=697-1 'Anillo Mágico
-Drop5=698-1 'Anillo de Resistencia Mágica
+Drop1=12-7500	'Oro
+Drop2=37-1150	'Pociones Azules
+Drop3=658-50	'Vara de Frezno
+Drop4=697-50	'Anillo Mágico
+Drop5=698-50	'Anillo de Resistencia Mágica
 
 
 ############################################
@@ -7772,7 +7772,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=2300
+GiveEXP=115000
 MinHP=1500
 MaxHP=1500
 MaxHIT=115
@@ -7785,11 +7785,11 @@ LanzaSpells=1
 Sp1=44
 BackUp=0
 NROITEMS=5
-Drop1=12-500 'Oro
-Drop2=480-115 'Flechas
-Drop3=479-3 'Arcos Compuestos
-Drop4=551-200 'Flechas +1
-Drop5=665-6 'Arcos de Cazador
+Drop1=12-25000	'Oro
+Drop2=480-5750	'Flechas
+Drop3=479-150	'Arcos Compuestos
+Drop4=551-10000	'Flechas +1
+Drop5=665-300	'Arcos de Cazador
 
 ############################################
 
@@ -7808,7 +7808,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=3100
+GiveEXP=155000
 MinHP=2500
 MaxHP=2500
 MaxHIT=150
@@ -7824,10 +7824,10 @@ Snd3=173
 AfectaParalisis=1
 BackUp=0
 NROITEMS=5
-Drop1=12-1000 'Oro
-Drop2=1005-2 'Hachas de Madera Élfia
-Drop3=38-300 'Pociones Rojas
-Drop4=203-1 'Aura Sanadora Avanzada
+Drop1=12-50000	'Oro
+Drop2=1005-100	'Hachas de Madera Élfia
+Drop3=38-15000	'Pociones Rojas
+Drop4=203-50	'Aura Sanadora Avanzada
 
 ############################################
 
@@ -7846,7 +7846,7 @@ Hostile=1
 Domable=900
 Alineacion=2
 Comercia=0
-GiveEXP=60
+GiveEXP=3000
 MinHP=35
 MaxHP=35
 MaxHIT=7
@@ -7857,9 +7857,9 @@ PoderAtaque=40
 PoderEvasion=35
 BackUp=0
 NROITEMS=5
-Drop3=12-50 'Oro
-Drop4=12-500 'Oro
-Drop5=12-5000 'Oro
+Drop3=12-2500	'Oro
+Drop4=12-25000	'Oro
+Drop5=12-250000	'Oro
 
 ############################################
 
@@ -7877,7 +7877,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=175
+GiveEXP=8750
 MinHP=200
 MaxHP=200
 MaxHIT=14
@@ -7888,10 +7888,10 @@ PoderAtaque=75
 PoderEvasion=25
 BackUp=0
 NROITEMS=5
-Drop1=12-10  ' Oro
-Drop2=855-10 ' Poción amarilla (newbie)
-Drop3=858-20 ' Poción verde(newbie)
-Drop5=126-1  ' Hacha larga de guerra
+Drop1=12-500	' Oro
+Drop2=855-500	' Poción amarilla (newbie)
+Drop3=858-1000	' Poción verde(newbie)
+Drop5=126-50	' Hacha larga de guerra
 
 ############################################
 
@@ -7909,7 +7909,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=80
+GiveEXP=4000
 MinHP=100
 MaxHP=100
 MaxHIT=17
@@ -7919,10 +7919,10 @@ PoderAtaque=90
 PoderEvasion=100
 BackUp=0
 NROITEMS=5
-Drop1=12-65  ' Oro
-Drop2=856-24 ' Poción Azul (newbie)
-Drop4=208-1  ' Flauta Magica
-Drop5=696-1  ' Laud Magico
+Drop1=12-3250	' Oro
+Drop2=856-1200	' Poción Azul (newbie)
+Drop4=208-50	' Flauta Magica
+Drop5=696-50	' Laud Magico
 
 ############################################
 
@@ -7940,7 +7940,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=417
+GiveEXP=20850
 MinHP=278
 MaxHP=278
 MaxHIT=23
@@ -7951,11 +7951,11 @@ PoderEvasion=150
 Snd3=166
 BackUp=0
 NROITEMS=5 
-Drop1=12-40  ' Oro
-Drop2=12-85  ' Oro
-Drop3=857-20 ' Poción roja (newbie)
-Drop4=658-1  ' Vara de fresno
-Drop5=205-1  ' Misil Magico
+Drop1=12-2000	' Oro
+Drop2=12-4250	' Oro
+Drop3=857-1000	' Poción roja (newbie)
+Drop4=658-50	' Vara de fresno
+Drop5=205-50	' Misil Magico
 
 ############################################
 
@@ -7973,7 +7973,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=75
+GiveEXP=3750
 MinHP=125
 MaxHP=125
 MaxHIT=8
@@ -7984,10 +7984,10 @@ PoderAtaque=50
 PoderEvasion=20
 BackUp=0
 NROITEMS=5
-Drop1=12-12  ' Oro
-Drop3=12-110 ' Oro
-Drop4=366-1  ' Daga +3
-Drop5=30-1   ' Armadura de cuero
+Drop1=12-600	' Oro
+Drop3=12-5500	' Oro
+Drop4=366-50	' Daga +3
+Drop5=30-50	' Armadura de cuero
 
 ############################################
 
@@ -8006,7 +8006,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=135
+GiveEXP=6750
 MinHP=150
 MaxHP=150
 MaxHIT=16
@@ -8017,10 +8017,10 @@ PoderAtaque=75
 PoderEvasion=25
 BackUp=0
 NROITEMS=5
-Drop1=12-20   ' Oro
-Drop2=480-15  ' Flechas 
-Drop3=855-30  ' Poción amarilla (newbie)
-Drop4=1009-20 ' cuchillas
+Drop1=12-1000	' Oro
+Drop2=480-750	' Flechas 
+Drop3=855-1500	' Poción amarilla (newbie)
+Drop4=1009-1000	' cuchillas
 
 ############################################
 
@@ -8039,7 +8039,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=160
+GiveEXP=8000
 MinHP=200
 MaxHP=200
 MaxHIT=17
@@ -8051,11 +8051,11 @@ PoderEvasion=27
 Snd3=89
 BackUp=0
 NROITEMS=5
-Drop1=12-40   ' Oro 
-Drop2=480-25  ' Flechas
-Drop3=480-150 ' Flechas
-Drop4=664-1   ' Arco compuesto reforzado
-Drop5=665-1   ' Arco de Cazador
+Drop1=12-2000	' Oro 
+Drop2=480-1250	' Flechas
+Drop3=480-7500	' Flechas
+Drop4=664-50	' Arco compuesto reforzado
+Drop5=665-50	' Arco de Cazador
 
 ############################################
 
@@ -8073,7 +8073,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=120
+GiveEXP=6000
 MinHP=210
 MaxHP=210
 MaxHIT=13
@@ -8084,10 +8084,10 @@ PoderAtaque=45
 PoderEvasion=30
 BackUp=0
 NROITEMS=5
-Drop1=12-50 ' Oro 
-Drop2=12-75 ' Oro 
-Drop4=205-1 ' Proyectil Mágico
-Drop5=123-3 ' Espada Vikinga
+Drop1=12-2500	' Oro 
+Drop2=12-3750	' Oro 
+Drop4=205-50	' Proyectil Mágico
+Drop5=123-150	' Espada Vikinga
 
 ############################################
 
@@ -8105,7 +8105,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=500
+GiveEXP=25000
 MinHP=300
 MaxHP=300
 MaxHIT=13
@@ -8116,10 +8116,10 @@ PoderEvasion=50
 Snd3=160
 BackUp=0
 NROITEMS=5
-Drop1=12-25 ' Oro
-Drop2=12-25 ' Oro
-Drop4=204-1 ' Flecha Eléctrica
-Drop5=990-3 ' Mazo del juicio
+Drop1=12-1250	' Oro
+Drop2=12-1250	' Oro
+Drop4=204-50	' Flecha Eléctrica
+Drop5=990-150	' Mazo del juicio
 
 ############################################
 
@@ -8136,7 +8136,7 @@ Respawn=0
 Hostile=1
 Alineacion=2
 Comercia=0
-GiveEXP=30
+GiveEXP=1500
 MinHP=22
 MaxHP=22
 MaxHIT=6
@@ -8147,9 +8147,9 @@ PoderEvasion=20
 SND2=103
 BackUp=0
 NROITEMS=5
-Drop3=38-10 ' Pocion roja
-Drop4=200-1 ' Antidoto magico
-Drop5=202-1 ' Toxina
+Drop3=38-500	' Pocion roja
+Drop4=200-50	' Antidoto magico
+Drop5=202-50	' Toxina
 
 ############################################
 
@@ -8166,7 +8166,7 @@ ReSpawn=0
 Hostile=1
 Alineacion=2
 Comercia=0
-GiveEXP=70
+GiveEXP=3500
 MinHP=75
 MaxHP=75
 MaxHIT=9
@@ -8178,9 +8178,9 @@ PoderEvasion=15
 Snd3=142
 BackUp=0
 NROITEMS=5
-Drop1=12-6   ' Oro
-Drop3=480-10 ' Flechas
-Drop4=479-1  ' Arco compuesto
+Drop1=12-300	' Oro
+Drop3=480-500	' Flechas
+Drop4=479-50	' Arco compuesto
 
 ############################################
 
@@ -8198,7 +8198,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=100
+GiveEXP=5000
 MinHP=130
 MaxHP=130
 MaxHIT=23
@@ -8209,11 +8209,11 @@ PoderAtaque=69
 PoderEvasion=55
 BackUp=0
 NROITEMS=5
-Drop1=12-41 ' Oro
-Drop2=12-41 ' Oro
-Drop3=364-1 ' Terrible hambre de Igôr
-Drop4=19-2  ' Espada dos manos
-Drop5=470-1 ' Fuerza
+Drop1=12-2050	' Oro
+Drop2=12-2050	' Oro
+Drop3=364-50	' Terrible hambre de Igôr
+Drop4=19-100	' Espada dos manos
+Drop5=470-50	' Fuerza
 
 ############################################
 
@@ -8231,7 +8231,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=95
+GiveEXP=4750
 MinHP=95
 MaxHP=95
 MaxHIT=15
@@ -8242,9 +8242,9 @@ PoderEvasion=32
 Veneno=1
 BackUp=0
 NROITEMS=5
-Drop1=166-5 ' Pocion violeta
-Drop3=201-1 ' Curar heridas leves
-Drop4=396-1 ' Celeridad
+Drop1=166-250	' Pocion violeta
+Drop3=201-50	' Curar heridas leves
+Drop4=396-50	' Celeridad
 
 ############################################
 
@@ -8783,7 +8783,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=50000
+GiveEXP=2500000
 MinHP=50000
 MaxHP=50000
 MaxHIT=300
@@ -8799,11 +8799,11 @@ AtacaDoble=1
 AfectaParalisis=1
 BackUp=0
 NROITEMS=5
-Drop1=400-1 'Vara de mago
-Drop2=400-1 'Vara de mago
-Drop3=400-1 'Vara de mago
-Drop4=400-1 'Vara de mago
-Drop5=400-1 'Vara de mago
+Drop1=400-50	'Vara de mago
+Drop2=400-50	'Vara de mago
+Drop3=400-50	'Vara de mago
+Drop4=400-50	'Vara de mago
+Drop5=400-50	'Vara de mago
 
 ##############################################################
 ##############################################################
@@ -8825,7 +8825,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=35000
+GiveEXP=1750000
 GiveGLD=30000
 MinHP=12000
 MaxHP=12000
@@ -8862,7 +8862,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=35000
+GiveEXP=1750000
 GiveGLD=30000
 MinHP=12000
 MaxHP=12000
@@ -8899,7 +8899,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=10000
+GiveEXP=500000
 MinHP=8000
 MaxHP=8000
 MaxHIT=140
@@ -8938,7 +8938,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=10000
+GiveEXP=500000
 MinHP=8000
 MaxHP=8000
 MaxHIT=140
@@ -8977,7 +8977,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=10000
+GiveEXP=500000
 MinHP=8000
 MaxHP=8000
 MaxHIT=140
@@ -9016,7 +9016,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=10000
+GiveEXP=500000
 MinHP=8000
 MaxHP=8000
 MaxHIT=140
@@ -9055,7 +9055,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=10000
+GiveEXP=500000
 MinHP=5000
 MaxHP=5000
 MaxHIT=60
@@ -9090,7 +9090,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=10000
+GiveEXP=500000
 MinHP=5000
 MaxHP=5000
 MaxHIT=60
@@ -9125,7 +9125,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=10000
+GiveEXP=500000
 MinHP=5000
 MaxHP=5000
 MaxHIT=60
@@ -9160,7 +9160,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=10000
+GiveEXP=500000
 MinHP=5000
 MaxHP=5000
 MaxHIT=60
@@ -9195,7 +9195,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=5000
+GiveEXP=250000
 MinHP=10000
 MaxHP=10000
 MaxHIT=150
@@ -9232,7 +9232,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=5000
+GiveEXP=250000
 MinHP=10000
 MaxHP=10000
 MaxHIT=150
@@ -9269,7 +9269,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=5000
+GiveEXP=250000
 MinHP=10000
 MaxHP=10000
 MaxHIT=150
@@ -9304,7 +9304,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=5000
+GiveEXP=250000
 MinHP=10000
 MaxHP=10000
 MaxHIT=150
@@ -9339,7 +9339,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=5000
+GiveEXP=250000
 MinHP=15000
 MaxHP=15000
 MaxHIT=200
@@ -9375,7 +9375,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=5000
+GiveEXP=250000
 MinHP=15000
 MaxHP=15000
 MaxHIT=200
@@ -9411,7 +9411,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=5000
+GiveEXP=250000
 MinHP=15000
 MaxHP=15000
 MaxHIT=200
@@ -9446,7 +9446,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=5000
+GiveEXP=250000
 MinHP=15000
 MaxHP=15000
 MaxHIT=200
@@ -9481,7 +9481,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=5000
+GiveEXP=250000
 MinHP=15000
 MaxHP=15000
 MaxHIT=200
@@ -9517,7 +9517,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=5000
+GiveEXP=250000
 MinHP=15000
 MaxHP=15000
 MaxHIT=200
@@ -9553,7 +9553,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=5000
+GiveEXP=250000
 MinHP=15000
 MaxHP=15000
 MaxHIT=200
@@ -9589,7 +9589,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=5000
+GiveEXP=250000
 MinHP=15000
 MaxHP=15000
 MaxHIT=200
@@ -9625,7 +9625,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=5000
+GiveEXP=250000
 MinHP=3000
 MaxHP=3000
 MaxHIT=50
@@ -9659,7 +9659,7 @@ Hostile=1
 Domable=0
 Alineacion=2
 Comercia=0
-GiveEXP=5000
+GiveEXP=250000
 MinHP=3000
 MaxHP=3000
 MaxHIT=50

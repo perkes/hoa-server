@@ -915,7 +915,7 @@ Obj2=139-1000
 
 [NPC50]
 Name=Tellez
-Desc=Hello and Welcome to the "Mesón Hostigado", What are you having?
+Desc=
 Head=505
 Body=202
 Heading=3
@@ -1098,7 +1098,7 @@ Obj15=208-1000
 
 [NPC50]
 Name=Tellez
-Desc=Hello and Welcome to the "Mesón Hostigado", What are you having?
+Desc=
 Head=505
 Body=202
 Heading=3

@@ -3615,9 +3615,16 @@ void HoAClientPacketHandler::handleMeditate(Meditate* p) { (void)p;
 
 		/* 'Call WriteConsoleMsg(UserIndex, "Te estás concentrando. En " & Fix(TIEMPO_INICIOMEDITAR / 1000) & " segundos comenzarás a meditar.", FontTypeNames.FONTTYPE_INFO) */
 		/* ' [TEMPORAL] */
+		int num_seconds = UserList[UserIndex].Stats.ELV / 17;
+		std::string seconds = vb6::CStr(num_seconds);
+		std::string word_seconds = " second";
+		if (num_seconds > 1) {
+			word_seconds += "s";
+		}
+
 		WriteConsoleMsg(UserIndex,
-				"You're concentrating. In " + vb6::CStr(UserList[UserIndex].Stats.ELV / 17)
-						+ " seconds, you'll start meditating.", FontTypeNames_FONTTYPE_INFO);
+				"You're concentrating. In " + seconds
+						+ word_seconds + ", you'll start meditating.", FontTypeNames_FONTTYPE_INFO);
 
 		UserList[UserIndex].Char.loops = INFINITE_LOOPS;
 
