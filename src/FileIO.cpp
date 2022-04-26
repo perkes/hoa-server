@@ -2161,6 +2161,7 @@ void SaveUser(int UserIndex, std::string UserFile, bool SaveTimeOnline) {
 		UserList[UserIndex].flags.Mimetizado = 0;
 		/* ' Se fue el efecto del mimetismo, puede ser atacado por npcs */
 		UserList[UserIndex].flags.Ignorado = false;
+		UserList[UserIndex].showName = true;
 	}
 
 	int LoopC;

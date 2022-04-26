@@ -184,8 +184,9 @@ MinHp=0
 ReSpawn=0
 BackUp=1
 Domable=0
-NroItems=1
+NroItems=2
 Obj1=534-1000
+Obj2=414-400
 
 [NPC8]
 Name=Thorkis

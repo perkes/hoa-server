@@ -100,11 +100,10 @@ MaxHit=2
 Valor=70
 Crucial=1
 CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=ASESINO
-CP6=CLERIGO
+CP2=LADRON
+CP3=BARDO
+CP4=ASESINO
+CP5=CLERIGO
 LingH=1
 LingP=0
 LingO=0
@@ -4467,7 +4466,6 @@ Valor=100
 Crucial=1
 CP1=MAGO
 CP2=BANDIDO
-CP3=DRUIDA
 
 [OBJ399]
 Name=Scimitar
@@ -4486,7 +4484,6 @@ LingO=0
 SkHerreria=59
 CP1=MAGO
 CP2=BANDIDO
-CP3=DRUIDA
 
 [OBJ400]
 Name=Lesser Wizard Staff
@@ -4592,7 +4589,6 @@ LingP=0
 LingO=0
 SkHerreria=20
 CP1=MAGO
-CP2=DRUIDA
 
 [OBJ405]
 Name=Silver Helmet
