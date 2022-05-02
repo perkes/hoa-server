@@ -846,7 +846,6 @@ void HandleHechizoNPC(int UserIndex, int HechizoIndex) {
 					ManaRequerida = ManaRequerida * 0.5;
 					/* ' Será ignorado hasta que pierda el efecto del mimetismo o ataque un npc */
 					UserList[UserIndex].flags.Ignorado = true;
-					UserList[UserIndex].showName = false;
 				} else {
 					/* ' 10% menos de mana para hechizos */
 					if (HechizoIndex != APOCALIPSIS_SPELL_INDEX) {

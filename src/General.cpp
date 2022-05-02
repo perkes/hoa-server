@@ -939,7 +939,6 @@ void EfectoMimetismo(int UserIndex) {
 		UserList[UserIndex].flags.Mimetizado = 0;
 		/* ' Se fue el efecto del mimetismo, puede ser atacado por npcs */
 		UserList[UserIndex].flags.Ignorado = false;
-		UserList[UserIndex].showName = true;
 	}
 }
 

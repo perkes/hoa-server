@@ -5376,7 +5376,6 @@ Madera=42
 Upgrade=663
 SkCarpinteria=20
 CP1=MAGO
-CP2=DRUIDA
 
 [OBJ479]
 Name=Compound Bow
@@ -5396,7 +5395,6 @@ Upgrade=664
 SkCarpinteria=40
 CP1=MAGO
 CP2=BANDIDO
-CP3=DRUIDA
 
 [OBJ480]
 Name=Arrow
@@ -5408,7 +5406,6 @@ MaxHit=3
 Valor=16
 Crucial=1
 CP1=MAGO
-CP2=DRUIDA
 Madera=1
 Upgrade=551
 SkCarpinteria=20
@@ -7874,7 +7871,6 @@ Crucial=0
 Madera=175
 SkCarpinteria=50
 CP1=MAGO
-CP2=DRUIDA
 
 [OBJ664]
 Name=Reinforced Compound Bow
@@ -7893,7 +7889,6 @@ Crucial=0
 Madera=650
 SkCarpinteria=75
 CP1=MAGO
-CP2=DRUIDA
 
 [OBJ665]
 Name=Hunter's Bow

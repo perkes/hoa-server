@@ -682,8 +682,7 @@ void CheckPets(int NpcIndex, int UserIndex, bool CheckElementales) {
 		if (UserList[UserIndex].MascotasIndex[j] > 0) {
 			if (UserList[UserIndex].MascotasIndex[j] != NpcIndex) {
 				if (CheckElementales
-						|| (Npclist[UserList[UserIndex].MascotasIndex[j]].Numero != ELEMENTALFUEGO
-								&& Npclist[UserList[UserIndex].MascotasIndex[j]].Numero != ELEMENTALTIERRA)) {
+						|| (Npclist[UserList[UserIndex].MascotasIndex[j]].Numero != ELEMENTALFUEGO)) {
 
 					if (Npclist[UserList[UserIndex].MascotasIndex[j]].TargetNPC == 0) {
 						Npclist[UserList[UserIndex].MascotasIndex[j]].TargetNPC = NpcIndex;

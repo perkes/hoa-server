@@ -1975,14 +1975,8 @@ void LoadSini() {
 	 */
 
 	MinutosWs = vb6::val(leerSini.GetValue("INTERVALOS", "IntervaloWS"));
-	if (MinutosWs < 60) {
-		MinutosWs = 180;
-	}
 
 	MinutosMotd = vb6::val(leerSini.GetValue("INTERVALOS", "MinutosMotd"));
-	if (MinutosMotd < 20) {
-		MinutosMotd = 20;
-	}
 
 	MinutosGuardarUsuarios = vb6::val(
 			leerSini.GetValue("INTERVALOS", "IntervaloGuardarUsuarios"));
@@ -2161,7 +2155,6 @@ void SaveUser(int UserIndex, std::string UserFile, bool SaveTimeOnline) {
 		UserList[UserIndex].flags.Mimetizado = 0;
 		/* ' Se fue el efecto del mimetismo, puede ser atacado por npcs */
 		UserList[UserIndex].flags.Ignorado = false;
-		UserList[UserIndex].showName = true;
 	}
 
 	int LoopC;
