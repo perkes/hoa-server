@@ -229,6 +229,7 @@ void AutoSave_Timer() {
 	}
 
 	if (Minutos >= MinutosWs) {
+		std::cout << "Ejecutando WorldSave..." << std::endl;
 		DoBackUp();
 		aClon->VaciarColeccion();
 		Minutos = 0;
