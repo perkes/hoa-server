@@ -15,10 +15,10 @@ After all the required libraries are installed, you compile the source:
     mkdir build && cd build
     cmake ..
     make
-
+    
 ## Running
 
-You need websockify to convert the ws traffic from the client into TCP traffic. If you use the default settings you can do that by running this command after installing websockify:
+Mak sure the WorldBackup and guilds directories exist within the build directory. You need websockify to convert the ws traffic from the client into TCP traffic. If you use the default settings you can do that by running this command after installing websockify:
 
     sudo ./run 8000 :7666
 
