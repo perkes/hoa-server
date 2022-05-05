@@ -2138,6 +2138,9 @@ Agarrable=0
 Valor=500
 Crucial=1
 HechizoIndex=2
+CP1=TRABAJADOR
+CP2=LADRON
+CP3=GUERRERO
 
 [OBJ200]
 Name=Magic Antidote
