@@ -1358,10 +1358,10 @@ void HoAClientPacketHandler::handleInitCrafting(InitCrafting* p) { (void)p;
 
 	TotalItems = p->TotalItems;
 	ItemsPorCiclo = p->ItemsPorCiclo;
-
+	
 	if (TotalItems > 0) {
 		UserList[UserIndex].Construir.Cantidad = TotalItems;
-		UserList[UserIndex].Construir.PorCiclo = MinimoInt(MaxItemsConstruibles(UserIndex), ItemsPorCiclo);
+		UserList[UserIndex].Construir.PorCiclo = ItemsPorCiclo;
 	}
 }
 
