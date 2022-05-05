@@ -334,7 +334,9 @@ bool CanUse(int UserIndex, int ObjIndex) {
 			|| UserList[UserIndex].raza == eRaza_Drow) {
 		retval = (ObjData[ObjIndex].RazaEnana == 0);
 	} else {
-		retval = (ObjData[ObjIndex].RazaEnana == 1);
+		if (ObjData[ObjIndex].OBJType == 3 && ObjData[ObjIndex].RazaEnana != 1) {
+			return false;
+		}
 	}
 
 	if ((UserList[UserIndex].raza != eRaza_Drow) && ObjData[ObjIndex].RazaDrow) {
@@ -352,7 +354,7 @@ bool CanUse(int UserIndex, int ObjIndex) {
 	} else {
 		retval = true;
 	}
-
+	
 	return retval;
 }
 
