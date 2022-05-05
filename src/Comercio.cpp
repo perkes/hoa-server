@@ -314,7 +314,7 @@ void EnviarNpcInv(int UserIndex, int NpcIndex) {
 }
 
 /* '' */
-/* ' Determines if the current user (represented by UserInex) can use */
+/* ' Determines if the current user (represented by UserIndex) can use */
 /* ' a given object (represented by objIndex). */
 /* ' @param userIndex The index of the User */
 /* ' @param objIndex The index of the Object */
