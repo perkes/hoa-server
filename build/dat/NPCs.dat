@@ -238,7 +238,7 @@ BackUp=1
 [NPC5]
 Name=Priest
 NpcType=1
-Desc= Greetings, my son. I'm the priest of these lands. If you would like to be raised from the dead, write /RESUCITATE or double click me.
+Desc= Greetings, my son. I'm the priest of these lands. If you would like to be raised from the dead, write /RESUSCITATE or double click me.
 Head=3
 Heading=3
 Body=49
@@ -256,7 +256,7 @@ BackUp=0
 [NPC119] 'sólo resucita newbies
 Name=Priest
 NpcType=9
-Desc=Greetings, my son. I'm the priest of these lands. If you are a newbie and would like to be raised from the dead, write /RESUCITATE or double click me.
+Desc=Greetings, my son. I'm the priest of these lands. If you are a newbie and would like to be raised from the dead, write /RESUSCITATE or double click me.
 Head=3
 Heading=3
 Body=49

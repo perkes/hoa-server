@@ -797,7 +797,7 @@ void HoAClientPacketHandler::handleAttack(Attack* p) { (void)p;
 	/* 'If equiped weapon is ranged, can't attack this way */
 	if (UserList[UserIndex].Invent.WeaponEqpObjIndex > 0) {
 		if (ObjData[UserList[UserIndex].Invent.WeaponEqpObjIndex].proyectil == 1) {
-			WriteConsoleMsg(UserIndex, "No puedes usar así este arma.", FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex, "You can't use that weapon like that.", FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 	}
@@ -6691,7 +6691,7 @@ void HoAClientPacketHandler::handleEditChar(EditChar* p) { (void)p;
 			case eEditOptions_eo_Level:
 				if (vb6::val(Arg1) > STAT_MAXELV) {
 					Arg1 = vb6::CStr(STAT_MAXELV);
-					WriteConsoleMsg(UserIndex, "No puedes tener un nivel superior a " + vb6::CStr(STAT_MAXELV) + ".",
+					WriteConsoleMsg(UserIndex, "Your level can't be greater than " + vb6::CStr(STAT_MAXELV) + ".",
 							FontTypeNames_FONTTYPE_INFO);
 				}
 
@@ -6946,7 +6946,7 @@ void HoAClientPacketHandler::handleEditChar(EditChar* p) { (void)p;
 
 				if (vb6::val(Arg1) > MAX_VIDA_EDIT) {
 					Arg1 = vb6::CStr(MAX_VIDA_EDIT);
-					WriteConsoleMsg(UserIndex, "No puedes tener vida superior a " + vb6::CStr(MAX_VIDA_EDIT) + ".",
+					WriteConsoleMsg(UserIndex, "You can't have more than " + vb6::CStr(MAX_VIDA_EDIT) + " hit points.",
 							FontTypeNames_FONTTYPE_INFO);
 				}
 
