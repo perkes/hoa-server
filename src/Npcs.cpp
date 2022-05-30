@@ -593,7 +593,7 @@ void MakeNPCChar(bool toMap, int sndIndex, int NpcIndex, int Map, int X, int Y) 
 	if (!toMap) {
 		WriteCharacterCreate(sndIndex, Npclist[NpcIndex].Char.body, Npclist[NpcIndex].Char.Head,
 				Npclist[NpcIndex].Char.heading, Npclist[NpcIndex].Char.CharIndex, X, Y, 0, 0, 0, 0, 0, "", 0,
-				0);
+				0, false);
 		FlushBuffer(sndIndex);
 	} else {
 		AgregarNpc(NpcIndex);

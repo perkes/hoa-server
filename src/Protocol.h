@@ -310,11 +310,12 @@ void WriteUserCharIndexInServer(int UserIndex);
 /* ' @param    name Name of the new character. */
 /* ' @param    criminal Determines if the character is a criminal or not. */
 /* ' @param    privileges Sets if the character is a normal one or any kind of administrative character. */
+/* ' @param	   User Indicates the client if the character is the user or not */
 /* ' @remarks  The data is not actually sent until the buffer is properly flushed. */
 
 void WriteCharacterCreate(int UserIndex, int body, int Head, eHeading heading, int CharIndex, int X, int Y,
 		int weapon, int shield, int FX, int FXLoops, int helmet, std::string Name, int NickColor,
-		int Privileges);
+		int Privileges, bool User);
 
 /* '' */
 /* ' Writes the "CharacterRemove" message to the given user's outgoing data buffer. */

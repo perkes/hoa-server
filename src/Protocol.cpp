@@ -591,7 +591,7 @@ void WriteUserCharIndexInServer(int UserIndex) {
 
 void WriteCharacterCreate(int UserIndex, int body, int Head, eHeading heading, int CharIndex, int X, int Y,
 		int weapon, int shield, int FX, int FXLoops, int helmet, std::string Name, int NickColor,
-		int Privileges) {
+		int Privileges, bool User) {
 	hoa::protocol::server::CharacterCreate p;
 
 	p.Body = body;
@@ -608,6 +608,7 @@ void WriteCharacterCreate(int UserIndex, int body, int Head, eHeading heading, i
 	p.Name = Name;
 	p.NickColor = NickColor;
 	p.Privileges = Privileges;
+	p.User = User;
 
 	p.serialize(UserList[UserIndex].outgoingData.get());
 }

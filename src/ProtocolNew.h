@@ -5599,7 +5599,7 @@ class CharacterCreate : public ServerPacket {
 public:
     CharacterCreate();
     CharacterCreate(clsByteQueue* buffer);
-    CharacterCreate(std::int16_t CharIndex, std::int16_t Body, std::int16_t Head, std::uint8_t Heading, std::uint8_t X, std::uint8_t Y, std::int16_t Weapon, std::int16_t Shield, std::int16_t Helmet, std::int16_t FX, std::int16_t FXLoops, const std::string& Name, std::uint8_t NickColor, std::uint8_t Privileges);
+    CharacterCreate(std::int16_t CharIndex, std::int16_t Body, std::int16_t Head, std::uint8_t Heading, std::uint8_t X, std::uint8_t Y, std::int16_t Weapon, std::int16_t Shield, std::int16_t Helmet, std::int16_t FX, std::int16_t FXLoops, const std::string& Name, std::uint8_t NickColor, std::uint8_t Privileges, bool User);
 
     virtual void serialize(clsByteQueue* buffer) const;
     virtual void dispatch(PacketHandler* d);
@@ -5618,10 +5618,11 @@ public:
     std::string Name; 
     std::uint8_t NickColor; 
     std::uint8_t Privileges; 
+    bool User;
 };
 
-inline CharacterCreate BuildCharacterCreate(std::int16_t CharIndex, std::int16_t Body, std::int16_t Head, std::uint8_t Heading, std::uint8_t X, std::uint8_t Y, std::int16_t Weapon, std::int16_t Shield, std::int16_t Helmet, std::int16_t FX, std::int16_t FXLoops, const std::string& Name, std::uint8_t NickColor, std::uint8_t Privileges) {
-    return CharacterCreate(CharIndex, Body, Head, Heading, X, Y, Weapon, Shield, Helmet, FX, FXLoops, Name, NickColor, Privileges);
+inline CharacterCreate BuildCharacterCreate(std::int16_t CharIndex, std::int16_t Body, std::int16_t Head, std::uint8_t Heading, std::uint8_t X, std::uint8_t Y, std::int16_t Weapon, std::int16_t Shield, std::int16_t Helmet, std::int16_t FX, std::int16_t FXLoops, const std::string& Name, std::uint8_t NickColor, std::uint8_t Privileges, bool User) {
+    return CharacterCreate(CharIndex, Body, Head, Heading, X, Y, Weapon, Shield, Helmet, FX, FXLoops, Name, NickColor, Privileges, User);
 }
 
 class CharacterRemove : public ServerPacket {

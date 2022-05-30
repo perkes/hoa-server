@@ -449,7 +449,7 @@ bool MakeUserChar(bool toMap, int sndIndex, int UserIndex, int Map, int X, int Y
 					UserList[UserIndex].Char.heading, UserList[UserIndex].Char.CharIndex, X, Y,
 					UserList[UserIndex].Char.WeaponAnim, UserList[UserIndex].Char.ShieldAnim,
 					UserList[UserIndex].Char.FX, 999, UserList[UserIndex].Char.CascoAnim, UserName, NickColor,
-					Privileges);
+					Privileges, sndIndex == UserIndex);
 		} else {
 			/* 'Hide the name and clan - set privs as normal user */
 			AgregarUser(UserIndex, UserList[UserIndex].Pos.Map, ButIndex);

@@ -10956,7 +10956,7 @@ void UserCharIndexInServer::dispatch(PacketHandler* d) {
     d->getPacketHandlerServerPacket()->handleUserCharIndexInServer(this);
 }
 
-CharacterCreate::CharacterCreate() : ServerPacket(ServerPacketID_CharacterCreate /* 29 */), CharIndex(), Body(), Head(), Heading(), X(), Y(), Weapon(), Shield(), Helmet(), FX(), FXLoops(), Name(), NickColor(), Privileges() {
+CharacterCreate::CharacterCreate() : ServerPacket(ServerPacketID_CharacterCreate /* 29 */), CharIndex(), Body(), Head(), Heading(), X(), Y(), Weapon(), Shield(), Helmet(), FX(), FXLoops(), Name(), NickColor(), Privileges(), User() {
 }
 
 CharacterCreate::CharacterCreate(clsByteQueue* buffer) : ServerPacket(ServerPacketID_CharacterCreate /* 29 */) {
@@ -10975,10 +10975,10 @@ CharacterCreate::CharacterCreate(clsByteQueue* buffer) : ServerPacket(ServerPack
     Name = buffer->ReadUnicodeString();
     NickColor = buffer->ReadByte();
     Privileges = buffer->ReadByte();
-
+    User = buffer->ReadBoolean();
 }
 
-CharacterCreate::CharacterCreate(std::int16_t CharIndex_, std::int16_t Body_, std::int16_t Head_, std::uint8_t Heading_, std::uint8_t X_, std::uint8_t Y_, std::int16_t Weapon_, std::int16_t Shield_, std::int16_t Helmet_, std::int16_t FX_, std::int16_t FXLoops_, const std::string& Name_, std::uint8_t NickColor_, std::uint8_t Privileges_) : ServerPacket(ServerPacketID_CharacterCreate /* 29 */), CharIndex(CharIndex_), Body(Body_), Head(Head_), Heading(Heading_), X(X_), Y(Y_), Weapon(Weapon_), Shield(Shield_), Helmet(Helmet_), FX(FX_), FXLoops(FXLoops_), Name(Name_), NickColor(NickColor_), Privileges(Privileges_) {
+CharacterCreate::CharacterCreate(std::int16_t CharIndex_, std::int16_t Body_, std::int16_t Head_, std::uint8_t Heading_, std::uint8_t X_, std::uint8_t Y_, std::int16_t Weapon_, std::int16_t Shield_, std::int16_t Helmet_, std::int16_t FX_, std::int16_t FXLoops_, const std::string& Name_, std::uint8_t NickColor_, std::uint8_t Privileges_, bool User_) : ServerPacket(ServerPacketID_CharacterCreate /* 29 */), CharIndex(CharIndex_), Body(Body_), Head(Head_), Heading(Heading_), X(X_), Y(Y_), Weapon(Weapon_), Shield(Shield_), Helmet(Helmet_), FX(FX_), FXLoops(FXLoops_), Name(Name_), NickColor(NickColor_), Privileges(Privileges_), User(User_) {
 }
 
 void CharacterCreate::serialize(clsByteQueue* buffer) const {
@@ -10997,7 +10997,7 @@ void CharacterCreate::serialize(clsByteQueue* buffer) const {
     buffer->WriteUnicodeString(Name);
     buffer->WriteByte(NickColor);
     buffer->WriteByte(Privileges);
-
+    buffer->WriteBoolean(User);
 }
 
 void CharacterCreate::dispatch(PacketHandler* d) {
