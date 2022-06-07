@@ -412,8 +412,8 @@ void LoadConstants() {
 	SkillsNames[eSkill_Magia] = "Magic";
 	SkillsNames[eSkill_Robar] = "Stealing";
 	SkillsNames[eSkill_Tacticas] = "Evasion";
-	SkillsNames[eSkill_Armas] = "Hand-to-hand combat";
-	SkillsNames[eSkill_Meditar] = "Meditate";
+	SkillsNames[eSkill_Armas] = "Melee combat";
+	SkillsNames[eSkill_Meditar] = "Meditation";
 	SkillsNames[eSkill_Apunalar] = "Stabbing";
 	SkillsNames[eSkill_Ocultarse] = "Hiding";
 	SkillsNames[eSkill_Supervivencia] = "Survival";

@@ -1612,8 +1612,6 @@ void LoadMapData() {
 	/* ' */
 	/* '*************************************************** */
 
-	std::cout << "Cargando mapas..." << std::endl;
-
 	LogMain("Cargando mapas...");
 
 	int Map;
