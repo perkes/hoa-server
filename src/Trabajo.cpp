@@ -1279,6 +1279,7 @@ float ModNavegacion(eClass clase, int UserIndex) {
 	/* '27/11/2009: ZaMa - A worker can navigate before only if it's an expert fisher */
 	/* '12/04/2010: ZaMa - Arreglo modificador de pescador, para que navegue con 60 skills. */
 	/* '*************************************************** */
+	return 1;
 	switch (clase) {
 	case eClass_Pirat:
 		retval = 1;

@@ -5308,7 +5308,7 @@ MinDef=5
 MaxDef=10
 Valor=24000
 Crucial=0
-MinSkill=35
+MinSkill=50
 Madera=10000
 SkCarpinteria=40
 
@@ -5324,10 +5324,15 @@ MinDef=10
 MaxDef=20
 Valor=53000
 Crucial=0
-MinSkill=55
+MinSkill=75
 MaderaElfica=10000
 SkCarpinteria=65
 Upgrade=476
+CP1=GUERRERO
+CP2=DRUIDA
+CP3=MAGO
+CP4=BARDO
+CP5=TRABAJADOR
 
 [OBJ476]
 Name=Galleon
@@ -5341,9 +5346,18 @@ MinDef=15
 MaxDef=25
 Valor=87000
 Crucial=0
-MinSkill=65
+MinSkill=100
 MaderaElfica=15000
 SkCarpinteria=90
+CP1=ASESINO
+CP2=BANDIDO
+CP3=TRABAJADOR
+CP4=GUERRERO
+CP5=CLERIGO
+CP6=DRUIDA
+CP7=MAGO
+CP8=PALADIN
+CP9=BARDO
 
 [OBJ477]
 Name=Phantasmal Frigate
