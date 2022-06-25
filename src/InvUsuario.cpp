@@ -1151,6 +1151,7 @@ void UseInvItem(int UserIndex, int Slot) {
 	struct ObjData TargObj;
 	struct Obj MiObj;
 	std::string sMensaje;
+	std::string sMotivo;
 
 	if (UserList[UserIndex].Invent.Object[Slot].Amount == 0) {
 		return;
@@ -1646,6 +1647,12 @@ void UseInvItem(int UserIndex, int Slot) {
 		break;
 
 	case eOBJType_otPergaminos:
+		if (!ClasePuedeUsarItem(UserIndex, ObjIndex, sMotivo)) {
+			WriteConsoleMsg(UserIndex, sMotivo,
+					FontTypeNames_FONTTYPE_INFO);
+			return;
+		}
+		
 		if (UserList[UserIndex].flags.Muerto == 1) {
 			WriteConsoleMsg(UserIndex, "You're dead!! You can only use items while you're alive",
 					FontTypeNames_FONTTYPE_INFO);

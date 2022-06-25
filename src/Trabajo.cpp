@@ -1007,7 +1007,7 @@ void DoLingotes(int UserIndex) {
 
 	UpdateUserInv(false, UserIndex, Slot);
 	WriteConsoleMsg(UserIndex,
-			vb6::CStr("¡Has obtenido ") + vb6::CStr(CantidadItems) + " lingote" + vb6::IIf(CantidadItems == 1, "", "s") + "!",
+			vb6::CStr("You've made ") + vb6::CStr(CantidadItems) + " ingot" + vb6::IIf(CantidadItems == 1, "", "s") + "!",
 			FontTypeNames_FONTTYPE_INFO);
 
 	UserList[UserIndex].Counters.Trabajando = UserList[UserIndex].Counters.Trabajando + 1;
