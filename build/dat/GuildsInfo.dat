@@ -1,3 +1,18 @@
+[GUILD1]
+ALINEACION=Legal
+ANTIFACCION=0
+CODEX1=Eru Iluvatar is above everything else.
+CODEX2=Always help those in need.
+CODEX3=When in doubt, do no harm.
+CODEX4=Never lie, even if it leads to your own demise.
+DATE=2022-Jun-23 00:39:38
+DESC=Lothlorien is a clan for elves, men, dwarves and gnomes alike (no drows though).
+FOUNDER=Alatariel
+GUILDNAME=Lothlorien
+GUILDNEWS=Clan created with alignment: Legal
+LEADER=Alatariel
+URL=lothlorien.io
+
 [INIT]
-NROGUILDS=0
+NROGUILDS=1
 
