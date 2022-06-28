@@ -1,5 +1,15 @@
 .vscode
-/build
+/build/dakaraserver
+/build/Makefile
+/build/dat/Names.dat
+/build/dat/apuestas.dat
+/build/dat/SecurityIp.dat
+/build/Charfile/
+/build/WorldBackup/
+/build/foros/
+/build/CMakeFiles/
+/build/logs/
+/build/CMakeCache.txt
 .project
 .cproject
 .settings
