@@ -1245,10 +1245,7 @@ void UseInvItem(int UserIndex, int Slot) {
 		}
 
 		if (!(UserList[UserIndex].Stats.MinSta > 0)) {
-			WriteConsoleMsg(UserIndex,
-					vb6::CStr("You're too tired.")
-							+ vb6::IIf(UserList[UserIndex].Genero == eGenero_Hombre, "o", "a") + ".",
-					FontTypeNames_FONTTYPE_INFO);
+			WriteConsoleMsg(UserIndex,  vb6::CStr("You're too tired."), FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
 
@@ -1652,7 +1649,7 @@ void UseInvItem(int UserIndex, int Slot) {
 					FontTypeNames_FONTTYPE_INFO);
 			return;
 		}
-		
+
 		if (UserList[UserIndex].flags.Muerto == 1) {
 			WriteConsoleMsg(UserIndex, "You're dead!! You can only use items while you're alive",
 					FontTypeNames_FONTTYPE_INFO);
