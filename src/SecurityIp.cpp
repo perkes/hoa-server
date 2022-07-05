@@ -60,7 +60,7 @@ bool IPSecuritySuperaLimiteConexiones(std::string ip) {
 	} else {
 		retval = (it->second > LimiteConexionesPorIp);
 	}
-
+	
 	return retval;
 }
 

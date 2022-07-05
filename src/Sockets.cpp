@@ -107,8 +107,9 @@ void HoASocketEvents::onSocketWrite(hoa::Socket* s) {
 void HoASocketEvents::onSocketNew(hoa::Socket* s) {
 	try {
 		int UserIndex = NextOpenUser();
-
+		std::cout << "onSocketNew::UserIndex: " << UserIndex << std::endl;
 		if (UserIndex > MaxUsers || UserIndexSocketValido(UserIndex)) {
+			std::cout << "onSocketNew::Max users reached, closing connection..." << std::endl;
 			s->close(true);
 			return;
 		}
@@ -122,16 +123,19 @@ void HoASocketEvents::onSocketNew(hoa::Socket* s) {
 		std::string ip(s->getIP());
 
 		if (BanIpBuscar(ip)) {
+			std::cout << "onSocketNew::IP banned, closing connection..." << std::endl;
 			s->close(true);
 			return;
 		}
 
 		if (!IpSecurityAceptarNuevaConexion(ip)) {
+			std::cout << "onSocketNew::Can't accept new connection, closing connection..." << std::endl;
 			s->close(true);
 			return;
 		}
 
 		if (IPSecuritySuperaLimiteConexiones(ip)) {
+			std::cout << "onSocketNew::IP connection limit reached, closing connection..." << std::endl;
 			IpRestarConexion(ip);
 			s->close(true);
 			return;
