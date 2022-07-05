@@ -90,12 +90,12 @@ ReSpawn=0
 BackUp=1
 Domable=0
 NroItems=6
-Obj1=240-1000
+Obj1=240-999
 Obj2=527-1000
 Obj3=486-1000
 Obj4=507-1000
-Obj5=502-1000
-Obj6=707-1000
+Obj5=502-999
+Obj6=707-999
 
 [NPC8]
 Name=Thorkis
@@ -215,7 +215,7 @@ NroItems=5
 Obj1=1-10000
 Obj2=158-1000
 Obj3=22-1000
-Obj4=43-1000
+Obj4=43-971
 Obj5=160-1000
 
 [NPC7]
@@ -2469,7 +2469,7 @@ Obj7=356-1000
 Obj8=854-1000
 Obj9=195-1000
 Obj10=243-1000
-Obj11=1004-1000
+Obj11=1004-999
 
 [NPC71]
 Name=Blacksmith
