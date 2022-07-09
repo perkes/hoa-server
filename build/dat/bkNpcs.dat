@@ -90,12 +90,12 @@ ReSpawn=0
 BackUp=1
 Domable=0
 NroItems=6
-Obj1=240-999
+Obj1=240-1000
 Obj2=527-1000
 Obj3=486-1000
 Obj4=507-1000
-Obj5=502-999
-Obj6=707-999
+Obj5=502-1000
+Obj6=707-1000
 
 [NPC8]
 Name=Thorkis
@@ -211,12 +211,13 @@ MinHp=0
 ReSpawn=0
 BackUp=1
 Domable=0
-NroItems=5
+NroItems=6
 Obj1=1-10000
 Obj2=158-1000
 Obj3=22-1000
-Obj4=43-971
+Obj4=43-930
 Obj5=160-1000
+Obj6=139-2433
 
 [NPC7]
 Name=Blacksmith
@@ -882,8 +883,10 @@ MinHp=0
 ReSpawn=0
 BackUp=1
 Domable=0
-NroItems=1
+NroItems=3
 Obj1=534-1000
+Obj2=414-100
+Obj3=26-100
 
 [NPC41]
 Name=Fisherman
@@ -911,7 +914,7 @@ BackUp=1
 Domable=0
 NroItems=2
 Obj1=138-1000
-Obj2=139-1000
+Obj2=139-5179
 
 [NPC50]
 Name=Tellez
@@ -2004,7 +2007,7 @@ Obj1=36-1000
 Obj2=37-1000
 Obj3=38-1000
 Obj4=39-1000
-Obj5=166-1000
+Obj5=166-999
 Obj6=645-1000
 
 [NPC111]
@@ -2071,7 +2074,7 @@ Obj4=28-1000
 Obj5=29-1000
 Obj6=26-1000
 Obj7=25-1000
-Obj8=160-1000
+Obj8=160-974
 Obj9=42-1000
 Obj10=161-1000
 
@@ -2428,7 +2431,7 @@ BackUp=1
 Domable=0
 NroItems=6
 Obj1=542-1000
-Obj2=532-1000
+Obj2=532-999
 Obj3=658-1000
 Obj4=659-1000
 Obj5=696-1000
@@ -2469,7 +2472,7 @@ Obj7=356-1000
 Obj8=854-1000
 Obj9=195-1000
 Obj10=243-1000
-Obj11=1004-999
+Obj11=1004-1000
 
 [NPC71]
 Name=Blacksmith
@@ -2495,7 +2498,7 @@ MinHp=0
 ReSpawn=0
 BackUp=1
 Domable=0
-NroItems=9
+NroItems=10
 Obj1=164-1000
 Obj2=19-1000
 Obj3=123-1000
@@ -2505,6 +2508,7 @@ Obj6=125-1000
 Obj7=753-1000
 Obj8=990-1000
 Obj9=1009-1000
+Obj10=2-50
 
 [NPC122]
 Name=Nelvi
@@ -2667,7 +2671,7 @@ Obj6=891-1000
 Obj7=892-1000
 Obj8=893-1000
 Obj9=894-1000
-Obj10=896-1000
+Obj10=896-999
 Obj11=899-1000
 Obj12=900-1000
 Obj13=901-1000
