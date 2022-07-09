@@ -142,6 +142,7 @@ size_t SocketServerBase::getNextSocketIndex() {
 }
 
 void SocketServerBase::freeSocketIndex(size_t idx) {
+	std::cout << "Freeing socket index with id: " << idx << std::endl;
 	sockets[idx].reset();
 	sockets_free_idx_.push_back(idx);
 }
@@ -409,12 +410,12 @@ static void ssle_errorcb(struct bufferevent *bev, short events, void *ctx) {
 
 void SocketServerLibEvent::doAccept(evutil_socket_t listener, short event, SocketListenerLibEvent* sl) {
 	(void)event;
-
+	std::cout << "doAccept::start" << std::endl;
 	struct sockaddr_storage ss;
 	socklen_t slen = sizeof(ss);
 
 	evutil_socket_t fd = accept(listener, (struct sockaddr*) &ss, &slen);
-
+	std::cout << "doAccept::fd: " << fd << std::endl;
 	if (fd < 0) {
 		perror("accept");
 		return;
