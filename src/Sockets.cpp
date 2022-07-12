@@ -303,11 +303,11 @@ void HoABeginCloseSocket(hoa::Socket* s) {
 		UserList[UserIndex].sockctx = nullptr;
     }
 
-    s->close(true);
+    s->close(false);
 }
 
 void HoARealCloseSocket(hoa::Socket* s) {
-	s->close(true);
+	s->close(false);
 }
 
 void WSApiCloseSocket(int UserIndex) {

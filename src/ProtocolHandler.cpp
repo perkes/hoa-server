@@ -223,6 +223,11 @@ void HoAClientPacketHandler::handleLoginExistingChar(LoginExistingChar* p) { (vo
 	zmq::message_t message(msg_str.size());
 	std::memcpy (message.data(), msg_str.data(), msg_str.size());
 
+	int timeout = 1000;
+	sock.setsockopt(ZMQ_CONNECT_TIMEOUT, &timeout, sizeof(timeout));
+	sock.setsockopt(ZMQ_SNDTIMEO, &timeout, sizeof(timeout));
+	sock.setsockopt(ZMQ_RCVTIMEO, &timeout, sizeof(timeout));
+	
 	sock.connect("tcp://127.0.0.1:5555");
 	sock.send(message, zmq::send_flags::dontwait);
 	zmq::message_t reply{};
