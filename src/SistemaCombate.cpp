@@ -1764,7 +1764,7 @@ bool PuedeAtacarNPC(int AttackerIndex, int NpcIndex, bool Paraliza, bool IsPet) 
 				} else {
 					/* 'No tiene seguro puesto. Puede atacar pero es penalizado. */
 					WriteConsoleMsg(AttackerIndex,
-							"You attacked a non-hostile NPCs. You can become a criminal if you keep doing that.",
+							"You attacked a non-hostile NPC. You can become a criminal if you keep doing that.",
 							FontTypeNames_FONTTYPE_INFO);
 					/* 'NicoNZ: Cambio para que al atacar npcs no hostiles no bajen puntos de nobleza */
 					DisNobAuBan(AttackerIndex, 0, 1000);
